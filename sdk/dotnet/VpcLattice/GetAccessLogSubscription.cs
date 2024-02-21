@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public readonly string? Id;
         public readonly string? ResourceArn;
         public readonly string? ResourceId;
-        public readonly ImmutableArray<Outputs.AccessLogSubscriptionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAccessLogSubscriptionResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
             string? resourceId,
 
-            ImmutableArray<Outputs.AccessLogSubscriptionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DestinationArn = destinationArn;

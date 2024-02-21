@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.MediaLive
         /// <summary>
         /// A collection of key-value pairs.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MultiplexTags> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetMultiplexResult(
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.MediaLive
 
             Pulumi.AwsNative.MediaLive.MultiplexState? state,
 
-            ImmutableArray<Outputs.MultiplexTags> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Destinations = destinations;

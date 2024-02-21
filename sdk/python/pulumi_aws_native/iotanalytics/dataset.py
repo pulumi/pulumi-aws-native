@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,7 +24,7 @@ class DatasetArgs:
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]] = None,
                  retention_period: Optional[pulumi.Input['DatasetRetentionPeriodArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTriggerArgs']]]] = None,
                  versioning_configuration: Optional[pulumi.Input['DatasetVersioningConfigurationArgs']] = None):
         """
@@ -91,11 +93,11 @@ class DatasetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -127,7 +129,7 @@ class Dataset(pulumi.CustomResource):
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetLateDataRuleArgs']]]]] = None,
                  retention_period: Optional[pulumi.Input[pulumi.InputType['DatasetRetentionPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTriggerArgs']]]]] = None,
                  versioning_configuration: Optional[pulumi.Input[pulumi.InputType['DatasetVersioningConfigurationArgs']]] = None,
                  __props__=None):
@@ -166,7 +168,7 @@ class Dataset(pulumi.CustomResource):
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetLateDataRuleArgs']]]]] = None,
                  retention_period: Optional[pulumi.Input[pulumi.InputType['DatasetRetentionPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTriggerArgs']]]]] = None,
                  versioning_configuration: Optional[pulumi.Input[pulumi.InputType['DatasetVersioningConfigurationArgs']]] = None,
                  __props__=None):
@@ -249,7 +251,7 @@ class Dataset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

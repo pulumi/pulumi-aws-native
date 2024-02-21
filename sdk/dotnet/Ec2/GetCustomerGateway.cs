@@ -64,13 +64,13 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// One or more tags for the customer gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomerGatewayTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCustomerGatewayResult(
             string? customerGatewayId,
 
-            ImmutableArray<Outputs.CustomerGatewayTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CustomerGatewayId = customerGatewayId;
             Tags = tags;

@@ -260,103 +260,6 @@ type ReplicationSetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ReplicationSetTagInput is an input type that accepts ReplicationSetTagArgs and ReplicationSetTagOutput values.
-// You can construct a concrete instance of `ReplicationSetTagInput` via:
-//
-//	ReplicationSetTagArgs{...}
-type ReplicationSetTagInput interface {
-	pulumi.Input
-
-	ToReplicationSetTagOutput() ReplicationSetTagOutput
-	ToReplicationSetTagOutputWithContext(context.Context) ReplicationSetTagOutput
-}
-
-// A key-value pair to tag a resource.
-type ReplicationSetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ReplicationSetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationSetTag)(nil)).Elem()
-}
-
-func (i ReplicationSetTagArgs) ToReplicationSetTagOutput() ReplicationSetTagOutput {
-	return i.ToReplicationSetTagOutputWithContext(context.Background())
-}
-
-func (i ReplicationSetTagArgs) ToReplicationSetTagOutputWithContext(ctx context.Context) ReplicationSetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetTagOutput)
-}
-
-// ReplicationSetTagArrayInput is an input type that accepts ReplicationSetTagArray and ReplicationSetTagArrayOutput values.
-// You can construct a concrete instance of `ReplicationSetTagArrayInput` via:
-//
-//	ReplicationSetTagArray{ ReplicationSetTagArgs{...} }
-type ReplicationSetTagArrayInput interface {
-	pulumi.Input
-
-	ToReplicationSetTagArrayOutput() ReplicationSetTagArrayOutput
-	ToReplicationSetTagArrayOutputWithContext(context.Context) ReplicationSetTagArrayOutput
-}
-
-type ReplicationSetTagArray []ReplicationSetTagInput
-
-func (ReplicationSetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicationSetTag)(nil)).Elem()
-}
-
-func (i ReplicationSetTagArray) ToReplicationSetTagArrayOutput() ReplicationSetTagArrayOutput {
-	return i.ToReplicationSetTagArrayOutputWithContext(context.Background())
-}
-
-func (i ReplicationSetTagArray) ToReplicationSetTagArrayOutputWithContext(ctx context.Context) ReplicationSetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetTagArrayOutput)
-}
-
-// A key-value pair to tag a resource.
-type ReplicationSetTagOutput struct{ *pulumi.OutputState }
-
-func (ReplicationSetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationSetTag)(nil)).Elem()
-}
-
-func (o ReplicationSetTagOutput) ToReplicationSetTagOutput() ReplicationSetTagOutput {
-	return o
-}
-
-func (o ReplicationSetTagOutput) ToReplicationSetTagOutputWithContext(ctx context.Context) ReplicationSetTagOutput {
-	return o
-}
-
-func (o ReplicationSetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicationSetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ReplicationSetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicationSetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ReplicationSetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ReplicationSetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicationSetTag)(nil)).Elem()
-}
-
-func (o ReplicationSetTagArrayOutput) ToReplicationSetTagArrayOutput() ReplicationSetTagArrayOutput {
-	return o
-}
-
-func (o ReplicationSetTagArrayOutput) ToReplicationSetTagArrayOutputWithContext(ctx context.Context) ReplicationSetTagArrayOutput {
-	return o
-}
-
-func (o ReplicationSetTagArrayOutput) Index(i pulumi.IntInput) ReplicationSetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationSetTag {
-		return vs[0].([]ReplicationSetTag)[vs[1].(int)]
-	}).(ReplicationSetTagOutput)
-}
-
 // The automation configuration to launch.
 type ResponsePlanAction struct {
 	SsmAutomation *ResponsePlanSsmAutomation `pulumi:"ssmAutomation"`
@@ -1884,8 +1787,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSetRegionConfigurationPtrInput)(nil)).Elem(), ReplicationSetRegionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSetReplicationRegionInput)(nil)).Elem(), ReplicationSetReplicationRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSetReplicationRegionArrayInput)(nil)).Elem(), ReplicationSetReplicationRegionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSetTagInput)(nil)).Elem(), ReplicationSetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSetTagArrayInput)(nil)).Elem(), ReplicationSetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanActionInput)(nil)).Elem(), ResponsePlanActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanActionArrayInput)(nil)).Elem(), ResponsePlanActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanChatChannelInput)(nil)).Elem(), ResponsePlanChatChannelArgs{})
@@ -1912,8 +1813,6 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationSetRegionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationSetReplicationRegionOutput{})
 	pulumi.RegisterOutputType(ReplicationSetReplicationRegionArrayOutput{})
-	pulumi.RegisterOutputType(ReplicationSetTagOutput{})
-	pulumi.RegisterOutputType(ReplicationSetTagArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlanActionOutput{})
 	pulumi.RegisterOutputType(ResponsePlanActionArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlanChatChannelOutput{})

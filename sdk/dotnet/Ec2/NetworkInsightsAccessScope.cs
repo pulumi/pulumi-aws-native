@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> NetworkInsightsAccessScopeId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.NetworkInsightsAccessScopeTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("updatedDate")]
         public Output<string> UpdatedDate { get; private set; } = null!;
@@ -103,10 +103,10 @@ namespace Pulumi.AwsNative.Ec2
         }
 
         [Input("tags")]
-        private InputList<Inputs.NetworkInsightsAccessScopeTagArgs>? _tags;
-        public InputList<Inputs.NetworkInsightsAccessScopeTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.NetworkInsightsAccessScopeTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

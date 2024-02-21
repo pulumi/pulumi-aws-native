@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,9 +29,9 @@ type Application struct {
 	ProxyUrl              pulumi.StringOutput                      `pulumi:"proxyUrl"`
 	StageName             pulumi.StringOutput                      `pulumi:"stageName"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags      ApplicationTagArrayOutput `pulumi:"tags"`
-	VpcId     pulumi.StringOutput       `pulumi:"vpcId"`
-	VpcLinkId pulumi.StringOutput       `pulumi:"vpcLinkId"`
+	Tags      aws.TagArrayOutput  `pulumi:"tags"`
+	VpcId     pulumi.StringOutput `pulumi:"vpcId"`
+	VpcLinkId pulumi.StringOutput `pulumi:"vpcLinkId"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -95,8 +96,8 @@ type applicationArgs struct {
 	Name                  *string                          `pulumi:"name"`
 	ProxyType             ApplicationProxyType             `pulumi:"proxyType"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags  []ApplicationTag `pulumi:"tags"`
-	VpcId string           `pulumi:"vpcId"`
+	Tags  []aws.Tag `pulumi:"tags"`
+	VpcId string    `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -106,7 +107,7 @@ type ApplicationArgs struct {
 	Name                  pulumi.StringPtrInput
 	ProxyType             ApplicationProxyTypeInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags  ApplicationTagArrayInput
+	Tags  aws.TagArrayInput
 	VpcId pulumi.StringInput
 }
 
@@ -192,8 +193,8 @@ func (o ApplicationOutput) StageName() pulumi.StringOutput {
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
-	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
+func (o ApplicationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Application) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ApplicationOutput) VpcId() pulumi.StringOutput {

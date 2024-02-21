@@ -111,7 +111,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DataSetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -247,14 +247,14 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<Inputs.DataSetRowLevelPermissionTagConfigurationArgs>? RowLevelPermissionTagConfiguration { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DataSetTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
         /// </summary>
-        public InputList<Inputs.DataSetTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DataSetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

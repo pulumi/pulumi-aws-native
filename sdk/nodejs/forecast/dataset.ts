@@ -56,7 +56,7 @@ export class Dataset extends pulumi.CustomResource {
     public readonly domain!: pulumi.Output<enums.forecast.DatasetDomain>;
     public readonly encryptionConfig!: pulumi.Output<outputs.forecast.EncryptionConfigProperties | undefined>;
     public readonly schema!: pulumi.Output<outputs.forecast.SchemaProperties>;
-    public readonly tags!: pulumi.Output<outputs.forecast.TagsItemProperties[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -125,5 +125,5 @@ export interface DatasetArgs {
     domain: pulumi.Input<enums.forecast.DatasetDomain>;
     encryptionConfig?: pulumi.Input<inputs.forecast.EncryptionConfigPropertiesArgs>;
     schema: pulumi.Input<inputs.forecast.SchemaPropertiesArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.forecast.TagsItemPropertiesArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

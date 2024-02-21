@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.DocDb
         public readonly string? RestoreToTime;
         public readonly string? RestoreType;
         public readonly string? StorageType;
-        public readonly ImmutableArray<Outputs.DbClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly bool? UseLatestRestorableTime;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.DocDb
 
             string? storageType,
 
-            ImmutableArray<Outputs.DbClusterTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? useLatestRestorableTime,
 

@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public readonly string? CreatedAt;
         public readonly string? Id;
         public readonly string? LastUpdatedAt;
-        public readonly ImmutableArray<Outputs.ServiceNetworkTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetServiceNetworkResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
             string? lastUpdatedAt,
 
-            ImmutableArray<Outputs.ServiceNetworkTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AuthType = authType;

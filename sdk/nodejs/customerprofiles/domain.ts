@@ -67,7 +67,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The tags (keys and values) associated with the domain
      */
-    public readonly tags!: pulumi.Output<outputs.customerprofiles.DomainTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -134,5 +134,5 @@ export interface DomainArgs {
     /**
      * The tags (keys and values) associated with the domain
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.customerprofiles.DomainTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

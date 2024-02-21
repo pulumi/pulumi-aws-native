@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.SsmIncidents
         /// The tags to apply to the replication set.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ReplicationSetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,14 +97,14 @@ namespace Pulumi.AwsNative.SsmIncidents
         }
 
         [Input("tags")]
-        private InputList<Inputs.ReplicationSetTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags to apply to the replication set.
         /// </summary>
-        public InputList<Inputs.ReplicationSetTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ReplicationSetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

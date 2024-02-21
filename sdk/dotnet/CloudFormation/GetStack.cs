@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public readonly object? StackPolicyBody;
         public readonly Pulumi.AwsNative.CloudFormation.StackStatus? StackStatus;
         public readonly string? StackStatusReason;
-        public readonly ImmutableArray<Outputs.StackTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.CloudFormation
 
             string? stackStatusReason,
 
-            ImmutableArray<Outputs.StackTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             object? templateBody,
 

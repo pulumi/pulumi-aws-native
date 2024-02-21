@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupUsagePlanResult struct {
 	// The target maximum number of permitted requests per a given unit time interval.
 	Quota *UsagePlanQuotaSettings `pulumi:"quota"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags []UsagePlanTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A map containing method level throttling information for API stage in a usage plan.
 	Throttle *UsagePlanThrottleSettings `pulumi:"throttle"`
 	// The name of a usage plan.
@@ -99,8 +100,8 @@ func (o LookupUsagePlanResultOutput) Quota() UsagePlanQuotaSettingsPtrOutput {
 }
 
 // The collection of tags. Each tag element is associated with a given resource.
-func (o LookupUsagePlanResultOutput) Tags() UsagePlanTagArrayOutput {
-	return o.ApplyT(func(v LookupUsagePlanResult) []UsagePlanTag { return v.Tags }).(UsagePlanTagArrayOutput)
+func (o LookupUsagePlanResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupUsagePlanResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A map containing method level throttling information for API stage in a usage plan.

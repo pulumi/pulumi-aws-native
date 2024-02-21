@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Panorama
         public readonly int? CreatedTime;
         public readonly string? PackageId;
         public readonly Outputs.PackageStorageLocation? StorageLocation;
-        public readonly ImmutableArray<Outputs.PackageTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPackageResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Panorama
 
             Outputs.PackageStorageLocation? storageLocation,
 
-            ImmutableArray<Outputs.PackageTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreatedTime = createdTime;

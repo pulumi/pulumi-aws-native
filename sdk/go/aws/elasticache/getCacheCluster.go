@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,7 +48,7 @@ type LookupCacheClusterResult struct {
 	RedisEndpointPort            *string                                       `pulumi:"redisEndpointPort"`
 	SnapshotRetentionLimit       *int                                          `pulumi:"snapshotRetentionLimit"`
 	SnapshotWindow               *string                                       `pulumi:"snapshotWindow"`
-	Tags                         []CacheClusterTag                             `pulumi:"tags"`
+	Tags                         []aws.Tag                                     `pulumi:"tags"`
 	TransitEncryptionEnabled     *bool                                         `pulumi:"transitEncryptionEnabled"`
 	VpcSecurityGroupIds          []string                                      `pulumi:"vpcSecurityGroupIds"`
 }
@@ -169,8 +170,8 @@ func (o LookupCacheClusterResultOutput) SnapshotWindow() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupCacheClusterResult) *string { return v.SnapshotWindow }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCacheClusterResultOutput) Tags() CacheClusterTagArrayOutput {
-	return o.ApplyT(func(v LookupCacheClusterResult) []CacheClusterTag { return v.Tags }).(CacheClusterTagArrayOutput)
+func (o LookupCacheClusterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCacheClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupCacheClusterResultOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {

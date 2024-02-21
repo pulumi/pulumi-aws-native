@@ -9,7 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['CoreNetworkArgs', 'CoreNetwork']
 
@@ -19,7 +20,7 @@ class CoreNetworkArgs:
                  global_network_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CoreNetwork resource.
         :param pulumi.Input[str] global_network_id: The ID of the global network that your core network is a part of.
@@ -27,7 +28,7 @@ class CoreNetworkArgs:
         :param Any policy_document: Live policy document for the core network, you must provide PolicyDocument in Json Format
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]] tags: The tags for the global network.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the global network.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         if description is not None:
@@ -77,14 +78,14 @@ class CoreNetworkArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the global network.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -96,7 +97,7 @@ class CoreNetwork(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         AWS::NetworkManager::CoreNetwork Resource Type Definition.
@@ -108,7 +109,7 @@ class CoreNetwork(pulumi.CustomResource):
         :param Any policy_document: Live policy document for the core network, you must provide PolicyDocument in Json Format
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkTagArgs']]]] tags: The tags for the global network.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the global network.
         """
         ...
     @overload
@@ -137,7 +138,7 @@ class CoreNetwork(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,7 +282,7 @@ class CoreNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CoreNetworkTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags for the global network.
         """

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupAddonResult struct {
 	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []AddonTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAddonOutput(ctx *pulumi.Context, args LookupAddonOutputArgs, opts ...pulumi.InvokeOption) LookupAddonResultOutput {
@@ -101,8 +102,8 @@ func (o LookupAddonResultOutput) ServiceAccountRoleArn() pulumi.StringPtrOutput 
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupAddonResultOutput) Tags() AddonTagArrayOutput {
-	return o.ApplyT(func(v LookupAddonResult) []AddonTag { return v.Tags }).(AddonTagArrayOutput)
+func (o LookupAddonResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAddonResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

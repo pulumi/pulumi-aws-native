@@ -30,7 +30,7 @@ export interface GetThemeResult {
     readonly lastUpdatedTime?: string;
     readonly name?: string;
     readonly permissions?: outputs.quicksight.ThemeResourcePermission[];
-    readonly tags?: outputs.quicksight.ThemeTag[];
+    readonly tags?: outputs.Tag[];
     readonly type?: enums.quicksight.ThemeType;
     readonly version?: outputs.quicksight.ThemeVersion;
 }

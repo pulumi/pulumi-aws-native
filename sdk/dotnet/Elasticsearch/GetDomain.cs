@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public readonly object? LogPublishingOptions;
         public readonly Outputs.DomainNodeToNodeEncryptionOptions? NodeToNodeEncryptionOptions;
         public readonly Outputs.DomainSnapshotOptions? SnapshotOptions;
-        public readonly ImmutableArray<Outputs.DomainTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.DomainVpcOptions? VpcOptions;
 
         [OutputConstructor]
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.Elasticsearch
 
             Outputs.DomainSnapshotOptions? snapshotOptions,
 
-            ImmutableArray<Outputs.DomainTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.DomainVpcOptions? vpcOptions)
         {

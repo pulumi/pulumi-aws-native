@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Dms
         public readonly string? ReplicationTaskIdentifier;
         public readonly string? ReplicationTaskSettings;
         public readonly string? TableMappings;
-        public readonly ImmutableArray<Outputs.ReplicationTaskTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TaskData;
 
         [OutputConstructor]
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Dms
 
             string? tableMappings,
 
-            ImmutableArray<Outputs.ReplicationTaskTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? taskData)
         {

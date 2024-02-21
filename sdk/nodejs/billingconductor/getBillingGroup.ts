@@ -48,7 +48,7 @@ export interface GetBillingGroupResult {
     readonly size?: number;
     readonly status?: enums.billingconductor.BillingGroupStatus;
     readonly statusReason?: string;
-    readonly tags?: outputs.billingconductor.BillingGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A billing group is a set of linked account which belong to the same end customer. It can be seen as a virtual consolidated billing family.

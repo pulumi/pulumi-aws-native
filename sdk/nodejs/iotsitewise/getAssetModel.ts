@@ -57,7 +57,7 @@ export interface GetAssetModelResult {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    readonly tags?: outputs.iotsitewise.AssetModelTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::IoTSiteWise::AssetModel

@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// List of tags to tag the schema
         /// </summary>
-        public readonly ImmutableArray<Outputs.SchemaTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSchemaResult(
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Glue
 
             string? initialSchemaVersionId,
 
-            ImmutableArray<Outputs.SchemaTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CheckpointVersion = checkpointVersion;

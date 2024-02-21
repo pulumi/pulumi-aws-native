@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupLocationFSxOntapResult struct {
 	// The URL of the FSx ONTAP file system that was described.
 	LocationUri *string `pulumi:"locationUri"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationFSxOntapTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocationFSxOntapOutput(ctx *pulumi.Context, args LookupLocationFSxOntapOutputArgs, opts ...pulumi.InvokeOption) LookupLocationFSxOntapResultOutput {
@@ -90,8 +91,8 @@ func (o LookupLocationFSxOntapResultOutput) LocationUri() pulumi.StringPtrOutput
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLocationFSxOntapResultOutput) Tags() LocationFSxOntapTagArrayOutput {
-	return o.ApplyT(func(v LookupLocationFSxOntapResult) []LocationFSxOntapTag { return v.Tags }).(LocationFSxOntapTagArrayOutput)
+func (o LookupLocationFSxOntapResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocationFSxOntapResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

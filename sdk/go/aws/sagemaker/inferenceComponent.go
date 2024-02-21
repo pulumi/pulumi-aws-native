@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type InferenceComponent struct {
 	LastModifiedTime         pulumi.StringOutput                   `pulumi:"lastModifiedTime"`
 	RuntimeConfig            InferenceComponentRuntimeConfigOutput `pulumi:"runtimeConfig"`
 	Specification            InferenceComponentSpecificationOutput `pulumi:"specification"`
-	Tags                     InferenceComponentTagArrayOutput      `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                    `pulumi:"tags"`
 	VariantName              pulumi.StringOutput                   `pulumi:"variantName"`
 }
 
@@ -87,7 +88,7 @@ type inferenceComponentArgs struct {
 	InferenceComponentName *string                         `pulumi:"inferenceComponentName"`
 	RuntimeConfig          InferenceComponentRuntimeConfig `pulumi:"runtimeConfig"`
 	Specification          InferenceComponentSpecification `pulumi:"specification"`
-	Tags                   []InferenceComponentTag         `pulumi:"tags"`
+	Tags                   []aws.Tag                       `pulumi:"tags"`
 	VariantName            string                          `pulumi:"variantName"`
 }
 
@@ -98,7 +99,7 @@ type InferenceComponentArgs struct {
 	InferenceComponentName pulumi.StringPtrInput
 	RuntimeConfig          InferenceComponentRuntimeConfigInput
 	Specification          InferenceComponentSpecificationInput
-	Tags                   InferenceComponentTagArrayInput
+	Tags                   aws.TagArrayInput
 	VariantName            pulumi.StringInput
 }
 
@@ -179,8 +180,8 @@ func (o InferenceComponentOutput) Specification() InferenceComponentSpecificatio
 	return o.ApplyT(func(v *InferenceComponent) InferenceComponentSpecificationOutput { return v.Specification }).(InferenceComponentSpecificationOutput)
 }
 
-func (o InferenceComponentOutput) Tags() InferenceComponentTagArrayOutput {
-	return o.ApplyT(func(v *InferenceComponent) InferenceComponentTagArrayOutput { return v.Tags }).(InferenceComponentTagArrayOutput)
+func (o InferenceComponentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *InferenceComponent) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o InferenceComponentOutput) VariantName() pulumi.StringOutput {

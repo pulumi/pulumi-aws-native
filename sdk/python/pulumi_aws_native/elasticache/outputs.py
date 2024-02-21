@@ -17,26 +17,18 @@ __all__ = [
     'CacheClusterDestinationDetails',
     'CacheClusterKinesisFirehoseDestinationDetails',
     'CacheClusterLogDeliveryConfigurationRequest',
-    'CacheClusterTag',
     'GlobalReplicationGroupMember',
     'GlobalReplicationGroupRegionalConfiguration',
     'GlobalReplicationGroupReshardingConfiguration',
-    'ParameterGroupTag',
     'ReplicationGroupCloudWatchLogsDestinationDetails',
     'ReplicationGroupDestinationDetails',
     'ReplicationGroupKinesisFirehoseDestinationDetails',
     'ReplicationGroupLogDeliveryConfigurationRequest',
     'ReplicationGroupNodeGroupConfiguration',
-    'ReplicationGroupTag',
-    'SecurityGroupTag',
     'ServerlessCacheCacheUsageLimits',
     'ServerlessCacheDataStorage',
     'ServerlessCacheEcpuPerSecond',
     'ServerlessCacheEndpoint',
-    'ServerlessCacheTag',
-    'SubnetGroupTag',
-    'UserGroupTag',
-    'UserTag',
 ]
 
 @pulumi.output_type
@@ -224,25 +216,6 @@ class CacheClusterLogDeliveryConfigurationRequest(dict):
 
 
 @pulumi.output_type
-class CacheClusterTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class GlobalReplicationGroupMember(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -416,25 +389,6 @@ class GlobalReplicationGroupReshardingConfiguration(dict):
         A list of preferred availability zones for the nodes of new node groups.
         """
         return pulumi.get(self, "preferred_availability_zones")
-
-
-@pulumi.output_type
-class ParameterGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -660,44 +614,6 @@ class ReplicationGroupNodeGroupConfiguration(dict):
 
 
 @pulumi.output_type
-class ReplicationGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class SecurityGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ServerlessCacheCacheUsageLimits(dict):
     """
     The cache capacity limit of the Serverless Cache.
@@ -831,132 +747,5 @@ class ServerlessCacheEndpoint(dict):
         Endpoint port.
         """
         return pulumi.get(self, "port")
-
-
-@pulumi.output_type
-class ServerlessCacheTag(dict):
-    """
-    A key-value pair to associate with Serverless Cache.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        """
-        A key-value pair to associate with Serverless Cache.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class SubnetGroupTag(dict):
-    """
-    A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class UserGroupTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class UserTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
 
 

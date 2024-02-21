@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type PlaybackKeyPair struct {
 	// The public portion of a customer-generated key pair.
 	PublicKeyMaterial pulumi.StringPtrOutput `pulumi:"publicKeyMaterial"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags PlaybackKeyPairTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPlaybackKeyPair registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +78,7 @@ type playbackKeyPairArgs struct {
 	// The public portion of a customer-generated key pair.
 	PublicKeyMaterial *string `pulumi:"publicKeyMaterial"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags []PlaybackKeyPairTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlaybackKeyPair resource.
@@ -87,7 +88,7 @@ type PlaybackKeyPairArgs struct {
 	// The public portion of a customer-generated key pair.
 	PublicKeyMaterial pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags PlaybackKeyPairTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (PlaybackKeyPairArgs) ElementType() reflect.Type {
@@ -148,8 +149,8 @@ func (o PlaybackKeyPairOutput) PublicKeyMaterial() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the asset model.
-func (o PlaybackKeyPairOutput) Tags() PlaybackKeyPairTagArrayOutput {
-	return o.ApplyT(func(v *PlaybackKeyPair) PlaybackKeyPairTagArrayOutput { return v.Tags }).(PlaybackKeyPairTagArrayOutput)
+func (o PlaybackKeyPairOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PlaybackKeyPair) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

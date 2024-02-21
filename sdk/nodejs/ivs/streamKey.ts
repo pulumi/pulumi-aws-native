@@ -48,7 +48,7 @@ export class StreamKey extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.ivs.StreamKeyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Stream-key value.
      */
@@ -96,5 +96,5 @@ export interface StreamKeyArgs {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ivs.StreamKeyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

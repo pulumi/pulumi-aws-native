@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,19 +19,19 @@ import (
 type DbInstance struct {
 	pulumi.CustomResourceState
 
-	AllowMajorVersionUpgrade   pulumi.BoolPtrOutput     `pulumi:"allowMajorVersionUpgrade"`
-	AutoMinorVersionUpgrade    pulumi.BoolPtrOutput     `pulumi:"autoMinorVersionUpgrade"`
-	AvailabilityZone           pulumi.StringPtrOutput   `pulumi:"availabilityZone"`
-	DbClusterIdentifier        pulumi.StringPtrOutput   `pulumi:"dbClusterIdentifier"`
-	DbInstanceClass            pulumi.StringOutput      `pulumi:"dbInstanceClass"`
-	DbInstanceIdentifier       pulumi.StringPtrOutput   `pulumi:"dbInstanceIdentifier"`
-	DbParameterGroupName       pulumi.StringPtrOutput   `pulumi:"dbParameterGroupName"`
-	DbSnapshotIdentifier       pulumi.StringPtrOutput   `pulumi:"dbSnapshotIdentifier"`
-	DbSubnetGroupName          pulumi.StringPtrOutput   `pulumi:"dbSubnetGroupName"`
-	Endpoint                   pulumi.StringOutput      `pulumi:"endpoint"`
-	Port                       pulumi.StringOutput      `pulumi:"port"`
-	PreferredMaintenanceWindow pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
-	Tags                       DbInstanceTagArrayOutput `pulumi:"tags"`
+	AllowMajorVersionUpgrade   pulumi.BoolPtrOutput   `pulumi:"allowMajorVersionUpgrade"`
+	AutoMinorVersionUpgrade    pulumi.BoolPtrOutput   `pulumi:"autoMinorVersionUpgrade"`
+	AvailabilityZone           pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	DbClusterIdentifier        pulumi.StringPtrOutput `pulumi:"dbClusterIdentifier"`
+	DbInstanceClass            pulumi.StringOutput    `pulumi:"dbInstanceClass"`
+	DbInstanceIdentifier       pulumi.StringPtrOutput `pulumi:"dbInstanceIdentifier"`
+	DbParameterGroupName       pulumi.StringPtrOutput `pulumi:"dbParameterGroupName"`
+	DbSnapshotIdentifier       pulumi.StringPtrOutput `pulumi:"dbSnapshotIdentifier"`
+	DbSubnetGroupName          pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
+	Endpoint                   pulumi.StringOutput    `pulumi:"endpoint"`
+	Port                       pulumi.StringOutput    `pulumi:"port"`
+	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
+	Tags                       aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewDbInstance registers a new resource with the given unique name, arguments, and options.
@@ -84,17 +85,17 @@ func (DbInstanceState) ElementType() reflect.Type {
 }
 
 type dbInstanceArgs struct {
-	AllowMajorVersionUpgrade   *bool           `pulumi:"allowMajorVersionUpgrade"`
-	AutoMinorVersionUpgrade    *bool           `pulumi:"autoMinorVersionUpgrade"`
-	AvailabilityZone           *string         `pulumi:"availabilityZone"`
-	DbClusterIdentifier        *string         `pulumi:"dbClusterIdentifier"`
-	DbInstanceClass            string          `pulumi:"dbInstanceClass"`
-	DbInstanceIdentifier       *string         `pulumi:"dbInstanceIdentifier"`
-	DbParameterGroupName       *string         `pulumi:"dbParameterGroupName"`
-	DbSnapshotIdentifier       *string         `pulumi:"dbSnapshotIdentifier"`
-	DbSubnetGroupName          *string         `pulumi:"dbSubnetGroupName"`
-	PreferredMaintenanceWindow *string         `pulumi:"preferredMaintenanceWindow"`
-	Tags                       []DbInstanceTag `pulumi:"tags"`
+	AllowMajorVersionUpgrade   *bool     `pulumi:"allowMajorVersionUpgrade"`
+	AutoMinorVersionUpgrade    *bool     `pulumi:"autoMinorVersionUpgrade"`
+	AvailabilityZone           *string   `pulumi:"availabilityZone"`
+	DbClusterIdentifier        *string   `pulumi:"dbClusterIdentifier"`
+	DbInstanceClass            string    `pulumi:"dbInstanceClass"`
+	DbInstanceIdentifier       *string   `pulumi:"dbInstanceIdentifier"`
+	DbParameterGroupName       *string   `pulumi:"dbParameterGroupName"`
+	DbSnapshotIdentifier       *string   `pulumi:"dbSnapshotIdentifier"`
+	DbSubnetGroupName          *string   `pulumi:"dbSubnetGroupName"`
+	PreferredMaintenanceWindow *string   `pulumi:"preferredMaintenanceWindow"`
+	Tags                       []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DbInstance resource.
@@ -109,7 +110,7 @@ type DbInstanceArgs struct {
 	DbSnapshotIdentifier       pulumi.StringPtrInput
 	DbSubnetGroupName          pulumi.StringPtrInput
 	PreferredMaintenanceWindow pulumi.StringPtrInput
-	Tags                       DbInstanceTagArrayInput
+	Tags                       aws.TagArrayInput
 }
 
 func (DbInstanceArgs) ElementType() reflect.Type {
@@ -197,8 +198,8 @@ func (o DbInstanceOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-func (o DbInstanceOutput) Tags() DbInstanceTagArrayOutput {
-	return o.ApplyT(func(v *DbInstance) DbInstanceTagArrayOutput { return v.Tags }).(DbInstanceTagArrayOutput)
+func (o DbInstanceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbInstance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

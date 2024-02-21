@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// A collection of tags associated with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RecoveryGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -107,14 +107,14 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         public Input<string>? RecoveryGroupName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.RecoveryGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A collection of tags associated with a resource.
         /// </summary>
-        public InputList<Inputs.RecoveryGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RecoveryGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

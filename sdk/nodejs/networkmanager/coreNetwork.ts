@@ -82,7 +82,7 @@ export class CoreNetwork extends pulumi.CustomResource {
     /**
      * The tags for the global network.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.CoreNetworkTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CoreNetwork resource with the given unique name, arguments, and options.
@@ -150,5 +150,5 @@ export interface CoreNetworkArgs {
     /**
      * The tags for the global network.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.CoreNetworkTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

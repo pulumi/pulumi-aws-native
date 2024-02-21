@@ -34,7 +34,7 @@ export interface GetVirtualClusterResult {
     /**
      * An array of key-value pairs to apply to this virtual cluster.
      */
-    readonly tags?: outputs.emrcontainers.VirtualClusterTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Schema of AWS::EMRContainers::VirtualCluster Type

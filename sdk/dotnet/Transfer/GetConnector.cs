@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectorTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// URL for Connector
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Transfer
 
             Outputs.SftpConfigProperties? sftpConfig,
 
-            ImmutableArray<Outputs.ConnectorTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? url)
         {

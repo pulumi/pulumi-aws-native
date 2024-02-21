@@ -68,7 +68,7 @@ export class Asset extends pulumi.CustomResource {
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.mediapackage.AssetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Asset resource with the given unique name, arguments, and options.
@@ -140,5 +140,5 @@ export interface AssetArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.mediapackage.AssetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

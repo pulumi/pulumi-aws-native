@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AnalysisTemplateTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -141,14 +141,14 @@ namespace Pulumi.AwsNative.CleanRooms
         public Input<Inputs.AnalysisTemplateAnalysisSourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.AnalysisTemplateTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         /// </summary>
-        public InputList<Inputs.AnalysisTemplateTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AnalysisTemplateTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

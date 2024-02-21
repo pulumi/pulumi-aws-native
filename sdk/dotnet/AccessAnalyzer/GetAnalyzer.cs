@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AnalyzerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAnalyzerResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
 
             string? arn,
 
-            ImmutableArray<Outputs.AnalyzerTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ArchiveRules = archiveRules;
             Arn = arn;

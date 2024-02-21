@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Ram
         /// </summary>
         public readonly bool? IsResourceTypeDefault;
         public readonly string? PermissionType;
-        public readonly ImmutableArray<Outputs.PermissionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Version of the permission.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Ram
 
             string? permissionType,
 
-            ImmutableArray<Outputs.PermissionTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? version)
         {

@@ -55,13 +55,13 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags to assign to the network ACL.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkAclTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetNetworkAclResult(
             string? id,
 
-            ImmutableArray<Outputs.NetworkAclTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Tags = tags;

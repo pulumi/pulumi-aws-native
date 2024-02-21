@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Ivs
         /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RecordingConfigurationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("thumbnailConfiguration")]
         public Output<Outputs.RecordingConfigurationThumbnailConfiguration?> ThumbnailConfiguration { get; private set; } = null!;
@@ -126,14 +126,14 @@ namespace Pulumi.AwsNative.Ivs
         public Input<Inputs.RecordingConfigurationRenditionConfigurationArgs>? RenditionConfiguration { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.RecordingConfigurationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
-        public InputList<Inputs.RecordingConfigurationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RecordingConfigurationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

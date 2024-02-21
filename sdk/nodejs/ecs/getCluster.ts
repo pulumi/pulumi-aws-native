@@ -34,7 +34,7 @@ export interface GetClusterResult {
     readonly clusterSettings?: outputs.ecs.ClusterSettings[];
     readonly configuration?: outputs.ecs.ClusterConfiguration;
     readonly defaultCapacityProviderStrategy?: outputs.ecs.ClusterCapacityProviderStrategyItem[];
-    readonly tags?: outputs.ecs.ClusterTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Create an Elastic Container Service (ECS) cluster.

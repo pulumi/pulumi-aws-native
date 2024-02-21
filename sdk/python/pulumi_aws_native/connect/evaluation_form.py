@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class EvaluationFormArgs:
                  title: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  scoring_strategy: Optional[pulumi.Input['EvaluationFormScoringStrategyArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EvaluationForm resource.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the instance.
@@ -32,7 +34,7 @@ class EvaluationFormArgs:
         :param pulumi.Input[str] title: The title of the evaluation form.
         :param pulumi.Input[str] description: The description of the evaluation form.
         :param pulumi.Input['EvaluationFormScoringStrategyArgs'] scoring_strategy: The scoring strategy.
-        :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormTagArgs']]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "items", items)
@@ -119,14 +121,14 @@ class EvaluationFormArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -140,7 +142,7 @@ class EvaluationForm(pulumi.CustomResource):
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormBaseItemArgs']]]]] = None,
                  scoring_strategy: Optional[pulumi.Input[pulumi.InputType['EvaluationFormScoringStrategyArgs']]] = None,
                  status: Optional[pulumi.Input['EvaluationFormStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -153,7 +155,7 @@ class EvaluationForm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormBaseItemArgs']]]] items: The list of evaluation form items.
         :param pulumi.Input[pulumi.InputType['EvaluationFormScoringStrategyArgs']] scoring_strategy: The scoring strategy.
         :param pulumi.Input['EvaluationFormStatus'] status: The status of the evaluation form.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormTagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
         :param pulumi.Input[str] title: The title of the evaluation form.
         """
         ...
@@ -185,7 +187,7 @@ class EvaluationForm(pulumi.CustomResource):
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormBaseItemArgs']]]]] = None,
                  scoring_strategy: Optional[pulumi.Input[pulumi.InputType['EvaluationFormScoringStrategyArgs']]] = None,
                  status: Optional[pulumi.Input['EvaluationFormStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EvaluationFormTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -294,7 +296,7 @@ class EvaluationForm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EvaluationFormTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         One or more tags.
         """

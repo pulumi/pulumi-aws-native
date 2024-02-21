@@ -60,7 +60,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * Tags for labeling the index
      */
-    public readonly tags!: pulumi.Output<outputs.kendra.IndexTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly userContextPolicy!: pulumi.Output<enums.kendra.IndexUserContextPolicy | undefined>;
     public readonly userTokenConfigurations!: pulumi.Output<outputs.kendra.IndexUserTokenConfiguration[] | undefined>;
 
@@ -138,7 +138,7 @@ export interface IndexArgs {
     /**
      * Tags for labeling the index
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.kendra.IndexTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     userContextPolicy?: pulumi.Input<enums.kendra.IndexUserContextPolicy>;
     userTokenConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexUserTokenConfigurationArgs>[]>;
 }

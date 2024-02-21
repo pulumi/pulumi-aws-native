@@ -25,7 +25,7 @@ export interface GetPipelineArgs {
 export interface GetPipelineResult {
     readonly id?: string;
     readonly pipelineActivities?: outputs.iotanalytics.PipelineActivity[];
-    readonly tags?: outputs.iotanalytics.PipelineTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::IoTAnalytics::Pipeline

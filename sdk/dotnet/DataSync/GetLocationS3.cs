@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationS3Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLocationS3Result(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.DataSync
 
             string? locationUri,
 
-            ImmutableArray<Outputs.LocationS3Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             LocationArn = locationArn;
             LocationUri = locationUri;

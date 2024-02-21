@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AlarmModelTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -158,16 +158,16 @@ namespace Pulumi.AwsNative.IoTEvents
         public Input<int>? Severity { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AlarmModelTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// 
         /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         /// </summary>
-        public InputList<Inputs.AlarmModelTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AlarmModelTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

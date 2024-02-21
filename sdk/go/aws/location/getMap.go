@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,8 +34,8 @@ type LookupMapResult struct {
 	MapArn      *string         `pulumi:"mapArn"`
 	PricingPlan *MapPricingPlan `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []MapTag `pulumi:"tags"`
-	UpdateTime *string  `pulumi:"updateTime"`
+	Tags       []aws.Tag `pulumi:"tags"`
+	UpdateTime *string   `pulumi:"updateTime"`
 }
 
 func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulumi.InvokeOption) LookupMapResultOutput {
@@ -93,8 +94,8 @@ func (o LookupMapResultOutput) PricingPlan() MapPricingPlanPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupMapResultOutput) Tags() MapTagArrayOutput {
-	return o.ApplyT(func(v LookupMapResult) []MapTag { return v.Tags }).(MapTagArrayOutput)
+func (o LookupMapResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMapResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupMapResultOutput) UpdateTime() pulumi.StringPtrOutput {

@@ -53,7 +53,7 @@ export interface GetInferenceSchedulerResult {
     /**
      * Any tags associated with the inference scheduler.
      */
-    readonly tags?: outputs.lookoutequipment.InferenceSchedulerTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for LookoutEquipment InferenceScheduler.

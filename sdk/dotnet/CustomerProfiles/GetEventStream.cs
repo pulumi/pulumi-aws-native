@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The tags used to organize, track, or control access for this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EventStreamTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEventStreamResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             Pulumi.AwsNative.CustomerProfiles.EventStreamState? state,
 
-            ImmutableArray<Outputs.EventStreamTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreatedAt = createdAt;
             DestinationDetails = destinationDetails;

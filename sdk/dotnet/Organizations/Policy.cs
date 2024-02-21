@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.Organizations
         /// A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PolicyTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
@@ -135,14 +135,14 @@ namespace Pulumi.AwsNative.Organizations
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.PolicyTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
         /// </summary>
-        public InputList<Inputs.PolicyTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PolicyTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

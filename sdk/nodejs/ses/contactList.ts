@@ -48,7 +48,7 @@ export class ContactList extends pulumi.CustomResource {
     /**
      * The tags (keys and values) associated with the contact list.
      */
-    public readonly tags!: pulumi.Output<outputs.ses.ContactListTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The topics associated with the contact list.
      */
@@ -97,7 +97,7 @@ export interface ContactListArgs {
     /**
      * The tags (keys and values) associated with the contact list.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ses.ContactListTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The topics associated with the contact list.
      */

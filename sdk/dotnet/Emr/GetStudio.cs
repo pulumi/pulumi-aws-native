@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Emr
         /// <summary>
         /// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StudioTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The unique Studio access URL.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.Emr
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableArray<Outputs.StudioTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? url)
         {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupDatasetGroupResult struct {
 	// The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
 	Domain *DatasetGroupDomain `pulumi:"domain"`
 	// The tags of Application Insights application.
-	Tags []DatasetGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDatasetGroupOutput(ctx *pulumi.Context, args LookupDatasetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetGroupResultOutput {
@@ -90,8 +91,8 @@ func (o LookupDatasetGroupResultOutput) Domain() DatasetGroupDomainPtrOutput {
 }
 
 // The tags of Application Insights application.
-func (o LookupDatasetGroupResultOutput) Tags() DatasetGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupDatasetGroupResult) []DatasetGroupTag { return v.Tags }).(DatasetGroupTagArrayOutput)
+func (o LookupDatasetGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDatasetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

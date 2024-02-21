@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type Workgroup struct {
 	PubliclyAccessible pulumi.BoolPtrOutput                `pulumi:"publiclyAccessible"`
 	SecurityGroupIds   pulumi.StringArrayOutput            `pulumi:"securityGroupIds"`
 	SubnetIds          pulumi.StringArrayOutput            `pulumi:"subnetIds"`
-	Tags               WorkgroupTagArrayOutput             `pulumi:"tags"`
+	Tags               aws.TagArrayOutput                  `pulumi:"tags"`
 	Workgroup          WorkgroupTypeOutput                 `pulumi:"workgroup"`
 	WorkgroupName      pulumi.StringOutput                 `pulumi:"workgroupName"`
 }
@@ -81,7 +82,7 @@ type workgroupArgs struct {
 	PubliclyAccessible *bool                      `pulumi:"publiclyAccessible"`
 	SecurityGroupIds   []string                   `pulumi:"securityGroupIds"`
 	SubnetIds          []string                   `pulumi:"subnetIds"`
-	Tags               []WorkgroupTag             `pulumi:"tags"`
+	Tags               []aws.Tag                  `pulumi:"tags"`
 	WorkgroupName      *string                    `pulumi:"workgroupName"`
 }
 
@@ -95,7 +96,7 @@ type WorkgroupArgs struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	SecurityGroupIds   pulumi.StringArrayInput
 	SubnetIds          pulumi.StringArrayInput
-	Tags               WorkgroupTagArrayInput
+	Tags               aws.TagArrayInput
 	WorkgroupName      pulumi.StringPtrInput
 }
 
@@ -168,8 +169,8 @@ func (o WorkgroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o WorkgroupOutput) Tags() WorkgroupTagArrayOutput {
-	return o.ApplyT(func(v *Workgroup) WorkgroupTagArrayOutput { return v.Tags }).(WorkgroupTagArrayOutput)
+func (o WorkgroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Workgroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o WorkgroupOutput) Workgroup() WorkgroupTypeOutput {

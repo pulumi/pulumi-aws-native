@@ -56,7 +56,7 @@ export class CustomerGateway extends pulumi.CustomResource {
     /**
      * One or more tags for the customer gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.CustomerGatewayTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of VPN connection that this customer gateway supports.
      */
@@ -122,7 +122,7 @@ export interface CustomerGatewayArgs {
     /**
      * One or more tags for the customer gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.CustomerGatewayTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of VPN connection that this customer gateway supports.
      */

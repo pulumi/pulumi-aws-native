@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -29,7 +31,7 @@ class InferenceExperimentArgs:
                  schedule: Optional[pulumi.Input['InferenceExperimentScheduleArgs']] = None,
                  shadow_mode_config: Optional[pulumi.Input['InferenceExperimentShadowModeConfigArgs']] = None,
                  status_reason: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceExperimentTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InferenceExperiment resource.
         :param pulumi.Input[Sequence[pulumi.Input['InferenceExperimentModelVariantConfigArgs']]] model_variants: An array of ModelVariantConfig objects. Each ModelVariantConfig object in the array describes the infrastructure configuration for the corresponding variant.
@@ -40,7 +42,7 @@ class InferenceExperimentArgs:
         :param pulumi.Input[str] kms_key: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name for the inference experiment.
         :param pulumi.Input[str] status_reason: The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
-        :param pulumi.Input[Sequence[pulumi.Input['InferenceExperimentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "model_variants", model_variants)
@@ -199,14 +201,14 @@ class InferenceExperimentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InferenceExperimentTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceExperimentTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -226,7 +228,7 @@ class InferenceExperiment(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['InferenceExperimentScheduleArgs']]] = None,
                  shadow_mode_config: Optional[pulumi.Input[pulumi.InputType['InferenceExperimentShadowModeConfigArgs']]] = None,
                  status_reason: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InferenceExperimentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['InferenceExperimentType']] = None,
                  __props__=None):
         """
@@ -241,7 +243,7 @@ class InferenceExperiment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the inference experiment.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
         :param pulumi.Input[str] status_reason: The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InferenceExperimentTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['InferenceExperimentType'] type: The type of the inference experiment that you want to run.
         """
         ...
@@ -279,7 +281,7 @@ class InferenceExperiment(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['InferenceExperimentScheduleArgs']]] = None,
                  shadow_mode_config: Optional[pulumi.Input[pulumi.InputType['InferenceExperimentShadowModeConfigArgs']]] = None,
                  status_reason: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InferenceExperimentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['InferenceExperimentType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -475,7 +477,7 @@ class InferenceExperiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.InferenceExperimentTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

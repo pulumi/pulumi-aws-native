@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Forecast
         public readonly Pulumi.AwsNative.Forecast.DatasetDomain? Domain;
         public readonly Outputs.EncryptionConfigProperties? EncryptionConfig;
         public readonly Outputs.SchemaProperties? Schema;
-        public readonly ImmutableArray<Outputs.TagsItemProperties> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDatasetResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Forecast
 
             Outputs.SchemaProperties? schema,
 
-            ImmutableArray<Outputs.TagsItemProperties> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DataFrequency = dataFrequency;

@@ -89,7 +89,7 @@ export interface GetEnvironmentResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.workspacesthinclient.EnvironmentTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The timestamp in unix epoch format when environment was last updated.
      */

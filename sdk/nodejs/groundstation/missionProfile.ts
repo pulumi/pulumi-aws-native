@@ -64,7 +64,7 @@ export class MissionProfile extends pulumi.CustomResource {
      * The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
      */
     public readonly streamsKmsRole!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.groundstation.MissionProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly trackingConfigArn!: pulumi.Output<string>;
 
     /**
@@ -145,6 +145,6 @@ export interface MissionProfileArgs {
      * The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
      */
     streamsKmsRole?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.groundstation.MissionProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     trackingConfigArn: pulumi.Input<string>;
 }

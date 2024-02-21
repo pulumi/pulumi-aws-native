@@ -57,7 +57,7 @@ export interface GetDbProxyResult {
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
      */
-    readonly tags?: outputs.rds.DbProxyTagFormat[];
+    readonly tags?: outputs.Tag[];
     /**
      * VPC ID to associate with the new DB proxy.
      */

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags to assign to the network ACL.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.NetworkAclTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the VPC.
@@ -77,14 +77,14 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class NetworkAclArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
-        private InputList<Inputs.NetworkAclTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags to assign to the network ACL.
         /// </summary>
-        public InputList<Inputs.NetworkAclTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.NetworkAclTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

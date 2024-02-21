@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['PlaybackKeyPairArgs', 'PlaybackKeyPair']
 
@@ -18,12 +18,12 @@ class PlaybackKeyPairArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackKeyPairTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PlaybackKeyPair resource.
         :param pulumi.Input[str] name: An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
         :param pulumi.Input[str] public_key_material: The public portion of a customer-generated key pair.
-        :param pulumi.Input[Sequence[pulumi.Input['PlaybackKeyPairTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -58,14 +58,14 @@ class PlaybackKeyPairArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackKeyPairTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the asset model.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackKeyPairTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -76,7 +76,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaybackKeyPairTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IVS::PlaybackKeyPair
@@ -85,7 +85,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
         :param pulumi.Input[str] public_key_material: The public portion of a customer-generated key pair.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaybackKeyPairTagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         ...
     @overload
@@ -113,7 +113,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaybackKeyPairTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -193,7 +193,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PlaybackKeyPairTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the asset model.
         """

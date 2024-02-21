@@ -64,7 +64,7 @@ export interface GetDataSourceResult {
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
      */
-    readonly tags?: outputs.quicksight.DataSourceTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcConnectionProperties?: outputs.quicksight.DataSourceVpcConnectionProperties;
 }
 /**

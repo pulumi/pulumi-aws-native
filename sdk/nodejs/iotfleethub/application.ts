@@ -84,7 +84,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the application.
      */
-    public readonly tags!: pulumi.Output<outputs.iotfleethub.ApplicationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -150,5 +150,5 @@ export interface ApplicationArgs {
     /**
      * A list of key-value pairs that contain metadata for the application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotfleethub.ApplicationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

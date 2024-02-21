@@ -41,7 +41,7 @@ export interface GetPhoneNumberResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.PhoneNumberTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ARN of the target the phone number is claimed to.
      */

@@ -33,7 +33,7 @@ export interface GetAnalysisResult {
     readonly name?: string;
     readonly permissions?: outputs.quicksight.AnalysisResourcePermission[];
     readonly sheets?: outputs.quicksight.AnalysisSheet[];
-    readonly tags?: outputs.quicksight.AnalysisTag[];
+    readonly tags?: outputs.Tag[];
     readonly themeArn?: string;
 }
 /**

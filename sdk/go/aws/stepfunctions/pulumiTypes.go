@@ -18,101 +18,6 @@ type ActivityTagsEntry struct {
 	Value string `pulumi:"value"`
 }
 
-// ActivityTagsEntryInput is an input type that accepts ActivityTagsEntryArgs and ActivityTagsEntryOutput values.
-// You can construct a concrete instance of `ActivityTagsEntryInput` via:
-//
-//	ActivityTagsEntryArgs{...}
-type ActivityTagsEntryInput interface {
-	pulumi.Input
-
-	ToActivityTagsEntryOutput() ActivityTagsEntryOutput
-	ToActivityTagsEntryOutputWithContext(context.Context) ActivityTagsEntryOutput
-}
-
-type ActivityTagsEntryArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ActivityTagsEntryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityTagsEntry)(nil)).Elem()
-}
-
-func (i ActivityTagsEntryArgs) ToActivityTagsEntryOutput() ActivityTagsEntryOutput {
-	return i.ToActivityTagsEntryOutputWithContext(context.Background())
-}
-
-func (i ActivityTagsEntryArgs) ToActivityTagsEntryOutputWithContext(ctx context.Context) ActivityTagsEntryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityTagsEntryOutput)
-}
-
-// ActivityTagsEntryArrayInput is an input type that accepts ActivityTagsEntryArray and ActivityTagsEntryArrayOutput values.
-// You can construct a concrete instance of `ActivityTagsEntryArrayInput` via:
-//
-//	ActivityTagsEntryArray{ ActivityTagsEntryArgs{...} }
-type ActivityTagsEntryArrayInput interface {
-	pulumi.Input
-
-	ToActivityTagsEntryArrayOutput() ActivityTagsEntryArrayOutput
-	ToActivityTagsEntryArrayOutputWithContext(context.Context) ActivityTagsEntryArrayOutput
-}
-
-type ActivityTagsEntryArray []ActivityTagsEntryInput
-
-func (ActivityTagsEntryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityTagsEntry)(nil)).Elem()
-}
-
-func (i ActivityTagsEntryArray) ToActivityTagsEntryArrayOutput() ActivityTagsEntryArrayOutput {
-	return i.ToActivityTagsEntryArrayOutputWithContext(context.Background())
-}
-
-func (i ActivityTagsEntryArray) ToActivityTagsEntryArrayOutputWithContext(ctx context.Context) ActivityTagsEntryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityTagsEntryArrayOutput)
-}
-
-type ActivityTagsEntryOutput struct{ *pulumi.OutputState }
-
-func (ActivityTagsEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityTagsEntry)(nil)).Elem()
-}
-
-func (o ActivityTagsEntryOutput) ToActivityTagsEntryOutput() ActivityTagsEntryOutput {
-	return o
-}
-
-func (o ActivityTagsEntryOutput) ToActivityTagsEntryOutputWithContext(ctx context.Context) ActivityTagsEntryOutput {
-	return o
-}
-
-func (o ActivityTagsEntryOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityTagsEntry) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ActivityTagsEntryOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityTagsEntry) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ActivityTagsEntryArrayOutput struct{ *pulumi.OutputState }
-
-func (ActivityTagsEntryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityTagsEntry)(nil)).Elem()
-}
-
-func (o ActivityTagsEntryArrayOutput) ToActivityTagsEntryArrayOutput() ActivityTagsEntryArrayOutput {
-	return o
-}
-
-func (o ActivityTagsEntryArrayOutput) ToActivityTagsEntryArrayOutputWithContext(ctx context.Context) ActivityTagsEntryArrayOutput {
-	return o
-}
-
-func (o ActivityTagsEntryArrayOutput) Index(i pulumi.IntInput) ActivityTagsEntryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityTagsEntry {
-		return vs[0].([]ActivityTagsEntry)[vs[1].(int)]
-	}).(ActivityTagsEntryOutput)
-}
-
 // The settings to enable gradual state machine deployments.
 type StateMachineAliasDeploymentPreference struct {
 	// A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
@@ -1227,101 +1132,6 @@ type StateMachineTagsEntry struct {
 	Value string `pulumi:"value"`
 }
 
-// StateMachineTagsEntryInput is an input type that accepts StateMachineTagsEntryArgs and StateMachineTagsEntryOutput values.
-// You can construct a concrete instance of `StateMachineTagsEntryInput` via:
-//
-//	StateMachineTagsEntryArgs{...}
-type StateMachineTagsEntryInput interface {
-	pulumi.Input
-
-	ToStateMachineTagsEntryOutput() StateMachineTagsEntryOutput
-	ToStateMachineTagsEntryOutputWithContext(context.Context) StateMachineTagsEntryOutput
-}
-
-type StateMachineTagsEntryArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StateMachineTagsEntryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachineTagsEntry)(nil)).Elem()
-}
-
-func (i StateMachineTagsEntryArgs) ToStateMachineTagsEntryOutput() StateMachineTagsEntryOutput {
-	return i.ToStateMachineTagsEntryOutputWithContext(context.Background())
-}
-
-func (i StateMachineTagsEntryArgs) ToStateMachineTagsEntryOutputWithContext(ctx context.Context) StateMachineTagsEntryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTagsEntryOutput)
-}
-
-// StateMachineTagsEntryArrayInput is an input type that accepts StateMachineTagsEntryArray and StateMachineTagsEntryArrayOutput values.
-// You can construct a concrete instance of `StateMachineTagsEntryArrayInput` via:
-//
-//	StateMachineTagsEntryArray{ StateMachineTagsEntryArgs{...} }
-type StateMachineTagsEntryArrayInput interface {
-	pulumi.Input
-
-	ToStateMachineTagsEntryArrayOutput() StateMachineTagsEntryArrayOutput
-	ToStateMachineTagsEntryArrayOutputWithContext(context.Context) StateMachineTagsEntryArrayOutput
-}
-
-type StateMachineTagsEntryArray []StateMachineTagsEntryInput
-
-func (StateMachineTagsEntryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StateMachineTagsEntry)(nil)).Elem()
-}
-
-func (i StateMachineTagsEntryArray) ToStateMachineTagsEntryArrayOutput() StateMachineTagsEntryArrayOutput {
-	return i.ToStateMachineTagsEntryArrayOutputWithContext(context.Background())
-}
-
-func (i StateMachineTagsEntryArray) ToStateMachineTagsEntryArrayOutputWithContext(ctx context.Context) StateMachineTagsEntryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTagsEntryArrayOutput)
-}
-
-type StateMachineTagsEntryOutput struct{ *pulumi.OutputState }
-
-func (StateMachineTagsEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachineTagsEntry)(nil)).Elem()
-}
-
-func (o StateMachineTagsEntryOutput) ToStateMachineTagsEntryOutput() StateMachineTagsEntryOutput {
-	return o
-}
-
-func (o StateMachineTagsEntryOutput) ToStateMachineTagsEntryOutputWithContext(ctx context.Context) StateMachineTagsEntryOutput {
-	return o
-}
-
-func (o StateMachineTagsEntryOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StateMachineTagsEntry) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o StateMachineTagsEntryOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StateMachineTagsEntry) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StateMachineTagsEntryArrayOutput struct{ *pulumi.OutputState }
-
-func (StateMachineTagsEntryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StateMachineTagsEntry)(nil)).Elem()
-}
-
-func (o StateMachineTagsEntryArrayOutput) ToStateMachineTagsEntryArrayOutput() StateMachineTagsEntryArrayOutput {
-	return o
-}
-
-func (o StateMachineTagsEntryArrayOutput) ToStateMachineTagsEntryArrayOutputWithContext(ctx context.Context) StateMachineTagsEntryArrayOutput {
-	return o
-}
-
-func (o StateMachineTagsEntryArrayOutput) Index(i pulumi.IntInput) StateMachineTagsEntryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StateMachineTagsEntry {
-		return vs[0].([]StateMachineTagsEntry)[vs[1].(int)]
-	}).(StateMachineTagsEntryOutput)
-}
-
 type StateMachineTracingConfiguration struct {
 	Enabled *bool `pulumi:"enabled"`
 }
@@ -1456,8 +1266,6 @@ func (o StateMachineTracingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutpu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ActivityTagsEntryInput)(nil)).Elem(), ActivityTagsEntryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActivityTagsEntryArrayInput)(nil)).Elem(), ActivityTagsEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasDeploymentPreferenceInput)(nil)).Elem(), StateMachineAliasDeploymentPreferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasDeploymentPreferencePtrInput)(nil)).Elem(), StateMachineAliasDeploymentPreferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasRoutingConfigurationVersionInput)(nil)).Elem(), StateMachineAliasRoutingConfigurationVersionArgs{})
@@ -1474,12 +1282,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationPtrInput)(nil)).Elem(), StateMachineLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineS3LocationInput)(nil)).Elem(), StateMachineS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineS3LocationPtrInput)(nil)).Elem(), StateMachineS3LocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTagsEntryInput)(nil)).Elem(), StateMachineTagsEntryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTagsEntryArrayInput)(nil)).Elem(), StateMachineTagsEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTracingConfigurationInput)(nil)).Elem(), StateMachineTracingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTracingConfigurationPtrInput)(nil)).Elem(), StateMachineTracingConfigurationArgs{})
-	pulumi.RegisterOutputType(ActivityTagsEntryOutput{})
-	pulumi.RegisterOutputType(ActivityTagsEntryArrayOutput{})
 	pulumi.RegisterOutputType(StateMachineAliasDeploymentPreferenceOutput{})
 	pulumi.RegisterOutputType(StateMachineAliasDeploymentPreferencePtrOutput{})
 	pulumi.RegisterOutputType(StateMachineAliasRoutingConfigurationVersionOutput{})
@@ -1496,8 +1300,6 @@ func init() {
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineS3LocationOutput{})
 	pulumi.RegisterOutputType(StateMachineS3LocationPtrOutput{})
-	pulumi.RegisterOutputType(StateMachineTagsEntryOutput{})
-	pulumi.RegisterOutputType(StateMachineTagsEntryArrayOutput{})
 	pulumi.RegisterOutputType(StateMachineTracingConfigurationOutput{})
 	pulumi.RegisterOutputType(StateMachineTracingConfigurationPtrOutput{})
 }

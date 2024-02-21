@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['LocalGatewayRouteTableArgs', 'LocalGatewayRouteTable']
 
@@ -18,12 +18,12 @@ class LocalGatewayRouteTableArgs:
     def __init__(__self__, *,
                  local_gateway_id: pulumi.Input[str],
                  mode: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocalGatewayRouteTable resource.
         :param pulumi.Input[str] local_gateway_id: The ID of the local gateway.
         :param pulumi.Input[str] mode: The mode of the local gateway route table.
-        :param pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableTagArgs']]] tags: The tags for the local gateway route table.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the local gateway route table.
         """
         pulumi.set(__self__, "local_gateway_id", local_gateway_id)
         if mode is not None:
@@ -57,14 +57,14 @@ class LocalGatewayRouteTableArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the local gateway route table.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -75,7 +75,7 @@ class LocalGatewayRouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  local_gateway_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalGatewayRouteTableTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Describes a route table for a local gateway.
@@ -84,7 +84,7 @@ class LocalGatewayRouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] local_gateway_id: The ID of the local gateway.
         :param pulumi.Input[str] mode: The mode of the local gateway route table.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalGatewayRouteTableTagArgs']]]] tags: The tags for the local gateway route table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the local gateway route table.
         """
         ...
     @overload
@@ -112,7 +112,7 @@ class LocalGatewayRouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  local_gateway_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalGatewayRouteTableTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -224,7 +224,7 @@ class LocalGatewayRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocalGatewayRouteTableTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags for the local gateway route table.
         """

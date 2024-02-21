@@ -14,7 +14,6 @@ from ._enums import *
 __all__ = [
     'CapacityProviderAutoScalingGroupProvider',
     'CapacityProviderManagedScaling',
-    'CapacityProviderTag',
     'ClusterCapacityProviderAssociationsCapacityProviderStrategy',
     'ClusterCapacityProviderStrategyItem',
     'ClusterConfiguration',
@@ -22,7 +21,6 @@ __all__ = [
     'ClusterExecuteCommandLogConfiguration',
     'ClusterServiceConnectDefaults',
     'ClusterSettings',
-    'ClusterTag',
     'ServiceAwsVpcConfiguration',
     'ServiceCapacityProviderStrategyItem',
     'ServiceConnectClientAlias',
@@ -72,7 +70,6 @@ __all__ = [
     'TaskDefinitionRuntimePlatform',
     'TaskDefinitionSecret',
     'TaskDefinitionSystemControl',
-    'TaskDefinitionTag',
     'TaskDefinitionTmpfs',
     'TaskDefinitionUlimit',
     'TaskDefinitionVolume',
@@ -215,27 +212,6 @@ class CapacityProviderManagedScaling(dict):
     @pulumi.getter(name="targetCapacity")
     def target_capacity(self) -> Optional[int]:
         return pulumi.get(self, "target_capacity")
-
-
-@pulumi.output_type
-class CapacityProviderTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -544,33 +520,6 @@ class ClusterSettings(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ClusterTag(dict):
-    """
-    The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-    """
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
@@ -3025,27 +2974,6 @@ class TaskDefinitionSystemControl(dict):
     @pulumi.getter
     def namespace(self) -> Optional[str]:
         return pulumi.get(self, "namespace")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TaskDefinitionTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
 
     @property
     @pulumi.getter

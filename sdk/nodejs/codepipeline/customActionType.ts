@@ -64,7 +64,7 @@ export class CustomActionType extends pulumi.CustomResource {
     /**
      * Any tags assigned to the custom action.
      */
-    public readonly tags!: pulumi.Output<outputs.codepipeline.CustomActionTypeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The version identifier of the custom action.
      */
@@ -152,7 +152,7 @@ export interface CustomActionTypeArgs {
     /**
      * Any tags assigned to the custom action.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The version identifier of the custom action.
      */

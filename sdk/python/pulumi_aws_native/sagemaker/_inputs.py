@@ -21,7 +21,6 @@ __all__ = [
     'AppResourceSpecArgs',
     'AppTagArgs',
     'CodeRepositoryGitConfigArgs',
-    'CodeRepositoryTagArgs',
     'DataQualityJobDefinitionBatchTransformInputArgs',
     'DataQualityJobDefinitionClusterConfigArgs',
     'DataQualityJobDefinitionConstraintsResourceArgs',
@@ -42,8 +41,6 @@ __all__ = [
     'DataQualityJobDefinitionTagArgs',
     'DataQualityJobDefinitionVpcConfigArgs',
     'DeviceFleetEdgeOutputConfigArgs',
-    'DeviceFleetTagArgs',
-    'DeviceTagArgs',
     'DeviceArgs',
     'DomainCodeEditorAppSettingsArgs',
     'DomainCodeRepositoryArgs',
@@ -89,11 +86,9 @@ __all__ = [
     'EndpointConfigProductionVariantArgs',
     'EndpointConfigRoutingConfigArgs',
     'EndpointConfigServerlessConfigArgs',
-    'EndpointConfigTagArgs',
     'EndpointConfigVpcConfigArgs',
     'EndpointDeploymentConfigArgs',
     'EndpointRollingUpdatePolicyArgs',
-    'EndpointTagArgs',
     'EndpointTrafficRoutingConfigArgs',
     'EndpointVariantPropertyArgs',
     'FeatureGroupDataCatalogConfigArgs',
@@ -102,7 +97,6 @@ __all__ = [
     'FeatureGroupS3StorageConfigArgs',
     'FeatureGroupTagArgs',
     'FeatureGroupThroughputConfigArgs',
-    'ImageTagArgs',
     'InferenceComponentComputeResourceRequirementsArgs',
     'InferenceComponentContainerSpecificationArgs',
     'InferenceComponentDeployedImageArgs',
@@ -110,7 +104,6 @@ __all__ = [
     'InferenceComponentRuntimeConfigArgs',
     'InferenceComponentSpecificationArgs',
     'InferenceComponentStartupParametersArgs',
-    'InferenceComponentTagArgs',
     'InferenceExperimentCaptureContentTypeHeaderArgs',
     'InferenceExperimentDataStorageConfigArgs',
     'InferenceExperimentModelInfrastructureConfigArgs',
@@ -119,7 +112,6 @@ __all__ = [
     'InferenceExperimentScheduleArgs',
     'InferenceExperimentShadowModeConfigArgs',
     'InferenceExperimentShadowModelVariantConfigArgs',
-    'InferenceExperimentTagArgs',
     'ModelAccessConfigArgs',
     'ModelBiasJobDefinitionBatchTransformInputArgs',
     'ModelBiasJobDefinitionClusterConfigArgs',
@@ -160,7 +152,6 @@ __all__ = [
     'ModelCardSecurityConfigArgs',
     'ModelCardSimpleMetricArgs',
     'ModelCardSourceAlgorithmArgs',
-    'ModelCardTagArgs',
     'ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs',
     'ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs',
     'ModelCardTrainingDetailsArgs',
@@ -204,7 +195,6 @@ __all__ = [
     'ModelPackageEnvironmentArgs',
     'ModelPackageExplainabilityArgs',
     'ModelPackageFileSourceArgs',
-    'ModelPackageGroupTagArgs',
     'ModelPackageInferenceSpecificationArgs',
     'ModelPackageMetadataPropertiesArgs',
     'ModelPackageMetricsSourceArgs',
@@ -216,7 +206,6 @@ __all__ = [
     'ModelPackageSourceAlgorithmArgs',
     'ModelPackageStatusDetailsArgs',
     'ModelPackageStatusItemArgs',
-    'ModelPackageTagArgs',
     'ModelPackageTransformInputArgs',
     'ModelPackageTransformJobDefinitionArgs',
     'ModelPackageTransformOutputArgs',
@@ -244,7 +233,6 @@ __all__ = [
     'ModelQualityJobDefinitionVpcConfigArgs',
     'ModelRepositoryAuthConfigArgs',
     'ModelS3DataSourceArgs',
-    'ModelTagArgs',
     'ModelVpcConfigArgs',
     'MonitoringScheduleBaselineConfigArgs',
     'MonitoringScheduleBatchTransformInputArgs',
@@ -267,18 +255,15 @@ __all__ = [
     'MonitoringScheduleScheduleConfigArgs',
     'MonitoringScheduleStatisticsResourceArgs',
     'MonitoringScheduleStoppingConditionArgs',
-    'MonitoringScheduleTagArgs',
     'MonitoringScheduleVpcConfigArgs',
     'NotebookInstanceInstanceMetadataServiceConfigurationArgs',
     'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs',
-    'NotebookInstanceTagArgs',
     'OfflineStoreConfigPropertiesArgs',
     'OnlineStoreConfigPropertiesArgs',
     'ParallelismConfigurationPropertiesArgs',
     'PipelineDefinition0PropertiesArgs',
     'PipelineDefinition1PropertiesArgs',
     'PipelineS3LocationArgs',
-    'PipelineTagArgs',
     'ProjectProvisioningParameterArgs',
     'ProjectTagArgs',
     'ServiceCatalogProvisionedProductDetailsPropertiesArgs',
@@ -297,7 +282,6 @@ __all__ = [
     'SpaceSettingsArgs',
     'SpaceSharingSettingsArgs',
     'SpaceStorageSettingsArgs',
-    'SpaceTagArgs',
     'UserProfileCodeEditorAppSettingsArgs',
     'UserProfileCodeRepositoryArgs',
     'UserProfileCustomFileSystemConfigArgs',
@@ -318,7 +302,6 @@ __all__ = [
     'WorkteamMemberDefinitionArgs',
     'WorkteamNotificationConfigurationArgs',
     'WorkteamOidcMemberDefinitionArgs',
-    'WorkteamTagArgs',
 ]
 
 @pulumi.input_type
@@ -708,33 +691,6 @@ class CodeRepositoryGitConfigArgs:
     @secret_arn.setter
     def secret_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_arn", value)
-
-
-@pulumi.input_type
-class CodeRepositoryTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1622,81 +1578,6 @@ class DeviceFleetEdgeOutputConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
-
-
-@pulumi.input_type
-class DeviceFleetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        Key-value pair to associate as a tag for the resource
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param pulumi.Input[str] value: The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class DeviceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param pulumi.Input[str] value: The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -3744,33 +3625,6 @@ class EndpointConfigServerlessConfigArgs:
 
 
 @pulumi.input_type
-class EndpointConfigTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class EndpointConfigVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -3887,33 +3741,6 @@ class EndpointRollingUpdatePolicyArgs:
     @rollback_maximum_batch_size.setter
     def rollback_maximum_batch_size(self, value: Optional[pulumi.Input['EndpointCapacitySizeArgs']]):
         pulumi.set(self, "rollback_maximum_batch_size", value)
-
-
-@pulumi.input_type
-class EndpointTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -4173,44 +4000,6 @@ class FeatureGroupThroughputConfigArgs:
     @provisioned_write_capacity_units.setter
     def provisioned_write_capacity_units(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "provisioned_write_capacity_units", value)
-
-
-@pulumi.input_type
-class ImageTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -4495,44 +4284,6 @@ class InferenceComponentStartupParametersArgs:
     @model_data_download_timeout_in_seconds.setter
     def model_data_download_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "model_data_download_timeout_in_seconds", value)
-
-
-@pulumi.input_type
-class InferenceComponentTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A tag in the form of a key-value pair to associate with the resource
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -4861,44 +4612,6 @@ class InferenceExperimentShadowModelVariantConfigArgs:
     @shadow_model_variant_name.setter
     def shadow_model_variant_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "shadow_model_variant_name", value)
-
-
-@pulumi.input_type
-class InferenceExperimentTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -7213,44 +6926,6 @@ class ModelCardSourceAlgorithmArgs:
 
 
 @pulumi.input_type
-class ModelCardTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The tag key. Tag keys must be unique per resource.
-        :param pulumi.Input[str] value: The tag value.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The tag key. Tag keys must be unique per resource.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The tag value.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs:
     def __init__(__self__, *,
                  container_image: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -9210,44 +8885,6 @@ class ModelPackageFileSourceArgs:
 
 
 @pulumi.input_type
-class ModelPackageGroupTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ModelPackageInferenceSpecificationArgs:
     def __init__(__self__, *,
                  containers: pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]],
@@ -9750,44 +9387,6 @@ class ModelPackageStatusItemArgs:
     @failure_reason.setter
     def failure_reason(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "failure_reason", value)
-
-
-@pulumi.input_type
-class ModelPackageTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -11196,33 +10795,6 @@ class ModelS3DataSourceArgs:
 
 
 @pulumi.input_type
-class ModelTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ModelVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -12352,44 +11924,6 @@ class MonitoringScheduleStoppingConditionArgs:
 
 
 @pulumi.input_type
-class MonitoringScheduleTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class MonitoringScheduleVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -12458,33 +11992,6 @@ class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs:
     @content.setter
     def content(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content", value)
-
-
-@pulumi.input_type
-class NotebookInstanceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -12707,33 +12214,6 @@ class PipelineS3LocationArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class PipelineTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -13365,33 +12845,6 @@ class SpaceStorageSettingsArgs:
     @ebs_storage_settings.setter
     def ebs_storage_settings(self, value: Optional[pulumi.Input['SpaceEbsStorageSettingsArgs']]):
         pulumi.set(self, "ebs_storage_settings", value)
-
-
-@pulumi.input_type
-class SpaceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -14239,32 +13692,5 @@ class WorkteamOidcMemberDefinitionArgs:
     @oidc_groups.setter
     def oidc_groups(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "oidc_groups", value)
-
-
-@pulumi.input_type
-class WorkteamTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

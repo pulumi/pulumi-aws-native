@@ -47,7 +47,7 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
      */
     public readonly contactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
     public readonly endpointDetails!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupEndpointDetails[]>;
-    public readonly tags!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DataflowEndpointGroup resource with the given unique name, arguments, and options.
@@ -93,5 +93,5 @@ export interface DataflowEndpointGroupArgs {
      */
     contactPrePassDurationSeconds?: pulumi.Input<number>;
     endpointDetails: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

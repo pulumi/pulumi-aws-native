@@ -26,7 +26,7 @@ export interface GetNetworkInsightsAccessScopeResult {
     readonly createdDate?: string;
     readonly networkInsightsAccessScopeArn?: string;
     readonly networkInsightsAccessScopeId?: string;
-    readonly tags?: outputs.ec2.NetworkInsightsAccessScopeTag[];
+    readonly tags?: outputs.Tag[];
     readonly updatedDate?: string;
 }
 /**

@@ -65,7 +65,7 @@ export class Domain extends pulumi.CustomResource {
     public readonly logPublishingOptions!: pulumi.Output<any | undefined>;
     public readonly nodeToNodeEncryptionOptions!: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryptionOptions | undefined>;
     public readonly snapshotOptions!: pulumi.Output<outputs.elasticsearch.DomainSnapshotOptions | undefined>;
-    public readonly tags!: pulumi.Output<outputs.elasticsearch.DomainTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcOptions!: pulumi.Output<outputs.elasticsearch.DomainVpcOptions | undefined>;
 
     /**
@@ -152,6 +152,6 @@ export interface DomainArgs {
     logPublishingOptions?: any;
     nodeToNodeEncryptionOptions?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryptionOptionsArgs>;
     snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptionsArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcOptions?: pulumi.Input<inputs.elasticsearch.DomainVpcOptionsArgs>;
 }

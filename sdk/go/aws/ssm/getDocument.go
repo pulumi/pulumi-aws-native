@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupDocumentResult struct {
 	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
 	Requires []DocumentRequires `pulumi:"requires"`
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
-	Tags []DocumentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Specify a target type to define the kinds of resources the document can run on.
 	TargetType *string `pulumi:"targetType"`
 	// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
@@ -98,8 +99,8 @@ func (o LookupDocumentResultOutput) Requires() DocumentRequiresArrayOutput {
 }
 
 // Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
-func (o LookupDocumentResultOutput) Tags() DocumentTagArrayOutput {
-	return o.ApplyT(func(v LookupDocumentResult) []DocumentTag { return v.Tags }).(DocumentTagArrayOutput)
+func (o LookupDocumentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDocumentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Specify a target type to define the kinds of resources the document can run on.

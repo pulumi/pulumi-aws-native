@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type LookupVpnConnectionArgs struct {
 
 type LookupVpnConnectionResult struct {
 	// Any tags assigned to the VPN connection.
-	Tags []VpnConnectionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The provider-assigned unique ID for this managed resource
 	VpnConnectionId *string `pulumi:"vpnConnectionId"`
 }
@@ -71,8 +72,8 @@ func (o LookupVpnConnectionResultOutput) ToLookupVpnConnectionResultOutputWithCo
 }
 
 // Any tags assigned to the VPN connection.
-func (o LookupVpnConnectionResultOutput) Tags() VpnConnectionTagArrayOutput {
-	return o.ApplyT(func(v LookupVpnConnectionResult) []VpnConnectionTag { return v.Tags }).(VpnConnectionTagArrayOutput)
+func (o LookupVpnConnectionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource

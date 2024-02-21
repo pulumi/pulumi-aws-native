@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupModelManifestResult struct {
 	Nodes                []string                     `pulumi:"nodes"`
 	SignalCatalogArn     *string                      `pulumi:"signalCatalogArn"`
 	Status               *ModelManifestManifestStatus `pulumi:"status"`
-	Tags                 []ModelManifestTag           `pulumi:"tags"`
+	Tags                 []aws.Tag                    `pulumi:"tags"`
 }
 
 func LookupModelManifestOutput(ctx *pulumi.Context, args LookupModelManifestOutputArgs, opts ...pulumi.InvokeOption) LookupModelManifestResultOutput {
@@ -100,8 +101,8 @@ func (o LookupModelManifestResultOutput) Status() ModelManifestManifestStatusPtr
 	return o.ApplyT(func(v LookupModelManifestResult) *ModelManifestManifestStatus { return v.Status }).(ModelManifestManifestStatusPtrOutput)
 }
 
-func (o LookupModelManifestResultOutput) Tags() ModelManifestTagArrayOutput {
-	return o.ApplyT(func(v LookupModelManifestResult) []ModelManifestTag { return v.Tags }).(ModelManifestTagArrayOutput)
+func (o LookupModelManifestResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupModelManifestResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

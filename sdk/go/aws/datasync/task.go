@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type Task struct {
 	// The status of the task that was described.
 	Status TaskStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags TaskTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the task.
 	TaskArn          pulumi.StringOutput       `pulumi:"taskArn"`
 	TaskReportConfig TaskReportConfigPtrOutput `pulumi:"taskReportConfig"`
@@ -103,7 +104,7 @@ type taskArgs struct {
 	// The ARN of the source location for the task.
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags             []TaskTag         `pulumi:"tags"`
+	Tags             []aws.Tag         `pulumi:"tags"`
 	TaskReportConfig *TaskReportConfig `pulumi:"taskReportConfig"`
 }
 
@@ -122,7 +123,7 @@ type TaskArgs struct {
 	// The ARN of the source location for the task.
 	SourceLocationArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags             TaskTagArrayInput
+	Tags             aws.TagArrayInput
 	TaskReportConfig TaskReportConfigPtrInput
 }
 
@@ -213,8 +214,8 @@ func (o TaskOutput) Status() TaskStatusOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o TaskOutput) Tags() TaskTagArrayOutput {
-	return o.ApplyT(func(v *Task) TaskTagArrayOutput { return v.Tags }).(TaskTagArrayOutput)
+func (o TaskOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Task) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the task.

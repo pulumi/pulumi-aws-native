@@ -33,7 +33,7 @@ export interface GetSoftwarePackageVersionResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.iot.SoftwarePackageVersionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * resource definition

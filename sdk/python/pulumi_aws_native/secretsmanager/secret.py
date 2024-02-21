@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SecretArgs', 'Secret']
@@ -22,7 +24,7 @@ class SecretArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]] = None,
                  secret_string: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Secret resource.
         :param pulumi.Input[str] description: (Optional) Specifies a user-provided description of the secret.
@@ -31,7 +33,7 @@ class SecretArgs:
         :param pulumi.Input[str] name: The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
         :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]] replica_regions: (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
         :param pulumi.Input[str] secret_string: (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
-        :param pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]] tags: The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -122,14 +124,14 @@ class SecretArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,7 +146,7 @@ class Secret(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaRegionArgs']]]]] = None,
                  secret_string: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecretsManager::Secret
@@ -157,7 +159,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] name: The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaRegionArgs']]]] replica_regions: (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
         :param pulumi.Input[str] secret_string: (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretTagArgs']]]] tags: The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         """
         ...
     @overload
@@ -189,7 +191,7 @@ class Secret(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaRegionArgs']]]]] = None,
                  secret_string: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -289,7 +291,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SecretTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         """

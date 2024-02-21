@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
         /// </summary>
-        public readonly ImmutableArray<Outputs.WorkGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The workgroup configuration
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Athena
 
             Pulumi.AwsNative.Athena.WorkGroupState? state,
 
-            ImmutableArray<Outputs.WorkGroupTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.WorkGroupConfiguration? workGroupConfiguration)
         {

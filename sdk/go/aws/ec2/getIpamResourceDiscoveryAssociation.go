@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupIpamResourceDiscoveryAssociationResult struct {
 	// The operational state of the Resource Discovery Association. Related to Create/Delete activities.
 	State *string `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IpamResourceDiscoveryAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIpamResourceDiscoveryAssociationOutput(ctx *pulumi.Context, args LookupIpamResourceDiscoveryAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupIpamResourceDiscoveryAssociationResultOutput {
@@ -129,10 +130,8 @@ func (o LookupIpamResourceDiscoveryAssociationResultOutput) State() pulumi.Strin
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupIpamResourceDiscoveryAssociationResultOutput) Tags() IpamResourceDiscoveryAssociationTagArrayOutput {
-	return o.ApplyT(func(v LookupIpamResourceDiscoveryAssociationResult) []IpamResourceDiscoveryAssociationTag {
-		return v.Tags
-	}).(IpamResourceDiscoveryAssociationTagArrayOutput)
+func (o LookupIpamResourceDiscoveryAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIpamResourceDiscoveryAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

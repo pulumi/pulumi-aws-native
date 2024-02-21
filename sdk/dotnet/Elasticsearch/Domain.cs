@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public Output<Outputs.DomainSnapshotOptions?> SnapshotOptions { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DomainTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpcOptions")]
         public Output<Outputs.DomainVpcOptions?> VpcOptions { get; private set; } = null!;
@@ -177,10 +177,10 @@ namespace Pulumi.AwsNative.Elasticsearch
         public Input<Inputs.DomainSnapshotOptionsArgs>? SnapshotOptions { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DomainTagArgs>? _tags;
-        public InputList<Inputs.DomainTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DomainTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

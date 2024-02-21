@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DeviceProfileArgs', 'DeviceProfile']
@@ -18,12 +20,12 @@ class DeviceProfileArgs:
     def __init__(__self__, *,
                  lo_ra_wan: Optional[pulumi.Input['DeviceProfileLoRaWanDeviceProfileArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeviceProfile resource.
         :param pulumi.Input['DeviceProfileLoRaWanDeviceProfileArgs'] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
         :param pulumi.Input[str] name: Name of service profile
-        :param pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]] tags: A list of key-value pairs that contain metadata for the device profile.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the device profile.
         """
         if lo_ra_wan is not None:
             pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
@@ -58,14 +60,14 @@ class DeviceProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the device profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -76,7 +78,7 @@ class DeviceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['DeviceProfileLoRaWanDeviceProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Device Profile's resource schema demonstrating some basic constructs and validation rules.
@@ -85,7 +87,7 @@ class DeviceProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DeviceProfileLoRaWanDeviceProfileArgs']] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
         :param pulumi.Input[str] name: Name of service profile
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceProfileTagArgs']]]] tags: A list of key-value pairs that contain metadata for the device profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the device profile.
         """
         ...
     @overload
@@ -113,7 +115,7 @@ class DeviceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['DeviceProfileLoRaWanDeviceProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -181,7 +183,7 @@ class DeviceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeviceProfileTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the device profile.
         """

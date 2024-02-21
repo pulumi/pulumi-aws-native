@@ -48,7 +48,7 @@ export class Vehicle extends pulumi.CustomResource {
     public /*out*/ readonly lastModificationTime!: pulumi.Output<string>;
     public readonly modelManifestArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.iotfleetwise.VehicleTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Vehicle resource with the given unique name, arguments, and options.
@@ -105,5 +105,5 @@ export interface VehicleArgs {
     decoderManifestArn: pulumi.Input<string>;
     modelManifestArn: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.VehicleTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

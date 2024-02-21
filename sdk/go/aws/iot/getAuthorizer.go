@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupAuthorizerResult struct {
 	AuthorizerFunctionArn  *string           `pulumi:"authorizerFunctionArn"`
 	EnableCachingForHttp   *bool             `pulumi:"enableCachingForHttp"`
 	Status                 *AuthorizerStatus `pulumi:"status"`
-	Tags                   []AuthorizerTag   `pulumi:"tags"`
+	Tags                   []aws.Tag         `pulumi:"tags"`
 	TokenKeyName           *string           `pulumi:"tokenKeyName"`
 	TokenSigningPublicKeys map[string]string `pulumi:"tokenSigningPublicKeys"`
 }
@@ -87,8 +88,8 @@ func (o LookupAuthorizerResultOutput) Status() AuthorizerStatusPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *AuthorizerStatus { return v.Status }).(AuthorizerStatusPtrOutput)
 }
 
-func (o LookupAuthorizerResultOutput) Tags() AuthorizerTagArrayOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) []AuthorizerTag { return v.Tags }).(AuthorizerTagArrayOutput)
+func (o LookupAuthorizerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupAuthorizerResultOutput) TokenKeyName() pulumi.StringPtrOutput {

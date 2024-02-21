@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DiskTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -184,14 +184,14 @@ namespace Pulumi.AwsNative.Lightsail
         public Input<int> SizeInGb { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DiskTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.DiskTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DiskTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The publicly accessible URL of the container service.
         /// </summary>
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.Lightsail
 
             int? scale,
 
-            ImmutableArray<Outputs.ContainerTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? url)
         {

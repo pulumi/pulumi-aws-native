@@ -58,7 +58,7 @@ export interface GetConfigurationProfileResult {
     /**
      * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    readonly tags?: outputs.appconfig.ConfigurationProfileTags[];
+    readonly tags?: outputs.Tag[];
     /**
      * A list of methods for validating the configuration.
      */

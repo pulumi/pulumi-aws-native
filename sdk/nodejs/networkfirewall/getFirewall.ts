@@ -32,7 +32,7 @@ export interface GetFirewallResult {
     readonly firewallPolicyChangeProtection?: boolean;
     readonly subnetChangeProtection?: boolean;
     readonly subnetMappings?: outputs.networkfirewall.FirewallSubnetMapping[];
-    readonly tags?: outputs.networkfirewall.FirewallTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource type definition for AWS::NetworkFirewall::Firewall

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupUserHierarchyGroupResult struct {
 	// The name of the user hierarchy group.
 	Name *string `pulumi:"name"`
 	// One or more tags.
-	Tags []UserHierarchyGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) for the user hierarchy group.
 	UserHierarchyGroupArn *string `pulumi:"userHierarchyGroupArn"`
 }
@@ -85,8 +86,8 @@ func (o LookupUserHierarchyGroupResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // One or more tags.
-func (o LookupUserHierarchyGroupResultOutput) Tags() UserHierarchyGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupUserHierarchyGroupResult) []UserHierarchyGroupTag { return v.Tags }).(UserHierarchyGroupTagArrayOutput)
+func (o LookupUserHierarchyGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupUserHierarchyGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) for the user hierarchy group.

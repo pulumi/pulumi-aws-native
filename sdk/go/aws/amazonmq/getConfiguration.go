@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,12 +28,12 @@ type LookupConfigurationArgs struct {
 }
 
 type LookupConfigurationResult struct {
-	Arn         *string                  `pulumi:"arn"`
-	Data        *string                  `pulumi:"data"`
-	Description *string                  `pulumi:"description"`
-	Id          *string                  `pulumi:"id"`
-	Revision    *int                     `pulumi:"revision"`
-	Tags        []ConfigurationTagsEntry `pulumi:"tags"`
+	Arn         *string   `pulumi:"arn"`
+	Data        *string   `pulumi:"data"`
+	Description *string   `pulumi:"description"`
+	Id          *string   `pulumi:"id"`
+	Revision    *int      `pulumi:"revision"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationResultOutput {
@@ -90,8 +91,8 @@ func (o LookupConfigurationResultOutput) Revision() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) *int { return v.Revision }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupConfigurationResultOutput) Tags() ConfigurationTagsEntryArrayOutput {
-	return o.ApplyT(func(v LookupConfigurationResult) []ConfigurationTagsEntry { return v.Tags }).(ConfigurationTagsEntryArrayOutput)
+func (o LookupConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

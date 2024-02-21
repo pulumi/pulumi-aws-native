@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['LifecyclePolicyArgs', 'LifecyclePolicy']
@@ -27,7 +29,7 @@ class LifecyclePolicyArgs:
                  policy_details: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsArgs']] = None,
                  retain_interval: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
         """
@@ -157,11 +159,11 @@ class LifecyclePolicyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -186,7 +188,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']]] = None,
                  retain_interval: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LifecyclePolicyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DLM::LifecyclePolicy
@@ -229,7 +231,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']]] = None,
                  retain_interval: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LifecyclePolicyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""LifecyclePolicy is deprecated: LifecyclePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -352,6 +354,6 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LifecyclePolicyTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

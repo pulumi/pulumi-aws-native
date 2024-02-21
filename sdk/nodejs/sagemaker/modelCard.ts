@@ -78,7 +78,7 @@ export class ModelCard extends pulumi.CustomResource {
     /**
      * Key-value pairs used to manage metadata for model cards.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.ModelCardTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ModelCard resource with the given unique name, arguments, and options.
@@ -155,5 +155,5 @@ export interface ModelCardArgs {
     /**
      * Key-value pairs used to manage metadata for model cards.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

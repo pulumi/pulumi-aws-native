@@ -436,7 +436,6 @@ __all__ = [
     'AnalysisTableStyleTarget',
     'AnalysisTableUnaggregatedFieldWells',
     'AnalysisTableVisual',
-    'AnalysisTag',
     'AnalysisTextAreaControlDisplayOptions',
     'AnalysisTextConditionalFormat',
     'AnalysisTextControlPlaceholderOptions',
@@ -920,7 +919,6 @@ __all__ = [
     'DashboardTableStyleTarget',
     'DashboardTableUnaggregatedFieldWells',
     'DashboardTableVisual',
-    'DashboardTag',
     'DashboardTextAreaControlDisplayOptions',
     'DashboardTextConditionalFormat',
     'DashboardTextControlPlaceholderOptions',
@@ -1000,7 +998,6 @@ __all__ = [
     'DataSetRowLevelPermissionTagRule',
     'DataSetStringDatasetParameter',
     'DataSetStringDatasetParameterDefaultValues',
-    'DataSetTag',
     'DataSetUsageConfiguration',
     'DataSourceAmazonElasticsearchParameters',
     'DataSourceAmazonOpenSearchParameters',
@@ -1027,7 +1024,6 @@ __all__ = [
     'DataSourceSqlServerParameters',
     'DataSourceSslProperties',
     'DataSourceStarburstParameters',
-    'DataSourceTag',
     'DataSourceTeradataParameters',
     'DataSourceTrinoParameters',
     'DataSourceVpcConnectionProperties',
@@ -1457,7 +1453,6 @@ __all__ = [
     'TemplateTableStyleTarget',
     'TemplateTableUnaggregatedFieldWells',
     'TemplateTableVisual',
-    'TemplateTag',
     'TemplateTextAreaControlDisplayOptions',
     'TemplateTextConditionalFormat',
     'TemplateTextControlPlaceholderOptions',
@@ -1518,7 +1513,6 @@ __all__ = [
     'ThemeMarginStyle',
     'ThemeResourcePermission',
     'ThemeSheetStyle',
-    'ThemeTag',
     'ThemeTileLayoutStyle',
     'ThemeTileStyle',
     'ThemeTypography',
@@ -1552,7 +1546,6 @@ __all__ = [
     'TopicSingularFilterConstant',
     'TopicTypeParameters',
     'VpcConnectionNetworkInterface',
-    'VpcConnectionTag',
 ]
 
 @pulumi.output_type
@@ -21567,25 +21560,6 @@ class AnalysisTableVisual(dict):
     @pulumi.getter
     def title(self) -> Optional['outputs.AnalysisVisualTitleLabelOptions']:
         return pulumi.get(self, "title")
-
-
-@pulumi.output_type
-class AnalysisTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -44589,25 +44563,6 @@ class DashboardTableVisual(dict):
 
 
 @pulumi.output_type
-class DashboardTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class DashboardTextAreaControlDisplayOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -48767,41 +48722,6 @@ class DataSetStringDatasetParameterDefaultValues(dict):
 
 
 @pulumi.output_type
-class DataSetTag(dict):
-    """
-    <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-                resource.</p>
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-                    resource.</p>
-        :param str key: <p>Tag key.</p>
-        :param str value: <p>Tag value.</p>
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        <p>Tag key.</p>
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        <p>Tag value.</p>
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class DataSetUsageConfiguration(dict):
     """
     <p>The dataset usage configuration for the dataset.</p>
@@ -50211,41 +50131,6 @@ class DataSourceStarburstParameters(dict):
     @pulumi.getter(name="productType")
     def product_type(self) -> Optional['DataSourceStarburstProductType']:
         return pulumi.get(self, "product_type")
-
-
-@pulumi.output_type
-class DataSourceTag(dict):
-    """
-    <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-                resource.</p>
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-                    resource.</p>
-        :param str key: <p>Tag key.</p>
-        :param str value: <p>Tag value.</p>
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        <p>Tag key.</p>
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        <p>Tag value.</p>
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -70522,25 +70407,6 @@ class TemplateTableVisual(dict):
 
 
 @pulumi.output_type
-class TemplateTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class TemplateTextAreaControlDisplayOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -73657,25 +73523,6 @@ class ThemeSheetStyle(dict):
 
 
 @pulumi.output_type
-class ThemeTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ThemeTileLayoutStyle(dict):
     def __init__(__self__, *,
                  gutter: Optional['outputs.ThemeGutterStyle'] = None,
@@ -75643,24 +75490,5 @@ class VpcConnectionNetworkInterface(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
-
-
-@pulumi.output_type
-class VpcConnectionTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

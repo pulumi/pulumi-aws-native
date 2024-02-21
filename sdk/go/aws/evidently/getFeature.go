@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupFeatureResult struct {
 	EntityOverrides    []FeatureEntityOverride    `pulumi:"entityOverrides"`
 	EvaluationStrategy *FeatureEvaluationStrategy `pulumi:"evaluationStrategy"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []FeatureTag             `pulumi:"tags"`
+	Tags       []aws.Tag                `pulumi:"tags"`
 	Variations []FeatureVariationObject `pulumi:"variations"`
 }
 
@@ -93,8 +94,8 @@ func (o LookupFeatureResultOutput) EvaluationStrategy() FeatureEvaluationStrateg
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupFeatureResultOutput) Tags() FeatureTagArrayOutput {
-	return o.ApplyT(func(v LookupFeatureResult) []FeatureTag { return v.Tags }).(FeatureTagArrayOutput)
+func (o LookupFeatureResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFeatureResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupFeatureResultOutput) Variations() FeatureVariationObjectArrayOutput {

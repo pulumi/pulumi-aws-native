@@ -9,7 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['TransitGatewayPeeringAttachmentArgs', 'TransitGatewayPeeringAttachment']
 
@@ -20,14 +21,14 @@ class TransitGatewayPeeringAttachmentArgs:
                  peer_region: pulumi.Input[str],
                  peer_transit_gateway_id: pulumi.Input[str],
                  transit_gateway_id: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayPeeringAttachment resource.
         :param pulumi.Input[str] peer_account_id: The ID of the peer account
         :param pulumi.Input[str] peer_region: Peer Region
         :param pulumi.Input[str] peer_transit_gateway_id: The ID of the peer transit gateway.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
-        :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]] tags: The tags for the transit gateway peering attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the transit gateway peering attachment.
         """
         pulumi.set(__self__, "peer_account_id", peer_account_id)
         pulumi.set(__self__, "peer_region", peer_region)
@@ -86,14 +87,14 @@ class TransitGatewayPeeringAttachmentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the transit gateway peering attachment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -105,7 +106,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayPeeringAttachmentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -116,7 +117,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] peer_account_id: The ID of the peer account
         :param pulumi.Input[str] peer_region: Peer Region
         :param pulumi.Input[str] peer_transit_gateway_id: The ID of the peer transit gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayPeeringAttachmentTagArgs']]]] tags: The tags for the transit gateway peering attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the transit gateway peering attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
         """
         ...
@@ -146,7 +147,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayPeeringAttachmentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -259,7 +260,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TransitGatewayPeeringAttachmentTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags for the transit gateway peering attachment.
         """

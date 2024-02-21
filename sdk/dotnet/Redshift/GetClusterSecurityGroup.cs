@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.Redshift
     public sealed class GetClusterSecurityGroupResult
     {
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.ClusterSecurityGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetClusterSecurityGroupResult(
             string? id,
 
-            ImmutableArray<Outputs.ClusterSecurityGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Tags = tags;

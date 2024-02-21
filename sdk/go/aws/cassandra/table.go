@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type Table struct {
 	// Name for Cassandra table
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 	// An array of key-value pairs to apply to this resource
-	Tags TableTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -115,7 +116,7 @@ type tableArgs struct {
 	// Name for Cassandra table
 	TableName *string `pulumi:"tableName"`
 	// An array of key-value pairs to apply to this resource
-	Tags []TableTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Table resource.
@@ -141,7 +142,7 @@ type TableArgs struct {
 	// Name for Cassandra table
 	TableName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource
-	Tags TableTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (TableArgs) ElementType() reflect.Type {
@@ -238,8 +239,8 @@ func (o TableOutput) TableName() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource
-func (o TableOutput) Tags() TableTagArrayOutput {
-	return o.ApplyT(func(v *Table) TableTagArrayOutput { return v.Tags }).(TableTagArrayOutput)
+func (o TableOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Table) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -15,13 +16,13 @@ import (
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 
-	Arn                           pulumi.StringOutput           `pulumi:"arn"`
-	Description                   pulumi.StringPtrOutput        `pulumi:"description"`
-	ExcludeAppPackagesFromCleanup pulumi.StringArrayOutput      `pulumi:"excludeAppPackagesFromCleanup"`
-	Name                          pulumi.StringOutput           `pulumi:"name"`
-	PackageCleanup                pulumi.BoolPtrOutput          `pulumi:"packageCleanup"`
-	RebootAfterUse                pulumi.BoolPtrOutput          `pulumi:"rebootAfterUse"`
-	Tags                          InstanceProfileTagArrayOutput `pulumi:"tags"`
+	Arn                           pulumi.StringOutput      `pulumi:"arn"`
+	Description                   pulumi.StringPtrOutput   `pulumi:"description"`
+	ExcludeAppPackagesFromCleanup pulumi.StringArrayOutput `pulumi:"excludeAppPackagesFromCleanup"`
+	Name                          pulumi.StringOutput      `pulumi:"name"`
+	PackageCleanup                pulumi.BoolPtrOutput     `pulumi:"packageCleanup"`
+	RebootAfterUse                pulumi.BoolPtrOutput     `pulumi:"rebootAfterUse"`
+	Tags                          aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewInstanceProfile registers a new resource with the given unique name, arguments, and options.
@@ -64,12 +65,12 @@ func (InstanceProfileState) ElementType() reflect.Type {
 }
 
 type instanceProfileArgs struct {
-	Description                   *string              `pulumi:"description"`
-	ExcludeAppPackagesFromCleanup []string             `pulumi:"excludeAppPackagesFromCleanup"`
-	Name                          *string              `pulumi:"name"`
-	PackageCleanup                *bool                `pulumi:"packageCleanup"`
-	RebootAfterUse                *bool                `pulumi:"rebootAfterUse"`
-	Tags                          []InstanceProfileTag `pulumi:"tags"`
+	Description                   *string   `pulumi:"description"`
+	ExcludeAppPackagesFromCleanup []string  `pulumi:"excludeAppPackagesFromCleanup"`
+	Name                          *string   `pulumi:"name"`
+	PackageCleanup                *bool     `pulumi:"packageCleanup"`
+	RebootAfterUse                *bool     `pulumi:"rebootAfterUse"`
+	Tags                          []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InstanceProfile resource.
@@ -79,7 +80,7 @@ type InstanceProfileArgs struct {
 	Name                          pulumi.StringPtrInput
 	PackageCleanup                pulumi.BoolPtrInput
 	RebootAfterUse                pulumi.BoolPtrInput
-	Tags                          InstanceProfileTagArrayInput
+	Tags                          aws.TagArrayInput
 }
 
 func (InstanceProfileArgs) ElementType() reflect.Type {
@@ -143,8 +144,8 @@ func (o InstanceProfileOutput) RebootAfterUse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.BoolPtrOutput { return v.RebootAfterUse }).(pulumi.BoolPtrOutput)
 }
 
-func (o InstanceProfileOutput) Tags() InstanceProfileTagArrayOutput {
-	return o.ApplyT(func(v *InstanceProfile) InstanceProfileTagArrayOutput { return v.Tags }).(InstanceProfileTagArrayOutput)
+func (o InstanceProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *InstanceProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

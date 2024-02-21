@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type Site struct {
 	// The state of the site.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the site.
-	Tags SiteTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSite registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +89,7 @@ type siteArgs struct {
 	// The location of the site.
 	Location *SiteLocation `pulumi:"location"`
 	// The tags for the site.
-	Tags []SiteTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Site resource.
@@ -100,7 +101,7 @@ type SiteArgs struct {
 	// The location of the site.
 	Location SiteLocationPtrInput
 	// The tags for the site.
-	Tags SiteTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SiteArgs) ElementType() reflect.Type {
@@ -176,8 +177,8 @@ func (o SiteOutput) State() pulumi.StringOutput {
 }
 
 // The tags for the site.
-func (o SiteOutput) Tags() SiteTagArrayOutput {
-	return o.ApplyT(func(v *Site) SiteTagArrayOutput { return v.Tags }).(SiteTagArrayOutput)
+func (o SiteOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Site) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

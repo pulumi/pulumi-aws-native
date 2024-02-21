@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,13 +23,13 @@ class LocationFSxOntapArgs:
                  storage_virtual_machine_arn: pulumi.Input[str],
                  protocol: Optional[pulumi.Input['LocationFSxOntapProtocolArgs']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationFSxOntap resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
         :param pulumi.Input[str] storage_virtual_machine_arn: The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "security_group_arns", security_group_arns)
         pulumi.set(__self__, "storage_virtual_machine_arn", storage_virtual_machine_arn)
@@ -85,14 +87,14 @@ class LocationFSxOntapArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -105,7 +107,7 @@ class LocationFSxOntap(pulumi.CustomResource):
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_virtual_machine_arn: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOntapTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationFSxONTAP.
@@ -115,7 +117,7 @@ class LocationFSxOntap(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
         :param pulumi.Input[str] storage_virtual_machine_arn: The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOntapTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -145,7 +147,7 @@ class LocationFSxOntap(pulumi.CustomResource):
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_virtual_machine_arn: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxOntapTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,7 +258,7 @@ class LocationFSxOntap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationFSxOntapTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

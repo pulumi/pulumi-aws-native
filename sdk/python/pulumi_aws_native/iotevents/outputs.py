@@ -32,7 +32,6 @@ __all__ = [
     'AlarmModelSimpleRule',
     'AlarmModelSns',
     'AlarmModelSqs',
-    'AlarmModelTag',
     'DetectorModelAction',
     'DetectorModelAssetPropertyTimestamp',
     'DetectorModelAssetPropertyValue',
@@ -57,11 +56,9 @@ __all__ = [
     'DetectorModelSns',
     'DetectorModelSqs',
     'DetectorModelState',
-    'DetectorModelTag',
     'DetectorModelTransitionEvent',
     'InputAttribute',
     'InputDefinition',
-    'InputTag',
 ]
 
 @pulumi.output_type
@@ -1284,39 +1281,6 @@ class AlarmModelSqs(dict):
         Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
         """
         return pulumi.get(self, "use_base64")
-
-
-@pulumi.output_type
-class AlarmModelTag(dict):
-    """
-    Tags to be applied to Input.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Tags to be applied to Input.
-        :param str key: Key of the Tag.
-        :param str value: Value of the Tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        Key of the Tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Value of the Tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2807,39 +2771,6 @@ class DetectorModelState(dict):
 
 
 @pulumi.output_type
-class DetectorModelTag(dict):
-    """
-    Tags to be applied to Input.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Tags to be applied to Input.
-        :param str key: Key of the Tag.
-        :param str value: Value of the Tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        Key of the Tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Value of the Tag.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class DetectorModelTransitionEvent(dict):
     """
     Specifies the `actions `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
@@ -2977,38 +2908,5 @@ class InputDefinition(dict):
         The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
         """
         return pulumi.get(self, "attributes")
-
-
-@pulumi.output_type
-class InputTag(dict):
-    """
-    Tags to be applied to Input.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Tags to be applied to Input.
-        :param str key: Key of the Tag.
-        :param str value: Value of the Tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        Key of the Tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Value of the Tag.
-        """
-        return pulumi.get(self, "value")
 
 

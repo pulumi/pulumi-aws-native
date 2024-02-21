@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MonitoringScheduleTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetMonitoringScheduleResult(
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             Pulumi.AwsNative.SageMaker.MonitoringScheduleStatus? monitoringScheduleStatus,
 
-            ImmutableArray<Outputs.MonitoringScheduleTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreationTime = creationTime;
             EndpointName = endpointName;

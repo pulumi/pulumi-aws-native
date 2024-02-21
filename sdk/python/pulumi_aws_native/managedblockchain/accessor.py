@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['AccessorArgs', 'Accessor']
 
@@ -19,10 +19,10 @@ class AccessorArgs:
     def __init__(__self__, *,
                  accessor_type: pulumi.Input['AccessorType'],
                  network_type: Optional[pulumi.Input['AccessorNetworkAccessorType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessorTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Accessor resource.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessorTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "accessor_type", accessor_type)
         if network_type is not None:
@@ -50,14 +50,14 @@ class AccessorArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessorTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessorTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -73,14 +73,14 @@ class Accessor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessor_type: Optional[pulumi.Input['AccessorType']] = None,
                  network_type: Optional[pulumi.Input['AccessorNetworkAccessorType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::ManagedBlockchain::com.amazonaws.taiga.webservice.api#Accessor Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessorTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -108,7 +108,7 @@ class Accessor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessor_type: Optional[pulumi.Input['AccessorType']] = None,
                  network_type: Optional[pulumi.Input['AccessorNetworkAccessorType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Accessor is deprecated: Accessor is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -193,7 +193,7 @@ class Accessor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AccessorTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

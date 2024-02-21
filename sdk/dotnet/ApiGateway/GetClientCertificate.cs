@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClientCertificateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetClientCertificateResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ApiGateway
 
             string? description,
 
-            ImmutableArray<Outputs.ClientCertificateTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ClientCertificateId = clientCertificateId;
             Description = description;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type ServiceNetwork struct {
 	CreatedAt     pulumi.StringOutput             `pulumi:"createdAt"`
 	LastUpdatedAt pulumi.StringOutput             `pulumi:"lastUpdatedAt"`
 	Name          pulumi.StringPtrOutput          `pulumi:"name"`
-	Tags          ServiceNetworkTagArrayOutput    `pulumi:"tags"`
+	Tags          aws.TagArrayOutput              `pulumi:"tags"`
 }
 
 // NewServiceNetwork registers a new resource with the given unique name, arguments, and options.
@@ -69,14 +70,14 @@ func (ServiceNetworkState) ElementType() reflect.Type {
 type serviceNetworkArgs struct {
 	AuthType *ServiceNetworkAuthType `pulumi:"authType"`
 	Name     *string                 `pulumi:"name"`
-	Tags     []ServiceNetworkTag     `pulumi:"tags"`
+	Tags     []aws.Tag               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceNetwork resource.
 type ServiceNetworkArgs struct {
 	AuthType ServiceNetworkAuthTypePtrInput
 	Name     pulumi.StringPtrInput
-	Tags     ServiceNetworkTagArrayInput
+	Tags     aws.TagArrayInput
 }
 
 func (ServiceNetworkArgs) ElementType() reflect.Type {
@@ -136,8 +137,8 @@ func (o ServiceNetworkOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceNetworkOutput) Tags() ServiceNetworkTagArrayOutput {
-	return o.ApplyT(func(v *ServiceNetwork) ServiceNetworkTagArrayOutput { return v.Tags }).(ServiceNetworkTagArrayOutput)
+func (o ServiceNetworkOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ServiceNetwork) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

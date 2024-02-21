@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,18 +28,18 @@ type LookupNetworkProfileArgs struct {
 }
 
 type LookupNetworkProfileResult struct {
-	Arn                   *string             `pulumi:"arn"`
-	Description           *string             `pulumi:"description"`
-	DownlinkBandwidthBits *int                `pulumi:"downlinkBandwidthBits"`
-	DownlinkDelayMs       *int                `pulumi:"downlinkDelayMs"`
-	DownlinkJitterMs      *int                `pulumi:"downlinkJitterMs"`
-	DownlinkLossPercent   *int                `pulumi:"downlinkLossPercent"`
-	Name                  *string             `pulumi:"name"`
-	Tags                  []NetworkProfileTag `pulumi:"tags"`
-	UplinkBandwidthBits   *int                `pulumi:"uplinkBandwidthBits"`
-	UplinkDelayMs         *int                `pulumi:"uplinkDelayMs"`
-	UplinkJitterMs        *int                `pulumi:"uplinkJitterMs"`
-	UplinkLossPercent     *int                `pulumi:"uplinkLossPercent"`
+	Arn                   *string   `pulumi:"arn"`
+	Description           *string   `pulumi:"description"`
+	DownlinkBandwidthBits *int      `pulumi:"downlinkBandwidthBits"`
+	DownlinkDelayMs       *int      `pulumi:"downlinkDelayMs"`
+	DownlinkJitterMs      *int      `pulumi:"downlinkJitterMs"`
+	DownlinkLossPercent   *int      `pulumi:"downlinkLossPercent"`
+	Name                  *string   `pulumi:"name"`
+	Tags                  []aws.Tag `pulumi:"tags"`
+	UplinkBandwidthBits   *int      `pulumi:"uplinkBandwidthBits"`
+	UplinkDelayMs         *int      `pulumi:"uplinkDelayMs"`
+	UplinkJitterMs        *int      `pulumi:"uplinkJitterMs"`
+	UplinkLossPercent     *int      `pulumi:"uplinkLossPercent"`
 }
 
 func LookupNetworkProfileOutput(ctx *pulumi.Context, args LookupNetworkProfileOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkProfileResultOutput {
@@ -104,8 +105,8 @@ func (o LookupNetworkProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupNetworkProfileResultOutput) Tags() NetworkProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupNetworkProfileResult) []NetworkProfileTag { return v.Tags }).(NetworkProfileTagArrayOutput)
+func (o LookupNetworkProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNetworkProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupNetworkProfileResultOutput) UplinkBandwidthBits() pulumi.IntPtrOutput {

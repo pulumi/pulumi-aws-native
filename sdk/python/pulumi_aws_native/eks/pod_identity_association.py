@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['PodIdentityAssociationArgs', 'PodIdentityAssociation']
 
@@ -20,14 +20,14 @@ class PodIdentityAssociationArgs:
                  namespace: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  service_account: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PodIdentityAssociationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PodIdentityAssociation resource.
         :param pulumi.Input[str] cluster_name: The cluster that the pod identity association is created for.
         :param pulumi.Input[str] namespace: The Kubernetes namespace that the pod identity association is created for.
         :param pulumi.Input[str] role_arn: The IAM role ARN that the pod identity association is created for.
         :param pulumi.Input[str] service_account: The Kubernetes service account that the pod identity association is created for.
-        :param pulumi.Input[Sequence[pulumi.Input['PodIdentityAssociationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "namespace", namespace)
@@ -86,14 +86,14 @@ class PodIdentityAssociationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PodIdentityAssociationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PodIdentityAssociationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -106,7 +106,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  service_account: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PodIdentityAssociationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         An object representing an Amazon EKS PodIdentityAssociation.
@@ -117,7 +117,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] namespace: The Kubernetes namespace that the pod identity association is created for.
         :param pulumi.Input[str] role_arn: The IAM role ARN that the pod identity association is created for.
         :param pulumi.Input[str] service_account: The Kubernetes service account that the pod identity association is created for.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PodIdentityAssociationTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -147,7 +147,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  service_account: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PodIdentityAssociationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -255,7 +255,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PodIdentityAssociationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

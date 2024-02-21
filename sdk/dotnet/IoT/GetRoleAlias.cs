@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.IoT
         public readonly int? CredentialDurationSeconds;
         public readonly string? RoleAliasArn;
         public readonly string? RoleArn;
-        public readonly ImmutableArray<Outputs.RoleAliasTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRoleAliasResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? roleArn,
 
-            ImmutableArray<Outputs.RoleAliasTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CredentialDurationSeconds = credentialDurationSeconds;
             RoleAliasArn = roleAliasArn;

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type FargateProfile struct {
 	Selectors           FargateProfileSelectorArrayOutput `pulumi:"selectors"`
 	Subnets             pulumi.StringArrayOutput          `pulumi:"subnets"`
 	// An array of key-value pairs to apply to this resource.
-	Tags FargateProfileTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFargateProfile registers a new resource with the given unique name, arguments, and options.
@@ -95,7 +96,7 @@ type fargateProfileArgs struct {
 	Selectors           []FargateProfileSelector `pulumi:"selectors"`
 	Subnets             []string                 `pulumi:"subnets"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []FargateProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FargateProfile resource.
@@ -109,7 +110,7 @@ type FargateProfileArgs struct {
 	Selectors           FargateProfileSelectorArrayInput
 	Subnets             pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags FargateProfileTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (FargateProfileArgs) ElementType() reflect.Type {
@@ -177,8 +178,8 @@ func (o FargateProfileOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o FargateProfileOutput) Tags() FargateProfileTagArrayOutput {
-	return o.ApplyT(func(v *FargateProfile) FargateProfileTagArrayOutput { return v.Tags }).(FargateProfileTagArrayOutput)
+func (o FargateProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FargateProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

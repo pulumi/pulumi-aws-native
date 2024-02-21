@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,7 +47,7 @@ type LookupOriginEndpointResult struct {
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
 	StartoverWindowSeconds *int `pulumi:"startoverWindowSeconds"`
 	// A collection of tags associated with a resource
-	Tags []OriginEndpointTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
 	TimeDelaySeconds *int `pulumi:"timeDelaySeconds"`
 	// The URL of the packaged OriginEndpoint for consumption.
@@ -142,8 +143,8 @@ func (o LookupOriginEndpointResultOutput) StartoverWindowSeconds() pulumi.IntPtr
 }
 
 // A collection of tags associated with a resource
-func (o LookupOriginEndpointResultOutput) Tags() OriginEndpointTagArrayOutput {
-	return o.ApplyT(func(v LookupOriginEndpointResult) []OriginEndpointTag { return v.Tags }).(OriginEndpointTagArrayOutput)
+func (o LookupOriginEndpointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupOriginEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.

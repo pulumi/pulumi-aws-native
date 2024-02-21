@@ -47,7 +47,7 @@ export class Firewall extends pulumi.CustomResource {
     public readonly firewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
     public readonly subnetChangeProtection!: pulumi.Output<boolean | undefined>;
     public readonly subnetMappings!: pulumi.Output<outputs.networkfirewall.FirewallSubnetMapping[]>;
-    public readonly tags!: pulumi.Output<outputs.networkfirewall.FirewallTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -114,6 +114,6 @@ export interface FirewallArgs {
     firewallPolicyChangeProtection?: pulumi.Input<boolean>;
     subnetChangeProtection?: pulumi.Input<boolean>;
     subnetMappings: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMappingArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcId: pulumi.Input<string>;
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupIntegrationResult struct {
 	// The ARN of the integration.
 	IntegrationArn *string `pulumi:"integrationArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IntegrationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIntegrationOutput(ctx *pulumi.Context, args LookupIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationResultOutput {
@@ -81,8 +82,8 @@ func (o LookupIntegrationResultOutput) IntegrationArn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupIntegrationResultOutput) Tags() IntegrationTagArrayOutput {
-	return o.ApplyT(func(v LookupIntegrationResult) []IntegrationTag { return v.Tags }).(IntegrationTagArrayOutput)
+func (o LookupIntegrationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIntegrationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

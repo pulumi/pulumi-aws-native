@@ -13,7 +13,6 @@ from ._enums import *
 __all__ = [
     'CapacityProviderAutoScalingGroupProviderArgs',
     'CapacityProviderManagedScalingArgs',
-    'CapacityProviderTagArgs',
     'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs',
     'ClusterCapacityProviderStrategyItemArgs',
     'ClusterConfigurationArgs',
@@ -21,7 +20,6 @@ __all__ = [
     'ClusterExecuteCommandLogConfigurationArgs',
     'ClusterServiceConnectDefaultsArgs',
     'ClusterSettingsArgs',
-    'ClusterTagArgs',
     'ServiceAwsVpcConfigurationArgs',
     'ServiceCapacityProviderStrategyItemArgs',
     'ServiceConnectClientAliasArgs',
@@ -71,7 +69,6 @@ __all__ = [
     'TaskDefinitionRuntimePlatformArgs',
     'TaskDefinitionSecretArgs',
     'TaskDefinitionSystemControlArgs',
-    'TaskDefinitionTagArgs',
     'TaskDefinitionTmpfsArgs',
     'TaskDefinitionUlimitArgs',
     'TaskDefinitionVolumeFromArgs',
@@ -201,35 +198,6 @@ class CapacityProviderManagedScalingArgs:
     @target_capacity.setter
     def target_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_capacity", value)
-
-
-@pulumi.input_type
-class CapacityProviderTagArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -493,38 +461,6 @@ class ClusterSettingsArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class ClusterTagArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
@@ -2930,35 +2866,6 @@ class TaskDefinitionSystemControlArgs:
     @namespace.setter
     def namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "namespace", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class TaskDefinitionTagArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter

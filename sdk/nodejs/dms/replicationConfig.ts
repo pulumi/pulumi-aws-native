@@ -79,7 +79,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.dms.ReplicationConfigTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
      */
@@ -173,7 +173,7 @@ export interface ReplicationConfigArgs {
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.dms.ReplicationConfigTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
      */

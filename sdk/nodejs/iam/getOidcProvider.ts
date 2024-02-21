@@ -31,7 +31,7 @@ export interface GetOidcProviderResult {
      */
     readonly arn?: string;
     readonly clientIdList?: string[];
-    readonly tags?: outputs.iam.OidcProviderTag[];
+    readonly tags?: outputs.Tag[];
     readonly thumbprintList?: string[];
 }
 /**

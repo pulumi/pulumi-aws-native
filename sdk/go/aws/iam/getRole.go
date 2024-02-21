@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,7 +48,7 @@ type LookupRoleResult struct {
 	// The stable and unique string identifying the role.
 	RoleId *string `pulumi:"roleId"`
 	// A list of tags that are attached to the role.
-	Tags []RoleTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRoleOutput(ctx *pulumi.Context, args LookupRoleOutputArgs, opts ...pulumi.InvokeOption) LookupRoleResultOutput {
@@ -129,8 +130,8 @@ func (o LookupRoleResultOutput) RoleId() pulumi.StringPtrOutput {
 }
 
 // A list of tags that are attached to the role.
-func (o LookupRoleResultOutput) Tags() RoleTagArrayOutput {
-	return o.ApplyT(func(v LookupRoleResult) []RoleTag { return v.Tags }).(RoleTagArrayOutput)
+func (o LookupRoleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRoleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

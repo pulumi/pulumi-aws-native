@@ -49,7 +49,7 @@ export class VpcConnection extends pulumi.CustomResource {
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.quicksight.VpcConnectionVpcConnectionResourceStatus>;
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.quicksight.VpcConnectionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcConnectionId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
@@ -114,6 +114,6 @@ export interface VpcConnectionArgs {
     roleArn?: pulumi.Input<string>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.VpcConnectionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcConnectionId?: pulumi.Input<string>;
 }

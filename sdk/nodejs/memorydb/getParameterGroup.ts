@@ -33,7 +33,7 @@ export interface GetParameterGroupResult {
     /**
      * An array of key-value pairs to apply to this parameter group.
      */
-    readonly tags?: outputs.memorydb.ParameterGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -51,7 +52,7 @@ type LookupApplicationResult struct {
 	// The AWS SSO application generated client ID (used with AWS SSO APIs).
 	SsoClientId *string `pulumi:"ssoClientId"`
 	// A list of key-value pairs that contain metadata for the application.
-	Tags []ApplicationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -146,8 +147,8 @@ func (o LookupApplicationResultOutput) SsoClientId() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the application.
-func (o LookupApplicationResultOutput) Tags() ApplicationTagArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []ApplicationTag { return v.Tags }).(ApplicationTagArrayOutput)
+func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

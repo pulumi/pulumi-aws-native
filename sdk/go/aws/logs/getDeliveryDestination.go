@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupDeliveryDestinationResult struct {
 	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 	DeliveryDestinationType *string `pulumi:"deliveryDestinationType"`
 	// The tags that have been assigned to this delivery destination.
-	Tags []DeliveryDestinationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDeliveryDestinationOutput(ctx *pulumi.Context, args LookupDeliveryDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupDeliveryDestinationResultOutput {
@@ -104,8 +105,8 @@ func (o LookupDeliveryDestinationResultOutput) DeliveryDestinationType() pulumi.
 }
 
 // The tags that have been assigned to this delivery destination.
-func (o LookupDeliveryDestinationResultOutput) Tags() DeliveryDestinationTagArrayOutput {
-	return o.ApplyT(func(v LookupDeliveryDestinationResult) []DeliveryDestinationTag { return v.Tags }).(DeliveryDestinationTagArrayOutput)
+func (o LookupDeliveryDestinationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDeliveryDestinationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

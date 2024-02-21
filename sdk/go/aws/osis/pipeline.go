@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type Pipeline struct {
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags PipelineTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The VPC interface endpoints that have access to the pipeline.
 	VpcEndpoints PipelineVpcEndpointArrayOutput `pulumi:"vpcEndpoints"`
 	VpcOptions   PipelineVpcOptionsPtrOutput    `pulumi:"vpcOptions"`
@@ -103,7 +104,7 @@ type pipelineArgs struct {
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName *string `pulumi:"pipelineName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []PipelineTag       `pulumi:"tags"`
+	Tags       []aws.Tag           `pulumi:"tags"`
 	VpcOptions *PipelineVpcOptions `pulumi:"vpcOptions"`
 }
 
@@ -121,7 +122,7 @@ type PipelineArgs struct {
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags       PipelineTagArrayInput
+	Tags       aws.TagArrayInput
 	VpcOptions PipelineVpcOptionsPtrInput
 }
 
@@ -205,8 +206,8 @@ func (o PipelineOutput) PipelineName() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o PipelineOutput) Tags() PipelineTagArrayOutput {
-	return o.ApplyT(func(v *Pipeline) PipelineTagArrayOutput { return v.Tags }).(PipelineTagArrayOutput)
+func (o PipelineOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Pipeline) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The VPC interface endpoints that have access to the pipeline.

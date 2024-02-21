@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.MediaStore
         public readonly string? LifecyclePolicy;
         public readonly Outputs.ContainerMetricPolicy? MetricPolicy;
         public readonly string? Policy;
-        public readonly ImmutableArray<Outputs.ContainerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetContainerResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.MediaStore
 
             string? policy,
 
-            ImmutableArray<Outputs.ContainerTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AccessLoggingEnabled = accessLoggingEnabled;
             CorsPolicy = corsPolicy;

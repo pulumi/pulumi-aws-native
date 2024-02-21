@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The tags for the device.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DeviceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The device type.
@@ -191,14 +191,14 @@ namespace Pulumi.AwsNative.NetworkManager
         public Input<string>? SiteId { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DeviceTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the device.
         /// </summary>
-        public InputList<Inputs.DeviceTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DeviceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

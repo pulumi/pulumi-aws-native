@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type PartnerAccount struct {
 	// The Sidewalk account credentials.
 	SidewalkUpdate PartnerAccountSidewalkUpdateAccountPtrOutput `pulumi:"sidewalkUpdate"`
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags PartnerAccountTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPartnerAccount registers a new resource with the given unique name, arguments, and options.
@@ -94,7 +95,7 @@ type partnerAccountArgs struct {
 	// The Sidewalk account credentials.
 	SidewalkUpdate *PartnerAccountSidewalkUpdateAccount `pulumi:"sidewalkUpdate"`
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags []PartnerAccountTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PartnerAccount resource.
@@ -112,7 +113,7 @@ type PartnerAccountArgs struct {
 	// The Sidewalk account credentials.
 	SidewalkUpdate PartnerAccountSidewalkUpdateAccountPtrInput
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags PartnerAccountTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (PartnerAccountArgs) ElementType() reflect.Type {
@@ -195,8 +196,8 @@ func (o PartnerAccountOutput) SidewalkUpdate() PartnerAccountSidewalkUpdateAccou
 }
 
 // A list of key-value pairs that contain metadata for the destination.
-func (o PartnerAccountOutput) Tags() PartnerAccountTagArrayOutput {
-	return o.ApplyT(func(v *PartnerAccount) PartnerAccountTagArrayOutput { return v.Tags }).(PartnerAccountTagArrayOutput)
+func (o PartnerAccountOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PartnerAccount) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

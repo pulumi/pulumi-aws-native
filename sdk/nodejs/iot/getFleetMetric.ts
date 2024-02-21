@@ -66,7 +66,7 @@ export interface GetFleetMetricResult {
     /**
      * An array of key-value pairs to apply to this resource
      */
-    readonly tags?: outputs.iot.FleetMetricTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The unit of data points emitted by a fleet metric
      */

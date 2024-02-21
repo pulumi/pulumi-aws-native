@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.AppStream
         public Output<Outputs.StackStreamingExperienceSettings?> StreamingExperienceSettings { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.StackTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("userSettings")]
         public Output<ImmutableArray<Outputs.StackUserSetting>> UserSettings { get; private set; } = null!;
@@ -164,10 +164,10 @@ namespace Pulumi.AwsNative.AppStream
         public Input<Inputs.StackStreamingExperienceSettingsArgs>? StreamingExperienceSettings { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.StackTagArgs>? _tags;
-        public InputList<Inputs.StackTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.StackTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

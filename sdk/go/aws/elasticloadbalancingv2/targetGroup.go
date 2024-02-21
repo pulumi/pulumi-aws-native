@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,7 +45,7 @@ type TargetGroup struct {
 	// [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
 	ProtocolVersion pulumi.StringPtrOutput `pulumi:"protocolVersion"`
 	// The tags.
-	Tags TargetGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the Target Group
 	TargetGroupArn pulumi.StringOutput `pulumi:"targetGroupArn"`
 	// The attributes.
@@ -140,7 +141,7 @@ type targetGroupArgs struct {
 	// [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
 	ProtocolVersion *string `pulumi:"protocolVersion"`
 	// The tags.
-	Tags []TargetGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The attributes.
 	TargetGroupAttributes []TargetGroupAttribute `pulumi:"targetGroupAttributes"`
 	// The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
@@ -182,7 +183,7 @@ type TargetGroupArgs struct {
 	// [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
 	ProtocolVersion pulumi.StringPtrInput
 	// The tags.
-	Tags TargetGroupTagArrayInput
+	Tags aws.TagArrayInput
 	// The attributes.
 	TargetGroupAttributes TargetGroupAttributeArrayInput
 	// The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
@@ -303,8 +304,8 @@ func (o TargetGroupOutput) ProtocolVersion() pulumi.StringPtrOutput {
 }
 
 // The tags.
-func (o TargetGroupOutput) Tags() TargetGroupTagArrayOutput {
-	return o.ApplyT(func(v *TargetGroup) TargetGroupTagArrayOutput { return v.Tags }).(TargetGroupTagArrayOutput)
+func (o TargetGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TargetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the Target Group

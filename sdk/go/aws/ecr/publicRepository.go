@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type PublicRepository struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
 	RepositoryPolicyText pulumi.AnyOutput `pulumi:"repositoryPolicyText"`
 	// An array of key-value pairs to apply to this resource.
-	Tags PublicRepositoryTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPublicRepository registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +84,7 @@ type publicRepositoryArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
 	RepositoryPolicyText interface{} `pulumi:"repositoryPolicyText"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []PublicRepositoryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PublicRepository resource.
@@ -97,7 +98,7 @@ type PublicRepositoryArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
 	RepositoryPolicyText pulumi.Input
 	// An array of key-value pairs to apply to this resource.
-	Tags PublicRepositoryTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (PublicRepositoryArgs) ElementType() reflect.Type {
@@ -159,8 +160,8 @@ func (o PublicRepositoryOutput) RepositoryPolicyText() pulumi.AnyOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o PublicRepositoryOutput) Tags() PublicRepositoryTagArrayOutput {
-	return o.ApplyT(func(v *PublicRepository) PublicRepositoryTagArrayOutput { return v.Tags }).(PublicRepositoryTagArrayOutput)
+func (o PublicRepositoryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PublicRepository) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

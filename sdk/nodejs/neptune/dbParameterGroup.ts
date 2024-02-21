@@ -47,7 +47,7 @@ export class DbParameterGroup extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
      */
     public readonly parameters!: pulumi.Output<any>;
-    public readonly tags!: pulumi.Output<outputs.neptune.DbParameterGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbParameterGroup resource with the given unique name, arguments, and options.
@@ -101,5 +101,5 @@ export interface DbParameterGroupArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
      */
     parameters: any;
-    tags?: pulumi.Input<pulumi.Input<inputs.neptune.DbParameterGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

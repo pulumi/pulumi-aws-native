@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -63,7 +64,7 @@ type LookupBucketResult struct {
 	// Configuration for replicating objects in an S3 bucket.
 	ReplicationConfiguration *BucketReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
-	Tags                    []BucketTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                      `pulumi:"tags"`
 	VersioningConfiguration *BucketVersioningConfiguration `pulumi:"versioningConfiguration"`
 	WebsiteConfiguration    *BucketWebsiteConfiguration    `pulumi:"websiteConfiguration"`
 	// The Amazon S3 website endpoint for the specified bucket.
@@ -199,8 +200,8 @@ func (o LookupBucketResultOutput) ReplicationConfiguration() BucketReplicationCo
 }
 
 // An arbitrary set of tags (key-value pairs) for this S3 bucket.
-func (o LookupBucketResultOutput) Tags() BucketTagArrayOutput {
-	return o.ApplyT(func(v LookupBucketResult) []BucketTag { return v.Tags }).(BucketTagArrayOutput)
+func (o LookupBucketResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBucketResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupBucketResultOutput) VersioningConfiguration() BucketVersioningConfigurationPtrOutput {

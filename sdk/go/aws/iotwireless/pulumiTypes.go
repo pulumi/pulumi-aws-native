@@ -18,101 +18,6 @@ type DestinationTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// DestinationTagInput is an input type that accepts DestinationTagArgs and DestinationTagOutput values.
-// You can construct a concrete instance of `DestinationTagInput` via:
-//
-//	DestinationTagArgs{...}
-type DestinationTagInput interface {
-	pulumi.Input
-
-	ToDestinationTagOutput() DestinationTagOutput
-	ToDestinationTagOutputWithContext(context.Context) DestinationTagOutput
-}
-
-type DestinationTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (DestinationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DestinationTag)(nil)).Elem()
-}
-
-func (i DestinationTagArgs) ToDestinationTagOutput() DestinationTagOutput {
-	return i.ToDestinationTagOutputWithContext(context.Background())
-}
-
-func (i DestinationTagArgs) ToDestinationTagOutputWithContext(ctx context.Context) DestinationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DestinationTagOutput)
-}
-
-// DestinationTagArrayInput is an input type that accepts DestinationTagArray and DestinationTagArrayOutput values.
-// You can construct a concrete instance of `DestinationTagArrayInput` via:
-//
-//	DestinationTagArray{ DestinationTagArgs{...} }
-type DestinationTagArrayInput interface {
-	pulumi.Input
-
-	ToDestinationTagArrayOutput() DestinationTagArrayOutput
-	ToDestinationTagArrayOutputWithContext(context.Context) DestinationTagArrayOutput
-}
-
-type DestinationTagArray []DestinationTagInput
-
-func (DestinationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DestinationTag)(nil)).Elem()
-}
-
-func (i DestinationTagArray) ToDestinationTagArrayOutput() DestinationTagArrayOutput {
-	return i.ToDestinationTagArrayOutputWithContext(context.Background())
-}
-
-func (i DestinationTagArray) ToDestinationTagArrayOutputWithContext(ctx context.Context) DestinationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DestinationTagArrayOutput)
-}
-
-type DestinationTagOutput struct{ *pulumi.OutputState }
-
-func (DestinationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DestinationTag)(nil)).Elem()
-}
-
-func (o DestinationTagOutput) ToDestinationTagOutput() DestinationTagOutput {
-	return o
-}
-
-func (o DestinationTagOutput) ToDestinationTagOutputWithContext(ctx context.Context) DestinationTagOutput {
-	return o
-}
-
-func (o DestinationTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DestinationTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o DestinationTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DestinationTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type DestinationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DestinationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DestinationTag)(nil)).Elem()
-}
-
-func (o DestinationTagArrayOutput) ToDestinationTagArrayOutput() DestinationTagArrayOutput {
-	return o
-}
-
-func (o DestinationTagArrayOutput) ToDestinationTagArrayOutputWithContext(ctx context.Context) DestinationTagArrayOutput {
-	return o
-}
-
-func (o DestinationTagArrayOutput) Index(i pulumi.IntInput) DestinationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DestinationTag {
-		return vs[0].([]DestinationTag)[vs[1].(int)]
-	}).(DestinationTagOutput)
-}
-
 type DeviceProfileLoRaWanDeviceProfile struct {
 	ClassBTimeout          *int    `pulumi:"classBTimeout"`
 	ClassCTimeout          *int    `pulumi:"classCTimeout"`
@@ -521,101 +426,6 @@ type DeviceProfileTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// DeviceProfileTagInput is an input type that accepts DeviceProfileTagArgs and DeviceProfileTagOutput values.
-// You can construct a concrete instance of `DeviceProfileTagInput` via:
-//
-//	DeviceProfileTagArgs{...}
-type DeviceProfileTagInput interface {
-	pulumi.Input
-
-	ToDeviceProfileTagOutput() DeviceProfileTagOutput
-	ToDeviceProfileTagOutputWithContext(context.Context) DeviceProfileTagOutput
-}
-
-type DeviceProfileTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (DeviceProfileTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceProfileTag)(nil)).Elem()
-}
-
-func (i DeviceProfileTagArgs) ToDeviceProfileTagOutput() DeviceProfileTagOutput {
-	return i.ToDeviceProfileTagOutputWithContext(context.Background())
-}
-
-func (i DeviceProfileTagArgs) ToDeviceProfileTagOutputWithContext(ctx context.Context) DeviceProfileTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileTagOutput)
-}
-
-// DeviceProfileTagArrayInput is an input type that accepts DeviceProfileTagArray and DeviceProfileTagArrayOutput values.
-// You can construct a concrete instance of `DeviceProfileTagArrayInput` via:
-//
-//	DeviceProfileTagArray{ DeviceProfileTagArgs{...} }
-type DeviceProfileTagArrayInput interface {
-	pulumi.Input
-
-	ToDeviceProfileTagArrayOutput() DeviceProfileTagArrayOutput
-	ToDeviceProfileTagArrayOutputWithContext(context.Context) DeviceProfileTagArrayOutput
-}
-
-type DeviceProfileTagArray []DeviceProfileTagInput
-
-func (DeviceProfileTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeviceProfileTag)(nil)).Elem()
-}
-
-func (i DeviceProfileTagArray) ToDeviceProfileTagArrayOutput() DeviceProfileTagArrayOutput {
-	return i.ToDeviceProfileTagArrayOutputWithContext(context.Background())
-}
-
-func (i DeviceProfileTagArray) ToDeviceProfileTagArrayOutputWithContext(ctx context.Context) DeviceProfileTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileTagArrayOutput)
-}
-
-type DeviceProfileTagOutput struct{ *pulumi.OutputState }
-
-func (DeviceProfileTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceProfileTag)(nil)).Elem()
-}
-
-func (o DeviceProfileTagOutput) ToDeviceProfileTagOutput() DeviceProfileTagOutput {
-	return o
-}
-
-func (o DeviceProfileTagOutput) ToDeviceProfileTagOutputWithContext(ctx context.Context) DeviceProfileTagOutput {
-	return o
-}
-
-func (o DeviceProfileTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceProfileTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o DeviceProfileTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceProfileTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type DeviceProfileTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DeviceProfileTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeviceProfileTag)(nil)).Elem()
-}
-
-func (o DeviceProfileTagArrayOutput) ToDeviceProfileTagArrayOutput() DeviceProfileTagArrayOutput {
-	return o
-}
-
-func (o DeviceProfileTagArrayOutput) ToDeviceProfileTagArrayOutputWithContext(ctx context.Context) DeviceProfileTagArrayOutput {
-	return o
-}
-
-func (o DeviceProfileTagArrayOutput) Index(i pulumi.IntInput) DeviceProfileTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceProfileTag {
-		return vs[0].([]DeviceProfileTag)[vs[1].(int)]
-	}).(DeviceProfileTagOutput)
-}
-
 type FuotaTaskLoRaWan struct {
 	// FUOTA task LoRaWAN RF region
 	RfRegion string `pulumi:"rfRegion"`
@@ -724,101 +534,6 @@ func (o FuotaTaskLoRaWanPtrOutput) StartTime() pulumi.StringPtrOutput {
 type FuotaTaskTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
-}
-
-// FuotaTaskTagInput is an input type that accepts FuotaTaskTagArgs and FuotaTaskTagOutput values.
-// You can construct a concrete instance of `FuotaTaskTagInput` via:
-//
-//	FuotaTaskTagArgs{...}
-type FuotaTaskTagInput interface {
-	pulumi.Input
-
-	ToFuotaTaskTagOutput() FuotaTaskTagOutput
-	ToFuotaTaskTagOutputWithContext(context.Context) FuotaTaskTagOutput
-}
-
-type FuotaTaskTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (FuotaTaskTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FuotaTaskTag)(nil)).Elem()
-}
-
-func (i FuotaTaskTagArgs) ToFuotaTaskTagOutput() FuotaTaskTagOutput {
-	return i.ToFuotaTaskTagOutputWithContext(context.Background())
-}
-
-func (i FuotaTaskTagArgs) ToFuotaTaskTagOutputWithContext(ctx context.Context) FuotaTaskTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskTagOutput)
-}
-
-// FuotaTaskTagArrayInput is an input type that accepts FuotaTaskTagArray and FuotaTaskTagArrayOutput values.
-// You can construct a concrete instance of `FuotaTaskTagArrayInput` via:
-//
-//	FuotaTaskTagArray{ FuotaTaskTagArgs{...} }
-type FuotaTaskTagArrayInput interface {
-	pulumi.Input
-
-	ToFuotaTaskTagArrayOutput() FuotaTaskTagArrayOutput
-	ToFuotaTaskTagArrayOutputWithContext(context.Context) FuotaTaskTagArrayOutput
-}
-
-type FuotaTaskTagArray []FuotaTaskTagInput
-
-func (FuotaTaskTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FuotaTaskTag)(nil)).Elem()
-}
-
-func (i FuotaTaskTagArray) ToFuotaTaskTagArrayOutput() FuotaTaskTagArrayOutput {
-	return i.ToFuotaTaskTagArrayOutputWithContext(context.Background())
-}
-
-func (i FuotaTaskTagArray) ToFuotaTaskTagArrayOutputWithContext(ctx context.Context) FuotaTaskTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskTagArrayOutput)
-}
-
-type FuotaTaskTagOutput struct{ *pulumi.OutputState }
-
-func (FuotaTaskTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FuotaTaskTag)(nil)).Elem()
-}
-
-func (o FuotaTaskTagOutput) ToFuotaTaskTagOutput() FuotaTaskTagOutput {
-	return o
-}
-
-func (o FuotaTaskTagOutput) ToFuotaTaskTagOutputWithContext(ctx context.Context) FuotaTaskTagOutput {
-	return o
-}
-
-func (o FuotaTaskTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FuotaTaskTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o FuotaTaskTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FuotaTaskTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type FuotaTaskTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FuotaTaskTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FuotaTaskTag)(nil)).Elem()
-}
-
-func (o FuotaTaskTagArrayOutput) ToFuotaTaskTagArrayOutput() FuotaTaskTagArrayOutput {
-	return o
-}
-
-func (o FuotaTaskTagArrayOutput) ToFuotaTaskTagArrayOutputWithContext(ctx context.Context) FuotaTaskTagArrayOutput {
-	return o
-}
-
-func (o FuotaTaskTagArrayOutput) Index(i pulumi.IntInput) FuotaTaskTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FuotaTaskTag {
-		return vs[0].([]FuotaTaskTag)[vs[1].(int)]
-	}).(FuotaTaskTagOutput)
 }
 
 type MulticastGroupLoRaWan struct {
@@ -967,101 +682,6 @@ func (o MulticastGroupLoRaWanPtrOutput) RfRegion() pulumi.StringPtrOutput {
 type MulticastGroupTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
-}
-
-// MulticastGroupTagInput is an input type that accepts MulticastGroupTagArgs and MulticastGroupTagOutput values.
-// You can construct a concrete instance of `MulticastGroupTagInput` via:
-//
-//	MulticastGroupTagArgs{...}
-type MulticastGroupTagInput interface {
-	pulumi.Input
-
-	ToMulticastGroupTagOutput() MulticastGroupTagOutput
-	ToMulticastGroupTagOutputWithContext(context.Context) MulticastGroupTagOutput
-}
-
-type MulticastGroupTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (MulticastGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MulticastGroupTag)(nil)).Elem()
-}
-
-func (i MulticastGroupTagArgs) ToMulticastGroupTagOutput() MulticastGroupTagOutput {
-	return i.ToMulticastGroupTagOutputWithContext(context.Background())
-}
-
-func (i MulticastGroupTagArgs) ToMulticastGroupTagOutputWithContext(ctx context.Context) MulticastGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupTagOutput)
-}
-
-// MulticastGroupTagArrayInput is an input type that accepts MulticastGroupTagArray and MulticastGroupTagArrayOutput values.
-// You can construct a concrete instance of `MulticastGroupTagArrayInput` via:
-//
-//	MulticastGroupTagArray{ MulticastGroupTagArgs{...} }
-type MulticastGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToMulticastGroupTagArrayOutput() MulticastGroupTagArrayOutput
-	ToMulticastGroupTagArrayOutputWithContext(context.Context) MulticastGroupTagArrayOutput
-}
-
-type MulticastGroupTagArray []MulticastGroupTagInput
-
-func (MulticastGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MulticastGroupTag)(nil)).Elem()
-}
-
-func (i MulticastGroupTagArray) ToMulticastGroupTagArrayOutput() MulticastGroupTagArrayOutput {
-	return i.ToMulticastGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i MulticastGroupTagArray) ToMulticastGroupTagArrayOutputWithContext(ctx context.Context) MulticastGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupTagArrayOutput)
-}
-
-type MulticastGroupTagOutput struct{ *pulumi.OutputState }
-
-func (MulticastGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MulticastGroupTag)(nil)).Elem()
-}
-
-func (o MulticastGroupTagOutput) ToMulticastGroupTagOutput() MulticastGroupTagOutput {
-	return o
-}
-
-func (o MulticastGroupTagOutput) ToMulticastGroupTagOutputWithContext(ctx context.Context) MulticastGroupTagOutput {
-	return o
-}
-
-func (o MulticastGroupTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MulticastGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o MulticastGroupTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MulticastGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type MulticastGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (MulticastGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MulticastGroupTag)(nil)).Elem()
-}
-
-func (o MulticastGroupTagArrayOutput) ToMulticastGroupTagArrayOutput() MulticastGroupTagArrayOutput {
-	return o
-}
-
-func (o MulticastGroupTagArrayOutput) ToMulticastGroupTagArrayOutputWithContext(ctx context.Context) MulticastGroupTagArrayOutput {
-	return o
-}
-
-func (o MulticastGroupTagArrayOutput) Index(i pulumi.IntInput) MulticastGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MulticastGroupTag {
-		return vs[0].([]MulticastGroupTag)[vs[1].(int)]
-	}).(MulticastGroupTagOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1607,101 +1227,6 @@ type PartnerAccountTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// PartnerAccountTagInput is an input type that accepts PartnerAccountTagArgs and PartnerAccountTagOutput values.
-// You can construct a concrete instance of `PartnerAccountTagInput` via:
-//
-//	PartnerAccountTagArgs{...}
-type PartnerAccountTagInput interface {
-	pulumi.Input
-
-	ToPartnerAccountTagOutput() PartnerAccountTagOutput
-	ToPartnerAccountTagOutputWithContext(context.Context) PartnerAccountTagOutput
-}
-
-type PartnerAccountTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (PartnerAccountTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerAccountTag)(nil)).Elem()
-}
-
-func (i PartnerAccountTagArgs) ToPartnerAccountTagOutput() PartnerAccountTagOutput {
-	return i.ToPartnerAccountTagOutputWithContext(context.Background())
-}
-
-func (i PartnerAccountTagArgs) ToPartnerAccountTagOutputWithContext(ctx context.Context) PartnerAccountTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountTagOutput)
-}
-
-// PartnerAccountTagArrayInput is an input type that accepts PartnerAccountTagArray and PartnerAccountTagArrayOutput values.
-// You can construct a concrete instance of `PartnerAccountTagArrayInput` via:
-//
-//	PartnerAccountTagArray{ PartnerAccountTagArgs{...} }
-type PartnerAccountTagArrayInput interface {
-	pulumi.Input
-
-	ToPartnerAccountTagArrayOutput() PartnerAccountTagArrayOutput
-	ToPartnerAccountTagArrayOutputWithContext(context.Context) PartnerAccountTagArrayOutput
-}
-
-type PartnerAccountTagArray []PartnerAccountTagInput
-
-func (PartnerAccountTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PartnerAccountTag)(nil)).Elem()
-}
-
-func (i PartnerAccountTagArray) ToPartnerAccountTagArrayOutput() PartnerAccountTagArrayOutput {
-	return i.ToPartnerAccountTagArrayOutputWithContext(context.Background())
-}
-
-func (i PartnerAccountTagArray) ToPartnerAccountTagArrayOutputWithContext(ctx context.Context) PartnerAccountTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountTagArrayOutput)
-}
-
-type PartnerAccountTagOutput struct{ *pulumi.OutputState }
-
-func (PartnerAccountTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerAccountTag)(nil)).Elem()
-}
-
-func (o PartnerAccountTagOutput) ToPartnerAccountTagOutput() PartnerAccountTagOutput {
-	return o
-}
-
-func (o PartnerAccountTagOutput) ToPartnerAccountTagOutputWithContext(ctx context.Context) PartnerAccountTagOutput {
-	return o
-}
-
-func (o PartnerAccountTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PartnerAccountTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o PartnerAccountTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PartnerAccountTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type PartnerAccountTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PartnerAccountTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PartnerAccountTag)(nil)).Elem()
-}
-
-func (o PartnerAccountTagArrayOutput) ToPartnerAccountTagArrayOutput() PartnerAccountTagArrayOutput {
-	return o
-}
-
-func (o PartnerAccountTagArrayOutput) ToPartnerAccountTagArrayOutputWithContext(ctx context.Context) PartnerAccountTagArrayOutput {
-	return o
-}
-
-func (o PartnerAccountTagArrayOutput) Index(i pulumi.IntInput) PartnerAccountTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartnerAccountTag {
-		return vs[0].([]PartnerAccountTag)[vs[1].(int)]
-	}).(PartnerAccountTagOutput)
-}
-
 type ServiceProfileLoRaWanServiceProfile struct {
 	AddGwMetadata          *bool   `pulumi:"addGwMetadata"`
 	ChannelMask            *string `pulumi:"channelMask"`
@@ -2108,101 +1633,6 @@ func (o ServiceProfileLoRaWanServiceProfilePtrOutput) UlRatePolicy() pulumi.Stri
 type ServiceProfileTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
-}
-
-// ServiceProfileTagInput is an input type that accepts ServiceProfileTagArgs and ServiceProfileTagOutput values.
-// You can construct a concrete instance of `ServiceProfileTagInput` via:
-//
-//	ServiceProfileTagArgs{...}
-type ServiceProfileTagInput interface {
-	pulumi.Input
-
-	ToServiceProfileTagOutput() ServiceProfileTagOutput
-	ToServiceProfileTagOutputWithContext(context.Context) ServiceProfileTagOutput
-}
-
-type ServiceProfileTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ServiceProfileTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProfileTag)(nil)).Elem()
-}
-
-func (i ServiceProfileTagArgs) ToServiceProfileTagOutput() ServiceProfileTagOutput {
-	return i.ToServiceProfileTagOutputWithContext(context.Background())
-}
-
-func (i ServiceProfileTagArgs) ToServiceProfileTagOutputWithContext(ctx context.Context) ServiceProfileTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileTagOutput)
-}
-
-// ServiceProfileTagArrayInput is an input type that accepts ServiceProfileTagArray and ServiceProfileTagArrayOutput values.
-// You can construct a concrete instance of `ServiceProfileTagArrayInput` via:
-//
-//	ServiceProfileTagArray{ ServiceProfileTagArgs{...} }
-type ServiceProfileTagArrayInput interface {
-	pulumi.Input
-
-	ToServiceProfileTagArrayOutput() ServiceProfileTagArrayOutput
-	ToServiceProfileTagArrayOutputWithContext(context.Context) ServiceProfileTagArrayOutput
-}
-
-type ServiceProfileTagArray []ServiceProfileTagInput
-
-func (ServiceProfileTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceProfileTag)(nil)).Elem()
-}
-
-func (i ServiceProfileTagArray) ToServiceProfileTagArrayOutput() ServiceProfileTagArrayOutput {
-	return i.ToServiceProfileTagArrayOutputWithContext(context.Background())
-}
-
-func (i ServiceProfileTagArray) ToServiceProfileTagArrayOutputWithContext(ctx context.Context) ServiceProfileTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileTagArrayOutput)
-}
-
-type ServiceProfileTagOutput struct{ *pulumi.OutputState }
-
-func (ServiceProfileTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProfileTag)(nil)).Elem()
-}
-
-func (o ServiceProfileTagOutput) ToServiceProfileTagOutput() ServiceProfileTagOutput {
-	return o
-}
-
-func (o ServiceProfileTagOutput) ToServiceProfileTagOutputWithContext(ctx context.Context) ServiceProfileTagOutput {
-	return o
-}
-
-func (o ServiceProfileTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceProfileTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ServiceProfileTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceProfileTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ServiceProfileTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ServiceProfileTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceProfileTag)(nil)).Elem()
-}
-
-func (o ServiceProfileTagArrayOutput) ToServiceProfileTagArrayOutput() ServiceProfileTagArrayOutput {
-	return o
-}
-
-func (o ServiceProfileTagArrayOutput) ToServiceProfileTagArrayOutputWithContext(ctx context.Context) ServiceProfileTagArrayOutput {
-	return o
-}
-
-func (o ServiceProfileTagArrayOutput) Index(i pulumi.IntInput) ServiceProfileTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceProfileTag {
-		return vs[0].([]ServiceProfileTag)[vs[1].(int)]
-	}).(ServiceProfileTagOutput)
 }
 
 // sidewalk contain file for created device and role
@@ -2837,101 +2267,6 @@ type TaskDefinitionTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// TaskDefinitionTagInput is an input type that accepts TaskDefinitionTagArgs and TaskDefinitionTagOutput values.
-// You can construct a concrete instance of `TaskDefinitionTagInput` via:
-//
-//	TaskDefinitionTagArgs{...}
-type TaskDefinitionTagInput interface {
-	pulumi.Input
-
-	ToTaskDefinitionTagOutput() TaskDefinitionTagOutput
-	ToTaskDefinitionTagOutputWithContext(context.Context) TaskDefinitionTagOutput
-}
-
-type TaskDefinitionTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskDefinitionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionTag)(nil)).Elem()
-}
-
-func (i TaskDefinitionTagArgs) ToTaskDefinitionTagOutput() TaskDefinitionTagOutput {
-	return i.ToTaskDefinitionTagOutputWithContext(context.Background())
-}
-
-func (i TaskDefinitionTagArgs) ToTaskDefinitionTagOutputWithContext(ctx context.Context) TaskDefinitionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTagOutput)
-}
-
-// TaskDefinitionTagArrayInput is an input type that accepts TaskDefinitionTagArray and TaskDefinitionTagArrayOutput values.
-// You can construct a concrete instance of `TaskDefinitionTagArrayInput` via:
-//
-//	TaskDefinitionTagArray{ TaskDefinitionTagArgs{...} }
-type TaskDefinitionTagArrayInput interface {
-	pulumi.Input
-
-	ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput
-	ToTaskDefinitionTagArrayOutputWithContext(context.Context) TaskDefinitionTagArrayOutput
-}
-
-type TaskDefinitionTagArray []TaskDefinitionTagInput
-
-func (TaskDefinitionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskDefinitionTag)(nil)).Elem()
-}
-
-func (i TaskDefinitionTagArray) ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput {
-	return i.ToTaskDefinitionTagArrayOutputWithContext(context.Background())
-}
-
-func (i TaskDefinitionTagArray) ToTaskDefinitionTagArrayOutputWithContext(ctx context.Context) TaskDefinitionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTagArrayOutput)
-}
-
-type TaskDefinitionTagOutput struct{ *pulumi.OutputState }
-
-func (TaskDefinitionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionTag)(nil)).Elem()
-}
-
-func (o TaskDefinitionTagOutput) ToTaskDefinitionTagOutput() TaskDefinitionTagOutput {
-	return o
-}
-
-func (o TaskDefinitionTagOutput) ToTaskDefinitionTagOutputWithContext(ctx context.Context) TaskDefinitionTagOutput {
-	return o
-}
-
-func (o TaskDefinitionTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskDefinitionTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskDefinitionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskDefinitionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskDefinitionTag)(nil)).Elem()
-}
-
-func (o TaskDefinitionTagArrayOutput) ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput {
-	return o
-}
-
-func (o TaskDefinitionTagArrayOutput) ToTaskDefinitionTagArrayOutputWithContext(ctx context.Context) TaskDefinitionTagArrayOutput {
-	return o
-}
-
-func (o TaskDefinitionTagArrayOutput) Index(i pulumi.IntInput) TaskDefinitionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionTag {
-		return vs[0].([]TaskDefinitionTag)[vs[1].(int)]
-	}).(TaskDefinitionTagOutput)
-}
-
 type TaskDefinitionUpdateWirelessGatewayTaskCreate struct {
 	LoRaWan          *TaskDefinitionLoRaWanUpdateGatewayTaskCreate `pulumi:"loRaWan"`
 	UpdateDataRole   *string                                       `pulumi:"updateDataRole"`
@@ -3552,107 +2887,6 @@ type WirelessDeviceImportTaskTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// WirelessDeviceImportTaskTagInput is an input type that accepts WirelessDeviceImportTaskTagArgs and WirelessDeviceImportTaskTagOutput values.
-// You can construct a concrete instance of `WirelessDeviceImportTaskTagInput` via:
-//
-//	WirelessDeviceImportTaskTagArgs{...}
-type WirelessDeviceImportTaskTagInput interface {
-	pulumi.Input
-
-	ToWirelessDeviceImportTaskTagOutput() WirelessDeviceImportTaskTagOutput
-	ToWirelessDeviceImportTaskTagOutputWithContext(context.Context) WirelessDeviceImportTaskTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type WirelessDeviceImportTaskTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (WirelessDeviceImportTaskTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessDeviceImportTaskTag)(nil)).Elem()
-}
-
-func (i WirelessDeviceImportTaskTagArgs) ToWirelessDeviceImportTaskTagOutput() WirelessDeviceImportTaskTagOutput {
-	return i.ToWirelessDeviceImportTaskTagOutputWithContext(context.Background())
-}
-
-func (i WirelessDeviceImportTaskTagArgs) ToWirelessDeviceImportTaskTagOutputWithContext(ctx context.Context) WirelessDeviceImportTaskTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceImportTaskTagOutput)
-}
-
-// WirelessDeviceImportTaskTagArrayInput is an input type that accepts WirelessDeviceImportTaskTagArray and WirelessDeviceImportTaskTagArrayOutput values.
-// You can construct a concrete instance of `WirelessDeviceImportTaskTagArrayInput` via:
-//
-//	WirelessDeviceImportTaskTagArray{ WirelessDeviceImportTaskTagArgs{...} }
-type WirelessDeviceImportTaskTagArrayInput interface {
-	pulumi.Input
-
-	ToWirelessDeviceImportTaskTagArrayOutput() WirelessDeviceImportTaskTagArrayOutput
-	ToWirelessDeviceImportTaskTagArrayOutputWithContext(context.Context) WirelessDeviceImportTaskTagArrayOutput
-}
-
-type WirelessDeviceImportTaskTagArray []WirelessDeviceImportTaskTagInput
-
-func (WirelessDeviceImportTaskTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WirelessDeviceImportTaskTag)(nil)).Elem()
-}
-
-func (i WirelessDeviceImportTaskTagArray) ToWirelessDeviceImportTaskTagArrayOutput() WirelessDeviceImportTaskTagArrayOutput {
-	return i.ToWirelessDeviceImportTaskTagArrayOutputWithContext(context.Background())
-}
-
-func (i WirelessDeviceImportTaskTagArray) ToWirelessDeviceImportTaskTagArrayOutputWithContext(ctx context.Context) WirelessDeviceImportTaskTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceImportTaskTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type WirelessDeviceImportTaskTagOutput struct{ *pulumi.OutputState }
-
-func (WirelessDeviceImportTaskTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessDeviceImportTaskTag)(nil)).Elem()
-}
-
-func (o WirelessDeviceImportTaskTagOutput) ToWirelessDeviceImportTaskTagOutput() WirelessDeviceImportTaskTagOutput {
-	return o
-}
-
-func (o WirelessDeviceImportTaskTagOutput) ToWirelessDeviceImportTaskTagOutputWithContext(ctx context.Context) WirelessDeviceImportTaskTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o WirelessDeviceImportTaskTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v WirelessDeviceImportTaskTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o WirelessDeviceImportTaskTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v WirelessDeviceImportTaskTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type WirelessDeviceImportTaskTagArrayOutput struct{ *pulumi.OutputState }
-
-func (WirelessDeviceImportTaskTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WirelessDeviceImportTaskTag)(nil)).Elem()
-}
-
-func (o WirelessDeviceImportTaskTagArrayOutput) ToWirelessDeviceImportTaskTagArrayOutput() WirelessDeviceImportTaskTagArrayOutput {
-	return o
-}
-
-func (o WirelessDeviceImportTaskTagArrayOutput) ToWirelessDeviceImportTaskTagArrayOutputWithContext(ctx context.Context) WirelessDeviceImportTaskTagArrayOutput {
-	return o
-}
-
-func (o WirelessDeviceImportTaskTagArrayOutput) Index(i pulumi.IntInput) WirelessDeviceImportTaskTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WirelessDeviceImportTaskTag {
-		return vs[0].([]WirelessDeviceImportTaskTag)[vs[1].(int)]
-	}).(WirelessDeviceImportTaskTagOutput)
 }
 
 type WirelessDeviceLoRaWanDevice struct {
@@ -4520,101 +3754,6 @@ type WirelessDeviceTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// WirelessDeviceTagInput is an input type that accepts WirelessDeviceTagArgs and WirelessDeviceTagOutput values.
-// You can construct a concrete instance of `WirelessDeviceTagInput` via:
-//
-//	WirelessDeviceTagArgs{...}
-type WirelessDeviceTagInput interface {
-	pulumi.Input
-
-	ToWirelessDeviceTagOutput() WirelessDeviceTagOutput
-	ToWirelessDeviceTagOutputWithContext(context.Context) WirelessDeviceTagOutput
-}
-
-type WirelessDeviceTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (WirelessDeviceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessDeviceTag)(nil)).Elem()
-}
-
-func (i WirelessDeviceTagArgs) ToWirelessDeviceTagOutput() WirelessDeviceTagOutput {
-	return i.ToWirelessDeviceTagOutputWithContext(context.Background())
-}
-
-func (i WirelessDeviceTagArgs) ToWirelessDeviceTagOutputWithContext(ctx context.Context) WirelessDeviceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceTagOutput)
-}
-
-// WirelessDeviceTagArrayInput is an input type that accepts WirelessDeviceTagArray and WirelessDeviceTagArrayOutput values.
-// You can construct a concrete instance of `WirelessDeviceTagArrayInput` via:
-//
-//	WirelessDeviceTagArray{ WirelessDeviceTagArgs{...} }
-type WirelessDeviceTagArrayInput interface {
-	pulumi.Input
-
-	ToWirelessDeviceTagArrayOutput() WirelessDeviceTagArrayOutput
-	ToWirelessDeviceTagArrayOutputWithContext(context.Context) WirelessDeviceTagArrayOutput
-}
-
-type WirelessDeviceTagArray []WirelessDeviceTagInput
-
-func (WirelessDeviceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WirelessDeviceTag)(nil)).Elem()
-}
-
-func (i WirelessDeviceTagArray) ToWirelessDeviceTagArrayOutput() WirelessDeviceTagArrayOutput {
-	return i.ToWirelessDeviceTagArrayOutputWithContext(context.Background())
-}
-
-func (i WirelessDeviceTagArray) ToWirelessDeviceTagArrayOutputWithContext(ctx context.Context) WirelessDeviceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceTagArrayOutput)
-}
-
-type WirelessDeviceTagOutput struct{ *pulumi.OutputState }
-
-func (WirelessDeviceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessDeviceTag)(nil)).Elem()
-}
-
-func (o WirelessDeviceTagOutput) ToWirelessDeviceTagOutput() WirelessDeviceTagOutput {
-	return o
-}
-
-func (o WirelessDeviceTagOutput) ToWirelessDeviceTagOutputWithContext(ctx context.Context) WirelessDeviceTagOutput {
-	return o
-}
-
-func (o WirelessDeviceTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WirelessDeviceTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o WirelessDeviceTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WirelessDeviceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type WirelessDeviceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (WirelessDeviceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WirelessDeviceTag)(nil)).Elem()
-}
-
-func (o WirelessDeviceTagArrayOutput) ToWirelessDeviceTagArrayOutput() WirelessDeviceTagArrayOutput {
-	return o
-}
-
-func (o WirelessDeviceTagArrayOutput) ToWirelessDeviceTagArrayOutputWithContext(ctx context.Context) WirelessDeviceTagArrayOutput {
-	return o
-}
-
-func (o WirelessDeviceTagArrayOutput) Index(i pulumi.IntInput) WirelessDeviceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WirelessDeviceTag {
-		return vs[0].([]WirelessDeviceTag)[vs[1].(int)]
-	}).(WirelessDeviceTagOutput)
-}
-
 type WirelessGatewayLoRaWanGateway struct {
 	GatewayEui string `pulumi:"gatewayEui"`
 	RfRegion   string `pulumi:"rfRegion"`
@@ -4717,114 +3856,11 @@ type WirelessGatewayTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// WirelessGatewayTagInput is an input type that accepts WirelessGatewayTagArgs and WirelessGatewayTagOutput values.
-// You can construct a concrete instance of `WirelessGatewayTagInput` via:
-//
-//	WirelessGatewayTagArgs{...}
-type WirelessGatewayTagInput interface {
-	pulumi.Input
-
-	ToWirelessGatewayTagOutput() WirelessGatewayTagOutput
-	ToWirelessGatewayTagOutputWithContext(context.Context) WirelessGatewayTagOutput
-}
-
-type WirelessGatewayTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (WirelessGatewayTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessGatewayTag)(nil)).Elem()
-}
-
-func (i WirelessGatewayTagArgs) ToWirelessGatewayTagOutput() WirelessGatewayTagOutput {
-	return i.ToWirelessGatewayTagOutputWithContext(context.Background())
-}
-
-func (i WirelessGatewayTagArgs) ToWirelessGatewayTagOutputWithContext(ctx context.Context) WirelessGatewayTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayTagOutput)
-}
-
-// WirelessGatewayTagArrayInput is an input type that accepts WirelessGatewayTagArray and WirelessGatewayTagArrayOutput values.
-// You can construct a concrete instance of `WirelessGatewayTagArrayInput` via:
-//
-//	WirelessGatewayTagArray{ WirelessGatewayTagArgs{...} }
-type WirelessGatewayTagArrayInput interface {
-	pulumi.Input
-
-	ToWirelessGatewayTagArrayOutput() WirelessGatewayTagArrayOutput
-	ToWirelessGatewayTagArrayOutputWithContext(context.Context) WirelessGatewayTagArrayOutput
-}
-
-type WirelessGatewayTagArray []WirelessGatewayTagInput
-
-func (WirelessGatewayTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WirelessGatewayTag)(nil)).Elem()
-}
-
-func (i WirelessGatewayTagArray) ToWirelessGatewayTagArrayOutput() WirelessGatewayTagArrayOutput {
-	return i.ToWirelessGatewayTagArrayOutputWithContext(context.Background())
-}
-
-func (i WirelessGatewayTagArray) ToWirelessGatewayTagArrayOutputWithContext(ctx context.Context) WirelessGatewayTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayTagArrayOutput)
-}
-
-type WirelessGatewayTagOutput struct{ *pulumi.OutputState }
-
-func (WirelessGatewayTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessGatewayTag)(nil)).Elem()
-}
-
-func (o WirelessGatewayTagOutput) ToWirelessGatewayTagOutput() WirelessGatewayTagOutput {
-	return o
-}
-
-func (o WirelessGatewayTagOutput) ToWirelessGatewayTagOutputWithContext(ctx context.Context) WirelessGatewayTagOutput {
-	return o
-}
-
-func (o WirelessGatewayTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WirelessGatewayTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o WirelessGatewayTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WirelessGatewayTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type WirelessGatewayTagArrayOutput struct{ *pulumi.OutputState }
-
-func (WirelessGatewayTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WirelessGatewayTag)(nil)).Elem()
-}
-
-func (o WirelessGatewayTagArrayOutput) ToWirelessGatewayTagArrayOutput() WirelessGatewayTagArrayOutput {
-	return o
-}
-
-func (o WirelessGatewayTagArrayOutput) ToWirelessGatewayTagArrayOutputWithContext(ctx context.Context) WirelessGatewayTagArrayOutput {
-	return o
-}
-
-func (o WirelessGatewayTagArrayOutput) Index(i pulumi.IntInput) WirelessGatewayTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WirelessGatewayTag {
-		return vs[0].([]WirelessGatewayTag)[vs[1].(int)]
-	}).(WirelessGatewayTagOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DestinationTagInput)(nil)).Elem(), DestinationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DestinationTagArrayInput)(nil)).Elem(), DestinationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileLoRaWanDeviceProfileInput)(nil)).Elem(), DeviceProfileLoRaWanDeviceProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileLoRaWanDeviceProfilePtrInput)(nil)).Elem(), DeviceProfileLoRaWanDeviceProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileTagInput)(nil)).Elem(), DeviceProfileTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileTagArrayInput)(nil)).Elem(), DeviceProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskLoRaWanInput)(nil)).Elem(), FuotaTaskLoRaWanArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskTagInput)(nil)).Elem(), FuotaTaskTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskTagArrayInput)(nil)).Elem(), FuotaTaskTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupLoRaWanInput)(nil)).Elem(), MulticastGroupLoRaWanArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupTagInput)(nil)).Elem(), MulticastGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupTagArrayInput)(nil)).Elem(), MulticastGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationTagInput)(nil)).Elem(), NetworkAnalyzerConfigurationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationTagArrayInput)(nil)).Elem(), NetworkAnalyzerConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
@@ -4833,12 +3869,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoWithFingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkUpdateAccountInput)(nil)).Elem(), PartnerAccountSidewalkUpdateAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkUpdateAccountPtrInput)(nil)).Elem(), PartnerAccountSidewalkUpdateAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountTagInput)(nil)).Elem(), PartnerAccountTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountTagArrayInput)(nil)).Elem(), PartnerAccountTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileLoRaWanServiceProfileInput)(nil)).Elem(), ServiceProfileLoRaWanServiceProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileLoRaWanServiceProfilePtrInput)(nil)).Elem(), ServiceProfileLoRaWanServiceProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileTagInput)(nil)).Elem(), ServiceProfileTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileTagArrayInput)(nil)).Elem(), ServiceProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SidewalkPropertiesInput)(nil)).Elem(), SidewalkPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanGatewayVersionInput)(nil)).Elem(), TaskDefinitionLoRaWanGatewayVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanGatewayVersionPtrInput)(nil)).Elem(), TaskDefinitionLoRaWanGatewayVersionArgs{})
@@ -4846,8 +3878,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrInput)(nil)).Elem(), TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskEntryInput)(nil)).Elem(), TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrInput)(nil)).Elem(), TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTagInput)(nil)).Elem(), TaskDefinitionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTagArrayInput)(nil)).Elem(), TaskDefinitionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionUpdateWirelessGatewayTaskCreateInput)(nil)).Elem(), TaskDefinitionUpdateWirelessGatewayTaskCreateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionUpdateWirelessGatewayTaskCreatePtrInput)(nil)).Elem(), TaskDefinitionUpdateWirelessGatewayTaskCreateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TraceContentPropertiesInput)(nil)).Elem(), TraceContentPropertiesArgs{})
@@ -4856,8 +3886,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV10xPtrInput)(nil)).Elem(), WirelessDeviceAbpV10xArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV11Input)(nil)).Elem(), WirelessDeviceAbpV11Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV11PtrInput)(nil)).Elem(), WirelessDeviceAbpV11Args{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceImportTaskTagInput)(nil)).Elem(), WirelessDeviceImportTaskTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceImportTaskTagArrayInput)(nil)).Elem(), WirelessDeviceImportTaskTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceLoRaWanDeviceInput)(nil)).Elem(), WirelessDeviceLoRaWanDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceLoRaWanDevicePtrInput)(nil)).Elem(), WirelessDeviceLoRaWanDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceOtaaV10xInput)(nil)).Elem(), WirelessDeviceOtaaV10xArgs{})
@@ -4868,25 +3896,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceSessionKeysAbpV10xPtrInput)(nil)).Elem(), WirelessDeviceSessionKeysAbpV10xArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceSessionKeysAbpV11Input)(nil)).Elem(), WirelessDeviceSessionKeysAbpV11Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceSessionKeysAbpV11PtrInput)(nil)).Elem(), WirelessDeviceSessionKeysAbpV11Args{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTagInput)(nil)).Elem(), WirelessDeviceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTagArrayInput)(nil)).Elem(), WirelessDeviceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayLoRaWanGatewayInput)(nil)).Elem(), WirelessGatewayLoRaWanGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayTagInput)(nil)).Elem(), WirelessGatewayTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayTagArrayInput)(nil)).Elem(), WirelessGatewayTagArray{})
-	pulumi.RegisterOutputType(DestinationTagOutput{})
-	pulumi.RegisterOutputType(DestinationTagArrayOutput{})
 	pulumi.RegisterOutputType(DeviceProfileLoRaWanDeviceProfileOutput{})
 	pulumi.RegisterOutputType(DeviceProfileLoRaWanDeviceProfilePtrOutput{})
-	pulumi.RegisterOutputType(DeviceProfileTagOutput{})
-	pulumi.RegisterOutputType(DeviceProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(FuotaTaskLoRaWanOutput{})
 	pulumi.RegisterOutputType(FuotaTaskLoRaWanPtrOutput{})
-	pulumi.RegisterOutputType(FuotaTaskTagOutput{})
-	pulumi.RegisterOutputType(FuotaTaskTagArrayOutput{})
 	pulumi.RegisterOutputType(MulticastGroupLoRaWanOutput{})
 	pulumi.RegisterOutputType(MulticastGroupLoRaWanPtrOutput{})
-	pulumi.RegisterOutputType(MulticastGroupTagOutput{})
-	pulumi.RegisterOutputType(MulticastGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationTagOutput{})
 	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoOutput{})
@@ -4895,12 +3911,8 @@ func init() {
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkUpdateAccountOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkUpdateAccountPtrOutput{})
-	pulumi.RegisterOutputType(PartnerAccountTagOutput{})
-	pulumi.RegisterOutputType(PartnerAccountTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceProfileLoRaWanServiceProfileOutput{})
 	pulumi.RegisterOutputType(ServiceProfileLoRaWanServiceProfilePtrOutput{})
-	pulumi.RegisterOutputType(ServiceProfileTagOutput{})
-	pulumi.RegisterOutputType(ServiceProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(SidewalkPropertiesOutput{})
 	pulumi.RegisterOutputType(SidewalkPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWanGatewayVersionOutput{})
@@ -4909,8 +3921,6 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionTagOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUpdateWirelessGatewayTaskCreateOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput{})
 	pulumi.RegisterOutputType(TraceContentPropertiesOutput{})
@@ -4919,8 +3929,6 @@ func init() {
 	pulumi.RegisterOutputType(WirelessDeviceAbpV10xPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceAbpV11Output{})
 	pulumi.RegisterOutputType(WirelessDeviceAbpV11PtrOutput{})
-	pulumi.RegisterOutputType(WirelessDeviceImportTaskTagOutput{})
-	pulumi.RegisterOutputType(WirelessDeviceImportTaskTagArrayOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceLoRaWanDeviceOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceLoRaWanDevicePtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceOtaaV10xOutput{})
@@ -4931,10 +3939,6 @@ func init() {
 	pulumi.RegisterOutputType(WirelessDeviceSessionKeysAbpV10xPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceSessionKeysAbpV11Output{})
 	pulumi.RegisterOutputType(WirelessDeviceSessionKeysAbpV11PtrOutput{})
-	pulumi.RegisterOutputType(WirelessDeviceTagOutput{})
-	pulumi.RegisterOutputType(WirelessDeviceTagArrayOutput{})
 	pulumi.RegisterOutputType(WirelessGatewayLoRaWanGatewayOutput{})
 	pulumi.RegisterOutputType(WirelessGatewayLoRaWanGatewayPtrOutput{})
-	pulumi.RegisterOutputType(WirelessGatewayTagOutput{})
-	pulumi.RegisterOutputType(WirelessGatewayTagArrayOutput{})
 }

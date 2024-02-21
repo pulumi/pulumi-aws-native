@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RuleTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRuleResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Connect
 
             string? ruleArn,
 
-            ImmutableArray<Outputs.RuleTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Actions = actions;
             Function = function;

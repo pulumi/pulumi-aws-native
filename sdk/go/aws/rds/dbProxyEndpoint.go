@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type DbProxyEndpoint struct {
 	// A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
-	Tags DbProxyEndpointTagFormatArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
 	TargetRole DbProxyEndpointTargetRolePtrOutput `pulumi:"targetRole"`
 	// VPC ID to associate with the new DB proxy endpoint.
@@ -95,7 +96,7 @@ type dbProxyEndpointArgs struct {
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	DbProxyName string `pulumi:"dbProxyName"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
-	Tags []DbProxyEndpointTagFormat `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
 	TargetRole *DbProxyEndpointTargetRole `pulumi:"targetRole"`
 	// VPC security group IDs to associate with the new DB proxy endpoint.
@@ -111,7 +112,7 @@ type DbProxyEndpointArgs struct {
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	DbProxyName pulumi.StringInput
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
-	Tags DbProxyEndpointTagFormatArrayInput
+	Tags aws.TagArrayInput
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
 	TargetRole DbProxyEndpointTargetRolePtrInput
 	// VPC security group IDs to associate with the new DB proxy endpoint.
@@ -183,8 +184,8 @@ func (o DbProxyEndpointOutput) IsDefault() pulumi.BoolOutput {
 }
 
 // An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
-func (o DbProxyEndpointOutput) Tags() DbProxyEndpointTagFormatArrayOutput {
-	return o.ApplyT(func(v *DbProxyEndpoint) DbProxyEndpointTagFormatArrayOutput { return v.Tags }).(DbProxyEndpointTagFormatArrayOutput)
+func (o DbProxyEndpointOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbProxyEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.

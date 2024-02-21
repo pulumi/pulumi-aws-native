@@ -46,7 +46,7 @@ export interface GetAccessEntryResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.eks.AccessEntryTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The Kubernetes user that the access entry is associated with.
      */

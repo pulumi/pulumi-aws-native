@@ -40,7 +40,7 @@ export interface GetPipelineResult {
      * Role Arn
      */
     readonly roleArn?: string;
-    readonly tags?: outputs.sagemaker.PipelineTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::Pipeline

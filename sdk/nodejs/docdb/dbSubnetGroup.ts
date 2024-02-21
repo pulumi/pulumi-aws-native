@@ -43,7 +43,7 @@ export class DbSubnetGroup extends pulumi.CustomResource {
     public readonly dbSubnetGroupDescription!: pulumi.Output<string>;
     public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     public readonly subnetIds!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<outputs.docdb.DbSubnetGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbSubnetGroup resource with the given unique name, arguments, and options.
@@ -88,5 +88,5 @@ export interface DbSubnetGroupArgs {
     dbSubnetGroupDescription: pulumi.Input<string>;
     dbSubnetGroupName?: pulumi.Input<string>;
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.docdb.DbSubnetGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

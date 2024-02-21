@@ -64,7 +64,7 @@ export class EventStream extends pulumi.CustomResource {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.customerprofiles.EventStreamTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly uri!: pulumi.Output<string>;
 
     /**
@@ -124,6 +124,6 @@ export interface EventStreamArgs {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.customerprofiles.EventStreamTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     uri: pulumi.Input<string>;
 }

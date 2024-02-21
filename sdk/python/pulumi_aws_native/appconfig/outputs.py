@@ -10,86 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationTags',
-    'ConfigurationProfileTags',
     'ConfigurationProfileValidators',
-    'DeploymentStrategyTags',
     'DeploymentTags',
     'EnvironmentMonitor',
-    'EnvironmentTag',
     'ExtensionAction',
     'ExtensionAssociationTag',
     'ExtensionParameter',
     'ExtensionTag',
 ]
-
-@pulumi.output_type
-class ApplicationTags(dict):
-    """
-    Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-        :param str key: The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
-        :param str value: The tag value can be up to 256 characters.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The tag value can be up to 256 characters.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ConfigurationProfileTags(dict):
-    """
-    Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-    """
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-        :param str key: The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
-        :param str value: The tag value can be up to 256 characters.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        """
-        The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The tag value can be up to 256 characters.
-        """
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class ConfigurationProfileValidators(dict):
@@ -124,27 +52,6 @@ class ConfigurationProfileValidators(dict):
         AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class DeploymentStrategyTags(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -219,39 +126,6 @@ class EnvironmentMonitor(dict):
         ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
         """
         return pulumi.get(self, "alarm_role_arn")
-
-
-@pulumi.output_type
-class EnvironmentTag(dict):
-    """
-    Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-        :param str key: The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
-        :param str value: The tag value can be up to 256 characters.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The tag value can be up to 256 characters.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['VerifiedAccessInstanceArgs', 'VerifiedAccessInstance']
@@ -19,7 +21,7 @@ class VerifiedAccessInstanceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_configurations: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]] = None):
         """
@@ -27,7 +29,7 @@ class VerifiedAccessInstanceArgs:
         :param pulumi.Input[str] description: A description for the AWS Verified Access instance.
         :param pulumi.Input[bool] fips_enabled: Indicates whether FIPS is enabled
         :param pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs'] logging_configurations: The configuration options for AWS Verified Access instances.
-        :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] verified_access_trust_provider_ids: The IDs of the AWS Verified Access trust providers.
         :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]] verified_access_trust_providers: AWS Verified Access trust providers.
         """
@@ -82,14 +84,14 @@ class VerifiedAccessInstanceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -125,7 +127,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_configurations: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessLogsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]]] = None,
                  __props__=None):
@@ -137,7 +139,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the AWS Verified Access instance.
         :param pulumi.Input[bool] fips_enabled: Indicates whether FIPS is enabled
         :param pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessLogsArgs']] logging_configurations: The configuration options for AWS Verified Access instances.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] verified_access_trust_provider_ids: The IDs of the AWS Verified Access trust providers.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]] verified_access_trust_providers: AWS Verified Access trust providers.
         """
@@ -168,7 +170,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_configurations: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessLogsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]]] = None,
                  __props__=None):
@@ -264,7 +266,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VerifiedAccessInstanceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

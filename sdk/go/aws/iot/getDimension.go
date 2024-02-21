@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupDimensionResult struct {
 	// Specifies the value or list of values for the dimension.
 	StringValues []string `pulumi:"stringValues"`
 	// Metadata that can be used to manage the dimension.
-	Tags []DimensionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDimensionOutput(ctx *pulumi.Context, args LookupDimensionOutputArgs, opts ...pulumi.InvokeOption) LookupDimensionResultOutput {
@@ -83,8 +84,8 @@ func (o LookupDimensionResultOutput) StringValues() pulumi.StringArrayOutput {
 }
 
 // Metadata that can be used to manage the dimension.
-func (o LookupDimensionResultOutput) Tags() DimensionTagArrayOutput {
-	return o.ApplyT(func(v LookupDimensionResult) []DimensionTag { return v.Tags }).(DimensionTagArrayOutput)
+func (o LookupDimensionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDimensionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Evidently
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.LaunchTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -144,14 +144,14 @@ namespace Pulumi.AwsNative.Evidently
         }
 
         [Input("tags")]
-        private InputList<Inputs.LaunchTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.LaunchTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.LaunchTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

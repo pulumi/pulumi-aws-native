@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// A list of key-value pairs that contain metadata for the gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.WirelessGatewayTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
@@ -133,14 +133,14 @@ namespace Pulumi.AwsNative.IoTWireless
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.WirelessGatewayTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the gateway.
         /// </summary>
-        public InputList<Inputs.WirelessGatewayTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.WirelessGatewayTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

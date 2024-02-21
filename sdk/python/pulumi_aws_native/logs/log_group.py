@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['LogGroupArgs', 'LogGroup']
 
@@ -22,7 +22,7 @@ class LogGroupArgs:
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LogGroup resource.
         :param Any data_protection_policy: The body of the policy document you want to use for this topic.
@@ -38,7 +38,7 @@ class LogGroupArgs:
         :param pulumi.Input['LogGroupClass'] log_group_class: The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
         :param pulumi.Input[str] log_group_name: The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         :param pulumi.Input[int] retention_in_days: The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
-        :param pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if data_protection_policy is not None:
             pulumi.set(__self__, "data_protection_policy", data_protection_policy)
@@ -123,14 +123,14 @@ class LogGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,7 +144,7 @@ class LogGroup(pulumi.CustomResource):
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Logs::LogGroup
@@ -164,7 +164,7 @@ class LogGroup(pulumi.CustomResource):
         :param pulumi.Input['LogGroupClass'] log_group_class: The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
         :param pulumi.Input[str] log_group_name: The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         :param pulumi.Input[int] retention_in_days: The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -195,7 +195,7 @@ class LogGroup(pulumi.CustomResource):
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -303,7 +303,7 @@ class LogGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LogGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

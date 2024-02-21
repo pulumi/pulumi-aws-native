@@ -21,107 +21,6 @@ type AgentTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AgentTagInput is an input type that accepts AgentTagArgs and AgentTagOutput values.
-// You can construct a concrete instance of `AgentTagInput` via:
-//
-//	AgentTagArgs{...}
-type AgentTagInput interface {
-	pulumi.Input
-
-	ToAgentTagOutput() AgentTagOutput
-	ToAgentTagOutputWithContext(context.Context) AgentTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type AgentTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AgentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentTag)(nil)).Elem()
-}
-
-func (i AgentTagArgs) ToAgentTagOutput() AgentTagOutput {
-	return i.ToAgentTagOutputWithContext(context.Background())
-}
-
-func (i AgentTagArgs) ToAgentTagOutputWithContext(ctx context.Context) AgentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentTagOutput)
-}
-
-// AgentTagArrayInput is an input type that accepts AgentTagArray and AgentTagArrayOutput values.
-// You can construct a concrete instance of `AgentTagArrayInput` via:
-//
-//	AgentTagArray{ AgentTagArgs{...} }
-type AgentTagArrayInput interface {
-	pulumi.Input
-
-	ToAgentTagArrayOutput() AgentTagArrayOutput
-	ToAgentTagArrayOutputWithContext(context.Context) AgentTagArrayOutput
-}
-
-type AgentTagArray []AgentTagInput
-
-func (AgentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgentTag)(nil)).Elem()
-}
-
-func (i AgentTagArray) ToAgentTagArrayOutput() AgentTagArrayOutput {
-	return i.ToAgentTagArrayOutputWithContext(context.Background())
-}
-
-func (i AgentTagArray) ToAgentTagArrayOutputWithContext(ctx context.Context) AgentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type AgentTagOutput struct{ *pulumi.OutputState }
-
-func (AgentTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentTag)(nil)).Elem()
-}
-
-func (o AgentTagOutput) ToAgentTagOutput() AgentTagOutput {
-	return o
-}
-
-func (o AgentTagOutput) ToAgentTagOutputWithContext(ctx context.Context) AgentTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o AgentTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o AgentTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AgentTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AgentTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgentTag)(nil)).Elem()
-}
-
-func (o AgentTagArrayOutput) ToAgentTagArrayOutput() AgentTagArrayOutput {
-	return o
-}
-
-func (o AgentTagArrayOutput) ToAgentTagArrayOutputWithContext(ctx context.Context) AgentTagArrayOutput {
-	return o
-}
-
-func (o AgentTagArrayOutput) Index(i pulumi.IntInput) AgentTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentTag {
-		return vs[0].([]AgentTag)[vs[1].(int)]
-	}).(AgentTagOutput)
-}
-
 // Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
 type LocationAzureBlobAzureBlobSasConfiguration struct {
 	// Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
@@ -270,107 +169,6 @@ type LocationAzureBlobTag struct {
 	Value string `pulumi:"value"`
 }
 
-// LocationAzureBlobTagInput is an input type that accepts LocationAzureBlobTagArgs and LocationAzureBlobTagOutput values.
-// You can construct a concrete instance of `LocationAzureBlobTagInput` via:
-//
-//	LocationAzureBlobTagArgs{...}
-type LocationAzureBlobTagInput interface {
-	pulumi.Input
-
-	ToLocationAzureBlobTagOutput() LocationAzureBlobTagOutput
-	ToLocationAzureBlobTagOutputWithContext(context.Context) LocationAzureBlobTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationAzureBlobTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationAzureBlobTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationAzureBlobTag)(nil)).Elem()
-}
-
-func (i LocationAzureBlobTagArgs) ToLocationAzureBlobTagOutput() LocationAzureBlobTagOutput {
-	return i.ToLocationAzureBlobTagOutputWithContext(context.Background())
-}
-
-func (i LocationAzureBlobTagArgs) ToLocationAzureBlobTagOutputWithContext(ctx context.Context) LocationAzureBlobTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobTagOutput)
-}
-
-// LocationAzureBlobTagArrayInput is an input type that accepts LocationAzureBlobTagArray and LocationAzureBlobTagArrayOutput values.
-// You can construct a concrete instance of `LocationAzureBlobTagArrayInput` via:
-//
-//	LocationAzureBlobTagArray{ LocationAzureBlobTagArgs{...} }
-type LocationAzureBlobTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationAzureBlobTagArrayOutput() LocationAzureBlobTagArrayOutput
-	ToLocationAzureBlobTagArrayOutputWithContext(context.Context) LocationAzureBlobTagArrayOutput
-}
-
-type LocationAzureBlobTagArray []LocationAzureBlobTagInput
-
-func (LocationAzureBlobTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationAzureBlobTag)(nil)).Elem()
-}
-
-func (i LocationAzureBlobTagArray) ToLocationAzureBlobTagArrayOutput() LocationAzureBlobTagArrayOutput {
-	return i.ToLocationAzureBlobTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationAzureBlobTagArray) ToLocationAzureBlobTagArrayOutputWithContext(ctx context.Context) LocationAzureBlobTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationAzureBlobTagOutput struct{ *pulumi.OutputState }
-
-func (LocationAzureBlobTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationAzureBlobTag)(nil)).Elem()
-}
-
-func (o LocationAzureBlobTagOutput) ToLocationAzureBlobTagOutput() LocationAzureBlobTagOutput {
-	return o
-}
-
-func (o LocationAzureBlobTagOutput) ToLocationAzureBlobTagOutputWithContext(ctx context.Context) LocationAzureBlobTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o LocationAzureBlobTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationAzureBlobTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o LocationAzureBlobTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationAzureBlobTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationAzureBlobTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationAzureBlobTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationAzureBlobTag)(nil)).Elem()
-}
-
-func (o LocationAzureBlobTagArrayOutput) ToLocationAzureBlobTagArrayOutput() LocationAzureBlobTagArrayOutput {
-	return o
-}
-
-func (o LocationAzureBlobTagArrayOutput) ToLocationAzureBlobTagArrayOutputWithContext(ctx context.Context) LocationAzureBlobTagArrayOutput {
-	return o
-}
-
-func (o LocationAzureBlobTagArrayOutput) Index(i pulumi.IntInput) LocationAzureBlobTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationAzureBlobTag {
-		return vs[0].([]LocationAzureBlobTag)[vs[1].(int)]
-	}).(LocationAzureBlobTagOutput)
-}
-
 // The subnet and security group that DataSync uses to access target EFS file system.
 type LocationEfsEc2Config struct {
 	// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
@@ -443,214 +241,12 @@ type LocationEfsTag struct {
 	Value string `pulumi:"value"`
 }
 
-// LocationEfsTagInput is an input type that accepts LocationEfsTagArgs and LocationEfsTagOutput values.
-// You can construct a concrete instance of `LocationEfsTagInput` via:
-//
-//	LocationEfsTagArgs{...}
-type LocationEfsTagInput interface {
-	pulumi.Input
-
-	ToLocationEfsTagOutput() LocationEfsTagOutput
-	ToLocationEfsTagOutputWithContext(context.Context) LocationEfsTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationEfsTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationEfsTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationEfsTag)(nil)).Elem()
-}
-
-func (i LocationEfsTagArgs) ToLocationEfsTagOutput() LocationEfsTagOutput {
-	return i.ToLocationEfsTagOutputWithContext(context.Background())
-}
-
-func (i LocationEfsTagArgs) ToLocationEfsTagOutputWithContext(ctx context.Context) LocationEfsTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationEfsTagOutput)
-}
-
-// LocationEfsTagArrayInput is an input type that accepts LocationEfsTagArray and LocationEfsTagArrayOutput values.
-// You can construct a concrete instance of `LocationEfsTagArrayInput` via:
-//
-//	LocationEfsTagArray{ LocationEfsTagArgs{...} }
-type LocationEfsTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationEfsTagArrayOutput() LocationEfsTagArrayOutput
-	ToLocationEfsTagArrayOutputWithContext(context.Context) LocationEfsTagArrayOutput
-}
-
-type LocationEfsTagArray []LocationEfsTagInput
-
-func (LocationEfsTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationEfsTag)(nil)).Elem()
-}
-
-func (i LocationEfsTagArray) ToLocationEfsTagArrayOutput() LocationEfsTagArrayOutput {
-	return i.ToLocationEfsTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationEfsTagArray) ToLocationEfsTagArrayOutputWithContext(ctx context.Context) LocationEfsTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationEfsTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationEfsTagOutput struct{ *pulumi.OutputState }
-
-func (LocationEfsTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationEfsTag)(nil)).Elem()
-}
-
-func (o LocationEfsTagOutput) ToLocationEfsTagOutput() LocationEfsTagOutput {
-	return o
-}
-
-func (o LocationEfsTagOutput) ToLocationEfsTagOutputWithContext(ctx context.Context) LocationEfsTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o LocationEfsTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationEfsTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o LocationEfsTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationEfsTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationEfsTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationEfsTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationEfsTag)(nil)).Elem()
-}
-
-func (o LocationEfsTagArrayOutput) ToLocationEfsTagArrayOutput() LocationEfsTagArrayOutput {
-	return o
-}
-
-func (o LocationEfsTagArrayOutput) ToLocationEfsTagArrayOutputWithContext(ctx context.Context) LocationEfsTagArrayOutput {
-	return o
-}
-
-func (o LocationEfsTagArrayOutput) Index(i pulumi.IntInput) LocationEfsTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationEfsTag {
-		return vs[0].([]LocationEfsTag)[vs[1].(int)]
-	}).(LocationEfsTagOutput)
-}
-
 // A key-value pair to associate with a resource.
 type LocationFSxLustreTag struct {
 	// The key for an AWS resource tag.
 	Key string `pulumi:"key"`
 	// The value for an AWS resource tag.
 	Value string `pulumi:"value"`
-}
-
-// LocationFSxLustreTagInput is an input type that accepts LocationFSxLustreTagArgs and LocationFSxLustreTagOutput values.
-// You can construct a concrete instance of `LocationFSxLustreTagInput` via:
-//
-//	LocationFSxLustreTagArgs{...}
-type LocationFSxLustreTagInput interface {
-	pulumi.Input
-
-	ToLocationFSxLustreTagOutput() LocationFSxLustreTagOutput
-	ToLocationFSxLustreTagOutputWithContext(context.Context) LocationFSxLustreTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationFSxLustreTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationFSxLustreTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxLustreTag)(nil)).Elem()
-}
-
-func (i LocationFSxLustreTagArgs) ToLocationFSxLustreTagOutput() LocationFSxLustreTagOutput {
-	return i.ToLocationFSxLustreTagOutputWithContext(context.Background())
-}
-
-func (i LocationFSxLustreTagArgs) ToLocationFSxLustreTagOutputWithContext(ctx context.Context) LocationFSxLustreTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxLustreTagOutput)
-}
-
-// LocationFSxLustreTagArrayInput is an input type that accepts LocationFSxLustreTagArray and LocationFSxLustreTagArrayOutput values.
-// You can construct a concrete instance of `LocationFSxLustreTagArrayInput` via:
-//
-//	LocationFSxLustreTagArray{ LocationFSxLustreTagArgs{...} }
-type LocationFSxLustreTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationFSxLustreTagArrayOutput() LocationFSxLustreTagArrayOutput
-	ToLocationFSxLustreTagArrayOutputWithContext(context.Context) LocationFSxLustreTagArrayOutput
-}
-
-type LocationFSxLustreTagArray []LocationFSxLustreTagInput
-
-func (LocationFSxLustreTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationFSxLustreTag)(nil)).Elem()
-}
-
-func (i LocationFSxLustreTagArray) ToLocationFSxLustreTagArrayOutput() LocationFSxLustreTagArrayOutput {
-	return i.ToLocationFSxLustreTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationFSxLustreTagArray) ToLocationFSxLustreTagArrayOutputWithContext(ctx context.Context) LocationFSxLustreTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxLustreTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationFSxLustreTagOutput struct{ *pulumi.OutputState }
-
-func (LocationFSxLustreTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxLustreTag)(nil)).Elem()
-}
-
-func (o LocationFSxLustreTagOutput) ToLocationFSxLustreTagOutput() LocationFSxLustreTagOutput {
-	return o
-}
-
-func (o LocationFSxLustreTagOutput) ToLocationFSxLustreTagOutputWithContext(ctx context.Context) LocationFSxLustreTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o LocationFSxLustreTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationFSxLustreTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o LocationFSxLustreTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationFSxLustreTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationFSxLustreTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationFSxLustreTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationFSxLustreTag)(nil)).Elem()
-}
-
-func (o LocationFSxLustreTagArrayOutput) ToLocationFSxLustreTagArrayOutput() LocationFSxLustreTagArrayOutput {
-	return o
-}
-
-func (o LocationFSxLustreTagArrayOutput) ToLocationFSxLustreTagArrayOutputWithContext(ctx context.Context) LocationFSxLustreTagArrayOutput {
-	return o
-}
-
-func (o LocationFSxLustreTagArrayOutput) Index(i pulumi.IntInput) LocationFSxLustreTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationFSxLustreTag {
-		return vs[0].([]LocationFSxLustreTag)[vs[1].(int)]
-	}).(LocationFSxLustreTagOutput)
 }
 
 // NFS protocol configuration for FSx ONTAP file system.
@@ -1421,107 +1017,6 @@ type LocationFSxOntapTag struct {
 	Value string `pulumi:"value"`
 }
 
-// LocationFSxOntapTagInput is an input type that accepts LocationFSxOntapTagArgs and LocationFSxOntapTagOutput values.
-// You can construct a concrete instance of `LocationFSxOntapTagInput` via:
-//
-//	LocationFSxOntapTagArgs{...}
-type LocationFSxOntapTagInput interface {
-	pulumi.Input
-
-	ToLocationFSxOntapTagOutput() LocationFSxOntapTagOutput
-	ToLocationFSxOntapTagOutputWithContext(context.Context) LocationFSxOntapTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationFSxOntapTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationFSxOntapTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxOntapTag)(nil)).Elem()
-}
-
-func (i LocationFSxOntapTagArgs) ToLocationFSxOntapTagOutput() LocationFSxOntapTagOutput {
-	return i.ToLocationFSxOntapTagOutputWithContext(context.Background())
-}
-
-func (i LocationFSxOntapTagArgs) ToLocationFSxOntapTagOutputWithContext(ctx context.Context) LocationFSxOntapTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapTagOutput)
-}
-
-// LocationFSxOntapTagArrayInput is an input type that accepts LocationFSxOntapTagArray and LocationFSxOntapTagArrayOutput values.
-// You can construct a concrete instance of `LocationFSxOntapTagArrayInput` via:
-//
-//	LocationFSxOntapTagArray{ LocationFSxOntapTagArgs{...} }
-type LocationFSxOntapTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationFSxOntapTagArrayOutput() LocationFSxOntapTagArrayOutput
-	ToLocationFSxOntapTagArrayOutputWithContext(context.Context) LocationFSxOntapTagArrayOutput
-}
-
-type LocationFSxOntapTagArray []LocationFSxOntapTagInput
-
-func (LocationFSxOntapTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationFSxOntapTag)(nil)).Elem()
-}
-
-func (i LocationFSxOntapTagArray) ToLocationFSxOntapTagArrayOutput() LocationFSxOntapTagArrayOutput {
-	return i.ToLocationFSxOntapTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationFSxOntapTagArray) ToLocationFSxOntapTagArrayOutputWithContext(ctx context.Context) LocationFSxOntapTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationFSxOntapTagOutput struct{ *pulumi.OutputState }
-
-func (LocationFSxOntapTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxOntapTag)(nil)).Elem()
-}
-
-func (o LocationFSxOntapTagOutput) ToLocationFSxOntapTagOutput() LocationFSxOntapTagOutput {
-	return o
-}
-
-func (o LocationFSxOntapTagOutput) ToLocationFSxOntapTagOutputWithContext(ctx context.Context) LocationFSxOntapTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o LocationFSxOntapTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationFSxOntapTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o LocationFSxOntapTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationFSxOntapTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationFSxOntapTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationFSxOntapTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationFSxOntapTag)(nil)).Elem()
-}
-
-func (o LocationFSxOntapTagArrayOutput) ToLocationFSxOntapTagArrayOutput() LocationFSxOntapTagArrayOutput {
-	return o
-}
-
-func (o LocationFSxOntapTagArrayOutput) ToLocationFSxOntapTagArrayOutputWithContext(ctx context.Context) LocationFSxOntapTagArrayOutput {
-	return o
-}
-
-func (o LocationFSxOntapTagArrayOutput) Index(i pulumi.IntInput) LocationFSxOntapTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationFSxOntapTag {
-		return vs[0].([]LocationFSxOntapTag)[vs[1].(int)]
-	}).(LocationFSxOntapTagOutput)
-}
-
 // The NFS mount options that DataSync can use to mount your NFS share.
 type LocationFSxOpenZfsMountOptions struct {
 	// The specific NFS version that you want DataSync to use to mount your NFS share.
@@ -1858,214 +1353,12 @@ type LocationFSxOpenZfsTag struct {
 	Value string `pulumi:"value"`
 }
 
-// LocationFSxOpenZfsTagInput is an input type that accepts LocationFSxOpenZfsTagArgs and LocationFSxOpenZfsTagOutput values.
-// You can construct a concrete instance of `LocationFSxOpenZfsTagInput` via:
-//
-//	LocationFSxOpenZfsTagArgs{...}
-type LocationFSxOpenZfsTagInput interface {
-	pulumi.Input
-
-	ToLocationFSxOpenZfsTagOutput() LocationFSxOpenZfsTagOutput
-	ToLocationFSxOpenZfsTagOutputWithContext(context.Context) LocationFSxOpenZfsTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationFSxOpenZfsTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationFSxOpenZfsTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxOpenZfsTag)(nil)).Elem()
-}
-
-func (i LocationFSxOpenZfsTagArgs) ToLocationFSxOpenZfsTagOutput() LocationFSxOpenZfsTagOutput {
-	return i.ToLocationFSxOpenZfsTagOutputWithContext(context.Background())
-}
-
-func (i LocationFSxOpenZfsTagArgs) ToLocationFSxOpenZfsTagOutputWithContext(ctx context.Context) LocationFSxOpenZfsTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZfsTagOutput)
-}
-
-// LocationFSxOpenZfsTagArrayInput is an input type that accepts LocationFSxOpenZfsTagArray and LocationFSxOpenZfsTagArrayOutput values.
-// You can construct a concrete instance of `LocationFSxOpenZfsTagArrayInput` via:
-//
-//	LocationFSxOpenZfsTagArray{ LocationFSxOpenZfsTagArgs{...} }
-type LocationFSxOpenZfsTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationFSxOpenZfsTagArrayOutput() LocationFSxOpenZfsTagArrayOutput
-	ToLocationFSxOpenZfsTagArrayOutputWithContext(context.Context) LocationFSxOpenZfsTagArrayOutput
-}
-
-type LocationFSxOpenZfsTagArray []LocationFSxOpenZfsTagInput
-
-func (LocationFSxOpenZfsTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationFSxOpenZfsTag)(nil)).Elem()
-}
-
-func (i LocationFSxOpenZfsTagArray) ToLocationFSxOpenZfsTagArrayOutput() LocationFSxOpenZfsTagArrayOutput {
-	return i.ToLocationFSxOpenZfsTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationFSxOpenZfsTagArray) ToLocationFSxOpenZfsTagArrayOutputWithContext(ctx context.Context) LocationFSxOpenZfsTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZfsTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationFSxOpenZfsTagOutput struct{ *pulumi.OutputState }
-
-func (LocationFSxOpenZfsTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxOpenZfsTag)(nil)).Elem()
-}
-
-func (o LocationFSxOpenZfsTagOutput) ToLocationFSxOpenZfsTagOutput() LocationFSxOpenZfsTagOutput {
-	return o
-}
-
-func (o LocationFSxOpenZfsTagOutput) ToLocationFSxOpenZfsTagOutputWithContext(ctx context.Context) LocationFSxOpenZfsTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o LocationFSxOpenZfsTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationFSxOpenZfsTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o LocationFSxOpenZfsTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationFSxOpenZfsTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationFSxOpenZfsTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationFSxOpenZfsTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationFSxOpenZfsTag)(nil)).Elem()
-}
-
-func (o LocationFSxOpenZfsTagArrayOutput) ToLocationFSxOpenZfsTagArrayOutput() LocationFSxOpenZfsTagArrayOutput {
-	return o
-}
-
-func (o LocationFSxOpenZfsTagArrayOutput) ToLocationFSxOpenZfsTagArrayOutputWithContext(ctx context.Context) LocationFSxOpenZfsTagArrayOutput {
-	return o
-}
-
-func (o LocationFSxOpenZfsTagArrayOutput) Index(i pulumi.IntInput) LocationFSxOpenZfsTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationFSxOpenZfsTag {
-		return vs[0].([]LocationFSxOpenZfsTag)[vs[1].(int)]
-	}).(LocationFSxOpenZfsTagOutput)
-}
-
 // A key-value pair to associate with a resource.
 type LocationFSxWindowsTag struct {
 	// The key for an AWS resource tag.
 	Key string `pulumi:"key"`
 	// The value for an AWS resource tag.
 	Value string `pulumi:"value"`
-}
-
-// LocationFSxWindowsTagInput is an input type that accepts LocationFSxWindowsTagArgs and LocationFSxWindowsTagOutput values.
-// You can construct a concrete instance of `LocationFSxWindowsTagInput` via:
-//
-//	LocationFSxWindowsTagArgs{...}
-type LocationFSxWindowsTagInput interface {
-	pulumi.Input
-
-	ToLocationFSxWindowsTagOutput() LocationFSxWindowsTagOutput
-	ToLocationFSxWindowsTagOutputWithContext(context.Context) LocationFSxWindowsTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationFSxWindowsTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationFSxWindowsTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxWindowsTag)(nil)).Elem()
-}
-
-func (i LocationFSxWindowsTagArgs) ToLocationFSxWindowsTagOutput() LocationFSxWindowsTagOutput {
-	return i.ToLocationFSxWindowsTagOutputWithContext(context.Background())
-}
-
-func (i LocationFSxWindowsTagArgs) ToLocationFSxWindowsTagOutputWithContext(ctx context.Context) LocationFSxWindowsTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxWindowsTagOutput)
-}
-
-// LocationFSxWindowsTagArrayInput is an input type that accepts LocationFSxWindowsTagArray and LocationFSxWindowsTagArrayOutput values.
-// You can construct a concrete instance of `LocationFSxWindowsTagArrayInput` via:
-//
-//	LocationFSxWindowsTagArray{ LocationFSxWindowsTagArgs{...} }
-type LocationFSxWindowsTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationFSxWindowsTagArrayOutput() LocationFSxWindowsTagArrayOutput
-	ToLocationFSxWindowsTagArrayOutputWithContext(context.Context) LocationFSxWindowsTagArrayOutput
-}
-
-type LocationFSxWindowsTagArray []LocationFSxWindowsTagInput
-
-func (LocationFSxWindowsTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationFSxWindowsTag)(nil)).Elem()
-}
-
-func (i LocationFSxWindowsTagArray) ToLocationFSxWindowsTagArrayOutput() LocationFSxWindowsTagArrayOutput {
-	return i.ToLocationFSxWindowsTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationFSxWindowsTagArray) ToLocationFSxWindowsTagArrayOutputWithContext(ctx context.Context) LocationFSxWindowsTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxWindowsTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationFSxWindowsTagOutput struct{ *pulumi.OutputState }
-
-func (LocationFSxWindowsTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxWindowsTag)(nil)).Elem()
-}
-
-func (o LocationFSxWindowsTagOutput) ToLocationFSxWindowsTagOutput() LocationFSxWindowsTagOutput {
-	return o
-}
-
-func (o LocationFSxWindowsTagOutput) ToLocationFSxWindowsTagOutputWithContext(ctx context.Context) LocationFSxWindowsTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o LocationFSxWindowsTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationFSxWindowsTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o LocationFSxWindowsTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationFSxWindowsTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationFSxWindowsTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationFSxWindowsTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationFSxWindowsTag)(nil)).Elem()
-}
-
-func (o LocationFSxWindowsTagArrayOutput) ToLocationFSxWindowsTagArrayOutput() LocationFSxWindowsTagArrayOutput {
-	return o
-}
-
-func (o LocationFSxWindowsTagArrayOutput) ToLocationFSxWindowsTagArrayOutputWithContext(ctx context.Context) LocationFSxWindowsTagArrayOutput {
-	return o
-}
-
-func (o LocationFSxWindowsTagArrayOutput) Index(i pulumi.IntInput) LocationFSxWindowsTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationFSxWindowsTag {
-		return vs[0].([]LocationFSxWindowsTag)[vs[1].(int)]
-	}).(LocationFSxWindowsTagOutput)
 }
 
 // HDFS Name Node IP and port information.
@@ -2348,107 +1641,6 @@ type LocationHdfsTag struct {
 	Value string `pulumi:"value"`
 }
 
-// LocationHdfsTagInput is an input type that accepts LocationHdfsTagArgs and LocationHdfsTagOutput values.
-// You can construct a concrete instance of `LocationHdfsTagInput` via:
-//
-//	LocationHdfsTagArgs{...}
-type LocationHdfsTagInput interface {
-	pulumi.Input
-
-	ToLocationHdfsTagOutput() LocationHdfsTagOutput
-	ToLocationHdfsTagOutputWithContext(context.Context) LocationHdfsTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationHdfsTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationHdfsTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHdfsTag)(nil)).Elem()
-}
-
-func (i LocationHdfsTagArgs) ToLocationHdfsTagOutput() LocationHdfsTagOutput {
-	return i.ToLocationHdfsTagOutputWithContext(context.Background())
-}
-
-func (i LocationHdfsTagArgs) ToLocationHdfsTagOutputWithContext(ctx context.Context) LocationHdfsTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsTagOutput)
-}
-
-// LocationHdfsTagArrayInput is an input type that accepts LocationHdfsTagArray and LocationHdfsTagArrayOutput values.
-// You can construct a concrete instance of `LocationHdfsTagArrayInput` via:
-//
-//	LocationHdfsTagArray{ LocationHdfsTagArgs{...} }
-type LocationHdfsTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationHdfsTagArrayOutput() LocationHdfsTagArrayOutput
-	ToLocationHdfsTagArrayOutputWithContext(context.Context) LocationHdfsTagArrayOutput
-}
-
-type LocationHdfsTagArray []LocationHdfsTagInput
-
-func (LocationHdfsTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationHdfsTag)(nil)).Elem()
-}
-
-func (i LocationHdfsTagArray) ToLocationHdfsTagArrayOutput() LocationHdfsTagArrayOutput {
-	return i.ToLocationHdfsTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationHdfsTagArray) ToLocationHdfsTagArrayOutputWithContext(ctx context.Context) LocationHdfsTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationHdfsTagOutput struct{ *pulumi.OutputState }
-
-func (LocationHdfsTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHdfsTag)(nil)).Elem()
-}
-
-func (o LocationHdfsTagOutput) ToLocationHdfsTagOutput() LocationHdfsTagOutput {
-	return o
-}
-
-func (o LocationHdfsTagOutput) ToLocationHdfsTagOutputWithContext(ctx context.Context) LocationHdfsTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o LocationHdfsTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationHdfsTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o LocationHdfsTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationHdfsTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationHdfsTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationHdfsTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationHdfsTag)(nil)).Elem()
-}
-
-func (o LocationHdfsTagArrayOutput) ToLocationHdfsTagArrayOutput() LocationHdfsTagArrayOutput {
-	return o
-}
-
-func (o LocationHdfsTagArrayOutput) ToLocationHdfsTagArrayOutputWithContext(ctx context.Context) LocationHdfsTagArrayOutput {
-	return o
-}
-
-func (o LocationHdfsTagArrayOutput) Index(i pulumi.IntInput) LocationHdfsTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationHdfsTag {
-		return vs[0].([]LocationHdfsTag)[vs[1].(int)]
-	}).(LocationHdfsTagOutput)
-}
-
 // The NFS mount options that DataSync can use to mount your NFS share.
 type LocationNfsMountOptions struct {
 	// The specific NFS version that you want DataSync to use to mount your NFS share.
@@ -2686,107 +1878,6 @@ type LocationNfsTag struct {
 	Value string `pulumi:"value"`
 }
 
-// LocationNfsTagInput is an input type that accepts LocationNfsTagArgs and LocationNfsTagOutput values.
-// You can construct a concrete instance of `LocationNfsTagInput` via:
-//
-//	LocationNfsTagArgs{...}
-type LocationNfsTagInput interface {
-	pulumi.Input
-
-	ToLocationNfsTagOutput() LocationNfsTagOutput
-	ToLocationNfsTagOutputWithContext(context.Context) LocationNfsTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationNfsTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationNfsTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationNfsTag)(nil)).Elem()
-}
-
-func (i LocationNfsTagArgs) ToLocationNfsTagOutput() LocationNfsTagOutput {
-	return i.ToLocationNfsTagOutputWithContext(context.Background())
-}
-
-func (i LocationNfsTagArgs) ToLocationNfsTagOutputWithContext(ctx context.Context) LocationNfsTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationNfsTagOutput)
-}
-
-// LocationNfsTagArrayInput is an input type that accepts LocationNfsTagArray and LocationNfsTagArrayOutput values.
-// You can construct a concrete instance of `LocationNfsTagArrayInput` via:
-//
-//	LocationNfsTagArray{ LocationNfsTagArgs{...} }
-type LocationNfsTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationNfsTagArrayOutput() LocationNfsTagArrayOutput
-	ToLocationNfsTagArrayOutputWithContext(context.Context) LocationNfsTagArrayOutput
-}
-
-type LocationNfsTagArray []LocationNfsTagInput
-
-func (LocationNfsTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationNfsTag)(nil)).Elem()
-}
-
-func (i LocationNfsTagArray) ToLocationNfsTagArrayOutput() LocationNfsTagArrayOutput {
-	return i.ToLocationNfsTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationNfsTagArray) ToLocationNfsTagArrayOutputWithContext(ctx context.Context) LocationNfsTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationNfsTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationNfsTagOutput struct{ *pulumi.OutputState }
-
-func (LocationNfsTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationNfsTag)(nil)).Elem()
-}
-
-func (o LocationNfsTagOutput) ToLocationNfsTagOutput() LocationNfsTagOutput {
-	return o
-}
-
-func (o LocationNfsTagOutput) ToLocationNfsTagOutputWithContext(ctx context.Context) LocationNfsTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o LocationNfsTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationNfsTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o LocationNfsTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationNfsTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationNfsTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationNfsTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationNfsTag)(nil)).Elem()
-}
-
-func (o LocationNfsTagArrayOutput) ToLocationNfsTagArrayOutput() LocationNfsTagArrayOutput {
-	return o
-}
-
-func (o LocationNfsTagArrayOutput) ToLocationNfsTagArrayOutputWithContext(ctx context.Context) LocationNfsTagArrayOutput {
-	return o
-}
-
-func (o LocationNfsTagArrayOutput) Index(i pulumi.IntInput) LocationNfsTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationNfsTag {
-		return vs[0].([]LocationNfsTag)[vs[1].(int)]
-	}).(LocationNfsTagOutput)
-}
-
 // A key-value pair to associate with a resource.
 type LocationObjectStorageTag struct {
 	// The key for an AWS resource tag.
@@ -2795,214 +1886,12 @@ type LocationObjectStorageTag struct {
 	Value string `pulumi:"value"`
 }
 
-// LocationObjectStorageTagInput is an input type that accepts LocationObjectStorageTagArgs and LocationObjectStorageTagOutput values.
-// You can construct a concrete instance of `LocationObjectStorageTagInput` via:
-//
-//	LocationObjectStorageTagArgs{...}
-type LocationObjectStorageTagInput interface {
-	pulumi.Input
-
-	ToLocationObjectStorageTagOutput() LocationObjectStorageTagOutput
-	ToLocationObjectStorageTagOutputWithContext(context.Context) LocationObjectStorageTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationObjectStorageTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationObjectStorageTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationObjectStorageTag)(nil)).Elem()
-}
-
-func (i LocationObjectStorageTagArgs) ToLocationObjectStorageTagOutput() LocationObjectStorageTagOutput {
-	return i.ToLocationObjectStorageTagOutputWithContext(context.Background())
-}
-
-func (i LocationObjectStorageTagArgs) ToLocationObjectStorageTagOutputWithContext(ctx context.Context) LocationObjectStorageTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageTagOutput)
-}
-
-// LocationObjectStorageTagArrayInput is an input type that accepts LocationObjectStorageTagArray and LocationObjectStorageTagArrayOutput values.
-// You can construct a concrete instance of `LocationObjectStorageTagArrayInput` via:
-//
-//	LocationObjectStorageTagArray{ LocationObjectStorageTagArgs{...} }
-type LocationObjectStorageTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationObjectStorageTagArrayOutput() LocationObjectStorageTagArrayOutput
-	ToLocationObjectStorageTagArrayOutputWithContext(context.Context) LocationObjectStorageTagArrayOutput
-}
-
-type LocationObjectStorageTagArray []LocationObjectStorageTagInput
-
-func (LocationObjectStorageTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationObjectStorageTag)(nil)).Elem()
-}
-
-func (i LocationObjectStorageTagArray) ToLocationObjectStorageTagArrayOutput() LocationObjectStorageTagArrayOutput {
-	return i.ToLocationObjectStorageTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationObjectStorageTagArray) ToLocationObjectStorageTagArrayOutputWithContext(ctx context.Context) LocationObjectStorageTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationObjectStorageTagOutput struct{ *pulumi.OutputState }
-
-func (LocationObjectStorageTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationObjectStorageTag)(nil)).Elem()
-}
-
-func (o LocationObjectStorageTagOutput) ToLocationObjectStorageTagOutput() LocationObjectStorageTagOutput {
-	return o
-}
-
-func (o LocationObjectStorageTagOutput) ToLocationObjectStorageTagOutputWithContext(ctx context.Context) LocationObjectStorageTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o LocationObjectStorageTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationObjectStorageTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o LocationObjectStorageTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationObjectStorageTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationObjectStorageTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationObjectStorageTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationObjectStorageTag)(nil)).Elem()
-}
-
-func (o LocationObjectStorageTagArrayOutput) ToLocationObjectStorageTagArrayOutput() LocationObjectStorageTagArrayOutput {
-	return o
-}
-
-func (o LocationObjectStorageTagArrayOutput) ToLocationObjectStorageTagArrayOutputWithContext(ctx context.Context) LocationObjectStorageTagArrayOutput {
-	return o
-}
-
-func (o LocationObjectStorageTagArrayOutput) Index(i pulumi.IntInput) LocationObjectStorageTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationObjectStorageTag {
-		return vs[0].([]LocationObjectStorageTag)[vs[1].(int)]
-	}).(LocationObjectStorageTagOutput)
-}
-
 // A key-value pair to associate with a resource.
 type LocationS3Tag struct {
 	// The key for an AWS resource tag.
 	Key string `pulumi:"key"`
 	// The value for an AWS resource tag.
 	Value string `pulumi:"value"`
-}
-
-// LocationS3TagInput is an input type that accepts LocationS3TagArgs and LocationS3TagOutput values.
-// You can construct a concrete instance of `LocationS3TagInput` via:
-//
-//	LocationS3TagArgs{...}
-type LocationS3TagInput interface {
-	pulumi.Input
-
-	ToLocationS3TagOutput() LocationS3TagOutput
-	ToLocationS3TagOutputWithContext(context.Context) LocationS3TagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationS3TagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationS3TagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationS3Tag)(nil)).Elem()
-}
-
-func (i LocationS3TagArgs) ToLocationS3TagOutput() LocationS3TagOutput {
-	return i.ToLocationS3TagOutputWithContext(context.Background())
-}
-
-func (i LocationS3TagArgs) ToLocationS3TagOutputWithContext(ctx context.Context) LocationS3TagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationS3TagOutput)
-}
-
-// LocationS3TagArrayInput is an input type that accepts LocationS3TagArray and LocationS3TagArrayOutput values.
-// You can construct a concrete instance of `LocationS3TagArrayInput` via:
-//
-//	LocationS3TagArray{ LocationS3TagArgs{...} }
-type LocationS3TagArrayInput interface {
-	pulumi.Input
-
-	ToLocationS3TagArrayOutput() LocationS3TagArrayOutput
-	ToLocationS3TagArrayOutputWithContext(context.Context) LocationS3TagArrayOutput
-}
-
-type LocationS3TagArray []LocationS3TagInput
-
-func (LocationS3TagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationS3Tag)(nil)).Elem()
-}
-
-func (i LocationS3TagArray) ToLocationS3TagArrayOutput() LocationS3TagArrayOutput {
-	return i.ToLocationS3TagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationS3TagArray) ToLocationS3TagArrayOutputWithContext(ctx context.Context) LocationS3TagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationS3TagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationS3TagOutput struct{ *pulumi.OutputState }
-
-func (LocationS3TagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationS3Tag)(nil)).Elem()
-}
-
-func (o LocationS3TagOutput) ToLocationS3TagOutput() LocationS3TagOutput {
-	return o
-}
-
-func (o LocationS3TagOutput) ToLocationS3TagOutputWithContext(ctx context.Context) LocationS3TagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o LocationS3TagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationS3Tag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o LocationS3TagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationS3Tag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationS3TagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationS3TagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationS3Tag)(nil)).Elem()
-}
-
-func (o LocationS3TagArrayOutput) ToLocationS3TagArrayOutput() LocationS3TagArrayOutput {
-	return o
-}
-
-func (o LocationS3TagArrayOutput) ToLocationS3TagArrayOutputWithContext(ctx context.Context) LocationS3TagArrayOutput {
-	return o
-}
-
-func (o LocationS3TagArrayOutput) Index(i pulumi.IntInput) LocationS3TagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationS3Tag {
-		return vs[0].([]LocationS3Tag)[vs[1].(int)]
-	}).(LocationS3TagOutput)
 }
 
 // The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
@@ -3206,107 +2095,6 @@ type LocationSmbTag struct {
 	Key string `pulumi:"key"`
 	// The value for an AWS resource tag.
 	Value string `pulumi:"value"`
-}
-
-// LocationSmbTagInput is an input type that accepts LocationSmbTagArgs and LocationSmbTagOutput values.
-// You can construct a concrete instance of `LocationSmbTagInput` via:
-//
-//	LocationSmbTagArgs{...}
-type LocationSmbTagInput interface {
-	pulumi.Input
-
-	ToLocationSmbTagOutput() LocationSmbTagOutput
-	ToLocationSmbTagOutputWithContext(context.Context) LocationSmbTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationSmbTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationSmbTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationSmbTag)(nil)).Elem()
-}
-
-func (i LocationSmbTagArgs) ToLocationSmbTagOutput() LocationSmbTagOutput {
-	return i.ToLocationSmbTagOutputWithContext(context.Background())
-}
-
-func (i LocationSmbTagArgs) ToLocationSmbTagOutputWithContext(ctx context.Context) LocationSmbTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbTagOutput)
-}
-
-// LocationSmbTagArrayInput is an input type that accepts LocationSmbTagArray and LocationSmbTagArrayOutput values.
-// You can construct a concrete instance of `LocationSmbTagArrayInput` via:
-//
-//	LocationSmbTagArray{ LocationSmbTagArgs{...} }
-type LocationSmbTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationSmbTagArrayOutput() LocationSmbTagArrayOutput
-	ToLocationSmbTagArrayOutputWithContext(context.Context) LocationSmbTagArrayOutput
-}
-
-type LocationSmbTagArray []LocationSmbTagInput
-
-func (LocationSmbTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationSmbTag)(nil)).Elem()
-}
-
-func (i LocationSmbTagArray) ToLocationSmbTagArrayOutput() LocationSmbTagArrayOutput {
-	return i.ToLocationSmbTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationSmbTagArray) ToLocationSmbTagArrayOutputWithContext(ctx context.Context) LocationSmbTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationSmbTagOutput struct{ *pulumi.OutputState }
-
-func (LocationSmbTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationSmbTag)(nil)).Elem()
-}
-
-func (o LocationSmbTagOutput) ToLocationSmbTagOutput() LocationSmbTagOutput {
-	return o
-}
-
-func (o LocationSmbTagOutput) ToLocationSmbTagOutputWithContext(ctx context.Context) LocationSmbTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o LocationSmbTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationSmbTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o LocationSmbTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationSmbTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationSmbTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationSmbTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationSmbTag)(nil)).Elem()
-}
-
-func (o LocationSmbTagArrayOutput) ToLocationSmbTagArrayOutput() LocationSmbTagArrayOutput {
-	return o
-}
-
-func (o LocationSmbTagArrayOutput) ToLocationSmbTagArrayOutputWithContext(ctx context.Context) LocationSmbTagArrayOutput {
-	return o
-}
-
-func (o LocationSmbTagArrayOutput) Index(i pulumi.IntInput) LocationSmbTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationSmbTag {
-		return vs[0].([]LocationSmbTag)[vs[1].(int)]
-	}).(LocationSmbTagOutput)
 }
 
 // The server name and network port required to connect with the management interface of the on-premises storage system.
@@ -3582,107 +2370,6 @@ type StorageSystemTag struct {
 	Key string `pulumi:"key"`
 	// The value for an AWS resource tag.
 	Value string `pulumi:"value"`
-}
-
-// StorageSystemTagInput is an input type that accepts StorageSystemTagArgs and StorageSystemTagOutput values.
-// You can construct a concrete instance of `StorageSystemTagInput` via:
-//
-//	StorageSystemTagArgs{...}
-type StorageSystemTagInput interface {
-	pulumi.Input
-
-	ToStorageSystemTagOutput() StorageSystemTagOutput
-	ToStorageSystemTagOutputWithContext(context.Context) StorageSystemTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type StorageSystemTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StorageSystemTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageSystemTag)(nil)).Elem()
-}
-
-func (i StorageSystemTagArgs) ToStorageSystemTagOutput() StorageSystemTagOutput {
-	return i.ToStorageSystemTagOutputWithContext(context.Background())
-}
-
-func (i StorageSystemTagArgs) ToStorageSystemTagOutputWithContext(ctx context.Context) StorageSystemTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemTagOutput)
-}
-
-// StorageSystemTagArrayInput is an input type that accepts StorageSystemTagArray and StorageSystemTagArrayOutput values.
-// You can construct a concrete instance of `StorageSystemTagArrayInput` via:
-//
-//	StorageSystemTagArray{ StorageSystemTagArgs{...} }
-type StorageSystemTagArrayInput interface {
-	pulumi.Input
-
-	ToStorageSystemTagArrayOutput() StorageSystemTagArrayOutput
-	ToStorageSystemTagArrayOutputWithContext(context.Context) StorageSystemTagArrayOutput
-}
-
-type StorageSystemTagArray []StorageSystemTagInput
-
-func (StorageSystemTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageSystemTag)(nil)).Elem()
-}
-
-func (i StorageSystemTagArray) ToStorageSystemTagArrayOutput() StorageSystemTagArrayOutput {
-	return i.ToStorageSystemTagArrayOutputWithContext(context.Background())
-}
-
-func (i StorageSystemTagArray) ToStorageSystemTagArrayOutputWithContext(ctx context.Context) StorageSystemTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type StorageSystemTagOutput struct{ *pulumi.OutputState }
-
-func (StorageSystemTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageSystemTag)(nil)).Elem()
-}
-
-func (o StorageSystemTagOutput) ToStorageSystemTagOutput() StorageSystemTagOutput {
-	return o
-}
-
-func (o StorageSystemTagOutput) ToStorageSystemTagOutputWithContext(ctx context.Context) StorageSystemTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o StorageSystemTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageSystemTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o StorageSystemTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageSystemTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StorageSystemTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StorageSystemTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageSystemTag)(nil)).Elem()
-}
-
-func (o StorageSystemTagArrayOutput) ToStorageSystemTagArrayOutput() StorageSystemTagArrayOutput {
-	return o
-}
-
-func (o StorageSystemTagArrayOutput) ToStorageSystemTagArrayOutputWithContext(ctx context.Context) StorageSystemTagArrayOutput {
-	return o
-}
-
-func (o StorageSystemTagArrayOutput) Index(i pulumi.IntInput) StorageSystemTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageSystemTag {
-		return vs[0].([]StorageSystemTag)[vs[1].(int)]
-	}).(StorageSystemTagOutput)
 }
 
 // Specifies which files folders and objects to include or exclude when transferring files from source to destination.
@@ -5657,119 +4344,10 @@ type TaskTag struct {
 	Value string `pulumi:"value"`
 }
 
-// TaskTagInput is an input type that accepts TaskTagArgs and TaskTagOutput values.
-// You can construct a concrete instance of `TaskTagInput` via:
-//
-//	TaskTagArgs{...}
-type TaskTagInput interface {
-	pulumi.Input
-
-	ToTaskTagOutput() TaskTagOutput
-	ToTaskTagOutputWithContext(context.Context) TaskTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type TaskTagArgs struct {
-	// The key for an AWS resource tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for an AWS resource tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TaskTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskTag)(nil)).Elem()
-}
-
-func (i TaskTagArgs) ToTaskTagOutput() TaskTagOutput {
-	return i.ToTaskTagOutputWithContext(context.Background())
-}
-
-func (i TaskTagArgs) ToTaskTagOutputWithContext(ctx context.Context) TaskTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskTagOutput)
-}
-
-// TaskTagArrayInput is an input type that accepts TaskTagArray and TaskTagArrayOutput values.
-// You can construct a concrete instance of `TaskTagArrayInput` via:
-//
-//	TaskTagArray{ TaskTagArgs{...} }
-type TaskTagArrayInput interface {
-	pulumi.Input
-
-	ToTaskTagArrayOutput() TaskTagArrayOutput
-	ToTaskTagArrayOutputWithContext(context.Context) TaskTagArrayOutput
-}
-
-type TaskTagArray []TaskTagInput
-
-func (TaskTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskTag)(nil)).Elem()
-}
-
-func (i TaskTagArray) ToTaskTagArrayOutput() TaskTagArrayOutput {
-	return i.ToTaskTagArrayOutputWithContext(context.Background())
-}
-
-func (i TaskTagArray) ToTaskTagArrayOutputWithContext(ctx context.Context) TaskTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type TaskTagOutput struct{ *pulumi.OutputState }
-
-func (TaskTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskTag)(nil)).Elem()
-}
-
-func (o TaskTagOutput) ToTaskTagOutput() TaskTagOutput {
-	return o
-}
-
-func (o TaskTagOutput) ToTaskTagOutputWithContext(ctx context.Context) TaskTagOutput {
-	return o
-}
-
-// The key for an AWS resource tag.
-func (o TaskTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for an AWS resource tag.
-func (o TaskTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TaskTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskTag)(nil)).Elem()
-}
-
-func (o TaskTagArrayOutput) ToTaskTagArrayOutput() TaskTagArrayOutput {
-	return o
-}
-
-func (o TaskTagArrayOutput) ToTaskTagArrayOutputWithContext(ctx context.Context) TaskTagArrayOutput {
-	return o
-}
-
-func (o TaskTagArrayOutput) Index(i pulumi.IntInput) TaskTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskTag {
-		return vs[0].([]TaskTag)[vs[1].(int)]
-	}).(TaskTagOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentTagInput)(nil)).Elem(), AgentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentTagArrayInput)(nil)).Elem(), AgentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureBlobSasConfigurationInput)(nil)).Elem(), LocationAzureBlobAzureBlobSasConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureBlobSasConfigurationPtrInput)(nil)).Elem(), LocationAzureBlobAzureBlobSasConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobTagInput)(nil)).Elem(), LocationAzureBlobTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobTagArrayInput)(nil)).Elem(), LocationAzureBlobTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEfsEc2ConfigInput)(nil)).Elem(), LocationEfsEc2ConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationEfsTagInput)(nil)).Elem(), LocationEfsTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationEfsTagArrayInput)(nil)).Elem(), LocationEfsTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxLustreTagInput)(nil)).Elem(), LocationFSxLustreTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxLustreTagArrayInput)(nil)).Elem(), LocationFSxLustreTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapNfsInput)(nil)).Elem(), LocationFSxOntapNfsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapNfsPtrInput)(nil)).Elem(), LocationFSxOntapNfsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapNfsMountOptionsInput)(nil)).Elem(), LocationFSxOntapNfsMountOptionsArgs{})
@@ -5780,42 +4358,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapSmbPtrInput)(nil)).Elem(), LocationFSxOntapSmbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapSmbMountOptionsInput)(nil)).Elem(), LocationFSxOntapSmbMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapSmbMountOptionsPtrInput)(nil)).Elem(), LocationFSxOntapSmbMountOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapTagInput)(nil)).Elem(), LocationFSxOntapTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOntapTagArrayInput)(nil)).Elem(), LocationFSxOntapTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZfsMountOptionsInput)(nil)).Elem(), LocationFSxOpenZfsMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZfsMountOptionsPtrInput)(nil)).Elem(), LocationFSxOpenZfsMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZfsNfsInput)(nil)).Elem(), LocationFSxOpenZfsNfsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZfsNfsPtrInput)(nil)).Elem(), LocationFSxOpenZfsNfsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZfsProtocolInput)(nil)).Elem(), LocationFSxOpenZfsProtocolArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZfsTagInput)(nil)).Elem(), LocationFSxOpenZfsTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxOpenZfsTagArrayInput)(nil)).Elem(), LocationFSxOpenZfsTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxWindowsTagInput)(nil)).Elem(), LocationFSxWindowsTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxWindowsTagArrayInput)(nil)).Elem(), LocationFSxWindowsTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsNameNodeInput)(nil)).Elem(), LocationHdfsNameNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsNameNodeArrayInput)(nil)).Elem(), LocationHdfsNameNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsQopConfigurationInput)(nil)).Elem(), LocationHdfsQopConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsQopConfigurationPtrInput)(nil)).Elem(), LocationHdfsQopConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsTagInput)(nil)).Elem(), LocationHdfsTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsTagArrayInput)(nil)).Elem(), LocationHdfsTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNfsMountOptionsInput)(nil)).Elem(), LocationNfsMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNfsMountOptionsPtrInput)(nil)).Elem(), LocationNfsMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNfsOnPremConfigInput)(nil)).Elem(), LocationNfsOnPremConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationNfsTagInput)(nil)).Elem(), LocationNfsTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationNfsTagArrayInput)(nil)).Elem(), LocationNfsTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageTagInput)(nil)).Elem(), LocationObjectStorageTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageTagArrayInput)(nil)).Elem(), LocationObjectStorageTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3TagInput)(nil)).Elem(), LocationS3TagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3TagArrayInput)(nil)).Elem(), LocationS3TagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3s3ConfigInput)(nil)).Elem(), LocationS3s3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsInput)(nil)).Elem(), LocationSmbMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsPtrInput)(nil)).Elem(), LocationSmbMountOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbTagInput)(nil)).Elem(), LocationSmbTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbTagArrayInput)(nil)).Elem(), LocationSmbTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemServerConfigurationInput)(nil)).Elem(), StorageSystemServerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemServerCredentialsInput)(nil)).Elem(), StorageSystemServerCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemServerCredentialsPtrInput)(nil)).Elem(), StorageSystemServerCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemTagInput)(nil)).Elem(), StorageSystemTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemTagArrayInput)(nil)).Elem(), StorageSystemTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleInput)(nil)).Elem(), TaskFilterRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleArrayInput)(nil)).Elem(), TaskFilterRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsInput)(nil)).Elem(), TaskOptionsArgs{})
@@ -5838,19 +4398,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesVerifiedPropertiesPtrInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskScheduleInput)(nil)).Elem(), TaskScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSchedulePtrInput)(nil)).Elem(), TaskScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskTagInput)(nil)).Elem(), TaskTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskTagArrayInput)(nil)).Elem(), TaskTagArray{})
-	pulumi.RegisterOutputType(AgentTagOutput{})
-	pulumi.RegisterOutputType(AgentTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationAzureBlobAzureBlobSasConfigurationOutput{})
 	pulumi.RegisterOutputType(LocationAzureBlobAzureBlobSasConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(LocationAzureBlobTagOutput{})
-	pulumi.RegisterOutputType(LocationAzureBlobTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationEfsEc2ConfigOutput{})
-	pulumi.RegisterOutputType(LocationEfsTagOutput{})
-	pulumi.RegisterOutputType(LocationEfsTagArrayOutput{})
-	pulumi.RegisterOutputType(LocationFSxLustreTagOutput{})
-	pulumi.RegisterOutputType(LocationFSxLustreTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationFSxOntapNfsOutput{})
 	pulumi.RegisterOutputType(LocationFSxOntapNfsPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxOntapNfsMountOptionsOutput{})
@@ -5861,44 +4411,26 @@ func init() {
 	pulumi.RegisterOutputType(LocationFSxOntapSmbPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxOntapSmbMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationFSxOntapSmbMountOptionsPtrOutput{})
-	pulumi.RegisterOutputType(LocationFSxOntapTagOutput{})
-	pulumi.RegisterOutputType(LocationFSxOntapTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZfsMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZfsMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZfsNfsOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZfsNfsPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZfsProtocolOutput{})
-	pulumi.RegisterOutputType(LocationFSxOpenZfsTagOutput{})
-	pulumi.RegisterOutputType(LocationFSxOpenZfsTagArrayOutput{})
-	pulumi.RegisterOutputType(LocationFSxWindowsTagOutput{})
-	pulumi.RegisterOutputType(LocationFSxWindowsTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationHdfsNameNodeOutput{})
 	pulumi.RegisterOutputType(LocationHdfsNameNodeArrayOutput{})
 	pulumi.RegisterOutputType(LocationHdfsQopConfigurationOutput{})
 	pulumi.RegisterOutputType(LocationHdfsQopConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(LocationHdfsTagOutput{})
-	pulumi.RegisterOutputType(LocationHdfsTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationNfsMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationNfsMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LocationNfsOnPremConfigOutput{})
 	pulumi.RegisterOutputType(LocationNfsOnPremConfigPtrOutput{})
-	pulumi.RegisterOutputType(LocationNfsTagOutput{})
-	pulumi.RegisterOutputType(LocationNfsTagArrayOutput{})
-	pulumi.RegisterOutputType(LocationObjectStorageTagOutput{})
-	pulumi.RegisterOutputType(LocationObjectStorageTagArrayOutput{})
-	pulumi.RegisterOutputType(LocationS3TagOutput{})
-	pulumi.RegisterOutputType(LocationS3TagArrayOutput{})
 	pulumi.RegisterOutputType(LocationS3s3ConfigOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsPtrOutput{})
-	pulumi.RegisterOutputType(LocationSmbTagOutput{})
-	pulumi.RegisterOutputType(LocationSmbTagArrayOutput{})
 	pulumi.RegisterOutputType(StorageSystemServerConfigurationOutput{})
 	pulumi.RegisterOutputType(StorageSystemServerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StorageSystemServerCredentialsOutput{})
 	pulumi.RegisterOutputType(StorageSystemServerCredentialsPtrOutput{})
-	pulumi.RegisterOutputType(StorageSystemTagOutput{})
-	pulumi.RegisterOutputType(StorageSystemTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(TaskOptionsOutput{})
@@ -5921,6 +4453,4 @@ func init() {
 	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesVerifiedPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TaskScheduleOutput{})
 	pulumi.RegisterOutputType(TaskSchedulePtrOutput{})
-	pulumi.RegisterOutputType(TaskTagOutput{})
-	pulumi.RegisterOutputType(TaskTagArrayOutput{})
 }

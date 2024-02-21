@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -53,7 +54,7 @@ type LookupFuotaTaskResult struct {
 	// Name of FUOTA task
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the FUOTA task.
-	Tags []FuotaTaskTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFuotaTaskOutput(ctx *pulumi.Context, args LookupFuotaTaskOutputArgs, opts ...pulumi.InvokeOption) LookupFuotaTaskResultOutput {
@@ -153,8 +154,8 @@ func (o LookupFuotaTaskResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the FUOTA task.
-func (o LookupFuotaTaskResultOutput) Tags() FuotaTaskTagArrayOutput {
-	return o.ApplyT(func(v LookupFuotaTaskResult) []FuotaTaskTag { return v.Tags }).(FuotaTaskTagArrayOutput)
+func (o LookupFuotaTaskResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFuotaTaskResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

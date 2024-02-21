@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,9 +30,9 @@ type LookupSamlProviderArgs struct {
 
 type LookupSamlProviderResult struct {
 	// Amazon Resource Name (ARN) of the SAML provider
-	Arn                  *string           `pulumi:"arn"`
-	SamlMetadataDocument *string           `pulumi:"samlMetadataDocument"`
-	Tags                 []SamlProviderTag `pulumi:"tags"`
+	Arn                  *string   `pulumi:"arn"`
+	SamlMetadataDocument *string   `pulumi:"samlMetadataDocument"`
+	Tags                 []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSamlProviderOutput(ctx *pulumi.Context, args LookupSamlProviderOutputArgs, opts ...pulumi.InvokeOption) LookupSamlProviderResultOutput {
@@ -79,8 +80,8 @@ func (o LookupSamlProviderResultOutput) SamlMetadataDocument() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupSamlProviderResult) *string { return v.SamlMetadataDocument }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSamlProviderResultOutput) Tags() SamlProviderTagArrayOutput {
-	return o.ApplyT(func(v LookupSamlProviderResult) []SamlProviderTag { return v.Tags }).(SamlProviderTagArrayOutput)
+func (o LookupSamlProviderResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSamlProviderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

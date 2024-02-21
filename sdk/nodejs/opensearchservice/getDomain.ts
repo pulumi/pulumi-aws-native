@@ -51,7 +51,7 @@ export interface GetDomainResult {
     /**
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
-    readonly tags?: outputs.opensearchservice.DomainTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcOptions?: outputs.opensearchservice.DomainVpcOptions;
 }
 /**

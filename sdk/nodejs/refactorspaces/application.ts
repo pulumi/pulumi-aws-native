@@ -51,7 +51,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.refactorspaces.ApplicationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcId!: pulumi.Output<string>;
     public /*out*/ readonly vpcLinkId!: pulumi.Output<string>;
 
@@ -123,6 +123,6 @@ export interface ApplicationArgs {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.refactorspaces.ApplicationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcId: pulumi.Input<string>;
 }

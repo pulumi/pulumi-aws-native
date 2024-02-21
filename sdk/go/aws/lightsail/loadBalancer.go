@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LoadBalancer struct {
 	// Configuration option to adjust session stickiness cookie duration parameter.
 	SessionStickinessLbCookieDurationSeconds pulumi.StringPtrOutput `pulumi:"sessionStickinessLbCookieDurationSeconds"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LoadBalancerTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the TLS policy to apply to the load balancer.
 	TlsPolicyName pulumi.StringPtrOutput `pulumi:"tlsPolicyName"`
 }
@@ -101,7 +102,7 @@ type loadBalancerArgs struct {
 	// Configuration option to adjust session stickiness cookie duration parameter.
 	SessionStickinessLbCookieDurationSeconds *string `pulumi:"sessionStickinessLbCookieDurationSeconds"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LoadBalancerTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the TLS policy to apply to the load balancer.
 	TlsPolicyName *string `pulumi:"tlsPolicyName"`
 }
@@ -123,7 +124,7 @@ type LoadBalancerArgs struct {
 	// Configuration option to adjust session stickiness cookie duration parameter.
 	SessionStickinessLbCookieDurationSeconds pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LoadBalancerTagArrayInput
+	Tags aws.TagArrayInput
 	// The name of the TLS policy to apply to the load balancer.
 	TlsPolicyName pulumi.StringPtrInput
 }
@@ -205,8 +206,8 @@ func (o LoadBalancerOutput) SessionStickinessLbCookieDurationSeconds() pulumi.St
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LoadBalancerOutput) Tags() LoadBalancerTagArrayOutput {
-	return o.ApplyT(func(v *LoadBalancer) LoadBalancerTagArrayOutput { return v.Tags }).(LoadBalancerTagArrayOutput)
+func (o LoadBalancerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the TLS policy to apply to the load balancer.

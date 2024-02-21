@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,16 +28,16 @@ type LookupReplicationTaskArgs struct {
 }
 
 type LookupReplicationTaskResult struct {
-	CdcStartPosition          *string              `pulumi:"cdcStartPosition"`
-	CdcStartTime              *float64             `pulumi:"cdcStartTime"`
-	CdcStopPosition           *string              `pulumi:"cdcStopPosition"`
-	Id                        *string              `pulumi:"id"`
-	MigrationType             *string              `pulumi:"migrationType"`
-	ReplicationTaskIdentifier *string              `pulumi:"replicationTaskIdentifier"`
-	ReplicationTaskSettings   *string              `pulumi:"replicationTaskSettings"`
-	TableMappings             *string              `pulumi:"tableMappings"`
-	Tags                      []ReplicationTaskTag `pulumi:"tags"`
-	TaskData                  *string              `pulumi:"taskData"`
+	CdcStartPosition          *string   `pulumi:"cdcStartPosition"`
+	CdcStartTime              *float64  `pulumi:"cdcStartTime"`
+	CdcStopPosition           *string   `pulumi:"cdcStopPosition"`
+	Id                        *string   `pulumi:"id"`
+	MigrationType             *string   `pulumi:"migrationType"`
+	ReplicationTaskIdentifier *string   `pulumi:"replicationTaskIdentifier"`
+	ReplicationTaskSettings   *string   `pulumi:"replicationTaskSettings"`
+	TableMappings             *string   `pulumi:"tableMappings"`
+	Tags                      []aws.Tag `pulumi:"tags"`
+	TaskData                  *string   `pulumi:"taskData"`
 }
 
 func LookupReplicationTaskOutput(ctx *pulumi.Context, args LookupReplicationTaskOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationTaskResultOutput {
@@ -106,8 +107,8 @@ func (o LookupReplicationTaskResultOutput) TableMappings() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupReplicationTaskResult) *string { return v.TableMappings }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupReplicationTaskResultOutput) Tags() ReplicationTaskTagArrayOutput {
-	return o.ApplyT(func(v LookupReplicationTaskResult) []ReplicationTaskTag { return v.Tags }).(ReplicationTaskTagArrayOutput)
+func (o LookupReplicationTaskResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReplicationTaskResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupReplicationTaskResultOutput) TaskData() pulumi.StringPtrOutput {

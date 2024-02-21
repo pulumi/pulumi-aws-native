@@ -45,7 +45,7 @@ export interface GetApplicationResult {
     /**
      * The tags of Application Insights application.
      */
-    readonly tags?: outputs.applicationinsights.ApplicationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::ApplicationInsights::Application

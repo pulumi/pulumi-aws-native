@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Rds
         public Output<string> GroupDescription { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DbSecurityGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -93,10 +93,10 @@ namespace Pulumi.AwsNative.Rds
         public Input<string> GroupDescription { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DbSecurityGroupTagArgs>? _tags;
-        public InputList<Inputs.DbSecurityGroupTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DbSecurityGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

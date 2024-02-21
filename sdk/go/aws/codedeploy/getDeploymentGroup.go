@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupDeploymentGroupResult struct {
 	OnPremisesTagSet                 *DeploymentGroupOnPremisesTagSet                 `pulumi:"onPremisesTagSet"`
 	OutdatedInstancesStrategy        *string                                          `pulumi:"outdatedInstancesStrategy"`
 	ServiceRoleArn                   *string                                          `pulumi:"serviceRoleArn"`
-	Tags                             []DeploymentGroupTag                             `pulumi:"tags"`
+	Tags                             []aws.Tag                                        `pulumi:"tags"`
 	TerminationHookEnabled           *bool                                            `pulumi:"terminationHookEnabled"`
 	TriggerConfigurations            []DeploymentGroupTriggerConfig                   `pulumi:"triggerConfigurations"`
 }
@@ -151,8 +152,8 @@ func (o LookupDeploymentGroupResultOutput) ServiceRoleArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupDeploymentGroupResult) *string { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDeploymentGroupResultOutput) Tags() DeploymentGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupDeploymentGroupResult) []DeploymentGroupTag { return v.Tags }).(DeploymentGroupTagArrayOutput)
+func (o LookupDeploymentGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDeploymentGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupDeploymentGroupResultOutput) TerminationHookEnabled() pulumi.BoolPtrOutput {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,8 +28,8 @@ type LookupModelArgs struct {
 }
 
 type LookupModelResult struct {
-	Id   *string    `pulumi:"id"`
-	Tags []ModelTag `pulumi:"tags"`
+	Id   *string   `pulumi:"id"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupModelOutput(ctx *pulumi.Context, args LookupModelOutputArgs, opts ...pulumi.InvokeOption) LookupModelResultOutput {
@@ -70,8 +71,8 @@ func (o LookupModelResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupModelResultOutput) Tags() ModelTagArrayOutput {
-	return o.ApplyT(func(v LookupModelResult) []ModelTag { return v.Tags }).(ModelTagArrayOutput)
+func (o LookupModelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupModelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

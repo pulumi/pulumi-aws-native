@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.AppConfig
         /// <summary>
         /// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEnvironmentResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.AppConfig
 
             string? name,
 
-            ImmutableArray<Outputs.EnvironmentTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             EnvironmentId = environmentId;

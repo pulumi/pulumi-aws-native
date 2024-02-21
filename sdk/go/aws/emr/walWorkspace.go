@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,7 +17,7 @@ type WalWorkspace struct {
 	pulumi.CustomResourceState
 
 	// An array of key-value pairs to apply to this resource.
-	Tags WalWorkspaceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the emrwal container
 	WalWorkspaceName pulumi.StringPtrOutput `pulumi:"walWorkspaceName"`
 }
@@ -66,7 +67,7 @@ func (WalWorkspaceState) ElementType() reflect.Type {
 
 type walWorkspaceArgs struct {
 	// An array of key-value pairs to apply to this resource.
-	Tags []WalWorkspaceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the emrwal container
 	WalWorkspaceName *string `pulumi:"walWorkspaceName"`
 }
@@ -74,7 +75,7 @@ type walWorkspaceArgs struct {
 // The set of arguments for constructing a WalWorkspace resource.
 type WalWorkspaceArgs struct {
 	// An array of key-value pairs to apply to this resource.
-	Tags WalWorkspaceTagArrayInput
+	Tags aws.TagArrayInput
 	// The name of the emrwal container
 	WalWorkspaceName pulumi.StringPtrInput
 }
@@ -117,8 +118,8 @@ func (o WalWorkspaceOutput) ToWalWorkspaceOutputWithContext(ctx context.Context)
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o WalWorkspaceOutput) Tags() WalWorkspaceTagArrayOutput {
-	return o.ApplyT(func(v *WalWorkspace) WalWorkspaceTagArrayOutput { return v.Tags }).(WalWorkspaceTagArrayOutput)
+func (o WalWorkspaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *WalWorkspace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the emrwal container

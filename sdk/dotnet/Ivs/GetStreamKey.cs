@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Ivs
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StreamKeyTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Stream-key value.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Ivs
         private GetStreamKeyResult(
             string? arn,
 
-            ImmutableArray<Outputs.StreamKeyTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? value)
         {

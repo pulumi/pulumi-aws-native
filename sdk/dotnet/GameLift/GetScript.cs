@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScriptTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The version that is associated with a script. Version strings do not need to be unique.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.GameLift
 
             Outputs.ScriptS3Location? storageLocation,
 
-            ImmutableArray<Outputs.ScriptTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? version)
         {

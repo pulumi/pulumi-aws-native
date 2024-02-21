@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> PrintAllowed { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.UserSettingsTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("uploadAllowed")]
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> UploadAllowed { get; private set; } = null!;
@@ -132,10 +132,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> PrintAllowed { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.UserSettingsTagArgs>? _tags;
-        public InputList<Inputs.UserSettingsTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.UserSettingsTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

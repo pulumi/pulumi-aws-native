@@ -41,7 +41,7 @@ export interface GetCarrierGatewayResult {
     /**
      * The tags for the carrier gateway.
      */
-    readonly tags?: outputs.ec2.CarrierGatewayTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.

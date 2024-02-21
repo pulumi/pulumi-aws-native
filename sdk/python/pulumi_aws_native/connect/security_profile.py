@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SecurityProfileArgs', 'SecurityProfile']
@@ -22,7 +24,7 @@ class SecurityProfileArgs:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
                  tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SecurityProfile resource.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
@@ -31,7 +33,7 @@ class SecurityProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Permissions assigned to the security profile.
         :param pulumi.Input[str] security_profile_name: The name of the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tag_restricted_resources: The list of resources that a security profile applies tag restrictions to in Amazon Connect.
-        :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         if allowed_access_control_tags is not None:
@@ -121,14 +123,14 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,7 +145,7 @@ class SecurityProfile(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
                  tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::SecurityProfile
@@ -156,7 +158,7 @@ class SecurityProfile(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Permissions assigned to the security profile.
         :param pulumi.Input[str] security_profile_name: The name of the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tag_restricted_resources: The list of resources that a security profile applies tag restrictions to in Amazon Connect.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -188,7 +190,7 @@ class SecurityProfile(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
                  tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -300,7 +302,7 @@ class SecurityProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityProfileTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags used to organize, track, or control access for this resource.
         """

@@ -1833,101 +1833,6 @@ type ConfigTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// ConfigTagInput is an input type that accepts ConfigTagArgs and ConfigTagOutput values.
-// You can construct a concrete instance of `ConfigTagInput` via:
-//
-//	ConfigTagArgs{...}
-type ConfigTagInput interface {
-	pulumi.Input
-
-	ToConfigTagOutput() ConfigTagOutput
-	ToConfigTagOutputWithContext(context.Context) ConfigTagOutput
-}
-
-type ConfigTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ConfigTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigTag)(nil)).Elem()
-}
-
-func (i ConfigTagArgs) ToConfigTagOutput() ConfigTagOutput {
-	return i.ToConfigTagOutputWithContext(context.Background())
-}
-
-func (i ConfigTagArgs) ToConfigTagOutputWithContext(ctx context.Context) ConfigTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigTagOutput)
-}
-
-// ConfigTagArrayInput is an input type that accepts ConfigTagArray and ConfigTagArrayOutput values.
-// You can construct a concrete instance of `ConfigTagArrayInput` via:
-//
-//	ConfigTagArray{ ConfigTagArgs{...} }
-type ConfigTagArrayInput interface {
-	pulumi.Input
-
-	ToConfigTagArrayOutput() ConfigTagArrayOutput
-	ToConfigTagArrayOutputWithContext(context.Context) ConfigTagArrayOutput
-}
-
-type ConfigTagArray []ConfigTagInput
-
-func (ConfigTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigTag)(nil)).Elem()
-}
-
-func (i ConfigTagArray) ToConfigTagArrayOutput() ConfigTagArrayOutput {
-	return i.ToConfigTagArrayOutputWithContext(context.Background())
-}
-
-func (i ConfigTagArray) ToConfigTagArrayOutputWithContext(ctx context.Context) ConfigTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigTagArrayOutput)
-}
-
-type ConfigTagOutput struct{ *pulumi.OutputState }
-
-func (ConfigTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigTag)(nil)).Elem()
-}
-
-func (o ConfigTagOutput) ToConfigTagOutput() ConfigTagOutput {
-	return o
-}
-
-func (o ConfigTagOutput) ToConfigTagOutputWithContext(ctx context.Context) ConfigTagOutput {
-	return o
-}
-
-func (o ConfigTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ConfigTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ConfigTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ConfigTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigTag)(nil)).Elem()
-}
-
-func (o ConfigTagArrayOutput) ToConfigTagArrayOutput() ConfigTagArrayOutput {
-	return o
-}
-
-func (o ConfigTagArrayOutput) ToConfigTagArrayOutputWithContext(ctx context.Context) ConfigTagArrayOutput {
-	return o
-}
-
-func (o ConfigTagArrayOutput) Index(i pulumi.IntInput) ConfigTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigTag {
-		return vs[0].([]ConfigTag)[vs[1].(int)]
-	}).(ConfigTagOutput)
-}
-
 type ConfigTrackingConfig struct {
 	Autotrack *ConfigTrackingConfigAutotrack `pulumi:"autotrack"`
 }
@@ -3784,101 +3689,6 @@ type DataflowEndpointGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DataflowEndpointGroupTagInput is an input type that accepts DataflowEndpointGroupTagArgs and DataflowEndpointGroupTagOutput values.
-// You can construct a concrete instance of `DataflowEndpointGroupTagInput` via:
-//
-//	DataflowEndpointGroupTagArgs{...}
-type DataflowEndpointGroupTagInput interface {
-	pulumi.Input
-
-	ToDataflowEndpointGroupTagOutput() DataflowEndpointGroupTagOutput
-	ToDataflowEndpointGroupTagOutputWithContext(context.Context) DataflowEndpointGroupTagOutput
-}
-
-type DataflowEndpointGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DataflowEndpointGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataflowEndpointGroupTag)(nil)).Elem()
-}
-
-func (i DataflowEndpointGroupTagArgs) ToDataflowEndpointGroupTagOutput() DataflowEndpointGroupTagOutput {
-	return i.ToDataflowEndpointGroupTagOutputWithContext(context.Background())
-}
-
-func (i DataflowEndpointGroupTagArgs) ToDataflowEndpointGroupTagOutputWithContext(ctx context.Context) DataflowEndpointGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupTagOutput)
-}
-
-// DataflowEndpointGroupTagArrayInput is an input type that accepts DataflowEndpointGroupTagArray and DataflowEndpointGroupTagArrayOutput values.
-// You can construct a concrete instance of `DataflowEndpointGroupTagArrayInput` via:
-//
-//	DataflowEndpointGroupTagArray{ DataflowEndpointGroupTagArgs{...} }
-type DataflowEndpointGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToDataflowEndpointGroupTagArrayOutput() DataflowEndpointGroupTagArrayOutput
-	ToDataflowEndpointGroupTagArrayOutputWithContext(context.Context) DataflowEndpointGroupTagArrayOutput
-}
-
-type DataflowEndpointGroupTagArray []DataflowEndpointGroupTagInput
-
-func (DataflowEndpointGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataflowEndpointGroupTag)(nil)).Elem()
-}
-
-func (i DataflowEndpointGroupTagArray) ToDataflowEndpointGroupTagArrayOutput() DataflowEndpointGroupTagArrayOutput {
-	return i.ToDataflowEndpointGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i DataflowEndpointGroupTagArray) ToDataflowEndpointGroupTagArrayOutputWithContext(ctx context.Context) DataflowEndpointGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupTagArrayOutput)
-}
-
-type DataflowEndpointGroupTagOutput struct{ *pulumi.OutputState }
-
-func (DataflowEndpointGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataflowEndpointGroupTag)(nil)).Elem()
-}
-
-func (o DataflowEndpointGroupTagOutput) ToDataflowEndpointGroupTagOutput() DataflowEndpointGroupTagOutput {
-	return o
-}
-
-func (o DataflowEndpointGroupTagOutput) ToDataflowEndpointGroupTagOutputWithContext(ctx context.Context) DataflowEndpointGroupTagOutput {
-	return o
-}
-
-func (o DataflowEndpointGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DataflowEndpointGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DataflowEndpointGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DataflowEndpointGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DataflowEndpointGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DataflowEndpointGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataflowEndpointGroupTag)(nil)).Elem()
-}
-
-func (o DataflowEndpointGroupTagArrayOutput) ToDataflowEndpointGroupTagArrayOutput() DataflowEndpointGroupTagArrayOutput {
-	return o
-}
-
-func (o DataflowEndpointGroupTagArrayOutput) ToDataflowEndpointGroupTagArrayOutputWithContext(ctx context.Context) DataflowEndpointGroupTagArrayOutput {
-	return o
-}
-
-func (o DataflowEndpointGroupTagArrayOutput) Index(i pulumi.IntInput) DataflowEndpointGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataflowEndpointGroupTag {
-		return vs[0].([]DataflowEndpointGroupTag)[vs[1].(int)]
-	}).(DataflowEndpointGroupTagOutput)
-}
-
 type MissionProfileDataflowEdge struct {
 	Destination *string `pulumi:"destination"`
 	Source      *string `pulumi:"source"`
@@ -4132,101 +3942,6 @@ type MissionProfileTag struct {
 	Value string `pulumi:"value"`
 }
 
-// MissionProfileTagInput is an input type that accepts MissionProfileTagArgs and MissionProfileTagOutput values.
-// You can construct a concrete instance of `MissionProfileTagInput` via:
-//
-//	MissionProfileTagArgs{...}
-type MissionProfileTagInput interface {
-	pulumi.Input
-
-	ToMissionProfileTagOutput() MissionProfileTagOutput
-	ToMissionProfileTagOutputWithContext(context.Context) MissionProfileTagOutput
-}
-
-type MissionProfileTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (MissionProfileTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MissionProfileTag)(nil)).Elem()
-}
-
-func (i MissionProfileTagArgs) ToMissionProfileTagOutput() MissionProfileTagOutput {
-	return i.ToMissionProfileTagOutputWithContext(context.Background())
-}
-
-func (i MissionProfileTagArgs) ToMissionProfileTagOutputWithContext(ctx context.Context) MissionProfileTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileTagOutput)
-}
-
-// MissionProfileTagArrayInput is an input type that accepts MissionProfileTagArray and MissionProfileTagArrayOutput values.
-// You can construct a concrete instance of `MissionProfileTagArrayInput` via:
-//
-//	MissionProfileTagArray{ MissionProfileTagArgs{...} }
-type MissionProfileTagArrayInput interface {
-	pulumi.Input
-
-	ToMissionProfileTagArrayOutput() MissionProfileTagArrayOutput
-	ToMissionProfileTagArrayOutputWithContext(context.Context) MissionProfileTagArrayOutput
-}
-
-type MissionProfileTagArray []MissionProfileTagInput
-
-func (MissionProfileTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MissionProfileTag)(nil)).Elem()
-}
-
-func (i MissionProfileTagArray) ToMissionProfileTagArrayOutput() MissionProfileTagArrayOutput {
-	return i.ToMissionProfileTagArrayOutputWithContext(context.Background())
-}
-
-func (i MissionProfileTagArray) ToMissionProfileTagArrayOutputWithContext(ctx context.Context) MissionProfileTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileTagArrayOutput)
-}
-
-type MissionProfileTagOutput struct{ *pulumi.OutputState }
-
-func (MissionProfileTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MissionProfileTag)(nil)).Elem()
-}
-
-func (o MissionProfileTagOutput) ToMissionProfileTagOutput() MissionProfileTagOutput {
-	return o
-}
-
-func (o MissionProfileTagOutput) ToMissionProfileTagOutputWithContext(ctx context.Context) MissionProfileTagOutput {
-	return o
-}
-
-func (o MissionProfileTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v MissionProfileTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o MissionProfileTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v MissionProfileTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type MissionProfileTagArrayOutput struct{ *pulumi.OutputState }
-
-func (MissionProfileTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MissionProfileTag)(nil)).Elem()
-}
-
-func (o MissionProfileTagArrayOutput) ToMissionProfileTagArrayOutput() MissionProfileTagArrayOutput {
-	return o
-}
-
-func (o MissionProfileTagArrayOutput) ToMissionProfileTagArrayOutputWithContext(ctx context.Context) MissionProfileTagArrayOutput {
-	return o
-}
-
-func (o MissionProfileTagArrayOutput) Index(i pulumi.IntInput) MissionProfileTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MissionProfileTag {
-		return vs[0].([]MissionProfileTag)[vs[1].(int)]
-	}).(MissionProfileTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigAntennaDownlinkConfigInput)(nil)).Elem(), ConfigAntennaDownlinkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigAntennaDownlinkConfigPtrInput)(nil)).Elem(), ConfigAntennaDownlinkConfigArgs{})
@@ -4251,8 +3966,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigS3RecordingConfigPtrInput)(nil)).Elem(), ConfigS3RecordingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigSpectrumConfigInput)(nil)).Elem(), ConfigSpectrumConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigSpectrumConfigPtrInput)(nil)).Elem(), ConfigSpectrumConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTagInput)(nil)).Elem(), ConfigTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTagArrayInput)(nil)).Elem(), ConfigTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTrackingConfigInput)(nil)).Elem(), ConfigTrackingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTrackingConfigPtrInput)(nil)).Elem(), ConfigTrackingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigUplinkEchoConfigInput)(nil)).Elem(), ConfigUplinkEchoConfigArgs{})
@@ -4277,14 +3990,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupSecurityDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupSecurityDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupSocketAddressInput)(nil)).Elem(), DataflowEndpointGroupSocketAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupSocketAddressPtrInput)(nil)).Elem(), DataflowEndpointGroupSocketAddressArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupTagInput)(nil)).Elem(), DataflowEndpointGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupTagArrayInput)(nil)).Elem(), DataflowEndpointGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileDataflowEdgeInput)(nil)).Elem(), MissionProfileDataflowEdgeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileDataflowEdgeArrayInput)(nil)).Elem(), MissionProfileDataflowEdgeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileStreamsKmsKeyInput)(nil)).Elem(), MissionProfileStreamsKmsKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileStreamsKmsKeyPtrInput)(nil)).Elem(), MissionProfileStreamsKmsKeyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileTagInput)(nil)).Elem(), MissionProfileTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileTagArrayInput)(nil)).Elem(), MissionProfileTagArray{})
 	pulumi.RegisterOutputType(ConfigAntennaDownlinkConfigOutput{})
 	pulumi.RegisterOutputType(ConfigAntennaDownlinkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfigAntennaDownlinkDemodDecodeConfigOutput{})
@@ -4309,8 +4018,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigS3RecordingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfigSpectrumConfigOutput{})
 	pulumi.RegisterOutputType(ConfigSpectrumConfigPtrOutput{})
-	pulumi.RegisterOutputType(ConfigTagOutput{})
-	pulumi.RegisterOutputType(ConfigTagArrayOutput{})
 	pulumi.RegisterOutputType(ConfigTrackingConfigOutput{})
 	pulumi.RegisterOutputType(ConfigTrackingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfigUplinkEchoConfigOutput{})
@@ -4335,12 +4042,8 @@ func init() {
 	pulumi.RegisterOutputType(DataflowEndpointGroupSecurityDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupSocketAddressOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupSocketAddressPtrOutput{})
-	pulumi.RegisterOutputType(DataflowEndpointGroupTagOutput{})
-	pulumi.RegisterOutputType(DataflowEndpointGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(MissionProfileDataflowEdgeOutput{})
 	pulumi.RegisterOutputType(MissionProfileDataflowEdgeArrayOutput{})
 	pulumi.RegisterOutputType(MissionProfileStreamsKmsKeyOutput{})
 	pulumi.RegisterOutputType(MissionProfileStreamsKmsKeyPtrOutput{})
-	pulumi.RegisterOutputType(MissionProfileTagOutput{})
-	pulumi.RegisterOutputType(MissionProfileTagArrayOutput{})
 }

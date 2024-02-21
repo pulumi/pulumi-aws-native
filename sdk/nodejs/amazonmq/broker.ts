@@ -66,7 +66,7 @@ export class Broker extends pulumi.CustomResource {
     public /*out*/ readonly stompEndpoints!: pulumi.Output<string[]>;
     public readonly storageType!: pulumi.Output<string | undefined>;
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.amazonmq.BrokerTagsEntry[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly users!: pulumi.Output<outputs.amazonmq.BrokerUser[]>;
     public /*out*/ readonly wssEndpoints!: pulumi.Output<string[]>;
 
@@ -193,6 +193,6 @@ export interface BrokerArgs {
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     storageType?: pulumi.Input<string>;
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.amazonmq.BrokerTagsEntryArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     users: pulumi.Input<pulumi.Input<inputs.amazonmq.BrokerUserArgs>[]>;
 }

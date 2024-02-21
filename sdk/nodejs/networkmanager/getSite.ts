@@ -58,7 +58,7 @@ export interface GetSiteResult {
     /**
      * The tags for the site.
      */
-    readonly tags?: outputs.networkmanager.SiteTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::NetworkManager::Site type describes a site.

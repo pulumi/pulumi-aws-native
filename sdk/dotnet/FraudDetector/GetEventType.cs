@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// Tags associated with this event type.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EventTypeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEventTypeResult(
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.FraudDetector
 
             string? lastUpdatedTime,
 
-            ImmutableArray<Outputs.EventTypeTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreatedTime = createdTime;

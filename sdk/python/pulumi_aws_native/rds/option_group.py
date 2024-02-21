@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['OptionGroupArgs', 'OptionGroup']
@@ -21,7 +23,7 @@ class OptionGroupArgs:
                  option_group_description: pulumi.Input[str],
                  option_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OptionGroup resource.
         :param pulumi.Input[str] engine_name: Indicates the name of the engine that this option group can be applied to.
@@ -29,7 +31,7 @@ class OptionGroupArgs:
         :param pulumi.Input[str] option_group_description: Provides a description of the option group.
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]] option_configurations: Indicates what options are available in the option group.
         :param pulumi.Input[str] option_group_name: Specifies the name of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "engine_name", engine_name)
         pulumi.set(__self__, "major_engine_version", major_engine_version)
@@ -103,14 +105,14 @@ class OptionGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -124,7 +126,7 @@ class OptionGroup(pulumi.CustomResource):
                  option_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionConfigurationArgs']]]]] = None,
                  option_group_description: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
@@ -136,7 +138,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionConfigurationArgs']]]] option_configurations: Indicates what options are available in the option group.
         :param pulumi.Input[str] option_group_description: Provides a description of the option group.
         :param pulumi.Input[str] option_group_name: Specifies the name of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -167,7 +169,7 @@ class OptionGroup(pulumi.CustomResource):
                  option_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionConfigurationArgs']]]]] = None,
                  option_group_description: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -263,7 +265,7 @@ class OptionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.OptionGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

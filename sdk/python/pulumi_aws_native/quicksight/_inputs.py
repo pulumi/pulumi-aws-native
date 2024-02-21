@@ -435,7 +435,6 @@ __all__ = [
     'AnalysisTableStyleTargetArgs',
     'AnalysisTableUnaggregatedFieldWellsArgs',
     'AnalysisTableVisualArgs',
-    'AnalysisTagArgs',
     'AnalysisTextAreaControlDisplayOptionsArgs',
     'AnalysisTextConditionalFormatArgs',
     'AnalysisTextControlPlaceholderOptionsArgs',
@@ -916,7 +915,6 @@ __all__ = [
     'DashboardTableStyleTargetArgs',
     'DashboardTableUnaggregatedFieldWellsArgs',
     'DashboardTableVisualArgs',
-    'DashboardTagArgs',
     'DashboardTextAreaControlDisplayOptionsArgs',
     'DashboardTextConditionalFormatArgs',
     'DashboardTextControlPlaceholderOptionsArgs',
@@ -994,7 +992,6 @@ __all__ = [
     'DataSetRowLevelPermissionTagRuleArgs',
     'DataSetStringDatasetParameterDefaultValuesArgs',
     'DataSetStringDatasetParameterArgs',
-    'DataSetTagArgs',
     'DataSetUsageConfigurationArgs',
     'DataSourceAmazonElasticsearchParametersArgs',
     'DataSourceAmazonOpenSearchParametersArgs',
@@ -1021,7 +1018,6 @@ __all__ = [
     'DataSourceSqlServerParametersArgs',
     'DataSourceSslPropertiesArgs',
     'DataSourceStarburstParametersArgs',
-    'DataSourceTagArgs',
     'DataSourceTeradataParametersArgs',
     'DataSourceTrinoParametersArgs',
     'DataSourceVpcConnectionPropertiesArgs',
@@ -1448,7 +1444,6 @@ __all__ = [
     'TemplateTableStyleTargetArgs',
     'TemplateTableUnaggregatedFieldWellsArgs',
     'TemplateTableVisualArgs',
-    'TemplateTagArgs',
     'TemplateTextAreaControlDisplayOptionsArgs',
     'TemplateTextConditionalFormatArgs',
     'TemplateTextControlPlaceholderOptionsArgs',
@@ -1507,7 +1502,6 @@ __all__ = [
     'ThemeMarginStyleArgs',
     'ThemeResourcePermissionArgs',
     'ThemeSheetStyleArgs',
-    'ThemeTagArgs',
     'ThemeTileLayoutStyleArgs',
     'ThemeTileStyleArgs',
     'ThemeTypographyArgs',
@@ -1539,7 +1533,6 @@ __all__ = [
     'TopicSemanticTypeArgs',
     'TopicSingularFilterConstantArgs',
     'TopicTypeParametersArgs',
-    'VpcConnectionTagArgs',
 ]
 
 @pulumi.input_type
@@ -19787,33 +19780,6 @@ class AnalysisTableVisualArgs:
     @title.setter
     def title(self, value: Optional[pulumi.Input['AnalysisVisualTitleLabelOptionsArgs']]):
         pulumi.set(self, "title", value)
-
-
-@pulumi.input_type
-class AnalysisTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -40722,33 +40688,6 @@ class DashboardTableVisualArgs:
 
 
 @pulumi.input_type
-class DashboardTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class DashboardTextAreaControlDisplayOptionsArgs:
     def __init__(__self__, *,
                  info_icon_label_options: Optional[pulumi.Input['DashboardSheetControlInfoIconLabelOptionsArgs']] = None,
@@ -44349,45 +44288,6 @@ class DataSetStringDatasetParameterArgs:
 
 
 @pulumi.input_type
-class DataSetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-                    resource.</p>
-        :param pulumi.Input[str] key: <p>Tag key.</p>
-        :param pulumi.Input[str] value: <p>Tag value.</p>
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        <p>Tag key.</p>
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        <p>Tag value.</p>
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class DataSetUsageConfigurationArgs:
     def __init__(__self__, *,
                  disable_use_as_direct_query_source: Optional[pulumi.Input[bool]] = None,
@@ -45813,45 +45713,6 @@ class DataSourceStarburstParametersArgs:
     @product_type.setter
     def product_type(self, value: Optional[pulumi.Input['DataSourceStarburstProductType']]):
         pulumi.set(self, "product_type", value)
-
-
-@pulumi.input_type
-class DataSourceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-                    resource.</p>
-        :param pulumi.Input[str] key: <p>Tag key.</p>
-        :param pulumi.Input[str] value: <p>Tag value.</p>
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        <p>Tag key.</p>
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        <p>Tag value.</p>
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -64200,33 +64061,6 @@ class TemplateTableVisualArgs:
 
 
 @pulumi.input_type
-class TemplateTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class TemplateTextAreaControlDisplayOptionsArgs:
     def __init__(__self__, *,
                  info_icon_label_options: Optional[pulumi.Input['TemplateSheetControlInfoIconLabelOptionsArgs']] = None,
@@ -67083,33 +66917,6 @@ class ThemeSheetStyleArgs:
 
 
 @pulumi.input_type
-class ThemeTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ThemeTileLayoutStyleArgs:
     def __init__(__self__, *,
                  gutter: Optional[pulumi.Input['ThemeGutterStyleArgs']] = None,
@@ -68937,32 +68744,5 @@ class TopicSingularFilterConstantArgs:
 class TopicTypeParametersArgs:
     def __init__(__self__):
         pass
-
-
-@pulumi.input_type
-class VpcConnectionTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

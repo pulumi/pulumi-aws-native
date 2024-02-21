@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupOutpostResolverResult struct {
 	// The OutpostResolver status message.
 	StatusMessage *string `pulumi:"statusMessage"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []OutpostResolverTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupOutpostResolverOutput(ctx *pulumi.Context, args LookupOutpostResolverOutputArgs, opts ...pulumi.InvokeOption) LookupOutpostResolverResultOutput {
@@ -139,8 +140,8 @@ func (o LookupOutpostResolverResultOutput) StatusMessage() pulumi.StringPtrOutpu
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupOutpostResolverResultOutput) Tags() OutpostResolverTagArrayOutput {
-	return o.ApplyT(func(v LookupOutpostResolverResult) []OutpostResolverTag { return v.Tags }).(OutpostResolverTagArrayOutput)
+func (o LookupOutpostResolverResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupOutpostResolverResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

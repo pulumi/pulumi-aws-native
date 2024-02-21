@@ -69,7 +69,7 @@ export class AlarmModel extends pulumi.CustomResource {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    public readonly tags!: pulumi.Output<outputs.iotevents.AlarmModelTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AlarmModel resource with the given unique name, arguments, and options.
@@ -149,5 +149,5 @@ export interface AlarmModelArgs {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotevents.AlarmModelTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

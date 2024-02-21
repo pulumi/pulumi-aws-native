@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Workflow struct {
 	// Specifies the details for the steps that are in the specified workflow.
 	Steps WorkflowStepArrayOutput `pulumi:"steps"`
 	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
-	Tags WorkflowTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A unique identifier for the workflow.
 	WorkflowId pulumi.StringOutput `pulumi:"workflowId"`
 }
@@ -86,7 +87,7 @@ type workflowArgs struct {
 	// Specifies the details for the steps that are in the specified workflow.
 	Steps []WorkflowStep `pulumi:"steps"`
 	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
-	Tags []WorkflowTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workflow resource.
@@ -98,7 +99,7 @@ type WorkflowArgs struct {
 	// Specifies the details for the steps that are in the specified workflow.
 	Steps WorkflowStepArrayInput
 	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
-	Tags WorkflowTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -159,8 +160,8 @@ func (o WorkflowOutput) Steps() WorkflowStepArrayOutput {
 }
 
 // Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
-func (o WorkflowOutput) Tags() WorkflowTagArrayOutput {
-	return o.ApplyT(func(v *Workflow) WorkflowTagArrayOutput { return v.Tags }).(WorkflowTagArrayOutput)
+func (o WorkflowOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Workflow) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A unique identifier for the workflow.

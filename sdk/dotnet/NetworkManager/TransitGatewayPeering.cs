@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TransitGatewayPeeringTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ARN (Amazon Resource Name) of the transit gateway that you will peer to a core network
@@ -144,14 +144,14 @@ namespace Pulumi.AwsNative.NetworkManager
         public Input<string> CoreNetworkId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.TransitGatewayPeeringTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.TransitGatewayPeeringTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TransitGatewayPeeringTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

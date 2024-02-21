@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Amplify
         public readonly string? Framework;
         public readonly string? PullRequestEnvironmentName;
         public readonly Pulumi.AwsNative.Amplify.BranchStage? Stage;
-        public readonly ImmutableArray<Outputs.BranchTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetBranchResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Amplify
 
             Pulumi.AwsNative.Amplify.BranchStage? stage,
 
-            ImmutableArray<Outputs.BranchTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Backend = backend;

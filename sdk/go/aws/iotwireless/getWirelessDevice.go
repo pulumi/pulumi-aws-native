@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupWirelessDeviceResult struct {
 	// Wireless device name
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
-	Tags []WirelessDeviceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Thing arn. Passed into update to associate Thing with Wireless device.
 	ThingArn *string `pulumi:"thingArn"`
 	// Thing Arn. If there is a Thing created, this can be returned with a Get call.
@@ -124,8 +125,8 @@ func (o LookupWirelessDeviceResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
-func (o LookupWirelessDeviceResultOutput) Tags() WirelessDeviceTagArrayOutput {
-	return o.ApplyT(func(v LookupWirelessDeviceResult) []WirelessDeviceTag { return v.Tags }).(WirelessDeviceTagArrayOutput)
+func (o LookupWirelessDeviceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWirelessDeviceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Thing arn. Passed into update to associate Thing with Wireless device.

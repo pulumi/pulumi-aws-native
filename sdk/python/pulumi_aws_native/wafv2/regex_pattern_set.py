@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['RegexPatternSetArgs', 'RegexPatternSet']
 
@@ -21,7 +21,7 @@ class RegexPatternSetArgs:
                  scope: pulumi.Input['RegexPatternSetScope'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RegexPatternSet resource.
         :param pulumi.Input['RegexPatternSetScope'] scope: Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
@@ -84,11 +84,11 @@ class RegexPatternSetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -101,7 +101,7 @@ class RegexPatternSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  regular_expression_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  scope: Optional[pulumi.Input['RegexPatternSetScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
@@ -140,7 +140,7 @@ class RegexPatternSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  regular_expression_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  scope: Optional[pulumi.Input['RegexPatternSetScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -231,6 +231,6 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RegexPatternSetTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

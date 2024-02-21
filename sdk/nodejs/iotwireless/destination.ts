@@ -64,7 +64,7 @@ export class Destination extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.DestinationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Destination resource with the given unique name, arguments, and options.
@@ -133,5 +133,5 @@ export interface DestinationArgs {
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.DestinationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

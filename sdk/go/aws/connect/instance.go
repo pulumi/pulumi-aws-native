@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type Instance struct {
 	// Service linked role created as part of instance creation.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// An array of key-value pairs to apply to this resource.
-	Tags InstanceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +98,7 @@ type instanceArgs struct {
 	// Alias of the new directory created as part of new instance creation.
 	InstanceAlias *string `pulumi:"instanceAlias"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []InstanceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Instance resource.
@@ -111,7 +112,7 @@ type InstanceArgs struct {
 	// Alias of the new directory created as part of new instance creation.
 	InstanceAlias pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags InstanceTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (InstanceArgs) ElementType() reflect.Type {
@@ -192,8 +193,8 @@ func (o InstanceOutput) ServiceRole() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o InstanceOutput) Tags() InstanceTagArrayOutput {
-	return o.ApplyT(func(v *Instance) InstanceTagArrayOutput { return v.Tags }).(InstanceTagArrayOutput)
+func (o InstanceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Instance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

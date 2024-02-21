@@ -73,7 +73,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Specifies the tags applied to resources in the environment.
      */
-    public readonly tags!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the Elastic Beanstalk configuration template to use with the environment.
      */
@@ -175,7 +175,7 @@ export interface EnvironmentArgs {
     /**
      * Specifies the tags applied to resources in the environment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the Elastic Beanstalk configuration template to use with the environment.
      */

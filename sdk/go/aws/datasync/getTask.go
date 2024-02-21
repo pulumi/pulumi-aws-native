@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupTaskResult struct {
 	// The status of the task that was described.
 	Status *TaskStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []TaskTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the task.
 	TaskArn          *string           `pulumi:"taskArn"`
 	TaskReportConfig *TaskReportConfig `pulumi:"taskReportConfig"`
@@ -123,8 +124,8 @@ func (o LookupTaskResultOutput) Status() TaskStatusPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupTaskResultOutput) Tags() TaskTagArrayOutput {
-	return o.ApplyT(func(v LookupTaskResult) []TaskTag { return v.Tags }).(TaskTagArrayOutput)
+func (o LookupTaskResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTaskResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the task.

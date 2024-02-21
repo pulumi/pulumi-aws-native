@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupBucketResult struct {
 	// Rules that define how Amazon S3Outposts manages objects during their lifetime.
 	LifecycleConfiguration *BucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
-	Tags []BucketTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts ...pulumi.InvokeOption) LookupBucketResultOutput {
@@ -83,8 +84,8 @@ func (o LookupBucketResultOutput) LifecycleConfiguration() BucketLifecycleConfig
 }
 
 // An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
-func (o LookupBucketResultOutput) Tags() BucketTagArrayOutput {
-	return o.ApplyT(func(v LookupBucketResult) []BucketTag { return v.Tags }).(BucketTagArrayOutput)
+func (o LookupBucketResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBucketResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

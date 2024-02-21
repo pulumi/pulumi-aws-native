@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ClusterArgs', 'Cluster']
@@ -22,7 +24,7 @@ class ClusterArgs:
                  configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]] = None,
                  service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
@@ -101,11 +103,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -120,7 +122,7 @@ class Cluster(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]]] = None,
                  service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Create an Elastic Container Service (ECS) cluster.
@@ -159,7 +161,7 @@ class Cluster(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]]] = None,
                  service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -254,6 +256,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

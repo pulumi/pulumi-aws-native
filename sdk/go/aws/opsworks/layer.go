@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type Layer struct {
 	Packages                    pulumi.StringArrayOutput                  `pulumi:"packages"`
 	Shortname                   pulumi.StringOutput                       `pulumi:"shortname"`
 	StackId                     pulumi.StringOutput                       `pulumi:"stackId"`
-	Tags                        LayerTagArrayOutput                       `pulumi:"tags"`
+	Tags                        aws.TagArrayOutput                        `pulumi:"tags"`
 	Type                        pulumi.StringOutput                       `pulumi:"type"`
 	UseEbsOptimizedInstances    pulumi.BoolPtrOutput                      `pulumi:"useEbsOptimizedInstances"`
 	VolumeConfigurations        LayerVolumeConfigurationArrayOutput       `pulumi:"volumeConfigurations"`
@@ -121,7 +122,7 @@ type layerArgs struct {
 	Packages                    []string                          `pulumi:"packages"`
 	Shortname                   string                            `pulumi:"shortname"`
 	StackId                     string                            `pulumi:"stackId"`
-	Tags                        []LayerTag                        `pulumi:"tags"`
+	Tags                        []aws.Tag                         `pulumi:"tags"`
 	Type                        string                            `pulumi:"type"`
 	UseEbsOptimizedInstances    *bool                             `pulumi:"useEbsOptimizedInstances"`
 	VolumeConfigurations        []LayerVolumeConfiguration        `pulumi:"volumeConfigurations"`
@@ -146,7 +147,7 @@ type LayerArgs struct {
 	Packages                    pulumi.StringArrayInput
 	Shortname                   pulumi.StringInput
 	StackId                     pulumi.StringInput
-	Tags                        LayerTagArrayInput
+	Tags                        aws.TagArrayInput
 	Type                        pulumi.StringInput
 	UseEbsOptimizedInstances    pulumi.BoolPtrInput
 	VolumeConfigurations        LayerVolumeConfigurationArrayInput
@@ -251,8 +252,8 @@ func (o LayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Layer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }
 
-func (o LayerOutput) Tags() LayerTagArrayOutput {
-	return o.ApplyT(func(v *Layer) LayerTagArrayOutput { return v.Tags }).(LayerTagArrayOutput)
+func (o LayerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Layer) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LayerOutput) Type() pulumi.StringOutput {

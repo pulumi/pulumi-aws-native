@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupServiceResult struct {
 	Arn               *string `pulumi:"arn"`
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags []ServiceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -81,8 +82,8 @@ func (o LookupServiceResultOutput) ServiceIdentifier() pulumi.StringPtrOutput {
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-func (o LookupServiceResultOutput) Tags() ServiceTagArrayOutput {
-	return o.ApplyT(func(v LookupServiceResult) []ServiceTag { return v.Tags }).(ServiceTagArrayOutput)
+func (o LookupServiceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

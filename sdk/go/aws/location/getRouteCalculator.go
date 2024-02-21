@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,8 +34,8 @@ type LookupRouteCalculatorResult struct {
 	Description   *string                     `pulumi:"description"`
 	PricingPlan   *RouteCalculatorPricingPlan `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []RouteCalculatorTag `pulumi:"tags"`
-	UpdateTime *string              `pulumi:"updateTime"`
+	Tags       []aws.Tag `pulumi:"tags"`
+	UpdateTime *string   `pulumi:"updateTime"`
 }
 
 func LookupRouteCalculatorOutput(ctx *pulumi.Context, args LookupRouteCalculatorOutputArgs, opts ...pulumi.InvokeOption) LookupRouteCalculatorResultOutput {
@@ -93,8 +94,8 @@ func (o LookupRouteCalculatorResultOutput) PricingPlan() RouteCalculatorPricingP
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupRouteCalculatorResultOutput) Tags() RouteCalculatorTagArrayOutput {
-	return o.ApplyT(func(v LookupRouteCalculatorResult) []RouteCalculatorTag { return v.Tags }).(RouteCalculatorTagArrayOutput)
+func (o LookupRouteCalculatorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRouteCalculatorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupRouteCalculatorResultOutput) UpdateTime() pulumi.StringPtrOutput {

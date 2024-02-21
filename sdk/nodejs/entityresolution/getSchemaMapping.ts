@@ -37,7 +37,7 @@ export interface GetSchemaMappingResult {
      */
     readonly mappedInputFields?: outputs.entityresolution.SchemaMappingSchemaInputAttribute[];
     readonly schemaArn?: string;
-    readonly tags?: outputs.entityresolution.SchemaMappingTag[];
+    readonly tags?: outputs.Tag[];
     readonly updatedAt?: string;
 }
 /**

@@ -53,7 +53,7 @@ export interface GetContactFlowResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.ContactFlowTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Connect::ContactFlow

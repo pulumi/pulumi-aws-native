@@ -12,7 +12,6 @@ from .. import _utilities
 __all__ = [
     'AccountExpiryEventsConfiguration',
     'CertificateDomainValidationOption',
-    'CertificateTag',
 ]
 
 @pulumi.output_type
@@ -92,24 +91,5 @@ class CertificateDomainValidationOption(dict):
     @pulumi.getter(name="validationDomain")
     def validation_domain(self) -> Optional[str]:
         return pulumi.get(self, "validation_domain")
-
-
-@pulumi.output_type
-class CertificateTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

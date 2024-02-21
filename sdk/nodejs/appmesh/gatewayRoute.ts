@@ -46,7 +46,7 @@ export class GatewayRoute extends pulumi.CustomResource {
     public readonly meshOwner!: pulumi.Output<string | undefined>;
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     public readonly spec!: pulumi.Output<outputs.appmesh.GatewayRouteSpec>;
-    public readonly tags!: pulumi.Output<outputs.appmesh.GatewayRouteTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly uid!: pulumi.Output<string>;
     public readonly virtualGatewayName!: pulumi.Output<string>;
 
@@ -107,6 +107,6 @@ export interface GatewayRouteArgs {
     meshName: pulumi.Input<string>;
     meshOwner?: pulumi.Input<string>;
     spec: pulumi.Input<inputs.appmesh.GatewayRouteSpecArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appmesh.GatewayRouteTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     virtualGatewayName: pulumi.Input<string>;
 }

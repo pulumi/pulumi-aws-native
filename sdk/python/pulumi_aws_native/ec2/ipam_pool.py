@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -32,7 +34,7 @@ class IpamPoolArgs:
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  source_resource: Optional[pulumi.Input['IpamPoolSourceResourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamPoolTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamPool resource.
         :param pulumi.Input[str] address_family: The address family of the address space in this pool. Either IPv4 or IPv6.
@@ -48,7 +50,7 @@ class IpamPoolArgs:
         :param pulumi.Input['IpamPoolPublicIpSource'] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
         :param pulumi.Input[bool] publicly_advertisable: Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
         :param pulumi.Input[str] source_ipam_pool_id: The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
-        :param pulumi.Input[Sequence[pulumi.Input['IpamPoolTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
@@ -257,14 +259,14 @@ class IpamPoolArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamPoolTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamPoolTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -288,7 +290,7 @@ class IpamPool(pulumi.CustomResource):
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  source_resource: Optional[pulumi.Input[pulumi.InputType['IpamPoolSourceResourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EC2::IPAMPool Type
@@ -308,7 +310,7 @@ class IpamPool(pulumi.CustomResource):
         :param pulumi.Input['IpamPoolPublicIpSource'] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
         :param pulumi.Input[bool] publicly_advertisable: Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
         :param pulumi.Input[str] source_ipam_pool_id: The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -349,7 +351,7 @@ class IpamPool(pulumi.CustomResource):
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  source_resource: Optional[pulumi.Input[pulumi.InputType['IpamPoolSourceResourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamPoolTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -617,7 +619,7 @@ class IpamPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IpamPoolTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

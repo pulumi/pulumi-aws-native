@@ -46,7 +46,7 @@ export class MatchingWorkflow extends pulumi.CustomResource {
     public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowOutputSource[]>;
     public readonly resolutionTechniques!: pulumi.Output<outputs.entityresolution.MatchingWorkflowResolutionTechniques>;
     public readonly roleArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.entityresolution.MatchingWorkflowTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     public /*out*/ readonly workflowArn!: pulumi.Output<string>;
     /**
@@ -121,7 +121,7 @@ export interface MatchingWorkflowArgs {
     outputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.MatchingWorkflowOutputSourceArgs>[]>;
     resolutionTechniques: pulumi.Input<inputs.entityresolution.MatchingWorkflowResolutionTechniquesArgs>;
     roleArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.entityresolution.MatchingWorkflowTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the MatchingWorkflow
      */

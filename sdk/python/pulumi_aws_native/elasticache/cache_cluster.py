@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['CacheClusterArgs', 'CacheCluster']
@@ -42,7 +44,7 @@ class CacheClusterArgs:
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -340,11 +342,11 @@ class CacheClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -402,7 +404,7 @@ class CacheCluster(pulumi.CustomResource):
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -462,7 +464,7 @@ class CacheCluster(pulumi.CustomResource):
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -697,7 +699,7 @@ class CacheCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CacheClusterTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

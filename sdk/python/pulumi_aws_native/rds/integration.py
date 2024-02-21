@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['IntegrationArgs', 'Integration']
@@ -21,14 +23,14 @@ class IntegrationArgs:
                  additional_encryption_context: Optional[pulumi.Input['IntegrationEncryptionContextMapArgs']] = None,
                  integration_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
         :param pulumi.Input[str] target_arn: The ARN of the Redshift data warehouse to use as the target for replication.
         :param pulumi.Input[str] integration_name: The name of the integration.
         :param pulumi.Input[str] kms_key_id: An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "source_arn", source_arn)
         pulumi.set(__self__, "target_arn", target_arn)
@@ -100,14 +102,14 @@ class IntegrationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -120,7 +122,7 @@ class Integration(pulumi.CustomResource):
                  integration_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -131,7 +133,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] integration_name: The name of the integration.
         :param pulumi.Input[str] kms_key_id: An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
         :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] target_arn: The ARN of the Redshift data warehouse to use as the target for replication.
         """
         ...
@@ -162,7 +164,7 @@ class Integration(pulumi.CustomResource):
                  integration_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -263,7 +265,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

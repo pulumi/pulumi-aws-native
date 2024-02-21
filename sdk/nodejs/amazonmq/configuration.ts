@@ -48,7 +48,7 @@ export class Configuration extends pulumi.CustomResource {
     public readonly engineVersion!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly revision!: pulumi.Output<number>;
-    public readonly tags!: pulumi.Output<outputs.amazonmq.ConfigurationTagsEntry[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -109,5 +109,5 @@ export interface ConfigurationArgs {
     engineType: pulumi.Input<string>;
     engineVersion: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.amazonmq.ConfigurationTagsEntryArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

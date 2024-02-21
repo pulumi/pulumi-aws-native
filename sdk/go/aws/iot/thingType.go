@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,7 +19,7 @@ type ThingType struct {
 	Arn                pulumi.StringOutput  `pulumi:"arn"`
 	DeprecateThingType pulumi.BoolPtrOutput `pulumi:"deprecateThingType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                ThingTypeTagArrayOutput                `pulumi:"tags"`
+	Tags                aws.TagArrayOutput                     `pulumi:"tags"`
 	ThingTypeName       pulumi.StringPtrOutput                 `pulumi:"thingTypeName"`
 	ThingTypeProperties ThingTypePropertiesPropertiesPtrOutput `pulumi:"thingTypeProperties"`
 }
@@ -70,7 +71,7 @@ func (ThingTypeState) ElementType() reflect.Type {
 type thingTypeArgs struct {
 	DeprecateThingType *bool `pulumi:"deprecateThingType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                []ThingTypeTag                 `pulumi:"tags"`
+	Tags                []aws.Tag                      `pulumi:"tags"`
 	ThingTypeName       *string                        `pulumi:"thingTypeName"`
 	ThingTypeProperties *ThingTypePropertiesProperties `pulumi:"thingTypeProperties"`
 }
@@ -79,7 +80,7 @@ type thingTypeArgs struct {
 type ThingTypeArgs struct {
 	DeprecateThingType pulumi.BoolPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags                ThingTypeTagArrayInput
+	Tags                aws.TagArrayInput
 	ThingTypeName       pulumi.StringPtrInput
 	ThingTypeProperties ThingTypePropertiesPropertiesPtrInput
 }
@@ -130,8 +131,8 @@ func (o ThingTypeOutput) DeprecateThingType() pulumi.BoolPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ThingTypeOutput) Tags() ThingTypeTagArrayOutput {
-	return o.ApplyT(func(v *ThingType) ThingTypeTagArrayOutput { return v.Tags }).(ThingTypeTagArrayOutput)
+func (o ThingTypeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ThingType) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ThingTypeOutput) ThingTypeName() pulumi.StringPtrOutput {

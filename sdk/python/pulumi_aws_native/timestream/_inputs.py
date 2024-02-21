@@ -11,7 +11,6 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'DatabaseTagArgs',
     'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs',
     'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs',
     'MagneticStoreWritePropertiesPropertiesArgs',
@@ -25,45 +24,11 @@ __all__ = [
     'ScheduledQueryS3ConfigurationArgs',
     'ScheduledQueryScheduleConfigurationArgs',
     'ScheduledQuerySnsConfigurationArgs',
-    'ScheduledQueryTagArgs',
     'ScheduledQueryTargetConfigurationArgs',
     'ScheduledQueryTimestreamConfigurationArgs',
     'SchemaPropertiesArgs',
     'TablePartitionKeyArgs',
-    'TableTagArgs',
 ]
-
-@pulumi.input_type
-class DatabaseTagArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
 
 @pulumi.input_type
 class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs:
@@ -528,36 +493,6 @@ class ScheduledQuerySnsConfigurationArgs:
 
 
 @pulumi.input_type
-class ScheduledQueryTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to label the scheduled query.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ScheduledQueryTargetConfigurationArgs:
     def __init__(__self__, *,
                  timestream_configuration: pulumi.Input['ScheduledQueryTimestreamConfigurationArgs']):
@@ -725,37 +660,5 @@ class TablePartitionKeyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class TableTagArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 

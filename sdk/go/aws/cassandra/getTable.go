@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupTableResult struct {
 	// Non-key columns of the table
 	RegularColumns []TableColumn `pulumi:"regularColumns"`
 	// An array of key-value pairs to apply to this resource
-	Tags []TableTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
@@ -104,8 +105,8 @@ func (o LookupTableResultOutput) RegularColumns() TableColumnArrayOutput {
 }
 
 // An array of key-value pairs to apply to this resource
-func (o LookupTableResultOutput) Tags() TableTagArrayOutput {
-	return o.ApplyT(func(v LookupTableResult) []TableTag { return v.Tags }).(TableTagArrayOutput)
+func (o LookupTableResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

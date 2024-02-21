@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags for the transit gateway peering attachment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TransitGatewayPeeringAttachmentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway peering attachment.
@@ -140,14 +140,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string> PeerTransitGatewayId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.TransitGatewayPeeringAttachmentTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the transit gateway peering attachment.
         /// </summary>
-        public InputList<Inputs.TransitGatewayPeeringAttachmentTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TransitGatewayPeeringAttachmentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

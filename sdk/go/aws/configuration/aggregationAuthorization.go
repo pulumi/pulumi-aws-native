@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type AggregationAuthorization struct {
 	// The region authorized to collect aggregated data.
 	AuthorizedAwsRegion pulumi.StringOutput `pulumi:"authorizedAwsRegion"`
 	// The tags for the AggregationAuthorization.
-	Tags AggregationAuthorizationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAggregationAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +83,7 @@ type aggregationAuthorizationArgs struct {
 	// The region authorized to collect aggregated data.
 	AuthorizedAwsRegion string `pulumi:"authorizedAwsRegion"`
 	// The tags for the AggregationAuthorization.
-	Tags []AggregationAuthorizationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AggregationAuthorization resource.
@@ -92,7 +93,7 @@ type AggregationAuthorizationArgs struct {
 	// The region authorized to collect aggregated data.
 	AuthorizedAwsRegion pulumi.StringInput
 	// The tags for the AggregationAuthorization.
-	Tags AggregationAuthorizationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AggregationAuthorizationArgs) ElementType() reflect.Type {
@@ -148,8 +149,8 @@ func (o AggregationAuthorizationOutput) AuthorizedAwsRegion() pulumi.StringOutpu
 }
 
 // The tags for the AggregationAuthorization.
-func (o AggregationAuthorizationOutput) Tags() AggregationAuthorizationTagArrayOutput {
-	return o.ApplyT(func(v *AggregationAuthorization) AggregationAuthorizationTagArrayOutput { return v.Tags }).(AggregationAuthorizationTagArrayOutput)
+func (o AggregationAuthorizationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AggregationAuthorization) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

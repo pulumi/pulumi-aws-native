@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public readonly Outputs.RuleGroup? RuleGroupValue;
         public readonly string? RuleGroupArn;
         public readonly string? RuleGroupId;
-        public readonly ImmutableArray<Outputs.RuleGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRuleGroupResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
             string? ruleGroupId,
 
-            ImmutableArray<Outputs.RuleGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             RuleGroupValue = ruleGroup;

@@ -868,107 +868,6 @@ type CanaryTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CanaryTagInput is an input type that accepts CanaryTagArgs and CanaryTagOutput values.
-// You can construct a concrete instance of `CanaryTagInput` via:
-//
-//	CanaryTagArgs{...}
-type CanaryTagInput interface {
-	pulumi.Input
-
-	ToCanaryTagOutput() CanaryTagOutput
-	ToCanaryTagOutputWithContext(context.Context) CanaryTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type CanaryTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CanaryTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CanaryTag)(nil)).Elem()
-}
-
-func (i CanaryTagArgs) ToCanaryTagOutput() CanaryTagOutput {
-	return i.ToCanaryTagOutputWithContext(context.Background())
-}
-
-func (i CanaryTagArgs) ToCanaryTagOutputWithContext(ctx context.Context) CanaryTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryTagOutput)
-}
-
-// CanaryTagArrayInput is an input type that accepts CanaryTagArray and CanaryTagArrayOutput values.
-// You can construct a concrete instance of `CanaryTagArrayInput` via:
-//
-//	CanaryTagArray{ CanaryTagArgs{...} }
-type CanaryTagArrayInput interface {
-	pulumi.Input
-
-	ToCanaryTagArrayOutput() CanaryTagArrayOutput
-	ToCanaryTagArrayOutputWithContext(context.Context) CanaryTagArrayOutput
-}
-
-type CanaryTagArray []CanaryTagInput
-
-func (CanaryTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CanaryTag)(nil)).Elem()
-}
-
-func (i CanaryTagArray) ToCanaryTagArrayOutput() CanaryTagArrayOutput {
-	return i.ToCanaryTagArrayOutputWithContext(context.Background())
-}
-
-func (i CanaryTagArray) ToCanaryTagArrayOutputWithContext(ctx context.Context) CanaryTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type CanaryTagOutput struct{ *pulumi.OutputState }
-
-func (CanaryTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CanaryTag)(nil)).Elem()
-}
-
-func (o CanaryTagOutput) ToCanaryTagOutput() CanaryTagOutput {
-	return o
-}
-
-func (o CanaryTagOutput) ToCanaryTagOutputWithContext(ctx context.Context) CanaryTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CanaryTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CanaryTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CanaryTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CanaryTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CanaryTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CanaryTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CanaryTag)(nil)).Elem()
-}
-
-func (o CanaryTagArrayOutput) ToCanaryTagArrayOutput() CanaryTagArrayOutput {
-	return o
-}
-
-func (o CanaryTagArrayOutput) ToCanaryTagArrayOutputWithContext(ctx context.Context) CanaryTagArrayOutput {
-	return o
-}
-
-func (o CanaryTagArrayOutput) Index(i pulumi.IntInput) CanaryTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CanaryTag {
-		return vs[0].([]CanaryTag)[vs[1].(int)]
-	}).(CanaryTagOutput)
-}
-
 type CanaryVisualReference struct {
 	// Canary run id to be used as base reference for visual testing
 	BaseCanaryRunId string `pulumi:"baseCanaryRunId"`
@@ -1296,107 +1195,6 @@ type GroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// GroupTagInput is an input type that accepts GroupTagArgs and GroupTagOutput values.
-// You can construct a concrete instance of `GroupTagInput` via:
-//
-//	GroupTagArgs{...}
-type GroupTagInput interface {
-	pulumi.Input
-
-	ToGroupTagOutput() GroupTagOutput
-	ToGroupTagOutputWithContext(context.Context) GroupTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type GroupTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (GroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupTag)(nil)).Elem()
-}
-
-func (i GroupTagArgs) ToGroupTagOutput() GroupTagOutput {
-	return i.ToGroupTagOutputWithContext(context.Background())
-}
-
-func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupTagOutput)
-}
-
-// GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
-// You can construct a concrete instance of `GroupTagArrayInput` via:
-//
-//	GroupTagArray{ GroupTagArgs{...} }
-type GroupTagArrayInput interface {
-	pulumi.Input
-
-	ToGroupTagArrayOutput() GroupTagArrayOutput
-	ToGroupTagArrayOutputWithContext(context.Context) GroupTagArrayOutput
-}
-
-type GroupTagArray []GroupTagInput
-
-func (GroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GroupTag)(nil)).Elem()
-}
-
-func (i GroupTagArray) ToGroupTagArrayOutput() GroupTagArrayOutput {
-	return i.ToGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i GroupTagArray) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type GroupTagOutput struct{ *pulumi.OutputState }
-
-func (GroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupTag)(nil)).Elem()
-}
-
-func (o GroupTagOutput) ToGroupTagOutput() GroupTagOutput {
-	return o
-}
-
-func (o GroupTagOutput) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o GroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o GroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type GroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (GroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GroupTag)(nil)).Elem()
-}
-
-func (o GroupTagArrayOutput) ToGroupTagArrayOutput() GroupTagArrayOutput {
-	return o
-}
-
-func (o GroupTagArrayOutput) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
-	return o
-}
-
-func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupTag {
-		return vs[0].([]GroupTag)[vs[1].(int)]
-	}).(GroupTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryArtifactConfigInput)(nil)).Elem(), CanaryArtifactConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryArtifactConfigPtrInput)(nil)).Elem(), CanaryArtifactConfigArgs{})
@@ -1408,14 +1206,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryS3EncryptionInput)(nil)).Elem(), CanaryS3EncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryS3EncryptionPtrInput)(nil)).Elem(), CanaryS3EncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryScheduleInput)(nil)).Elem(), CanaryScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTagInput)(nil)).Elem(), CanaryTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTagArrayInput)(nil)).Elem(), CanaryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVisualReferenceInput)(nil)).Elem(), CanaryVisualReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVisualReferencePtrInput)(nil)).Elem(), CanaryVisualReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigInput)(nil)).Elem(), CanaryVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigPtrInput)(nil)).Elem(), CanaryVpcConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagInput)(nil)).Elem(), GroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagArrayInput)(nil)).Elem(), GroupTagArray{})
 	pulumi.RegisterOutputType(CanaryArtifactConfigOutput{})
 	pulumi.RegisterOutputType(CanaryArtifactConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryBaseScreenshotOutput{})
@@ -1428,12 +1222,8 @@ func init() {
 	pulumi.RegisterOutputType(CanaryS3EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(CanaryScheduleOutput{})
 	pulumi.RegisterOutputType(CanarySchedulePtrOutput{})
-	pulumi.RegisterOutputType(CanaryTagOutput{})
-	pulumi.RegisterOutputType(CanaryTagArrayOutput{})
 	pulumi.RegisterOutputType(CanaryVisualReferenceOutput{})
 	pulumi.RegisterOutputType(CanaryVisualReferencePtrOutput{})
 	pulumi.RegisterOutputType(CanaryVpcConfigOutput{})
 	pulumi.RegisterOutputType(CanaryVpcConfigPtrOutput{})
-	pulumi.RegisterOutputType(GroupTagOutput{})
-	pulumi.RegisterOutputType(GroupTagArrayOutput{})
 }

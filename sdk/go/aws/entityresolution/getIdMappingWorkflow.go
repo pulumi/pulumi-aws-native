@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupIdMappingWorkflowResult struct {
 	InputSourceConfig   []IdMappingWorkflowInputSource        `pulumi:"inputSourceConfig"`
 	OutputSourceConfig  []IdMappingWorkflowOutputSource       `pulumi:"outputSourceConfig"`
 	RoleArn             *string                               `pulumi:"roleArn"`
-	Tags                []IdMappingWorkflowTag                `pulumi:"tags"`
+	Tags                []aws.Tag                             `pulumi:"tags"`
 	UpdatedAt           *string                               `pulumi:"updatedAt"`
 	WorkflowArn         *string                               `pulumi:"workflowArn"`
 }
@@ -103,8 +104,8 @@ func (o LookupIdMappingWorkflowResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdMappingWorkflowResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupIdMappingWorkflowResultOutput) Tags() IdMappingWorkflowTagArrayOutput {
-	return o.ApplyT(func(v LookupIdMappingWorkflowResult) []IdMappingWorkflowTag { return v.Tags }).(IdMappingWorkflowTagArrayOutput)
+func (o LookupIdMappingWorkflowResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIdMappingWorkflowResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupIdMappingWorkflowResultOutput) UpdatedAt() pulumi.StringPtrOutput {

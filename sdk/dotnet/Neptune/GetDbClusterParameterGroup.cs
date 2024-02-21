@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Neptune
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBClusterParameterGroup` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Parameters;
-        public readonly ImmutableArray<Outputs.DbClusterParameterGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDbClusterParameterGroupResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Neptune
 
             object? parameters,
 
-            ImmutableArray<Outputs.DbClusterParameterGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Parameters = parameters;

@@ -15,9 +15,7 @@ __all__ = [
     'AccessPointCreationInfo',
     'AccessPointPosixUser',
     'AccessPointRootDirectory',
-    'AccessPointTag',
     'FileSystemBackupPolicy',
-    'FileSystemElasticFileSystemTag',
     'FileSystemLifecyclePolicy',
     'FileSystemProtection',
     'FileSystemReplicationConfiguration',
@@ -208,41 +206,6 @@ class AccessPointRootDirectory(dict):
 
 
 @pulumi.output_type
-class AccessPointTag(dict):
-    """
-    A tag is a key-value pair attached to a file system. Allowed characters in the ``Key`` and ``Value`` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:``+ - = . _ : /``
-    """
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        A tag is a key-value pair attached to a file system. Allowed characters in the ``Key`` and ``Value`` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:``+ - = . _ : /``
-        :param str key: The tag key (String). The key can't start with ``aws:``.
-        :param str value: The value of the tag key.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        """
-        The tag key (String). The key can't start with ``aws:``.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value of the tag key.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class FileSystemBackupPolicy(dict):
     def __init__(__self__, *,
                  status: str):
@@ -252,25 +215,6 @@ class FileSystemBackupPolicy(dict):
     @pulumi.getter
     def status(self) -> str:
         return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class FileSystemElasticFileSystemTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

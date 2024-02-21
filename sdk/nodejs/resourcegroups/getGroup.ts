@@ -37,7 +37,7 @@ export interface GetGroupResult {
     readonly description?: string;
     readonly resourceQuery?: outputs.resourcegroups.GroupResourceQuery;
     readonly resources?: string[];
-    readonly tags?: outputs.resourcegroups.GroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Schema for ResourceGroups::Group

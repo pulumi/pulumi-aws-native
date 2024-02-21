@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -62,7 +63,7 @@ type LookupNetworkInterfaceResult struct {
 	// Indicates whether traffic to or from the instance is validated.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// An arbitrary set of tags (key-value pairs) for this network interface.
-	Tags []NetworkInterfaceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupNetworkInterfaceOutput(ctx *pulumi.Context, args LookupNetworkInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceResultOutput {
@@ -190,8 +191,8 @@ func (o LookupNetworkInterfaceResultOutput) SourceDestCheck() pulumi.BoolPtrOutp
 }
 
 // An arbitrary set of tags (key-value pairs) for this network interface.
-func (o LookupNetworkInterfaceResultOutput) Tags() NetworkInterfaceTagArrayOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) []NetworkInterfaceTag { return v.Tags }).(NetworkInterfaceTagArrayOutput)
+func (o LookupNetworkInterfaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

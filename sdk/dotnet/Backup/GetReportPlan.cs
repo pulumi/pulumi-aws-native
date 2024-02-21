@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ReportPlanTag> ReportPlanTags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> ReportPlanTags;
         /// <summary>
         /// Identifies the report template for the report. Reports are built using a report template.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Backup
 
             string? reportPlanDescription,
 
-            ImmutableArray<Outputs.ReportPlanTag> reportPlanTags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> reportPlanTags,
 
             Outputs.ReportSettingProperties? reportSetting)
         {

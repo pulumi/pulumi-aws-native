@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,7 +45,7 @@ type LookupLayerResult struct {
 	Name                        *string                           `pulumi:"name"`
 	Packages                    []string                          `pulumi:"packages"`
 	Shortname                   *string                           `pulumi:"shortname"`
-	Tags                        []LayerTag                        `pulumi:"tags"`
+	Tags                        []aws.Tag                         `pulumi:"tags"`
 	UseEbsOptimizedInstances    *bool                             `pulumi:"useEbsOptimizedInstances"`
 	VolumeConfigurations        []LayerVolumeConfiguration        `pulumi:"volumeConfigurations"`
 }
@@ -146,8 +147,8 @@ func (o LookupLayerResultOutput) Shortname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLayerResult) *string { return v.Shortname }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLayerResultOutput) Tags() LayerTagArrayOutput {
-	return o.ApplyT(func(v LookupLayerResult) []LayerTag { return v.Tags }).(LayerTagArrayOutput)
+func (o LookupLayerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLayerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupLayerResultOutput) UseEbsOptimizedInstances() pulumi.BoolPtrOutput {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LookupDatasetResult struct {
 	Domain           *DatasetDomain              `pulumi:"domain"`
 	EncryptionConfig *EncryptionConfigProperties `pulumi:"encryptionConfig"`
 	Schema           *SchemaProperties           `pulumi:"schema"`
-	Tags             []TagsItemProperties        `pulumi:"tags"`
+	Tags             []aws.Tag                   `pulumi:"tags"`
 }
 
 func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetResultOutput {
@@ -101,8 +102,8 @@ func (o LookupDatasetResultOutput) Schema() SchemaPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *SchemaProperties { return v.Schema }).(SchemaPropertiesPtrOutput)
 }
 
-func (o LookupDatasetResultOutput) Tags() TagsItemPropertiesArrayOutput {
-	return o.ApplyT(func(v LookupDatasetResult) []TagsItemProperties { return v.Tags }).(TagsItemPropertiesArrayOutput)
+func (o LookupDatasetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDatasetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

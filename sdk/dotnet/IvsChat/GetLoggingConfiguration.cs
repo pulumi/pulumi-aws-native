@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.IvsChat
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoggingConfigurationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLoggingConfigurationResult(
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.IvsChat
 
             Pulumi.AwsNative.IvsChat.LoggingConfigurationState? state,
 
-            ImmutableArray<Outputs.LoggingConfigurationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DestinationConfiguration = destinationConfiguration;

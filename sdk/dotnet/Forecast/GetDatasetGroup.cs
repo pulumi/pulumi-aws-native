@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Forecast
         /// <summary>
         /// The tags of Application Insights application.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatasetGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDatasetGroupResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Forecast
 
             Pulumi.AwsNative.Forecast.DatasetGroupDomain? domain,
 
-            ImmutableArray<Outputs.DatasetGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DatasetArns = datasetArns;
             DatasetGroupArn = datasetGroupArn;

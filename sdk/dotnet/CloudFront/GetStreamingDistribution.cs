@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.CloudFront
         public readonly string? DomainName;
         public readonly string? Id;
         public readonly Outputs.StreamingDistributionConfig? StreamingDistributionConfig;
-        public readonly ImmutableArray<Outputs.StreamingDistributionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetStreamingDistributionResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudFront
 
             Outputs.StreamingDistributionConfig? streamingDistributionConfig,
 
-            ImmutableArray<Outputs.StreamingDistributionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DomainName = domainName;
             Id = id;

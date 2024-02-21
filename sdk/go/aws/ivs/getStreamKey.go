@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupStreamKeyResult struct {
 	// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
 	Arn *string `pulumi:"arn"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags []StreamKeyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Stream-key value.
 	Value *string `pulumi:"value"`
 }
@@ -78,8 +79,8 @@ func (o LookupStreamKeyResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the asset model.
-func (o LookupStreamKeyResultOutput) Tags() StreamKeyTagArrayOutput {
-	return o.ApplyT(func(v LookupStreamKeyResult) []StreamKeyTag { return v.Tags }).(StreamKeyTagArrayOutput)
+func (o LookupStreamKeyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStreamKeyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Stream-key value.

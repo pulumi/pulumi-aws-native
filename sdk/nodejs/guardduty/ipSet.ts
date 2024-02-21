@@ -42,7 +42,7 @@ export class IpSet extends pulumi.CustomResource {
     public readonly format!: pulumi.Output<string>;
     public readonly location!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.guardduty.IpSetTagItem[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IpSet resource with the given unique name, arguments, and options.
@@ -91,5 +91,5 @@ export interface IpSetArgs {
     format: pulumi.Input<string>;
     location: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.IpSetTagItemArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

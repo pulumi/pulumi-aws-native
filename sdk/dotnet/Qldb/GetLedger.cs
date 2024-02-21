@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Qldb
         public readonly string? Id;
         public readonly string? KmsKey;
         public readonly string? PermissionsMode;
-        public readonly ImmutableArray<Outputs.LedgerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLedgerResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Qldb
 
             string? permissionsMode,
 
-            ImmutableArray<Outputs.LedgerTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DeletionProtection = deletionProtection;
             Id = id;

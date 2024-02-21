@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type Link struct {
 	// The state of the link.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the link.
-	Tags LinkTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of the link.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -105,7 +106,7 @@ type linkArgs struct {
 	// The ID of the site
 	SiteId string `pulumi:"siteId"`
 	// The tags for the link.
-	Tags []LinkTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the link.
 	Type *string `pulumi:"type"`
 }
@@ -123,7 +124,7 @@ type LinkArgs struct {
 	// The ID of the site
 	SiteId pulumi.StringInput
 	// The tags for the link.
-	Tags LinkTagArrayInput
+	Tags aws.TagArrayInput
 	// The type of the link.
 	Type pulumi.StringPtrInput
 }
@@ -211,8 +212,8 @@ func (o LinkOutput) State() pulumi.StringOutput {
 }
 
 // The tags for the link.
-func (o LinkOutput) Tags() LinkTagArrayOutput {
-	return o.ApplyT(func(v *Link) LinkTagArrayOutput { return v.Tags }).(LinkTagArrayOutput)
+func (o LinkOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Link) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of the link.

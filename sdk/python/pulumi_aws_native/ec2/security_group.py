@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SecurityGroupArgs', 'SecurityGroup']
@@ -20,7 +22,7 @@ class SecurityGroupArgs:
                  group_name: Optional[pulumi.Input[str]] = None,
                  security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]] = None,
                  security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityGroup resource.
@@ -75,11 +77,11 @@ class SecurityGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -101,7 +103,7 @@ class SecurityGroup(pulumi.CustomResource):
                  group_name: Optional[pulumi.Input[str]] = None,
                  security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]]] = None,
                  security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -138,7 +140,7 @@ class SecurityGroup(pulumi.CustomResource):
                  group_name: Optional[pulumi.Input[str]] = None,
                  security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]]] = None,
                  security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -218,7 +220,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

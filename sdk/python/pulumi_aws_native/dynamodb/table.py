@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -33,7 +35,7 @@ class TableArgs:
                  stream_specification: Optional[pulumi.Input['TableStreamSpecificationArgs']] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  time_to_live_specification: Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
@@ -220,11 +222,11 @@ class TableArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -258,7 +260,7 @@ class Table(pulumi.CustomResource):
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']]] = None,
                  __props__=None):
         """
@@ -307,7 +309,7 @@ class Table(pulumi.CustomResource):
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -478,7 +480,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TableTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

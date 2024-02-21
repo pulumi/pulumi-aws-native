@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -51,7 +52,7 @@ type LookupDomainResult struct {
 	SnapshotOptions             *DomainSnapshotOptions               `pulumi:"snapshotOptions"`
 	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions         `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
-	Tags       []DomainTag       `pulumi:"tags"`
+	Tags       []aws.Tag         `pulumi:"tags"`
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
 
@@ -180,8 +181,8 @@ func (o LookupDomainResultOutput) SoftwareUpdateOptions() DomainSoftwareUpdateOp
 }
 
 // An arbitrary set of tags (key-value pairs) for this Domain.
-func (o LookupDomainResultOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v LookupDomainResult) []DomainTag { return v.Tags }).(DomainTagArrayOutput)
+func (o LookupDomainResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupDomainResultOutput) VpcOptions() DomainVpcOptionsPtrOutput {

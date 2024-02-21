@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type StorageSystem struct {
 	// The type of on-premises storage system that DataSync Discovery will analyze.
 	SystemType StorageSystemSystemTypeOutput `pulumi:"systemType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags StorageSystemTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewStorageSystem registers a new resource with the given unique name, arguments, and options.
@@ -96,7 +97,7 @@ type storageSystemArgs struct {
 	// The type of on-premises storage system that DataSync Discovery will analyze.
 	SystemType StorageSystemSystemType `pulumi:"systemType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []StorageSystemTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageSystem resource.
@@ -112,7 +113,7 @@ type StorageSystemArgs struct {
 	// The type of on-premises storage system that DataSync Discovery will analyze.
 	SystemType StorageSystemSystemTypeInput
 	// An array of key-value pairs to apply to this resource.
-	Tags StorageSystemTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (StorageSystemArgs) ElementType() reflect.Type {
@@ -196,8 +197,8 @@ func (o StorageSystemOutput) SystemType() StorageSystemSystemTypeOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o StorageSystemOutput) Tags() StorageSystemTagArrayOutput {
-	return o.ApplyT(func(v *StorageSystem) StorageSystemTagArrayOutput { return v.Tags }).(StorageSystemTagArrayOutput)
+func (o StorageSystemOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *StorageSystem) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

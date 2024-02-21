@@ -653,103 +653,6 @@ type PermissionSetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PermissionSetTagInput is an input type that accepts PermissionSetTagArgs and PermissionSetTagOutput values.
-// You can construct a concrete instance of `PermissionSetTagInput` via:
-//
-//	PermissionSetTagArgs{...}
-type PermissionSetTagInput interface {
-	pulumi.Input
-
-	ToPermissionSetTagOutput() PermissionSetTagOutput
-	ToPermissionSetTagOutputWithContext(context.Context) PermissionSetTagOutput
-}
-
-// The metadata that you apply to the permission set to help you categorize and organize them.
-type PermissionSetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PermissionSetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionSetTag)(nil)).Elem()
-}
-
-func (i PermissionSetTagArgs) ToPermissionSetTagOutput() PermissionSetTagOutput {
-	return i.ToPermissionSetTagOutputWithContext(context.Background())
-}
-
-func (i PermissionSetTagArgs) ToPermissionSetTagOutputWithContext(ctx context.Context) PermissionSetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetTagOutput)
-}
-
-// PermissionSetTagArrayInput is an input type that accepts PermissionSetTagArray and PermissionSetTagArrayOutput values.
-// You can construct a concrete instance of `PermissionSetTagArrayInput` via:
-//
-//	PermissionSetTagArray{ PermissionSetTagArgs{...} }
-type PermissionSetTagArrayInput interface {
-	pulumi.Input
-
-	ToPermissionSetTagArrayOutput() PermissionSetTagArrayOutput
-	ToPermissionSetTagArrayOutputWithContext(context.Context) PermissionSetTagArrayOutput
-}
-
-type PermissionSetTagArray []PermissionSetTagInput
-
-func (PermissionSetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PermissionSetTag)(nil)).Elem()
-}
-
-func (i PermissionSetTagArray) ToPermissionSetTagArrayOutput() PermissionSetTagArrayOutput {
-	return i.ToPermissionSetTagArrayOutputWithContext(context.Background())
-}
-
-func (i PermissionSetTagArray) ToPermissionSetTagArrayOutputWithContext(ctx context.Context) PermissionSetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetTagArrayOutput)
-}
-
-// The metadata that you apply to the permission set to help you categorize and organize them.
-type PermissionSetTagOutput struct{ *pulumi.OutputState }
-
-func (PermissionSetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionSetTag)(nil)).Elem()
-}
-
-func (o PermissionSetTagOutput) ToPermissionSetTagOutput() PermissionSetTagOutput {
-	return o
-}
-
-func (o PermissionSetTagOutput) ToPermissionSetTagOutputWithContext(ctx context.Context) PermissionSetTagOutput {
-	return o
-}
-
-func (o PermissionSetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PermissionSetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PermissionSetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PermissionSetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PermissionSetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PermissionSetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PermissionSetTag)(nil)).Elem()
-}
-
-func (o PermissionSetTagArrayOutput) ToPermissionSetTagArrayOutput() PermissionSetTagArrayOutput {
-	return o
-}
-
-func (o PermissionSetTagArrayOutput) ToPermissionSetTagArrayOutputWithContext(ctx context.Context) PermissionSetTagArrayOutput {
-	return o
-}
-
-func (o PermissionSetTagArrayOutput) Index(i pulumi.IntInput) PermissionSetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionSetTag {
-		return vs[0].([]PermissionSetTag)[vs[1].(int)]
-	}).(PermissionSetTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationAccessControlAttributeInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationAccessControlAttributeArray{})
@@ -761,8 +664,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetCustomerManagedPolicyReferenceArrayInput)(nil)).Elem(), PermissionSetCustomerManagedPolicyReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetPermissionsBoundaryInput)(nil)).Elem(), PermissionSetPermissionsBoundaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetPermissionsBoundaryPtrInput)(nil)).Elem(), PermissionSetPermissionsBoundaryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetTagInput)(nil)).Elem(), PermissionSetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetTagArrayInput)(nil)).Elem(), PermissionSetTagArray{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput{})
@@ -773,6 +674,4 @@ func init() {
 	pulumi.RegisterOutputType(PermissionSetCustomerManagedPolicyReferenceArrayOutput{})
 	pulumi.RegisterOutputType(PermissionSetPermissionsBoundaryOutput{})
 	pulumi.RegisterOutputType(PermissionSetPermissionsBoundaryPtrOutput{})
-	pulumi.RegisterOutputType(PermissionSetTagOutput{})
-	pulumi.RegisterOutputType(PermissionSetTagArrayOutput{})
 }

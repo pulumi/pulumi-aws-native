@@ -58,7 +58,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * The tags associated with the assessment.
      */
-    public readonly tags!: pulumi.Output<outputs.auditmanager.AssessmentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Assessment resource with the given unique name, arguments, and options.
@@ -128,5 +128,5 @@ export interface AssessmentArgs {
     /**
      * The tags associated with the assessment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

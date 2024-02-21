@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Integration struct {
 	// The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags IntegrationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the Redshift data warehouse to use as the target for replication.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
@@ -94,7 +95,7 @@ type integrationArgs struct {
 	// The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
 	SourceArn string `pulumi:"sourceArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IntegrationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the Redshift data warehouse to use as the target for replication.
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -109,7 +110,7 @@ type IntegrationArgs struct {
 	// The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
 	SourceArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags IntegrationTagArrayInput
+	Tags aws.TagArrayInput
 	// The ARN of the Redshift data warehouse to use as the target for replication.
 	TargetArn pulumi.StringInput
 }
@@ -180,8 +181,8 @@ func (o IntegrationOutput) SourceArn() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o IntegrationOutput) Tags() IntegrationTagArrayOutput {
-	return o.ApplyT(func(v *Integration) IntegrationTagArrayOutput { return v.Tags }).(IntegrationTagArrayOutput)
+func (o IntegrationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Integration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the Redshift data warehouse to use as the target for replication.

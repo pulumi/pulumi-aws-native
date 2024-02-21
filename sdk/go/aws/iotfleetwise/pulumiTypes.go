@@ -458,101 +458,6 @@ type CampaignTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CampaignTagInput is an input type that accepts CampaignTagArgs and CampaignTagOutput values.
-// You can construct a concrete instance of `CampaignTagInput` via:
-//
-//	CampaignTagArgs{...}
-type CampaignTagInput interface {
-	pulumi.Input
-
-	ToCampaignTagOutput() CampaignTagOutput
-	ToCampaignTagOutputWithContext(context.Context) CampaignTagOutput
-}
-
-type CampaignTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CampaignTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignTag)(nil)).Elem()
-}
-
-func (i CampaignTagArgs) ToCampaignTagOutput() CampaignTagOutput {
-	return i.ToCampaignTagOutputWithContext(context.Background())
-}
-
-func (i CampaignTagArgs) ToCampaignTagOutputWithContext(ctx context.Context) CampaignTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignTagOutput)
-}
-
-// CampaignTagArrayInput is an input type that accepts CampaignTagArray and CampaignTagArrayOutput values.
-// You can construct a concrete instance of `CampaignTagArrayInput` via:
-//
-//	CampaignTagArray{ CampaignTagArgs{...} }
-type CampaignTagArrayInput interface {
-	pulumi.Input
-
-	ToCampaignTagArrayOutput() CampaignTagArrayOutput
-	ToCampaignTagArrayOutputWithContext(context.Context) CampaignTagArrayOutput
-}
-
-type CampaignTagArray []CampaignTagInput
-
-func (CampaignTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CampaignTag)(nil)).Elem()
-}
-
-func (i CampaignTagArray) ToCampaignTagArrayOutput() CampaignTagArrayOutput {
-	return i.ToCampaignTagArrayOutputWithContext(context.Background())
-}
-
-func (i CampaignTagArray) ToCampaignTagArrayOutputWithContext(ctx context.Context) CampaignTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignTagArrayOutput)
-}
-
-type CampaignTagOutput struct{ *pulumi.OutputState }
-
-func (CampaignTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignTag)(nil)).Elem()
-}
-
-func (o CampaignTagOutput) ToCampaignTagOutput() CampaignTagOutput {
-	return o
-}
-
-func (o CampaignTagOutput) ToCampaignTagOutputWithContext(ctx context.Context) CampaignTagOutput {
-	return o
-}
-
-func (o CampaignTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CampaignTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CampaignTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CampaignTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CampaignTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CampaignTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CampaignTag)(nil)).Elem()
-}
-
-func (o CampaignTagArrayOutput) ToCampaignTagArrayOutput() CampaignTagArrayOutput {
-	return o
-}
-
-func (o CampaignTagArrayOutput) ToCampaignTagArrayOutputWithContext(ctx context.Context) CampaignTagArrayOutput {
-	return o
-}
-
-func (o CampaignTagArrayOutput) Index(i pulumi.IntInput) CampaignTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignTag {
-		return vs[0].([]CampaignTag)[vs[1].(int)]
-	}).(CampaignTagOutput)
-}
-
 type CampaignTimeBasedCollectionScheme struct {
 	PeriodMs float64 `pulumi:"periodMs"`
 }
@@ -1252,299 +1157,14 @@ type DecoderManifestTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DecoderManifestTagInput is an input type that accepts DecoderManifestTagArgs and DecoderManifestTagOutput values.
-// You can construct a concrete instance of `DecoderManifestTagInput` via:
-//
-//	DecoderManifestTagArgs{...}
-type DecoderManifestTagInput interface {
-	pulumi.Input
-
-	ToDecoderManifestTagOutput() DecoderManifestTagOutput
-	ToDecoderManifestTagOutputWithContext(context.Context) DecoderManifestTagOutput
-}
-
-type DecoderManifestTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DecoderManifestTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DecoderManifestTag)(nil)).Elem()
-}
-
-func (i DecoderManifestTagArgs) ToDecoderManifestTagOutput() DecoderManifestTagOutput {
-	return i.ToDecoderManifestTagOutputWithContext(context.Background())
-}
-
-func (i DecoderManifestTagArgs) ToDecoderManifestTagOutputWithContext(ctx context.Context) DecoderManifestTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DecoderManifestTagOutput)
-}
-
-// DecoderManifestTagArrayInput is an input type that accepts DecoderManifestTagArray and DecoderManifestTagArrayOutput values.
-// You can construct a concrete instance of `DecoderManifestTagArrayInput` via:
-//
-//	DecoderManifestTagArray{ DecoderManifestTagArgs{...} }
-type DecoderManifestTagArrayInput interface {
-	pulumi.Input
-
-	ToDecoderManifestTagArrayOutput() DecoderManifestTagArrayOutput
-	ToDecoderManifestTagArrayOutputWithContext(context.Context) DecoderManifestTagArrayOutput
-}
-
-type DecoderManifestTagArray []DecoderManifestTagInput
-
-func (DecoderManifestTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DecoderManifestTag)(nil)).Elem()
-}
-
-func (i DecoderManifestTagArray) ToDecoderManifestTagArrayOutput() DecoderManifestTagArrayOutput {
-	return i.ToDecoderManifestTagArrayOutputWithContext(context.Background())
-}
-
-func (i DecoderManifestTagArray) ToDecoderManifestTagArrayOutputWithContext(ctx context.Context) DecoderManifestTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DecoderManifestTagArrayOutput)
-}
-
-type DecoderManifestTagOutput struct{ *pulumi.OutputState }
-
-func (DecoderManifestTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DecoderManifestTag)(nil)).Elem()
-}
-
-func (o DecoderManifestTagOutput) ToDecoderManifestTagOutput() DecoderManifestTagOutput {
-	return o
-}
-
-func (o DecoderManifestTagOutput) ToDecoderManifestTagOutputWithContext(ctx context.Context) DecoderManifestTagOutput {
-	return o
-}
-
-func (o DecoderManifestTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DecoderManifestTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DecoderManifestTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DecoderManifestTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DecoderManifestTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DecoderManifestTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DecoderManifestTag)(nil)).Elem()
-}
-
-func (o DecoderManifestTagArrayOutput) ToDecoderManifestTagArrayOutput() DecoderManifestTagArrayOutput {
-	return o
-}
-
-func (o DecoderManifestTagArrayOutput) ToDecoderManifestTagArrayOutputWithContext(ctx context.Context) DecoderManifestTagArrayOutput {
-	return o
-}
-
-func (o DecoderManifestTagArrayOutput) Index(i pulumi.IntInput) DecoderManifestTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DecoderManifestTag {
-		return vs[0].([]DecoderManifestTag)[vs[1].(int)]
-	}).(DecoderManifestTagOutput)
-}
-
 type FleetTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// FleetTagInput is an input type that accepts FleetTagArgs and FleetTagOutput values.
-// You can construct a concrete instance of `FleetTagInput` via:
-//
-//	FleetTagArgs{...}
-type FleetTagInput interface {
-	pulumi.Input
-
-	ToFleetTagOutput() FleetTagOutput
-	ToFleetTagOutputWithContext(context.Context) FleetTagOutput
-}
-
-type FleetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FleetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetTag)(nil)).Elem()
-}
-
-func (i FleetTagArgs) ToFleetTagOutput() FleetTagOutput {
-	return i.ToFleetTagOutputWithContext(context.Background())
-}
-
-func (i FleetTagArgs) ToFleetTagOutputWithContext(ctx context.Context) FleetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetTagOutput)
-}
-
-// FleetTagArrayInput is an input type that accepts FleetTagArray and FleetTagArrayOutput values.
-// You can construct a concrete instance of `FleetTagArrayInput` via:
-//
-//	FleetTagArray{ FleetTagArgs{...} }
-type FleetTagArrayInput interface {
-	pulumi.Input
-
-	ToFleetTagArrayOutput() FleetTagArrayOutput
-	ToFleetTagArrayOutputWithContext(context.Context) FleetTagArrayOutput
-}
-
-type FleetTagArray []FleetTagInput
-
-func (FleetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FleetTag)(nil)).Elem()
-}
-
-func (i FleetTagArray) ToFleetTagArrayOutput() FleetTagArrayOutput {
-	return i.ToFleetTagArrayOutputWithContext(context.Background())
-}
-
-func (i FleetTagArray) ToFleetTagArrayOutputWithContext(ctx context.Context) FleetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetTagArrayOutput)
-}
-
-type FleetTagOutput struct{ *pulumi.OutputState }
-
-func (FleetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetTag)(nil)).Elem()
-}
-
-func (o FleetTagOutput) ToFleetTagOutput() FleetTagOutput {
-	return o
-}
-
-func (o FleetTagOutput) ToFleetTagOutputWithContext(ctx context.Context) FleetTagOutput {
-	return o
-}
-
-func (o FleetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o FleetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FleetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FleetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FleetTag)(nil)).Elem()
-}
-
-func (o FleetTagArrayOutput) ToFleetTagArrayOutput() FleetTagArrayOutput {
-	return o
-}
-
-func (o FleetTagArrayOutput) ToFleetTagArrayOutputWithContext(ctx context.Context) FleetTagArrayOutput {
-	return o
-}
-
-func (o FleetTagArrayOutput) Index(i pulumi.IntInput) FleetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetTag {
-		return vs[0].([]FleetTag)[vs[1].(int)]
-	}).(FleetTagOutput)
-}
-
 type ModelManifestTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// ModelManifestTagInput is an input type that accepts ModelManifestTagArgs and ModelManifestTagOutput values.
-// You can construct a concrete instance of `ModelManifestTagInput` via:
-//
-//	ModelManifestTagArgs{...}
-type ModelManifestTagInput interface {
-	pulumi.Input
-
-	ToModelManifestTagOutput() ModelManifestTagOutput
-	ToModelManifestTagOutputWithContext(context.Context) ModelManifestTagOutput
-}
-
-type ModelManifestTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ModelManifestTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelManifestTag)(nil)).Elem()
-}
-
-func (i ModelManifestTagArgs) ToModelManifestTagOutput() ModelManifestTagOutput {
-	return i.ToModelManifestTagOutputWithContext(context.Background())
-}
-
-func (i ModelManifestTagArgs) ToModelManifestTagOutputWithContext(ctx context.Context) ModelManifestTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelManifestTagOutput)
-}
-
-// ModelManifestTagArrayInput is an input type that accepts ModelManifestTagArray and ModelManifestTagArrayOutput values.
-// You can construct a concrete instance of `ModelManifestTagArrayInput` via:
-//
-//	ModelManifestTagArray{ ModelManifestTagArgs{...} }
-type ModelManifestTagArrayInput interface {
-	pulumi.Input
-
-	ToModelManifestTagArrayOutput() ModelManifestTagArrayOutput
-	ToModelManifestTagArrayOutputWithContext(context.Context) ModelManifestTagArrayOutput
-}
-
-type ModelManifestTagArray []ModelManifestTagInput
-
-func (ModelManifestTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModelManifestTag)(nil)).Elem()
-}
-
-func (i ModelManifestTagArray) ToModelManifestTagArrayOutput() ModelManifestTagArrayOutput {
-	return i.ToModelManifestTagArrayOutputWithContext(context.Background())
-}
-
-func (i ModelManifestTagArray) ToModelManifestTagArrayOutputWithContext(ctx context.Context) ModelManifestTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelManifestTagArrayOutput)
-}
-
-type ModelManifestTagOutput struct{ *pulumi.OutputState }
-
-func (ModelManifestTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelManifestTag)(nil)).Elem()
-}
-
-func (o ModelManifestTagOutput) ToModelManifestTagOutput() ModelManifestTagOutput {
-	return o
-}
-
-func (o ModelManifestTagOutput) ToModelManifestTagOutputWithContext(ctx context.Context) ModelManifestTagOutput {
-	return o
-}
-
-func (o ModelManifestTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelManifestTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ModelManifestTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelManifestTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ModelManifestTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ModelManifestTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModelManifestTag)(nil)).Elem()
-}
-
-func (o ModelManifestTagArrayOutput) ToModelManifestTagArrayOutput() ModelManifestTagArrayOutput {
-	return o
-}
-
-func (o ModelManifestTagArrayOutput) ToModelManifestTagArrayOutputWithContext(ctx context.Context) ModelManifestTagArrayOutput {
-	return o
-}
-
-func (o ModelManifestTagArrayOutput) Index(i pulumi.IntInput) ModelManifestTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelManifestTag {
-		return vs[0].([]ModelManifestTag)[vs[1].(int)]
-	}).(ModelManifestTagOutput)
 }
 
 type SignalCatalogActuator struct {
@@ -2803,199 +2423,9 @@ type SignalCatalogTag struct {
 	Value string `pulumi:"value"`
 }
 
-// SignalCatalogTagInput is an input type that accepts SignalCatalogTagArgs and SignalCatalogTagOutput values.
-// You can construct a concrete instance of `SignalCatalogTagInput` via:
-//
-//	SignalCatalogTagArgs{...}
-type SignalCatalogTagInput interface {
-	pulumi.Input
-
-	ToSignalCatalogTagOutput() SignalCatalogTagOutput
-	ToSignalCatalogTagOutputWithContext(context.Context) SignalCatalogTagOutput
-}
-
-type SignalCatalogTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SignalCatalogTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalCatalogTag)(nil)).Elem()
-}
-
-func (i SignalCatalogTagArgs) ToSignalCatalogTagOutput() SignalCatalogTagOutput {
-	return i.ToSignalCatalogTagOutputWithContext(context.Background())
-}
-
-func (i SignalCatalogTagArgs) ToSignalCatalogTagOutputWithContext(ctx context.Context) SignalCatalogTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalCatalogTagOutput)
-}
-
-// SignalCatalogTagArrayInput is an input type that accepts SignalCatalogTagArray and SignalCatalogTagArrayOutput values.
-// You can construct a concrete instance of `SignalCatalogTagArrayInput` via:
-//
-//	SignalCatalogTagArray{ SignalCatalogTagArgs{...} }
-type SignalCatalogTagArrayInput interface {
-	pulumi.Input
-
-	ToSignalCatalogTagArrayOutput() SignalCatalogTagArrayOutput
-	ToSignalCatalogTagArrayOutputWithContext(context.Context) SignalCatalogTagArrayOutput
-}
-
-type SignalCatalogTagArray []SignalCatalogTagInput
-
-func (SignalCatalogTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SignalCatalogTag)(nil)).Elem()
-}
-
-func (i SignalCatalogTagArray) ToSignalCatalogTagArrayOutput() SignalCatalogTagArrayOutput {
-	return i.ToSignalCatalogTagArrayOutputWithContext(context.Background())
-}
-
-func (i SignalCatalogTagArray) ToSignalCatalogTagArrayOutputWithContext(ctx context.Context) SignalCatalogTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalCatalogTagArrayOutput)
-}
-
-type SignalCatalogTagOutput struct{ *pulumi.OutputState }
-
-func (SignalCatalogTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalCatalogTag)(nil)).Elem()
-}
-
-func (o SignalCatalogTagOutput) ToSignalCatalogTagOutput() SignalCatalogTagOutput {
-	return o
-}
-
-func (o SignalCatalogTagOutput) ToSignalCatalogTagOutputWithContext(ctx context.Context) SignalCatalogTagOutput {
-	return o
-}
-
-func (o SignalCatalogTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SignalCatalogTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o SignalCatalogTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SignalCatalogTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type SignalCatalogTagArrayOutput struct{ *pulumi.OutputState }
-
-func (SignalCatalogTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SignalCatalogTag)(nil)).Elem()
-}
-
-func (o SignalCatalogTagArrayOutput) ToSignalCatalogTagArrayOutput() SignalCatalogTagArrayOutput {
-	return o
-}
-
-func (o SignalCatalogTagArrayOutput) ToSignalCatalogTagArrayOutputWithContext(ctx context.Context) SignalCatalogTagArrayOutput {
-	return o
-}
-
-func (o SignalCatalogTagArrayOutput) Index(i pulumi.IntInput) SignalCatalogTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignalCatalogTag {
-		return vs[0].([]SignalCatalogTag)[vs[1].(int)]
-	}).(SignalCatalogTagOutput)
-}
-
 type VehicleTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// VehicleTagInput is an input type that accepts VehicleTagArgs and VehicleTagOutput values.
-// You can construct a concrete instance of `VehicleTagInput` via:
-//
-//	VehicleTagArgs{...}
-type VehicleTagInput interface {
-	pulumi.Input
-
-	ToVehicleTagOutput() VehicleTagOutput
-	ToVehicleTagOutputWithContext(context.Context) VehicleTagOutput
-}
-
-type VehicleTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VehicleTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VehicleTag)(nil)).Elem()
-}
-
-func (i VehicleTagArgs) ToVehicleTagOutput() VehicleTagOutput {
-	return i.ToVehicleTagOutputWithContext(context.Background())
-}
-
-func (i VehicleTagArgs) ToVehicleTagOutputWithContext(ctx context.Context) VehicleTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VehicleTagOutput)
-}
-
-// VehicleTagArrayInput is an input type that accepts VehicleTagArray and VehicleTagArrayOutput values.
-// You can construct a concrete instance of `VehicleTagArrayInput` via:
-//
-//	VehicleTagArray{ VehicleTagArgs{...} }
-type VehicleTagArrayInput interface {
-	pulumi.Input
-
-	ToVehicleTagArrayOutput() VehicleTagArrayOutput
-	ToVehicleTagArrayOutputWithContext(context.Context) VehicleTagArrayOutput
-}
-
-type VehicleTagArray []VehicleTagInput
-
-func (VehicleTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VehicleTag)(nil)).Elem()
-}
-
-func (i VehicleTagArray) ToVehicleTagArrayOutput() VehicleTagArrayOutput {
-	return i.ToVehicleTagArrayOutputWithContext(context.Background())
-}
-
-func (i VehicleTagArray) ToVehicleTagArrayOutputWithContext(ctx context.Context) VehicleTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VehicleTagArrayOutput)
-}
-
-type VehicleTagOutput struct{ *pulumi.OutputState }
-
-func (VehicleTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VehicleTag)(nil)).Elem()
-}
-
-func (o VehicleTagOutput) ToVehicleTagOutput() VehicleTagOutput {
-	return o
-}
-
-func (o VehicleTagOutput) ToVehicleTagOutputWithContext(ctx context.Context) VehicleTagOutput {
-	return o
-}
-
-func (o VehicleTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VehicleTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VehicleTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VehicleTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VehicleTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VehicleTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VehicleTag)(nil)).Elem()
-}
-
-func (o VehicleTagArrayOutput) ToVehicleTagArrayOutput() VehicleTagArrayOutput {
-	return o
-}
-
-func (o VehicleTagArrayOutput) ToVehicleTagArrayOutputWithContext(ctx context.Context) VehicleTagArrayOutput {
-	return o
-}
-
-func (o VehicleTagArrayOutput) Index(i pulumi.IntInput) VehicleTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VehicleTag {
-		return vs[0].([]VehicleTag)[vs[1].(int)]
-	}).(VehicleTagOutput)
 }
 
 type VehicleattributesMap struct {
@@ -3125,8 +2555,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignS3ConfigInput)(nil)).Elem(), CampaignS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSignalInformationInput)(nil)).Elem(), CampaignSignalInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSignalInformationArrayInput)(nil)).Elem(), CampaignSignalInformationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagInput)(nil)).Elem(), CampaignTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagArrayInput)(nil)).Elem(), CampaignTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTimeBasedCollectionSchemeInput)(nil)).Elem(), CampaignTimeBasedCollectionSchemeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTimestreamConfigInput)(nil)).Elem(), CampaignTimestreamConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestCanInterfaceInput)(nil)).Elem(), DecoderManifestCanInterfaceArgs{})
@@ -3137,12 +2565,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestObdNetworkInterfaceInput)(nil)).Elem(), DecoderManifestObdNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestObdSignalInput)(nil)).Elem(), DecoderManifestObdSignalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestObdSignalDecoderInput)(nil)).Elem(), DecoderManifestObdSignalDecoderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestTagInput)(nil)).Elem(), DecoderManifestTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DecoderManifestTagArrayInput)(nil)).Elem(), DecoderManifestTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagInput)(nil)).Elem(), FleetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagArrayInput)(nil)).Elem(), FleetTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelManifestTagInput)(nil)).Elem(), ModelManifestTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelManifestTagArrayInput)(nil)).Elem(), ModelManifestTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogActuatorInput)(nil)).Elem(), SignalCatalogActuatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogActuatorPtrInput)(nil)).Elem(), SignalCatalogActuatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogAttributeInput)(nil)).Elem(), SignalCatalogAttributeArgs{})
@@ -3157,10 +2579,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogNodeCountsPtrInput)(nil)).Elem(), SignalCatalogNodeCountsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogSensorInput)(nil)).Elem(), SignalCatalogSensorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogSensorPtrInput)(nil)).Elem(), SignalCatalogSensorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogTagInput)(nil)).Elem(), SignalCatalogTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogTagArrayInput)(nil)).Elem(), SignalCatalogTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VehicleTagInput)(nil)).Elem(), VehicleTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VehicleTagArrayInput)(nil)).Elem(), VehicleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VehicleattributesMapInput)(nil)).Elem(), VehicleattributesMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VehicleattributesMapPtrInput)(nil)).Elem(), VehicleattributesMapArgs{})
 	pulumi.RegisterOutputType(CampaignCollectionScheme0PropertiesOutput{})
@@ -3171,8 +2589,6 @@ func init() {
 	pulumi.RegisterOutputType(CampaignS3ConfigOutput{})
 	pulumi.RegisterOutputType(CampaignSignalInformationOutput{})
 	pulumi.RegisterOutputType(CampaignSignalInformationArrayOutput{})
-	pulumi.RegisterOutputType(CampaignTagOutput{})
-	pulumi.RegisterOutputType(CampaignTagArrayOutput{})
 	pulumi.RegisterOutputType(CampaignTimeBasedCollectionSchemeOutput{})
 	pulumi.RegisterOutputType(CampaignTimestreamConfigOutput{})
 	pulumi.RegisterOutputType(DecoderManifestCanInterfaceOutput{})
@@ -3183,12 +2599,6 @@ func init() {
 	pulumi.RegisterOutputType(DecoderManifestObdNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(DecoderManifestObdSignalOutput{})
 	pulumi.RegisterOutputType(DecoderManifestObdSignalDecoderOutput{})
-	pulumi.RegisterOutputType(DecoderManifestTagOutput{})
-	pulumi.RegisterOutputType(DecoderManifestTagArrayOutput{})
-	pulumi.RegisterOutputType(FleetTagOutput{})
-	pulumi.RegisterOutputType(FleetTagArrayOutput{})
-	pulumi.RegisterOutputType(ModelManifestTagOutput{})
-	pulumi.RegisterOutputType(ModelManifestTagArrayOutput{})
 	pulumi.RegisterOutputType(SignalCatalogActuatorOutput{})
 	pulumi.RegisterOutputType(SignalCatalogActuatorPtrOutput{})
 	pulumi.RegisterOutputType(SignalCatalogAttributeOutput{})
@@ -3203,10 +2613,6 @@ func init() {
 	pulumi.RegisterOutputType(SignalCatalogNodeCountsPtrOutput{})
 	pulumi.RegisterOutputType(SignalCatalogSensorOutput{})
 	pulumi.RegisterOutputType(SignalCatalogSensorPtrOutput{})
-	pulumi.RegisterOutputType(SignalCatalogTagOutput{})
-	pulumi.RegisterOutputType(SignalCatalogTagArrayOutput{})
-	pulumi.RegisterOutputType(VehicleTagOutput{})
-	pulumi.RegisterOutputType(VehicleTagArrayOutput{})
 	pulumi.RegisterOutputType(VehicleattributesMapOutput{})
 	pulumi.RegisterOutputType(VehicleattributesMapPtrOutput{})
 }

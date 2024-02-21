@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupDbParameterGroupResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{} `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DbParameterGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDbParameterGroupOutput(ctx *pulumi.Context, args LookupDbParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDbParameterGroupResultOutput {
@@ -80,8 +81,8 @@ func (o LookupDbParameterGroupResultOutput) Parameters() pulumi.AnyOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupDbParameterGroupResultOutput) Tags() DbParameterGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupDbParameterGroupResult) []DbParameterGroupTag { return v.Tags }).(DbParameterGroupTagArrayOutput)
+func (o LookupDbParameterGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDbParameterGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

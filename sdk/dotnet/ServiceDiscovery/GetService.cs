@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public readonly Outputs.ServiceDnsConfig? DnsConfig;
         public readonly Outputs.ServiceHealthCheckConfig? HealthCheckConfig;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.ServiceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetServiceResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
 
             string? id,
 
-            ImmutableArray<Outputs.ServiceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

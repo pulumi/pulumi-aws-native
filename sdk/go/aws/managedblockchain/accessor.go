@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Accessor struct {
 	NetworkType  AccessorNetworkAccessorTypePtrOutput `pulumi:"networkType"`
 	Status       AccessorStatusOutput                 `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags AccessorTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAccessor registers a new resource with the given unique name, arguments, and options.
@@ -79,7 +80,7 @@ type accessorArgs struct {
 	AccessorType AccessorType                 `pulumi:"accessorType"`
 	NetworkType  *AccessorNetworkAccessorType `pulumi:"networkType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []AccessorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Accessor resource.
@@ -87,7 +88,7 @@ type AccessorArgs struct {
 	AccessorType AccessorTypeInput
 	NetworkType  AccessorNetworkAccessorTypePtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags AccessorTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AccessorArgs) ElementType() reflect.Type {
@@ -152,8 +153,8 @@ func (o AccessorOutput) Status() AccessorStatusOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o AccessorOutput) Tags() AccessorTagArrayOutput {
-	return o.ApplyT(func(v *Accessor) AccessorTagArrayOutput { return v.Tags }).(AccessorTagArrayOutput)
+func (o AccessorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Accessor) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

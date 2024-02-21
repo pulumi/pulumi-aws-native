@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupImageBuilderResult struct {
 	InstanceType                *string                      `pulumi:"instanceType"`
 	Name                        *string                      `pulumi:"name"`
 	StreamingUrl                *string                      `pulumi:"streamingUrl"`
-	Tags                        []ImageBuilderTag            `pulumi:"tags"`
+	Tags                        []aws.Tag                    `pulumi:"tags"`
 	VpcConfig                   *ImageBuilderVpcConfig       `pulumi:"vpcConfig"`
 }
 
@@ -126,8 +127,8 @@ func (o LookupImageBuilderResultOutput) StreamingUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageBuilderResult) *string { return v.StreamingUrl }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupImageBuilderResultOutput) Tags() ImageBuilderTagArrayOutput {
-	return o.ApplyT(func(v LookupImageBuilderResult) []ImageBuilderTag { return v.Tags }).(ImageBuilderTagArrayOutput)
+func (o LookupImageBuilderResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupImageBuilderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupImageBuilderResultOutput) VpcConfig() ImageBuilderVpcConfigPtrOutput {

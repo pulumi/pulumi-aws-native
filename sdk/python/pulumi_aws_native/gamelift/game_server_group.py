@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +29,7 @@ class GameServerGroupArgs:
                  launch_template: Optional[pulumi.Input['GameServerGroupLaunchTemplateArgs']] = None,
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GameServerGroup resource.
@@ -41,7 +43,7 @@ class GameServerGroupArgs:
         :param pulumi.Input['GameServerGroupLaunchTemplateArgs'] launch_template: The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
         :param pulumi.Input[float] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
-        :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]] tags: A list of labels to assign to the new game server group resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of labels to assign to the new game server group resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
         """
         pulumi.set(__self__, "instance_definitions", instance_definitions)
@@ -189,14 +191,14 @@ class GameServerGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of labels to assign to the new game server group resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -227,7 +229,7 @@ class GameServerGroup(pulumi.CustomResource):
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -245,7 +247,7 @@ class GameServerGroup(pulumi.CustomResource):
         :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
         :param pulumi.Input[float] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupTagArgs']]]] tags: A list of labels to assign to the new game server group resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of labels to assign to the new game server group resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
         """
         ...
@@ -282,7 +284,7 @@ class GameServerGroup(pulumi.CustomResource):
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -447,7 +449,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GameServerGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of labels to assign to the new game server group resource.
         """

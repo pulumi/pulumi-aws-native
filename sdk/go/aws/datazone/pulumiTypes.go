@@ -2148,107 +2148,6 @@ type DomainTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DomainTagInput is an input type that accepts DomainTagArgs and DomainTagOutput values.
-// You can construct a concrete instance of `DomainTagInput` via:
-//
-//	DomainTagArgs{...}
-type DomainTagInput interface {
-	pulumi.Input
-
-	ToDomainTagOutput() DomainTagOutput
-	ToDomainTagOutputWithContext(context.Context) DomainTagOutput
-}
-
-// A key-value pair to associate with the domain.
-type DomainTagArgs struct {
-	// The key name of the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DomainTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTag)(nil)).Elem()
-}
-
-func (i DomainTagArgs) ToDomainTagOutput() DomainTagOutput {
-	return i.ToDomainTagOutputWithContext(context.Background())
-}
-
-func (i DomainTagArgs) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainTagOutput)
-}
-
-// DomainTagArrayInput is an input type that accepts DomainTagArray and DomainTagArrayOutput values.
-// You can construct a concrete instance of `DomainTagArrayInput` via:
-//
-//	DomainTagArray{ DomainTagArgs{...} }
-type DomainTagArrayInput interface {
-	pulumi.Input
-
-	ToDomainTagArrayOutput() DomainTagArrayOutput
-	ToDomainTagArrayOutputWithContext(context.Context) DomainTagArrayOutput
-}
-
-type DomainTagArray []DomainTagInput
-
-func (DomainTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainTag)(nil)).Elem()
-}
-
-func (i DomainTagArray) ToDomainTagArrayOutput() DomainTagArrayOutput {
-	return i.ToDomainTagArrayOutputWithContext(context.Background())
-}
-
-func (i DomainTagArray) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainTagArrayOutput)
-}
-
-// A key-value pair to associate with the domain.
-type DomainTagOutput struct{ *pulumi.OutputState }
-
-func (DomainTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTag)(nil)).Elem()
-}
-
-func (o DomainTagOutput) ToDomainTagOutput() DomainTagOutput {
-	return o
-}
-
-func (o DomainTagOutput) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
-	return o
-}
-
-// The key name of the tag.
-func (o DomainTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag.
-func (o DomainTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DomainTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DomainTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainTag)(nil)).Elem()
-}
-
-func (o DomainTagArrayOutput) ToDomainTagArrayOutput() DomainTagArrayOutput {
-	return o
-}
-
-func (o DomainTagArrayOutput) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
-	return o
-}
-
-func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainTag {
-		return vs[0].([]DomainTag)[vs[1].(int)]
-	}).(DomainTagOutput)
-}
-
 type EnvironmentBlueprintConfigurationParameter struct {
 }
 
@@ -2827,8 +2726,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceScheduleConfigurationPtrInput)(nil)).Elem(), DataSourceScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnPtrInput)(nil)).Elem(), DomainSingleSignOnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagArrayInput)(nil)).Elem(), DomainTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationParameterInput)(nil)).Elem(), EnvironmentBlueprintConfigurationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationParameterPtrInput)(nil)).Elem(), EnvironmentBlueprintConfigurationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationRegionalParameterInput)(nil)).Elem(), EnvironmentBlueprintConfigurationRegionalParameterArgs{})
@@ -2869,8 +2766,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceScheduleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnPtrOutput{})
-	pulumi.RegisterOutputType(DomainTagOutput{})
-	pulumi.RegisterOutputType(DomainTagArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationParameterOutput{})
 	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationParameterPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationRegionalParameterOutput{})

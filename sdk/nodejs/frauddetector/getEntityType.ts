@@ -45,7 +45,7 @@ export interface GetEntityTypeResult {
     /**
      * Tags associated with this entity type.
      */
-    readonly tags?: outputs.frauddetector.EntityTypeTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * An entity type for fraud detector.

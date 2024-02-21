@@ -47,7 +47,7 @@ export class Profile extends pulumi.CustomResource {
     public readonly phone!: pulumi.Output<string>;
     public /*out*/ readonly profileArn!: pulumi.Output<string>;
     public /*out*/ readonly profileId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.b2bi.ProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -109,5 +109,5 @@ export interface ProfileArgs {
     logging: pulumi.Input<enums.b2bi.ProfileLogging>;
     name?: pulumi.Input<string>;
     phone: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.b2bi.ProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

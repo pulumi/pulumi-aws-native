@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupVpcConnectionResult struct {
 	RoleArn            *string                                       `pulumi:"roleArn"`
 	SecurityGroupIds   []string                                      `pulumi:"securityGroupIds"`
 	Status             *VpcConnectionVpcConnectionResourceStatus     `pulumi:"status"`
-	Tags               []VpcConnectionTag                            `pulumi:"tags"`
+	Tags               []aws.Tag                                     `pulumi:"tags"`
 	VpcId              *string                                       `pulumi:"vpcId"`
 }
 
@@ -120,8 +121,8 @@ func (o LookupVpcConnectionResultOutput) Status() VpcConnectionVpcConnectionReso
 	return o.ApplyT(func(v LookupVpcConnectionResult) *VpcConnectionVpcConnectionResourceStatus { return v.Status }).(VpcConnectionVpcConnectionResourceStatusPtrOutput)
 }
 
-func (o LookupVpcConnectionResultOutput) Tags() VpcConnectionTagArrayOutput {
-	return o.ApplyT(func(v LookupVpcConnectionResult) []VpcConnectionTag { return v.Tags }).(VpcConnectionTagArrayOutput)
+func (o LookupVpcConnectionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVpcConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupVpcConnectionResultOutput) VpcId() pulumi.StringPtrOutput {

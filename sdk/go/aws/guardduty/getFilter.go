@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupFilterResult struct {
 	Description     *string                `pulumi:"description"`
 	FindingCriteria *FilterFindingCriteria `pulumi:"findingCriteria"`
 	Rank            *int                   `pulumi:"rank"`
-	Tags            []FilterTagItem        `pulumi:"tags"`
+	Tags            []aws.Tag              `pulumi:"tags"`
 }
 
 func LookupFilterOutput(ctx *pulumi.Context, args LookupFilterOutputArgs, opts ...pulumi.InvokeOption) LookupFilterResultOutput {
@@ -87,8 +88,8 @@ func (o LookupFilterResultOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFilterResult) *int { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupFilterResultOutput) Tags() FilterTagItemArrayOutput {
-	return o.ApplyT(func(v LookupFilterResult) []FilterTagItem { return v.Tags }).(FilterTagItemArrayOutput)
+func (o LookupFilterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFilterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

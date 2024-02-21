@@ -21,107 +21,6 @@ type AcceleratorTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AcceleratorTagInput is an input type that accepts AcceleratorTagArgs and AcceleratorTagOutput values.
-// You can construct a concrete instance of `AcceleratorTagInput` via:
-//
-//	AcceleratorTagArgs{...}
-type AcceleratorTagInput interface {
-	pulumi.Input
-
-	ToAcceleratorTagOutput() AcceleratorTagOutput
-	ToAcceleratorTagOutputWithContext(context.Context) AcceleratorTagOutput
-}
-
-// Tag is a key-value pair associated with accelerator.
-type AcceleratorTagArgs struct {
-	// Key of the tag. Value can be 1 to 127 characters.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Value for the tag. Value can be 1 to 255 characters.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AcceleratorTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AcceleratorTag)(nil)).Elem()
-}
-
-func (i AcceleratorTagArgs) ToAcceleratorTagOutput() AcceleratorTagOutput {
-	return i.ToAcceleratorTagOutputWithContext(context.Background())
-}
-
-func (i AcceleratorTagArgs) ToAcceleratorTagOutputWithContext(ctx context.Context) AcceleratorTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorTagOutput)
-}
-
-// AcceleratorTagArrayInput is an input type that accepts AcceleratorTagArray and AcceleratorTagArrayOutput values.
-// You can construct a concrete instance of `AcceleratorTagArrayInput` via:
-//
-//	AcceleratorTagArray{ AcceleratorTagArgs{...} }
-type AcceleratorTagArrayInput interface {
-	pulumi.Input
-
-	ToAcceleratorTagArrayOutput() AcceleratorTagArrayOutput
-	ToAcceleratorTagArrayOutputWithContext(context.Context) AcceleratorTagArrayOutput
-}
-
-type AcceleratorTagArray []AcceleratorTagInput
-
-func (AcceleratorTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AcceleratorTag)(nil)).Elem()
-}
-
-func (i AcceleratorTagArray) ToAcceleratorTagArrayOutput() AcceleratorTagArrayOutput {
-	return i.ToAcceleratorTagArrayOutputWithContext(context.Background())
-}
-
-func (i AcceleratorTagArray) ToAcceleratorTagArrayOutputWithContext(ctx context.Context) AcceleratorTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorTagArrayOutput)
-}
-
-// Tag is a key-value pair associated with accelerator.
-type AcceleratorTagOutput struct{ *pulumi.OutputState }
-
-func (AcceleratorTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AcceleratorTag)(nil)).Elem()
-}
-
-func (o AcceleratorTagOutput) ToAcceleratorTagOutput() AcceleratorTagOutput {
-	return o
-}
-
-func (o AcceleratorTagOutput) ToAcceleratorTagOutputWithContext(ctx context.Context) AcceleratorTagOutput {
-	return o
-}
-
-// Key of the tag. Value can be 1 to 127 characters.
-func (o AcceleratorTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AcceleratorTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Value for the tag. Value can be 1 to 255 characters.
-func (o AcceleratorTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AcceleratorTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AcceleratorTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AcceleratorTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AcceleratorTag)(nil)).Elem()
-}
-
-func (o AcceleratorTagArrayOutput) ToAcceleratorTagArrayOutput() AcceleratorTagArrayOutput {
-	return o
-}
-
-func (o AcceleratorTagArrayOutput) ToAcceleratorTagArrayOutputWithContext(ctx context.Context) AcceleratorTagArrayOutput {
-	return o
-}
-
-func (o AcceleratorTagArrayOutput) Index(i pulumi.IntInput) AcceleratorTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AcceleratorTag {
-		return vs[0].([]AcceleratorTag)[vs[1].(int)]
-	}).(AcceleratorTagOutput)
-}
-
 // The configuration for a given endpoint
 type EndpointGroupEndpointConfiguration struct {
 	// Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
@@ -456,16 +355,12 @@ func (o ListenerPortRangeArrayOutput) Index(i pulumi.IntInput) ListenerPortRange
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorTagInput)(nil)).Elem(), AcceleratorTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorTagArrayInput)(nil)).Elem(), AcceleratorTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationArrayInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideInput)(nil)).Elem(), EndpointGroupPortOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideArrayInput)(nil)).Elem(), EndpointGroupPortOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPortRangeInput)(nil)).Elem(), ListenerPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPortRangeArrayInput)(nil)).Elem(), ListenerPortRangeArray{})
-	pulumi.RegisterOutputType(AcceleratorTagOutput{})
-	pulumi.RegisterOutputType(AcceleratorTagArrayOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(EndpointGroupPortOverrideOutput{})

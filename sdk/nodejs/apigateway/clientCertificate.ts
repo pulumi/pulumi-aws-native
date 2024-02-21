@@ -45,7 +45,7 @@ export class ClientCertificate extends pulumi.CustomResource {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    public readonly tags!: pulumi.Output<outputs.apigateway.ClientCertificateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ClientCertificate resource with the given unique name, arguments, and options.
@@ -82,5 +82,5 @@ export interface ClientCertificateArgs {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.apigateway.ClientCertificateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

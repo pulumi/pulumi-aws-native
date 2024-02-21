@@ -26,7 +26,7 @@ export interface GetStreamingDistributionResult {
     readonly domainName?: string;
     readonly id?: string;
     readonly streamingDistributionConfig?: outputs.cloudfront.StreamingDistributionConfig;
-    readonly tags?: outputs.cloudfront.StreamingDistributionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::CloudFront::StreamingDistribution

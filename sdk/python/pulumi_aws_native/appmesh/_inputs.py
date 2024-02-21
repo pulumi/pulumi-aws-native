@@ -31,13 +31,11 @@ __all__ = [
     'GatewayRouteQueryParameterArgs',
     'GatewayRouteRangeMatchArgs',
     'GatewayRouteSpecArgs',
-    'GatewayRouteTagArgs',
     'GatewayRouteTargetArgs',
     'GatewayRouteVirtualServiceArgs',
     'MeshEgressFilterArgs',
     'MeshServiceDiscoveryArgs',
     'MeshSpecArgs',
-    'MeshTagArgs',
     'RouteDurationArgs',
     'RouteGrpcRetryPolicyArgs',
     'RouteGrpcRouteActionArgs',
@@ -58,7 +56,6 @@ __all__ = [
     'RouteMatchRangeArgs',
     'RouteQueryParameterArgs',
     'RouteSpecArgs',
-    'RouteTagArgs',
     'RouteTcpRouteActionArgs',
     'RouteTcpRouteMatchArgs',
     'RouteTcpRouteArgs',
@@ -90,7 +87,6 @@ __all__ = [
     'VirtualGatewaySpecArgs',
     'VirtualGatewaySubjectAlternativeNameMatchersArgs',
     'VirtualGatewaySubjectAlternativeNamesArgs',
-    'VirtualGatewayTagArgs',
     'VirtualGatewayTlsValidationContextAcmTrustArgs',
     'VirtualGatewayTlsValidationContextFileTrustArgs',
     'VirtualGatewayTlsValidationContextSdsTrustArgs',
@@ -132,7 +128,6 @@ __all__ = [
     'VirtualNodeSpecArgs',
     'VirtualNodeSubjectAlternativeNameMatchersArgs',
     'VirtualNodeSubjectAlternativeNamesArgs',
-    'VirtualNodeTagArgs',
     'VirtualNodeTcpConnectionPoolArgs',
     'VirtualNodeTcpTimeoutArgs',
     'VirtualNodeTlsValidationContextAcmTrustArgs',
@@ -144,10 +139,8 @@ __all__ = [
     'VirtualRouterListenerArgs',
     'VirtualRouterPortMappingArgs',
     'VirtualRouterSpecArgs',
-    'VirtualRouterTagArgs',
     'VirtualServiceProviderArgs',
     'VirtualServiceSpecArgs',
-    'VirtualServiceTagArgs',
     'VirtualServiceVirtualNodeServiceProviderArgs',
     'VirtualServiceVirtualRouterServiceProviderArgs',
 ]
@@ -919,33 +912,6 @@ class GatewayRouteSpecArgs:
 
 
 @pulumi.input_type
-class GatewayRouteTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class GatewayRouteTargetArgs:
     def __init__(__self__, *,
                  virtual_service: pulumi.Input['GatewayRouteVirtualServiceArgs'],
@@ -1049,33 +1015,6 @@ class MeshSpecArgs:
     @service_discovery.setter
     def service_discovery(self, value: Optional[pulumi.Input['MeshServiceDiscoveryArgs']]):
         pulumi.set(self, "service_discovery", value)
-
-
-@pulumi.input_type
-class MeshTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1927,33 +1866,6 @@ class RouteSpecArgs:
     @tcp_route.setter
     def tcp_route(self, value: Optional[pulumi.Input['RouteTcpRouteArgs']]):
         pulumi.set(self, "tcp_route", value)
-
-
-@pulumi.input_type
-class RouteTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -2849,33 +2761,6 @@ class VirtualGatewaySubjectAlternativeNamesArgs:
     @match.setter
     def match(self, value: pulumi.Input['VirtualGatewaySubjectAlternativeNameMatchersArgs']):
         pulumi.set(self, "match", value)
-
-
-@pulumi.input_type
-class VirtualGatewayTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -4174,33 +4059,6 @@ class VirtualNodeSubjectAlternativeNamesArgs:
 
 
 @pulumi.input_type
-class VirtualNodeTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class VirtualNodeTcpConnectionPoolArgs:
     def __init__(__self__, *,
                  max_connections: pulumi.Input[int]):
@@ -4438,33 +4296,6 @@ class VirtualRouterSpecArgs:
 
 
 @pulumi.input_type
-class VirtualRouterTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class VirtualServiceProviderArgs:
     def __init__(__self__, *,
                  virtual_node: Optional[pulumi.Input['VirtualServiceVirtualNodeServiceProviderArgs']] = None,
@@ -4508,33 +4339,6 @@ class VirtualServiceSpecArgs:
     @provider.setter
     def provider(self, value: Optional[pulumi.Input['VirtualServiceProviderArgs']]):
         pulumi.set(self, "provider", value)
-
-
-@pulumi.input_type
-class VirtualServiceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

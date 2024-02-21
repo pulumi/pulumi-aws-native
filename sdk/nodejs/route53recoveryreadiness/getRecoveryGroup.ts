@@ -37,7 +37,7 @@ export interface GetRecoveryGroupResult {
     /**
      * A collection of tags associated with a resource.
      */
-    readonly tags?: outputs.route53recoveryreadiness.RecoveryGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.

@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// 
         /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         /// </summary>
-        public readonly ImmutableArray<Outputs.InputTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetInputResult(
@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.IoTEvents
 
             string? inputDescription,
 
-            ImmutableArray<Outputs.InputTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             InputDefinition = inputDefinition;
             InputDescription = inputDescription;

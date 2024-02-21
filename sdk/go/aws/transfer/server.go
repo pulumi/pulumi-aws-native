@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type Server struct {
 	SecurityPolicyName            pulumi.StringPtrOutput                    `pulumi:"securityPolicyName"`
 	ServerId                      pulumi.StringOutput                       `pulumi:"serverId"`
 	StructuredLogDestinations     ServerStructuredLogDestinationArrayOutput `pulumi:"structuredLogDestinations"`
-	Tags                          ServerTagArrayOutput                      `pulumi:"tags"`
+	Tags                          aws.TagArrayOutput                        `pulumi:"tags"`
 	WorkflowDetails               ServerWorkflowDetailsPtrOutput            `pulumi:"workflowDetails"`
 }
 
@@ -96,7 +97,7 @@ type serverArgs struct {
 	S3StorageOptions              *ServerS3StorageOptions          `pulumi:"s3StorageOptions"`
 	SecurityPolicyName            *string                          `pulumi:"securityPolicyName"`
 	StructuredLogDestinations     []ServerStructuredLogDestination `pulumi:"structuredLogDestinations"`
-	Tags                          []ServerTag                      `pulumi:"tags"`
+	Tags                          []aws.Tag                        `pulumi:"tags"`
 	WorkflowDetails               *ServerWorkflowDetails           `pulumi:"workflowDetails"`
 }
 
@@ -116,7 +117,7 @@ type ServerArgs struct {
 	S3StorageOptions              ServerS3StorageOptionsPtrInput
 	SecurityPolicyName            pulumi.StringPtrInput
 	StructuredLogDestinations     ServerStructuredLogDestinationArrayInput
-	Tags                          ServerTagArrayInput
+	Tags                          aws.TagArrayInput
 	WorkflowDetails               ServerWorkflowDetailsPtrInput
 }
 
@@ -221,8 +222,8 @@ func (o ServerOutput) StructuredLogDestinations() ServerStructuredLogDestination
 	return o.ApplyT(func(v *Server) ServerStructuredLogDestinationArrayOutput { return v.StructuredLogDestinations }).(ServerStructuredLogDestinationArrayOutput)
 }
 
-func (o ServerOutput) Tags() ServerTagArrayOutput {
-	return o.ApplyT(func(v *Server) ServerTagArrayOutput { return v.Tags }).(ServerTagArrayOutput)
+func (o ServerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Server) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ServerOutput) WorkflowDetails() ServerWorkflowDetailsPtrOutput {

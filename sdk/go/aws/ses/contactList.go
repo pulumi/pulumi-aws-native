@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type ContactList struct {
 	// The description of the contact list.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The tags (keys and values) associated with the contact list.
-	Tags ContactListTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The topics associated with the contact list.
 	Topics ContactListTopicArrayOutput `pulumi:"topics"`
 }
@@ -74,7 +75,7 @@ type contactListArgs struct {
 	// The description of the contact list.
 	Description *string `pulumi:"description"`
 	// The tags (keys and values) associated with the contact list.
-	Tags []ContactListTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The topics associated with the contact list.
 	Topics []ContactListTopic `pulumi:"topics"`
 }
@@ -86,7 +87,7 @@ type ContactListArgs struct {
 	// The description of the contact list.
 	Description pulumi.StringPtrInput
 	// The tags (keys and values) associated with the contact list.
-	Tags ContactListTagArrayInput
+	Tags aws.TagArrayInput
 	// The topics associated with the contact list.
 	Topics ContactListTopicArrayInput
 }
@@ -139,8 +140,8 @@ func (o ContactListOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The tags (keys and values) associated with the contact list.
-func (o ContactListOutput) Tags() ContactListTagArrayOutput {
-	return o.ApplyT(func(v *ContactList) ContactListTagArrayOutput { return v.Tags }).(ContactListTagArrayOutput)
+func (o ContactListOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ContactList) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The topics associated with the contact list.

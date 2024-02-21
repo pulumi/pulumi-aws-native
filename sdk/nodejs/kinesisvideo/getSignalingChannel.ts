@@ -37,7 +37,7 @@ export interface GetSignalingChannelResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.kinesisvideo.SignalingChannelTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
      */

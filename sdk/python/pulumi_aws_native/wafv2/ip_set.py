@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['IpSetArgs', 'IpSet']
 
@@ -22,7 +22,7 @@ class IpSetArgs:
                  scope: pulumi.Input['IpSetScope'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpSet resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: List of IPAddresses.
@@ -87,11 +87,11 @@ class IpSetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpSetTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -105,7 +105,7 @@ class IpSet(pulumi.CustomResource):
                  ip_address_version: Optional[pulumi.Input['IpSetIpAddressVersion']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['IpSetScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpSetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
@@ -143,7 +143,7 @@ class IpSet(pulumi.CustomResource):
                  ip_address_version: Optional[pulumi.Input['IpSetIpAddressVersion']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['IpSetScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpSetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -234,6 +234,6 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IpSetTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

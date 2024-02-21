@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['UserGroupArgs', 'UserGroup']
 
@@ -20,13 +20,13 @@ class UserGroupArgs:
                  engine: pulumi.Input['UserGroupEngine'],
                  user_group_id: pulumi.Input[str],
                  user_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
         :param pulumi.Input['UserGroupEngine'] engine: Must be redis.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of users associated to this user group.
-        :param pulumi.Input[Sequence[pulumi.Input['UserGroupTagArgs']]] tags: An array of key-value pairs to apply to this user.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this user.
         """
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "user_group_id", user_group_id)
@@ -72,14 +72,14 @@ class UserGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this user.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -89,7 +89,7 @@ class UserGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  engine: Optional[pulumi.Input['UserGroupEngine']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -99,7 +99,7 @@ class UserGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['UserGroupEngine'] engine: Must be redis.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserGroupTagArgs']]]] tags: An array of key-value pairs to apply to this user.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this user.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of users associated to this user group.
         """
@@ -128,7 +128,7 @@ class UserGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  engine: Optional[pulumi.Input['UserGroupEngine']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -210,7 +210,7 @@ class UserGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UserGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this user.
         """

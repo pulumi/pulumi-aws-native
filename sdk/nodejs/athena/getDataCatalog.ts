@@ -37,7 +37,7 @@ export interface GetDataCatalogResult {
     /**
      * A list of comma separated tags to add to the data catalog that is created. 
      */
-    readonly tags?: outputs.athena.DataCatalogTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
      */

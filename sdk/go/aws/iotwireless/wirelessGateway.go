@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type WirelessGateway struct {
 	// Name of Wireless Gateway.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the gateway.
-	Tags WirelessGatewayTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
 	ThingArn pulumi.StringPtrOutput `pulumi:"thingArn"`
 	// Thing Name. If there is a Thing created, this can be returned with a Get call.
@@ -86,7 +87,7 @@ type wirelessGatewayArgs struct {
 	// Name of Wireless Gateway.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the gateway.
-	Tags []WirelessGatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
 	ThingArn *string `pulumi:"thingArn"`
 	// Thing Name. If there is a Thing created, this can be returned with a Get call.
@@ -104,7 +105,7 @@ type WirelessGatewayArgs struct {
 	// Name of Wireless Gateway.
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the gateway.
-	Tags WirelessGatewayTagArrayInput
+	Tags aws.TagArrayInput
 	// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
 	ThingArn pulumi.StringPtrInput
 	// Thing Name. If there is a Thing created, this can be returned with a Get call.
@@ -174,8 +175,8 @@ func (o WirelessGatewayOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the gateway.
-func (o WirelessGatewayOutput) Tags() WirelessGatewayTagArrayOutput {
-	return o.ApplyT(func(v *WirelessGateway) WirelessGatewayTagArrayOutput { return v.Tags }).(WirelessGatewayTagArrayOutput)
+func (o WirelessGatewayOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *WirelessGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.

@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// A list of key-value pairs that contain metadata for the project.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProjectTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetProjectResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
             string? projectName,
 
-            ImmutableArray<Outputs.ProjectTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AssetIds = assetIds;
             ProjectArn = projectArn;

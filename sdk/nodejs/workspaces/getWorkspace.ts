@@ -27,7 +27,7 @@ export interface GetWorkspaceResult {
     readonly directoryId?: string;
     readonly id?: string;
     readonly rootVolumeEncryptionEnabled?: boolean;
-    readonly tags?: outputs.workspaces.WorkspaceTag[];
+    readonly tags?: outputs.Tag[];
     readonly userVolumeEncryptionEnabled?: boolean;
     readonly volumeEncryptionKey?: string;
     readonly workspaceProperties?: outputs.workspaces.WorkspaceProperties;

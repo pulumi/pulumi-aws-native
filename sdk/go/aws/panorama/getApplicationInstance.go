@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupApplicationInstanceResult struct {
 	LastUpdatedTime                 *int                             `pulumi:"lastUpdatedTime"`
 	Status                          *ApplicationInstanceStatus       `pulumi:"status"`
 	StatusDescription               *string                          `pulumi:"statusDescription"`
-	Tags                            []ApplicationInstanceTag         `pulumi:"tags"`
+	Tags                            []aws.Tag                        `pulumi:"tags"`
 }
 
 func LookupApplicationInstanceOutput(ctx *pulumi.Context, args LookupApplicationInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationInstanceResultOutput {
@@ -105,8 +106,8 @@ func (o LookupApplicationInstanceResultOutput) StatusDescription() pulumi.String
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupApplicationInstanceResultOutput) Tags() ApplicationInstanceTagArrayOutput {
-	return o.ApplyT(func(v LookupApplicationInstanceResult) []ApplicationInstanceTag { return v.Tags }).(ApplicationInstanceTagArrayOutput)
+func (o LookupApplicationInstanceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupApplicationInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

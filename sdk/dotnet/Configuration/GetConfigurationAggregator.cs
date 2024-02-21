@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// The tags for the configuration aggregator.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConfigurationAggregatorTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetConfigurationAggregatorResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Configuration
 
             Outputs.ConfigurationAggregatorOrganizationAggregationSource? organizationAggregationSource,
 
-            ImmutableArray<Outputs.ConfigurationAggregatorTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AccountAggregationSources = accountAggregationSources;
             ConfigurationAggregatorArn = configurationAggregatorArn;

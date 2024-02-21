@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -20,13 +22,13 @@ class AllowListArgs:
                  criteria: pulumi.Input['AllowListCriteriaArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AllowListTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AllowList resource.
         :param pulumi.Input['AllowListCriteriaArgs'] criteria: AllowList criteria.
         :param pulumi.Input[str] description: Description of AllowList.
         :param pulumi.Input[str] name: Name of AllowList.
-        :param pulumi.Input[Sequence[pulumi.Input['AllowListTagArgs']]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
         """
         pulumi.set(__self__, "criteria", criteria)
         if description is not None:
@@ -74,14 +76,14 @@ class AllowListArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AllowListTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AllowListTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,7 +95,7 @@ class AllowList(pulumi.CustomResource):
                  criteria: Optional[pulumi.Input[pulumi.InputType['AllowListCriteriaArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AllowListTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Macie AllowList resource schema
@@ -103,7 +105,7 @@ class AllowList(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AllowListCriteriaArgs']] criteria: AllowList criteria.
         :param pulumi.Input[str] description: Description of AllowList.
         :param pulumi.Input[str] name: Name of AllowList.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AllowListTagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -132,7 +134,7 @@ class AllowList(pulumi.CustomResource):
                  criteria: Optional[pulumi.Input[pulumi.InputType['AllowListCriteriaArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AllowListTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -222,7 +224,7 @@ class AllowList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AllowListTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A collection of tags associated with a resource
         """

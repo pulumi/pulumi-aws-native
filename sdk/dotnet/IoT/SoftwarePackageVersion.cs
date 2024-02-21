@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.IoT
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SoftwarePackageVersionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("versionName")]
         public Output<string?> VersionName { get; private set; } = null!;
@@ -102,14 +102,14 @@ namespace Pulumi.AwsNative.IoT
         public Input<string> PackageName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.SoftwarePackageVersionTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.SoftwarePackageVersionTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SoftwarePackageVersionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

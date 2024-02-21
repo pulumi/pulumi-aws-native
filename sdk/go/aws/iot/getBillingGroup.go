@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupBillingGroupResult struct {
 	BillingGroupProperties *BillingGroupPropertiesProperties `pulumi:"billingGroupProperties"`
 	Id                     *string                           `pulumi:"id"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []BillingGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupBillingGroupOutput(ctx *pulumi.Context, args LookupBillingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupBillingGroupResultOutput {
@@ -82,8 +83,8 @@ func (o LookupBillingGroupResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupBillingGroupResultOutput) Tags() BillingGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupBillingGroupResult) []BillingGroupTag { return v.Tags }).(BillingGroupTagArrayOutput)
+func (o LookupBillingGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBillingGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

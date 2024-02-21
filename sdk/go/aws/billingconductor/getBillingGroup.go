@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type LookupBillingGroupResult struct {
 	Size         *int                `pulumi:"size"`
 	Status       *BillingGroupStatus `pulumi:"status"`
 	StatusReason *string             `pulumi:"statusReason"`
-	Tags         []BillingGroupTag   `pulumi:"tags"`
+	Tags         []aws.Tag           `pulumi:"tags"`
 }
 
 func LookupBillingGroupOutput(ctx *pulumi.Context, args LookupBillingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupBillingGroupResultOutput {
@@ -125,8 +126,8 @@ func (o LookupBillingGroupResultOutput) StatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBillingGroupResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupBillingGroupResultOutput) Tags() BillingGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupBillingGroupResult) []BillingGroupTag { return v.Tags }).(BillingGroupTagArrayOutput)
+func (o LookupBillingGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBillingGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

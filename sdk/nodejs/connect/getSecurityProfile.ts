@@ -49,7 +49,7 @@ export interface GetSecurityProfileResult {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    readonly tags?: outputs.connect.SecurityProfileTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Connect::SecurityProfile

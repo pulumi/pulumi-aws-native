@@ -54,7 +54,7 @@ export class Campaign extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connectcampaigns.CampaignTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Campaign resource with the given unique name, arguments, and options.
@@ -114,5 +114,5 @@ export interface CampaignArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connectcampaigns.CampaignTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

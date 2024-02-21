@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BillingGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetBillingGroupResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? id,
 
-            ImmutableArray<Outputs.BillingGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             BillingGroupProperties = billingGroupProperties;

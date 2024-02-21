@@ -49,7 +49,7 @@ export interface GetHoursOfOperationResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.HoursOfOperationTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The time zone of the hours of operation.
      */

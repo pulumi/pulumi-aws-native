@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type ApplicationInstance struct {
 	RuntimeRoleArn                  pulumi.StringPtrOutput                               `pulumi:"runtimeRoleArn"`
 	Status                          ApplicationInstanceStatusOutput                      `pulumi:"status"`
 	StatusDescription               pulumi.StringOutput                                  `pulumi:"statusDescription"`
-	Tags                            ApplicationInstanceTagArrayOutput                    `pulumi:"tags"`
+	Tags                            aws.TagArrayOutput                                   `pulumi:"tags"`
 }
 
 // NewApplicationInstance registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +98,7 @@ type applicationInstanceArgs struct {
 	ManifestPayload                ApplicationInstanceManifestPayload           `pulumi:"manifestPayload"`
 	Name                           *string                                      `pulumi:"name"`
 	RuntimeRoleArn                 *string                                      `pulumi:"runtimeRoleArn"`
-	Tags                           []ApplicationInstanceTag                     `pulumi:"tags"`
+	Tags                           []aws.Tag                                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ApplicationInstance resource.
@@ -109,7 +110,7 @@ type ApplicationInstanceArgs struct {
 	ManifestPayload                ApplicationInstanceManifestPayloadInput
 	Name                           pulumi.StringPtrInput
 	RuntimeRoleArn                 pulumi.StringPtrInput
-	Tags                           ApplicationInstanceTagArrayInput
+	Tags                           aws.TagArrayInput
 }
 
 func (ApplicationInstanceArgs) ElementType() reflect.Type {
@@ -211,8 +212,8 @@ func (o ApplicationInstanceOutput) StatusDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.StatusDescription }).(pulumi.StringOutput)
 }
 
-func (o ApplicationInstanceOutput) Tags() ApplicationInstanceTagArrayOutput {
-	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceTagArrayOutput { return v.Tags }).(ApplicationInstanceTagArrayOutput)
+func (o ApplicationInstanceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ApplicationInstance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

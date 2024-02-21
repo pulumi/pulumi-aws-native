@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags for the VPC.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpcTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? VpcId;
 
         [OutputConstructor]
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<string> ipv6CidrBlocks,
 
-            ImmutableArray<Outputs.VpcTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? vpcId)
         {

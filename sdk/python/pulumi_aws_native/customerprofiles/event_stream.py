@@ -9,8 +9,9 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['EventStreamArgs', 'EventStream']
 
@@ -20,12 +21,12 @@ class EventStreamArgs:
                  domain_name: pulumi.Input[str],
                  uri: pulumi.Input[str],
                  event_stream_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventStreamTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventStream resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input[str] event_stream_name: The name of the event stream.
-        :param pulumi.Input[Sequence[pulumi.Input['EventStreamTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "uri", uri)
@@ -69,14 +70,14 @@ class EventStreamArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventStreamTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventStreamTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -87,7 +88,7 @@ class EventStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  event_stream_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventStreamTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -97,7 +98,7 @@ class EventStream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input[str] event_stream_name: The name of the event stream.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventStreamTagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -125,7 +126,7 @@ class EventStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  event_stream_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventStreamTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -232,7 +233,7 @@ class EventStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EventStreamTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags used to organize, track, or control access for this resource.
         """

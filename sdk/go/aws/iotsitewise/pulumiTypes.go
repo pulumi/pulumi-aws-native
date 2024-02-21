@@ -2211,101 +2211,6 @@ type AssetModelTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AssetModelTagInput is an input type that accepts AssetModelTagArgs and AssetModelTagOutput values.
-// You can construct a concrete instance of `AssetModelTagInput` via:
-//
-//	AssetModelTagArgs{...}
-type AssetModelTagInput interface {
-	pulumi.Input
-
-	ToAssetModelTagOutput() AssetModelTagOutput
-	ToAssetModelTagOutputWithContext(context.Context) AssetModelTagOutput
-}
-
-type AssetModelTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AssetModelTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetModelTag)(nil)).Elem()
-}
-
-func (i AssetModelTagArgs) ToAssetModelTagOutput() AssetModelTagOutput {
-	return i.ToAssetModelTagOutputWithContext(context.Background())
-}
-
-func (i AssetModelTagArgs) ToAssetModelTagOutputWithContext(ctx context.Context) AssetModelTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTagOutput)
-}
-
-// AssetModelTagArrayInput is an input type that accepts AssetModelTagArray and AssetModelTagArrayOutput values.
-// You can construct a concrete instance of `AssetModelTagArrayInput` via:
-//
-//	AssetModelTagArray{ AssetModelTagArgs{...} }
-type AssetModelTagArrayInput interface {
-	pulumi.Input
-
-	ToAssetModelTagArrayOutput() AssetModelTagArrayOutput
-	ToAssetModelTagArrayOutputWithContext(context.Context) AssetModelTagArrayOutput
-}
-
-type AssetModelTagArray []AssetModelTagInput
-
-func (AssetModelTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetModelTag)(nil)).Elem()
-}
-
-func (i AssetModelTagArray) ToAssetModelTagArrayOutput() AssetModelTagArrayOutput {
-	return i.ToAssetModelTagArrayOutputWithContext(context.Background())
-}
-
-func (i AssetModelTagArray) ToAssetModelTagArrayOutputWithContext(ctx context.Context) AssetModelTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTagArrayOutput)
-}
-
-type AssetModelTagOutput struct{ *pulumi.OutputState }
-
-func (AssetModelTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetModelTag)(nil)).Elem()
-}
-
-func (o AssetModelTagOutput) ToAssetModelTagOutput() AssetModelTagOutput {
-	return o
-}
-
-func (o AssetModelTagOutput) ToAssetModelTagOutputWithContext(ctx context.Context) AssetModelTagOutput {
-	return o
-}
-
-func (o AssetModelTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AssetModelTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AssetModelTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AssetModelTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetModelTag)(nil)).Elem()
-}
-
-func (o AssetModelTagArrayOutput) ToAssetModelTagArrayOutput() AssetModelTagArrayOutput {
-	return o
-}
-
-func (o AssetModelTagArrayOutput) ToAssetModelTagArrayOutputWithContext(ctx context.Context) AssetModelTagArrayOutput {
-	return o
-}
-
-func (o AssetModelTagArrayOutput) Index(i pulumi.IntInput) AssetModelTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelTag {
-		return vs[0].([]AssetModelTag)[vs[1].(int)]
-	}).(AssetModelTagOutput)
-}
-
 type AssetModelTransform struct {
 	// The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
 	Expression string `pulumi:"expression"`
@@ -2800,202 +2705,10 @@ type AssetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AssetTagInput is an input type that accepts AssetTagArgs and AssetTagOutput values.
-// You can construct a concrete instance of `AssetTagInput` via:
-//
-//	AssetTagArgs{...}
-type AssetTagInput interface {
-	pulumi.Input
-
-	ToAssetTagOutput() AssetTagOutput
-	ToAssetTagOutputWithContext(context.Context) AssetTagOutput
-}
-
-type AssetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AssetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetTag)(nil)).Elem()
-}
-
-func (i AssetTagArgs) ToAssetTagOutput() AssetTagOutput {
-	return i.ToAssetTagOutputWithContext(context.Background())
-}
-
-func (i AssetTagArgs) ToAssetTagOutputWithContext(ctx context.Context) AssetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetTagOutput)
-}
-
-// AssetTagArrayInput is an input type that accepts AssetTagArray and AssetTagArrayOutput values.
-// You can construct a concrete instance of `AssetTagArrayInput` via:
-//
-//	AssetTagArray{ AssetTagArgs{...} }
-type AssetTagArrayInput interface {
-	pulumi.Input
-
-	ToAssetTagArrayOutput() AssetTagArrayOutput
-	ToAssetTagArrayOutputWithContext(context.Context) AssetTagArrayOutput
-}
-
-type AssetTagArray []AssetTagInput
-
-func (AssetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetTag)(nil)).Elem()
-}
-
-func (i AssetTagArray) ToAssetTagArrayOutput() AssetTagArrayOutput {
-	return i.ToAssetTagArrayOutputWithContext(context.Background())
-}
-
-func (i AssetTagArray) ToAssetTagArrayOutputWithContext(ctx context.Context) AssetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetTagArrayOutput)
-}
-
-type AssetTagOutput struct{ *pulumi.OutputState }
-
-func (AssetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetTag)(nil)).Elem()
-}
-
-func (o AssetTagOutput) ToAssetTagOutput() AssetTagOutput {
-	return o
-}
-
-func (o AssetTagOutput) ToAssetTagOutputWithContext(ctx context.Context) AssetTagOutput {
-	return o
-}
-
-func (o AssetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AssetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AssetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AssetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetTag)(nil)).Elem()
-}
-
-func (o AssetTagArrayOutput) ToAssetTagArrayOutput() AssetTagArrayOutput {
-	return o
-}
-
-func (o AssetTagArrayOutput) ToAssetTagArrayOutputWithContext(ctx context.Context) AssetTagArrayOutput {
-	return o
-}
-
-func (o AssetTagArrayOutput) Index(i pulumi.IntInput) AssetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetTag {
-		return vs[0].([]AssetTag)[vs[1].(int)]
-	}).(AssetTagOutput)
-}
-
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
 type DashboardTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// DashboardTagInput is an input type that accepts DashboardTagArgs and DashboardTagOutput values.
-// You can construct a concrete instance of `DashboardTagInput` via:
-//
-//	DashboardTagArgs{...}
-type DashboardTagInput interface {
-	pulumi.Input
-
-	ToDashboardTagOutput() DashboardTagOutput
-	ToDashboardTagOutputWithContext(context.Context) DashboardTagOutput
-}
-
-// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-type DashboardTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DashboardTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardTag)(nil)).Elem()
-}
-
-func (i DashboardTagArgs) ToDashboardTagOutput() DashboardTagOutput {
-	return i.ToDashboardTagOutputWithContext(context.Background())
-}
-
-func (i DashboardTagArgs) ToDashboardTagOutputWithContext(ctx context.Context) DashboardTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardTagOutput)
-}
-
-// DashboardTagArrayInput is an input type that accepts DashboardTagArray and DashboardTagArrayOutput values.
-// You can construct a concrete instance of `DashboardTagArrayInput` via:
-//
-//	DashboardTagArray{ DashboardTagArgs{...} }
-type DashboardTagArrayInput interface {
-	pulumi.Input
-
-	ToDashboardTagArrayOutput() DashboardTagArrayOutput
-	ToDashboardTagArrayOutputWithContext(context.Context) DashboardTagArrayOutput
-}
-
-type DashboardTagArray []DashboardTagInput
-
-func (DashboardTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardTag)(nil)).Elem()
-}
-
-func (i DashboardTagArray) ToDashboardTagArrayOutput() DashboardTagArrayOutput {
-	return i.ToDashboardTagArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardTagArray) ToDashboardTagArrayOutputWithContext(ctx context.Context) DashboardTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardTagArrayOutput)
-}
-
-// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-type DashboardTagOutput struct{ *pulumi.OutputState }
-
-func (DashboardTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardTag)(nil)).Elem()
-}
-
-func (o DashboardTagOutput) ToDashboardTagOutput() DashboardTagOutput {
-	return o
-}
-
-func (o DashboardTagOutput) ToDashboardTagOutputWithContext(ctx context.Context) DashboardTagOutput {
-	return o
-}
-
-func (o DashboardTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DashboardTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DashboardTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardTag)(nil)).Elem()
-}
-
-func (o DashboardTagArrayOutput) ToDashboardTagArrayOutput() DashboardTagArrayOutput {
-	return o
-}
-
-func (o DashboardTagArrayOutput) ToDashboardTagArrayOutputWithContext(ctx context.Context) DashboardTagArrayOutput {
-	return o
-}
-
-func (o DashboardTagArrayOutput) Index(i pulumi.IntInput) DashboardTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardTag {
-		return vs[0].([]DashboardTag)[vs[1].(int)]
-	}).(DashboardTagOutput)
 }
 
 // Contains a summary of a gateway capability configuration.
@@ -3451,307 +3164,16 @@ type GatewayTag struct {
 	Value string `pulumi:"value"`
 }
 
-// GatewayTagInput is an input type that accepts GatewayTagArgs and GatewayTagOutput values.
-// You can construct a concrete instance of `GatewayTagInput` via:
-//
-//	GatewayTagArgs{...}
-type GatewayTagInput interface {
-	pulumi.Input
-
-	ToGatewayTagOutput() GatewayTagOutput
-	ToGatewayTagOutputWithContext(context.Context) GatewayTagOutput
-}
-
-// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-type GatewayTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (GatewayTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayTag)(nil)).Elem()
-}
-
-func (i GatewayTagArgs) ToGatewayTagOutput() GatewayTagOutput {
-	return i.ToGatewayTagOutputWithContext(context.Background())
-}
-
-func (i GatewayTagArgs) ToGatewayTagOutputWithContext(ctx context.Context) GatewayTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayTagOutput)
-}
-
-// GatewayTagArrayInput is an input type that accepts GatewayTagArray and GatewayTagArrayOutput values.
-// You can construct a concrete instance of `GatewayTagArrayInput` via:
-//
-//	GatewayTagArray{ GatewayTagArgs{...} }
-type GatewayTagArrayInput interface {
-	pulumi.Input
-
-	ToGatewayTagArrayOutput() GatewayTagArrayOutput
-	ToGatewayTagArrayOutputWithContext(context.Context) GatewayTagArrayOutput
-}
-
-type GatewayTagArray []GatewayTagInput
-
-func (GatewayTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayTag)(nil)).Elem()
-}
-
-func (i GatewayTagArray) ToGatewayTagArrayOutput() GatewayTagArrayOutput {
-	return i.ToGatewayTagArrayOutputWithContext(context.Background())
-}
-
-func (i GatewayTagArray) ToGatewayTagArrayOutputWithContext(ctx context.Context) GatewayTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayTagArrayOutput)
-}
-
-// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-type GatewayTagOutput struct{ *pulumi.OutputState }
-
-func (GatewayTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayTag)(nil)).Elem()
-}
-
-func (o GatewayTagOutput) ToGatewayTagOutput() GatewayTagOutput {
-	return o
-}
-
-func (o GatewayTagOutput) ToGatewayTagOutputWithContext(ctx context.Context) GatewayTagOutput {
-	return o
-}
-
-func (o GatewayTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o GatewayTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type GatewayTagArrayOutput struct{ *pulumi.OutputState }
-
-func (GatewayTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayTag)(nil)).Elem()
-}
-
-func (o GatewayTagArrayOutput) ToGatewayTagArrayOutput() GatewayTagArrayOutput {
-	return o
-}
-
-func (o GatewayTagArrayOutput) ToGatewayTagArrayOutputWithContext(ctx context.Context) GatewayTagArrayOutput {
-	return o
-}
-
-func (o GatewayTagArrayOutput) Index(i pulumi.IntInput) GatewayTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayTag {
-		return vs[0].([]GatewayTag)[vs[1].(int)]
-	}).(GatewayTagOutput)
-}
-
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
 type PortalTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// PortalTagInput is an input type that accepts PortalTagArgs and PortalTagOutput values.
-// You can construct a concrete instance of `PortalTagInput` via:
-//
-//	PortalTagArgs{...}
-type PortalTagInput interface {
-	pulumi.Input
-
-	ToPortalTagOutput() PortalTagOutput
-	ToPortalTagOutputWithContext(context.Context) PortalTagOutput
-}
-
-// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
-type PortalTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PortalTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortalTag)(nil)).Elem()
-}
-
-func (i PortalTagArgs) ToPortalTagOutput() PortalTagOutput {
-	return i.ToPortalTagOutputWithContext(context.Background())
-}
-
-func (i PortalTagArgs) ToPortalTagOutputWithContext(ctx context.Context) PortalTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortalTagOutput)
-}
-
-// PortalTagArrayInput is an input type that accepts PortalTagArray and PortalTagArrayOutput values.
-// You can construct a concrete instance of `PortalTagArrayInput` via:
-//
-//	PortalTagArray{ PortalTagArgs{...} }
-type PortalTagArrayInput interface {
-	pulumi.Input
-
-	ToPortalTagArrayOutput() PortalTagArrayOutput
-	ToPortalTagArrayOutputWithContext(context.Context) PortalTagArrayOutput
-}
-
-type PortalTagArray []PortalTagInput
-
-func (PortalTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PortalTag)(nil)).Elem()
-}
-
-func (i PortalTagArray) ToPortalTagArrayOutput() PortalTagArrayOutput {
-	return i.ToPortalTagArrayOutputWithContext(context.Background())
-}
-
-func (i PortalTagArray) ToPortalTagArrayOutputWithContext(ctx context.Context) PortalTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortalTagArrayOutput)
-}
-
-// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
-type PortalTagOutput struct{ *pulumi.OutputState }
-
-func (PortalTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortalTag)(nil)).Elem()
-}
-
-func (o PortalTagOutput) ToPortalTagOutput() PortalTagOutput {
-	return o
-}
-
-func (o PortalTagOutput) ToPortalTagOutputWithContext(ctx context.Context) PortalTagOutput {
-	return o
-}
-
-func (o PortalTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PortalTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PortalTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PortalTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PortalTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PortalTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PortalTag)(nil)).Elem()
-}
-
-func (o PortalTagArrayOutput) ToPortalTagArrayOutput() PortalTagArrayOutput {
-	return o
-}
-
-func (o PortalTagArrayOutput) ToPortalTagArrayOutputWithContext(ctx context.Context) PortalTagArrayOutput {
-	return o
-}
-
-func (o PortalTagArrayOutput) Index(i pulumi.IntInput) PortalTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PortalTag {
-		return vs[0].([]PortalTag)[vs[1].(int)]
-	}).(PortalTagOutput)
-}
-
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
 type ProjectTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
-// You can construct a concrete instance of `ProjectTagInput` via:
-//
-//	ProjectTagArgs{...}
-type ProjectTagInput interface {
-	pulumi.Input
-
-	ToProjectTagOutput() ProjectTagOutput
-	ToProjectTagOutputWithContext(context.Context) ProjectTagOutput
-}
-
-// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-type ProjectTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ProjectTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
-}
-
-func (i ProjectTagArgs) ToProjectTagOutput() ProjectTagOutput {
-	return i.ToProjectTagOutputWithContext(context.Background())
-}
-
-func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagOutput)
-}
-
-// ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
-// You can construct a concrete instance of `ProjectTagArrayInput` via:
-//
-//	ProjectTagArray{ ProjectTagArgs{...} }
-type ProjectTagArrayInput interface {
-	pulumi.Input
-
-	ToProjectTagArrayOutput() ProjectTagArrayOutput
-	ToProjectTagArrayOutputWithContext(context.Context) ProjectTagArrayOutput
-}
-
-type ProjectTagArray []ProjectTagInput
-
-func (ProjectTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
-}
-
-func (i ProjectTagArray) ToProjectTagArrayOutput() ProjectTagArrayOutput {
-	return i.ToProjectTagArrayOutputWithContext(context.Background())
-}
-
-func (i ProjectTagArray) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagArrayOutput)
-}
-
-// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-type ProjectTagOutput struct{ *pulumi.OutputState }
-
-func (ProjectTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
-}
-
-func (o ProjectTagOutput) ToProjectTagOutput() ProjectTagOutput {
-	return o
-}
-
-func (o ProjectTagOutput) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
-	return o
-}
-
-func (o ProjectTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ProjectTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ProjectTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ProjectTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
-}
-
-func (o ProjectTagArrayOutput) ToProjectTagArrayOutput() ProjectTagArrayOutput {
-	return o
-}
-
-func (o ProjectTagArrayOutput) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
-	return o
-}
-
-func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectTag {
-		return vs[0].([]ProjectTag)[vs[1].(int)]
-	}).(ProjectTagOutput)
 }
 
 func init() {
@@ -3786,8 +3208,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelPropertyInput)(nil)).Elem(), AssetModelPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelPropertyArrayInput)(nil)).Elem(), AssetModelPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelPropertyTypeInput)(nil)).Elem(), AssetModelPropertyTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTagInput)(nil)).Elem(), AssetModelTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTagArrayInput)(nil)).Elem(), AssetModelTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTransformInput)(nil)).Elem(), AssetModelTransformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTransformPtrInput)(nil)).Elem(), AssetModelTransformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTumblingWindowInput)(nil)).Elem(), AssetModelTumblingWindowArgs{})
@@ -3795,10 +3215,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelVariableValueInput)(nil)).Elem(), AssetModelVariableValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyInput)(nil)).Elem(), AssetPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyArrayInput)(nil)).Elem(), AssetPropertyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssetTagInput)(nil)).Elem(), AssetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssetTagArrayInput)(nil)).Elem(), AssetTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTagInput)(nil)).Elem(), DashboardTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTagArrayInput)(nil)).Elem(), DashboardTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCapabilitySummaryInput)(nil)).Elem(), GatewayCapabilitySummaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCapabilitySummaryArrayInput)(nil)).Elem(), GatewayCapabilitySummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassInput)(nil)).Elem(), GatewayGreengrassArgs{})
@@ -3806,12 +3222,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2Input)(nil)).Elem(), GatewayGreengrassV2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2PtrInput)(nil)).Elem(), GatewayGreengrassV2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPlatformInput)(nil)).Elem(), GatewayPlatformArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTagInput)(nil)).Elem(), GatewayTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTagArrayInput)(nil)).Elem(), GatewayTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PortalTagInput)(nil)).Elem(), PortalTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PortalTagArrayInput)(nil)).Elem(), PortalTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagInput)(nil)).Elem(), ProjectTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagArrayInput)(nil)).Elem(), ProjectTagArray{})
 	pulumi.RegisterOutputType(AccessPolicyIamRoleOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamRolePtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamUserOutput{})
@@ -3845,8 +3255,6 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelPropertyOutput{})
 	pulumi.RegisterOutputType(AssetModelPropertyArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelPropertyTypeOutput{})
-	pulumi.RegisterOutputType(AssetModelTagOutput{})
-	pulumi.RegisterOutputType(AssetModelTagArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelTransformOutput{})
 	pulumi.RegisterOutputType(AssetModelTransformPtrOutput{})
 	pulumi.RegisterOutputType(AssetModelTumblingWindowOutput{})
@@ -3854,10 +3262,6 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelVariableValueOutput{})
 	pulumi.RegisterOutputType(AssetPropertyOutput{})
 	pulumi.RegisterOutputType(AssetPropertyArrayOutput{})
-	pulumi.RegisterOutputType(AssetTagOutput{})
-	pulumi.RegisterOutputType(AssetTagArrayOutput{})
-	pulumi.RegisterOutputType(DashboardTagOutput{})
-	pulumi.RegisterOutputType(DashboardTagArrayOutput{})
 	pulumi.RegisterOutputType(GatewayCapabilitySummaryOutput{})
 	pulumi.RegisterOutputType(GatewayCapabilitySummaryArrayOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassOutput{})
@@ -3865,10 +3269,4 @@ func init() {
 	pulumi.RegisterOutputType(GatewayGreengrassV2Output{})
 	pulumi.RegisterOutputType(GatewayGreengrassV2PtrOutput{})
 	pulumi.RegisterOutputType(GatewayPlatformOutput{})
-	pulumi.RegisterOutputType(GatewayTagOutput{})
-	pulumi.RegisterOutputType(GatewayTagArrayOutput{})
-	pulumi.RegisterOutputType(PortalTagOutput{})
-	pulumi.RegisterOutputType(PortalTagArrayOutput{})
-	pulumi.RegisterOutputType(ProjectTagOutput{})
-	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
 }

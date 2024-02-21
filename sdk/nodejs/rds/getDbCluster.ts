@@ -181,7 +181,7 @@ export interface GetDbClusterResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.rds.DbClusterTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * A list of EC2 VPC security groups to associate with this DB cluster.
      */

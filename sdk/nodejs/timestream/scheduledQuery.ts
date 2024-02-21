@@ -78,7 +78,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
      * Configuration of target store where scheduled query results are written to.
      */
     public /*out*/ readonly sqTargetConfiguration!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.timestream.ScheduledQueryTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly targetConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryTargetConfiguration | undefined>;
 
     /**
@@ -166,6 +166,6 @@ export interface ScheduledQueryArgs {
     scheduleConfiguration: pulumi.Input<inputs.timestream.ScheduledQueryScheduleConfigurationArgs>;
     scheduledQueryExecutionRoleArn: pulumi.Input<string>;
     scheduledQueryName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.timestream.ScheduledQueryTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     targetConfiguration?: pulumi.Input<inputs.timestream.ScheduledQueryTargetConfigurationArgs>;
 }

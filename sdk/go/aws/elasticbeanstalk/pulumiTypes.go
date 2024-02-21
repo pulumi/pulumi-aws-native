@@ -1149,105 +1149,6 @@ type EnvironmentTag struct {
 	Value string `pulumi:"value"`
 }
 
-// EnvironmentTagInput is an input type that accepts EnvironmentTagArgs and EnvironmentTagOutput values.
-// You can construct a concrete instance of `EnvironmentTagInput` via:
-//
-//	EnvironmentTagArgs{...}
-type EnvironmentTagInput interface {
-	pulumi.Input
-
-	ToEnvironmentTagOutput() EnvironmentTagOutput
-	ToEnvironmentTagOutputWithContext(context.Context) EnvironmentTagOutput
-}
-
-type EnvironmentTagArgs struct {
-	// The key name of the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (EnvironmentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentTag)(nil)).Elem()
-}
-
-func (i EnvironmentTagArgs) ToEnvironmentTagOutput() EnvironmentTagOutput {
-	return i.ToEnvironmentTagOutputWithContext(context.Background())
-}
-
-func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagOutput)
-}
-
-// EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
-// You can construct a concrete instance of `EnvironmentTagArrayInput` via:
-//
-//	EnvironmentTagArray{ EnvironmentTagArgs{...} }
-type EnvironmentTagArrayInput interface {
-	pulumi.Input
-
-	ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput
-	ToEnvironmentTagArrayOutputWithContext(context.Context) EnvironmentTagArrayOutput
-}
-
-type EnvironmentTagArray []EnvironmentTagInput
-
-func (EnvironmentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentTag)(nil)).Elem()
-}
-
-func (i EnvironmentTagArray) ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput {
-	return i.ToEnvironmentTagArrayOutputWithContext(context.Background())
-}
-
-func (i EnvironmentTagArray) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagArrayOutput)
-}
-
-type EnvironmentTagOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentTag)(nil)).Elem()
-}
-
-func (o EnvironmentTagOutput) ToEnvironmentTagOutput() EnvironmentTagOutput {
-	return o
-}
-
-func (o EnvironmentTagOutput) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
-	return o
-}
-
-// The key name of the tag.
-func (o EnvironmentTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag.
-func (o EnvironmentTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type EnvironmentTagArrayOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentTag)(nil)).Elem()
-}
-
-func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput {
-	return o
-}
-
-func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
-	return o
-}
-
-func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentTag {
-		return vs[0].([]EnvironmentTag)[vs[1].(int)]
-	}).(EnvironmentTagOutput)
-}
-
 type EnvironmentTier struct {
 	// The name of this environment tier.
 	Name *string `pulumi:"name"`
@@ -1439,8 +1340,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateSourceConfigurationPtrInput)(nil)).Elem(), ConfigurationTemplateSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentOptionSettingInput)(nil)).Elem(), EnvironmentOptionSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentOptionSettingArrayInput)(nil)).Elem(), EnvironmentOptionSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagInput)(nil)).Elem(), EnvironmentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagArrayInput)(nil)).Elem(), EnvironmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTierInput)(nil)).Elem(), EnvironmentTierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTierPtrInput)(nil)).Elem(), EnvironmentTierArgs{})
 	pulumi.RegisterOutputType(ApplicationMaxAgeRuleOutput{})
@@ -1458,8 +1357,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationTemplateSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentOptionSettingOutput{})
 	pulumi.RegisterOutputType(EnvironmentOptionSettingArrayOutput{})
-	pulumi.RegisterOutputType(EnvironmentTagOutput{})
-	pulumi.RegisterOutputType(EnvironmentTagArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentTierOutput{})
 	pulumi.RegisterOutputType(EnvironmentTierPtrOutput{})
 }

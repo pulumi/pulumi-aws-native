@@ -52,7 +52,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     public /*out*/ readonly resolverEndpointId!: pulumi.Output<string>;
     public readonly resolverEndpointType!: pulumi.Output<string | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<outputs.route53resolver.ResolverEndpointTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResolverEndpoint resource with the given unique name, arguments, and options.
@@ -123,5 +123,5 @@ export interface ResolverEndpointArgs {
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     resolverEndpointType?: pulumi.Input<string>;
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.ResolverEndpointTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

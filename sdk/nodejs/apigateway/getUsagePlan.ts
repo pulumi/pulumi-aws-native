@@ -40,7 +40,7 @@ export interface GetUsagePlanResult {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    readonly tags?: outputs.apigateway.UsagePlanTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * A map containing method level throttling information for API stage in a usage plan.
      */

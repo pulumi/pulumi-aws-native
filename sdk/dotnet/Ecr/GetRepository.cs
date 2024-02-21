@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Ecr
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RepositoryTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRepositoryResult(
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Ecr
 
             string? repositoryUri,
 
-            ImmutableArray<Outputs.RepositoryTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             ImageScanningConfiguration = imageScanningConfiguration;

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ApiKeyArgs', 'ApiKey']
@@ -23,10 +25,10 @@ class ApiKeyArgs:
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  force_update: Optional[pulumi.Input[bool]] = None,
                  no_expiry: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiKeyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "restrictions", restrictions)
@@ -108,14 +110,14 @@ class ApiKeyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -131,14 +133,14 @@ class ApiKey(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  no_expiry: Optional[pulumi.Input[bool]] = None,
                  restrictions: Optional[pulumi.Input[pulumi.InputType['ApiKeyRestrictionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiKeyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::APIKey Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiKeyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -171,7 +173,7 @@ class ApiKey(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  no_expiry: Optional[pulumi.Input[bool]] = None,
                  restrictions: Optional[pulumi.Input[pulumi.InputType['ApiKeyRestrictionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiKeyTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -287,7 +289,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ApiKeyTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

@@ -67,7 +67,7 @@ export interface GetEnvironmentAccountConnectionResult {
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    readonly tags?: outputs.proton.EnvironmentAccountConnectionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Schema describing various properties for AWS Proton Environment Account Connections resources.

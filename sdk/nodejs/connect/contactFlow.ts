@@ -64,7 +64,7 @@ export class ContactFlow extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.ContactFlowTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the contact flow.
      */
@@ -142,7 +142,7 @@ export interface ContactFlowArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.ContactFlowTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of the contact flow.
      */

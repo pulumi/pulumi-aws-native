@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetReportPlanResult',
@@ -62,7 +63,7 @@ class GetReportPlanResult:
 
     @property
     @pulumi.getter(name="reportPlanTags")
-    def report_plan_tags(self) -> Optional[Sequence['outputs.ReportPlanTag']]:
+    def report_plan_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
         """

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -56,7 +57,7 @@ type LookupEndpointResult struct {
 	ServerName                 *string                             `pulumi:"serverName"`
 	SslMode                    *string                             `pulumi:"sslMode"`
 	SybaseSettings             *EndpointSybaseSettings             `pulumi:"sybaseSettings"`
-	Tags                       []EndpointTag                       `pulumi:"tags"`
+	Tags                       []aws.Tag                           `pulumi:"tags"`
 	Username                   *string                             `pulumi:"username"`
 }
 
@@ -211,8 +212,8 @@ func (o LookupEndpointResultOutput) SybaseSettings() EndpointSybaseSettingsPtrOu
 	return o.ApplyT(func(v LookupEndpointResult) *EndpointSybaseSettings { return v.SybaseSettings }).(EndpointSybaseSettingsPtrOutput)
 }
 
-func (o LookupEndpointResultOutput) Tags() EndpointTagArrayOutput {
-	return o.ApplyT(func(v LookupEndpointResult) []EndpointTag { return v.Tags }).(EndpointTagArrayOutput)
+func (o LookupEndpointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupEndpointResultOutput) Username() pulumi.StringPtrOutput {

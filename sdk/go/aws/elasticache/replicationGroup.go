@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -63,7 +64,7 @@ type ReplicationGroup struct {
 	SnapshotRetentionLimit       pulumi.IntPtrOutput                                        `pulumi:"snapshotRetentionLimit"`
 	SnapshotWindow               pulumi.StringPtrOutput                                     `pulumi:"snapshotWindow"`
 	SnapshottingClusterId        pulumi.StringPtrOutput                                     `pulumi:"snapshottingClusterId"`
-	Tags                         ReplicationGroupTagArrayOutput                             `pulumi:"tags"`
+	Tags                         aws.TagArrayOutput                                         `pulumi:"tags"`
 	TransitEncryptionEnabled     pulumi.BoolPtrOutput                                       `pulumi:"transitEncryptionEnabled"`
 	TransitEncryptionMode        pulumi.StringPtrOutput                                     `pulumi:"transitEncryptionMode"`
 	UserGroupIds                 pulumi.StringArrayOutput                                   `pulumi:"userGroupIds"`
@@ -173,7 +174,7 @@ type replicationGroupArgs struct {
 	SnapshotRetentionLimit       *int                                              `pulumi:"snapshotRetentionLimit"`
 	SnapshotWindow               *string                                           `pulumi:"snapshotWindow"`
 	SnapshottingClusterId        *string                                           `pulumi:"snapshottingClusterId"`
-	Tags                         []ReplicationGroupTag                             `pulumi:"tags"`
+	Tags                         []aws.Tag                                         `pulumi:"tags"`
 	TransitEncryptionEnabled     *bool                                             `pulumi:"transitEncryptionEnabled"`
 	TransitEncryptionMode        *string                                           `pulumi:"transitEncryptionMode"`
 	UserGroupIds                 []string                                          `pulumi:"userGroupIds"`
@@ -226,7 +227,7 @@ type ReplicationGroupArgs struct {
 	SnapshotRetentionLimit       pulumi.IntPtrInput
 	SnapshotWindow               pulumi.StringPtrInput
 	SnapshottingClusterId        pulumi.StringPtrInput
-	Tags                         ReplicationGroupTagArrayInput
+	Tags                         aws.TagArrayInput
 	TransitEncryptionEnabled     pulumi.BoolPtrInput
 	TransitEncryptionMode        pulumi.StringPtrInput
 	UserGroupIds                 pulumi.StringArrayInput
@@ -453,8 +454,8 @@ func (o ReplicationGroupOutput) SnapshottingClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.SnapshottingClusterId }).(pulumi.StringPtrOutput)
 }
 
-func (o ReplicationGroupOutput) Tags() ReplicationGroupTagArrayOutput {
-	return o.ApplyT(func(v *ReplicationGroup) ReplicationGroupTagArrayOutput { return v.Tags }).(ReplicationGroupTagArrayOutput)
+func (o ReplicationGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ReplicationGroupOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {

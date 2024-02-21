@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -62,7 +63,7 @@ type Function struct {
 	// The SnapStart response of your function
 	SnapStartResponse FunctionSnapStartResponseOutput `pulumi:"snapStartResponse"`
 	// A list of tags to apply to the function.
-	Tags FunctionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
@@ -163,7 +164,7 @@ type functionArgs struct {
 	// The SnapStart setting of your function
 	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// A list of tags to apply to the function.
-	Tags []FunctionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
 	Timeout *int `pulumi:"timeout"`
 	// Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
@@ -216,7 +217,7 @@ type FunctionArgs struct {
 	// The SnapStart setting of your function
 	SnapStart FunctionSnapStartPtrInput
 	// A list of tags to apply to the function.
-	Tags FunctionTagArrayInput
+	Tags aws.TagArrayInput
 	// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
 	Timeout pulumi.IntPtrInput
 	// Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
@@ -377,8 +378,8 @@ func (o FunctionOutput) SnapStartResponse() FunctionSnapStartResponseOutput {
 }
 
 // A list of tags to apply to the function.
-func (o FunctionOutput) Tags() FunctionTagArrayOutput {
-	return o.ApplyT(func(v *Function) FunctionTagArrayOutput { return v.Tags }).(FunctionTagArrayOutput)
+func (o FunctionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Function) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.

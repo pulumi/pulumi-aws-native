@@ -8552,103 +8552,6 @@ type RulesetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// RulesetTagInput is an input type that accepts RulesetTagArgs and RulesetTagOutput values.
-// You can construct a concrete instance of `RulesetTagInput` via:
-//
-//	RulesetTagArgs{...}
-type RulesetTagInput interface {
-	pulumi.Input
-
-	ToRulesetTagOutput() RulesetTagOutput
-	ToRulesetTagOutputWithContext(context.Context) RulesetTagOutput
-}
-
-// A key-value pair to associate with a resource
-type RulesetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RulesetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulesetTag)(nil)).Elem()
-}
-
-func (i RulesetTagArgs) ToRulesetTagOutput() RulesetTagOutput {
-	return i.ToRulesetTagOutputWithContext(context.Background())
-}
-
-func (i RulesetTagArgs) ToRulesetTagOutputWithContext(ctx context.Context) RulesetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RulesetTagOutput)
-}
-
-// RulesetTagArrayInput is an input type that accepts RulesetTagArray and RulesetTagArrayOutput values.
-// You can construct a concrete instance of `RulesetTagArrayInput` via:
-//
-//	RulesetTagArray{ RulesetTagArgs{...} }
-type RulesetTagArrayInput interface {
-	pulumi.Input
-
-	ToRulesetTagArrayOutput() RulesetTagArrayOutput
-	ToRulesetTagArrayOutputWithContext(context.Context) RulesetTagArrayOutput
-}
-
-type RulesetTagArray []RulesetTagInput
-
-func (RulesetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RulesetTag)(nil)).Elem()
-}
-
-func (i RulesetTagArray) ToRulesetTagArrayOutput() RulesetTagArrayOutput {
-	return i.ToRulesetTagArrayOutputWithContext(context.Background())
-}
-
-func (i RulesetTagArray) ToRulesetTagArrayOutputWithContext(ctx context.Context) RulesetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RulesetTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource
-type RulesetTagOutput struct{ *pulumi.OutputState }
-
-func (RulesetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulesetTag)(nil)).Elem()
-}
-
-func (o RulesetTagOutput) ToRulesetTagOutput() RulesetTagOutput {
-	return o
-}
-
-func (o RulesetTagOutput) ToRulesetTagOutputWithContext(ctx context.Context) RulesetTagOutput {
-	return o
-}
-
-func (o RulesetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RulesetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o RulesetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RulesetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RulesetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RulesetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RulesetTag)(nil)).Elem()
-}
-
-func (o RulesetTagArrayOutput) ToRulesetTagArrayOutput() RulesetTagArrayOutput {
-	return o
-}
-
-func (o RulesetTagArrayOutput) ToRulesetTagArrayOutputWithContext(ctx context.Context) RulesetTagArrayOutput {
-	return o
-}
-
-func (o RulesetTagArrayOutput) Index(i pulumi.IntInput) RulesetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesetTag {
-		return vs[0].([]RulesetTag)[vs[1].(int)]
-	}).(RulesetTagOutput)
-}
-
 type RulesetThreshold struct {
 	Type  *RulesetThresholdType `pulumi:"type"`
 	Unit  *RulesetThresholdUnit `pulumi:"unit"`
@@ -9018,8 +8921,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleArrayInput)(nil)).Elem(), RulesetRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetSubstitutionValueInput)(nil)).Elem(), RulesetSubstitutionValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetSubstitutionValueArrayInput)(nil)).Elem(), RulesetSubstitutionValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RulesetTagInput)(nil)).Elem(), RulesetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RulesetTagArrayInput)(nil)).Elem(), RulesetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetThresholdInput)(nil)).Elem(), RulesetThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetThresholdPtrInput)(nil)).Elem(), RulesetThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleTagInput)(nil)).Elem(), ScheduleTagArgs{})
@@ -9127,8 +9028,6 @@ func init() {
 	pulumi.RegisterOutputType(RulesetRuleArrayOutput{})
 	pulumi.RegisterOutputType(RulesetSubstitutionValueOutput{})
 	pulumi.RegisterOutputType(RulesetSubstitutionValueArrayOutput{})
-	pulumi.RegisterOutputType(RulesetTagOutput{})
-	pulumi.RegisterOutputType(RulesetTagArrayOutput{})
 	pulumi.RegisterOutputType(RulesetThresholdOutput{})
 	pulumi.RegisterOutputType(RulesetThresholdPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleTagOutput{})

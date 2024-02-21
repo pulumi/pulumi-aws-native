@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type FhirDatastore struct {
 	IdentityProviderConfiguration FhirDatastoreIdentityProviderConfigurationPtrOutput `pulumi:"identityProviderConfiguration"`
 	PreloadDataConfig             FhirDatastorePreloadDataConfigPtrOutput             `pulumi:"preloadDataConfig"`
 	SseConfiguration              FhirDatastoreSseConfigurationPtrOutput              `pulumi:"sseConfiguration"`
-	Tags                          FhirDatastoreTagArrayOutput                         `pulumi:"tags"`
+	Tags                          aws.TagArrayOutput                                  `pulumi:"tags"`
 }
 
 // NewFhirDatastore registers a new resource with the given unique name, arguments, and options.
@@ -85,7 +86,7 @@ type fhirDatastoreArgs struct {
 	IdentityProviderConfiguration *FhirDatastoreIdentityProviderConfiguration `pulumi:"identityProviderConfiguration"`
 	PreloadDataConfig             *FhirDatastorePreloadDataConfig             `pulumi:"preloadDataConfig"`
 	SseConfiguration              *FhirDatastoreSseConfiguration              `pulumi:"sseConfiguration"`
-	Tags                          []FhirDatastoreTag                          `pulumi:"tags"`
+	Tags                          []aws.Tag                                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FhirDatastore resource.
@@ -95,7 +96,7 @@ type FhirDatastoreArgs struct {
 	IdentityProviderConfiguration FhirDatastoreIdentityProviderConfigurationPtrInput
 	PreloadDataConfig             FhirDatastorePreloadDataConfigPtrInput
 	SseConfiguration              FhirDatastoreSseConfigurationPtrInput
-	Tags                          FhirDatastoreTagArrayInput
+	Tags                          aws.TagArrayInput
 }
 
 func (FhirDatastoreArgs) ElementType() reflect.Type {
@@ -177,8 +178,8 @@ func (o FhirDatastoreOutput) SseConfiguration() FhirDatastoreSseConfigurationPtr
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreSseConfigurationPtrOutput { return v.SseConfiguration }).(FhirDatastoreSseConfigurationPtrOutput)
 }
 
-func (o FhirDatastoreOutput) Tags() FhirDatastoreTagArrayOutput {
-	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreTagArrayOutput { return v.Tags }).(FhirDatastoreTagArrayOutput)
+func (o FhirDatastoreOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FhirDatastore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

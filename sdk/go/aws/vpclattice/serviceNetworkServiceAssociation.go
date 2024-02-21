@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type ServiceNetworkServiceAssociation struct {
 	ServiceNetworkIdentifier pulumi.StringPtrOutput                            `pulumi:"serviceNetworkIdentifier"`
 	ServiceNetworkName       pulumi.StringOutput                               `pulumi:"serviceNetworkName"`
 	Status                   ServiceNetworkServiceAssociationStatusOutput      `pulumi:"status"`
-	Tags                     ServiceNetworkServiceAssociationTagArrayOutput    `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                                `pulumi:"tags"`
 }
 
 // NewServiceNetworkServiceAssociation registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type serviceNetworkServiceAssociationArgs struct {
 	DnsEntry                 *ServiceNetworkServiceAssociationDnsEntry `pulumi:"dnsEntry"`
 	ServiceIdentifier        *string                                   `pulumi:"serviceIdentifier"`
 	ServiceNetworkIdentifier *string                                   `pulumi:"serviceNetworkIdentifier"`
-	Tags                     []ServiceNetworkServiceAssociationTag     `pulumi:"tags"`
+	Tags                     []aws.Tag                                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
@@ -86,7 +87,7 @@ type ServiceNetworkServiceAssociationArgs struct {
 	DnsEntry                 ServiceNetworkServiceAssociationDnsEntryPtrInput
 	ServiceIdentifier        pulumi.StringPtrInput
 	ServiceNetworkIdentifier pulumi.StringPtrInput
-	Tags                     ServiceNetworkServiceAssociationTagArrayInput
+	Tags                     aws.TagArrayInput
 }
 
 func (ServiceNetworkServiceAssociationArgs) ElementType() reflect.Type {
@@ -178,10 +179,8 @@ func (o ServiceNetworkServiceAssociationOutput) Status() ServiceNetworkServiceAs
 	}).(ServiceNetworkServiceAssociationStatusOutput)
 }
 
-func (o ServiceNetworkServiceAssociationOutput) Tags() ServiceNetworkServiceAssociationTagArrayOutput {
-	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) ServiceNetworkServiceAssociationTagArrayOutput {
-		return v.Tags
-	}).(ServiceNetworkServiceAssociationTagArrayOutput)
+func (o ServiceNetworkServiceAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

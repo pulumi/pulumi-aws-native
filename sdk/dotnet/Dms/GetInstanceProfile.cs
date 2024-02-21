@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.Dms
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InstanceProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The property describes vps security groups for the instance profile.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.Dms
 
             string? subnetGroupIdentifier,
 
-            ImmutableArray<Outputs.InstanceProfileTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> vpcSecurityGroups)
         {

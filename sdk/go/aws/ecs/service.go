@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type Service struct {
 	ServiceConnectConfiguration   ServiceConnectConfigurationPtrOutput           `pulumi:"serviceConnectConfiguration"`
 	ServiceName                   pulumi.StringPtrOutput                         `pulumi:"serviceName"`
 	ServiceRegistries             ServiceRegistryArrayOutput                     `pulumi:"serviceRegistries"`
-	Tags                          ServiceTagArrayOutput                          `pulumi:"tags"`
+	Tags                          aws.TagArrayOutput                             `pulumi:"tags"`
 	TaskDefinition                pulumi.StringPtrOutput                         `pulumi:"taskDefinition"`
 	VolumeConfigurations          ServiceVolumeConfigurationArrayOutput          `pulumi:"volumeConfigurations"`
 }
@@ -111,7 +112,7 @@ type serviceArgs struct {
 	ServiceConnectConfiguration   *ServiceConnectConfiguration          `pulumi:"serviceConnectConfiguration"`
 	ServiceName                   *string                               `pulumi:"serviceName"`
 	ServiceRegistries             []ServiceRegistry                     `pulumi:"serviceRegistries"`
-	Tags                          []ServiceTag                          `pulumi:"tags"`
+	Tags                          []aws.Tag                             `pulumi:"tags"`
 	TaskDefinition                *string                               `pulumi:"taskDefinition"`
 	VolumeConfigurations          []ServiceVolumeConfiguration          `pulumi:"volumeConfigurations"`
 }
@@ -138,7 +139,7 @@ type ServiceArgs struct {
 	ServiceConnectConfiguration   ServiceConnectConfigurationPtrInput
 	ServiceName                   pulumi.StringPtrInput
 	ServiceRegistries             ServiceRegistryArrayInput
-	Tags                          ServiceTagArrayInput
+	Tags                          aws.TagArrayInput
 	TaskDefinition                pulumi.StringPtrInput
 	VolumeConfigurations          ServiceVolumeConfigurationArrayInput
 }
@@ -268,8 +269,8 @@ func (o ServiceOutput) ServiceRegistries() ServiceRegistryArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceRegistryArrayOutput { return v.ServiceRegistries }).(ServiceRegistryArrayOutput)
 }
 
-func (o ServiceOutput) Tags() ServiceTagArrayOutput {
-	return o.ApplyT(func(v *Service) ServiceTagArrayOutput { return v.Tags }).(ServiceTagArrayOutput)
+func (o ServiceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Service) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ServiceOutput) TaskDefinition() pulumi.StringPtrOutput {

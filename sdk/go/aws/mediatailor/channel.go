@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Channel struct {
 	Outputs      ChannelRequestOutputItemArrayOutput `pulumi:"outputs"`
 	PlaybackMode ChannelPlaybackModeOutput           `pulumi:"playbackMode"`
 	// The tags to assign to the channel.
-	Tags                   ChannelTagArrayOutput                  `pulumi:"tags"`
+	Tags                   aws.TagArrayOutput                     `pulumi:"tags"`
 	Tier                   ChannelTierPtrOutput                   `pulumi:"tier"`
 	TimeShiftConfiguration ChannelTimeShiftConfigurationPtrOutput `pulumi:"timeShiftConfiguration"`
 }
@@ -88,7 +89,7 @@ type channelArgs struct {
 	Outputs      []ChannelRequestOutputItem `pulumi:"outputs"`
 	PlaybackMode ChannelPlaybackMode        `pulumi:"playbackMode"`
 	// The tags to assign to the channel.
-	Tags                   []ChannelTag                   `pulumi:"tags"`
+	Tags                   []aws.Tag                      `pulumi:"tags"`
 	Tier                   *ChannelTier                   `pulumi:"tier"`
 	TimeShiftConfiguration *ChannelTimeShiftConfiguration `pulumi:"timeShiftConfiguration"`
 }
@@ -102,7 +103,7 @@ type ChannelArgs struct {
 	Outputs      ChannelRequestOutputItemArrayInput
 	PlaybackMode ChannelPlaybackModeInput
 	// The tags to assign to the channel.
-	Tags                   ChannelTagArrayInput
+	Tags                   aws.TagArrayInput
 	Tier                   ChannelTierPtrInput
 	TimeShiftConfiguration ChannelTimeShiftConfigurationPtrInput
 }
@@ -171,8 +172,8 @@ func (o ChannelOutput) PlaybackMode() ChannelPlaybackModeOutput {
 }
 
 // The tags to assign to the channel.
-func (o ChannelOutput) Tags() ChannelTagArrayOutput {
-	return o.ApplyT(func(v *Channel) ChannelTagArrayOutput { return v.Tags }).(ChannelTagArrayOutput)
+func (o ChannelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Channel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ChannelOutput) Tier() ChannelTierPtrOutput {

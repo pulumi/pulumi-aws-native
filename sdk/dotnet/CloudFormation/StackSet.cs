@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.StackSetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
@@ -246,14 +246,14 @@ namespace Pulumi.AwsNative.CloudFormation
         public Input<string>? StackSetName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.StackSetTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         /// </summary>
-        public InputList<Inputs.StackSetTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.StackSetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

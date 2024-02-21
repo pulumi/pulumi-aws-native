@@ -16,12 +16,8 @@ __all__ = [
     'CapabilityEdiConfiguration',
     'CapabilityEdiTypeProperties',
     'CapabilityS3Location',
-    'CapabilityTag',
     'CapabilityX12Details',
-    'PartnershipTag',
-    'ProfileTag',
     'TransformerEdiTypeProperties',
-    'TransformerTag',
     'TransformerX12Details',
 ]
 
@@ -159,25 +155,6 @@ class CapabilityS3Location(dict):
 
 
 @pulumi.output_type
-class CapabilityTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class CapabilityX12Details(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -216,44 +193,6 @@ class CapabilityX12Details(dict):
 
 
 @pulumi.output_type
-class PartnershipTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ProfileTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class TransformerEdiTypeProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -280,25 +219,6 @@ class TransformerEdiTypeProperties(dict):
     @pulumi.getter(name="x12Details")
     def x12_details(self) -> 'outputs.TransformerX12Details':
         return pulumi.get(self, "x12_details")
-
-
-@pulumi.output_type
-class TransformerTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

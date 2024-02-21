@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupSegmentResult struct {
 	Name        *string `pulumi:"name"`
 	Pattern     *string `pulumi:"pattern"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []SegmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSegmentOutput(ctx *pulumi.Context, args LookupSegmentOutputArgs, opts ...pulumi.InvokeOption) LookupSegmentResultOutput {
@@ -87,8 +88,8 @@ func (o LookupSegmentResultOutput) Pattern() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupSegmentResultOutput) Tags() SegmentTagArrayOutput {
-	return o.ApplyT(func(v LookupSegmentResult) []SegmentTag { return v.Tags }).(SegmentTagArrayOutput)
+func (o LookupSegmentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSegmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -37,7 +37,7 @@ export interface GetPlaybackKeyPairResult {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    readonly tags?: outputs.ivs.PlaybackKeyPairTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::IVS::PlaybackKeyPair

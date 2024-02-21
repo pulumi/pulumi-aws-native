@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,10 +28,10 @@ type LookupSnapshotArgs struct {
 }
 
 type LookupSnapshotResult struct {
-	Id          *string       `pulumi:"id"`
-	Name        *string       `pulumi:"name"`
-	ResourceArn *string       `pulumi:"resourceArn"`
-	Tags        []SnapshotTag `pulumi:"tags"`
+	Id          *string   `pulumi:"id"`
+	Name        *string   `pulumi:"name"`
+	ResourceArn *string   `pulumi:"resourceArn"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
@@ -80,8 +81,8 @@ func (o LookupSnapshotResultOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSnapshotResultOutput) Tags() SnapshotTagArrayOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) []SnapshotTag { return v.Tags }).(SnapshotTagArrayOutput)
+func (o LookupSnapshotResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,8 +45,8 @@ type EventDataStore struct {
 	// The retention period, in days.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
 	// The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
-	Status pulumi.StringOutput          `pulumi:"status"`
-	Tags   EventDataStoreTagArrayOutput `pulumi:"tags"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	Tags   aws.TagArrayOutput  `pulumi:"tags"`
 	// Indicates whether the event data store is protected from termination.
 	TerminationProtectionEnabled pulumi.BoolPtrOutput `pulumi:"terminationProtectionEnabled"`
 	// The timestamp showing when an event data store was updated, if applicable. UpdatedTimestamp is always either the same or newer than the time shown in CreatedTimestamp.
@@ -115,8 +116,8 @@ type eventDataStoreArgs struct {
 	// Indicates that an event data store is collecting logged events for an organization.
 	OrganizationEnabled *bool `pulumi:"organizationEnabled"`
 	// The retention period, in days.
-	RetentionPeriod *int                `pulumi:"retentionPeriod"`
-	Tags            []EventDataStoreTag `pulumi:"tags"`
+	RetentionPeriod *int      `pulumi:"retentionPeriod"`
+	Tags            []aws.Tag `pulumi:"tags"`
 	// Indicates whether the event data store is protected from termination.
 	TerminationProtectionEnabled *bool `pulumi:"terminationProtectionEnabled"`
 }
@@ -147,7 +148,7 @@ type EventDataStoreArgs struct {
 	OrganizationEnabled pulumi.BoolPtrInput
 	// The retention period, in days.
 	RetentionPeriod pulumi.IntPtrInput
-	Tags            EventDataStoreTagArrayInput
+	Tags            aws.TagArrayInput
 	// Indicates whether the event data store is protected from termination.
 	TerminationProtectionEnabled pulumi.BoolPtrInput
 }
@@ -266,8 +267,8 @@ func (o EventDataStoreOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-func (o EventDataStoreOutput) Tags() EventDataStoreTagArrayOutput {
-	return o.ApplyT(func(v *EventDataStore) EventDataStoreTagArrayOutput { return v.Tags }).(EventDataStoreTagArrayOutput)
+func (o EventDataStoreOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EventDataStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Indicates whether the event data store is protected from termination.

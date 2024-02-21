@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -52,7 +53,7 @@ type Queue struct {
 	// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
 	SqsManagedSseEnabled pulumi.BoolPtrOutput `pulumi:"sqsManagedSseEnabled"`
 	// The tags that you attach to this queue.
-	Tags QueueTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
 	VisibilityTimeout pulumi.IntPtrOutput `pulumi:"visibilityTimeout"`
 }
@@ -135,7 +136,7 @@ type queueArgs struct {
 	// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
 	SqsManagedSseEnabled *bool `pulumi:"sqsManagedSseEnabled"`
 	// The tags that you attach to this queue.
-	Tags []QueueTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
 	VisibilityTimeout *int `pulumi:"visibilityTimeout"`
 }
@@ -175,7 +176,7 @@ type QueueArgs struct {
 	// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
 	SqsManagedSseEnabled pulumi.BoolPtrInput
 	// The tags that you attach to this queue.
-	Tags QueueTagArrayInput
+	Tags aws.TagArrayInput
 	// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
 	VisibilityTimeout pulumi.IntPtrInput
 }
@@ -302,8 +303,8 @@ func (o QueueOutput) SqsManagedSseEnabled() pulumi.BoolPtrOutput {
 }
 
 // The tags that you attach to this queue.
-func (o QueueOutput) Tags() QueueTagArrayOutput {
-	return o.ApplyT(func(v *Queue) QueueTagArrayOutput { return v.Tags }).(QueueTagArrayOutput)
+func (o QueueOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Queue) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.

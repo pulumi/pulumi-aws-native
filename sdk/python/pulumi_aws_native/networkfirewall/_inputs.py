@@ -21,10 +21,8 @@ __all__ = [
     'FirewallPolicyStatefulRuleGroupOverrideArgs',
     'FirewallPolicyStatefulRuleGroupReferenceArgs',
     'FirewallPolicyStatelessRuleGroupReferenceArgs',
-    'FirewallPolicyTagArgs',
     'FirewallPolicyArgs',
     'FirewallSubnetMappingArgs',
-    'FirewallTagArgs',
     'LoggingConfigurationLogDestinationConfigArgs',
     'LoggingConfigurationArgs',
     'RuleGroupActionDefinitionArgs',
@@ -48,7 +46,6 @@ __all__ = [
     'RuleGroupStatefulRuleArgs',
     'RuleGroupStatelessRulesAndCustomActionsArgs',
     'RuleGroupStatelessRuleArgs',
-    'RuleGroupTagArgs',
     'RuleGroupTcpFlagFieldArgs',
     'RuleGroupArgs',
     'TlsInspectionConfigurationAddressArgs',
@@ -57,7 +54,6 @@ __all__ = [
     'TlsInspectionConfigurationServerCertificateConfigurationArgs',
     'TlsInspectionConfigurationServerCertificateScopeArgs',
     'TlsInspectionConfigurationServerCertificateArgs',
-    'TlsInspectionConfigurationTagArgs',
     'TlsInspectionConfigurationTlsInspectionConfigurationArgs',
 ]
 
@@ -274,33 +270,6 @@ class FirewallPolicyStatelessRuleGroupReferenceArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class FirewallPolicyArgs:
     def __init__(__self__, *,
                  stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -447,33 +416,6 @@ class FirewallSubnetMappingArgs:
     @ip_address_type.setter
     def ip_address_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_address_type", value)
-
-
-@pulumi.input_type
-class FirewallTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1157,33 +1099,6 @@ class RuleGroupStatelessRuleArgs:
 
 
 @pulumi.input_type
-class RuleGroupTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class RuleGroupTcpFlagFieldArgs:
     def __init__(__self__, *,
                  flags: pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]],
@@ -1468,33 +1383,6 @@ class TlsInspectionConfigurationServerCertificateArgs:
     @resource_arn.setter
     def resource_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_arn", value)
-
-
-@pulumi.input_type
-class TlsInspectionConfigurationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

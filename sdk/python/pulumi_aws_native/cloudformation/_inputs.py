@@ -19,8 +19,6 @@ __all__ = [
     'StackSetOperationPreferencesArgs',
     'StackSetParameterArgs',
     'StackSetStackInstancesArgs',
-    'StackSetTagArgs',
-    'StackTagArgs',
     'TypeActivationLoggingConfigArgs',
 ]
 
@@ -398,71 +396,6 @@ class StackSetStackInstancesArgs:
     @parameter_overrides.setter
     def parameter_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]]):
         pulumi.set(self, "parameter_overrides", value)
-
-
-@pulumi.input_type
-class StackSetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
-        :param pulumi.Input[str] key: A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
-        :param pulumi.Input[str] value: A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class StackTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

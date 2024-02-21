@@ -31,7 +31,7 @@ export interface GetReplicationTaskResult {
     readonly replicationTaskIdentifier?: string;
     readonly replicationTaskSettings?: string;
     readonly tableMappings?: string;
-    readonly tags?: outputs.dms.ReplicationTaskTag[];
+    readonly tags?: outputs.Tag[];
     readonly taskData?: string;
 }
 /**

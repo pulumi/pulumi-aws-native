@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public readonly string? Id;
         public readonly ImmutableArray<Outputs.DatasetLateDataRule> LateDataRules;
         public readonly Outputs.DatasetRetentionPeriod? RetentionPeriod;
-        public readonly ImmutableArray<Outputs.DatasetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<Outputs.DatasetTrigger> Triggers;
         public readonly Outputs.DatasetVersioningConfiguration? VersioningConfiguration;
 
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
             Outputs.DatasetRetentionPeriod? retentionPeriod,
 
-            ImmutableArray<Outputs.DatasetTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.DatasetTrigger> triggers,
 

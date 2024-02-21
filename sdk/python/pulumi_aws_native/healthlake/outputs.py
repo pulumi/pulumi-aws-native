@@ -17,7 +17,6 @@ __all__ = [
     'FhirDatastoreKmsEncryptionConfig',
     'FhirDatastorePreloadDataConfig',
     'FhirDatastoreSseConfiguration',
-    'FhirDatastoreTag',
 ]
 
 @pulumi.output_type
@@ -257,38 +256,5 @@ class FhirDatastoreSseConfiguration(dict):
     @pulumi.getter(name="kmsEncryptionConfig")
     def kms_encryption_config(self) -> 'outputs.FhirDatastoreKmsEncryptionConfig':
         return pulumi.get(self, "kms_encryption_config")
-
-
-@pulumi.output_type
-class FhirDatastoreTag(dict):
-    """
-    A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
-        :param str key: The key of the tag.
-        :param str value: The value of the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value of the tag.
-        """
-        return pulumi.get(self, "value")
 
 

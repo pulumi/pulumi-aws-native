@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.SecretsManager
         /// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SecretTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,14 +149,14 @@ namespace Pulumi.AwsNative.SecretsManager
         public Input<string>? SecretString { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.SecretTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         /// </summary>
-        public InputList<Inputs.SecretTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SecretTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

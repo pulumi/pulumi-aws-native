@@ -76,7 +76,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.ivs.ChannelTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
      */
@@ -153,7 +153,7 @@ export interface ChannelArgs {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ivs.ChannelTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
      */

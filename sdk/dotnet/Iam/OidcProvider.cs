@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Iam
         public Output<ImmutableArray<string>> ClientIdList { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.OidcProviderTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("thumbprintList")]
         public Output<ImmutableArray<string>> ThumbprintList { get; private set; } = null!;
@@ -91,10 +91,10 @@ namespace Pulumi.AwsNative.Iam
         }
 
         [Input("tags")]
-        private InputList<Inputs.OidcProviderTagArgs>? _tags;
-        public InputList<Inputs.OidcProviderTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.OidcProviderTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

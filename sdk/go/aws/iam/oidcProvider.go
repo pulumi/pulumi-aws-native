@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,11 +18,11 @@ type OidcProvider struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the OIDC provider
-	Arn            pulumi.StringOutput        `pulumi:"arn"`
-	ClientIdList   pulumi.StringArrayOutput   `pulumi:"clientIdList"`
-	Tags           OidcProviderTagArrayOutput `pulumi:"tags"`
-	ThumbprintList pulumi.StringArrayOutput   `pulumi:"thumbprintList"`
-	Url            pulumi.StringPtrOutput     `pulumi:"url"`
+	Arn            pulumi.StringOutput      `pulumi:"arn"`
+	ClientIdList   pulumi.StringArrayOutput `pulumi:"clientIdList"`
+	Tags           aws.TagArrayOutput       `pulumi:"tags"`
+	ThumbprintList pulumi.StringArrayOutput `pulumi:"thumbprintList"`
+	Url            pulumi.StringPtrOutput   `pulumi:"url"`
 }
 
 // NewOidcProvider registers a new resource with the given unique name, arguments, and options.
@@ -71,16 +72,16 @@ func (OidcProviderState) ElementType() reflect.Type {
 }
 
 type oidcProviderArgs struct {
-	ClientIdList   []string          `pulumi:"clientIdList"`
-	Tags           []OidcProviderTag `pulumi:"tags"`
-	ThumbprintList []string          `pulumi:"thumbprintList"`
-	Url            *string           `pulumi:"url"`
+	ClientIdList   []string  `pulumi:"clientIdList"`
+	Tags           []aws.Tag `pulumi:"tags"`
+	ThumbprintList []string  `pulumi:"thumbprintList"`
+	Url            *string   `pulumi:"url"`
 }
 
 // The set of arguments for constructing a OidcProvider resource.
 type OidcProviderArgs struct {
 	ClientIdList   pulumi.StringArrayInput
-	Tags           OidcProviderTagArrayInput
+	Tags           aws.TagArrayInput
 	ThumbprintList pulumi.StringArrayInput
 	Url            pulumi.StringPtrInput
 }
@@ -131,8 +132,8 @@ func (o OidcProviderOutput) ClientIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OidcProvider) pulumi.StringArrayOutput { return v.ClientIdList }).(pulumi.StringArrayOutput)
 }
 
-func (o OidcProviderOutput) Tags() OidcProviderTagArrayOutput {
-	return o.ApplyT(func(v *OidcProvider) OidcProviderTagArrayOutput { return v.Tags }).(OidcProviderTagArrayOutput)
+func (o OidcProviderOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *OidcProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o OidcProviderOutput) ThumbprintList() pulumi.StringArrayOutput {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupSigningProfileResult struct {
 	// The Amazon Resource Name (ARN) of the specified signing profile version.
 	ProfileVersionArn *string `pulumi:"profileVersionArn"`
 	// A list of tags associated with the signing profile.
-	Tags []SigningProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSigningProfileResultOutput {
@@ -97,8 +98,8 @@ func (o LookupSigningProfileResultOutput) ProfileVersionArn() pulumi.StringPtrOu
 }
 
 // A list of tags associated with the signing profile.
-func (o LookupSigningProfileResultOutput) Tags() SigningProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupSigningProfileResult) []SigningProfileTag { return v.Tags }).(SigningProfileTagArrayOutput)
+func (o LookupSigningProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

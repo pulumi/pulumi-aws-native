@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type ResourceSet struct {
 	// A list of resource objects in the resource set.
 	Resources ResourceSetResourceArrayOutput `pulumi:"resources"`
 	// A tag to associate with the parameters for a resource set.
-	Tags ResourceSetTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewResourceSet registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type resourceSetArgs struct {
 	// A list of resource objects in the resource set.
 	Resources []ResourceSetResource `pulumi:"resources"`
 	// A tag to associate with the parameters for a resource set.
-	Tags []ResourceSetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceSet resource.
@@ -104,7 +105,7 @@ type ResourceSetArgs struct {
 	// A list of resource objects in the resource set.
 	Resources ResourceSetResourceArrayInput
 	// A tag to associate with the parameters for a resource set.
-	Tags ResourceSetTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ResourceSetArgs) ElementType() reflect.Type {
@@ -167,8 +168,8 @@ func (o ResourceSetOutput) Resources() ResourceSetResourceArrayOutput {
 }
 
 // A tag to associate with the parameters for a resource set.
-func (o ResourceSetOutput) Tags() ResourceSetTagArrayOutput {
-	return o.ApplyT(func(v *ResourceSet) ResourceSetTagArrayOutput { return v.Tags }).(ResourceSetTagArrayOutput)
+func (o ResourceSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ResourceSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

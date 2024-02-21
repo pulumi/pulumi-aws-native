@@ -44,7 +44,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
     public readonly gatewayLoadBalancerEndpointId!: pulumi.Output<string | undefined>;
     public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
     public readonly networkLoadBalancerArn!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ec2.TrafficMirrorTargetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a TrafficMirrorTarget resource with the given unique name, arguments, and options.
@@ -86,5 +86,5 @@ export interface TrafficMirrorTargetArgs {
     gatewayLoadBalancerEndpointId?: pulumi.Input<string>;
     networkInterfaceId?: pulumi.Input<string>;
     networkLoadBalancerArn?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TrafficMirrorTargetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

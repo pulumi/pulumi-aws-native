@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DbProxyTagFormat> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// VPC ID to associate with the new DB proxy.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Rds
 
             string? roleArn,
 
-            ImmutableArray<Outputs.DbProxyTagFormat> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? vpcId,
 

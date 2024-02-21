@@ -64,13 +64,13 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags of the instance connect endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InstanceConnectEndpointTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetInstanceConnectEndpointResult(
             string? id,
 
-            ImmutableArray<Outputs.InstanceConnectEndpointTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Tags = tags;

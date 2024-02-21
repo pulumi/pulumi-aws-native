@@ -33,7 +33,7 @@ export interface GetIdentityResult {
     readonly identityDnsRecordValue2?: string;
     readonly identityDnsRecordValue3?: string;
     readonly mailFromAttributes?: outputs.pinpointemail.IdentityMailFromAttributes;
-    readonly tags?: outputs.pinpointemail.IdentityTags[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::PinpointEmail::Identity

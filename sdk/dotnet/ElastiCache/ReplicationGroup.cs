@@ -152,7 +152,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public Output<string?> SnapshottingClusterId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ReplicationGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("transitEncryptionEnabled")]
         public Output<bool?> TransitEncryptionEnabled { get; private set; } = null!;
@@ -400,10 +400,10 @@ namespace Pulumi.AwsNative.ElastiCache
         public Input<string>? SnapshottingClusterId { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ReplicationGroupTagArgs>? _tags;
-        public InputList<Inputs.ReplicationGroupTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ReplicationGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

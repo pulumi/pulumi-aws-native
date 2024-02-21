@@ -48,7 +48,7 @@ export class Repository extends pulumi.CustomResource {
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly repositoryDescription!: pulumi.Output<string | undefined>;
     public readonly repositoryName!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.codecommit.RepositoryTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly triggers!: pulumi.Output<outputs.codecommit.RepositoryTrigger[] | undefined>;
 
     /**
@@ -99,6 +99,6 @@ export interface RepositoryArgs {
     kmsKeyId?: pulumi.Input<string>;
     repositoryDescription?: pulumi.Input<string>;
     repositoryName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.codecommit.RepositoryTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     triggers?: pulumi.Input<pulumi.Input<inputs.codecommit.RepositoryTriggerArgs>[]>;
 }

@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.ControlTower
         /// </summary>
         public readonly object? Manifest;
         public readonly Pulumi.AwsNative.ControlTower.LandingZoneStatus? Status;
-        public readonly ImmutableArray<Outputs.LandingZoneTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? Version;
 
         [OutputConstructor]
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.ControlTower
 
             Pulumi.AwsNative.ControlTower.LandingZoneStatus? status,
 
-            ImmutableArray<Outputs.LandingZoneTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? version)
         {

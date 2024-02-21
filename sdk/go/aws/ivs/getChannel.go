@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,7 +48,7 @@ type LookupChannelResult struct {
 	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 	RecordingConfigurationArn *string `pulumi:"recordingConfigurationArn"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags []ChannelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
 	Type *ChannelType `pulumi:"type"`
 }
@@ -134,8 +135,8 @@ func (o LookupChannelResultOutput) RecordingConfigurationArn() pulumi.StringPtrO
 }
 
 // A list of key-value pairs that contain metadata for the asset model.
-func (o LookupChannelResultOutput) Tags() ChannelTagArrayOutput {
-	return o.ApplyT(func(v LookupChannelResult) []ChannelTag { return v.Tags }).(ChannelTagArrayOutput)
+func (o LookupChannelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.

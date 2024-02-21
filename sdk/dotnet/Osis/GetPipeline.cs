@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Osis
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PipelineTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The VPC interface endpoints that have access to the pipeline.
         /// </summary>
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.Osis
 
             string? pipelineConfigurationBody,
 
-            ImmutableArray<Outputs.PipelineTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.PipelineVpcEndpoint> vpcEndpoints)
         {

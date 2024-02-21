@@ -66,7 +66,7 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
      */
-    public readonly tags!: pulumi.Output<outputs.apigateway.ApiKeyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies a value of the API key.
      */
@@ -142,7 +142,7 @@ export interface ApiKeyArgs {
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.apigateway.ApiKeyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Specifies a value of the API key.
      */

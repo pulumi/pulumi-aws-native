@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly bool? SourceDestCheck;
         public readonly ImmutableArray<Outputs.InstanceSsmAssociation> SsmAssociations;
-        public readonly ImmutableArray<Outputs.InstanceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? Tenancy;
         public readonly string? UserData;
         public readonly ImmutableArray<Outputs.InstanceVolume> Volumes;
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<Outputs.InstanceSsmAssociation> ssmAssociations,
 
-            ImmutableArray<Outputs.InstanceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? tenancy,
 

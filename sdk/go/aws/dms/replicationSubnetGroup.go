@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,10 +19,10 @@ import (
 type ReplicationSubnetGroup struct {
 	pulumi.CustomResourceState
 
-	ReplicationSubnetGroupDescription pulumi.StringOutput                  `pulumi:"replicationSubnetGroupDescription"`
-	ReplicationSubnetGroupIdentifier  pulumi.StringPtrOutput               `pulumi:"replicationSubnetGroupIdentifier"`
-	SubnetIds                         pulumi.StringArrayOutput             `pulumi:"subnetIds"`
-	Tags                              ReplicationSubnetGroupTagArrayOutput `pulumi:"tags"`
+	ReplicationSubnetGroupDescription pulumi.StringOutput      `pulumi:"replicationSubnetGroupDescription"`
+	ReplicationSubnetGroupIdentifier  pulumi.StringPtrOutput   `pulumi:"replicationSubnetGroupIdentifier"`
+	SubnetIds                         pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	Tags                              aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewReplicationSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -74,10 +75,10 @@ func (ReplicationSubnetGroupState) ElementType() reflect.Type {
 }
 
 type replicationSubnetGroupArgs struct {
-	ReplicationSubnetGroupDescription string                      `pulumi:"replicationSubnetGroupDescription"`
-	ReplicationSubnetGroupIdentifier  *string                     `pulumi:"replicationSubnetGroupIdentifier"`
-	SubnetIds                         []string                    `pulumi:"subnetIds"`
-	Tags                              []ReplicationSubnetGroupTag `pulumi:"tags"`
+	ReplicationSubnetGroupDescription string    `pulumi:"replicationSubnetGroupDescription"`
+	ReplicationSubnetGroupIdentifier  *string   `pulumi:"replicationSubnetGroupIdentifier"`
+	SubnetIds                         []string  `pulumi:"subnetIds"`
+	Tags                              []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReplicationSubnetGroup resource.
@@ -85,7 +86,7 @@ type ReplicationSubnetGroupArgs struct {
 	ReplicationSubnetGroupDescription pulumi.StringInput
 	ReplicationSubnetGroupIdentifier  pulumi.StringPtrInput
 	SubnetIds                         pulumi.StringArrayInput
-	Tags                              ReplicationSubnetGroupTagArrayInput
+	Tags                              aws.TagArrayInput
 }
 
 func (ReplicationSubnetGroupArgs) ElementType() reflect.Type {
@@ -137,8 +138,8 @@ func (o ReplicationSubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o ReplicationSubnetGroupOutput) Tags() ReplicationSubnetGroupTagArrayOutput {
-	return o.ApplyT(func(v *ReplicationSubnetGroup) ReplicationSubnetGroupTagArrayOutput { return v.Tags }).(ReplicationSubnetGroupTagArrayOutput)
+func (o ReplicationSubnetGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ReplicationSubnetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

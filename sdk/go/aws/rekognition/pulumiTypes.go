@@ -21,107 +21,6 @@ type CollectionTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CollectionTagInput is an input type that accepts CollectionTagArgs and CollectionTagOutput values.
-// You can construct a concrete instance of `CollectionTagInput` via:
-//
-//	CollectionTagArgs{...}
-type CollectionTagInput interface {
-	pulumi.Input
-
-	ToCollectionTagOutput() CollectionTagOutput
-	ToCollectionTagOutputWithContext(context.Context) CollectionTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type CollectionTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CollectionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CollectionTag)(nil)).Elem()
-}
-
-func (i CollectionTagArgs) ToCollectionTagOutput() CollectionTagOutput {
-	return i.ToCollectionTagOutputWithContext(context.Background())
-}
-
-func (i CollectionTagArgs) ToCollectionTagOutputWithContext(ctx context.Context) CollectionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CollectionTagOutput)
-}
-
-// CollectionTagArrayInput is an input type that accepts CollectionTagArray and CollectionTagArrayOutput values.
-// You can construct a concrete instance of `CollectionTagArrayInput` via:
-//
-//	CollectionTagArray{ CollectionTagArgs{...} }
-type CollectionTagArrayInput interface {
-	pulumi.Input
-
-	ToCollectionTagArrayOutput() CollectionTagArrayOutput
-	ToCollectionTagArrayOutputWithContext(context.Context) CollectionTagArrayOutput
-}
-
-type CollectionTagArray []CollectionTagInput
-
-func (CollectionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CollectionTag)(nil)).Elem()
-}
-
-func (i CollectionTagArray) ToCollectionTagArrayOutput() CollectionTagArrayOutput {
-	return i.ToCollectionTagArrayOutputWithContext(context.Background())
-}
-
-func (i CollectionTagArray) ToCollectionTagArrayOutputWithContext(ctx context.Context) CollectionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CollectionTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type CollectionTagOutput struct{ *pulumi.OutputState }
-
-func (CollectionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CollectionTag)(nil)).Elem()
-}
-
-func (o CollectionTagOutput) ToCollectionTagOutput() CollectionTagOutput {
-	return o
-}
-
-func (o CollectionTagOutput) ToCollectionTagOutputWithContext(ctx context.Context) CollectionTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CollectionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CollectionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CollectionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CollectionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CollectionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CollectionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CollectionTag)(nil)).Elem()
-}
-
-func (o CollectionTagArrayOutput) ToCollectionTagArrayOutput() CollectionTagArrayOutput {
-	return o
-}
-
-func (o CollectionTagArrayOutput) ToCollectionTagArrayOutputWithContext(ctx context.Context) CollectionTagArrayOutput {
-	return o
-}
-
-func (o CollectionTagArrayOutput) Index(i pulumi.IntInput) CollectionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CollectionTag {
-		return vs[0].([]CollectionTag)[vs[1].(int)]
-	}).(CollectionTagOutput)
-}
-
 // A bounding box denoting a region of interest in the frame to be analyzed.
 type StreamProcessorBoundingBox struct {
 	Height float64 `pulumi:"height"`
@@ -1302,107 +1201,6 @@ type StreamProcessorTag struct {
 	Value string `pulumi:"value"`
 }
 
-// StreamProcessorTagInput is an input type that accepts StreamProcessorTagArgs and StreamProcessorTagOutput values.
-// You can construct a concrete instance of `StreamProcessorTagInput` via:
-//
-//	StreamProcessorTagArgs{...}
-type StreamProcessorTagInput interface {
-	pulumi.Input
-
-	ToStreamProcessorTagOutput() StreamProcessorTagOutput
-	ToStreamProcessorTagOutputWithContext(context.Context) StreamProcessorTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type StreamProcessorTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StreamProcessorTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamProcessorTag)(nil)).Elem()
-}
-
-func (i StreamProcessorTagArgs) ToStreamProcessorTagOutput() StreamProcessorTagOutput {
-	return i.ToStreamProcessorTagOutputWithContext(context.Background())
-}
-
-func (i StreamProcessorTagArgs) ToStreamProcessorTagOutputWithContext(ctx context.Context) StreamProcessorTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorTagOutput)
-}
-
-// StreamProcessorTagArrayInput is an input type that accepts StreamProcessorTagArray and StreamProcessorTagArrayOutput values.
-// You can construct a concrete instance of `StreamProcessorTagArrayInput` via:
-//
-//	StreamProcessorTagArray{ StreamProcessorTagArgs{...} }
-type StreamProcessorTagArrayInput interface {
-	pulumi.Input
-
-	ToStreamProcessorTagArrayOutput() StreamProcessorTagArrayOutput
-	ToStreamProcessorTagArrayOutputWithContext(context.Context) StreamProcessorTagArrayOutput
-}
-
-type StreamProcessorTagArray []StreamProcessorTagInput
-
-func (StreamProcessorTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamProcessorTag)(nil)).Elem()
-}
-
-func (i StreamProcessorTagArray) ToStreamProcessorTagArrayOutput() StreamProcessorTagArrayOutput {
-	return i.ToStreamProcessorTagArrayOutputWithContext(context.Background())
-}
-
-func (i StreamProcessorTagArray) ToStreamProcessorTagArrayOutputWithContext(ctx context.Context) StreamProcessorTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type StreamProcessorTagOutput struct{ *pulumi.OutputState }
-
-func (StreamProcessorTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamProcessorTag)(nil)).Elem()
-}
-
-func (o StreamProcessorTagOutput) ToStreamProcessorTagOutput() StreamProcessorTagOutput {
-	return o
-}
-
-func (o StreamProcessorTagOutput) ToStreamProcessorTagOutputWithContext(ctx context.Context) StreamProcessorTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o StreamProcessorTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamProcessorTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o StreamProcessorTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamProcessorTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StreamProcessorTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StreamProcessorTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamProcessorTag)(nil)).Elem()
-}
-
-func (o StreamProcessorTagArrayOutput) ToStreamProcessorTagArrayOutput() StreamProcessorTagArrayOutput {
-	return o
-}
-
-func (o StreamProcessorTagArrayOutput) ToStreamProcessorTagArrayOutputWithContext(ctx context.Context) StreamProcessorTagArrayOutput {
-	return o
-}
-
-func (o StreamProcessorTagArrayOutput) Index(i pulumi.IntInput) StreamProcessorTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamProcessorTag {
-		return vs[0].([]StreamProcessorTag)[vs[1].(int)]
-	}).(StreamProcessorTagOutput)
-}
-
 type StreamProcessorPointArrayArray []StreamProcessorPointArrayInput
 
 func (StreamProcessorPointArrayArray) ElementType() reflect.Type {
@@ -1449,8 +1247,6 @@ func (o StreamProcessorPointArrayArrayOutput) Index(i pulumi.IntInput) StreamPro
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTagInput)(nil)).Elem(), CollectionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTagArrayInput)(nil)).Elem(), CollectionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorBoundingBoxInput)(nil)).Elem(), StreamProcessorBoundingBoxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorBoundingBoxArrayInput)(nil)).Elem(), StreamProcessorBoundingBoxArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorConnectedHomeSettingsInput)(nil)).Elem(), StreamProcessorConnectedHomeSettingsArgs{})
@@ -1468,11 +1264,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorPointArrayInput)(nil)).Elem(), StreamProcessorPointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorS3DestinationInput)(nil)).Elem(), StreamProcessorS3DestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorS3DestinationPtrInput)(nil)).Elem(), StreamProcessorS3DestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorTagInput)(nil)).Elem(), StreamProcessorTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorTagArrayInput)(nil)).Elem(), StreamProcessorTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamProcessorPointArrayArrayInput)(nil)).Elem(), StreamProcessorPointArrayArray{})
-	pulumi.RegisterOutputType(CollectionTagOutput{})
-	pulumi.RegisterOutputType(CollectionTagArrayOutput{})
 	pulumi.RegisterOutputType(StreamProcessorBoundingBoxOutput{})
 	pulumi.RegisterOutputType(StreamProcessorBoundingBoxArrayOutput{})
 	pulumi.RegisterOutputType(StreamProcessorConnectedHomeSettingsOutput{})
@@ -1490,7 +1282,5 @@ func init() {
 	pulumi.RegisterOutputType(StreamProcessorPointArrayOutput{})
 	pulumi.RegisterOutputType(StreamProcessorS3DestinationOutput{})
 	pulumi.RegisterOutputType(StreamProcessorS3DestinationPtrOutput{})
-	pulumi.RegisterOutputType(StreamProcessorTagOutput{})
-	pulumi.RegisterOutputType(StreamProcessorTagArrayOutput{})
 	pulumi.RegisterOutputType(StreamProcessorPointArrayArrayOutput{})
 }

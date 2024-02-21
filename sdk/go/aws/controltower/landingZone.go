@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,10 +22,10 @@ type LandingZone struct {
 	LandingZoneIdentifier  pulumi.StringOutput          `pulumi:"landingZoneIdentifier"`
 	LatestAvailableVersion pulumi.StringOutput          `pulumi:"latestAvailableVersion"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
-	Manifest pulumi.AnyOutput          `pulumi:"manifest"`
-	Status   LandingZoneStatusOutput   `pulumi:"status"`
-	Tags     LandingZoneTagArrayOutput `pulumi:"tags"`
-	Version  pulumi.StringOutput       `pulumi:"version"`
+	Manifest pulumi.AnyOutput        `pulumi:"manifest"`
+	Status   LandingZoneStatusOutput `pulumi:"status"`
+	Tags     aws.TagArrayOutput      `pulumi:"tags"`
+	Version  pulumi.StringOutput     `pulumi:"version"`
 }
 
 // NewLandingZone registers a new resource with the given unique name, arguments, and options.
@@ -74,16 +75,16 @@ func (LandingZoneState) ElementType() reflect.Type {
 
 type landingZoneArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
-	Manifest interface{}      `pulumi:"manifest"`
-	Tags     []LandingZoneTag `pulumi:"tags"`
-	Version  string           `pulumi:"version"`
+	Manifest interface{} `pulumi:"manifest"`
+	Tags     []aws.Tag   `pulumi:"tags"`
+	Version  string      `pulumi:"version"`
 }
 
 // The set of arguments for constructing a LandingZone resource.
 type LandingZoneArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 	Manifest pulumi.Input
-	Tags     LandingZoneTagArrayInput
+	Tags     aws.TagArrayInput
 	Version  pulumi.StringInput
 }
 
@@ -149,8 +150,8 @@ func (o LandingZoneOutput) Status() LandingZoneStatusOutput {
 	return o.ApplyT(func(v *LandingZone) LandingZoneStatusOutput { return v.Status }).(LandingZoneStatusOutput)
 }
 
-func (o LandingZoneOutput) Tags() LandingZoneTagArrayOutput {
-	return o.ApplyT(func(v *LandingZone) LandingZoneTagArrayOutput { return v.Tags }).(LandingZoneTagArrayOutput)
+func (o LandingZoneOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LandingZone) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LandingZoneOutput) Version() pulumi.StringOutput {

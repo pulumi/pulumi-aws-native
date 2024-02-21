@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.IvsChat
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RoomTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRoomResult(
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.IvsChat
 
             string? name,
 
-            ImmutableArray<Outputs.RoomTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Id = id;

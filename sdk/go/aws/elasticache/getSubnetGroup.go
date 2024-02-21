@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,8 +32,8 @@ type LookupSubnetGroupResult struct {
 	// The description for the cache subnet group.
 	Description *string `pulumi:"description"`
 	// The EC2 subnet IDs for the cache subnet group.
-	SubnetIds []string         `pulumi:"subnetIds"`
-	Tags      []SubnetGroupTag `pulumi:"tags"`
+	SubnetIds []string  `pulumi:"subnetIds"`
+	Tags      []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
@@ -81,8 +82,8 @@ func (o LookupSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupSubnetGroupResultOutput) Tags() SubnetGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) []SubnetGroupTag { return v.Tags }).(SubnetGroupTagArrayOutput)
+func (o LookupSubnetGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly string? LastUpdatedTime;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.DashboardResourcePermission> Permissions;
-        public readonly ImmutableArray<Outputs.DashboardTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.DashboardVersion? Version;
 
         [OutputConstructor]
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.DashboardResourcePermission> permissions,
 
-            ImmutableArray<Outputs.DashboardTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.DashboardVersion? version)
         {

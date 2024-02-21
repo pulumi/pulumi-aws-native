@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public readonly string? RegionalDomainName;
         public readonly string? RegionalHostedZoneId;
         public readonly string? SecurityPolicy;
-        public readonly ImmutableArray<Outputs.DomainNameTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDomainNameResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.ApiGateway
 
             string? securityPolicy,
 
-            ImmutableArray<Outputs.DomainNameTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CertificateArn = certificateArn;
             DistributionDomainName = distributionDomainName;

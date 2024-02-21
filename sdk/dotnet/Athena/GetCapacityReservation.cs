@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CapacityReservationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The number of DPUs to request to be allocated to the reservation.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Athena
 
             Pulumi.AwsNative.Athena.CapacityReservationStatus? status,
 
-            ImmutableArray<Outputs.CapacityReservationTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? targetDpus)
         {

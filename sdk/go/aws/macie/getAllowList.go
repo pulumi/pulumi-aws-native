@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupAllowListResult struct {
 	// AllowList status.
 	Status *AllowListStatus `pulumi:"status"`
 	// A collection of tags associated with a resource
-	Tags []AllowListTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAllowListOutput(ctx *pulumi.Context, args LookupAllowListOutputArgs, opts ...pulumi.InvokeOption) LookupAllowListResultOutput {
@@ -111,8 +112,8 @@ func (o LookupAllowListResultOutput) Status() AllowListStatusPtrOutput {
 }
 
 // A collection of tags associated with a resource
-func (o LookupAllowListResultOutput) Tags() AllowListTagArrayOutput {
-	return o.ApplyT(func(v LookupAllowListResult) []AllowListTag { return v.Tags }).(AllowListTagArrayOutput)
+func (o LookupAllowListResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAllowListResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

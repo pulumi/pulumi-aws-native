@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,14 +28,14 @@ type LookupPartnershipArgs struct {
 }
 
 type LookupPartnershipResult struct {
-	Capabilities     []string         `pulumi:"capabilities"`
-	CreatedAt        *string          `pulumi:"createdAt"`
-	ModifiedAt       *string          `pulumi:"modifiedAt"`
-	Name             *string          `pulumi:"name"`
-	PartnershipArn   *string          `pulumi:"partnershipArn"`
-	PartnershipId    *string          `pulumi:"partnershipId"`
-	Tags             []PartnershipTag `pulumi:"tags"`
-	TradingPartnerId *string          `pulumi:"tradingPartnerId"`
+	Capabilities     []string  `pulumi:"capabilities"`
+	CreatedAt        *string   `pulumi:"createdAt"`
+	ModifiedAt       *string   `pulumi:"modifiedAt"`
+	Name             *string   `pulumi:"name"`
+	PartnershipArn   *string   `pulumi:"partnershipArn"`
+	PartnershipId    *string   `pulumi:"partnershipId"`
+	Tags             []aws.Tag `pulumi:"tags"`
+	TradingPartnerId *string   `pulumi:"tradingPartnerId"`
 }
 
 func LookupPartnershipOutput(ctx *pulumi.Context, args LookupPartnershipOutputArgs, opts ...pulumi.InvokeOption) LookupPartnershipResultOutput {
@@ -96,8 +97,8 @@ func (o LookupPartnershipResultOutput) PartnershipId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) *string { return v.PartnershipId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPartnershipResultOutput) Tags() PartnershipTagArrayOutput {
-	return o.ApplyT(func(v LookupPartnershipResult) []PartnershipTag { return v.Tags }).(PartnershipTagArrayOutput)
+func (o LookupPartnershipResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPartnershipResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupPartnershipResultOutput) TradingPartnerId() pulumi.StringPtrOutput {

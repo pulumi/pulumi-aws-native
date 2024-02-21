@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// <summary>
         /// The tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TargetGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ARN of the Target Group
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             Outputs.TargetGroupMatcher? matcher,
 
-            ImmutableArray<Outputs.TargetGroupTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? targetGroupArn,
 

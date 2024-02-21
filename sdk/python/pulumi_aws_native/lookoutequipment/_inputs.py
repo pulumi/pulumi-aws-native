@@ -16,7 +16,6 @@ __all__ = [
     'InferenceSchedulerInputNameConfigurationArgs',
     'InferenceSchedulerS3InputConfigurationArgs',
     'InferenceSchedulerS3OutputConfigurationArgs',
-    'InferenceSchedulerTagArgs',
 ]
 
 @pulumi.input_type
@@ -201,43 +200,5 @@ class InferenceSchedulerS3OutputConfigurationArgs:
     @prefix.setter
     def prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prefix", value)
-
-
-@pulumi.input_type
-class InferenceSchedulerTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A tag is a key-value pair that can be added to a resource as metadata.
-        :param pulumi.Input[str] key: The key for the specified tag.
-        :param pulumi.Input[str] value: The value for the specified tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for the specified tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the specified tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

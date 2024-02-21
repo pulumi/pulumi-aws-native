@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['ChannelArgs', 'Channel']
 
@@ -23,7 +23,7 @@ class ChannelArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  type: Optional[pulumi.Input['ChannelType']] = None):
         """
         The set of arguments for constructing a Channel resource.
@@ -33,7 +33,7 @@ class ChannelArgs:
         :param pulumi.Input[str] name: Channel
         :param pulumi.Input['ChannelPreset'] preset: Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """
         if authorized is not None:
@@ -127,14 +127,14 @@ class ChannelArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the asset model.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -161,7 +161,7 @@ class Channel(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['ChannelType']] = None,
                  __props__=None):
         """
@@ -175,7 +175,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] name: Channel
         :param pulumi.Input['ChannelPreset'] preset: Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """
         ...
@@ -208,7 +208,7 @@ class Channel(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['ChannelType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -339,7 +339,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ChannelTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the asset model.
         """

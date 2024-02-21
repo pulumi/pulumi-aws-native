@@ -31,7 +31,7 @@ export interface GetGroupResult {
      */
     readonly id?: string;
     readonly resourceArns?: string[];
-    readonly tags?: outputs.synthetics.GroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Synthetics::Group

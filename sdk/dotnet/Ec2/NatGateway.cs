@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags for the NAT gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.NatGatewayTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -192,14 +192,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string> SubnetId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.NatGatewayTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the NAT gateway.
         /// </summary>
-        public InputList<Inputs.NatGatewayTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.NatGatewayTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

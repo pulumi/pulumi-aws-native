@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// The tags to assign to the trust store.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TrustStoreTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the trust store.
@@ -137,14 +137,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TrustStoreTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags to assign to the trust store.
         /// </summary>
-        public InputList<Inputs.TrustStoreTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TrustStoreTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

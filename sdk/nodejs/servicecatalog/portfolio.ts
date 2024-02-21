@@ -45,7 +45,7 @@ export class Portfolio extends pulumi.CustomResource {
     public readonly displayName!: pulumi.Output<string>;
     public /*out*/ readonly portfolioName!: pulumi.Output<string>;
     public readonly providerName!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.servicecatalog.PortfolioTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Portfolio resource with the given unique name, arguments, and options.
@@ -93,5 +93,5 @@ export interface PortfolioArgs {
     description?: pulumi.Input<string>;
     displayName: pulumi.Input<string>;
     providerName: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.servicecatalog.PortfolioTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

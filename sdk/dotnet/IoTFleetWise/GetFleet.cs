@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public readonly string? CreationTime;
         public readonly string? Description;
         public readonly string? LastModificationTime;
-        public readonly ImmutableArray<Outputs.FleetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFleetResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
 
             string? lastModificationTime,
 
-            ImmutableArray<Outputs.FleetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationTime = creationTime;

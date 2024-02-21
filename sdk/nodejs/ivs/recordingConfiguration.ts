@@ -58,7 +58,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.ivs.RecordingConfigurationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly thumbnailConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration | undefined>;
 
     /**
@@ -117,6 +117,6 @@ export interface RecordingConfigurationArgs {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ivs.RecordingConfigurationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     thumbnailConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationThumbnailConfigurationArgs>;
 }

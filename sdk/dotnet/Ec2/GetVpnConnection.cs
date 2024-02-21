@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// Any tags assigned to the VPN connection.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnConnectionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Ec2
 
         [OutputConstructor]
         private GetVpnConnectionResult(
-            ImmutableArray<Outputs.VpnConnectionTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? vpnConnectionId)
         {

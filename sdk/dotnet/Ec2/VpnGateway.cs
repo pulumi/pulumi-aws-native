@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Ec2
         /// Any tags assigned to the virtual private gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VpnGatewayTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of VPN connection the virtual private gateway supports.
@@ -96,14 +96,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<int>? AmazonSideAsn { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.VpnGatewayTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Any tags assigned to the virtual private gateway.
         /// </summary>
-        public InputList<Inputs.VpnGatewayTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VpnGatewayTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

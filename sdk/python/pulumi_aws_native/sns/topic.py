@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,7 @@ class TopicArgs:
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  signature_version: Optional[pulumi.Input[str]] = None,
                  subscription: Optional[pulumi.Input[Sequence[pulumi.Input['TopicSubscriptionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TopicTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  tracing_config: Optional[pulumi.Input[str]] = None):
         """
@@ -212,11 +214,11 @@ class TopicArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -260,7 +262,7 @@ class Topic(pulumi.CustomResource):
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  signature_version: Optional[pulumi.Input[str]] = None,
                  subscription: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicSubscriptionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  tracing_config: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -332,7 +334,7 @@ class Topic(pulumi.CustomResource):
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  signature_version: Optional[pulumi.Input[str]] = None,
                  subscription: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicSubscriptionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  tracing_config: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -486,7 +488,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TopicTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

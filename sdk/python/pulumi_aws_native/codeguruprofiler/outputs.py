@@ -13,7 +13,6 @@ from ._enums import *
 __all__ = [
     'AgentPermissionsProperties',
     'ProfilingGroupChannel',
-    'ProfilingGroupTag',
 ]
 
 @pulumi.output_type
@@ -81,38 +80,5 @@ class ProfilingGroupChannel(dict):
     @pulumi.getter(name="channelId")
     def channel_id(self) -> Optional[str]:
         return pulumi.get(self, "channel_id")
-
-
-@pulumi.output_type
-class ProfilingGroupTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-        """
-        return pulumi.get(self, "value")
 
 

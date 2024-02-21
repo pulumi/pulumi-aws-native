@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupSecurityProfileResult struct {
 	// A description of the security profile.
 	SecurityProfileDescription *string `pulumi:"securityProfileDescription"`
 	// Metadata that can be used to manage the security profile.
-	Tags []SecurityProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A set of target ARNs that the security profile is attached to.
 	TargetArns []string `pulumi:"targetArns"`
 }
@@ -115,8 +116,8 @@ func (o LookupSecurityProfileResultOutput) SecurityProfileDescription() pulumi.S
 }
 
 // Metadata that can be used to manage the security profile.
-func (o LookupSecurityProfileResultOutput) Tags() SecurityProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupSecurityProfileResult) []SecurityProfileTag { return v.Tags }).(SecurityProfileTagArrayOutput)
+func (o LookupSecurityProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A set of target ARNs that the security profile is attached to.

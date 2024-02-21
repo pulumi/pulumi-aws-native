@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type User struct {
 	// One or more security profile arns for the user
 	SecurityProfileArns pulumi.StringArrayOutput `pulumi:"securityProfileArns"`
 	// One or more tags.
-	Tags UserTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) for the user.
 	UserArn pulumi.StringOutput `pulumi:"userArn"`
 	// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
@@ -114,7 +115,7 @@ type userArgs struct {
 	// One or more security profile arns for the user
 	SecurityProfileArns []string `pulumi:"securityProfileArns"`
 	// One or more tags.
-	Tags []UserTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
 	UserProficiencies []UserProficiency `pulumi:"userProficiencies"`
 	// The user name for the account.
@@ -140,7 +141,7 @@ type UserArgs struct {
 	// One or more security profile arns for the user
 	SecurityProfileArns pulumi.StringArrayInput
 	// One or more tags.
-	Tags UserTagArrayInput
+	Tags aws.TagArrayInput
 	// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
 	UserProficiencies UserProficiencyArrayInput
 	// The user name for the account.
@@ -225,8 +226,8 @@ func (o UserOutput) SecurityProfileArns() pulumi.StringArrayOutput {
 }
 
 // One or more tags.
-func (o UserOutput) Tags() UserTagArrayOutput {
-	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
+func (o UserOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *User) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) for the user.

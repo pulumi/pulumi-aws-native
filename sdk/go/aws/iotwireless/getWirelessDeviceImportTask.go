@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -51,7 +52,7 @@ type LookupWirelessDeviceImportTaskResult struct {
 	// StatusReason for import task
 	StatusReason *string `pulumi:"statusReason"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []WirelessDeviceImportTaskTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupWirelessDeviceImportTaskOutput(ctx *pulumi.Context, args LookupWirelessDeviceImportTaskOutputArgs, opts ...pulumi.InvokeOption) LookupWirelessDeviceImportTaskResultOutput {
@@ -146,8 +147,8 @@ func (o LookupWirelessDeviceImportTaskResultOutput) StatusReason() pulumi.String
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupWirelessDeviceImportTaskResultOutput) Tags() WirelessDeviceImportTaskTagArrayOutput {
-	return o.ApplyT(func(v LookupWirelessDeviceImportTaskResult) []WirelessDeviceImportTaskTag { return v.Tags }).(WirelessDeviceImportTaskTagArrayOutput)
+func (o LookupWirelessDeviceImportTaskResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWirelessDeviceImportTaskResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

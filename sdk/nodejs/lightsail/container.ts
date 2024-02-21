@@ -73,7 +73,7 @@ export class Container extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.lightsail.ContainerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The publicly accessible URL of the container service.
      */
@@ -165,5 +165,5 @@ export interface ContainerArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.lightsail.ContainerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

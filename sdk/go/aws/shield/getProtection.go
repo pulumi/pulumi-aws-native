@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LookupProtectionResult struct {
 	// The unique identifier (ID) of the protection.
 	ProtectionId *string `pulumi:"protectionId"`
 	// One or more tag key-value pairs for the Protection object.
-	Tags []ProtectionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProtectionOutput(ctx *pulumi.Context, args LookupProtectionOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionResultOutput {
@@ -97,8 +98,8 @@ func (o LookupProtectionResultOutput) ProtectionId() pulumi.StringPtrOutput {
 }
 
 // One or more tag key-value pairs for the Protection object.
-func (o LookupProtectionResultOutput) Tags() ProtectionTagArrayOutput {
-	return o.ApplyT(func(v LookupProtectionResult) []ProtectionTag { return v.Tags }).(ProtectionTagArrayOutput)
+func (o LookupProtectionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProtectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

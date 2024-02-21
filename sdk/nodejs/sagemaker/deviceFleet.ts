@@ -56,7 +56,7 @@ export class DeviceFleet extends pulumi.CustomResource {
     /**
      * Associate tags with the resource
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.DeviceFleetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DeviceFleet resource with the given unique name, arguments, and options.
@@ -117,5 +117,5 @@ export interface DeviceFleetArgs {
     /**
      * Associate tags with the resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.DeviceFleetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

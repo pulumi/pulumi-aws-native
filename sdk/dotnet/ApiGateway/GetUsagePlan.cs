@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.UsagePlanTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// A map containing method level throttling information for API stage in a usage plan.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.ApiGateway
 
             Outputs.UsagePlanQuotaSettings? quota,
 
-            ImmutableArray<Outputs.UsagePlanTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.UsagePlanThrottleSettings? throttle,
 

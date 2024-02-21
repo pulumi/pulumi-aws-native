@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type FirewallDomainList struct {
 	// FirewallDomainListAssociationStatus
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// Tags
-	Tags FirewallDomainListTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFirewallDomainList registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type firewallDomainListArgs struct {
 	// FirewallDomainListName
 	Name *string `pulumi:"name"`
 	// Tags
-	Tags []FirewallDomainListTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallDomainList resource.
@@ -101,7 +102,7 @@ type FirewallDomainListArgs struct {
 	// FirewallDomainListName
 	Name pulumi.StringPtrInput
 	// Tags
-	Tags FirewallDomainListTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (FirewallDomainListArgs) ElementType() reflect.Type {
@@ -196,8 +197,8 @@ func (o FirewallDomainListOutput) StatusMessage() pulumi.StringOutput {
 }
 
 // Tags
-func (o FirewallDomainListOutput) Tags() FirewallDomainListTagArrayOutput {
-	return o.ApplyT(func(v *FirewallDomainList) FirewallDomainListTagArrayOutput { return v.Tags }).(FirewallDomainListTagArrayOutput)
+func (o FirewallDomainListOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FirewallDomainList) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

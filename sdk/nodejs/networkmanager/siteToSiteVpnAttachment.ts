@@ -88,7 +88,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
     /**
      * Tags for the attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Last update time of the attachment.
      */
@@ -169,7 +169,7 @@ export interface SiteToSiteVpnAttachmentArgs {
     /**
      * Tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ARN of the site-to-site VPN attachment.
      */

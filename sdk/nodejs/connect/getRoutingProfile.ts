@@ -61,7 +61,7 @@ export interface GetRoutingProfileResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.connect.RoutingProfileTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Connect::RoutingProfile

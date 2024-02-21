@@ -51,7 +51,7 @@ export class AppMonitor extends pulumi.CustomResource {
      * A name for the app monitor
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.rum.AppMonitorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AppMonitor resource with the given unique name, arguments, and options.
@@ -106,5 +106,5 @@ export interface AppMonitorArgs {
      * A name for the app monitor
      */
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.rum.AppMonitorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

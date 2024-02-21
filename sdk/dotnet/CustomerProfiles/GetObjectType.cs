@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The tags (keys and values) associated with the integration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ObjectTypeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// A unique identifier for the object template.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             string? sourceLastUpdatedTimestampFormat,
 
-            ImmutableArray<Outputs.ObjectTypeTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? templateId)
         {

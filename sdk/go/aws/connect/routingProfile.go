@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type RoutingProfile struct {
 	// The Amazon Resource Name (ARN) of the routing profile.
 	RoutingProfileArn pulumi.StringOutput `pulumi:"routingProfileArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags RoutingProfileTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRoutingProfile registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +104,7 @@ type routingProfileArgs struct {
 	// The queues to associate with this routing profile.
 	QueueConfigs []RoutingProfileQueueConfig `pulumi:"queueConfigs"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RoutingProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RoutingProfile resource.
@@ -123,7 +124,7 @@ type RoutingProfileArgs struct {
 	// The queues to associate with this routing profile.
 	QueueConfigs RoutingProfileQueueConfigArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags RoutingProfileTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RoutingProfileArgs) ElementType() reflect.Type {
@@ -204,8 +205,8 @@ func (o RoutingProfileOutput) RoutingProfileArn() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o RoutingProfileOutput) Tags() RoutingProfileTagArrayOutput {
-	return o.ApplyT(func(v *RoutingProfile) RoutingProfileTagArrayOutput { return v.Tags }).(RoutingProfileTagArrayOutput)
+func (o RoutingProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RoutingProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

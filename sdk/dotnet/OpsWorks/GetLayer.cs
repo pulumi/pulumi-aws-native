@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public readonly string? Name;
         public readonly ImmutableArray<string> Packages;
         public readonly string? Shortname;
-        public readonly ImmutableArray<Outputs.LayerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly bool? UseEbsOptimizedInstances;
         public readonly ImmutableArray<Outputs.LayerVolumeConfiguration> VolumeConfigurations;
 
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.OpsWorks
 
             string? shortname,
 
-            ImmutableArray<Outputs.LayerTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? useEbsOptimizedInstances,
 

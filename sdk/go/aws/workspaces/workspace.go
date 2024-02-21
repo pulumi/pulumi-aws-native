@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type Workspace struct {
 	BundleId                    pulumi.StringOutput          `pulumi:"bundleId"`
 	DirectoryId                 pulumi.StringOutput          `pulumi:"directoryId"`
 	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput         `pulumi:"rootVolumeEncryptionEnabled"`
-	Tags                        WorkspaceTagArrayOutput      `pulumi:"tags"`
+	Tags                        aws.TagArrayOutput           `pulumi:"tags"`
 	UserName                    pulumi.StringOutput          `pulumi:"userName"`
 	UserVolumeEncryptionEnabled pulumi.BoolPtrOutput         `pulumi:"userVolumeEncryptionEnabled"`
 	VolumeEncryptionKey         pulumi.StringPtrOutput       `pulumi:"volumeEncryptionKey"`
@@ -84,7 +85,7 @@ type workspaceArgs struct {
 	BundleId                    string               `pulumi:"bundleId"`
 	DirectoryId                 string               `pulumi:"directoryId"`
 	RootVolumeEncryptionEnabled *bool                `pulumi:"rootVolumeEncryptionEnabled"`
-	Tags                        []WorkspaceTag       `pulumi:"tags"`
+	Tags                        []aws.Tag            `pulumi:"tags"`
 	UserName                    string               `pulumi:"userName"`
 	UserVolumeEncryptionEnabled *bool                `pulumi:"userVolumeEncryptionEnabled"`
 	VolumeEncryptionKey         *string              `pulumi:"volumeEncryptionKey"`
@@ -96,7 +97,7 @@ type WorkspaceArgs struct {
 	BundleId                    pulumi.StringInput
 	DirectoryId                 pulumi.StringInput
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
-	Tags                        WorkspaceTagArrayInput
+	Tags                        aws.TagArrayInput
 	UserName                    pulumi.StringInput
 	UserVolumeEncryptionEnabled pulumi.BoolPtrInput
 	VolumeEncryptionKey         pulumi.StringPtrInput
@@ -152,8 +153,8 @@ func (o WorkspaceOutput) RootVolumeEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.RootVolumeEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o WorkspaceOutput) Tags() WorkspaceTagArrayOutput {
-	return o.ApplyT(func(v *Workspace) WorkspaceTagArrayOutput { return v.Tags }).(WorkspaceTagArrayOutput)
+func (o WorkspaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Workspace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o WorkspaceOutput) UserName() pulumi.StringOutput {

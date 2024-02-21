@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type CaCertificate struct {
 	RemoveAutoRegistration pulumi.BoolPtrOutput                         `pulumi:"removeAutoRegistration"`
 	Status                 CaCertificateStatusOutput                    `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags CaCertificateTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The private key verification certificate.
 	VerificationCertificatePem pulumi.StringPtrOutput `pulumi:"verificationCertificatePem"`
 }
@@ -88,7 +89,7 @@ type caCertificateArgs struct {
 	RemoveAutoRegistration *bool                                `pulumi:"removeAutoRegistration"`
 	Status                 CaCertificateStatus                  `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []CaCertificateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The private key verification certificate.
 	VerificationCertificatePem *string `pulumi:"verificationCertificatePem"`
 }
@@ -102,7 +103,7 @@ type CaCertificateArgs struct {
 	RemoveAutoRegistration pulumi.BoolPtrInput
 	Status                 CaCertificateStatusInput
 	// An array of key-value pairs to apply to this resource.
-	Tags CaCertificateTagArrayInput
+	Tags aws.TagArrayInput
 	// The private key verification certificate.
 	VerificationCertificatePem pulumi.StringPtrInput
 }
@@ -173,8 +174,8 @@ func (o CaCertificateOutput) Status() CaCertificateStatusOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o CaCertificateOutput) Tags() CaCertificateTagArrayOutput {
-	return o.ApplyT(func(v *CaCertificate) CaCertificateTagArrayOutput { return v.Tags }).(CaCertificateTagArrayOutput)
+func (o CaCertificateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CaCertificate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The private key verification certificate.

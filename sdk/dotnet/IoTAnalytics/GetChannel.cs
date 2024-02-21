@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public readonly Outputs.ChannelStorage? ChannelStorage;
         public readonly string? Id;
         public readonly Outputs.ChannelRetentionPeriod? RetentionPeriod;
-        public readonly ImmutableArray<Outputs.ChannelTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetChannelResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
             Outputs.ChannelRetentionPeriod? retentionPeriod,
 
-            ImmutableArray<Outputs.ChannelTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ChannelStorage = channelStorage;
             Id = id;

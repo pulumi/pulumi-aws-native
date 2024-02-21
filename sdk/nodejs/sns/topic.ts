@@ -89,7 +89,7 @@ export class Topic extends pulumi.CustomResource {
      * The SNS subscriptions (endpoints) for this topic.
      */
     public readonly subscription!: pulumi.Output<outputs.sns.TopicSubscription[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.sns.TopicTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly topicArn!: pulumi.Output<string>;
     /**
      * The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
@@ -204,7 +204,7 @@ export interface TopicArgs {
      * The SNS subscriptions (endpoints) for this topic.
      */
     subscription?: pulumi.Input<pulumi.Input<inputs.sns.TopicSubscriptionArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.sns.TopicTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
      *

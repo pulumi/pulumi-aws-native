@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupCustomDbEngineVersionResult struct {
 	// The availability status to be assigned to the CEV.
 	Status *CustomDbEngineVersionStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []CustomDbEngineVersionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCustomDbEngineVersionOutput(ctx *pulumi.Context, args LookupCustomDbEngineVersionOutputArgs, opts ...pulumi.InvokeOption) LookupCustomDbEngineVersionResultOutput {
@@ -94,8 +95,8 @@ func (o LookupCustomDbEngineVersionResultOutput) Status() CustomDbEngineVersionS
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupCustomDbEngineVersionResultOutput) Tags() CustomDbEngineVersionTagArrayOutput {
-	return o.ApplyT(func(v LookupCustomDbEngineVersionResult) []CustomDbEngineVersionTag { return v.Tags }).(CustomDbEngineVersionTagArrayOutput)
+func (o LookupCustomDbEngineVersionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCustomDbEngineVersionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

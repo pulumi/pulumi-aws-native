@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public readonly string? LastUpdatedAt;
         public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatistic? Statistic;
-        public readonly ImmutableArray<Outputs.CalculatedAttributeDefinitionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCalculatedAttributeDefinitionResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatistic? statistic,
 
-            ImmutableArray<Outputs.CalculatedAttributeDefinitionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AttributeDetails = attributeDetails;
             Conditions = conditions;

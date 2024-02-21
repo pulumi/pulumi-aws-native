@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -115,7 +115,7 @@ class GetAgreementResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.AgreementTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         """

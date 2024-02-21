@@ -48,7 +48,7 @@ export interface GetDomainResult {
     readonly logPublishingOptions?: any;
     readonly nodeToNodeEncryptionOptions?: outputs.elasticsearch.DomainNodeToNodeEncryptionOptions;
     readonly snapshotOptions?: outputs.elasticsearch.DomainSnapshotOptions;
-    readonly tags?: outputs.elasticsearch.DomainTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcOptions?: outputs.elasticsearch.DomainVpcOptions;
 }
 /**

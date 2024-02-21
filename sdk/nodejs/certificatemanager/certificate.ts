@@ -46,7 +46,7 @@ export class Certificate extends pulumi.CustomResource {
     public readonly domainValidationOptions!: pulumi.Output<outputs.certificatemanager.CertificateDomainValidationOption[] | undefined>;
     public readonly keyAlgorithm!: pulumi.Output<string | undefined>;
     public readonly subjectAlternativeNames!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.certificatemanager.CertificateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly validationMethod!: pulumi.Output<string | undefined>;
 
     /**
@@ -100,6 +100,6 @@ export interface CertificateArgs {
     domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.certificatemanager.CertificateDomainValidationOptionArgs>[]>;
     keyAlgorithm?: pulumi.Input<string>;
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.certificatemanager.CertificateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     validationMethod?: pulumi.Input<string>;
 }

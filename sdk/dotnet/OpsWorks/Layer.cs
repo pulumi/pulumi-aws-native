@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public Output<string> StackId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.LayerTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -191,10 +191,10 @@ namespace Pulumi.AwsNative.OpsWorks
         public Input<string> StackId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.LayerTagArgs>? _tags;
-        public InputList<Inputs.LayerTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.LayerTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -65,7 +65,7 @@ export interface GetTargetGroupResult {
     /**
      * The tags.
      */
-    readonly tags?: outputs.elasticloadbalancingv2.TargetGroupTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ARN of the Target Group
      */

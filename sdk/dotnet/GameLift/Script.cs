@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.GameLift
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ScriptTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The version that is associated with a script. Version strings do not need to be unique.
@@ -115,14 +115,14 @@ namespace Pulumi.AwsNative.GameLift
         public Input<Inputs.ScriptS3LocationArgs> StorageLocation { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.ScriptTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.ScriptTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ScriptTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

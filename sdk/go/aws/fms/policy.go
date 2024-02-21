@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type Policy struct {
 	ResourceTypeList          pulumi.StringArrayOutput              `pulumi:"resourceTypeList"`
 	ResourcesCleanUp          pulumi.BoolPtrOutput                  `pulumi:"resourcesCleanUp"`
 	SecurityServicePolicyData PolicySecurityServicePolicyDataOutput `pulumi:"securityServicePolicyData"`
-	Tags                      PolicyTagArrayOutput                  `pulumi:"tags"`
+	Tags                      aws.TagArrayOutput                    `pulumi:"tags"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -95,7 +96,7 @@ type policyArgs struct {
 	ResourceTypeList          []string                        `pulumi:"resourceTypeList"`
 	ResourcesCleanUp          *bool                           `pulumi:"resourcesCleanUp"`
 	SecurityServicePolicyData PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
-	Tags                      []PolicyTag                     `pulumi:"tags"`
+	Tags                      []aws.Tag                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
@@ -113,7 +114,7 @@ type PolicyArgs struct {
 	ResourceTypeList          pulumi.StringArrayInput
 	ResourcesCleanUp          pulumi.BoolPtrInput
 	SecurityServicePolicyData PolicySecurityServicePolicyDataInput
-	Tags                      PolicyTagArrayInput
+	Tags                      aws.TagArrayInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
@@ -209,8 +210,8 @@ func (o PolicyOutput) SecurityServicePolicyData() PolicySecurityServicePolicyDat
 	return o.ApplyT(func(v *Policy) PolicySecurityServicePolicyDataOutput { return v.SecurityServicePolicyData }).(PolicySecurityServicePolicyDataOutput)
 }
 
-func (o PolicyOutput) Tags() PolicyTagArrayOutput {
-	return o.ApplyT(func(v *Policy) PolicyTagArrayOutput { return v.Tags }).(PolicyTagArrayOutput)
+func (o PolicyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Policy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

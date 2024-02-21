@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupScheduleGroupResult struct {
 	LastModificationDate *string                 `pulumi:"lastModificationDate"`
 	State                *ScheduleGroupStateEnum `pulumi:"state"`
 	// The list of tags to associate with the schedule group.
-	Tags []ScheduleGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupScheduleGroupOutput(ctx *pulumi.Context, args LookupScheduleGroupOutputArgs, opts ...pulumi.InvokeOption) LookupScheduleGroupResultOutput {
@@ -93,8 +94,8 @@ func (o LookupScheduleGroupResultOutput) State() ScheduleGroupStateEnumPtrOutput
 }
 
 // The list of tags to associate with the schedule group.
-func (o LookupScheduleGroupResultOutput) Tags() ScheduleGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupScheduleGroupResult) []ScheduleGroupTag { return v.Tags }).(ScheduleGroupTagArrayOutput)
+func (o LookupScheduleGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupScheduleGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

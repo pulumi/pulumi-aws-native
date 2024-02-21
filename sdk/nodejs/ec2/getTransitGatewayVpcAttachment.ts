@@ -28,7 +28,7 @@ export interface GetTransitGatewayVpcAttachmentResult {
      * The options for the transit gateway vpc attachment.
      */
     readonly options?: outputs.ec2.OptionsProperties;
-    readonly tags?: outputs.ec2.TransitGatewayVpcAttachmentTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment

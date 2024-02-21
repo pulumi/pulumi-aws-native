@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ModelArgs', 'Model']
@@ -22,7 +24,7 @@ class ModelArgs:
                  inference_execution_config: Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']] = None,
                  model_name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input['ModelContainerDefinitionArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_config: Optional[pulumi.Input['ModelVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Model resource.
@@ -100,11 +102,11 @@ class ModelArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -133,7 +135,7 @@ class Model(pulumi.CustomResource):
                  inference_execution_config: Optional[pulumi.Input[pulumi.InputType['ModelInferenceExecutionConfigArgs']]] = None,
                  model_name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input[pulumi.InputType['ModelContainerDefinitionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ModelVpcConfigArgs']]] = None,
                  __props__=None):
         """
@@ -172,7 +174,7 @@ class Model(pulumi.CustomResource):
                  inference_execution_config: Optional[pulumi.Input[pulumi.InputType['ModelInferenceExecutionConfigArgs']]] = None,
                  model_name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input[pulumi.InputType['ModelContainerDefinitionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ModelVpcConfigArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Model is deprecated: Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -258,7 +260,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ModelTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

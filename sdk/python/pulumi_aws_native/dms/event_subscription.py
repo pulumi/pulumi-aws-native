@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['EventSubscriptionArgs', 'EventSubscription']
 
@@ -22,7 +22,7 @@ class EventSubscriptionArgs:
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
         """
@@ -96,11 +96,11 @@ class EventSubscriptionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -120,7 +120,7 @@ class EventSubscription(pulumi.CustomResource):
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DMS::EventSubscription
@@ -158,7 +158,7 @@ class EventSubscription(pulumi.CustomResource):
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""EventSubscription is deprecated: EventSubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -243,6 +243,6 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EventSubscriptionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

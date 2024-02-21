@@ -41,7 +41,7 @@ export interface GetCellResult {
     /**
      * A collection of tags associated with a resource
      */
-    readonly tags?: outputs.route53recoveryreadiness.CellTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The API Schema for AWS Route53 Recovery Readiness Cells.

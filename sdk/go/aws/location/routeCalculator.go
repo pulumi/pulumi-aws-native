@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,8 +25,8 @@ type RouteCalculator struct {
 	Description    pulumi.StringPtrOutput              `pulumi:"description"`
 	PricingPlan    RouteCalculatorPricingPlanPtrOutput `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       RouteCalculatorTagArrayOutput `pulumi:"tags"`
-	UpdateTime pulumi.StringOutput           `pulumi:"updateTime"`
+	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewRouteCalculator registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +85,7 @@ type routeCalculatorArgs struct {
 	Description    *string                     `pulumi:"description"`
 	PricingPlan    *RouteCalculatorPricingPlan `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RouteCalculatorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RouteCalculator resource.
@@ -94,7 +95,7 @@ type RouteCalculatorArgs struct {
 	Description    pulumi.StringPtrInput
 	PricingPlan    RouteCalculatorPricingPlanPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags RouteCalculatorTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RouteCalculatorArgs) ElementType() reflect.Type {
@@ -163,8 +164,8 @@ func (o RouteCalculatorOutput) PricingPlan() RouteCalculatorPricingPlanPtrOutput
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o RouteCalculatorOutput) Tags() RouteCalculatorTagArrayOutput {
-	return o.ApplyT(func(v *RouteCalculator) RouteCalculatorTagArrayOutput { return v.Tags }).(RouteCalculatorTagArrayOutput)
+func (o RouteCalculatorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RouteCalculator) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o RouteCalculatorOutput) UpdateTime() pulumi.StringOutput {

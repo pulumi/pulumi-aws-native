@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupOptionGroupResult struct {
 	// Indicates what options are available in the option group.
 	OptionConfigurations []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []OptionGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupOptionGroupOutput(ctx *pulumi.Context, args LookupOptionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupOptionGroupResultOutput {
@@ -76,8 +77,8 @@ func (o LookupOptionGroupResultOutput) OptionConfigurations() OptionGroupOptionC
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupOptionGroupResultOutput) Tags() OptionGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupOptionGroupResult) []OptionGroupTag { return v.Tags }).(OptionGroupTagArrayOutput)
+func (o LookupOptionGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupOptionGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

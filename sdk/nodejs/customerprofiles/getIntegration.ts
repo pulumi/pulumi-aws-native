@@ -50,7 +50,7 @@ export interface GetIntegrationResult {
     /**
      * The tags (keys and values) associated with the integration
      */
-    readonly tags?: outputs.customerprofiles.IntegrationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The resource schema for creating an Amazon Connect Customer Profiles Integration.

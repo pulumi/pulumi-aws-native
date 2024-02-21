@@ -43,7 +43,7 @@ export interface GetDocumentResult {
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
      */
-    readonly tags?: outputs.ssm.DocumentTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Specify a target type to define the kinds of resources the document can run on.
      */

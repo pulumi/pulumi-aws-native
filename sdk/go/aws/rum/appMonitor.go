@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,8 +24,8 @@ type AppMonitor struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// A name for the app monitor
-	Name pulumi.StringOutput      `pulumi:"name"`
-	Tags AppMonitorTagArrayOutput `pulumi:"tags"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	Tags aws.TagArrayOutput  `pulumi:"tags"`
 }
 
 // NewAppMonitor registers a new resource with the given unique name, arguments, and options.
@@ -81,8 +82,8 @@ type appMonitorArgs struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain string `pulumi:"domain"`
 	// A name for the app monitor
-	Name *string         `pulumi:"name"`
-	Tags []AppMonitorTag `pulumi:"tags"`
+	Name *string   `pulumi:"name"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppMonitor resource.
@@ -95,7 +96,7 @@ type AppMonitorArgs struct {
 	Domain pulumi.StringInput
 	// A name for the app monitor
 	Name pulumi.StringPtrInput
-	Tags AppMonitorTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AppMonitorArgs) ElementType() reflect.Type {
@@ -158,8 +159,8 @@ func (o AppMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o AppMonitorOutput) Tags() AppMonitorTagArrayOutput {
-	return o.ApplyT(func(v *AppMonitor) AppMonitorTagArrayOutput { return v.Tags }).(AppMonitorTagArrayOutput)
+func (o AppMonitorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AppMonitor) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

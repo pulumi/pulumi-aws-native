@@ -15,12 +15,10 @@ __all__ = [
     'AnalysisTemplateAnalysisParameter',
     'AnalysisTemplateAnalysisSchema',
     'AnalysisTemplateAnalysisSource',
-    'AnalysisTemplateTag',
     'CollaborationDataEncryptionMetadata',
     'CollaborationMemberSpecification',
     'CollaborationPaymentConfiguration',
     'CollaborationQueryComputePaymentConfig',
-    'CollaborationTag',
     'ConfiguredTableAggregateColumn',
     'ConfiguredTableAggregationConstraint',
     'ConfiguredTableAnalysisRule',
@@ -31,16 +29,13 @@ __all__ = [
     'ConfiguredTableAnalysisRulePolicyV10Properties',
     'ConfiguredTableAnalysisRulePolicyV11Properties',
     'ConfiguredTableAnalysisRulePolicyV12Properties',
-    'ConfiguredTableAssociationTag',
     'ConfiguredTableGlueTableReference',
     'ConfiguredTableTableReference',
-    'ConfiguredTableTag',
     'MembershipPaymentConfiguration',
     'MembershipProtectedQueryOutputConfiguration',
     'MembershipProtectedQueryResultConfiguration',
     'MembershipProtectedQueryS3OutputConfiguration',
     'MembershipQueryComputePaymentConfig',
-    'MembershipTag',
 ]
 
 @pulumi.output_type
@@ -126,25 +121,6 @@ class AnalysisTemplateAnalysisSource(dict):
     @pulumi.getter
     def text(self) -> str:
         return pulumi.get(self, "text")
-
-
-@pulumi.output_type
-class AnalysisTemplateTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -316,25 +292,6 @@ class CollaborationQueryComputePaymentConfig(dict):
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> bool:
         return pulumi.get(self, "is_responsible")
-
-
-@pulumi.output_type
-class CollaborationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -656,25 +613,6 @@ class ConfiguredTableAnalysisRulePolicyV12Properties(dict):
 
 
 @pulumi.output_type
-class ConfiguredTableAssociationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ConfiguredTableGlueTableReference(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -722,25 +660,6 @@ class ConfiguredTableTableReference(dict):
     @pulumi.getter
     def glue(self) -> 'outputs.ConfiguredTableGlueTableReference':
         return pulumi.get(self, "glue")
-
-
-@pulumi.output_type
-class ConfiguredTableTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -896,24 +815,5 @@ class MembershipQueryComputePaymentConfig(dict):
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> bool:
         return pulumi.get(self, "is_responsible")
-
-
-@pulumi.output_type
-class MembershipTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

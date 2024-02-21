@@ -44,7 +44,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
     public readonly networkInterfaceId!: pulumi.Output<string>;
     public readonly packetLength!: pulumi.Output<number | undefined>;
     public readonly sessionNumber!: pulumi.Output<number>;
-    public readonly tags!: pulumi.Output<outputs.ec2.TrafficMirrorSessionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly trafficMirrorFilterId!: pulumi.Output<string>;
     public readonly trafficMirrorTargetId!: pulumi.Output<string>;
     public readonly virtualNetworkId!: pulumi.Output<number | undefined>;
@@ -107,7 +107,7 @@ export interface TrafficMirrorSessionArgs {
     networkInterfaceId: pulumi.Input<string>;
     packetLength?: pulumi.Input<number>;
     sessionNumber: pulumi.Input<number>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TrafficMirrorSessionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     trafficMirrorFilterId: pulumi.Input<string>;
     trafficMirrorTargetId: pulumi.Input<string>;
     virtualNetworkId?: pulumi.Input<number>;

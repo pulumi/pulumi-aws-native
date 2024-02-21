@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,8 +28,8 @@ type LookupDedicatedIpPoolArgs struct {
 }
 
 type LookupDedicatedIpPoolResult struct {
-	Id   *string               `pulumi:"id"`
-	Tags []DedicatedIpPoolTags `pulumi:"tags"`
+	Id   *string   `pulumi:"id"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPoolOutputArgs, opts ...pulumi.InvokeOption) LookupDedicatedIpPoolResultOutput {
@@ -70,8 +71,8 @@ func (o LookupDedicatedIpPoolResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDedicatedIpPoolResultOutput) Tags() DedicatedIpPoolTagsArrayOutput {
-	return o.ApplyT(func(v LookupDedicatedIpPoolResult) []DedicatedIpPoolTags { return v.Tags }).(DedicatedIpPoolTagsArrayOutput)
+func (o LookupDedicatedIpPoolResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDedicatedIpPoolResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

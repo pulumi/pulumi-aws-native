@@ -60,7 +60,7 @@ export class ScheduledAudit extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.iot.ScheduledAuditTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Which checks are performed during the scheduled audit. Checks must be enabled for your account.
      */
@@ -129,7 +129,7 @@ export interface ScheduledAuditArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.ScheduledAuditTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Which checks are performed during the scheduled audit. Checks must be enabled for your account.
      */

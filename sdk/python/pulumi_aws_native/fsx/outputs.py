@@ -15,7 +15,6 @@ __all__ = [
     'DataRepositoryAssociationAutoExportPolicy',
     'DataRepositoryAssociationAutoImportPolicy',
     'DataRepositoryAssociationS3',
-    'DataRepositoryAssociationTag',
     'FileSystemAuditLogConfiguration',
     'FileSystemClientConfigurations',
     'FileSystemDiskIopsConfiguration',
@@ -25,13 +24,10 @@ __all__ = [
     'FileSystemOpenZfsConfiguration',
     'FileSystemRootVolumeConfiguration',
     'FileSystemSelfManagedActiveDirectoryConfiguration',
-    'FileSystemTag',
     'FileSystemUserAndGroupQuotas',
     'FileSystemWindowsConfiguration',
-    'SnapshotTag',
     'StorageVirtualMachineActiveDirectoryConfiguration',
     'StorageVirtualMachineSelfManagedActiveDirectoryConfiguration',
-    'StorageVirtualMachineTag',
     'VolumeAggregateConfiguration',
     'VolumeAutocommitPeriod',
     'VolumeClientConfigurations',
@@ -42,7 +38,6 @@ __all__ = [
     'VolumeRetentionPeriod',
     'VolumeSnaplockConfiguration',
     'VolumeSnaplockRetentionPeriod',
-    'VolumeTag',
     'VolumeTieringPolicy',
     'VolumeUserAndGroupQuotas',
 ]
@@ -171,39 +166,6 @@ class DataRepositoryAssociationS3(dict):
          The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
         """
         return pulumi.get(self, "auto_import_policy")
-
-
-@pulumi.output_type
-class DataRepositoryAssociationTag(dict):
-    """
-    Specifies a key-value pair for a resource tag.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Specifies a key-value pair for a resource tag.
-        :param str key: A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
-        :param str value: A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -911,25 +873,6 @@ class FileSystemSelfManagedActiveDirectoryConfiguration(dict):
 
 
 @pulumi.output_type
-class FileSystemTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class FileSystemUserAndGroupQuotas(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1113,25 +1056,6 @@ class FileSystemWindowsConfiguration(dict):
 
 
 @pulumi.output_type
-class SnapshotTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class StorageVirtualMachineActiveDirectoryConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1247,25 +1171,6 @@ class StorageVirtualMachineSelfManagedActiveDirectoryConfiguration(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[str]:
         return pulumi.get(self, "user_name")
-
-
-@pulumi.output_type
-class StorageVirtualMachineTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1832,25 +1737,6 @@ class VolumeSnaplockRetentionPeriod(dict):
     @pulumi.getter(name="minimumRetention")
     def minimum_retention(self) -> 'outputs.VolumeRetentionPeriod':
         return pulumi.get(self, "minimum_retention")
-
-
-@pulumi.output_type
-class VolumeTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

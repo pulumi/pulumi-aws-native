@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Neptune
         public readonly string? DbSubnetGroupDescription;
         public readonly string? Id;
         public readonly ImmutableArray<string> SubnetIds;
-        public readonly ImmutableArray<Outputs.DbSubnetGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDbSubnetGroupResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Neptune
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableArray<Outputs.DbSubnetGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DbSubnetGroupDescription = dbSubnetGroupDescription;
             Id = id;

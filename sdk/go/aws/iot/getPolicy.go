@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupPolicyResult struct {
 	Id  *string `pulumi:"id"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	Tags           []PolicyTag `pulumi:"tags"`
+	Tags           []aws.Tag   `pulumi:"tags"`
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
@@ -82,8 +83,8 @@ func (o LookupPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
-func (o LookupPolicyResultOutput) Tags() PolicyTagArrayOutput {
-	return o.ApplyT(func(v LookupPolicyResult) []PolicyTag { return v.Tags }).(PolicyTagArrayOutput)
+func (o LookupPolicyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

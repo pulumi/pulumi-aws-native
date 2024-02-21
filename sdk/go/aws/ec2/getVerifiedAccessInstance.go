@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupVerifiedAccessInstanceResult struct {
 	// The configuration options for AWS Verified Access instances.
 	LoggingConfigurations *VerifiedAccessInstanceVerifiedAccessLogs `pulumi:"loggingConfigurations"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []VerifiedAccessInstanceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the AWS Verified Access instance.
 	VerifiedAccessInstanceId *string `pulumi:"verifiedAccessInstanceId"`
 	// The IDs of the AWS Verified Access trust providers.
@@ -112,8 +113,8 @@ func (o LookupVerifiedAccessInstanceResultOutput) LoggingConfigurations() Verifi
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupVerifiedAccessInstanceResultOutput) Tags() VerifiedAccessInstanceTagArrayOutput {
-	return o.ApplyT(func(v LookupVerifiedAccessInstanceResult) []VerifiedAccessInstanceTag { return v.Tags }).(VerifiedAccessInstanceTagArrayOutput)
+func (o LookupVerifiedAccessInstanceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the AWS Verified Access instance.

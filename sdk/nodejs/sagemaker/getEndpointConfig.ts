@@ -24,7 +24,7 @@ export interface GetEndpointConfigArgs {
 
 export interface GetEndpointConfigResult {
     readonly id?: string;
-    readonly tags?: outputs.sagemaker.EndpointConfigTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::EndpointConfig

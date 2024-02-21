@@ -29,7 +29,7 @@ export interface GetVpnConnectionResult {
     /**
      * Any tags assigned to the VPN connection.
      */
-    readonly tags?: outputs.ec2.VpnConnectionTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The provider-assigned unique ID for this managed resource
      */

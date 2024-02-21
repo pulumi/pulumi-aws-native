@@ -69,7 +69,7 @@ export interface GetOutpostResolverResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.route53resolver.OutpostResolverTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::Route53Resolver::OutpostResolver.

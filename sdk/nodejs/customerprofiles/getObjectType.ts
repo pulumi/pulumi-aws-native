@@ -70,7 +70,7 @@ export interface GetObjectTypeResult {
     /**
      * The tags (keys and values) associated with the integration.
      */
-    readonly tags?: outputs.customerprofiles.ObjectTypeTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * A unique identifier for the object template.
      */

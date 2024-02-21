@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupGroupResult struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             *string                     `pulumi:"groupName"`
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
-	Tags                  []GroupTag                  `pulumi:"tags"`
+	Tags                  []aws.Tag                   `pulumi:"tags"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -93,8 +94,8 @@ func (o LookupGroupResultOutput) InsightsConfiguration() GroupInsightsConfigurat
 	return o.ApplyT(func(v LookupGroupResult) *GroupInsightsConfiguration { return v.InsightsConfiguration }).(GroupInsightsConfigurationPtrOutput)
 }
 
-func (o LookupGroupResultOutput) Tags() GroupTagArrayOutput {
-	return o.ApplyT(func(v LookupGroupResult) []GroupTag { return v.Tags }).(GroupTagArrayOutput)
+func (o LookupGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -49,7 +49,7 @@ export interface GetDestinationResult {
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    readonly tags?: outputs.iotwireless.DestinationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Destination's resource schema demonstrating some basic constructs and validation rules.

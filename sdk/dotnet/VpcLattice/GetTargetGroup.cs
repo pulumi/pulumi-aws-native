@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public readonly string? Id;
         public readonly string? LastUpdatedAt;
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupStatus? Status;
-        public readonly ImmutableArray<Outputs.TargetGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<Outputs.TargetGroupTarget> Targets;
 
         [OutputConstructor]
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
             Pulumi.AwsNative.VpcLattice.TargetGroupStatus? status,
 
-            ImmutableArray<Outputs.TargetGroupTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.TargetGroupTarget> targets)
         {

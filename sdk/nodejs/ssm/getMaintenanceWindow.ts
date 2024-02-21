@@ -34,7 +34,7 @@ export interface GetMaintenanceWindowResult {
     readonly scheduleOffset?: number;
     readonly scheduleTimezone?: string;
     readonly startDate?: string;
-    readonly tags?: outputs.ssm.MaintenanceWindowTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SSM::MaintenanceWindow

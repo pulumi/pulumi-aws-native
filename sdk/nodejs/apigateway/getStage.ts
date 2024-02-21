@@ -70,7 +70,7 @@ export interface GetStageResult {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    readonly tags?: outputs.apigateway.StageTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Specifies whether active tracing with X-ray is enabled for the Stage.
      */

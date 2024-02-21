@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,7 @@ class InferenceSchedulerArgs:
                  data_delay_offset_in_minutes: Optional[pulumi.Input[int]] = None,
                  inference_scheduler_name: Optional[pulumi.Input[str]] = None,
                  server_side_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceSchedulerTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InferenceScheduler resource.
         :param pulumi.Input['DataInputConfigurationPropertiesArgs'] data_input_configuration: Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.
@@ -36,7 +38,7 @@ class InferenceSchedulerArgs:
         :param pulumi.Input[int] data_delay_offset_in_minutes: A period of time (in minutes) by which inference on the data is delayed after the data starts.
         :param pulumi.Input[str] inference_scheduler_name: The name of the inference scheduler being created.
         :param pulumi.Input[str] server_side_kms_key_id: Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment.
-        :param pulumi.Input[Sequence[pulumi.Input['InferenceSchedulerTagArgs']]] tags: Any tags associated with the inference scheduler.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags associated with the inference scheduler.
         """
         pulumi.set(__self__, "data_input_configuration", data_input_configuration)
         pulumi.set(__self__, "data_output_configuration", data_output_configuration)
@@ -150,14 +152,14 @@ class InferenceSchedulerArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InferenceSchedulerTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags associated with the inference scheduler.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceSchedulerTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -179,7 +181,7 @@ class InferenceScheduler(pulumi.CustomResource):
                  model_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  server_side_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InferenceSchedulerTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for LookoutEquipment InferenceScheduler.
@@ -194,7 +196,7 @@ class InferenceScheduler(pulumi.CustomResource):
         :param pulumi.Input[str] model_name: The name of the previously trained ML model being used to create the inference scheduler.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the data source being used for the inference.
         :param pulumi.Input[str] server_side_kms_key_id: Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InferenceSchedulerTagArgs']]]] tags: Any tags associated with the inference scheduler.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Any tags associated with the inference scheduler.
         """
         ...
     @overload
@@ -228,7 +230,7 @@ class InferenceScheduler(pulumi.CustomResource):
                  model_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  server_side_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InferenceSchedulerTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""InferenceScheduler is deprecated: InferenceScheduler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -369,7 +371,7 @@ class InferenceScheduler(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.InferenceSchedulerTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Any tags associated with the inference scheduler.
         """

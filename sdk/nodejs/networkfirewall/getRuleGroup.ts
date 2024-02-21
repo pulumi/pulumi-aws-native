@@ -27,7 +27,7 @@ export interface GetRuleGroupResult {
     readonly ruleGroup?: outputs.networkfirewall.RuleGroup;
     readonly ruleGroupArn?: string;
     readonly ruleGroupId?: string;
-    readonly tags?: outputs.networkfirewall.RuleGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource type definition for AWS::NetworkFirewall::RuleGroup

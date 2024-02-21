@@ -53,7 +53,7 @@ export interface GetFlowResult {
     /**
      * List of Tags.
      */
-    readonly tags?: outputs.appflow.FlowTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * List of tasks for the flow.
      */

@@ -49,7 +49,7 @@ export interface GetStreamResult {
     /**
      * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
      */
-    readonly tags?: outputs.kinesis.StreamTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Kinesis::Stream

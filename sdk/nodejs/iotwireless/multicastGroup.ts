@@ -68,7 +68,7 @@ export class MulticastGroup extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the Multicast group.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.MulticastGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MulticastGroup resource with the given unique name, arguments, and options.
@@ -134,5 +134,5 @@ export interface MulticastGroupArgs {
     /**
      * A list of key-value pairs that contain metadata for the Multicast group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.MulticastGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

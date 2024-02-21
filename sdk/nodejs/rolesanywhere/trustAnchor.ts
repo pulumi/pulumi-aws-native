@@ -41,7 +41,7 @@ export class TrustAnchor extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly notificationSettings!: pulumi.Output<outputs.rolesanywhere.TrustAnchorNotificationSetting[] | undefined>;
     public readonly source!: pulumi.Output<outputs.rolesanywhere.TrustAnchorSource>;
-    public readonly tags!: pulumi.Output<outputs.rolesanywhere.TrustAnchorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly trustAnchorArn!: pulumi.Output<string>;
     public /*out*/ readonly trustAnchorId!: pulumi.Output<string>;
 
@@ -88,5 +88,5 @@ export interface TrustAnchorArgs {
     name?: pulumi.Input<string>;
     notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSettingArgs>[]>;
     source: pulumi.Input<inputs.rolesanywhere.TrustAnchorSourceArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

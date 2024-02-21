@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type LocationFSxLustre struct {
 	// A subdirectory in the location's path.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationFSxLustreTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationFSxLustre registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +87,7 @@ type locationFSxLustreArgs struct {
 	// A subdirectory in the location's path.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationFSxLustreTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationFSxLustre resource.
@@ -98,7 +99,7 @@ type LocationFSxLustreArgs struct {
 	// A subdirectory in the location's path.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationFSxLustreTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocationFSxLustreArgs) ElementType() reflect.Type {
@@ -164,8 +165,8 @@ func (o LocationFSxLustreOutput) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationFSxLustreOutput) Tags() LocationFSxLustreTagArrayOutput {
-	return o.ApplyT(func(v *LocationFSxLustre) LocationFSxLustreTagArrayOutput { return v.Tags }).(LocationFSxLustreTagArrayOutput)
+func (o LocationFSxLustreOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationFSxLustre) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

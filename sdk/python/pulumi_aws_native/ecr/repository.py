@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -24,7 +26,7 @@ class RepositoryArgs:
                  lifecycle_policy: Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  repository_policy_text: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input['RepositoryImageTagMutability'] image_tag_mutability: The image tag mutability setting for the repository.
@@ -32,7 +34,7 @@ class RepositoryArgs:
         :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if empty_on_delete is not None:
             pulumi.set(__self__, "empty_on_delete", empty_on_delete)
@@ -127,14 +129,14 @@ class RepositoryArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -150,7 +152,7 @@ class Repository(pulumi.CustomResource):
                  lifecycle_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryLifecyclePolicyArgs']]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  repository_policy_text: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::ECR::Repository resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html
@@ -162,7 +164,7 @@ class Repository(pulumi.CustomResource):
         :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -195,7 +197,7 @@ class Repository(pulumi.CustomResource):
                  lifecycle_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryLifecyclePolicyArgs']]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  repository_policy_text: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,7 +311,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

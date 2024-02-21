@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type Repository struct {
 	// The name of the repository.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags RepositoryTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A list of upstream repositories associated with the repository.
 	Upstreams pulumi.StringArrayOutput `pulumi:"upstreams"`
 }
@@ -104,7 +105,7 @@ type repositoryArgs struct {
 	// The name of the repository.
 	RepositoryName *string `pulumi:"repositoryName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RepositoryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A list of upstream repositories associated with the repository.
 	Upstreams []string `pulumi:"upstreams"`
 }
@@ -126,7 +127,7 @@ type RepositoryArgs struct {
 	// The name of the repository.
 	RepositoryName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags RepositoryTagArrayInput
+	Tags aws.TagArrayInput
 	// A list of upstream repositories associated with the repository.
 	Upstreams pulumi.StringArrayInput
 }
@@ -211,8 +212,8 @@ func (o RepositoryOutput) RepositoryName() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o RepositoryOutput) Tags() RepositoryTagArrayOutput {
-	return o.ApplyT(func(v *Repository) RepositoryTagArrayOutput { return v.Tags }).(RepositoryTagArrayOutput)
+func (o RepositoryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Repository) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A list of upstream repositories associated with the repository.

@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// Tags associated with this list.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ListTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The variable type of the list.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.FraudDetector
 
             string? lastUpdatedTime,
 
-            ImmutableArray<Outputs.ListTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? variableType)
         {

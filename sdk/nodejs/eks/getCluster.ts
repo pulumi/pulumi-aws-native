@@ -60,7 +60,7 @@ export interface GetClusterResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.eks.ClusterTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
      */

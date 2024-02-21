@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetServiceTemplateResult',
@@ -59,7 +59,7 @@ class GetServiceTemplateResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ServiceTemplateTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
                  <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the

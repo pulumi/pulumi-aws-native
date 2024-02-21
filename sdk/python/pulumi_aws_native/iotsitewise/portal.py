@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['PortalArgs', 'Portal']
@@ -23,7 +25,7 @@ class PortalArgs:
                  portal_auth_mode: Optional[pulumi.Input[str]] = None,
                  portal_description: Optional[pulumi.Input[str]] = None,
                  portal_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Portal resource.
         :param pulumi.Input[str] portal_contact_email: The AWS administrator's contact email address.
@@ -33,7 +35,7 @@ class PortalArgs:
         :param pulumi.Input[str] portal_auth_mode: The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
         :param pulumi.Input[str] portal_description: A description for the portal.
         :param pulumi.Input[str] portal_name: A friendly name for the portal.
-        :param pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]] tags: A list of key-value pairs that contain metadata for the portal.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the portal.
         """
         pulumi.set(__self__, "portal_contact_email", portal_contact_email)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -136,14 +138,14 @@ class PortalArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the portal.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -159,7 +161,7 @@ class Portal(pulumi.CustomResource):
                  portal_description: Optional[pulumi.Input[str]] = None,
                  portal_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PortalTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Portal
@@ -173,7 +175,7 @@ class Portal(pulumi.CustomResource):
         :param pulumi.Input[str] portal_description: A description for the portal.
         :param pulumi.Input[str] portal_name: A friendly name for the portal.
         :param pulumi.Input[str] role_arn: The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PortalTagArgs']]]] tags: A list of key-value pairs that contain metadata for the portal.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the portal.
         """
         ...
     @overload
@@ -206,7 +208,7 @@ class Portal(pulumi.CustomResource):
                  portal_description: Optional[pulumi.Input[str]] = None,
                  portal_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PortalTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -360,7 +362,7 @@ class Portal(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PortalTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the portal.
         """

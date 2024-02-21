@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type ProtectionGroup struct {
 	// The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.
 	ResourceType ProtectionGroupResourceTypePtrOutput `pulumi:"resourceType"`
 	// One or more tag key-value pairs for the Protection object.
-	Tags ProtectionGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewProtectionGroup registers a new resource with the given unique name, arguments, and options.
@@ -102,7 +103,7 @@ type protectionGroupArgs struct {
 	// The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.
 	ResourceType *ProtectionGroupResourceType `pulumi:"resourceType"`
 	// One or more tag key-value pairs for the Protection object.
-	Tags []ProtectionGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ProtectionGroup resource.
@@ -121,7 +122,7 @@ type ProtectionGroupArgs struct {
 	// The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.
 	ResourceType ProtectionGroupResourceTypePtrInput
 	// One or more tag key-value pairs for the Protection object.
-	Tags ProtectionGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ProtectionGroupArgs) ElementType() reflect.Type {
@@ -195,8 +196,8 @@ func (o ProtectionGroupOutput) ResourceType() ProtectionGroupResourceTypePtrOutp
 }
 
 // One or more tag key-value pairs for the Protection object.
-func (o ProtectionGroupOutput) Tags() ProtectionGroupTagArrayOutput {
-	return o.ApplyT(func(v *ProtectionGroup) ProtectionGroupTagArrayOutput { return v.Tags }).(ProtectionGroupTagArrayOutput)
+func (o ProtectionGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ProtectionGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

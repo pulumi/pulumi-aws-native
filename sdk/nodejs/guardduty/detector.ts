@@ -41,7 +41,7 @@ export class Detector extends pulumi.CustomResource {
     public readonly enable!: pulumi.Output<boolean>;
     public readonly features!: pulumi.Output<outputs.guardduty.DetectorCfnFeatureConfiguration[] | undefined>;
     public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.guardduty.DetectorTagItem[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Detector resource with the given unique name, arguments, and options.
@@ -82,5 +82,5 @@ export interface DetectorArgs {
     enable: pulumi.Input<boolean>;
     features?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorCfnFeatureConfigurationArgs>[]>;
     findingPublishingFrequency?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorTagItemArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

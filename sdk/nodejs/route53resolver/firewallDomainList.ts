@@ -81,7 +81,7 @@ export class FirewallDomainList extends pulumi.CustomResource {
     /**
      * Tags
      */
-    public readonly tags!: pulumi.Output<outputs.route53resolver.FirewallDomainListTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FirewallDomainList resource with the given unique name, arguments, and options.
@@ -143,5 +143,5 @@ export interface FirewallDomainListArgs {
     /**
      * Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.FirewallDomainListTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

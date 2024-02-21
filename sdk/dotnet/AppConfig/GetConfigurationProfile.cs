@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.AppConfig
         /// <summary>
         /// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConfigurationProfileTags> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// A list of methods for validating the configuration.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.AppConfig
 
             string? retrievalRoleArn,
 
-            ImmutableArray<Outputs.ConfigurationProfileTags> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.ConfigurationProfileValidators> validators)
         {

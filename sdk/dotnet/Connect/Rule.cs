@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Connect
         /// One or more tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RuleTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The event source that triggers the rule.
@@ -144,14 +144,14 @@ namespace Pulumi.AwsNative.Connect
         public Input<Pulumi.AwsNative.Connect.RulePublishStatus> PublishStatus { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.RuleTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public InputList<Inputs.RuleTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RuleTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

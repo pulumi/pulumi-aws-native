@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['AccountArgs', 'Account']
 
@@ -21,14 +21,14 @@ class AccountArgs:
                  account_name: Optional[pulumi.Input[str]] = None,
                  parent_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccountTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] email: The email address of the owner to assign to the new member account.
         :param pulumi.Input[str] account_name: The friendly name of the member account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] parent_ids: List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
         :param pulumi.Input[str] role_name: The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountTagArgs']]] tags: A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
         """
         pulumi.set(__self__, "email", email)
         if account_name is not None:
@@ -90,14 +90,14 @@ class AccountArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,7 +110,7 @@ class Account(pulumi.CustomResource):
                  email: Optional[pulumi.Input[str]] = None,
                  parent_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         You can use AWS::Organizations::Account to manage accounts in organization.
@@ -121,7 +121,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] email: The email address of the owner to assign to the new member account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] parent_ids: List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
         :param pulumi.Input[str] role_name: The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountTagArgs']]]] tags: A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
         """
         ...
     @overload
@@ -151,7 +151,7 @@ class Account(pulumi.CustomResource):
                  email: Optional[pulumi.Input[str]] = None,
                  parent_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,7 +281,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AccountTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
         """

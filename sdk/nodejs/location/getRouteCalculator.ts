@@ -31,7 +31,7 @@ export interface GetRouteCalculatorResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.location.RouteCalculatorTag[];
+    readonly tags?: outputs.Tag[];
     readonly updateTime?: string;
 }
 /**

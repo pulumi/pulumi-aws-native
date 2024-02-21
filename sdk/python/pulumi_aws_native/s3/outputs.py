@@ -69,7 +69,6 @@ __all__ = [
     'BucketSourceSelectionCriteria',
     'BucketSseKmsEncryptedObjects',
     'BucketStorageClassAnalysis',
-    'BucketTag',
     'BucketTagFilter',
     'BucketTargetObjectKeyFormat',
     'BucketTiering',
@@ -104,7 +103,6 @@ __all__ = [
     'StorageLensPrefixLevelStorageMetrics',
     'StorageLensS3BucketDestination',
     'StorageLensSelectionCriteria',
-    'StorageLensTag',
 ]
 
 @pulumi.output_type
@@ -2876,25 +2874,6 @@ class BucketStorageClassAnalysis(dict):
 
 
 @pulumi.output_type
-class BucketTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class BucketTagFilter(dict):
     """
     Tags to use to identify a subset of objects for an Amazon S3 bucket.
@@ -4582,24 +4561,5 @@ class StorageLensSelectionCriteria(dict):
         The minimum storage bytes threshold for the prefixes to be included in the analysis.
         """
         return pulumi.get(self, "min_storage_bytes_percentage")
-
-
-@pulumi.output_type
-class StorageLensTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

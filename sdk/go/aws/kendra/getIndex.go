@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupIndexResult struct {
 	Name                           *string                              `pulumi:"name"`
 	RoleArn                        *string                              `pulumi:"roleArn"`
 	// Tags for labeling the index
-	Tags                    []IndexTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                     `pulumi:"tags"`
 	UserContextPolicy       *IndexUserContextPolicy       `pulumi:"userContextPolicy"`
 	UserTokenConfigurations []IndexUserTokenConfiguration `pulumi:"userTokenConfigurations"`
 }
@@ -112,8 +113,8 @@ func (o LookupIndexResultOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // Tags for labeling the index
-func (o LookupIndexResultOutput) Tags() IndexTagArrayOutput {
-	return o.ApplyT(func(v LookupIndexResult) []IndexTag { return v.Tags }).(IndexTagArrayOutput)
+func (o LookupIndexResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIndexResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupIndexResultOutput) UserContextPolicy() IndexUserContextPolicyPtrOutput {

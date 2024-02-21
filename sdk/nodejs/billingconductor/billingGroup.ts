@@ -66,7 +66,7 @@ export class BillingGroup extends pulumi.CustomResource {
     public /*out*/ readonly size!: pulumi.Output<number>;
     public /*out*/ readonly status!: pulumi.Output<enums.billingconductor.BillingGroupStatus>;
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.billingconductor.BillingGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a BillingGroup resource with the given unique name, arguments, and options.
@@ -135,5 +135,5 @@ export interface BillingGroupArgs {
      * This account will act as a virtual payer account of the billing group
      */
     primaryAccountId: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.billingconductor.BillingGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

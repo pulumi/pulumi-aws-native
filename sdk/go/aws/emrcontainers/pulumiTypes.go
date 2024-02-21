@@ -186,116 +186,11 @@ type VirtualClusterTag struct {
 	Value string `pulumi:"value"`
 }
 
-// VirtualClusterTagInput is an input type that accepts VirtualClusterTagArgs and VirtualClusterTagOutput values.
-// You can construct a concrete instance of `VirtualClusterTagInput` via:
-//
-//	VirtualClusterTagArgs{...}
-type VirtualClusterTagInput interface {
-	pulumi.Input
-
-	ToVirtualClusterTagOutput() VirtualClusterTagOutput
-	ToVirtualClusterTagOutputWithContext(context.Context) VirtualClusterTagOutput
-}
-
-// An arbitrary set of tags (key-value pairs) for this virtual cluster.
-type VirtualClusterTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VirtualClusterTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualClusterTag)(nil)).Elem()
-}
-
-func (i VirtualClusterTagArgs) ToVirtualClusterTagOutput() VirtualClusterTagOutput {
-	return i.ToVirtualClusterTagOutputWithContext(context.Background())
-}
-
-func (i VirtualClusterTagArgs) ToVirtualClusterTagOutputWithContext(ctx context.Context) VirtualClusterTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterTagOutput)
-}
-
-// VirtualClusterTagArrayInput is an input type that accepts VirtualClusterTagArray and VirtualClusterTagArrayOutput values.
-// You can construct a concrete instance of `VirtualClusterTagArrayInput` via:
-//
-//	VirtualClusterTagArray{ VirtualClusterTagArgs{...} }
-type VirtualClusterTagArrayInput interface {
-	pulumi.Input
-
-	ToVirtualClusterTagArrayOutput() VirtualClusterTagArrayOutput
-	ToVirtualClusterTagArrayOutputWithContext(context.Context) VirtualClusterTagArrayOutput
-}
-
-type VirtualClusterTagArray []VirtualClusterTagInput
-
-func (VirtualClusterTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualClusterTag)(nil)).Elem()
-}
-
-func (i VirtualClusterTagArray) ToVirtualClusterTagArrayOutput() VirtualClusterTagArrayOutput {
-	return i.ToVirtualClusterTagArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualClusterTagArray) ToVirtualClusterTagArrayOutputWithContext(ctx context.Context) VirtualClusterTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterTagArrayOutput)
-}
-
-// An arbitrary set of tags (key-value pairs) for this virtual cluster.
-type VirtualClusterTagOutput struct{ *pulumi.OutputState }
-
-func (VirtualClusterTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualClusterTag)(nil)).Elem()
-}
-
-func (o VirtualClusterTagOutput) ToVirtualClusterTagOutput() VirtualClusterTagOutput {
-	return o
-}
-
-func (o VirtualClusterTagOutput) ToVirtualClusterTagOutputWithContext(ctx context.Context) VirtualClusterTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o VirtualClusterTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualClusterTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o VirtualClusterTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualClusterTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VirtualClusterTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualClusterTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualClusterTag)(nil)).Elem()
-}
-
-func (o VirtualClusterTagArrayOutput) ToVirtualClusterTagArrayOutput() VirtualClusterTagArrayOutput {
-	return o
-}
-
-func (o VirtualClusterTagArrayOutput) ToVirtualClusterTagArrayOutputWithContext(ctx context.Context) VirtualClusterTagArrayOutput {
-	return o
-}
-
-func (o VirtualClusterTagArrayOutput) Index(i pulumi.IntInput) VirtualClusterTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualClusterTag {
-		return vs[0].([]VirtualClusterTag)[vs[1].(int)]
-	}).(VirtualClusterTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerInfoInput)(nil)).Elem(), VirtualClusterContainerInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerProviderInput)(nil)).Elem(), VirtualClusterContainerProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterEksInfoInput)(nil)).Elem(), VirtualClusterEksInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterTagInput)(nil)).Elem(), VirtualClusterTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterTagArrayInput)(nil)).Elem(), VirtualClusterTagArray{})
 	pulumi.RegisterOutputType(VirtualClusterContainerInfoOutput{})
 	pulumi.RegisterOutputType(VirtualClusterContainerProviderOutput{})
 	pulumi.RegisterOutputType(VirtualClusterEksInfoOutput{})
-	pulumi.RegisterOutputType(VirtualClusterTagOutput{})
-	pulumi.RegisterOutputType(VirtualClusterTagArrayOutput{})
 }

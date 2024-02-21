@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.Ecs
     public sealed class GetCapacityProviderResult
     {
         public readonly Outputs.CapacityProviderAutoScalingGroupProvider? AutoScalingGroupProvider;
-        public readonly ImmutableArray<Outputs.CapacityProviderTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCapacityProviderResult(
             Outputs.CapacityProviderAutoScalingGroupProvider? autoScalingGroupProvider,
 
-            ImmutableArray<Outputs.CapacityProviderTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AutoScalingGroupProvider = autoScalingGroupProvider;
             Tags = tags;

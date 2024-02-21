@@ -37,7 +37,7 @@ export interface GetCustomMetricResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.iot.CustomMetricTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A custom metric published by your devices to Device Defender.

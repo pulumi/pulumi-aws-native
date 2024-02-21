@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type TransitGatewayPeering struct {
 	// The state of the transit gateway peering
 	State pulumi.StringOutput `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags TransitGatewayPeeringTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN (Amazon Resource Name) of the transit gateway that you will peer to a core network
 	TransitGatewayArn pulumi.StringOutput `pulumi:"transitGatewayArn"`
 	// The ID of the TransitGatewayPeeringAttachment
@@ -96,7 +97,7 @@ type transitGatewayPeeringArgs struct {
 	// The Id of the core network that you want to peer a transit gateway to.
 	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []TransitGatewayPeeringTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN (Amazon Resource Name) of the transit gateway that you will peer to a core network
 	TransitGatewayArn string `pulumi:"transitGatewayArn"`
 }
@@ -106,7 +107,7 @@ type TransitGatewayPeeringArgs struct {
 	// The Id of the core network that you want to peer a transit gateway to.
 	CoreNetworkId pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags TransitGatewayPeeringTagArrayInput
+	Tags aws.TagArrayInput
 	// The ARN (Amazon Resource Name) of the transit gateway that you will peer to a core network
 	TransitGatewayArn pulumi.StringInput
 }
@@ -194,8 +195,8 @@ func (o TransitGatewayPeeringOutput) State() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o TransitGatewayPeeringOutput) Tags() TransitGatewayPeeringTagArrayOutput {
-	return o.ApplyT(func(v *TransitGatewayPeering) TransitGatewayPeeringTagArrayOutput { return v.Tags }).(TransitGatewayPeeringTagArrayOutput)
+func (o TransitGatewayPeeringOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayPeering) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN (Amazon Resource Name) of the transit gateway that you will peer to a core network

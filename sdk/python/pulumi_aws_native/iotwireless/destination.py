@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['DestinationArgs', 'Destination']
 
@@ -22,7 +22,7 @@ class DestinationArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Destination resource.
         :param pulumi.Input[str] expression: Destination expression
@@ -30,7 +30,7 @@ class DestinationArgs:
         :param pulumi.Input[str] description: Destination description
         :param pulumi.Input[str] name: Unique name of destination
         :param pulumi.Input[str] role_arn: AWS role ARN that grants access
-        :param pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "expression_type", expression_type)
@@ -105,14 +105,14 @@ class DestinationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the destination.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -126,7 +126,7 @@ class Destination(pulumi.CustomResource):
                  expression_type: Optional[pulumi.Input['DestinationExpressionType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DestinationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Destination's resource schema demonstrating some basic constructs and validation rules.
@@ -138,7 +138,7 @@ class Destination(pulumi.CustomResource):
         :param pulumi.Input['DestinationExpressionType'] expression_type: Must be RuleName
         :param pulumi.Input[str] name: Unique name of destination
         :param pulumi.Input[str] role_arn: AWS role ARN that grants access
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DestinationTagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
         """
         ...
     @overload
@@ -169,7 +169,7 @@ class Destination(pulumi.CustomResource):
                  expression_type: Optional[pulumi.Input['DestinationExpressionType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DestinationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -273,7 +273,7 @@ class Destination(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DestinationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the destination.
         """

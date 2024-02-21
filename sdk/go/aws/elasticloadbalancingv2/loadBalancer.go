@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type LoadBalancer struct {
 	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// The tags to assign to the load balancer.
-	Tags LoadBalancerTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of load balancer. The default is application.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -110,7 +111,7 @@ type loadBalancerArgs struct {
 	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 	Subnets []string `pulumi:"subnets"`
 	// The tags to assign to the load balancer.
-	Tags []LoadBalancerTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of load balancer. The default is application.
 	Type *string `pulumi:"type"`
 }
@@ -134,7 +135,7 @@ type LoadBalancerArgs struct {
 	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 	Subnets pulumi.StringArrayInput
 	// The tags to assign to the load balancer.
-	Tags LoadBalancerTagArrayInput
+	Tags aws.TagArrayInput
 	// The type of load balancer. The default is application.
 	Type pulumi.StringPtrInput
 }
@@ -244,8 +245,8 @@ func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 // The tags to assign to the load balancer.
-func (o LoadBalancerOutput) Tags() LoadBalancerTagArrayOutput {
-	return o.ApplyT(func(v *LoadBalancer) LoadBalancerTagArrayOutput { return v.Tags }).(LoadBalancerTagArrayOutput)
+func (o LoadBalancerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of load balancer. The default is application.

@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ConfiguredTableTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -125,14 +125,14 @@ namespace Pulumi.AwsNative.CleanRooms
         public Input<Inputs.ConfiguredTableTableReferenceArgs> TableReference { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.ConfiguredTableTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         /// </summary>
-        public InputList<Inputs.ConfiguredTableTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ConfiguredTableTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

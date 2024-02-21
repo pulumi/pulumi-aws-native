@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Policy struct {
 	// Name of the Policy
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
-	Tags PolicyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
 	TargetIds pulumi.StringArrayOutput `pulumi:"targetIds"`
 	// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY
@@ -95,7 +96,7 @@ type policyArgs struct {
 	// Name of the Policy
 	Name *string `pulumi:"name"`
 	// A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
-	Tags []PolicyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
 	TargetIds []string `pulumi:"targetIds"`
 	// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY
@@ -113,7 +114,7 @@ type PolicyArgs struct {
 	// Name of the Policy
 	Name pulumi.StringPtrInput
 	// A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
-	Tags PolicyTagArrayInput
+	Tags aws.TagArrayInput
 	// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
 	TargetIds pulumi.StringArrayInput
 	// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY
@@ -185,8 +186,8 @@ func (o PolicyOutput) Name() pulumi.StringOutput {
 }
 
 // A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
-func (o PolicyOutput) Tags() PolicyTagArrayOutput {
-	return o.ApplyT(func(v *Policy) PolicyTagArrayOutput { return v.Tags }).(PolicyTagArrayOutput)
+func (o PolicyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Policy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to

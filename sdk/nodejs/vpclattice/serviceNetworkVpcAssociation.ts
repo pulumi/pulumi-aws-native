@@ -45,7 +45,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
     public readonly serviceNetworkIdentifier!: pulumi.Output<string | undefined>;
     public /*out*/ readonly serviceNetworkName!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceNetworkVpcAssociationStatus>;
-    public readonly tags!: pulumi.Output<outputs.vpclattice.ServiceNetworkVpcAssociationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
     public readonly vpcIdentifier!: pulumi.Output<string | undefined>;
 
@@ -97,6 +97,6 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
 export interface ServiceNetworkVpcAssociationArgs {
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     serviceNetworkIdentifier?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkVpcAssociationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcIdentifier?: pulumi.Input<string>;
 }

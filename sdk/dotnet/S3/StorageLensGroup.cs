@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.S3
         /// A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.StorageLensGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,14 +89,14 @@ namespace Pulumi.AwsNative.S3
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.StorageLensGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         /// </summary>
-        public InputList<Inputs.StorageLensGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.StorageLensGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

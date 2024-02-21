@@ -65,7 +65,7 @@ export class DetectorModel extends pulumi.CustomResource {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    public readonly tags!: pulumi.Output<outputs.iotevents.DetectorModelTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DetectorModel resource with the given unique name, arguments, and options.
@@ -139,5 +139,5 @@ export interface DetectorModelArgs {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotevents.DetectorModelTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,8 +22,8 @@ type ParameterGroup struct {
 	CacheParameterGroupFamily pulumi.StringOutput `pulumi:"cacheParameterGroupFamily"`
 	Description               pulumi.StringOutput `pulumi:"description"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
-	Properties pulumi.AnyOutput             `pulumi:"properties"`
-	Tags       ParameterGroupTagArrayOutput `pulumi:"tags"`
+	Properties pulumi.AnyOutput   `pulumi:"properties"`
+	Tags       aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -78,8 +79,8 @@ type parameterGroupArgs struct {
 	CacheParameterGroupFamily string `pulumi:"cacheParameterGroupFamily"`
 	Description               string `pulumi:"description"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
-	Properties interface{}         `pulumi:"properties"`
-	Tags       []ParameterGroupTag `pulumi:"tags"`
+	Properties interface{} `pulumi:"properties"`
+	Tags       []aws.Tag   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
@@ -88,7 +89,7 @@ type ParameterGroupArgs struct {
 	Description               pulumi.StringInput
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
 	Properties pulumi.Input
-	Tags       ParameterGroupTagArrayInput
+	Tags       aws.TagArrayInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {
@@ -141,8 +142,8 @@ func (o ParameterGroupOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
 }
 
-func (o ParameterGroupOutput) Tags() ParameterGroupTagArrayOutput {
-	return o.ApplyT(func(v *ParameterGroup) ParameterGroupTagArrayOutput { return v.Tags }).(ParameterGroupTagArrayOutput)
+func (o ParameterGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ParameterGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

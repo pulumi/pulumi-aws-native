@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,12 +28,12 @@ type LookupVpceConfigurationArgs struct {
 }
 
 type LookupVpceConfigurationResult struct {
-	Arn                          *string                `pulumi:"arn"`
-	ServiceDnsName               *string                `pulumi:"serviceDnsName"`
-	Tags                         []VpceConfigurationTag `pulumi:"tags"`
-	VpceConfigurationDescription *string                `pulumi:"vpceConfigurationDescription"`
-	VpceConfigurationName        *string                `pulumi:"vpceConfigurationName"`
-	VpceServiceName              *string                `pulumi:"vpceServiceName"`
+	Arn                          *string   `pulumi:"arn"`
+	ServiceDnsName               *string   `pulumi:"serviceDnsName"`
+	Tags                         []aws.Tag `pulumi:"tags"`
+	VpceConfigurationDescription *string   `pulumi:"vpceConfigurationDescription"`
+	VpceConfigurationName        *string   `pulumi:"vpceConfigurationName"`
+	VpceServiceName              *string   `pulumi:"vpceServiceName"`
 }
 
 func LookupVpceConfigurationOutput(ctx *pulumi.Context, args LookupVpceConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupVpceConfigurationResultOutput {
@@ -78,8 +79,8 @@ func (o LookupVpceConfigurationResultOutput) ServiceDnsName() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupVpceConfigurationResult) *string { return v.ServiceDnsName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpceConfigurationResultOutput) Tags() VpceConfigurationTagArrayOutput {
-	return o.ApplyT(func(v LookupVpceConfigurationResult) []VpceConfigurationTag { return v.Tags }).(VpceConfigurationTagArrayOutput)
+func (o LookupVpceConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVpceConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupVpceConfigurationResultOutput) VpceConfigurationDescription() pulumi.StringPtrOutput {

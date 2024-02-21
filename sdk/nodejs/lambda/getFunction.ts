@@ -106,7 +106,7 @@ export interface GetFunctionResult {
     /**
      * A list of tags to apply to the function.
      */
-    readonly tags?: outputs.lambda.FunctionTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
      */

@@ -37,7 +37,7 @@ export interface GetBucketResult {
     /**
      * An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
      */
-    readonly tags?: outputs.s3outposts.BucketTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type Definition for AWS::S3Outposts::Bucket

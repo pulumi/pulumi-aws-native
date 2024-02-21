@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetClientCertificateResult',
@@ -45,7 +45,7 @@ class GetClientCertificateResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ClientCertificateTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """

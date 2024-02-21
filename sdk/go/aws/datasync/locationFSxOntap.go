@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type LocationFSxOntap struct {
 	// A subdirectory in the location's path.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationFSxOntapTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationFSxOntap registers a new resource with the given unique name, arguments, and options.
@@ -94,7 +95,7 @@ type locationFSxOntapArgs struct {
 	// A subdirectory in the location's path.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationFSxOntapTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationFSxOntap resource.
@@ -107,7 +108,7 @@ type LocationFSxOntapArgs struct {
 	// A subdirectory in the location's path.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationFSxOntapTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocationFSxOntapArgs) ElementType() reflect.Type {
@@ -182,8 +183,8 @@ func (o LocationFSxOntapOutput) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationFSxOntapOutput) Tags() LocationFSxOntapTagArrayOutput {
-	return o.ApplyT(func(v *LocationFSxOntap) LocationFSxOntapTagArrayOutput { return v.Tags }).(LocationFSxOntapTagArrayOutput)
+func (o LocationFSxOntapOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationFSxOntap) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

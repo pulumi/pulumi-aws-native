@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupPackagingConfigurationResult struct {
 	// The ID of a PackagingGroup.
 	PackagingGroupId *string `pulumi:"packagingGroupId"`
 	// A collection of tags associated with a resource
-	Tags []PackagingConfigurationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPackagingConfigurationOutput(ctx *pulumi.Context, args LookupPackagingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupPackagingConfigurationResultOutput {
@@ -111,8 +112,8 @@ func (o LookupPackagingConfigurationResultOutput) PackagingGroupId() pulumi.Stri
 }
 
 // A collection of tags associated with a resource
-func (o LookupPackagingConfigurationResultOutput) Tags() PackagingConfigurationTagArrayOutput {
-	return o.ApplyT(func(v LookupPackagingConfigurationResult) []PackagingConfigurationTag { return v.Tags }).(PackagingConfigurationTagArrayOutput)
+func (o LookupPackagingConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPackagingConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -102,7 +102,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
     /**
      * The tags to assign to the playback configuration.
      */
-    public readonly tags!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
      */
@@ -231,7 +231,7 @@ export interface PlaybackConfigurationArgs {
     /**
      * The tags to assign to the playback configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.mediatailor.PlaybackConfigurationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
      */

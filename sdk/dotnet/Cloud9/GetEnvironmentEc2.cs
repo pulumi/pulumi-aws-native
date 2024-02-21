@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Cloud9
         public readonly string? Description;
         public readonly string? Id;
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.EnvironmentEc2Tag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEnvironmentEc2Result(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Cloud9
 
             string? name,
 
-            ImmutableArray<Outputs.EnvironmentEc2Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

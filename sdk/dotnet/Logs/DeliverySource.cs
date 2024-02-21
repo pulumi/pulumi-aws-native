@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Logs
         /// The tags that have been assigned to this delivery source.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DeliverySourceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -127,14 +127,14 @@ namespace Pulumi.AwsNative.Logs
         public Input<string>? ResourceArn { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DeliverySourceTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags that have been assigned to this delivery source.
         /// </summary>
-        public InputList<Inputs.DeliverySourceTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DeliverySourceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

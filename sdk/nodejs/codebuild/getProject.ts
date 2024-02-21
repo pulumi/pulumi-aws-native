@@ -43,7 +43,7 @@ export interface GetProjectResult {
     readonly serviceRole?: string;
     readonly source?: outputs.codebuild.ProjectSource;
     readonly sourceVersion?: string;
-    readonly tags?: outputs.codebuild.ProjectTag[];
+    readonly tags?: outputs.Tag[];
     readonly timeoutInMinutes?: number;
     readonly triggers?: outputs.codebuild.ProjectTriggers;
     readonly visibility?: string;

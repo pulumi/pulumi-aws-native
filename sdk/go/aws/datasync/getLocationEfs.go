@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupLocationEfsResult struct {
 	// The URL of the EFS location that was described.
 	LocationUri *string `pulumi:"locationUri"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationEfsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocationEfsOutput(ctx *pulumi.Context, args LookupLocationEfsOutputArgs, opts ...pulumi.InvokeOption) LookupLocationEfsResultOutput {
@@ -83,8 +84,8 @@ func (o LookupLocationEfsResultOutput) LocationUri() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLocationEfsResultOutput) Tags() LocationEfsTagArrayOutput {
-	return o.ApplyT(func(v LookupLocationEfsResult) []LocationEfsTag { return v.Tags }).(LocationEfsTagArrayOutput)
+func (o LookupLocationEfsResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocationEfsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

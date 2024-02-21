@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type LocationS3 struct {
 	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationS3TagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationS3 registers a new resource with the given unique name, arguments, and options.
@@ -89,7 +90,7 @@ type locationS3Args struct {
 	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationS3Tag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationS3 resource.
@@ -102,7 +103,7 @@ type LocationS3Args struct {
 	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationS3TagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocationS3Args) ElementType() reflect.Type {
@@ -172,8 +173,8 @@ func (o LocationS3Output) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationS3Output) Tags() LocationS3TagArrayOutput {
-	return o.ApplyT(func(v *LocationS3) LocationS3TagArrayOutput { return v.Tags }).(LocationS3TagArrayOutput)
+func (o LocationS3Output) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationS3) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

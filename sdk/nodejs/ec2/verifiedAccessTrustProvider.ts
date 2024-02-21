@@ -66,7 +66,7 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Type of trust provider. Possible values: user|device
      */
@@ -155,7 +155,7 @@ export interface VerifiedAccessTrustProviderArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Type of trust provider. Possible values: user|device
      */

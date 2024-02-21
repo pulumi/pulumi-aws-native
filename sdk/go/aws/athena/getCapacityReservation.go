@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupCapacityReservationResult struct {
 	// The status of the reservation.
 	Status *CapacityReservationStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []CapacityReservationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The number of DPUs to request to be allocated to the reservation.
 	TargetDpus *int `pulumi:"targetDpus"`
 }
@@ -109,8 +110,8 @@ func (o LookupCapacityReservationResultOutput) Status() CapacityReservationStatu
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupCapacityReservationResultOutput) Tags() CapacityReservationTagArrayOutput {
-	return o.ApplyT(func(v LookupCapacityReservationResult) []CapacityReservationTag { return v.Tags }).(CapacityReservationTagArrayOutput)
+func (o LookupCapacityReservationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCapacityReservationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The number of DPUs to request to be allocated to the reservation.

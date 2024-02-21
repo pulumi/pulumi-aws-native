@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,7 +49,7 @@ type LookupServerlessCacheResult struct {
 	// The status of the Serverless Cache.
 	Status *string `pulumi:"status"`
 	// An array of key-value pairs to apply to this Serverless Cache.
-	Tags []ServerlessCacheTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the user group.
 	UserGroupId *string `pulumi:"userGroupId"`
 }
@@ -142,8 +143,8 @@ func (o LookupServerlessCacheResultOutput) Status() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this Serverless Cache.
-func (o LookupServerlessCacheResultOutput) Tags() ServerlessCacheTagArrayOutput {
-	return o.ApplyT(func(v LookupServerlessCacheResult) []ServerlessCacheTag { return v.Tags }).(ServerlessCacheTagArrayOutput)
+func (o LookupServerlessCacheResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServerlessCacheResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the user group.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Dataset struct {
 	Domain           DatasetDomainOutput                 `pulumi:"domain"`
 	EncryptionConfig EncryptionConfigPropertiesPtrOutput `pulumi:"encryptionConfig"`
 	Schema           SchemaPropertiesOutput              `pulumi:"schema"`
-	Tags             TagsItemPropertiesArrayOutput       `pulumi:"tags"`
+	Tags             aws.TagArrayOutput                  `pulumi:"tags"`
 }
 
 // NewDataset registers a new resource with the given unique name, arguments, and options.
@@ -93,7 +94,7 @@ type datasetArgs struct {
 	Domain           DatasetDomain               `pulumi:"domain"`
 	EncryptionConfig *EncryptionConfigProperties `pulumi:"encryptionConfig"`
 	Schema           SchemaProperties            `pulumi:"schema"`
-	Tags             []TagsItemProperties        `pulumi:"tags"`
+	Tags             []aws.Tag                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dataset resource.
@@ -108,7 +109,7 @@ type DatasetArgs struct {
 	Domain           DatasetDomainInput
 	EncryptionConfig EncryptionConfigPropertiesPtrInput
 	Schema           SchemaPropertiesInput
-	Tags             TagsItemPropertiesArrayInput
+	Tags             aws.TagArrayInput
 }
 
 func (DatasetArgs) ElementType() reflect.Type {
@@ -180,8 +181,8 @@ func (o DatasetOutput) Schema() SchemaPropertiesOutput {
 	return o.ApplyT(func(v *Dataset) SchemaPropertiesOutput { return v.Schema }).(SchemaPropertiesOutput)
 }
 
-func (o DatasetOutput) Tags() TagsItemPropertiesArrayOutput {
-	return o.ApplyT(func(v *Dataset) TagsItemPropertiesArrayOutput { return v.Tags }).(TagsItemPropertiesArrayOutput)
+func (o DatasetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Dataset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

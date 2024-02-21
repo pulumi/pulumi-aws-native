@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DomainTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.CodeArtifact
 
             object? permissionsPolicyDocument,
 
-            ImmutableArray<Outputs.DomainTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Name = name;

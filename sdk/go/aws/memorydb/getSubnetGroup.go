@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupSubnetGroupResult struct {
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// An array of key-value pairs to apply to this subnet group.
-	Tags []SubnetGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
@@ -90,8 +91,8 @@ func (o LookupSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // An array of key-value pairs to apply to this subnet group.
-func (o LookupSubnetGroupResultOutput) Tags() SubnetGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) []SubnetGroupTag { return v.Tags }).(SubnetGroupTagArrayOutput)
+func (o LookupSubnetGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

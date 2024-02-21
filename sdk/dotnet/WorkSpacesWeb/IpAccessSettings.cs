@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Output<ImmutableArray<Outputs.IpAccessSettingsIpRule>> IpRules { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.IpAccessSettingsTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -113,10 +113,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         }
 
         [Input("tags")]
-        private InputList<Inputs.IpAccessSettingsTagArgs>? _tags;
-        public InputList<Inputs.IpAccessSettingsTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.IpAccessSettingsTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

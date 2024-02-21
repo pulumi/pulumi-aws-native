@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type ScheduleGroup struct {
 	Name                 pulumi.StringPtrOutput       `pulumi:"name"`
 	State                ScheduleGroupStateEnumOutput `pulumi:"state"`
 	// The list of tags to associate with the schedule group.
-	Tags ScheduleGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewScheduleGroup registers a new resource with the given unique name, arguments, and options.
@@ -73,14 +74,14 @@ func (ScheduleGroupState) ElementType() reflect.Type {
 type scheduleGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The list of tags to associate with the schedule group.
-	Tags []ScheduleGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ScheduleGroup resource.
 type ScheduleGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The list of tags to associate with the schedule group.
-	Tags ScheduleGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ScheduleGroupArgs) ElementType() reflect.Type {
@@ -144,8 +145,8 @@ func (o ScheduleGroupOutput) State() ScheduleGroupStateEnumOutput {
 }
 
 // The list of tags to associate with the schedule group.
-func (o ScheduleGroupOutput) Tags() ScheduleGroupTagArrayOutput {
-	return o.ApplyT(func(v *ScheduleGroup) ScheduleGroupTagArrayOutput { return v.Tags }).(ScheduleGroupTagArrayOutput)
+func (o ScheduleGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ScheduleGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

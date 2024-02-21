@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupLocationObjectStorageResult struct {
 	// The protocol that the object storage server uses to communicate.
 	ServerProtocol *LocationObjectStorageServerProtocol `pulumi:"serverProtocol"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationObjectStorageTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocationObjectStorageOutput(ctx *pulumi.Context, args LookupLocationObjectStorageOutputArgs, opts ...pulumi.InvokeOption) LookupLocationObjectStorageResultOutput {
@@ -120,8 +121,8 @@ func (o LookupLocationObjectStorageResultOutput) ServerProtocol() LocationObject
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLocationObjectStorageResultOutput) Tags() LocationObjectStorageTagArrayOutput {
-	return o.ApplyT(func(v LookupLocationObjectStorageResult) []LocationObjectStorageTag { return v.Tags }).(LocationObjectStorageTagArrayOutput)
+func (o LookupLocationObjectStorageResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocationObjectStorageResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,8 +35,8 @@ type LookupGeofenceCollectionResult struct {
 	PricingPlan           *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
 	PricingPlanDataSource *string                        `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []GeofenceCollectionTag `pulumi:"tags"`
-	UpdateTime *string                 `pulumi:"updateTime"`
+	Tags       []aws.Tag `pulumi:"tags"`
+	UpdateTime *string   `pulumi:"updateTime"`
 }
 
 func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupGeofenceCollectionResultOutput {
@@ -98,8 +99,8 @@ func (o LookupGeofenceCollectionResultOutput) PricingPlanDataSource() pulumi.Str
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupGeofenceCollectionResultOutput) Tags() GeofenceCollectionTagArrayOutput {
-	return o.ApplyT(func(v LookupGeofenceCollectionResult) []GeofenceCollectionTag { return v.Tags }).(GeofenceCollectionTagArrayOutput)
+func (o LookupGeofenceCollectionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGeofenceCollectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupGeofenceCollectionResultOutput) UpdateTime() pulumi.StringPtrOutput {

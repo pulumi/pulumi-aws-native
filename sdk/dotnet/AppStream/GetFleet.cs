@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.AppStream
         public readonly string? Platform;
         public readonly Outputs.FleetS3Location? SessionScriptS3Location;
         public readonly string? StreamView;
-        public readonly ImmutableArray<Outputs.FleetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<string> UsbDeviceFilterStrings;
         public readonly Outputs.FleetVpcConfig? VpcConfig;
 
@@ -111,7 +111,7 @@ namespace Pulumi.AwsNative.AppStream
 
             string? streamView,
 
-            ImmutableArray<Outputs.FleetTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> usbDeviceFilterStrings,
 

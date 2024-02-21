@@ -60,7 +60,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    public readonly tags!: pulumi.Output<outputs.appconfig.EnvironmentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -120,5 +120,5 @@ export interface EnvironmentArgs {
     /**
      * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type Device struct {
 	// The state of the device.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the device.
-	Tags DeviceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The device type.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// The device vendor.
@@ -108,7 +109,7 @@ type deviceArgs struct {
 	// The site ID.
 	SiteId *string `pulumi:"siteId"`
 	// The tags for the device.
-	Tags []DeviceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The device type.
 	Type *string `pulumi:"type"`
 	// The device vendor.
@@ -132,7 +133,7 @@ type DeviceArgs struct {
 	// The site ID.
 	SiteId pulumi.StringPtrInput
 	// The tags for the device.
-	Tags DeviceTagArrayInput
+	Tags aws.TagArrayInput
 	// The device type.
 	Type pulumi.StringPtrInput
 	// The device vendor.
@@ -232,8 +233,8 @@ func (o DeviceOutput) State() pulumi.StringOutput {
 }
 
 // The tags for the device.
-func (o DeviceOutput) Tags() DeviceTagArrayOutput {
-	return o.ApplyT(func(v *Device) DeviceTagArrayOutput { return v.Tags }).(DeviceTagArrayOutput)
+func (o DeviceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Device) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The device type.

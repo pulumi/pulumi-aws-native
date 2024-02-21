@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// A list of key-value pairs that contain metadata for the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GatewayTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetGatewayResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
             string? gatewayName,
 
-            ImmutableArray<Outputs.GatewayTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             GatewayCapabilitySummaries = gatewayCapabilitySummaries;
             GatewayId = gatewayId;

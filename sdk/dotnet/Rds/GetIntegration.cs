@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IntegrationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetIntegrationResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Rds
 
             string? integrationArn,
 
-            ImmutableArray<Outputs.IntegrationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreateTime = createTime;
             IntegrationArn = integrationArn;

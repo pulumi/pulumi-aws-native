@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Organizations
         /// <summary>
         /// A list of tags that you want to attach to the resource policy
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourcePolicyTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetResourcePolicyResult(
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Organizations
 
             string? id,
 
-            ImmutableArray<Outputs.ResourcePolicyTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Content = content;

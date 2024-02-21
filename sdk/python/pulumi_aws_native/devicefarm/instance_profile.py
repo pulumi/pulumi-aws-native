@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['InstanceProfileArgs', 'InstanceProfile']
 
@@ -21,7 +21,7 @@ class InstanceProfileArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  package_cleanup: Optional[pulumi.Input[bool]] = None,
                  reboot_after_use: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceProfileTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
         """
@@ -85,11 +85,11 @@ class InstanceProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceProfileTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceProfileTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -103,7 +103,7 @@ class InstanceProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  package_cleanup: Optional[pulumi.Input[bool]] = None,
                  reboot_after_use: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
@@ -140,7 +140,7 @@ class InstanceProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  package_cleanup: Optional[pulumi.Input[bool]] = None,
                  reboot_after_use: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -220,6 +220,6 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceProfileTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

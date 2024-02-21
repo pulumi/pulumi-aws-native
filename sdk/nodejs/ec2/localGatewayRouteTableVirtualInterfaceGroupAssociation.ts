@@ -68,7 +68,7 @@ export class LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends pulu
     /**
      * The tags for the local gateway route table virtual interface group association.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocalGatewayRouteTableVirtualInterfaceGroupAssociation resource with the given unique name, arguments, and options.
@@ -127,5 +127,5 @@ export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs {
     /**
      * The tags for the local gateway route table virtual interface group association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

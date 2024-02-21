@@ -17,7 +17,6 @@ __all__ = [
     'ScheduleEcsParametersArgs',
     'ScheduleEventBridgeParametersArgs',
     'ScheduleFlexibleTimeWindowArgs',
-    'ScheduleGroupTagArgs',
     'ScheduleKinesisParametersArgs',
     'ScheduleNetworkConfigurationArgs',
     'SchedulePlacementConstraintArgs',
@@ -450,44 +449,6 @@ class ScheduleFlexibleTimeWindowArgs:
     @maximum_window_in_minutes.setter
     def maximum_window_in_minutes(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "maximum_window_in_minutes", value)
-
-
-@pulumi.input_type
-class ScheduleGroupTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        Tag to associate with the resource.
-        :param pulumi.Input[str] key: Key for the tag
-        :param pulumi.Input[str] value: Value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        Key for the tag
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Value for the tag
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

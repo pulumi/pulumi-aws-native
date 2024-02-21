@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StorageLensGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetStorageLensGroupResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.S3
 
             string? storageLensGroupArn,
 
-            ImmutableArray<Outputs.StorageLensGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Filter = filter;
             StorageLensGroupArn = storageLensGroupArn;

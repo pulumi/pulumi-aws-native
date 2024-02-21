@@ -55,13 +55,13 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLocationResult(
             string? locationArn,
 
-            ImmutableArray<Outputs.LocationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             LocationArn = locationArn;
             Tags = tags;

@@ -58,7 +58,7 @@ export interface GetMultiplexResult {
     /**
      * A collection of key-value pairs.
      */
-    readonly tags?: outputs.medialive.MultiplexTags[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::MediaLive::Multiplex

@@ -40,7 +40,7 @@ export interface GetAppMonitorResult {
      * The unique ID of the new app monitor.
      */
     readonly id?: string;
-    readonly tags?: outputs.rum.AppMonitorTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::RUM::AppMonitor

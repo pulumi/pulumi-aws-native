@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type EndpointConfig struct {
 	KmsKeyId                 pulumi.StringPtrOutput                      `pulumi:"kmsKeyId"`
 	ProductionVariants       EndpointConfigProductionVariantArrayOutput  `pulumi:"productionVariants"`
 	ShadowProductionVariants EndpointConfigProductionVariantArrayOutput  `pulumi:"shadowProductionVariants"`
-	Tags                     EndpointConfigTagArrayOutput                `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                          `pulumi:"tags"`
 	VpcConfig                EndpointConfigVpcConfigPtrOutput            `pulumi:"vpcConfig"`
 }
 
@@ -96,7 +97,7 @@ type endpointConfigArgs struct {
 	KmsKeyId                 *string                             `pulumi:"kmsKeyId"`
 	ProductionVariants       []EndpointConfigProductionVariant   `pulumi:"productionVariants"`
 	ShadowProductionVariants []EndpointConfigProductionVariant   `pulumi:"shadowProductionVariants"`
-	Tags                     []EndpointConfigTag                 `pulumi:"tags"`
+	Tags                     []aws.Tag                           `pulumi:"tags"`
 	VpcConfig                *EndpointConfigVpcConfig            `pulumi:"vpcConfig"`
 }
 
@@ -111,7 +112,7 @@ type EndpointConfigArgs struct {
 	KmsKeyId                 pulumi.StringPtrInput
 	ProductionVariants       EndpointConfigProductionVariantArrayInput
 	ShadowProductionVariants EndpointConfigProductionVariantArrayInput
-	Tags                     EndpointConfigTagArrayInput
+	Tags                     aws.TagArrayInput
 	VpcConfig                EndpointConfigVpcConfigPtrInput
 }
 
@@ -188,8 +189,8 @@ func (o EndpointConfigOutput) ShadowProductionVariants() EndpointConfigProductio
 	return o.ApplyT(func(v *EndpointConfig) EndpointConfigProductionVariantArrayOutput { return v.ShadowProductionVariants }).(EndpointConfigProductionVariantArrayOutput)
 }
 
-func (o EndpointConfigOutput) Tags() EndpointConfigTagArrayOutput {
-	return o.ApplyT(func(v *EndpointConfig) EndpointConfigTagArrayOutput { return v.Tags }).(EndpointConfigTagArrayOutput)
+func (o EndpointConfigOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EndpointConfig) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o EndpointConfigOutput) VpcConfig() EndpointConfigVpcConfigPtrOutput {

@@ -39,7 +39,7 @@ export interface GetCloudFormationProductResult {
     readonly supportDescription?: string;
     readonly supportEmail?: string;
     readonly supportUrl?: string;
-    readonly tags?: outputs.servicecatalog.CloudFormationProductTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct

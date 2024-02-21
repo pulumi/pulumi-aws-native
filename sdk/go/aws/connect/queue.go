@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type Queue struct {
 	// The status of the queue.
 	Status QueueStatusPtrOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags QueueTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of queue.
 	Type QueueTypeOutput `pulumi:"type"`
 }
@@ -103,7 +104,7 @@ type queueArgs struct {
 	// The status of the queue.
 	Status *QueueStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []QueueTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Queue resource.
@@ -125,7 +126,7 @@ type QueueArgs struct {
 	// The status of the queue.
 	Status QueueStatusPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags QueueTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {
@@ -211,8 +212,8 @@ func (o QueueOutput) Status() QueueStatusPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o QueueOutput) Tags() QueueTagArrayOutput {
-	return o.ApplyT(func(v *Queue) QueueTagArrayOutput { return v.Tags }).(QueueTagArrayOutput)
+func (o QueueOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Queue) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of queue.

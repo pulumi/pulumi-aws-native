@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type PublicDnsNamespace struct {
 	HostedZoneId pulumi.StringOutput                   `pulumi:"hostedZoneId"`
 	Name         pulumi.StringOutput                   `pulumi:"name"`
 	Properties   PublicDnsNamespacePropertiesPtrOutput `pulumi:"properties"`
-	Tags         PublicDnsNamespaceTagArrayOutput      `pulumi:"tags"`
+	Tags         aws.TagArrayOutput                    `pulumi:"tags"`
 }
 
 // NewPublicDnsNamespace registers a new resource with the given unique name, arguments, and options.
@@ -72,7 +73,7 @@ type publicDnsNamespaceArgs struct {
 	Description *string                       `pulumi:"description"`
 	Name        *string                       `pulumi:"name"`
 	Properties  *PublicDnsNamespaceProperties `pulumi:"properties"`
-	Tags        []PublicDnsNamespaceTag       `pulumi:"tags"`
+	Tags        []aws.Tag                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PublicDnsNamespace resource.
@@ -80,7 +81,7 @@ type PublicDnsNamespaceArgs struct {
 	Description pulumi.StringPtrInput
 	Name        pulumi.StringPtrInput
 	Properties  PublicDnsNamespacePropertiesPtrInput
-	Tags        PublicDnsNamespaceTagArrayInput
+	Tags        aws.TagArrayInput
 }
 
 func (PublicDnsNamespaceArgs) ElementType() reflect.Type {
@@ -140,8 +141,8 @@ func (o PublicDnsNamespaceOutput) Properties() PublicDnsNamespacePropertiesPtrOu
 	return o.ApplyT(func(v *PublicDnsNamespace) PublicDnsNamespacePropertiesPtrOutput { return v.Properties }).(PublicDnsNamespacePropertiesPtrOutput)
 }
 
-func (o PublicDnsNamespaceOutput) Tags() PublicDnsNamespaceTagArrayOutput {
-	return o.ApplyT(func(v *PublicDnsNamespace) PublicDnsNamespaceTagArrayOutput { return v.Tags }).(PublicDnsNamespaceTagArrayOutput)
+func (o PublicDnsNamespaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PublicDnsNamespace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

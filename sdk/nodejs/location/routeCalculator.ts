@@ -47,7 +47,7 @@ export class RouteCalculator extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.location.RouteCalculatorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -105,5 +105,5 @@ export interface RouteCalculatorArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.location.RouteCalculatorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

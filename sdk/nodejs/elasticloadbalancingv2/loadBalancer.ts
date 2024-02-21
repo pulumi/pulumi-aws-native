@@ -92,7 +92,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The tags to assign to the load balancer.
      */
-    public readonly tags!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of load balancer. The default is application.
      */
@@ -187,7 +187,7 @@ export interface LoadBalancerArgs {
     /**
      * The tags to assign to the load balancer.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of load balancer. The default is application.
      */

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type ReplicaKey struct {
 	// Identifies the primary AWS KMS key to create a replica of. Specify the Amazon Resource Name (ARN) of the AWS KMS key. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
 	PrimaryKeyArn pulumi.StringOutput `pulumi:"primaryKeyArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ReplicaKeyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewReplicaKey registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +98,7 @@ type replicaKeyArgs struct {
 	// Identifies the primary AWS KMS key to create a replica of. Specify the Amazon Resource Name (ARN) of the AWS KMS key. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
 	PrimaryKeyArn string `pulumi:"primaryKeyArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ReplicaKeyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReplicaKey resource.
@@ -115,7 +116,7 @@ type ReplicaKeyArgs struct {
 	// Identifies the primary AWS KMS key to create a replica of. Specify the Amazon Resource Name (ARN) of the AWS KMS key. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
 	PrimaryKeyArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ReplicaKeyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ReplicaKeyArgs) ElementType() reflect.Type {
@@ -191,8 +192,8 @@ func (o ReplicaKeyOutput) PrimaryKeyArn() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ReplicaKeyOutput) Tags() ReplicaKeyTagArrayOutput {
-	return o.ApplyT(func(v *ReplicaKey) ReplicaKeyTagArrayOutput { return v.Tags }).(ReplicaKeyTagArrayOutput)
+func (o ReplicaKeyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ReplicaKey) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type CodeRepository struct {
 
 	CodeRepositoryName pulumi.StringPtrOutput        `pulumi:"codeRepositoryName"`
 	GitConfig          CodeRepositoryGitConfigOutput `pulumi:"gitConfig"`
-	Tags               CodeRepositoryTagArrayOutput  `pulumi:"tags"`
+	Tags               aws.TagArrayOutput            `pulumi:"tags"`
 }
 
 // NewCodeRepository registers a new resource with the given unique name, arguments, and options.
@@ -72,14 +73,14 @@ func (CodeRepositoryState) ElementType() reflect.Type {
 type codeRepositoryArgs struct {
 	CodeRepositoryName *string                 `pulumi:"codeRepositoryName"`
 	GitConfig          CodeRepositoryGitConfig `pulumi:"gitConfig"`
-	Tags               []CodeRepositoryTag     `pulumi:"tags"`
+	Tags               []aws.Tag               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CodeRepository resource.
 type CodeRepositoryArgs struct {
 	CodeRepositoryName pulumi.StringPtrInput
 	GitConfig          CodeRepositoryGitConfigInput
-	Tags               CodeRepositoryTagArrayInput
+	Tags               aws.TagArrayInput
 }
 
 func (CodeRepositoryArgs) ElementType() reflect.Type {
@@ -127,8 +128,8 @@ func (o CodeRepositoryOutput) GitConfig() CodeRepositoryGitConfigOutput {
 	return o.ApplyT(func(v *CodeRepository) CodeRepositoryGitConfigOutput { return v.GitConfig }).(CodeRepositoryGitConfigOutput)
 }
 
-func (o CodeRepositoryOutput) Tags() CodeRepositoryTagArrayOutput {
-	return o.ApplyT(func(v *CodeRepository) CodeRepositoryTagArrayOutput { return v.Tags }).(CodeRepositoryTagArrayOutput)
+func (o CodeRepositoryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CodeRepository) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

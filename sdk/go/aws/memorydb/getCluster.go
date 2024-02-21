@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -67,7 +68,7 @@ type LookupClusterResult struct {
 	// The status of the cluster. For example, Available, Updating, Creating.
 	Status *string `pulumi:"status"`
 	// An array of key-value pairs to apply to this cluster.
-	Tags []ClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -199,8 +200,8 @@ func (o LookupClusterResultOutput) Status() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this cluster.
-func (o LookupClusterResultOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v LookupClusterResult) []ClusterTag { return v.Tags }).(ClusterTagArrayOutput)
+func (o LookupClusterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

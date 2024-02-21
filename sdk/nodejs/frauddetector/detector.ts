@@ -78,7 +78,7 @@ export class Detector extends pulumi.CustomResource {
     /**
      * Tags associated with this detector.
      */
-    public readonly tags!: pulumi.Output<outputs.frauddetector.DetectorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Detector resource with the given unique name, arguments, and options.
@@ -162,5 +162,5 @@ export interface DetectorArgs {
     /**
      * Tags associated with this detector.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

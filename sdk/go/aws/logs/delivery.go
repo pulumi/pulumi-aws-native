@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type Delivery struct {
 	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName pulumi.StringOutput `pulumi:"deliverySourceName"`
 	// The tags that have been assigned to this delivery.
-	Tags DeliveryTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDelivery registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type deliveryArgs struct {
 	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName string `pulumi:"deliverySourceName"`
 	// The tags that have been assigned to this delivery.
-	Tags []DeliveryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Delivery resource.
@@ -100,7 +101,7 @@ type DeliveryArgs struct {
 	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName pulumi.StringInput
 	// The tags that have been assigned to this delivery.
-	Tags DeliveryTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DeliveryArgs) ElementType() reflect.Type {
@@ -166,8 +167,8 @@ func (o DeliveryOutput) DeliverySourceName() pulumi.StringOutput {
 }
 
 // The tags that have been assigned to this delivery.
-func (o DeliveryOutput) Tags() DeliveryTagArrayOutput {
-	return o.ApplyT(func(v *Delivery) DeliveryTagArrayOutput { return v.Tags }).(DeliveryTagArrayOutput)
+func (o DeliveryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Delivery) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

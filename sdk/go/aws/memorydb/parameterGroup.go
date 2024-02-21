@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type ParameterGroup struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this parameter group.
-	Tags ParameterGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +93,7 @@ type parameterGroupArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{} `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this parameter group.
-	Tags []ParameterGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
@@ -108,7 +109,7 @@ type ParameterGroupArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.Input
 	// An array of key-value pairs to apply to this parameter group.
-	Tags ParameterGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {
@@ -176,8 +177,8 @@ func (o ParameterGroupOutput) Parameters() pulumi.AnyOutput {
 }
 
 // An array of key-value pairs to apply to this parameter group.
-func (o ParameterGroupOutput) Tags() ParameterGroupTagArrayOutput {
-	return o.ApplyT(func(v *ParameterGroup) ParameterGroupTagArrayOutput { return v.Tags }).(ParameterGroupTagArrayOutput)
+func (o ParameterGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ParameterGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

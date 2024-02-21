@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,8 +30,8 @@ type EventStream struct {
 	// The operational state of destination stream for export.
 	State EventStreamStateEnumOutput `pulumi:"state"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags EventStreamTagArrayOutput `pulumi:"tags"`
-	Uri  pulumi.StringOutput       `pulumi:"uri"`
+	Tags aws.TagArrayOutput  `pulumi:"tags"`
+	Uri  pulumi.StringOutput `pulumi:"uri"`
 }
 
 // NewEventStream registers a new resource with the given unique name, arguments, and options.
@@ -90,8 +91,8 @@ type eventStreamArgs struct {
 	// The name of the event stream.
 	EventStreamName *string `pulumi:"eventStreamName"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags []EventStreamTag `pulumi:"tags"`
-	Uri  string           `pulumi:"uri"`
+	Tags []aws.Tag `pulumi:"tags"`
+	Uri  string    `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a EventStream resource.
@@ -101,7 +102,7 @@ type EventStreamArgs struct {
 	// The name of the event stream.
 	EventStreamName pulumi.StringPtrInput
 	// The tags used to organize, track, or control access for this resource.
-	Tags EventStreamTagArrayInput
+	Tags aws.TagArrayInput
 	Uri  pulumi.StringInput
 }
 
@@ -173,8 +174,8 @@ func (o EventStreamOutput) State() EventStreamStateEnumOutput {
 }
 
 // The tags used to organize, track, or control access for this resource.
-func (o EventStreamOutput) Tags() EventStreamTagArrayOutput {
-	return o.ApplyT(func(v *EventStream) EventStreamTagArrayOutput { return v.Tags }).(EventStreamTagArrayOutput)
+func (o EventStreamOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EventStream) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o EventStreamOutput) Uri() pulumi.StringOutput {

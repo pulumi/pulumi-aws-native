@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type DataIntegration struct {
 	// The URI of the data source.
 	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
 	// The tags (keys and values) associated with the data integration.
-	Tags DataIntegrationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataIntegration registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +104,7 @@ type dataIntegrationArgs struct {
 	// The URI of the data source.
 	SourceUri string `pulumi:"sourceUri"`
 	// The tags (keys and values) associated with the data integration.
-	Tags []DataIntegrationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataIntegration resource.
@@ -123,7 +124,7 @@ type DataIntegrationArgs struct {
 	// The URI of the data source.
 	SourceUri pulumi.StringInput
 	// The tags (keys and values) associated with the data integration.
-	Tags DataIntegrationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DataIntegrationArgs) ElementType() reflect.Type {
@@ -204,8 +205,8 @@ func (o DataIntegrationOutput) SourceUri() pulumi.StringOutput {
 }
 
 // The tags (keys and values) associated with the data integration.
-func (o DataIntegrationOutput) Tags() DataIntegrationTagArrayOutput {
-	return o.ApplyT(func(v *DataIntegration) DataIntegrationTagArrayOutput { return v.Tags }).(DataIntegrationTagArrayOutput)
+func (o DataIntegrationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DataIntegration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

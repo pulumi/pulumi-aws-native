@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Analyzer struct {
 	// Amazon Resource Name (ARN) of the analyzer
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags AnalyzerTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -84,7 +85,7 @@ type analyzerArgs struct {
 	AnalyzerName *string               `pulumi:"analyzerName"`
 	ArchiveRules []AnalyzerArchiveRule `pulumi:"archiveRules"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []AnalyzerTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
 	Type string `pulumi:"type"`
 }
@@ -97,7 +98,7 @@ type AnalyzerArgs struct {
 	AnalyzerName pulumi.StringPtrInput
 	ArchiveRules AnalyzerArchiveRuleArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags AnalyzerTagArrayInput
+	Tags aws.TagArrayInput
 	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
 	Type pulumi.StringInput
 }
@@ -159,8 +160,8 @@ func (o AnalyzerOutput) Arn() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o AnalyzerOutput) Tags() AnalyzerTagArrayOutput {
-	return o.ApplyT(func(v *Analyzer) AnalyzerTagArrayOutput { return v.Tags }).(AnalyzerTagArrayOutput)
+func (o AnalyzerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Analyzer) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS

@@ -49,7 +49,7 @@ export class Ruleset extends pulumi.CustomResource {
      * List of the data quality rules in the ruleset
      */
     public readonly rules!: pulumi.Output<outputs.databrew.RulesetRule[]>;
-    public readonly tags!: pulumi.Output<outputs.databrew.RulesetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Arn of the target resource (dataset) to apply the ruleset to
      */
@@ -107,7 +107,7 @@ export interface RulesetArgs {
      * List of the data quality rules in the ruleset
      */
     rules: pulumi.Input<pulumi.Input<inputs.databrew.RulesetRuleArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.databrew.RulesetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Arn of the target resource (dataset) to apply the ruleset to
      */

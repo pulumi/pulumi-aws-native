@@ -13,9 +13,7 @@ from ._enums import *
 __all__ = [
     'ApplicationInstanceManifestOverridesPayload',
     'ApplicationInstanceManifestPayload',
-    'ApplicationInstanceTag',
     'PackageStorageLocation',
-    'PackageTag',
 ]
 
 @pulumi.output_type
@@ -76,35 +74,6 @@ class ApplicationInstanceManifestPayload(dict):
     @pulumi.getter(name="payloadData")
     def payload_data(self) -> Optional[str]:
         return pulumi.get(self, "payload_data")
-
-
-@pulumi.output_type
-class ApplicationInstanceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: A string used to identify this tag
-        :param str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -173,24 +142,5 @@ class PackageStorageLocation(dict):
     @pulumi.getter(name="repoPrefixLocation")
     def repo_prefix_location(self) -> Optional[str]:
         return pulumi.get(self, "repo_prefix_location")
-
-
-@pulumi.output_type
-class PackageTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

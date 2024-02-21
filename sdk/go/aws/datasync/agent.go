@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type Agent struct {
 	// The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
 	SubnetArns pulumi.StringArrayOutput `pulumi:"subnetArns"`
 	// An array of key-value pairs to apply to this resource.
-	Tags AgentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC endpoint that the agent has access to.
 	VpcEndpointId pulumi.StringPtrOutput `pulumi:"vpcEndpointId"`
 }
@@ -89,7 +90,7 @@ type agentArgs struct {
 	// The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
 	SubnetArns []string `pulumi:"subnetArns"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []AgentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC endpoint that the agent has access to.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 }
@@ -105,7 +106,7 @@ type AgentArgs struct {
 	// The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
 	SubnetArns pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags AgentTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the VPC endpoint that the agent has access to.
 	VpcEndpointId pulumi.StringPtrInput
 }
@@ -178,8 +179,8 @@ func (o AgentOutput) SubnetArns() pulumi.StringArrayOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o AgentOutput) Tags() AgentTagArrayOutput {
-	return o.ApplyT(func(v *Agent) AgentTagArrayOutput { return v.Tags }).(AgentTagArrayOutput)
+func (o AgentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Agent) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the VPC endpoint that the agent has access to.

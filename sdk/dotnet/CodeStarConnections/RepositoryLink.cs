@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// Specifies the tags applied to a RepositoryLink.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RepositoryLinkTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,14 +138,14 @@ namespace Pulumi.AwsNative.CodeStarConnections
         public Input<string> RepositoryName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.RepositoryLinkTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Specifies the tags applied to a RepositoryLink.
         /// </summary>
-        public InputList<Inputs.RepositoryLinkTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RepositoryLinkTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

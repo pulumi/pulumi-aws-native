@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// Kinesis stream ARN to which log events are published.
         /// </summary>
         public readonly string? KinesisStreamArn;
-        public readonly ImmutableArray<Outputs.UserAccessLoggingSettingsTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UserAccessLoggingSettingsArn;
 
         [OutputConstructor]
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             string? kinesisStreamArn,
 
-            ImmutableArray<Outputs.UserAccessLoggingSettingsTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? userAccessLoggingSettingsArn)
         {

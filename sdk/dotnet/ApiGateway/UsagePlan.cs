@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.UsagePlanTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A map containing method level throttling information for API stage in a usage plan.
@@ -122,14 +122,14 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<Inputs.UsagePlanQuotaSettingsArgs>? Quota { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.UsagePlanTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
-        public InputList<Inputs.UsagePlanTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.UsagePlanTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

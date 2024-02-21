@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,8 +28,8 @@ type ApiKey struct {
 	NoExpiry     pulumi.BoolPtrOutput     `pulumi:"noExpiry"`
 	Restrictions ApiKeyRestrictionsOutput `pulumi:"restrictions"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       ApiKeyTagArrayOutput `pulumi:"tags"`
-	UpdateTime pulumi.StringOutput  `pulumi:"updateTime"`
+	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewApiKey registers a new resource with the given unique name, arguments, and options.
@@ -89,7 +90,7 @@ type apiKeyArgs struct {
 	NoExpiry     *bool              `pulumi:"noExpiry"`
 	Restrictions ApiKeyRestrictions `pulumi:"restrictions"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ApiKeyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ApiKey resource.
@@ -102,7 +103,7 @@ type ApiKeyArgs struct {
 	NoExpiry     pulumi.BoolPtrInput
 	Restrictions ApiKeyRestrictionsInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ApiKeyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ApiKeyArgs) ElementType() reflect.Type {
@@ -183,8 +184,8 @@ func (o ApiKeyOutput) Restrictions() ApiKeyRestrictionsOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ApiKeyOutput) Tags() ApiKeyTagArrayOutput {
-	return o.ApplyT(func(v *ApiKey) ApiKeyTagArrayOutput { return v.Tags }).(ApiKeyTagArrayOutput)
+func (o ApiKeyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ApiKey) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ApiKeyOutput) UpdateTime() pulumi.StringOutput {

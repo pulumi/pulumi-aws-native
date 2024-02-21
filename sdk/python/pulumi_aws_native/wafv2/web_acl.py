@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +29,7 @@ class WebAclArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a WebAcl resource.
@@ -150,11 +152,11 @@ class WebAclArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -181,7 +183,7 @@ class WebAcl(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
                  scope: Optional[pulumi.Input['WebAclScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
@@ -225,7 +227,7 @@ class WebAcl(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
                  scope: Optional[pulumi.Input['WebAclScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
@@ -364,7 +366,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.WebAclTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

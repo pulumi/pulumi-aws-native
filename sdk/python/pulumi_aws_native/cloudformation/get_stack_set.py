@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -118,7 +119,7 @@ class GetStackSetResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.StackSetTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         """

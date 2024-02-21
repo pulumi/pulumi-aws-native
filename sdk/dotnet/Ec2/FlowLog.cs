@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags to apply to the flow logs.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FlowLogTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
@@ -201,14 +201,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<Pulumi.AwsNative.Ec2.FlowLogResourceType> ResourceType { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.FlowLogTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags to apply to the flow logs.
         /// </summary>
-        public InputList<Inputs.FlowLogTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FlowLogTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

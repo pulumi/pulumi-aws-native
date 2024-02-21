@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type Environment struct {
 	// An option to define if software updates should be applied within a maintenance window.
 	SoftwareSetUpdateSchedule EnvironmentSoftwareSetUpdateSchedulePtrOutput `pulumi:"softwareSetUpdateSchedule"`
 	// An array of key-value pairs to apply to this resource.
-	Tags EnvironmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The timestamp in unix epoch format when environment was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
@@ -119,7 +120,7 @@ type environmentArgs struct {
 	// An option to define if software updates should be applied within a maintenance window.
 	SoftwareSetUpdateSchedule *EnvironmentSoftwareSetUpdateSchedule `pulumi:"softwareSetUpdateSchedule"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []EnvironmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -141,7 +142,7 @@ type EnvironmentArgs struct {
 	// An option to define if software updates should be applied within a maintenance window.
 	SoftwareSetUpdateSchedule EnvironmentSoftwareSetUpdateSchedulePtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags EnvironmentTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -264,8 +265,8 @@ func (o EnvironmentOutput) SoftwareSetUpdateSchedule() EnvironmentSoftwareSetUpd
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o EnvironmentOutput) Tags() EnvironmentTagArrayOutput {
-	return o.ApplyT(func(v *Environment) EnvironmentTagArrayOutput { return v.Tags }).(EnvironmentTagArrayOutput)
+func (o EnvironmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Environment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The timestamp in unix epoch format when environment was last updated.

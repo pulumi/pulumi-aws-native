@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupRepositoryResult struct {
 	RepositoryPolicyText interface{} `pulumi:"repositoryPolicyText"`
 	RepositoryUri        *string     `pulumi:"repositoryUri"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RepositoryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryResultOutput {
@@ -109,8 +110,8 @@ func (o LookupRepositoryResultOutput) RepositoryUri() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupRepositoryResultOutput) Tags() RepositoryTagArrayOutput {
-	return o.ApplyT(func(v LookupRepositoryResult) []RepositoryTag { return v.Tags }).(RepositoryTagArrayOutput)
+func (o LookupRepositoryResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

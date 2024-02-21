@@ -70,7 +70,7 @@ export interface GetLocationHdfsResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.datasync.LocationHdfsTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataSync::LocationHDFS.

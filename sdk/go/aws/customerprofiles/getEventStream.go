@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupEventStreamResult struct {
 	// The operational state of destination stream for export.
 	State *EventStreamStateEnum `pulumi:"state"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags []EventStreamTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEventStreamOutput(ctx *pulumi.Context, args LookupEventStreamOutputArgs, opts ...pulumi.InvokeOption) LookupEventStreamResultOutput {
@@ -101,8 +102,8 @@ func (o LookupEventStreamResultOutput) State() EventStreamStateEnumPtrOutput {
 }
 
 // The tags used to organize, track, or control access for this resource.
-func (o LookupEventStreamResultOutput) Tags() EventStreamTagArrayOutput {
-	return o.ApplyT(func(v LookupEventStreamResult) []EventStreamTag { return v.Tags }).(EventStreamTagArrayOutput)
+func (o LookupEventStreamResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEventStreamResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

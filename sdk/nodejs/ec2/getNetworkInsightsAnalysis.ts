@@ -35,7 +35,7 @@ export interface GetNetworkInsightsAnalysisResult {
     readonly status?: enums.ec2.NetworkInsightsAnalysisStatus;
     readonly statusMessage?: string;
     readonly suggestedAccounts?: string[];
-    readonly tags?: outputs.ec2.NetworkInsightsAnalysisTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::EC2::NetworkInsightsAnalysis

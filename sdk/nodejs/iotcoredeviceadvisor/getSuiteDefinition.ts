@@ -42,7 +42,7 @@ export interface GetSuiteDefinitionResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.iotcoredeviceadvisor.SuiteDefinitionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.

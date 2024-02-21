@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,11 +18,11 @@ type TransitGatewayAttachment struct {
 	pulumi.CustomResourceState
 
 	// The options for the transit gateway vpc attachment.
-	Options          OptionsPropertiesPtrOutput             `pulumi:"options"`
-	SubnetIds        pulumi.StringArrayOutput               `pulumi:"subnetIds"`
-	Tags             TransitGatewayAttachmentTagArrayOutput `pulumi:"tags"`
-	TransitGatewayId pulumi.StringOutput                    `pulumi:"transitGatewayId"`
-	VpcId            pulumi.StringOutput                    `pulumi:"vpcId"`
+	Options          OptionsPropertiesPtrOutput `pulumi:"options"`
+	SubnetIds        pulumi.StringArrayOutput   `pulumi:"subnetIds"`
+	Tags             aws.TagArrayOutput         `pulumi:"tags"`
+	TransitGatewayId pulumi.StringOutput        `pulumi:"transitGatewayId"`
+	VpcId            pulumi.StringOutput        `pulumi:"vpcId"`
 }
 
 // NewTransitGatewayAttachment registers a new resource with the given unique name, arguments, and options.
@@ -79,11 +80,11 @@ func (TransitGatewayAttachmentState) ElementType() reflect.Type {
 
 type transitGatewayAttachmentArgs struct {
 	// The options for the transit gateway vpc attachment.
-	Options          *OptionsProperties            `pulumi:"options"`
-	SubnetIds        []string                      `pulumi:"subnetIds"`
-	Tags             []TransitGatewayAttachmentTag `pulumi:"tags"`
-	TransitGatewayId string                        `pulumi:"transitGatewayId"`
-	VpcId            string                        `pulumi:"vpcId"`
+	Options          *OptionsProperties `pulumi:"options"`
+	SubnetIds        []string           `pulumi:"subnetIds"`
+	Tags             []aws.Tag          `pulumi:"tags"`
+	TransitGatewayId string             `pulumi:"transitGatewayId"`
+	VpcId            string             `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a TransitGatewayAttachment resource.
@@ -91,7 +92,7 @@ type TransitGatewayAttachmentArgs struct {
 	// The options for the transit gateway vpc attachment.
 	Options          OptionsPropertiesPtrInput
 	SubnetIds        pulumi.StringArrayInput
-	Tags             TransitGatewayAttachmentTagArrayInput
+	Tags             aws.TagArrayInput
 	TransitGatewayId pulumi.StringInput
 	VpcId            pulumi.StringInput
 }
@@ -142,8 +143,8 @@ func (o TransitGatewayAttachmentOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TransitGatewayAttachment) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o TransitGatewayAttachmentOutput) Tags() TransitGatewayAttachmentTagArrayOutput {
-	return o.ApplyT(func(v *TransitGatewayAttachment) TransitGatewayAttachmentTagArrayOutput { return v.Tags }).(TransitGatewayAttachmentTagArrayOutput)
+func (o TransitGatewayAttachmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TransitGatewayAttachmentOutput) TransitGatewayId() pulumi.StringOutput {

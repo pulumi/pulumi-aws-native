@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupLocationS3Result struct {
 	// The URL of the S3 location that was described.
 	LocationUri *string `pulumi:"locationUri"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationS3Tag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocationS3Output(ctx *pulumi.Context, args LookupLocationS3OutputArgs, opts ...pulumi.InvokeOption) LookupLocationS3ResultOutput {
@@ -83,8 +84,8 @@ func (o LookupLocationS3ResultOutput) LocationUri() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLocationS3ResultOutput) Tags() LocationS3TagArrayOutput {
-	return o.ApplyT(func(v LookupLocationS3Result) []LocationS3Tag { return v.Tags }).(LocationS3TagArrayOutput)
+func (o LookupLocationS3ResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocationS3Result) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

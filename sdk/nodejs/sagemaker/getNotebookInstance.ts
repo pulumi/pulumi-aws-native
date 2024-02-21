@@ -32,7 +32,7 @@ export interface GetNotebookInstanceResult {
     readonly lifecycleConfigName?: string;
     readonly roleArn?: string;
     readonly rootAccess?: string;
-    readonly tags?: outputs.sagemaker.NotebookInstanceTag[];
+    readonly tags?: outputs.Tag[];
     readonly volumeSizeInGb?: number;
 }
 /**

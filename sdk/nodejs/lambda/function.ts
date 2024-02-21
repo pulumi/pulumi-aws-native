@@ -129,7 +129,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * A list of tags to apply to the function.
      */
-    public readonly tags!: pulumi.Output<outputs.lambda.FunctionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
      */
@@ -311,7 +311,7 @@ export interface FunctionArgs {
     /**
      * A list of tags to apply to the function.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.lambda.FunctionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
      */

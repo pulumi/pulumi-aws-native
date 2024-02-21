@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Evidently
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ExperimentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("treatments")]
         public Output<ImmutableArray<Outputs.ExperimentTreatmentObject>> Treatments { get; private set; } = null!;
@@ -149,14 +149,14 @@ namespace Pulumi.AwsNative.Evidently
         public Input<string>? Segment { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ExperimentTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.ExperimentTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ExperimentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

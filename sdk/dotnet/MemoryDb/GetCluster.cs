@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.MemoryDb
         /// <summary>
         /// An array of key-value pairs to apply to this cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -174,7 +174,7 @@ namespace Pulumi.AwsNative.MemoryDb
 
             string? status,
 
-            ImmutableArray<Outputs.ClusterTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AclName = aclName;
             Arn = arn;

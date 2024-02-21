@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupApplicationResult struct {
 	ReleaseLabel         *string                          `pulumi:"releaseLabel"`
 	RuntimeConfiguration []ApplicationConfigurationObject `pulumi:"runtimeConfiguration"`
 	// Tag map with key and value
-	Tags []ApplicationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
 	WorkerTypeSpecifications *ApplicationWorkerTypeSpecificationInputMap `pulumi:"workerTypeSpecifications"`
 }
@@ -149,8 +150,8 @@ func (o LookupApplicationResultOutput) RuntimeConfiguration() ApplicationConfigu
 }
 
 // Tag map with key and value
-func (o LookupApplicationResultOutput) Tags() ApplicationTagArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []ApplicationTag { return v.Tags }).(ApplicationTagArrayOutput)
+func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.

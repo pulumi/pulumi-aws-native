@@ -52,7 +52,7 @@ export class DeliveryStream extends pulumi.CustomResource {
     public readonly s3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration | undefined>;
     public readonly snowflakeDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration | undefined>;
     public readonly splunkDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration | undefined>;
-    public readonly tags!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DeliveryStream resource with the given unique name, arguments, and options.
@@ -124,5 +124,5 @@ export interface DeliveryStreamArgs {
     s3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
     snowflakeDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfigurationArgs>;
     splunkDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.kinesisfirehose.DeliveryStreamTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

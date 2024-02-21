@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,11 +17,11 @@ import (
 type VirtualMfaDevice struct {
 	pulumi.CustomResourceState
 
-	Path                 pulumi.StringPtrOutput         `pulumi:"path"`
-	SerialNumber         pulumi.StringOutput            `pulumi:"serialNumber"`
-	Tags                 VirtualMfaDeviceTagArrayOutput `pulumi:"tags"`
-	Users                pulumi.StringArrayOutput       `pulumi:"users"`
-	VirtualMfaDeviceName pulumi.StringPtrOutput         `pulumi:"virtualMfaDeviceName"`
+	Path                 pulumi.StringPtrOutput   `pulumi:"path"`
+	SerialNumber         pulumi.StringOutput      `pulumi:"serialNumber"`
+	Tags                 aws.TagArrayOutput       `pulumi:"tags"`
+	Users                pulumi.StringArrayOutput `pulumi:"users"`
+	VirtualMfaDeviceName pulumi.StringPtrOutput   `pulumi:"virtualMfaDeviceName"`
 }
 
 // NewVirtualMfaDevice registers a new resource with the given unique name, arguments, and options.
@@ -71,16 +72,16 @@ func (VirtualMfaDeviceState) ElementType() reflect.Type {
 }
 
 type virtualMfaDeviceArgs struct {
-	Path                 *string               `pulumi:"path"`
-	Tags                 []VirtualMfaDeviceTag `pulumi:"tags"`
-	Users                []string              `pulumi:"users"`
-	VirtualMfaDeviceName *string               `pulumi:"virtualMfaDeviceName"`
+	Path                 *string   `pulumi:"path"`
+	Tags                 []aws.Tag `pulumi:"tags"`
+	Users                []string  `pulumi:"users"`
+	VirtualMfaDeviceName *string   `pulumi:"virtualMfaDeviceName"`
 }
 
 // The set of arguments for constructing a VirtualMfaDevice resource.
 type VirtualMfaDeviceArgs struct {
 	Path                 pulumi.StringPtrInput
-	Tags                 VirtualMfaDeviceTagArrayInput
+	Tags                 aws.TagArrayInput
 	Users                pulumi.StringArrayInput
 	VirtualMfaDeviceName pulumi.StringPtrInput
 }
@@ -130,8 +131,8 @@ func (o VirtualMfaDeviceOutput) SerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringOutput { return v.SerialNumber }).(pulumi.StringOutput)
 }
 
-func (o VirtualMfaDeviceOutput) Tags() VirtualMfaDeviceTagArrayOutput {
-	return o.ApplyT(func(v *VirtualMfaDevice) VirtualMfaDeviceTagArrayOutput { return v.Tags }).(VirtualMfaDeviceTagArrayOutput)
+func (o VirtualMfaDeviceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VirtualMfaDevice) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o VirtualMfaDeviceOutput) Users() pulumi.StringArrayOutput {

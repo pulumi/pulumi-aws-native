@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,8 +32,8 @@ type CertificateAuthority struct {
 	// Algorithm your CA uses to sign certificate requests.
 	SigningAlgorithm pulumi.StringOutput `pulumi:"signingAlgorithm"`
 	// Structure that contains X.500 distinguished name information for your CA.
-	Subject CertificateAuthoritySubjectOutput  `pulumi:"subject"`
-	Tags    CertificateAuthorityTagArrayOutput `pulumi:"tags"`
+	Subject CertificateAuthoritySubjectOutput `pulumi:"subject"`
+	Tags    aws.TagArrayOutput                `pulumi:"tags"`
 	// The type of the certificate authority.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Usage mode of the ceritificate authority.
@@ -113,7 +114,7 @@ type certificateAuthorityArgs struct {
 	SigningAlgorithm string `pulumi:"signingAlgorithm"`
 	// Structure that contains X.500 distinguished name information for your CA.
 	Subject CertificateAuthoritySubject `pulumi:"subject"`
-	Tags    []CertificateAuthorityTag   `pulumi:"tags"`
+	Tags    []aws.Tag                   `pulumi:"tags"`
 	// The type of the certificate authority.
 	Type string `pulumi:"type"`
 	// Usage mode of the ceritificate authority.
@@ -134,7 +135,7 @@ type CertificateAuthorityArgs struct {
 	SigningAlgorithm pulumi.StringInput
 	// Structure that contains X.500 distinguished name information for your CA.
 	Subject CertificateAuthoritySubjectInput
-	Tags    CertificateAuthorityTagArrayInput
+	Tags    aws.TagArrayInput
 	// The type of the certificate authority.
 	Type pulumi.StringInput
 	// Usage mode of the ceritificate authority.
@@ -220,8 +221,8 @@ func (o CertificateAuthorityOutput) Subject() CertificateAuthoritySubjectOutput 
 	return o.ApplyT(func(v *CertificateAuthority) CertificateAuthoritySubjectOutput { return v.Subject }).(CertificateAuthoritySubjectOutput)
 }
 
-func (o CertificateAuthorityOutput) Tags() CertificateAuthorityTagArrayOutput {
-	return o.ApplyT(func(v *CertificateAuthority) CertificateAuthorityTagArrayOutput { return v.Tags }).(CertificateAuthorityTagArrayOutput)
+func (o CertificateAuthorityOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CertificateAuthority) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of the certificate authority.

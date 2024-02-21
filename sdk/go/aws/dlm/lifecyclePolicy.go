@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type LifecyclePolicy struct {
 	PolicyDetails          LifecyclePolicyPolicyDetailsPtrOutput          `pulumi:"policyDetails"`
 	RetainInterval         pulumi.IntPtrOutput                            `pulumi:"retainInterval"`
 	State                  pulumi.StringPtrOutput                         `pulumi:"state"`
-	Tags                   LifecyclePolicyTagArrayOutput                  `pulumi:"tags"`
+	Tags                   aws.TagArrayOutput                             `pulumi:"tags"`
 }
 
 // NewLifecyclePolicy registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +84,7 @@ type lifecyclePolicyArgs struct {
 	PolicyDetails          *LifecyclePolicyPolicyDetails          `pulumi:"policyDetails"`
 	RetainInterval         *int                                   `pulumi:"retainInterval"`
 	State                  *string                                `pulumi:"state"`
-	Tags                   []LifecyclePolicyTag                   `pulumi:"tags"`
+	Tags                   []aws.Tag                              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LifecyclePolicy resource.
@@ -99,7 +100,7 @@ type LifecyclePolicyArgs struct {
 	PolicyDetails          LifecyclePolicyPolicyDetailsPtrInput
 	RetainInterval         pulumi.IntPtrInput
 	State                  pulumi.StringPtrInput
-	Tags                   LifecyclePolicyTagArrayInput
+	Tags                   aws.TagArrayInput
 }
 
 func (LifecyclePolicyArgs) ElementType() reflect.Type {
@@ -189,8 +190,8 @@ func (o LifecyclePolicyOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-func (o LifecyclePolicyOutput) Tags() LifecyclePolicyTagArrayOutput {
-	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyTagArrayOutput { return v.Tags }).(LifecyclePolicyTagArrayOutput)
+func (o LifecyclePolicyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

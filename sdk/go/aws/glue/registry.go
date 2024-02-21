@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Registry struct {
 	// Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of tags to tag the Registry
-	Tags RegistryTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -74,7 +75,7 @@ type registryArgs struct {
 	// Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.
 	Name *string `pulumi:"name"`
 	// List of tags to tag the Registry
-	Tags []RegistryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
@@ -84,7 +85,7 @@ type RegistryArgs struct {
 	// Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.
 	Name pulumi.StringPtrInput
 	// List of tags to tag the Registry
-	Tags RegistryTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {
@@ -140,8 +141,8 @@ func (o RegistryOutput) Name() pulumi.StringOutput {
 }
 
 // List of tags to tag the Registry
-func (o RegistryOutput) Tags() RegistryTagArrayOutput {
-	return o.ApplyT(func(v *Registry) RegistryTagArrayOutput { return v.Tags }).(RegistryTagArrayOutput)
+func (o RegistryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Registry) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

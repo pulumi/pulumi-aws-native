@@ -50,7 +50,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * The tags for the configuration aggregator.
      */
-    public readonly tags!: pulumi.Output<outputs.configuration.ConfigurationAggregatorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ConfigurationAggregator resource with the given unique name, arguments, and options.
@@ -95,5 +95,5 @@ export interface ConfigurationAggregatorArgs {
     /**
      * The tags for the configuration aggregator.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigurationAggregatorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

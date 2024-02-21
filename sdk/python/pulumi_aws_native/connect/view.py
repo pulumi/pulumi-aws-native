@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['ViewArgs', 'View']
 
@@ -21,7 +21,7 @@ class ViewArgs:
                  template: Any,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a View resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: The actions of the view in an array.
@@ -31,7 +31,7 @@ class ViewArgs:
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: The description of the view.
         :param pulumi.Input[str] name: The name of the view.
-        :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "instance_arn", instance_arn)
@@ -107,14 +107,14 @@ class ViewArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,7 +127,7 @@ class View(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  template: Optional[Any] = None,
                  __props__=None):
         """
@@ -139,7 +139,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the view.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the instance.
         :param pulumi.Input[str] name: The name of the view.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
         :param Any template: The template of the view as JSON.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
@@ -172,7 +172,7 @@ class View(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  template: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -265,7 +265,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ViewTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         One or more tags.
         """

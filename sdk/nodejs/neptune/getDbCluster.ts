@@ -97,7 +97,7 @@ export interface GetDbClusterResult {
     /**
      * The tags assigned to this cluster.
      */
-    readonly tags?: outputs.neptune.DbClusterTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Provides a list of VPC security groups that the DB cluster belongs to.
      */

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Service struct {
 	Name                  pulumi.StringOutput                 `pulumi:"name"`
 	ServiceIdentifier     pulumi.StringOutput                 `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags        ServiceTagArrayOutput            `pulumi:"tags"`
+	Tags        aws.TagArrayOutput               `pulumi:"tags"`
 	UrlEndpoint ServiceUrlEndpointInputPtrOutput `pulumi:"urlEndpoint"`
 	VpcId       pulumi.StringPtrOutput           `pulumi:"vpcId"`
 }
@@ -97,7 +98,7 @@ type serviceArgs struct {
 	LambdaEndpoint        *ServiceLambdaEndpointInput `pulumi:"lambdaEndpoint"`
 	Name                  *string                     `pulumi:"name"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags        []ServiceTag             `pulumi:"tags"`
+	Tags        []aws.Tag                `pulumi:"tags"`
 	UrlEndpoint *ServiceUrlEndpointInput `pulumi:"urlEndpoint"`
 	VpcId       *string                  `pulumi:"vpcId"`
 }
@@ -111,7 +112,7 @@ type ServiceArgs struct {
 	LambdaEndpoint        ServiceLambdaEndpointInputPtrInput
 	Name                  pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags        ServiceTagArrayInput
+	Tags        aws.TagArrayInput
 	UrlEndpoint ServiceUrlEndpointInputPtrInput
 	VpcId       pulumi.StringPtrInput
 }
@@ -186,8 +187,8 @@ func (o ServiceOutput) ServiceIdentifier() pulumi.StringOutput {
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-func (o ServiceOutput) Tags() ServiceTagArrayOutput {
-	return o.ApplyT(func(v *Service) ServiceTagArrayOutput { return v.Tags }).(ServiceTagArrayOutput)
+func (o ServiceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Service) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ServiceOutput) UrlEndpoint() ServiceUrlEndpointInputPtrOutput {

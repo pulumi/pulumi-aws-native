@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class FileSystemArgs:
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[Any] = None,
                  file_system_protection: Optional[pulumi.Input['FileSystemProtectionArgs']] = None,
-                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemElasticFileSystemTagArgs']]]] = None,
+                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
@@ -124,11 +126,11 @@ class FileSystemArgs:
 
     @property
     @pulumi.getter(name="fileSystemTags")
-    def file_system_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemElasticFileSystemTagArgs']]]]:
+    def file_system_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "file_system_tags")
 
     @file_system_tags.setter
-    def file_system_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemElasticFileSystemTagArgs']]]]):
+    def file_system_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "file_system_tags", value)
 
     @property
@@ -197,7 +199,7 @@ class FileSystem(pulumi.CustomResource):
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[Any] = None,
                  file_system_protection: Optional[pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']]] = None,
-                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]]] = None,
+                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
@@ -243,7 +245,7 @@ class FileSystem(pulumi.CustomResource):
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[Any] = None,
                  file_system_protection: Optional[pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']]] = None,
-                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]]] = None,
+                 file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
@@ -363,7 +365,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemTags")
-    def file_system_tags(self) -> pulumi.Output[Optional[Sequence['outputs.FileSystemElasticFileSystemTag']]]:
+    def file_system_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "file_system_tags")
 
     @property

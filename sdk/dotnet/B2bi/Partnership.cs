@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.B2bi
         public Output<string> ProfileId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PartnershipTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("tradingPartnerId")]
         public Output<string> TradingPartnerId { get; private set; } = null!;
@@ -120,10 +120,10 @@ namespace Pulumi.AwsNative.B2bi
         public Input<string> ProfileId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.PartnershipTagArgs>? _tags;
-        public InputList<Inputs.PartnershipTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PartnershipTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

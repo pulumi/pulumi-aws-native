@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupRuleGroupResult struct {
 	LabelNamespace       *string                        `pulumi:"labelNamespace"`
 	// Collection of Rules.
 	Rules            []RuleGroupRule            `pulumi:"rules"`
-	Tags             []RuleGroupTag             `pulumi:"tags"`
+	Tags             []aws.Tag                  `pulumi:"tags"`
 	VisibilityConfig *RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -121,8 +122,8 @@ func (o LookupRuleGroupResultOutput) Rules() RuleGroupRuleArrayOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) []RuleGroupRule { return v.Rules }).(RuleGroupRuleArrayOutput)
 }
 
-func (o LookupRuleGroupResultOutput) Tags() RuleGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupRuleGroupResult) []RuleGroupTag { return v.Tags }).(RuleGroupTagArrayOutput)
+func (o LookupRuleGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRuleGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupRuleGroupResultOutput) VisibilityConfig() RuleGroupVisibilityConfigPtrOutput {

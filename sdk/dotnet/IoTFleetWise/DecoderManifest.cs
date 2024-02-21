@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Output<Pulumi.AwsNative.IoTFleetWise.DecoderManifestManifestStatus?> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DecoderManifestTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -125,10 +125,10 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Input<Pulumi.AwsNative.IoTFleetWise.DecoderManifestManifestStatus>? Status { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DecoderManifestTagArgs>? _tags;
-        public InputList<Inputs.DecoderManifestTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DecoderManifestTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

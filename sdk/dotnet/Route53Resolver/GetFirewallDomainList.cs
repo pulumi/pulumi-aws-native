@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Tags
         /// </summary>
-        public readonly ImmutableArray<Outputs.FirewallDomainListTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFirewallDomainListResult(
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Route53Resolver
 
             string? statusMessage,
 
-            ImmutableArray<Outputs.FirewallDomainListTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationTime = creationTime;

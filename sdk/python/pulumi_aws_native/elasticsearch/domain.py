@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DomainArgs', 'Domain']
@@ -29,7 +31,7 @@ class DomainArgs:
                  log_publishing_options: Optional[Any] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs']] = None,
                  snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
@@ -196,11 +198,11 @@ class DomainArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -236,7 +238,7 @@ class Domain(pulumi.CustomResource):
                  log_publishing_options: Optional[Any] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
                  __props__=None):
         """
@@ -285,7 +287,7 @@ class Domain(pulumi.CustomResource):
                  log_publishing_options: Optional[Any] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Domain is deprecated: Domain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -450,7 +452,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DomainTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

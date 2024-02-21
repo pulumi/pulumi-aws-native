@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type MetricStream struct {
 	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
 	StatisticsConfigurations MetricStreamStatisticsConfigurationArrayOutput `pulumi:"statisticsConfigurations"`
 	// A set of tags to assign to the delivery stream.
-	Tags MetricStreamTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewMetricStream registers a new resource with the given unique name, arguments, and options.
@@ -114,7 +115,7 @@ type metricStreamArgs struct {
 	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
 	StatisticsConfigurations []MetricStreamStatisticsConfiguration `pulumi:"statisticsConfigurations"`
 	// A set of tags to assign to the delivery stream.
-	Tags []MetricStreamTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MetricStream resource.
@@ -136,7 +137,7 @@ type MetricStreamArgs struct {
 	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
 	StatisticsConfigurations MetricStreamStatisticsConfigurationArrayInput
 	// A set of tags to assign to the delivery stream.
-	Tags MetricStreamTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (MetricStreamArgs) ElementType() reflect.Type {
@@ -239,8 +240,8 @@ func (o MetricStreamOutput) StatisticsConfigurations() MetricStreamStatisticsCon
 }
 
 // A set of tags to assign to the delivery stream.
-func (o MetricStreamOutput) Tags() MetricStreamTagArrayOutput {
-	return o.ApplyT(func(v *MetricStream) MetricStreamTagArrayOutput { return v.Tags }).(MetricStreamTagArrayOutput)
+func (o MetricStreamOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *MetricStream) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

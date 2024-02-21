@@ -42,7 +42,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     public readonly format!: pulumi.Output<string>;
     public readonly location!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.guardduty.ThreatIntelSetTagItem[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ThreatIntelSet resource with the given unique name, arguments, and options.
@@ -91,5 +91,5 @@ export interface ThreatIntelSetArgs {
     format: pulumi.Input<string>;
     location: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.ThreatIntelSetTagItemArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

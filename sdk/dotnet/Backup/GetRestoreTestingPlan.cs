@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Backup
         public readonly string? ScheduleExpression;
         public readonly string? ScheduleExpressionTimezone;
         public readonly int? StartWindowHours;
-        public readonly ImmutableArray<Outputs.RestoreTestingPlanTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRestoreTestingPlanResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Backup
 
             int? startWindowHours,
 
-            ImmutableArray<Outputs.RestoreTestingPlanTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             RecoveryPointSelection = recoveryPointSelection;
             RestoreTestingPlanArn = restoreTestingPlanArn;

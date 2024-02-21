@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupInternetGatewayResult struct {
 	// ID of internet gateway.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
 	// Any tags to assign to the internet gateway.
-	Tags []InternetGatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupInternetGatewayOutput(ctx *pulumi.Context, args LookupInternetGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupInternetGatewayResultOutput {
@@ -76,8 +77,8 @@ func (o LookupInternetGatewayResultOutput) InternetGatewayId() pulumi.StringPtrO
 }
 
 // Any tags to assign to the internet gateway.
-func (o LookupInternetGatewayResultOutput) Tags() InternetGatewayTagArrayOutput {
-	return o.ApplyT(func(v LookupInternetGatewayResult) []InternetGatewayTag { return v.Tags }).(InternetGatewayTagArrayOutput)
+func (o LookupInternetGatewayResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupInternetGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

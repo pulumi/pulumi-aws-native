@@ -8014,101 +8014,6 @@ type BucketTag struct {
 	Value string `pulumi:"value"`
 }
 
-// BucketTagInput is an input type that accepts BucketTagArgs and BucketTagOutput values.
-// You can construct a concrete instance of `BucketTagInput` via:
-//
-//	BucketTagArgs{...}
-type BucketTagInput interface {
-	pulumi.Input
-
-	ToBucketTagOutput() BucketTagOutput
-	ToBucketTagOutputWithContext(context.Context) BucketTagOutput
-}
-
-type BucketTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (BucketTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketTag)(nil)).Elem()
-}
-
-func (i BucketTagArgs) ToBucketTagOutput() BucketTagOutput {
-	return i.ToBucketTagOutputWithContext(context.Background())
-}
-
-func (i BucketTagArgs) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketTagOutput)
-}
-
-// BucketTagArrayInput is an input type that accepts BucketTagArray and BucketTagArrayOutput values.
-// You can construct a concrete instance of `BucketTagArrayInput` via:
-//
-//	BucketTagArray{ BucketTagArgs{...} }
-type BucketTagArrayInput interface {
-	pulumi.Input
-
-	ToBucketTagArrayOutput() BucketTagArrayOutput
-	ToBucketTagArrayOutputWithContext(context.Context) BucketTagArrayOutput
-}
-
-type BucketTagArray []BucketTagInput
-
-func (BucketTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketTag)(nil)).Elem()
-}
-
-func (i BucketTagArray) ToBucketTagArrayOutput() BucketTagArrayOutput {
-	return i.ToBucketTagArrayOutputWithContext(context.Background())
-}
-
-func (i BucketTagArray) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketTagArrayOutput)
-}
-
-type BucketTagOutput struct{ *pulumi.OutputState }
-
-func (BucketTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketTag)(nil)).Elem()
-}
-
-func (o BucketTagOutput) ToBucketTagOutput() BucketTagOutput {
-	return o
-}
-
-func (o BucketTagOutput) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
-	return o
-}
-
-func (o BucketTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o BucketTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type BucketTagArrayOutput struct{ *pulumi.OutputState }
-
-func (BucketTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketTag)(nil)).Elem()
-}
-
-func (o BucketTagArrayOutput) ToBucketTagArrayOutput() BucketTagArrayOutput {
-	return o
-}
-
-func (o BucketTagArrayOutput) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
-	return o
-}
-
-func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTag {
-		return vs[0].([]BucketTag)[vs[1].(int)]
-	}).(BucketTagOutput)
-}
-
 // Tags to use to identify a subset of objects for an Amazon S3 bucket.
 type BucketTagFilter struct {
 	Key   string `pulumi:"key"`
@@ -13073,101 +12978,6 @@ type StorageLensTag struct {
 	Value string `pulumi:"value"`
 }
 
-// StorageLensTagInput is an input type that accepts StorageLensTagArgs and StorageLensTagOutput values.
-// You can construct a concrete instance of `StorageLensTagInput` via:
-//
-//	StorageLensTagArgs{...}
-type StorageLensTagInput interface {
-	pulumi.Input
-
-	ToStorageLensTagOutput() StorageLensTagOutput
-	ToStorageLensTagOutputWithContext(context.Context) StorageLensTagOutput
-}
-
-type StorageLensTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StorageLensTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageLensTag)(nil)).Elem()
-}
-
-func (i StorageLensTagArgs) ToStorageLensTagOutput() StorageLensTagOutput {
-	return i.ToStorageLensTagOutputWithContext(context.Background())
-}
-
-func (i StorageLensTagArgs) ToStorageLensTagOutputWithContext(ctx context.Context) StorageLensTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageLensTagOutput)
-}
-
-// StorageLensTagArrayInput is an input type that accepts StorageLensTagArray and StorageLensTagArrayOutput values.
-// You can construct a concrete instance of `StorageLensTagArrayInput` via:
-//
-//	StorageLensTagArray{ StorageLensTagArgs{...} }
-type StorageLensTagArrayInput interface {
-	pulumi.Input
-
-	ToStorageLensTagArrayOutput() StorageLensTagArrayOutput
-	ToStorageLensTagArrayOutputWithContext(context.Context) StorageLensTagArrayOutput
-}
-
-type StorageLensTagArray []StorageLensTagInput
-
-func (StorageLensTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageLensTag)(nil)).Elem()
-}
-
-func (i StorageLensTagArray) ToStorageLensTagArrayOutput() StorageLensTagArrayOutput {
-	return i.ToStorageLensTagArrayOutputWithContext(context.Background())
-}
-
-func (i StorageLensTagArray) ToStorageLensTagArrayOutputWithContext(ctx context.Context) StorageLensTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageLensTagArrayOutput)
-}
-
-type StorageLensTagOutput struct{ *pulumi.OutputState }
-
-func (StorageLensTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageLensTag)(nil)).Elem()
-}
-
-func (o StorageLensTagOutput) ToStorageLensTagOutput() StorageLensTagOutput {
-	return o
-}
-
-func (o StorageLensTagOutput) ToStorageLensTagOutputWithContext(ctx context.Context) StorageLensTagOutput {
-	return o
-}
-
-func (o StorageLensTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageLensTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o StorageLensTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageLensTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StorageLensTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StorageLensTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageLensTag)(nil)).Elem()
-}
-
-func (o StorageLensTagArrayOutput) ToStorageLensTagArrayOutput() StorageLensTagArrayOutput {
-	return o
-}
-
-func (o StorageLensTagArrayOutput) ToStorageLensTagArrayOutputWithContext(ctx context.Context) StorageLensTagArrayOutput {
-	return o
-}
-
-func (o StorageLensTagArrayOutput) Index(i pulumi.IntInput) StorageLensTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageLensTag {
-		return vs[0].([]StorageLensTag)[vs[1].(int)]
-	}).(StorageLensTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantGranteeInput)(nil)).Elem(), AccessGrantGranteeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantTagInput)(nil)).Elem(), AccessGrantTagArgs{})
@@ -13280,8 +13090,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketSseKmsEncryptedObjectsInput)(nil)).Elem(), BucketSseKmsEncryptedObjectsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketSseKmsEncryptedObjectsPtrInput)(nil)).Elem(), BucketSseKmsEncryptedObjectsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketStorageClassAnalysisInput)(nil)).Elem(), BucketStorageClassAnalysisArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagInput)(nil)).Elem(), BucketTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagArrayInput)(nil)).Elem(), BucketTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagFilterInput)(nil)).Elem(), BucketTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagFilterPtrInput)(nil)).Elem(), BucketTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagFilterArrayInput)(nil)).Elem(), BucketTagFilterArray{})
@@ -13346,8 +13154,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensS3BucketDestinationPtrInput)(nil)).Elem(), StorageLensS3BucketDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensSelectionCriteriaInput)(nil)).Elem(), StorageLensSelectionCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensSelectionCriteriaPtrInput)(nil)).Elem(), StorageLensSelectionCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensTagInput)(nil)).Elem(), StorageLensTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensTagArrayInput)(nil)).Elem(), StorageLensTagArray{})
 	pulumi.RegisterOutputType(AccessGrantGranteeOutput{})
 	pulumi.RegisterOutputType(AccessGrantGranteePtrOutput{})
 	pulumi.RegisterOutputType(AccessGrantTagOutput{})
@@ -13460,8 +13266,6 @@ func init() {
 	pulumi.RegisterOutputType(BucketSseKmsEncryptedObjectsOutput{})
 	pulumi.RegisterOutputType(BucketSseKmsEncryptedObjectsPtrOutput{})
 	pulumi.RegisterOutputType(BucketStorageClassAnalysisOutput{})
-	pulumi.RegisterOutputType(BucketTagOutput{})
-	pulumi.RegisterOutputType(BucketTagArrayOutput{})
 	pulumi.RegisterOutputType(BucketTagFilterOutput{})
 	pulumi.RegisterOutputType(BucketTagFilterPtrOutput{})
 	pulumi.RegisterOutputType(BucketTagFilterArrayOutput{})
@@ -13529,6 +13333,4 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensS3BucketDestinationPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensSelectionCriteriaOutput{})
 	pulumi.RegisterOutputType(StorageLensSelectionCriteriaPtrOutput{})
-	pulumi.RegisterOutputType(StorageLensTagOutput{})
-	pulumi.RegisterOutputType(StorageLensTagArrayOutput{})
 }

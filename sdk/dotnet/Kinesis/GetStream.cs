@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Kinesis
         /// <summary>
         /// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StreamTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetStreamResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Kinesis
 
             Outputs.StreamModeDetails? streamModeDetails,
 
-            ImmutableArray<Outputs.StreamTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             RetentionPeriodHours = retentionPeriodHours;

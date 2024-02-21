@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupDatastoreResult struct {
 	FileFormatConfiguration *DatastoreFileFormatConfiguration `pulumi:"fileFormatConfiguration"`
 	Id                      *string                           `pulumi:"id"`
 	RetentionPeriod         *DatastoreRetentionPeriod         `pulumi:"retentionPeriod"`
-	Tags                    []DatastoreTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                         `pulumi:"tags"`
 }
 
 func LookupDatastoreOutput(ctx *pulumi.Context, args LookupDatastoreOutputArgs, opts ...pulumi.InvokeOption) LookupDatastoreResultOutput {
@@ -90,8 +91,8 @@ func (o LookupDatastoreResultOutput) RetentionPeriod() DatastoreRetentionPeriodP
 	return o.ApplyT(func(v LookupDatastoreResult) *DatastoreRetentionPeriod { return v.RetentionPeriod }).(DatastoreRetentionPeriodPtrOutput)
 }
 
-func (o LookupDatastoreResultOutput) Tags() DatastoreTagArrayOutput {
-	return o.ApplyT(func(v LookupDatastoreResult) []DatastoreTag { return v.Tags }).(DatastoreTagArrayOutput)
+func (o LookupDatastoreResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDatastoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVpcPeeringConnectionResult
     {
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.VpcPeeringConnectionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetVpcPeeringConnectionResult(
             string? id,
 
-            ImmutableArray<Outputs.VpcPeeringConnectionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Tags = tags;

@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.EventSchemas
         /// <summary>
         /// Tags associated with the resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SchemaTagsEntry> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.EventSchemas
 
             string? schemaVersion,
 
-            ImmutableArray<Outputs.SchemaTagsEntry> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? type,
 

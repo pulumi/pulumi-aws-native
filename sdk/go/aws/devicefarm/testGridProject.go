@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,7 +19,7 @@ type TestGridProject struct {
 	Arn         pulumi.StringOutput               `pulumi:"arn"`
 	Description pulumi.StringPtrOutput            `pulumi:"description"`
 	Name        pulumi.StringOutput               `pulumi:"name"`
-	Tags        TestGridProjectTagArrayOutput     `pulumi:"tags"`
+	Tags        aws.TagArrayOutput                `pulumi:"tags"`
 	VpcConfig   TestGridProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
@@ -64,7 +65,7 @@ func (TestGridProjectState) ElementType() reflect.Type {
 type testGridProjectArgs struct {
 	Description *string                   `pulumi:"description"`
 	Name        *string                   `pulumi:"name"`
-	Tags        []TestGridProjectTag      `pulumi:"tags"`
+	Tags        []aws.Tag                 `pulumi:"tags"`
 	VpcConfig   *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -72,7 +73,7 @@ type testGridProjectArgs struct {
 type TestGridProjectArgs struct {
 	Description pulumi.StringPtrInput
 	Name        pulumi.StringPtrInput
-	Tags        TestGridProjectTagArrayInput
+	Tags        aws.TagArrayInput
 	VpcConfig   TestGridProjectVpcConfigPtrInput
 }
 
@@ -125,8 +126,8 @@ func (o TestGridProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o TestGridProjectOutput) Tags() TestGridProjectTagArrayOutput {
-	return o.ApplyT(func(v *TestGridProject) TestGridProjectTagArrayOutput { return v.Tags }).(TestGridProjectTagArrayOutput)
+func (o TestGridProjectOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TestGridProject) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TestGridProjectOutput) VpcConfig() TestGridProjectVpcConfigPtrOutput {

@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TransitGatewayId;
 
         [OutputConstructor]
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
             string? environmentIdentifier,
 
-            ImmutableArray<Outputs.EnvironmentTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? transitGatewayId)
         {

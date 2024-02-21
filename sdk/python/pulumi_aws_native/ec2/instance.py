@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['InstanceArgs', 'Instance']
@@ -52,7 +54,7 @@ class InstanceArgs:
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
                  ssm_associations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceSsmAssociationArgs']]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVolumeArgs']]]] = None):
@@ -466,11 +468,11 @@ class InstanceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -542,7 +544,7 @@ class Instance(pulumi.CustomResource):
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
                  ssm_associations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceSsmAssociationArgs']]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVolumeArgs']]]]] = None,
@@ -613,7 +615,7 @@ class Instance(pulumi.CustomResource):
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
                  ssm_associations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceSsmAssociationArgs']]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVolumeArgs']]]]] = None,
@@ -942,7 +944,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

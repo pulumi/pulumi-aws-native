@@ -16,7 +16,6 @@ __all__ = [
     'MonitorInternetMeasurementsLogDelivery',
     'MonitorLocalHealthEventsConfig',
     'MonitorS3Config',
-    'MonitorTag',
 ]
 
 @pulumi.output_type
@@ -205,32 +204,5 @@ class MonitorS3Config(dict):
     @pulumi.getter(name="logDeliveryStatus")
     def log_delivery_status(self) -> Optional['MonitorS3ConfigLogDeliveryStatus']:
         return pulumi.get(self, "log_delivery_status")
-
-
-@pulumi.output_type
-class MonitorTag(dict):
-    """
-    The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-    """
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 

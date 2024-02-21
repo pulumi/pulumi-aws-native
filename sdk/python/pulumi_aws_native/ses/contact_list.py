@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ContactListArgs', 'ContactList']
@@ -18,13 +20,13 @@ class ContactListArgs:
     def __init__(__self__, *,
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None):
         """
         The set of arguments for constructing a ContactList resource.
         :param pulumi.Input[str] contact_list_name: The name of the contact list.
         :param pulumi.Input[str] description: The description of the contact list.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactListTagArgs']]] tags: The tags (keys and values) associated with the contact list.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the contact list.
         :param pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]] topics: The topics associated with the contact list.
         """
         if contact_list_name is not None:
@@ -62,14 +64,14 @@ class ContactListArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the contact list.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -92,7 +94,7 @@ class ContactList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None,
                  __props__=None):
         """
@@ -102,7 +104,7 @@ class ContactList(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_list_name: The name of the contact list.
         :param pulumi.Input[str] description: The description of the contact list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTagArgs']]]] tags: The tags (keys and values) associated with the contact list.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the contact list.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]] topics: The topics associated with the contact list.
         """
         ...
@@ -131,7 +133,7 @@ class ContactList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -194,7 +196,7 @@ class ContactList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ContactListTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags (keys and values) associated with the contact list.
         """

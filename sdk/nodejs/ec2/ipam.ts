@@ -77,7 +77,7 @@ export class Ipam extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.IpamTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The tier of the IPAM.
      */
@@ -137,7 +137,7 @@ export interface IpamArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.IpamTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The tier of the IPAM.
      */

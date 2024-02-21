@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,15 +28,15 @@ type LookupDbInstanceArgs struct {
 }
 
 type LookupDbInstanceResult struct {
-	AllowMajorVersionUpgrade   *bool           `pulumi:"allowMajorVersionUpgrade"`
-	AutoMinorVersionUpgrade    *bool           `pulumi:"autoMinorVersionUpgrade"`
-	DbInstanceClass            *string         `pulumi:"dbInstanceClass"`
-	DbParameterGroupName       *string         `pulumi:"dbParameterGroupName"`
-	Endpoint                   *string         `pulumi:"endpoint"`
-	Id                         *string         `pulumi:"id"`
-	Port                       *string         `pulumi:"port"`
-	PreferredMaintenanceWindow *string         `pulumi:"preferredMaintenanceWindow"`
-	Tags                       []DbInstanceTag `pulumi:"tags"`
+	AllowMajorVersionUpgrade   *bool     `pulumi:"allowMajorVersionUpgrade"`
+	AutoMinorVersionUpgrade    *bool     `pulumi:"autoMinorVersionUpgrade"`
+	DbInstanceClass            *string   `pulumi:"dbInstanceClass"`
+	DbParameterGroupName       *string   `pulumi:"dbParameterGroupName"`
+	Endpoint                   *string   `pulumi:"endpoint"`
+	Id                         *string   `pulumi:"id"`
+	Port                       *string   `pulumi:"port"`
+	PreferredMaintenanceWindow *string   `pulumi:"preferredMaintenanceWindow"`
+	Tags                       []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDbInstanceOutput(ctx *pulumi.Context, args LookupDbInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupDbInstanceResultOutput {
@@ -105,8 +106,8 @@ func (o LookupDbInstanceResultOutput) PreferredMaintenanceWindow() pulumi.String
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDbInstanceResultOutput) Tags() DbInstanceTagArrayOutput {
-	return o.ApplyT(func(v LookupDbInstanceResult) []DbInstanceTag { return v.Tags }).(DbInstanceTagArrayOutput)
+func (o LookupDbInstanceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

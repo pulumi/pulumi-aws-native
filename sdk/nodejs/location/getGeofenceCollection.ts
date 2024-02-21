@@ -32,7 +32,7 @@ export interface GetGeofenceCollectionResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.location.GeofenceCollectionTag[];
+    readonly tags?: outputs.Tag[];
     readonly updateTime?: string;
 }
 /**

@@ -80,7 +80,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * Tag map with key and value
      */
-    public readonly tags!: pulumi.Output<outputs.emrserverless.ApplicationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the application
      */
@@ -187,7 +187,7 @@ export interface ApplicationArgs {
     /**
      * Tag map with key and value
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of the application
      */

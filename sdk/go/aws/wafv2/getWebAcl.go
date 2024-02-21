@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupWebAclResult struct {
 	LabelNamespace       *string                     `pulumi:"labelNamespace"`
 	// Collection of Rules.
 	Rules            []WebAclRule            `pulumi:"rules"`
-	Tags             []WebAclTag             `pulumi:"tags"`
+	Tags             []aws.Tag               `pulumi:"tags"`
 	TokenDomains     []string                `pulumi:"tokenDomains"`
 	VisibilityConfig *WebAclVisibilityConfig `pulumi:"visibilityConfig"`
 }
@@ -128,8 +129,8 @@ func (o LookupWebAclResultOutput) Rules() WebAclRuleArrayOutput {
 	return o.ApplyT(func(v LookupWebAclResult) []WebAclRule { return v.Rules }).(WebAclRuleArrayOutput)
 }
 
-func (o LookupWebAclResultOutput) Tags() WebAclTagArrayOutput {
-	return o.ApplyT(func(v LookupWebAclResult) []WebAclTag { return v.Tags }).(WebAclTagArrayOutput)
+func (o LookupWebAclResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWebAclResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupWebAclResultOutput) TokenDomains() pulumi.StringArrayOutput {

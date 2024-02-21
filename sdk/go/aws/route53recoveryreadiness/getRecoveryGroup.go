@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupRecoveryGroupResult struct {
 	// A collection of tags associated with a resource.
 	RecoveryGroupArn *string `pulumi:"recoveryGroupArn"`
 	// A collection of tags associated with a resource.
-	Tags []RecoveryGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRecoveryGroupOutput(ctx *pulumi.Context, args LookupRecoveryGroupOutputArgs, opts ...pulumi.InvokeOption) LookupRecoveryGroupResultOutput {
@@ -83,8 +84,8 @@ func (o LookupRecoveryGroupResultOutput) RecoveryGroupArn() pulumi.StringPtrOutp
 }
 
 // A collection of tags associated with a resource.
-func (o LookupRecoveryGroupResultOutput) Tags() RecoveryGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupRecoveryGroupResult) []RecoveryGroupTag { return v.Tags }).(RecoveryGroupTagArrayOutput)
+func (o LookupRecoveryGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRecoveryGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

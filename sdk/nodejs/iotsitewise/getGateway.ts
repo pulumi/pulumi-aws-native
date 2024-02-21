@@ -41,7 +41,7 @@ export interface GetGatewayResult {
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
-    readonly tags?: outputs.iotsitewise.GatewayTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::IoTSiteWise::Gateway

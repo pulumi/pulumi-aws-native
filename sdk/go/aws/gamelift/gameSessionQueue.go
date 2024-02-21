@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type GameSessionQueue struct {
 	// Custom settings to use when prioritizing destinations and locations for game session placements.
 	PriorityConfiguration GameSessionQueuePriorityConfigurationPtrOutput `pulumi:"priorityConfiguration"`
 	// An array of key-value pairs to apply to this resource.
-	Tags GameSessionQueueTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The maximum time, in seconds, that a new game session placement request remains in the queue.
 	TimeoutInSeconds pulumi.IntPtrOutput `pulumi:"timeoutInSeconds"`
 }
@@ -96,7 +97,7 @@ type gameSessionQueueArgs struct {
 	// Custom settings to use when prioritizing destinations and locations for game session placements.
 	PriorityConfiguration *GameSessionQueuePriorityConfiguration `pulumi:"priorityConfiguration"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []GameSessionQueueTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The maximum time, in seconds, that a new game session placement request remains in the queue.
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 }
@@ -118,7 +119,7 @@ type GameSessionQueueArgs struct {
 	// Custom settings to use when prioritizing destinations and locations for game session placements.
 	PriorityConfiguration GameSessionQueuePriorityConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags GameSessionQueueTagArrayInput
+	Tags aws.TagArrayInput
 	// The maximum time, in seconds, that a new game session placement request remains in the queue.
 	TimeoutInSeconds pulumi.IntPtrInput
 }
@@ -205,8 +206,8 @@ func (o GameSessionQueueOutput) PriorityConfiguration() GameSessionQueuePriority
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o GameSessionQueueOutput) Tags() GameSessionQueueTagArrayOutput {
-	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueueTagArrayOutput { return v.Tags }).(GameSessionQueueTagArrayOutput)
+func (o GameSessionQueueOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *GameSessionQueue) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The maximum time, in seconds, that a new game session placement request remains in the queue.

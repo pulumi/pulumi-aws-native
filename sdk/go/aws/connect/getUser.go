@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupUserResult struct {
 	// One or more security profile arns for the user
 	SecurityProfileArns []string `pulumi:"securityProfileArns"`
 	// One or more tags.
-	Tags []UserTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) for the user.
 	UserArn *string `pulumi:"userArn"`
 	// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
@@ -124,8 +125,8 @@ func (o LookupUserResultOutput) SecurityProfileArns() pulumi.StringArrayOutput {
 }
 
 // One or more tags.
-func (o LookupUserResultOutput) Tags() UserTagArrayOutput {
-	return o.ApplyT(func(v LookupUserResult) []UserTag { return v.Tags }).(UserTagArrayOutput)
+func (o LookupUserResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) for the user.

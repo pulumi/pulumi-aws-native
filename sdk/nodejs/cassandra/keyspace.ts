@@ -42,7 +42,7 @@ export class Keyspace extends pulumi.CustomResource {
      */
     public readonly keyspaceName!: pulumi.Output<string | undefined>;
     public readonly replicationSpecification!: pulumi.Output<outputs.cassandra.KeyspaceReplicationSpecification | undefined>;
-    public readonly tags!: pulumi.Output<outputs.cassandra.KeyspaceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Keyspace resource with the given unique name, arguments, and options.
@@ -79,5 +79,5 @@ export interface KeyspaceArgs {
      */
     keyspaceName?: pulumi.Input<string>;
     replicationSpecification?: pulumi.Input<inputs.cassandra.KeyspaceReplicationSpecificationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.cassandra.KeyspaceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

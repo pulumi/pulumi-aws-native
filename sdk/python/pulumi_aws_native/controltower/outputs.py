@@ -12,7 +12,6 @@ from ._enums import *
 
 __all__ = [
     'EnabledControlParameter',
-    'LandingZoneTag',
 ]
 
 @pulumi.output_type
@@ -31,27 +30,6 @@ class EnabledControlParameter(dict):
     @property
     @pulumi.getter
     def value(self) -> Any:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class LandingZoneTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 

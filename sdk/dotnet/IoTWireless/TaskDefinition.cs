@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// A list of key-value pairs that contain metadata for the destination.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TaskDefinitionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A filter to list only the wireless gateway task definitions that use this task definition type
@@ -121,14 +121,14 @@ namespace Pulumi.AwsNative.IoTWireless
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TaskDefinitionTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the destination.
         /// </summary>
-        public InputList<Inputs.TaskDefinitionTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TaskDefinitionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

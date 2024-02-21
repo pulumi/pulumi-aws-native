@@ -529,101 +529,6 @@ type GroupTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// GroupTagInput is an input type that accepts GroupTagArgs and GroupTagOutput values.
-// You can construct a concrete instance of `GroupTagInput` via:
-//
-//	GroupTagArgs{...}
-type GroupTagInput interface {
-	pulumi.Input
-
-	ToGroupTagOutput() GroupTagOutput
-	ToGroupTagOutputWithContext(context.Context) GroupTagOutput
-}
-
-type GroupTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (GroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupTag)(nil)).Elem()
-}
-
-func (i GroupTagArgs) ToGroupTagOutput() GroupTagOutput {
-	return i.ToGroupTagOutputWithContext(context.Background())
-}
-
-func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupTagOutput)
-}
-
-// GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
-// You can construct a concrete instance of `GroupTagArrayInput` via:
-//
-//	GroupTagArray{ GroupTagArgs{...} }
-type GroupTagArrayInput interface {
-	pulumi.Input
-
-	ToGroupTagArrayOutput() GroupTagArrayOutput
-	ToGroupTagArrayOutputWithContext(context.Context) GroupTagArrayOutput
-}
-
-type GroupTagArray []GroupTagInput
-
-func (GroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GroupTag)(nil)).Elem()
-}
-
-func (i GroupTagArray) ToGroupTagArrayOutput() GroupTagArrayOutput {
-	return i.ToGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i GroupTagArray) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupTagArrayOutput)
-}
-
-type GroupTagOutput struct{ *pulumi.OutputState }
-
-func (GroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupTag)(nil)).Elem()
-}
-
-func (o GroupTagOutput) ToGroupTagOutput() GroupTagOutput {
-	return o
-}
-
-func (o GroupTagOutput) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
-	return o
-}
-
-func (o GroupTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o GroupTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type GroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (GroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GroupTag)(nil)).Elem()
-}
-
-func (o GroupTagArrayOutput) ToGroupTagArrayOutput() GroupTagArrayOutput {
-	return o
-}
-
-func (o GroupTagArrayOutput) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
-	return o
-}
-
-func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupTag {
-		return vs[0].([]GroupTag)[vs[1].(int)]
-	}).(GroupTagOutput)
-}
-
 type GroupTagFilter struct {
 	Key    *string  `pulumi:"key"`
 	Values []string `pulumi:"values"`
@@ -733,8 +638,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupQueryPtrInput)(nil)).Elem(), GroupQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryInput)(nil)).Elem(), GroupResourceQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryPtrInput)(nil)).Elem(), GroupResourceQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagInput)(nil)).Elem(), GroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagArrayInput)(nil)).Elem(), GroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagFilterInput)(nil)).Elem(), GroupTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagFilterArrayInput)(nil)).Elem(), GroupTagFilterArray{})
 	pulumi.RegisterOutputType(GroupConfigurationItemOutput{})
@@ -745,8 +648,6 @@ func init() {
 	pulumi.RegisterOutputType(GroupQueryPtrOutput{})
 	pulumi.RegisterOutputType(GroupResourceQueryOutput{})
 	pulumi.RegisterOutputType(GroupResourceQueryPtrOutput{})
-	pulumi.RegisterOutputType(GroupTagOutput{})
-	pulumi.RegisterOutputType(GroupTagArrayOutput{})
 	pulumi.RegisterOutputType(GroupTagFilterOutput{})
 	pulumi.RegisterOutputType(GroupTagFilterArrayOutput{})
 }

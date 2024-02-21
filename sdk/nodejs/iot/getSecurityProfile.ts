@@ -53,7 +53,7 @@ export interface GetSecurityProfileResult {
     /**
      * Metadata that can be used to manage the security profile.
      */
-    readonly tags?: outputs.iot.SecurityProfileTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * A set of target ARNs that the security profile is attached to.
      */

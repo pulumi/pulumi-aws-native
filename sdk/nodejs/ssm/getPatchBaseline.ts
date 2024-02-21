@@ -78,7 +78,7 @@ export interface GetPatchBaselineResult {
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
      */
-    readonly tags?: outputs.ssm.PatchBaselineTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SSM::PatchBaseline

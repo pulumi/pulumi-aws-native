@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,8 +45,8 @@ type LookupPermissionSetResult struct {
 	// The relay state URL that redirect links to any service in the AWS Management Console.
 	RelayStateType *string `pulumi:"relayStateType"`
 	// The length of time that a user can be signed in to an AWS account.
-	SessionDuration *string            `pulumi:"sessionDuration"`
-	Tags            []PermissionSetTag `pulumi:"tags"`
+	SessionDuration *string   `pulumi:"sessionDuration"`
+	Tags            []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPermissionSetOutput(ctx *pulumi.Context, args LookupPermissionSetOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionSetResultOutput {
@@ -127,8 +128,8 @@ func (o LookupPermissionSetResultOutput) SessionDuration() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupPermissionSetResult) *string { return v.SessionDuration }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPermissionSetResultOutput) Tags() PermissionSetTagArrayOutput {
-	return o.ApplyT(func(v LookupPermissionSetResult) []PermissionSetTag { return v.Tags }).(PermissionSetTagArrayOutput)
+func (o LookupPermissionSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPermissionSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

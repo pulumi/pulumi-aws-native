@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabaseTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDatabaseResult(
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Lightsail
 
             bool? publiclyAccessible,
 
-            ImmutableArray<Outputs.DatabaseTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             BackupRetention = backupRetention;
             CaCertificateIdentifier = caCertificateIdentifier;

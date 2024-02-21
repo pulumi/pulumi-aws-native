@@ -39,7 +39,6 @@ __all__ = [
     'FunctionLoggingConfigArgs',
     'FunctionRuntimeManagementConfigArgs',
     'FunctionSnapStartArgs',
-    'FunctionTagArgs',
     'FunctionTracingConfigArgs',
     'FunctionVpcConfigArgs',
     'LayerVersionContentArgs',
@@ -924,44 +923,6 @@ class FunctionSnapStartArgs:
     @apply_on.setter
     def apply_on(self, value: pulumi.Input['FunctionSnapStartApplyOn']):
         pulumi.set(self, "apply_on", value)
-
-
-@pulumi.input_type
-class FunctionTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

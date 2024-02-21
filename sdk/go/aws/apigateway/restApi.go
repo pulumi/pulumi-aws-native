@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -57,7 +58,7 @@ type RestApi struct {
 	RestApiId      pulumi.StringOutput `pulumi:"restApiId"`
 	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
-	Tags RestApiTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRestApi registers a new resource with the given unique name, arguments, and options.
@@ -138,7 +139,7 @@ type restApiArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
-	Tags []RestApiTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RestApi resource.
@@ -181,7 +182,7 @@ type RestApiArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Policy pulumi.Input
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
-	Tags RestApiTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RestApiArgs) ElementType() reflect.Type {
@@ -310,8 +311,8 @@ func (o RestApiOutput) RootResourceId() pulumi.StringOutput {
 }
 
 // The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with “aws:“. The tag value can be up to 256 characters.
-func (o RestApiOutput) Tags() RestApiTagArrayOutput {
-	return o.ApplyT(func(v *RestApi) RestApiTagArrayOutput { return v.Tags }).(RestApiTagArrayOutput)
+func (o RestApiOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RestApi) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

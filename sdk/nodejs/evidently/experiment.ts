@@ -54,7 +54,7 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.evidently.ExperimentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly treatments!: pulumi.Output<outputs.evidently.ExperimentTreatmentObject[]>;
 
     /**
@@ -135,6 +135,6 @@ export interface ExperimentArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.evidently.ExperimentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     treatments: pulumi.Input<pulumi.Input<inputs.evidently.ExperimentTreatmentObjectArgs>[]>;
 }

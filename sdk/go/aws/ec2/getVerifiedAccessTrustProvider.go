@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupVerifiedAccessTrustProviderResult struct {
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification *SseSpecificationProperties `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []VerifiedAccessTrustProviderTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the Amazon Web Services Verified Access trust provider.
 	VerifiedAccessTrustProviderId *string `pulumi:"verifiedAccessTrustProviderId"`
 }
@@ -106,8 +107,8 @@ func (o LookupVerifiedAccessTrustProviderResultOutput) SseSpecification() SseSpe
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupVerifiedAccessTrustProviderResultOutput) Tags() VerifiedAccessTrustProviderTagArrayOutput {
-	return o.ApplyT(func(v LookupVerifiedAccessTrustProviderResult) []VerifiedAccessTrustProviderTag { return v.Tags }).(VerifiedAccessTrustProviderTagArrayOutput)
+func (o LookupVerifiedAccessTrustProviderResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessTrustProviderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the Amazon Web Services Verified Access trust provider.

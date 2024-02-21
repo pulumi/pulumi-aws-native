@@ -61,7 +61,7 @@ export interface GetMigrationProjectResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.dms.MigrationProjectTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The property describes target data provider descriptors for the migration project.
      */

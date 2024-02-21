@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -31,7 +33,7 @@ class ServerlessCacheArgs:
                  snapshot_arns_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerlessCache resource.
@@ -46,7 +48,7 @@ class ServerlessCacheArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns_to_restore: The ARN's of snapshot to restore Serverless Cache.
         :param pulumi.Input[int] snapshot_retention_limit: The snapshot retention limit of the Serverless Cache.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The subnet id's of the Serverless Cache.
-        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheTagArgs']]] tags: An array of key-value pairs to apply to this Serverless Cache.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this Serverless Cache.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         """
         pulumi.set(__self__, "engine", engine)
@@ -242,14 +244,14 @@ class ServerlessCacheArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this Serverless Cache.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -284,7 +286,7 @@ class ServerlessCache(pulumi.CustomResource):
                  snapshot_arns_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -303,7 +305,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns_to_restore: The ARN's of snapshot to restore Serverless Cache.
         :param pulumi.Input[int] snapshot_retention_limit: The snapshot retention limit of the Serverless Cache.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The subnet id's of the Serverless Cache.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheTagArgs']]]] tags: An array of key-value pairs to apply to this Serverless Cache.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this Serverless Cache.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         """
         ...
@@ -344,7 +346,7 @@ class ServerlessCache(pulumi.CustomResource):
                  snapshot_arns_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -560,7 +562,7 @@ class ServerlessCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ServerlessCacheTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this Serverless Cache.
         """

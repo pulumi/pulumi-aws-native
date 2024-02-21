@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['DeliverySourceArgs', 'DeliverySource']
 
@@ -19,13 +19,13 @@ class DeliverySourceArgs:
                  log_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeliverySourceTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeliverySource resource.
         :param pulumi.Input[str] log_type: The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
         :param pulumi.Input[str] name: The unique name of the Log source.
         :param pulumi.Input[str] resource_arn: The ARN of the resource that will be sending the logs.
-        :param pulumi.Input[Sequence[pulumi.Input['DeliverySourceTagArgs']]] tags: The tags that have been assigned to this delivery source.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags that have been assigned to this delivery source.
         """
         if log_type is not None:
             pulumi.set(__self__, "log_type", log_type)
@@ -74,14 +74,14 @@ class DeliverySourceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeliverySourceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags that have been assigned to this delivery source.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeliverySourceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,7 +93,7 @@ class DeliverySource(pulumi.CustomResource):
                  log_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliverySourceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
          A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
@@ -105,7 +105,7 @@ class DeliverySource(pulumi.CustomResource):
         :param pulumi.Input[str] log_type: The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
         :param pulumi.Input[str] name: The unique name of the Log source.
         :param pulumi.Input[str] resource_arn: The ARN of the resource that will be sending the logs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliverySourceTagArgs']]]] tags: The tags that have been assigned to this delivery source.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags that have been assigned to this delivery source.
         """
         ...
     @overload
@@ -136,7 +136,7 @@ class DeliverySource(pulumi.CustomResource):
                  log_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliverySourceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -236,7 +236,7 @@ class DeliverySource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeliverySourceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags that have been assigned to this delivery source.
         """

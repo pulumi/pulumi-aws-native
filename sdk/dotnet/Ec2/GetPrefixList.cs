@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// Tags for Prefix List
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrefixListTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Version of Prefix List.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? prefixListName,
 
-            ImmutableArray<Outputs.PrefixListTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? version)
         {

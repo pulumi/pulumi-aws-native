@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupBranchResult struct {
 	Framework                  *string                     `pulumi:"framework"`
 	PullRequestEnvironmentName *string                     `pulumi:"pullRequestEnvironmentName"`
 	Stage                      *BranchStage                `pulumi:"stage"`
-	Tags                       []BranchTag                 `pulumi:"tags"`
+	Tags                       []aws.Tag                   `pulumi:"tags"`
 }
 
 func LookupBranchOutput(ctx *pulumi.Context, args LookupBranchOutputArgs, opts ...pulumi.InvokeOption) LookupBranchResultOutput {
@@ -120,8 +121,8 @@ func (o LookupBranchResultOutput) Stage() BranchStagePtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *BranchStage { return v.Stage }).(BranchStagePtrOutput)
 }
 
-func (o LookupBranchResultOutput) Tags() BranchTagArrayOutput {
-	return o.ApplyT(func(v LookupBranchResult) []BranchTag { return v.Tags }).(BranchTagArrayOutput)
+func (o LookupBranchResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBranchResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

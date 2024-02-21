@@ -55,7 +55,7 @@ export interface GetReplicationGroupResult {
     readonly snapshotRetentionLimit?: number;
     readonly snapshotWindow?: string;
     readonly snapshottingClusterId?: string;
-    readonly tags?: outputs.elasticache.ReplicationGroupTag[];
+    readonly tags?: outputs.Tag[];
     readonly transitEncryptionEnabled?: boolean;
     readonly transitEncryptionMode?: string;
     readonly userGroupIds?: string[];

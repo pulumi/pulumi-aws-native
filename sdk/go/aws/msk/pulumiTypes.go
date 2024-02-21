@@ -5065,101 +5065,6 @@ type ReplicatorTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ReplicatorTagInput is an input type that accepts ReplicatorTagArgs and ReplicatorTagOutput values.
-// You can construct a concrete instance of `ReplicatorTagInput` via:
-//
-//	ReplicatorTagArgs{...}
-type ReplicatorTagInput interface {
-	pulumi.Input
-
-	ToReplicatorTagOutput() ReplicatorTagOutput
-	ToReplicatorTagOutputWithContext(context.Context) ReplicatorTagOutput
-}
-
-type ReplicatorTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ReplicatorTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicatorTag)(nil)).Elem()
-}
-
-func (i ReplicatorTagArgs) ToReplicatorTagOutput() ReplicatorTagOutput {
-	return i.ToReplicatorTagOutputWithContext(context.Background())
-}
-
-func (i ReplicatorTagArgs) ToReplicatorTagOutputWithContext(ctx context.Context) ReplicatorTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorTagOutput)
-}
-
-// ReplicatorTagArrayInput is an input type that accepts ReplicatorTagArray and ReplicatorTagArrayOutput values.
-// You can construct a concrete instance of `ReplicatorTagArrayInput` via:
-//
-//	ReplicatorTagArray{ ReplicatorTagArgs{...} }
-type ReplicatorTagArrayInput interface {
-	pulumi.Input
-
-	ToReplicatorTagArrayOutput() ReplicatorTagArrayOutput
-	ToReplicatorTagArrayOutputWithContext(context.Context) ReplicatorTagArrayOutput
-}
-
-type ReplicatorTagArray []ReplicatorTagInput
-
-func (ReplicatorTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicatorTag)(nil)).Elem()
-}
-
-func (i ReplicatorTagArray) ToReplicatorTagArrayOutput() ReplicatorTagArrayOutput {
-	return i.ToReplicatorTagArrayOutputWithContext(context.Background())
-}
-
-func (i ReplicatorTagArray) ToReplicatorTagArrayOutputWithContext(ctx context.Context) ReplicatorTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorTagArrayOutput)
-}
-
-type ReplicatorTagOutput struct{ *pulumi.OutputState }
-
-func (ReplicatorTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicatorTag)(nil)).Elem()
-}
-
-func (o ReplicatorTagOutput) ToReplicatorTagOutput() ReplicatorTagOutput {
-	return o
-}
-
-func (o ReplicatorTagOutput) ToReplicatorTagOutputWithContext(ctx context.Context) ReplicatorTagOutput {
-	return o
-}
-
-func (o ReplicatorTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicatorTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ReplicatorTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicatorTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ReplicatorTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ReplicatorTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicatorTag)(nil)).Elem()
-}
-
-func (o ReplicatorTagArrayOutput) ToReplicatorTagArrayOutput() ReplicatorTagArrayOutput {
-	return o
-}
-
-func (o ReplicatorTagArrayOutput) ToReplicatorTagArrayOutputWithContext(ctx context.Context) ReplicatorTagArrayOutput {
-	return o
-}
-
-func (o ReplicatorTagArrayOutput) Index(i pulumi.IntInput) ReplicatorTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatorTag {
-		return vs[0].([]ReplicatorTag)[vs[1].(int)]
-	}).(ReplicatorTagOutput)
-}
-
 type ReplicatorTopicReplication struct {
 	// Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
 	CopyAccessControlListsForTopics *bool `pulumi:"copyAccessControlListsForTopics"`
@@ -5687,8 +5592,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientVpcConfigInput)(nil)).Elem(), ReplicatorKafkaClusterClientVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoInput)(nil)).Elem(), ReplicatorReplicationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoArrayInput)(nil)).Elem(), ReplicatorReplicationInfoArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTagInput)(nil)).Elem(), ReplicatorTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTagArrayInput)(nil)).Elem(), ReplicatorTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTopicReplicationInput)(nil)).Elem(), ReplicatorTopicReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterIamInput)(nil)).Elem(), ServerlessClusterIamArgs{})
@@ -5768,8 +5671,6 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientVpcConfigOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoArrayOutput{})
-	pulumi.RegisterOutputType(ReplicatorTagOutput{})
-	pulumi.RegisterOutputType(ReplicatorTagArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatorTopicReplicationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterIamOutput{})

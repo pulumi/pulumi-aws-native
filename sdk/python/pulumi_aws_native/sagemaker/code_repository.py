@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['CodeRepositoryArgs', 'CodeRepository']
@@ -18,7 +20,7 @@ class CodeRepositoryArgs:
     def __init__(__self__, *,
                  git_config: pulumi.Input['CodeRepositoryGitConfigArgs'],
                  code_repository_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CodeRepositoryTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CodeRepository resource.
         """
@@ -48,11 +50,11 @@ class CodeRepositoryArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CodeRepositoryTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CodeRepositoryTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -68,7 +70,7 @@ class CodeRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: Optional[pulumi.Input[str]] = None,
                  git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CodeRepositoryTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::CodeRepository
@@ -102,7 +104,7 @@ class CodeRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: Optional[pulumi.Input[str]] = None,
                  git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CodeRepositoryTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""CodeRepository is deprecated: CodeRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -159,6 +161,6 @@ class CodeRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CodeRepositoryTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

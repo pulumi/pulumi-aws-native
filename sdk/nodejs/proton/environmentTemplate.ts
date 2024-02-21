@@ -60,7 +60,7 @@ export class EnvironmentTemplate extends pulumi.CustomResource {
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.proton.EnvironmentTemplateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EnvironmentTemplate resource with the given unique name, arguments, and options.
@@ -119,5 +119,5 @@ export interface EnvironmentTemplateArgs {
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.proton.EnvironmentTemplateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

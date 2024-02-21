@@ -25,7 +25,7 @@ export interface GetTrafficMirrorFilterArgs {
 export interface GetTrafficMirrorFilterResult {
     readonly id?: string;
     readonly networkServices?: string[];
-    readonly tags?: outputs.ec2.TrafficMirrorFilterTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::TrafficMirrorFilter

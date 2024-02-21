@@ -46,7 +46,7 @@ export interface GetLoadBalancerResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.lightsail.LoadBalancerTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The name of the TLS policy to apply to the load balancer.
      */

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type CustomDataIdentifier struct {
 	// Regular expression for custom data identifier.
 	Regex pulumi.StringOutput `pulumi:"regex"`
 	// A collection of tags associated with a resource
-	Tags CustomDataIdentifierTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCustomDataIdentifier registers a new resource with the given unique name, arguments, and options.
@@ -99,7 +100,7 @@ type customDataIdentifierArgs struct {
 	// Regular expression for custom data identifier.
 	Regex string `pulumi:"regex"`
 	// A collection of tags associated with a resource
-	Tags []CustomDataIdentifierTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomDataIdentifier resource.
@@ -117,7 +118,7 @@ type CustomDataIdentifierArgs struct {
 	// Regular expression for custom data identifier.
 	Regex pulumi.StringInput
 	// A collection of tags associated with a resource
-	Tags CustomDataIdentifierTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (CustomDataIdentifierArgs) ElementType() reflect.Type {
@@ -193,8 +194,8 @@ func (o CustomDataIdentifierOutput) Regex() pulumi.StringOutput {
 }
 
 // A collection of tags associated with a resource
-func (o CustomDataIdentifierOutput) Tags() CustomDataIdentifierTagArrayOutput {
-	return o.ApplyT(func(v *CustomDataIdentifier) CustomDataIdentifierTagArrayOutput { return v.Tags }).(CustomDataIdentifierTagArrayOutput)
+func (o CustomDataIdentifierOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

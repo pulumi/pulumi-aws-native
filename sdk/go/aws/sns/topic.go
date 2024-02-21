@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type Topic struct {
 	SignatureVersion pulumi.StringPtrOutput `pulumi:"signatureVersion"`
 	// The SNS subscriptions (endpoints) for this topic.
 	Subscription TopicSubscriptionArrayOutput `pulumi:"subscription"`
-	Tags         TopicTagArrayOutput          `pulumi:"tags"`
+	Tags         aws.TagArrayOutput           `pulumi:"tags"`
 	TopicArn     pulumi.StringOutput          `pulumi:"topicArn"`
 	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
 	//
@@ -138,7 +139,7 @@ type topicArgs struct {
 	SignatureVersion *string `pulumi:"signatureVersion"`
 	// The SNS subscriptions (endpoints) for this topic.
 	Subscription []TopicSubscription `pulumi:"subscription"`
-	Tags         []TopicTag          `pulumi:"tags"`
+	Tags         []aws.Tag           `pulumi:"tags"`
 	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
@@ -183,7 +184,7 @@ type TopicArgs struct {
 	SignatureVersion pulumi.StringPtrInput
 	// The SNS subscriptions (endpoints) for this topic.
 	Subscription TopicSubscriptionArrayInput
-	Tags         TopicTagArrayInput
+	Tags         aws.TagArrayInput
 	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
@@ -290,8 +291,8 @@ func (o TopicOutput) Subscription() TopicSubscriptionArrayOutput {
 	return o.ApplyT(func(v *Topic) TopicSubscriptionArrayOutput { return v.Subscription }).(TopicSubscriptionArrayOutput)
 }
 
-func (o TopicOutput) Tags() TopicTagArrayOutput {
-	return o.ApplyT(func(v *Topic) TopicTagArrayOutput { return v.Tags }).(TopicTagArrayOutput)
+func (o TopicOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Topic) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TopicOutput) TopicArn() pulumi.StringOutput {

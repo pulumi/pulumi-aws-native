@@ -26,7 +26,7 @@ export interface GetDbSubnetGroupResult {
     readonly dbSubnetGroupDescription?: string;
     readonly id?: string;
     readonly subnetIds?: string[];
-    readonly tags?: outputs.neptune.DbSubnetGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Neptune::DBSubnetGroup

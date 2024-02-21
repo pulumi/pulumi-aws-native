@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,8 +40,8 @@ type PricingRule struct {
 	// A term used to categorize the granularity of a Pricing Rule.
 	Scope PricingRuleScopeOutput `pulumi:"scope"`
 	// The service which a pricing rule is applied on
-	Service pulumi.StringPtrOutput    `pulumi:"service"`
-	Tags    PricingRuleTagArrayOutput `pulumi:"tags"`
+	Service pulumi.StringPtrOutput `pulumi:"service"`
+	Tags    aws.TagArrayOutput     `pulumi:"tags"`
 	// The set of tiering configurations for the pricing rule.
 	Tiering TieringPropertiesPtrOutput `pulumi:"tiering"`
 	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
@@ -116,8 +117,8 @@ type pricingRuleArgs struct {
 	// A term used to categorize the granularity of a Pricing Rule.
 	Scope PricingRuleScope `pulumi:"scope"`
 	// The service which a pricing rule is applied on
-	Service *string          `pulumi:"service"`
-	Tags    []PricingRuleTag `pulumi:"tags"`
+	Service *string   `pulumi:"service"`
+	Tags    []aws.Tag `pulumi:"tags"`
 	// The set of tiering configurations for the pricing rule.
 	Tiering *TieringProperties `pulumi:"tiering"`
 	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
@@ -142,7 +143,7 @@ type PricingRuleArgs struct {
 	Scope PricingRuleScopeInput
 	// The service which a pricing rule is applied on
 	Service pulumi.StringPtrInput
-	Tags    PricingRuleTagArrayInput
+	Tags    aws.TagArrayInput
 	// The set of tiering configurations for the pricing rule.
 	Tiering TieringPropertiesPtrInput
 	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
@@ -243,8 +244,8 @@ func (o PricingRuleOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PricingRule) pulumi.StringPtrOutput { return v.Service }).(pulumi.StringPtrOutput)
 }
 
-func (o PricingRuleOutput) Tags() PricingRuleTagArrayOutput {
-	return o.ApplyT(func(v *PricingRule) PricingRuleTagArrayOutput { return v.Tags }).(PricingRuleTagArrayOutput)
+func (o PricingRuleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PricingRule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The set of tiering configurations for the pricing rule.

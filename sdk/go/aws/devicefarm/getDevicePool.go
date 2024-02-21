@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupDevicePoolResult struct {
 	MaxDevices  *int             `pulumi:"maxDevices"`
 	Name        *string          `pulumi:"name"`
 	Rules       []DevicePoolRule `pulumi:"rules"`
-	Tags        []DevicePoolTag  `pulumi:"tags"`
+	Tags        []aws.Tag        `pulumi:"tags"`
 }
 
 func LookupDevicePoolOutput(ctx *pulumi.Context, args LookupDevicePoolOutputArgs, opts ...pulumi.InvokeOption) LookupDevicePoolResultOutput {
@@ -90,8 +91,8 @@ func (o LookupDevicePoolResultOutput) Rules() DevicePoolRuleArrayOutput {
 	return o.ApplyT(func(v LookupDevicePoolResult) []DevicePoolRule { return v.Rules }).(DevicePoolRuleArrayOutput)
 }
 
-func (o LookupDevicePoolResultOutput) Tags() DevicePoolTagArrayOutput {
-	return o.ApplyT(func(v LookupDevicePoolResult) []DevicePoolTag { return v.Tags }).(DevicePoolTagArrayOutput)
+func (o LookupDevicePoolResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDevicePoolResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

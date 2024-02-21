@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Connect
         /// One or more tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ContactFlowModuleTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -139,14 +139,14 @@ namespace Pulumi.AwsNative.Connect
         public Input<string>? State { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ContactFlowModuleTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public InputList<Inputs.ContactFlowModuleTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ContactFlowModuleTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

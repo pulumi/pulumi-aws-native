@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type ServiceProfile struct {
 	// Name of service profile
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the service profile.
-	Tags ServiceProfileTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewServiceProfile registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +71,7 @@ type serviceProfileArgs struct {
 	// Name of service profile
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the service profile.
-	Tags []ServiceProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceProfile resource.
@@ -80,7 +81,7 @@ type ServiceProfileArgs struct {
 	// Name of service profile
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the service profile.
-	Tags ServiceProfileTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ServiceProfileArgs) ElementType() reflect.Type {
@@ -136,8 +137,8 @@ func (o ServiceProfileOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the service profile.
-func (o ServiceProfileOutput) Tags() ServiceProfileTagArrayOutput {
-	return o.ApplyT(func(v *ServiceProfile) ServiceProfileTagArrayOutput { return v.Tags }).(ServiceProfileTagArrayOutput)
+func (o ServiceProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ServiceProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

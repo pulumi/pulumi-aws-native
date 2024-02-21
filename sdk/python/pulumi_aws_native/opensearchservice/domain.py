@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DomainArgs', 'Domain']
@@ -32,12 +34,12 @@ class DomainArgs:
                  off_peak_window_options: Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']] = None,
                  snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
                  software_update_options: Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param Any access_policies: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
         """
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
@@ -225,14 +227,14 @@ class DomainArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this Domain.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -266,7 +268,7 @@ class Domain(pulumi.CustomResource):
                  off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
                  software_update_options: Optional[pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
                  __props__=None):
         """
@@ -275,7 +277,7 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any access_policies: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
         """
         ...
     @overload
@@ -317,7 +319,7 @@ class Domain(pulumi.CustomResource):
                  off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
                  software_update_options: Optional[pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -517,7 +519,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DomainTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An arbitrary set of tags (key-value pairs) for this Domain.
         """

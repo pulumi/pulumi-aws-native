@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['RoleArgs', 'Role']
@@ -24,7 +26,7 @@ class RoleArgs:
                  permissions_boundary: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['RolePolicyArgs']]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Role resource.
         :param Any assume_role_policy_document: The trust policy that is associated with this role.
@@ -37,7 +39,7 @@ class RoleArgs:
         :param pulumi.Input[str] permissions_boundary: The ARN of the policy used to set the permissions boundary for the role.
         :param pulumi.Input[Sequence[pulumi.Input['RolePolicyArgs']]] policies: Adds or updates an inline policy document that is embedded in the specified IAM role. 
         :param pulumi.Input[str] role_name: A name for the IAM role, up to 64 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]] tags: A list of tags that are attached to the role.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags that are attached to the role.
         """
         pulumi.set(__self__, "assume_role_policy_document", assume_role_policy_document)
         if description is not None:
@@ -157,14 +159,14 @@ class RoleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags that are attached to the role.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -181,7 +183,7 @@ class Role(pulumi.CustomResource):
                  permissions_boundary: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePolicyArgs']]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IAM::Role
@@ -198,7 +200,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] permissions_boundary: The ARN of the policy used to set the permissions boundary for the role.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePolicyArgs']]]] policies: Adds or updates an inline policy document that is embedded in the specified IAM role. 
         :param pulumi.Input[str] role_name: A name for the IAM role, up to 64 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]] tags: A list of tags that are attached to the role.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags that are attached to the role.
         """
         ...
     @overload
@@ -232,7 +234,7 @@ class Role(pulumi.CustomResource):
                  permissions_boundary: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePolicyArgs']]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -376,7 +378,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RoleTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags that are attached to the role.
         """

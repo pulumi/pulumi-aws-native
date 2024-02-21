@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public readonly string? Id;
         public readonly string? ServiceArn;
         public readonly string? ServiceId;
-        public readonly ImmutableArray<Outputs.ListenerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetListenerResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
             string? serviceId,
 
-            ImmutableArray<Outputs.ListenerTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DefaultAction = defaultAction;

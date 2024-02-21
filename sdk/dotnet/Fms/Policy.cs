@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Fms
         public Output<Outputs.PolicySecurityServicePolicyData> SecurityServicePolicyData { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PolicyTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -160,10 +160,10 @@ namespace Pulumi.AwsNative.Fms
         public Input<Inputs.PolicySecurityServicePolicyDataArgs> SecurityServicePolicyData { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.PolicyTagArgs>? _tags;
-        public InputList<Inputs.PolicyTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PolicyTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

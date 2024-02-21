@@ -18,6 +18,7 @@ from .get_url_suffix import *
 from .import_value import *
 from .provider import *
 from ._inputs import *
+from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:

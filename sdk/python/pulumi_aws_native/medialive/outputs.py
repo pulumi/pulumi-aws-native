@@ -183,7 +183,6 @@ __all__ = [
     'MultiplexOutputDestination',
     'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties',
     'MultiplexSettings',
-    'MultiplexTags',
     'MultiplexprogramMultiplexProgramPacketIdentifiersMap',
     'MultiplexprogramMultiplexProgramPipelineDetail',
     'MultiplexprogramMultiplexProgramServiceDescriptor',
@@ -10182,33 +10181,6 @@ class MultiplexSettings(dict):
         Transport stream reserved bit rate.
         """
         return pulumi.get(self, "transport_stream_reserved_bitrate")
-
-
-@pulumi.output_type
-class MultiplexTags(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        A key-value pair to associate with a resource.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

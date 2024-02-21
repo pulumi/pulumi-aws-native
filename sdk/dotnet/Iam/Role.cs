@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.Iam
         /// A list of tags that are attached to the role.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RoleTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -196,14 +196,14 @@ namespace Pulumi.AwsNative.Iam
         public Input<string>? RoleName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.RoleTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of tags that are attached to the role.
         /// </summary>
-        public InputList<Inputs.RoleTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RoleTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

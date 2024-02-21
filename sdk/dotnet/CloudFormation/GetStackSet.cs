@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StackSetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.CloudFormation
 
             string? stackSetId,
 
-            ImmutableArray<Outputs.StackSetTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? templateBody)
         {

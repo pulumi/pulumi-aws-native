@@ -26,7 +26,7 @@ export interface GetTestGridProjectResult {
     readonly arn?: string;
     readonly description?: string;
     readonly name?: string;
-    readonly tags?: outputs.devicefarm.TestGridProjectTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * AWS::DeviceFarm::TestGridProject creates a new TestGrid Project

@@ -33,7 +33,7 @@ export interface GetChannelResult {
     /**
      * The tags to assign to the channel.
      */
-    readonly tags?: outputs.mediatailor.ChannelTag[];
+    readonly tags?: outputs.Tag[];
     readonly timeShiftConfiguration?: outputs.mediatailor.ChannelTimeShiftConfiguration;
 }
 /**

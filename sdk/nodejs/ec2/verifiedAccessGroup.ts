@@ -68,7 +68,7 @@ export class VerifiedAccessGroup extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.VerifiedAccessGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the Verified Access group.
      */
@@ -148,7 +148,7 @@ export interface VerifiedAccessGroupArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.VerifiedAccessGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the AWS Verified Access instance.
      */

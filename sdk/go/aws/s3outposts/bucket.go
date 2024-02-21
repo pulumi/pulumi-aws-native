@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Bucket struct {
 	// The id of the customer outpost on which the bucket resides.
 	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
 	// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
-	Tags BucketTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +84,7 @@ type bucketArgs struct {
 	// The id of the customer outpost on which the bucket resides.
 	OutpostId string `pulumi:"outpostId"`
 	// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
-	Tags []BucketTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Bucket resource.
@@ -95,7 +96,7 @@ type BucketArgs struct {
 	// The id of the customer outpost on which the bucket resides.
 	OutpostId pulumi.StringInput
 	// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
-	Tags BucketTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (BucketArgs) ElementType() reflect.Type {
@@ -156,8 +157,8 @@ func (o BucketOutput) OutpostId() pulumi.StringOutput {
 }
 
 // An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
-func (o BucketOutput) Tags() BucketTagArrayOutput {
-	return o.ApplyT(func(v *Bucket) BucketTagArrayOutput { return v.Tags }).(BucketTagArrayOutput)
+func (o BucketOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Bucket) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,7 +45,7 @@ type CacheCluster struct {
 	SnapshotName                 pulumi.StringPtrOutput                                 `pulumi:"snapshotName"`
 	SnapshotRetentionLimit       pulumi.IntPtrOutput                                    `pulumi:"snapshotRetentionLimit"`
 	SnapshotWindow               pulumi.StringPtrOutput                                 `pulumi:"snapshotWindow"`
-	Tags                         CacheClusterTagArrayOutput                             `pulumi:"tags"`
+	Tags                         aws.TagArrayOutput                                     `pulumi:"tags"`
 	TransitEncryptionEnabled     pulumi.BoolPtrOutput                                   `pulumi:"transitEncryptionEnabled"`
 	VpcSecurityGroupIds          pulumi.StringArrayOutput                               `pulumi:"vpcSecurityGroupIds"`
 }
@@ -134,7 +135,7 @@ type cacheClusterArgs struct {
 	SnapshotName                 *string                                       `pulumi:"snapshotName"`
 	SnapshotRetentionLimit       *int                                          `pulumi:"snapshotRetentionLimit"`
 	SnapshotWindow               *string                                       `pulumi:"snapshotWindow"`
-	Tags                         []CacheClusterTag                             `pulumi:"tags"`
+	Tags                         []aws.Tag                                     `pulumi:"tags"`
 	TransitEncryptionEnabled     *bool                                         `pulumi:"transitEncryptionEnabled"`
 	VpcSecurityGroupIds          []string                                      `pulumi:"vpcSecurityGroupIds"`
 }
@@ -167,7 +168,7 @@ type CacheClusterArgs struct {
 	SnapshotName                 pulumi.StringPtrInput
 	SnapshotRetentionLimit       pulumi.IntPtrInput
 	SnapshotWindow               pulumi.StringPtrInput
-	Tags                         CacheClusterTagArrayInput
+	Tags                         aws.TagArrayInput
 	TransitEncryptionEnabled     pulumi.BoolPtrInput
 	VpcSecurityGroupIds          pulumi.StringArrayInput
 }
@@ -315,8 +316,8 @@ func (o CacheClusterOutput) SnapshotWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.SnapshotWindow }).(pulumi.StringPtrOutput)
 }
 
-func (o CacheClusterOutput) Tags() CacheClusterTagArrayOutput {
-	return o.ApplyT(func(v *CacheCluster) CacheClusterTagArrayOutput { return v.Tags }).(CacheClusterTagArrayOutput)
+func (o CacheClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CacheCluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o CacheClusterOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {

@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['ClusterSubnetGroupArgs', 'ClusterSubnetGroup']
 
@@ -18,12 +18,12 @@ class ClusterSubnetGroupArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSubnetGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ClusterSubnetGroup resource.
         :param pulumi.Input[str] description: The description of the parameter group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The list of VPC subnet IDs
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterSubnetGroupTagArgs']]] tags: The list of tags for the cluster parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of tags for the cluster parameter group.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -56,14 +56,14 @@ class ClusterSubnetGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSubnetGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The list of tags for the cluster parameter group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSubnetGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -74,7 +74,7 @@ class ClusterSubnetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSubnetGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Specifies an Amazon Redshift subnet group.
@@ -83,7 +83,7 @@ class ClusterSubnetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the parameter group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The list of VPC subnet IDs
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSubnetGroupTagArgs']]]] tags: The list of tags for the cluster parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of tags for the cluster parameter group.
         """
         ...
     @overload
@@ -111,7 +111,7 @@ class ClusterSubnetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSubnetGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -183,7 +183,7 @@ class ClusterSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterSubnetGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The list of tags for the cluster parameter group.
         """

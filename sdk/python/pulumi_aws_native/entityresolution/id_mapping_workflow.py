@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class IdMappingWorkflowArgs:
                  role_arn: pulumi.Input[str],
                  workflow_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IdMappingWorkflow resource.
         :param pulumi.Input[str] workflow_name: The name of the IdMappingWorkflow
@@ -101,11 +103,11 @@ class IdMappingWorkflowArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -119,7 +121,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
                  input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowInputSourceArgs']]]]] = None,
                  output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowOutputSourceArgs']]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -159,7 +161,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
                  input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowInputSourceArgs']]]]] = None,
                  output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowOutputSourceArgs']]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -261,7 +263,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IdMappingWorkflowTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

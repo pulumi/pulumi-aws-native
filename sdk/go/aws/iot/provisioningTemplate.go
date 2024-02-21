@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type ProvisioningTemplate struct {
 	Enabled             pulumi.BoolPtrOutput                          `pulumi:"enabled"`
 	PreProvisioningHook ProvisioningTemplateProvisioningHookPtrOutput `pulumi:"preProvisioningHook"`
 	ProvisioningRoleArn pulumi.StringOutput                           `pulumi:"provisioningRoleArn"`
-	Tags                ProvisioningTemplateTagArrayOutput            `pulumi:"tags"`
+	Tags                aws.TagArrayOutput                            `pulumi:"tags"`
 	TemplateArn         pulumi.StringOutput                           `pulumi:"templateArn"`
 	TemplateBody        pulumi.StringOutput                           `pulumi:"templateBody"`
 	TemplateName        pulumi.StringPtrOutput                        `pulumi:"templateName"`
@@ -82,7 +83,7 @@ type provisioningTemplateArgs struct {
 	Enabled             *bool                                 `pulumi:"enabled"`
 	PreProvisioningHook *ProvisioningTemplateProvisioningHook `pulumi:"preProvisioningHook"`
 	ProvisioningRoleArn string                                `pulumi:"provisioningRoleArn"`
-	Tags                []ProvisioningTemplateTag             `pulumi:"tags"`
+	Tags                []aws.Tag                             `pulumi:"tags"`
 	TemplateBody        string                                `pulumi:"templateBody"`
 	TemplateName        *string                               `pulumi:"templateName"`
 	TemplateType        *ProvisioningTemplateTemplateType     `pulumi:"templateType"`
@@ -94,7 +95,7 @@ type ProvisioningTemplateArgs struct {
 	Enabled             pulumi.BoolPtrInput
 	PreProvisioningHook ProvisioningTemplateProvisioningHookPtrInput
 	ProvisioningRoleArn pulumi.StringInput
-	Tags                ProvisioningTemplateTagArrayInput
+	Tags                aws.TagArrayInput
 	TemplateBody        pulumi.StringInput
 	TemplateName        pulumi.StringPtrInput
 	TemplateType        ProvisioningTemplateTemplateTypePtrInput
@@ -155,8 +156,8 @@ func (o ProvisioningTemplateOutput) ProvisioningRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.ProvisioningRoleArn }).(pulumi.StringOutput)
 }
 
-func (o ProvisioningTemplateOutput) Tags() ProvisioningTemplateTagArrayOutput {
-	return o.ApplyT(func(v *ProvisioningTemplate) ProvisioningTemplateTagArrayOutput { return v.Tags }).(ProvisioningTemplateTagArrayOutput)
+func (o ProvisioningTemplateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ProvisioningTemplateOutput) TemplateArn() pulumi.StringOutput {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type InstanceProfile struct {
 	// The property describes a subnet group identifier for the instance profile.
 	SubnetGroupIdentifier pulumi.StringPtrOutput `pulumi:"subnetGroupIdentifier"`
 	// An array of key-value pairs to apply to this resource.
-	Tags InstanceProfileTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The property describes vps security groups for the instance profile.
 	VpcSecurityGroups pulumi.StringArrayOutput `pulumi:"vpcSecurityGroups"`
 }
@@ -98,7 +99,7 @@ type instanceProfileArgs struct {
 	// The property describes a subnet group identifier for the instance profile.
 	SubnetGroupIdentifier *string `pulumi:"subnetGroupIdentifier"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []InstanceProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The property describes vps security groups for the instance profile.
 	VpcSecurityGroups []string `pulumi:"vpcSecurityGroups"`
 }
@@ -122,7 +123,7 @@ type InstanceProfileArgs struct {
 	// The property describes a subnet group identifier for the instance profile.
 	SubnetGroupIdentifier pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags InstanceProfileTagArrayInput
+	Tags aws.TagArrayInput
 	// The property describes vps security groups for the instance profile.
 	VpcSecurityGroups pulumi.StringArrayInput
 }
@@ -215,8 +216,8 @@ func (o InstanceProfileOutput) SubnetGroupIdentifier() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o InstanceProfileOutput) Tags() InstanceProfileTagArrayOutput {
-	return o.ApplyT(func(v *InstanceProfile) InstanceProfileTagArrayOutput { return v.Tags }).(InstanceProfileTagArrayOutput)
+func (o InstanceProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *InstanceProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The property describes vps security groups for the instance profile.

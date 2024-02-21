@@ -551,107 +551,6 @@ type AccessPointTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// AccessPointTagInput is an input type that accepts AccessPointTagArgs and AccessPointTagOutput values.
-// You can construct a concrete instance of `AccessPointTagInput` via:
-//
-//	AccessPointTagArgs{...}
-type AccessPointTagInput interface {
-	pulumi.Input
-
-	ToAccessPointTagOutput() AccessPointTagOutput
-	ToAccessPointTagOutputWithContext(context.Context) AccessPointTagOutput
-}
-
-// A tag is a key-value pair attached to a file system. Allowed characters in the “Key“ and “Value“ properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:“+ - = . _ : /“
-type AccessPointTagArgs struct {
-	// The tag key (String). The key can't start with ``aws:``.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The value of the tag key.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (AccessPointTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPointTag)(nil)).Elem()
-}
-
-func (i AccessPointTagArgs) ToAccessPointTagOutput() AccessPointTagOutput {
-	return i.ToAccessPointTagOutputWithContext(context.Background())
-}
-
-func (i AccessPointTagArgs) ToAccessPointTagOutputWithContext(ctx context.Context) AccessPointTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTagOutput)
-}
-
-// AccessPointTagArrayInput is an input type that accepts AccessPointTagArray and AccessPointTagArrayOutput values.
-// You can construct a concrete instance of `AccessPointTagArrayInput` via:
-//
-//	AccessPointTagArray{ AccessPointTagArgs{...} }
-type AccessPointTagArrayInput interface {
-	pulumi.Input
-
-	ToAccessPointTagArrayOutput() AccessPointTagArrayOutput
-	ToAccessPointTagArrayOutputWithContext(context.Context) AccessPointTagArrayOutput
-}
-
-type AccessPointTagArray []AccessPointTagInput
-
-func (AccessPointTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessPointTag)(nil)).Elem()
-}
-
-func (i AccessPointTagArray) ToAccessPointTagArrayOutput() AccessPointTagArrayOutput {
-	return i.ToAccessPointTagArrayOutputWithContext(context.Background())
-}
-
-func (i AccessPointTagArray) ToAccessPointTagArrayOutputWithContext(ctx context.Context) AccessPointTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTagArrayOutput)
-}
-
-// A tag is a key-value pair attached to a file system. Allowed characters in the “Key“ and “Value“ properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:“+ - = . _ : /“
-type AccessPointTagOutput struct{ *pulumi.OutputState }
-
-func (AccessPointTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPointTag)(nil)).Elem()
-}
-
-func (o AccessPointTagOutput) ToAccessPointTagOutput() AccessPointTagOutput {
-	return o
-}
-
-func (o AccessPointTagOutput) ToAccessPointTagOutputWithContext(ctx context.Context) AccessPointTagOutput {
-	return o
-}
-
-// The tag key (String). The key can't start with “aws:“.
-func (o AccessPointTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPointTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-// The value of the tag key.
-func (o AccessPointTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPointTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type AccessPointTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessPointTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessPointTag)(nil)).Elem()
-}
-
-func (o AccessPointTagArrayOutput) ToAccessPointTagArrayOutput() AccessPointTagArrayOutput {
-	return o
-}
-
-func (o AccessPointTagArrayOutput) ToAccessPointTagArrayOutputWithContext(ctx context.Context) AccessPointTagArrayOutput {
-	return o
-}
-
-func (o AccessPointTagArrayOutput) Index(i pulumi.IntInput) AccessPointTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessPointTag {
-		return vs[0].([]AccessPointTag)[vs[1].(int)]
-	}).(AccessPointTagOutput)
-}
-
 type FileSystemBackupPolicy struct {
 	Status string `pulumi:"status"`
 }
@@ -788,101 +687,6 @@ func (o FileSystemBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 type FileSystemElasticFileSystemTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// FileSystemElasticFileSystemTagInput is an input type that accepts FileSystemElasticFileSystemTagArgs and FileSystemElasticFileSystemTagOutput values.
-// You can construct a concrete instance of `FileSystemElasticFileSystemTagInput` via:
-//
-//	FileSystemElasticFileSystemTagArgs{...}
-type FileSystemElasticFileSystemTagInput interface {
-	pulumi.Input
-
-	ToFileSystemElasticFileSystemTagOutput() FileSystemElasticFileSystemTagOutput
-	ToFileSystemElasticFileSystemTagOutputWithContext(context.Context) FileSystemElasticFileSystemTagOutput
-}
-
-type FileSystemElasticFileSystemTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FileSystemElasticFileSystemTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemElasticFileSystemTag)(nil)).Elem()
-}
-
-func (i FileSystemElasticFileSystemTagArgs) ToFileSystemElasticFileSystemTagOutput() FileSystemElasticFileSystemTagOutput {
-	return i.ToFileSystemElasticFileSystemTagOutputWithContext(context.Background())
-}
-
-func (i FileSystemElasticFileSystemTagArgs) ToFileSystemElasticFileSystemTagOutputWithContext(ctx context.Context) FileSystemElasticFileSystemTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemElasticFileSystemTagOutput)
-}
-
-// FileSystemElasticFileSystemTagArrayInput is an input type that accepts FileSystemElasticFileSystemTagArray and FileSystemElasticFileSystemTagArrayOutput values.
-// You can construct a concrete instance of `FileSystemElasticFileSystemTagArrayInput` via:
-//
-//	FileSystemElasticFileSystemTagArray{ FileSystemElasticFileSystemTagArgs{...} }
-type FileSystemElasticFileSystemTagArrayInput interface {
-	pulumi.Input
-
-	ToFileSystemElasticFileSystemTagArrayOutput() FileSystemElasticFileSystemTagArrayOutput
-	ToFileSystemElasticFileSystemTagArrayOutputWithContext(context.Context) FileSystemElasticFileSystemTagArrayOutput
-}
-
-type FileSystemElasticFileSystemTagArray []FileSystemElasticFileSystemTagInput
-
-func (FileSystemElasticFileSystemTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FileSystemElasticFileSystemTag)(nil)).Elem()
-}
-
-func (i FileSystemElasticFileSystemTagArray) ToFileSystemElasticFileSystemTagArrayOutput() FileSystemElasticFileSystemTagArrayOutput {
-	return i.ToFileSystemElasticFileSystemTagArrayOutputWithContext(context.Background())
-}
-
-func (i FileSystemElasticFileSystemTagArray) ToFileSystemElasticFileSystemTagArrayOutputWithContext(ctx context.Context) FileSystemElasticFileSystemTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemElasticFileSystemTagArrayOutput)
-}
-
-type FileSystemElasticFileSystemTagOutput struct{ *pulumi.OutputState }
-
-func (FileSystemElasticFileSystemTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemElasticFileSystemTag)(nil)).Elem()
-}
-
-func (o FileSystemElasticFileSystemTagOutput) ToFileSystemElasticFileSystemTagOutput() FileSystemElasticFileSystemTagOutput {
-	return o
-}
-
-func (o FileSystemElasticFileSystemTagOutput) ToFileSystemElasticFileSystemTagOutputWithContext(ctx context.Context) FileSystemElasticFileSystemTagOutput {
-	return o
-}
-
-func (o FileSystemElasticFileSystemTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSystemElasticFileSystemTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o FileSystemElasticFileSystemTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSystemElasticFileSystemTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FileSystemElasticFileSystemTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FileSystemElasticFileSystemTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FileSystemElasticFileSystemTag)(nil)).Elem()
-}
-
-func (o FileSystemElasticFileSystemTagArrayOutput) ToFileSystemElasticFileSystemTagArrayOutput() FileSystemElasticFileSystemTagArrayOutput {
-	return o
-}
-
-func (o FileSystemElasticFileSystemTagArrayOutput) ToFileSystemElasticFileSystemTagArrayOutputWithContext(ctx context.Context) FileSystemElasticFileSystemTagArrayOutput {
-	return o
-}
-
-func (o FileSystemElasticFileSystemTagArrayOutput) Index(i pulumi.IntInput) FileSystemElasticFileSystemTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemElasticFileSystemTag {
-		return vs[0].([]FileSystemElasticFileSystemTag)[vs[1].(int)]
-	}).(FileSystemElasticFileSystemTagOutput)
 }
 
 type FileSystemLifecyclePolicy struct {
@@ -1378,12 +1182,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPosixUserPtrInput)(nil)).Elem(), AccessPointPosixUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointRootDirectoryInput)(nil)).Elem(), AccessPointRootDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointRootDirectoryPtrInput)(nil)).Elem(), AccessPointRootDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTagInput)(nil)).Elem(), AccessPointTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTagArrayInput)(nil)).Elem(), AccessPointTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemBackupPolicyInput)(nil)).Elem(), FileSystemBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemBackupPolicyPtrInput)(nil)).Elem(), FileSystemBackupPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemElasticFileSystemTagInput)(nil)).Elem(), FileSystemElasticFileSystemTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemElasticFileSystemTagArrayInput)(nil)).Elem(), FileSystemElasticFileSystemTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyInput)(nil)).Elem(), FileSystemLifecyclePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyArrayInput)(nil)).Elem(), FileSystemLifecyclePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemProtectionInput)(nil)).Elem(), FileSystemProtectionArgs{})
@@ -1398,12 +1198,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPointPosixUserPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointRootDirectoryOutput{})
 	pulumi.RegisterOutputType(AccessPointRootDirectoryPtrOutput{})
-	pulumi.RegisterOutputType(AccessPointTagOutput{})
-	pulumi.RegisterOutputType(AccessPointTagArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemBackupPolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemBackupPolicyPtrOutput{})
-	pulumi.RegisterOutputType(FileSystemElasticFileSystemTagOutput{})
-	pulumi.RegisterOutputType(FileSystemElasticFileSystemTagArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemProtectionOutput{})

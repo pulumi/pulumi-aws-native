@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TaskTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ARN of the task.
         /// </summary>
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.DataSync
 
             Pulumi.AwsNative.DataSync.TaskStatus? status,
 
-            ImmutableArray<Outputs.TaskTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? taskArn,
 

@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Qldb
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StreamTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetStreamResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Qldb
 
             string? id,
 
-            ImmutableArray<Outputs.StreamTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Id = id;

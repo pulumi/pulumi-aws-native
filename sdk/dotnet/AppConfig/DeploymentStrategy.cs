@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.AppConfig
         public Output<string> ReplicateTo { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DeploymentStrategyTags>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -112,10 +112,10 @@ namespace Pulumi.AwsNative.AppConfig
         public Input<string> ReplicateTo { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DeploymentStrategyTagsArgs>? _tags;
-        public InputList<Inputs.DeploymentStrategyTagsArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DeploymentStrategyTagsArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

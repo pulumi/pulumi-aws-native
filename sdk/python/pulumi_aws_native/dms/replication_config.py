@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,7 @@ class ReplicationConfigArgs:
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  supplemental_settings: Optional[Any] = None,
                  table_mappings: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ReplicationConfig resource.
@@ -44,7 +46,7 @@ class ReplicationConfigArgs:
         :param Any table_mappings: JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
         """
         if compute_config is not None:
@@ -183,14 +185,14 @@ class ReplicationConfigArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -220,7 +222,7 @@ class ReplicationConfig(pulumi.CustomResource):
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  supplemental_settings: Optional[Any] = None,
                  table_mappings: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -242,7 +244,7 @@ class ReplicationConfig(pulumi.CustomResource):
         :param Any table_mappings: JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
         """
         ...
@@ -278,7 +280,7 @@ class ReplicationConfig(pulumi.CustomResource):
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  supplemental_settings: Optional[Any] = None,
                  table_mappings: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -414,7 +416,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicationConfigTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """

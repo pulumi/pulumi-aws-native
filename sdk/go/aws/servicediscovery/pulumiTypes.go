@@ -18,101 +18,6 @@ type HttpNamespaceTag struct {
 	Value string `pulumi:"value"`
 }
 
-// HttpNamespaceTagInput is an input type that accepts HttpNamespaceTagArgs and HttpNamespaceTagOutput values.
-// You can construct a concrete instance of `HttpNamespaceTagInput` via:
-//
-//	HttpNamespaceTagArgs{...}
-type HttpNamespaceTagInput interface {
-	pulumi.Input
-
-	ToHttpNamespaceTagOutput() HttpNamespaceTagOutput
-	ToHttpNamespaceTagOutputWithContext(context.Context) HttpNamespaceTagOutput
-}
-
-type HttpNamespaceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (HttpNamespaceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpNamespaceTag)(nil)).Elem()
-}
-
-func (i HttpNamespaceTagArgs) ToHttpNamespaceTagOutput() HttpNamespaceTagOutput {
-	return i.ToHttpNamespaceTagOutputWithContext(context.Background())
-}
-
-func (i HttpNamespaceTagArgs) ToHttpNamespaceTagOutputWithContext(ctx context.Context) HttpNamespaceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespaceTagOutput)
-}
-
-// HttpNamespaceTagArrayInput is an input type that accepts HttpNamespaceTagArray and HttpNamespaceTagArrayOutput values.
-// You can construct a concrete instance of `HttpNamespaceTagArrayInput` via:
-//
-//	HttpNamespaceTagArray{ HttpNamespaceTagArgs{...} }
-type HttpNamespaceTagArrayInput interface {
-	pulumi.Input
-
-	ToHttpNamespaceTagArrayOutput() HttpNamespaceTagArrayOutput
-	ToHttpNamespaceTagArrayOutputWithContext(context.Context) HttpNamespaceTagArrayOutput
-}
-
-type HttpNamespaceTagArray []HttpNamespaceTagInput
-
-func (HttpNamespaceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HttpNamespaceTag)(nil)).Elem()
-}
-
-func (i HttpNamespaceTagArray) ToHttpNamespaceTagArrayOutput() HttpNamespaceTagArrayOutput {
-	return i.ToHttpNamespaceTagArrayOutputWithContext(context.Background())
-}
-
-func (i HttpNamespaceTagArray) ToHttpNamespaceTagArrayOutputWithContext(ctx context.Context) HttpNamespaceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespaceTagArrayOutput)
-}
-
-type HttpNamespaceTagOutput struct{ *pulumi.OutputState }
-
-func (HttpNamespaceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpNamespaceTag)(nil)).Elem()
-}
-
-func (o HttpNamespaceTagOutput) ToHttpNamespaceTagOutput() HttpNamespaceTagOutput {
-	return o
-}
-
-func (o HttpNamespaceTagOutput) ToHttpNamespaceTagOutputWithContext(ctx context.Context) HttpNamespaceTagOutput {
-	return o
-}
-
-func (o HttpNamespaceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v HttpNamespaceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o HttpNamespaceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v HttpNamespaceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type HttpNamespaceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (HttpNamespaceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HttpNamespaceTag)(nil)).Elem()
-}
-
-func (o HttpNamespaceTagArrayOutput) ToHttpNamespaceTagArrayOutput() HttpNamespaceTagArrayOutput {
-	return o
-}
-
-func (o HttpNamespaceTagArrayOutput) ToHttpNamespaceTagArrayOutputWithContext(ctx context.Context) HttpNamespaceTagArrayOutput {
-	return o
-}
-
-func (o HttpNamespaceTagArrayOutput) Index(i pulumi.IntInput) HttpNamespaceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HttpNamespaceTag {
-		return vs[0].([]HttpNamespaceTag)[vs[1].(int)]
-	}).(HttpNamespaceTagOutput)
-}
-
 type PrivateDnsNamespacePrivateDnsPropertiesMutable struct {
 	Soa *PrivateDnsNamespaceSoa `pulumi:"soa"`
 }
@@ -519,101 +424,6 @@ type PrivateDnsNamespaceTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PrivateDnsNamespaceTagInput is an input type that accepts PrivateDnsNamespaceTagArgs and PrivateDnsNamespaceTagOutput values.
-// You can construct a concrete instance of `PrivateDnsNamespaceTagInput` via:
-//
-//	PrivateDnsNamespaceTagArgs{...}
-type PrivateDnsNamespaceTagInput interface {
-	pulumi.Input
-
-	ToPrivateDnsNamespaceTagOutput() PrivateDnsNamespaceTagOutput
-	ToPrivateDnsNamespaceTagOutputWithContext(context.Context) PrivateDnsNamespaceTagOutput
-}
-
-type PrivateDnsNamespaceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PrivateDnsNamespaceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateDnsNamespaceTag)(nil)).Elem()
-}
-
-func (i PrivateDnsNamespaceTagArgs) ToPrivateDnsNamespaceTagOutput() PrivateDnsNamespaceTagOutput {
-	return i.ToPrivateDnsNamespaceTagOutputWithContext(context.Background())
-}
-
-func (i PrivateDnsNamespaceTagArgs) ToPrivateDnsNamespaceTagOutputWithContext(ctx context.Context) PrivateDnsNamespaceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceTagOutput)
-}
-
-// PrivateDnsNamespaceTagArrayInput is an input type that accepts PrivateDnsNamespaceTagArray and PrivateDnsNamespaceTagArrayOutput values.
-// You can construct a concrete instance of `PrivateDnsNamespaceTagArrayInput` via:
-//
-//	PrivateDnsNamespaceTagArray{ PrivateDnsNamespaceTagArgs{...} }
-type PrivateDnsNamespaceTagArrayInput interface {
-	pulumi.Input
-
-	ToPrivateDnsNamespaceTagArrayOutput() PrivateDnsNamespaceTagArrayOutput
-	ToPrivateDnsNamespaceTagArrayOutputWithContext(context.Context) PrivateDnsNamespaceTagArrayOutput
-}
-
-type PrivateDnsNamespaceTagArray []PrivateDnsNamespaceTagInput
-
-func (PrivateDnsNamespaceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateDnsNamespaceTag)(nil)).Elem()
-}
-
-func (i PrivateDnsNamespaceTagArray) ToPrivateDnsNamespaceTagArrayOutput() PrivateDnsNamespaceTagArrayOutput {
-	return i.ToPrivateDnsNamespaceTagArrayOutputWithContext(context.Background())
-}
-
-func (i PrivateDnsNamespaceTagArray) ToPrivateDnsNamespaceTagArrayOutputWithContext(ctx context.Context) PrivateDnsNamespaceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceTagArrayOutput)
-}
-
-type PrivateDnsNamespaceTagOutput struct{ *pulumi.OutputState }
-
-func (PrivateDnsNamespaceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateDnsNamespaceTag)(nil)).Elem()
-}
-
-func (o PrivateDnsNamespaceTagOutput) ToPrivateDnsNamespaceTagOutput() PrivateDnsNamespaceTagOutput {
-	return o
-}
-
-func (o PrivateDnsNamespaceTagOutput) ToPrivateDnsNamespaceTagOutputWithContext(ctx context.Context) PrivateDnsNamespaceTagOutput {
-	return o
-}
-
-func (o PrivateDnsNamespaceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateDnsNamespaceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PrivateDnsNamespaceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateDnsNamespaceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PrivateDnsNamespaceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PrivateDnsNamespaceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateDnsNamespaceTag)(nil)).Elem()
-}
-
-func (o PrivateDnsNamespaceTagArrayOutput) ToPrivateDnsNamespaceTagArrayOutput() PrivateDnsNamespaceTagArrayOutput {
-	return o
-}
-
-func (o PrivateDnsNamespaceTagArrayOutput) ToPrivateDnsNamespaceTagArrayOutputWithContext(ctx context.Context) PrivateDnsNamespaceTagArrayOutput {
-	return o
-}
-
-func (o PrivateDnsNamespaceTagArrayOutput) Index(i pulumi.IntInput) PrivateDnsNamespaceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateDnsNamespaceTag {
-		return vs[0].([]PrivateDnsNamespaceTag)[vs[1].(int)]
-	}).(PrivateDnsNamespaceTagOutput)
-}
-
 type PublicDnsNamespaceProperties struct {
 	DnsProperties *PublicDnsNamespacePublicDnsPropertiesMutable `pulumi:"dnsProperties"`
 }
@@ -1018,101 +828,6 @@ func (o PublicDnsNamespaceSoaPtrOutput) Ttl() pulumi.Float64PtrOutput {
 type PublicDnsNamespaceTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// PublicDnsNamespaceTagInput is an input type that accepts PublicDnsNamespaceTagArgs and PublicDnsNamespaceTagOutput values.
-// You can construct a concrete instance of `PublicDnsNamespaceTagInput` via:
-//
-//	PublicDnsNamespaceTagArgs{...}
-type PublicDnsNamespaceTagInput interface {
-	pulumi.Input
-
-	ToPublicDnsNamespaceTagOutput() PublicDnsNamespaceTagOutput
-	ToPublicDnsNamespaceTagOutputWithContext(context.Context) PublicDnsNamespaceTagOutput
-}
-
-type PublicDnsNamespaceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PublicDnsNamespaceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicDnsNamespaceTag)(nil)).Elem()
-}
-
-func (i PublicDnsNamespaceTagArgs) ToPublicDnsNamespaceTagOutput() PublicDnsNamespaceTagOutput {
-	return i.ToPublicDnsNamespaceTagOutputWithContext(context.Background())
-}
-
-func (i PublicDnsNamespaceTagArgs) ToPublicDnsNamespaceTagOutputWithContext(ctx context.Context) PublicDnsNamespaceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceTagOutput)
-}
-
-// PublicDnsNamespaceTagArrayInput is an input type that accepts PublicDnsNamespaceTagArray and PublicDnsNamespaceTagArrayOutput values.
-// You can construct a concrete instance of `PublicDnsNamespaceTagArrayInput` via:
-//
-//	PublicDnsNamespaceTagArray{ PublicDnsNamespaceTagArgs{...} }
-type PublicDnsNamespaceTagArrayInput interface {
-	pulumi.Input
-
-	ToPublicDnsNamespaceTagArrayOutput() PublicDnsNamespaceTagArrayOutput
-	ToPublicDnsNamespaceTagArrayOutputWithContext(context.Context) PublicDnsNamespaceTagArrayOutput
-}
-
-type PublicDnsNamespaceTagArray []PublicDnsNamespaceTagInput
-
-func (PublicDnsNamespaceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PublicDnsNamespaceTag)(nil)).Elem()
-}
-
-func (i PublicDnsNamespaceTagArray) ToPublicDnsNamespaceTagArrayOutput() PublicDnsNamespaceTagArrayOutput {
-	return i.ToPublicDnsNamespaceTagArrayOutputWithContext(context.Background())
-}
-
-func (i PublicDnsNamespaceTagArray) ToPublicDnsNamespaceTagArrayOutputWithContext(ctx context.Context) PublicDnsNamespaceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceTagArrayOutput)
-}
-
-type PublicDnsNamespaceTagOutput struct{ *pulumi.OutputState }
-
-func (PublicDnsNamespaceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicDnsNamespaceTag)(nil)).Elem()
-}
-
-func (o PublicDnsNamespaceTagOutput) ToPublicDnsNamespaceTagOutput() PublicDnsNamespaceTagOutput {
-	return o
-}
-
-func (o PublicDnsNamespaceTagOutput) ToPublicDnsNamespaceTagOutputWithContext(ctx context.Context) PublicDnsNamespaceTagOutput {
-	return o
-}
-
-func (o PublicDnsNamespaceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PublicDnsNamespaceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PublicDnsNamespaceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PublicDnsNamespaceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PublicDnsNamespaceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PublicDnsNamespaceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PublicDnsNamespaceTag)(nil)).Elem()
-}
-
-func (o PublicDnsNamespaceTagArrayOutput) ToPublicDnsNamespaceTagArrayOutput() PublicDnsNamespaceTagArrayOutput {
-	return o
-}
-
-func (o PublicDnsNamespaceTagArrayOutput) ToPublicDnsNamespaceTagArrayOutputWithContext(ctx context.Context) PublicDnsNamespaceTagArrayOutput {
-	return o
-}
-
-func (o PublicDnsNamespaceTagArrayOutput) Index(i pulumi.IntInput) PublicDnsNamespaceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicDnsNamespaceTag {
-		return vs[0].([]PublicDnsNamespaceTag)[vs[1].(int)]
-	}).(PublicDnsNamespaceTagOutput)
 }
 
 type ServiceDnsConfig struct {
@@ -1679,120 +1394,19 @@ type ServiceTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ServiceTagInput is an input type that accepts ServiceTagArgs and ServiceTagOutput values.
-// You can construct a concrete instance of `ServiceTagInput` via:
-//
-//	ServiceTagArgs{...}
-type ServiceTagInput interface {
-	pulumi.Input
-
-	ToServiceTagOutput() ServiceTagOutput
-	ToServiceTagOutputWithContext(context.Context) ServiceTagOutput
-}
-
-type ServiceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ServiceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTag)(nil)).Elem()
-}
-
-func (i ServiceTagArgs) ToServiceTagOutput() ServiceTagOutput {
-	return i.ToServiceTagOutputWithContext(context.Background())
-}
-
-func (i ServiceTagArgs) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagOutput)
-}
-
-// ServiceTagArrayInput is an input type that accepts ServiceTagArray and ServiceTagArrayOutput values.
-// You can construct a concrete instance of `ServiceTagArrayInput` via:
-//
-//	ServiceTagArray{ ServiceTagArgs{...} }
-type ServiceTagArrayInput interface {
-	pulumi.Input
-
-	ToServiceTagArrayOutput() ServiceTagArrayOutput
-	ToServiceTagArrayOutputWithContext(context.Context) ServiceTagArrayOutput
-}
-
-type ServiceTagArray []ServiceTagInput
-
-func (ServiceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceTag)(nil)).Elem()
-}
-
-func (i ServiceTagArray) ToServiceTagArrayOutput() ServiceTagArrayOutput {
-	return i.ToServiceTagArrayOutputWithContext(context.Background())
-}
-
-func (i ServiceTagArray) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagArrayOutput)
-}
-
-type ServiceTagOutput struct{ *pulumi.OutputState }
-
-func (ServiceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTag)(nil)).Elem()
-}
-
-func (o ServiceTagOutput) ToServiceTagOutput() ServiceTagOutput {
-	return o
-}
-
-func (o ServiceTagOutput) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
-	return o
-}
-
-func (o ServiceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ServiceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ServiceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ServiceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceTag)(nil)).Elem()
-}
-
-func (o ServiceTagArrayOutput) ToServiceTagArrayOutput() ServiceTagArrayOutput {
-	return o
-}
-
-func (o ServiceTagArrayOutput) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
-	return o
-}
-
-func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceTag {
-		return vs[0].([]ServiceTag)[vs[1].(int)]
-	}).(ServiceTagOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespaceTagInput)(nil)).Elem(), HttpNamespaceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespaceTagArrayInput)(nil)).Elem(), HttpNamespaceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespacePrivateDnsPropertiesMutableInput)(nil)).Elem(), PrivateDnsNamespacePrivateDnsPropertiesMutableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespacePrivateDnsPropertiesMutablePtrInput)(nil)).Elem(), PrivateDnsNamespacePrivateDnsPropertiesMutableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespacePropertiesInput)(nil)).Elem(), PrivateDnsNamespacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespacePropertiesPtrInput)(nil)).Elem(), PrivateDnsNamespacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespaceSoaInput)(nil)).Elem(), PrivateDnsNamespaceSoaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespaceSoaPtrInput)(nil)).Elem(), PrivateDnsNamespaceSoaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespaceTagInput)(nil)).Elem(), PrivateDnsNamespaceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespaceTagArrayInput)(nil)).Elem(), PrivateDnsNamespaceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespacePropertiesInput)(nil)).Elem(), PublicDnsNamespacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespacePropertiesPtrInput)(nil)).Elem(), PublicDnsNamespacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespacePublicDnsPropertiesMutableInput)(nil)).Elem(), PublicDnsNamespacePublicDnsPropertiesMutableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespacePublicDnsPropertiesMutablePtrInput)(nil)).Elem(), PublicDnsNamespacePublicDnsPropertiesMutableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceSoaInput)(nil)).Elem(), PublicDnsNamespaceSoaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceSoaPtrInput)(nil)).Elem(), PublicDnsNamespaceSoaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceTagInput)(nil)).Elem(), PublicDnsNamespaceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceTagArrayInput)(nil)).Elem(), PublicDnsNamespaceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsConfigInput)(nil)).Elem(), ServiceDnsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsConfigPtrInput)(nil)).Elem(), ServiceDnsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsRecordInput)(nil)).Elem(), ServiceDnsRecordArgs{})
@@ -1801,26 +1415,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckConfigPtrInput)(nil)).Elem(), ServiceHealthCheckConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckCustomConfigInput)(nil)).Elem(), ServiceHealthCheckCustomConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckCustomConfigPtrInput)(nil)).Elem(), ServiceHealthCheckCustomConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagInput)(nil)).Elem(), ServiceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagArrayInput)(nil)).Elem(), ServiceTagArray{})
-	pulumi.RegisterOutputType(HttpNamespaceTagOutput{})
-	pulumi.RegisterOutputType(HttpNamespaceTagArrayOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNamespacePrivateDnsPropertiesMutableOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNamespacePropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNamespacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNamespaceSoaOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNamespaceSoaPtrOutput{})
-	pulumi.RegisterOutputType(PrivateDnsNamespaceTagOutput{})
-	pulumi.RegisterOutputType(PrivateDnsNamespaceTagArrayOutput{})
 	pulumi.RegisterOutputType(PublicDnsNamespacePropertiesOutput{})
 	pulumi.RegisterOutputType(PublicDnsNamespacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PublicDnsNamespacePublicDnsPropertiesMutableOutput{})
 	pulumi.RegisterOutputType(PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput{})
 	pulumi.RegisterOutputType(PublicDnsNamespaceSoaOutput{})
 	pulumi.RegisterOutputType(PublicDnsNamespaceSoaPtrOutput{})
-	pulumi.RegisterOutputType(PublicDnsNamespaceTagOutput{})
-	pulumi.RegisterOutputType(PublicDnsNamespaceTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDnsConfigOutput{})
 	pulumi.RegisterOutputType(ServiceDnsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDnsRecordOutput{})
@@ -1829,6 +1435,4 @@ func init() {
 	pulumi.RegisterOutputType(ServiceHealthCheckConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceHealthCheckCustomConfigOutput{})
 	pulumi.RegisterOutputType(ServiceHealthCheckCustomConfigPtrOutput{})
-	pulumi.RegisterOutputType(ServiceTagOutput{})
-	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
 }

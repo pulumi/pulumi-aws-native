@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupCustomActionTypeArgs struct {
 type LookupCustomActionTypeResult struct {
 	Id *string `pulumi:"id"`
 	// Any tags assigned to the custom action.
-	Tags []CustomActionTypeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCustomActionTypeOutput(ctx *pulumi.Context, args LookupCustomActionTypeOutputArgs, opts ...pulumi.InvokeOption) LookupCustomActionTypeResultOutput {
@@ -82,8 +83,8 @@ func (o LookupCustomActionTypeResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Any tags assigned to the custom action.
-func (o LookupCustomActionTypeResultOutput) Tags() CustomActionTypeTagArrayOutput {
-	return o.ApplyT(func(v LookupCustomActionTypeResult) []CustomActionTypeTag { return v.Tags }).(CustomActionTypeTagArrayOutput)
+func (o LookupCustomActionTypeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCustomActionTypeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

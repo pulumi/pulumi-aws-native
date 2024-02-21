@@ -64,7 +64,7 @@ export class QuickConnect extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.QuickConnectTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a QuickConnect resource with the given unique name, arguments, and options.
@@ -127,5 +127,5 @@ export interface QuickConnectArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.QuickConnectTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

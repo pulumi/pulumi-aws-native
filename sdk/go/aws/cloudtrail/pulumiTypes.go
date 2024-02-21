@@ -130,107 +130,6 @@ type ChannelTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
-// You can construct a concrete instance of `ChannelTagInput` via:
-//
-//	ChannelTagArgs{...}
-type ChannelTagInput interface {
-	pulumi.Input
-
-	ToChannelTagOutput() ChannelTagOutput
-	ToChannelTagOutputWithContext(context.Context) ChannelTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ChannelTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ChannelTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
-}
-
-func (i ChannelTagArgs) ToChannelTagOutput() ChannelTagOutput {
-	return i.ToChannelTagOutputWithContext(context.Background())
-}
-
-func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
-}
-
-// ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
-// You can construct a concrete instance of `ChannelTagArrayInput` via:
-//
-//	ChannelTagArray{ ChannelTagArgs{...} }
-type ChannelTagArrayInput interface {
-	pulumi.Input
-
-	ToChannelTagArrayOutput() ChannelTagArrayOutput
-	ToChannelTagArrayOutputWithContext(context.Context) ChannelTagArrayOutput
-}
-
-type ChannelTagArray []ChannelTagInput
-
-func (ChannelTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
-}
-
-func (i ChannelTagArray) ToChannelTagArrayOutput() ChannelTagArrayOutput {
-	return i.ToChannelTagArrayOutputWithContext(context.Background())
-}
-
-func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ChannelTagOutput struct{ *pulumi.OutputState }
-
-func (ChannelTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
-}
-
-func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
-	return o
-}
-
-func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ChannelTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ChannelTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ChannelTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ChannelTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ChannelTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ChannelTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
-}
-
-func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
-	return o
-}
-
-func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
-	return o
-}
-
-func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTag {
-		return vs[0].([]ChannelTag)[vs[1].(int)]
-	}).(ChannelTagOutput)
-}
-
 // Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
 type EventDataStoreAdvancedEventSelector struct {
 	// Contains all selector statements in an advanced event selector.
@@ -602,107 +501,6 @@ type EventDataStoreTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// EventDataStoreTagInput is an input type that accepts EventDataStoreTagArgs and EventDataStoreTagOutput values.
-// You can construct a concrete instance of `EventDataStoreTagInput` via:
-//
-//	EventDataStoreTagArgs{...}
-type EventDataStoreTagInput interface {
-	pulumi.Input
-
-	ToEventDataStoreTagOutput() EventDataStoreTagOutput
-	ToEventDataStoreTagOutputWithContext(context.Context) EventDataStoreTagOutput
-}
-
-// An arbitrary set of tags (key-value pairs) for this event data store.
-type EventDataStoreTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (EventDataStoreTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventDataStoreTag)(nil)).Elem()
-}
-
-func (i EventDataStoreTagArgs) ToEventDataStoreTagOutput() EventDataStoreTagOutput {
-	return i.ToEventDataStoreTagOutputWithContext(context.Background())
-}
-
-func (i EventDataStoreTagArgs) ToEventDataStoreTagOutputWithContext(ctx context.Context) EventDataStoreTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreTagOutput)
-}
-
-// EventDataStoreTagArrayInput is an input type that accepts EventDataStoreTagArray and EventDataStoreTagArrayOutput values.
-// You can construct a concrete instance of `EventDataStoreTagArrayInput` via:
-//
-//	EventDataStoreTagArray{ EventDataStoreTagArgs{...} }
-type EventDataStoreTagArrayInput interface {
-	pulumi.Input
-
-	ToEventDataStoreTagArrayOutput() EventDataStoreTagArrayOutput
-	ToEventDataStoreTagArrayOutputWithContext(context.Context) EventDataStoreTagArrayOutput
-}
-
-type EventDataStoreTagArray []EventDataStoreTagInput
-
-func (EventDataStoreTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventDataStoreTag)(nil)).Elem()
-}
-
-func (i EventDataStoreTagArray) ToEventDataStoreTagArrayOutput() EventDataStoreTagArrayOutput {
-	return i.ToEventDataStoreTagArrayOutputWithContext(context.Background())
-}
-
-func (i EventDataStoreTagArray) ToEventDataStoreTagArrayOutputWithContext(ctx context.Context) EventDataStoreTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreTagArrayOutput)
-}
-
-// An arbitrary set of tags (key-value pairs) for this event data store.
-type EventDataStoreTagOutput struct{ *pulumi.OutputState }
-
-func (EventDataStoreTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventDataStoreTag)(nil)).Elem()
-}
-
-func (o EventDataStoreTagOutput) ToEventDataStoreTagOutput() EventDataStoreTagOutput {
-	return o
-}
-
-func (o EventDataStoreTagOutput) ToEventDataStoreTagOutputWithContext(ctx context.Context) EventDataStoreTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o EventDataStoreTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v EventDataStoreTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o EventDataStoreTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EventDataStoreTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type EventDataStoreTagArrayOutput struct{ *pulumi.OutputState }
-
-func (EventDataStoreTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventDataStoreTag)(nil)).Elem()
-}
-
-func (o EventDataStoreTagArrayOutput) ToEventDataStoreTagArrayOutput() EventDataStoreTagArrayOutput {
-	return o
-}
-
-func (o EventDataStoreTagArrayOutput) ToEventDataStoreTagArrayOutputWithContext(ctx context.Context) EventDataStoreTagArrayOutput {
-	return o
-}
-
-func (o EventDataStoreTagArrayOutput) Index(i pulumi.IntInput) EventDataStoreTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventDataStoreTag {
-		return vs[0].([]EventDataStoreTag)[vs[1].(int)]
-	}).(EventDataStoreTagOutput)
 }
 
 // Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
@@ -1309,120 +1107,15 @@ type TrailTag struct {
 	Value string `pulumi:"value"`
 }
 
-// TrailTagInput is an input type that accepts TrailTagArgs and TrailTagOutput values.
-// You can construct a concrete instance of `TrailTagInput` via:
-//
-//	TrailTagArgs{...}
-type TrailTagInput interface {
-	pulumi.Input
-
-	ToTrailTagOutput() TrailTagOutput
-	ToTrailTagOutputWithContext(context.Context) TrailTagOutput
-}
-
-// An arbitrary set of tags (key-value pairs) for this trail.
-type TrailTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TrailTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrailTag)(nil)).Elem()
-}
-
-func (i TrailTagArgs) ToTrailTagOutput() TrailTagOutput {
-	return i.ToTrailTagOutputWithContext(context.Background())
-}
-
-func (i TrailTagArgs) ToTrailTagOutputWithContext(ctx context.Context) TrailTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrailTagOutput)
-}
-
-// TrailTagArrayInput is an input type that accepts TrailTagArray and TrailTagArrayOutput values.
-// You can construct a concrete instance of `TrailTagArrayInput` via:
-//
-//	TrailTagArray{ TrailTagArgs{...} }
-type TrailTagArrayInput interface {
-	pulumi.Input
-
-	ToTrailTagArrayOutput() TrailTagArrayOutput
-	ToTrailTagArrayOutputWithContext(context.Context) TrailTagArrayOutput
-}
-
-type TrailTagArray []TrailTagInput
-
-func (TrailTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrailTag)(nil)).Elem()
-}
-
-func (i TrailTagArray) ToTrailTagArrayOutput() TrailTagArrayOutput {
-	return i.ToTrailTagArrayOutputWithContext(context.Background())
-}
-
-func (i TrailTagArray) ToTrailTagArrayOutputWithContext(ctx context.Context) TrailTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrailTagArrayOutput)
-}
-
-// An arbitrary set of tags (key-value pairs) for this trail.
-type TrailTagOutput struct{ *pulumi.OutputState }
-
-func (TrailTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrailTag)(nil)).Elem()
-}
-
-func (o TrailTagOutput) ToTrailTagOutput() TrailTagOutput {
-	return o
-}
-
-func (o TrailTagOutput) ToTrailTagOutputWithContext(ctx context.Context) TrailTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o TrailTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TrailTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o TrailTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TrailTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TrailTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TrailTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrailTag)(nil)).Elem()
-}
-
-func (o TrailTagArrayOutput) ToTrailTagArrayOutput() TrailTagArrayOutput {
-	return o
-}
-
-func (o TrailTagArrayOutput) ToTrailTagArrayOutputWithContext(ctx context.Context) TrailTagArrayOutput {
-	return o
-}
-
-func (o TrailTagArrayOutput) Index(i pulumi.IntInput) TrailTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrailTag {
-		return vs[0].([]TrailTag)[vs[1].(int)]
-	}).(TrailTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDestinationInput)(nil)).Elem(), ChannelDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDestinationArrayInput)(nil)).Elem(), ChannelDestinationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagInput)(nil)).Elem(), ChannelTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagArrayInput)(nil)).Elem(), ChannelTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorArrayInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedFieldSelectorInput)(nil)).Elem(), EventDataStoreAdvancedFieldSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedFieldSelectorArrayInput)(nil)).Elem(), EventDataStoreAdvancedFieldSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreInsightSelectorInput)(nil)).Elem(), EventDataStoreInsightSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreInsightSelectorArrayInput)(nil)).Elem(), EventDataStoreInsightSelectorArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreTagInput)(nil)).Elem(), EventDataStoreTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreTagArrayInput)(nil)).Elem(), EventDataStoreTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorInput)(nil)).Elem(), TrailAdvancedEventSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorArrayInput)(nil)).Elem(), TrailAdvancedEventSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedFieldSelectorInput)(nil)).Elem(), TrailAdvancedFieldSelectorArgs{})
@@ -1433,20 +1126,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorArrayInput)(nil)).Elem(), TrailEventSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailInsightSelectorInput)(nil)).Elem(), TrailInsightSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailInsightSelectorArrayInput)(nil)).Elem(), TrailInsightSelectorArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrailTagInput)(nil)).Elem(), TrailTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrailTagArrayInput)(nil)).Elem(), TrailTagArray{})
 	pulumi.RegisterOutputType(ChannelDestinationOutput{})
 	pulumi.RegisterOutputType(ChannelDestinationArrayOutput{})
-	pulumi.RegisterOutputType(ChannelTagOutput{})
-	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedFieldSelectorOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedFieldSelectorArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreInsightSelectorOutput{})
 	pulumi.RegisterOutputType(EventDataStoreInsightSelectorArrayOutput{})
-	pulumi.RegisterOutputType(EventDataStoreTagOutput{})
-	pulumi.RegisterOutputType(EventDataStoreTagArrayOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedFieldSelectorOutput{})
@@ -1457,6 +1144,4 @@ func init() {
 	pulumi.RegisterOutputType(TrailEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailInsightSelectorOutput{})
 	pulumi.RegisterOutputType(TrailInsightSelectorArrayOutput{})
-	pulumi.RegisterOutputType(TrailTagOutput{})
-	pulumi.RegisterOutputType(TrailTagArrayOutput{})
 }

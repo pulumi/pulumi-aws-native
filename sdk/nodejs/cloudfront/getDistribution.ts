@@ -26,7 +26,7 @@ export interface GetDistributionResult {
     readonly distributionConfig?: outputs.cloudfront.DistributionConfig;
     readonly domainName?: string;
     readonly id?: string;
-    readonly tags?: outputs.cloudfront.DistributionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::CloudFront::Distribution

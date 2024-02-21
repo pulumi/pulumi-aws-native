@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type ConfigurationSet struct {
 	Name              pulumi.StringOutput                        `pulumi:"name"`
 	ReputationOptions ConfigurationSetReputationOptionsPtrOutput `pulumi:"reputationOptions"`
 	SendingOptions    ConfigurationSetSendingOptionsPtrOutput    `pulumi:"sendingOptions"`
-	Tags              ConfigurationSetTagsArrayOutput            `pulumi:"tags"`
+	Tags              aws.TagArrayOutput                         `pulumi:"tags"`
 	TrackingOptions   ConfigurationSetTrackingOptionsPtrOutput   `pulumi:"trackingOptions"`
 }
 
@@ -73,7 +74,7 @@ type configurationSetArgs struct {
 	Name              *string                            `pulumi:"name"`
 	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
 	SendingOptions    *ConfigurationSetSendingOptions    `pulumi:"sendingOptions"`
-	Tags              []ConfigurationSetTags             `pulumi:"tags"`
+	Tags              []aws.Tag                          `pulumi:"tags"`
 	TrackingOptions   *ConfigurationSetTrackingOptions   `pulumi:"trackingOptions"`
 }
 
@@ -83,7 +84,7 @@ type ConfigurationSetArgs struct {
 	Name              pulumi.StringPtrInput
 	ReputationOptions ConfigurationSetReputationOptionsPtrInput
 	SendingOptions    ConfigurationSetSendingOptionsPtrInput
-	Tags              ConfigurationSetTagsArrayInput
+	Tags              aws.TagArrayInput
 	TrackingOptions   ConfigurationSetTrackingOptionsPtrInput
 }
 
@@ -140,8 +141,8 @@ func (o ConfigurationSetOutput) SendingOptions() ConfigurationSetSendingOptionsP
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSendingOptionsPtrOutput { return v.SendingOptions }).(ConfigurationSetSendingOptionsPtrOutput)
 }
 
-func (o ConfigurationSetOutput) Tags() ConfigurationSetTagsArrayOutput {
-	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetTagsArrayOutput { return v.Tags }).(ConfigurationSetTagsArrayOutput)
+func (o ConfigurationSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ConfigurationSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ConfigurationSetOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {

@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// List of the data quality rules in the ruleset
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRule> Rules;
-        public readonly ImmutableArray<Outputs.RulesetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRulesetResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.DataBrew
 
             ImmutableArray<Outputs.RulesetRule> rules,
 
-            ImmutableArray<Outputs.RulesetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             Rules = rules;

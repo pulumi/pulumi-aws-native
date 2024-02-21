@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['LocationObjectStorageArgs', 'LocationObjectStorage']
 
@@ -26,7 +26,7 @@ class LocationObjectStorageArgs:
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationObjectStorage resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
@@ -38,7 +38,7 @@ class LocationObjectStorageArgs:
         :param pulumi.Input[int] server_port: The port that your self-managed server accepts inbound network traffic on.
         :param pulumi.Input['LocationObjectStorageServerProtocol'] server_protocol: The protocol that the object storage server uses to communicate.
         :param pulumi.Input[str] subdirectory: The subdirectory in the self-managed object storage server that is used to read data from.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         if access_key is not None:
@@ -170,14 +170,14 @@ class LocationObjectStorageArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -195,7 +195,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationObjectStorageTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationObjectStorage.
@@ -211,7 +211,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[int] server_port: The port that your self-managed server accepts inbound network traffic on.
         :param pulumi.Input['LocationObjectStorageServerProtocol'] server_protocol: The protocol that the object storage server uses to communicate.
         :param pulumi.Input[str] subdirectory: The subdirectory in the self-managed object storage server that is used to read data from.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationObjectStorageTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -246,7 +246,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationObjectStorageTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -398,7 +398,7 @@ class LocationObjectStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationObjectStorageTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

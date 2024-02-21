@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Environment struct {
 	// A name for the environment.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags EnvironmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +87,7 @@ type environmentArgs struct {
 	// A name for the environment.
 	Name *string `pulumi:"name"`
 	// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags []EnvironmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -100,7 +101,7 @@ type EnvironmentArgs struct {
 	// A name for the environment.
 	Name pulumi.StringPtrInput
 	// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags EnvironmentTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -166,8 +167,8 @@ func (o EnvironmentOutput) Name() pulumi.StringOutput {
 }
 
 // Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-func (o EnvironmentOutput) Tags() EnvironmentTagArrayOutput {
-	return o.ApplyT(func(v *Environment) EnvironmentTagArrayOutput { return v.Tags }).(EnvironmentTagArrayOutput)
+func (o EnvironmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Environment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -46,7 +46,7 @@ export class LandingZone extends pulumi.CustomResource {
      */
     public readonly manifest!: pulumi.Output<any>;
     public /*out*/ readonly status!: pulumi.Output<enums.controltower.LandingZoneStatus>;
-    public readonly tags!: pulumi.Output<outputs.controltower.LandingZoneTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -97,6 +97,6 @@ export interface LandingZoneArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
      */
     manifest: any;
-    tags?: pulumi.Input<pulumi.Input<inputs.controltower.LandingZoneTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     version: pulumi.Input<string>;
 }

@@ -37,7 +37,7 @@ export interface GetExecutionPlanResult {
     /**
      * Tags for labeling the execution plan
      */
-    readonly tags?: outputs.kendraranking.ExecutionPlanTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A KendraRanking Rescore execution plan

@@ -43,7 +43,7 @@ export class Workteam extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly memberDefinitions!: pulumi.Output<outputs.sagemaker.WorkteamMemberDefinition[] | undefined>;
     public readonly notificationConfiguration!: pulumi.Output<outputs.sagemaker.WorkteamNotificationConfiguration | undefined>;
-    public readonly tags!: pulumi.Output<outputs.sagemaker.WorkteamTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly workforceName!: pulumi.Output<string | undefined>;
     public readonly workteamName!: pulumi.Output<string | undefined>;
 
@@ -88,7 +88,7 @@ export interface WorkteamArgs {
     description?: pulumi.Input<string>;
     memberDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.WorkteamMemberDefinitionArgs>[]>;
     notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.WorkteamTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     workforceName?: pulumi.Input<string>;
     workteamName?: pulumi.Input<string>;
 }

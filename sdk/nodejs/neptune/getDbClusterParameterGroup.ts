@@ -28,7 +28,7 @@ export interface GetDbClusterParameterGroupResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBClusterParameterGroup` for more information about the expected schema for this property.
      */
     readonly parameters?: any;
-    readonly tags?: outputs.neptune.DbClusterParameterGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Neptune::DBClusterParameterGroup

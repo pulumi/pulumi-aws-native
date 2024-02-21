@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type ObjectType struct {
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat pulumi.StringPtrOutput `pulumi:"sourceLastUpdatedTimestampFormat"`
 	// The tags (keys and values) associated with the integration.
-	Tags ObjectTypeTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A unique identifier for the object template.
 	TemplateId pulumi.StringPtrOutput `pulumi:"templateId"`
 }
@@ -111,7 +112,7 @@ type objectTypeArgs struct {
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat *string `pulumi:"sourceLastUpdatedTimestampFormat"`
 	// The tags (keys and values) associated with the integration.
-	Tags []ObjectTypeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A unique identifier for the object template.
 	TemplateId *string `pulumi:"templateId"`
 }
@@ -137,7 +138,7 @@ type ObjectTypeArgs struct {
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat pulumi.StringPtrInput
 	// The tags (keys and values) associated with the integration.
-	Tags ObjectTypeTagArrayInput
+	Tags aws.TagArrayInput
 	// A unique identifier for the object template.
 	TemplateId pulumi.StringPtrInput
 }
@@ -235,8 +236,8 @@ func (o ObjectTypeOutput) SourceLastUpdatedTimestampFormat() pulumi.StringPtrOut
 }
 
 // The tags (keys and values) associated with the integration.
-func (o ObjectTypeOutput) Tags() ObjectTypeTagArrayOutput {
-	return o.ApplyT(func(v *ObjectType) ObjectTypeTagArrayOutput { return v.Tags }).(ObjectTypeTagArrayOutput)
+func (o ObjectTypeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ObjectType) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A unique identifier for the object template.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type ConfiguredTableAssociation struct {
 	Name                                 pulumi.StringOutput    `pulumi:"name"`
 	RoleArn                              pulumi.StringOutput    `pulumi:"roleArn"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags ConfiguredTableAssociationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewConfiguredTableAssociation registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +89,7 @@ type configuredTableAssociationArgs struct {
 	Name                      *string `pulumi:"name"`
 	RoleArn                   string  `pulumi:"roleArn"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags []ConfiguredTableAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfiguredTableAssociation resource.
@@ -99,7 +100,7 @@ type ConfiguredTableAssociationArgs struct {
 	Name                      pulumi.StringPtrInput
 	RoleArn                   pulumi.StringInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags ConfiguredTableAssociationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ConfiguredTableAssociationArgs) ElementType() reflect.Type {
@@ -168,8 +169,8 @@ func (o ConfiguredTableAssociationOutput) RoleArn() pulumi.StringOutput {
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-func (o ConfiguredTableAssociationOutput) Tags() ConfiguredTableAssociationTagArrayOutput {
-	return o.ApplyT(func(v *ConfiguredTableAssociation) ConfiguredTableAssociationTagArrayOutput { return v.Tags }).(ConfiguredTableAssociationTagArrayOutput)
+func (o ConfiguredTableAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ConfiguredTableAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

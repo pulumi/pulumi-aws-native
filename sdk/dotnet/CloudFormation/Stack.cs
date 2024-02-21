@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<string?> StackStatusReason { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.StackTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
@@ -191,10 +191,10 @@ namespace Pulumi.AwsNative.CloudFormation
         public Input<string>? StackStatusReason { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.StackTagArgs>? _tags;
-        public InputList<Inputs.StackTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.StackTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

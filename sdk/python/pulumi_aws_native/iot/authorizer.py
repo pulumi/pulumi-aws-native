@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['AuthorizerArgs', 'Authorizer']
 
@@ -22,7 +22,7 @@ class AuthorizerArgs:
                  enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input['AuthorizerStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizerTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -91,11 +91,11 @@ class AuthorizerArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizerTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizerTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -127,7 +127,7 @@ class Authorizer(pulumi.CustomResource):
                  enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input['AuthorizerStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizerTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -166,7 +166,7 @@ class Authorizer(pulumi.CustomResource):
                  enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input['AuthorizerStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizerTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -256,7 +256,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AuthorizerTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

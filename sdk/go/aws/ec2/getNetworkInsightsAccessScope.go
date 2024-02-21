@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,11 +28,11 @@ type LookupNetworkInsightsAccessScopeArgs struct {
 }
 
 type LookupNetworkInsightsAccessScopeResult struct {
-	CreatedDate                   *string                         `pulumi:"createdDate"`
-	NetworkInsightsAccessScopeArn *string                         `pulumi:"networkInsightsAccessScopeArn"`
-	NetworkInsightsAccessScopeId  *string                         `pulumi:"networkInsightsAccessScopeId"`
-	Tags                          []NetworkInsightsAccessScopeTag `pulumi:"tags"`
-	UpdatedDate                   *string                         `pulumi:"updatedDate"`
+	CreatedDate                   *string   `pulumi:"createdDate"`
+	NetworkInsightsAccessScopeArn *string   `pulumi:"networkInsightsAccessScopeArn"`
+	NetworkInsightsAccessScopeId  *string   `pulumi:"networkInsightsAccessScopeId"`
+	Tags                          []aws.Tag `pulumi:"tags"`
+	UpdatedDate                   *string   `pulumi:"updatedDate"`
 }
 
 func LookupNetworkInsightsAccessScopeOutput(ctx *pulumi.Context, args LookupNetworkInsightsAccessScopeOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAccessScopeResultOutput {
@@ -81,8 +82,8 @@ func (o LookupNetworkInsightsAccessScopeResultOutput) NetworkInsightsAccessScope
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeResult) *string { return v.NetworkInsightsAccessScopeId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupNetworkInsightsAccessScopeResultOutput) Tags() NetworkInsightsAccessScopeTagArrayOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeResult) []NetworkInsightsAccessScopeTag { return v.Tags }).(NetworkInsightsAccessScopeTagArrayOutput)
+func (o LookupNetworkInsightsAccessScopeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupNetworkInsightsAccessScopeResultOutput) UpdatedDate() pulumi.StringPtrOutput {

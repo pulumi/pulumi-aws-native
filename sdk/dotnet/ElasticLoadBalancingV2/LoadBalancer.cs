@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// The tags to assign to the load balancer.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.LoadBalancerTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of load balancer. The default is application.
@@ -229,14 +229,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         }
 
         [Input("tags")]
-        private InputList<Inputs.LoadBalancerTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags to assign to the load balancer.
         /// </summary>
-        public InputList<Inputs.LoadBalancerTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.LoadBalancerTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

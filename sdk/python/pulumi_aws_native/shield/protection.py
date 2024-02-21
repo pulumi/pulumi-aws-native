@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,13 +23,13 @@ class ProtectionArgs:
                  application_layer_automatic_response_configuration: Optional[pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']] = None,
                  health_check_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectionTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Protection resource.
         :param pulumi.Input[str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] health_check_arns: The Amazon Resource Names (ARNs) of the health check to associate with the protection.
         :param pulumi.Input[str] name: Friendly name for the Protection.
-        :param pulumi.Input[Sequence[pulumi.Input['ProtectionTagArgs']]] tags: One or more tag key-value pairs for the Protection object.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tag key-value pairs for the Protection object.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
         if application_layer_automatic_response_configuration is not None:
@@ -86,14 +88,14 @@ class ProtectionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProtectionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tag key-value pairs for the Protection object.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -106,7 +108,7 @@ class Protection(pulumi.CustomResource):
                  health_check_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProtectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
@@ -116,7 +118,7 @@ class Protection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] health_check_arns: The Amazon Resource Names (ARNs) of the health check to associate with the protection.
         :param pulumi.Input[str] name: Friendly name for the Protection.
         :param pulumi.Input[str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProtectionTagArgs']]]] tags: One or more tag key-value pairs for the Protection object.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tag key-value pairs for the Protection object.
         """
         ...
     @overload
@@ -146,7 +148,7 @@ class Protection(pulumi.CustomResource):
                  health_check_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProtectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -245,7 +247,7 @@ class Protection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ProtectionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         One or more tag key-value pairs for the Protection object.
         """

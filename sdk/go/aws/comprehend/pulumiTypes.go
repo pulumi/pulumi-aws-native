@@ -690,101 +690,6 @@ type DocumentClassifierTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DocumentClassifierTagInput is an input type that accepts DocumentClassifierTagArgs and DocumentClassifierTagOutput values.
-// You can construct a concrete instance of `DocumentClassifierTagInput` via:
-//
-//	DocumentClassifierTagArgs{...}
-type DocumentClassifierTagInput interface {
-	pulumi.Input
-
-	ToDocumentClassifierTagOutput() DocumentClassifierTagOutput
-	ToDocumentClassifierTagOutputWithContext(context.Context) DocumentClassifierTagOutput
-}
-
-type DocumentClassifierTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DocumentClassifierTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentClassifierTag)(nil)).Elem()
-}
-
-func (i DocumentClassifierTagArgs) ToDocumentClassifierTagOutput() DocumentClassifierTagOutput {
-	return i.ToDocumentClassifierTagOutputWithContext(context.Background())
-}
-
-func (i DocumentClassifierTagArgs) ToDocumentClassifierTagOutputWithContext(ctx context.Context) DocumentClassifierTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierTagOutput)
-}
-
-// DocumentClassifierTagArrayInput is an input type that accepts DocumentClassifierTagArray and DocumentClassifierTagArrayOutput values.
-// You can construct a concrete instance of `DocumentClassifierTagArrayInput` via:
-//
-//	DocumentClassifierTagArray{ DocumentClassifierTagArgs{...} }
-type DocumentClassifierTagArrayInput interface {
-	pulumi.Input
-
-	ToDocumentClassifierTagArrayOutput() DocumentClassifierTagArrayOutput
-	ToDocumentClassifierTagArrayOutputWithContext(context.Context) DocumentClassifierTagArrayOutput
-}
-
-type DocumentClassifierTagArray []DocumentClassifierTagInput
-
-func (DocumentClassifierTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DocumentClassifierTag)(nil)).Elem()
-}
-
-func (i DocumentClassifierTagArray) ToDocumentClassifierTagArrayOutput() DocumentClassifierTagArrayOutput {
-	return i.ToDocumentClassifierTagArrayOutputWithContext(context.Background())
-}
-
-func (i DocumentClassifierTagArray) ToDocumentClassifierTagArrayOutputWithContext(ctx context.Context) DocumentClassifierTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierTagArrayOutput)
-}
-
-type DocumentClassifierTagOutput struct{ *pulumi.OutputState }
-
-func (DocumentClassifierTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentClassifierTag)(nil)).Elem()
-}
-
-func (o DocumentClassifierTagOutput) ToDocumentClassifierTagOutput() DocumentClassifierTagOutput {
-	return o
-}
-
-func (o DocumentClassifierTagOutput) ToDocumentClassifierTagOutputWithContext(ctx context.Context) DocumentClassifierTagOutput {
-	return o
-}
-
-func (o DocumentClassifierTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DocumentClassifierTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DocumentClassifierTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DocumentClassifierTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DocumentClassifierTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DocumentClassifierTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DocumentClassifierTag)(nil)).Elem()
-}
-
-func (o DocumentClassifierTagArrayOutput) ToDocumentClassifierTagArrayOutput() DocumentClassifierTagArrayOutput {
-	return o
-}
-
-func (o DocumentClassifierTagArrayOutput) ToDocumentClassifierTagArrayOutputWithContext(ctx context.Context) DocumentClassifierTagArrayOutput {
-	return o
-}
-
-func (o DocumentClassifierTagArrayOutput) Index(i pulumi.IntInput) DocumentClassifierTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentClassifierTag {
-		return vs[0].([]DocumentClassifierTag)[vs[1].(int)]
-	}).(DocumentClassifierTagOutput)
-}
-
 type DocumentClassifierVpcConfig struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	Subnets          []string `pulumi:"subnets"`
@@ -1491,101 +1396,6 @@ type FlywheelTag struct {
 	Value string `pulumi:"value"`
 }
 
-// FlywheelTagInput is an input type that accepts FlywheelTagArgs and FlywheelTagOutput values.
-// You can construct a concrete instance of `FlywheelTagInput` via:
-//
-//	FlywheelTagArgs{...}
-type FlywheelTagInput interface {
-	pulumi.Input
-
-	ToFlywheelTagOutput() FlywheelTagOutput
-	ToFlywheelTagOutputWithContext(context.Context) FlywheelTagOutput
-}
-
-type FlywheelTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FlywheelTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlywheelTag)(nil)).Elem()
-}
-
-func (i FlywheelTagArgs) ToFlywheelTagOutput() FlywheelTagOutput {
-	return i.ToFlywheelTagOutputWithContext(context.Background())
-}
-
-func (i FlywheelTagArgs) ToFlywheelTagOutputWithContext(ctx context.Context) FlywheelTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlywheelTagOutput)
-}
-
-// FlywheelTagArrayInput is an input type that accepts FlywheelTagArray and FlywheelTagArrayOutput values.
-// You can construct a concrete instance of `FlywheelTagArrayInput` via:
-//
-//	FlywheelTagArray{ FlywheelTagArgs{...} }
-type FlywheelTagArrayInput interface {
-	pulumi.Input
-
-	ToFlywheelTagArrayOutput() FlywheelTagArrayOutput
-	ToFlywheelTagArrayOutputWithContext(context.Context) FlywheelTagArrayOutput
-}
-
-type FlywheelTagArray []FlywheelTagInput
-
-func (FlywheelTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FlywheelTag)(nil)).Elem()
-}
-
-func (i FlywheelTagArray) ToFlywheelTagArrayOutput() FlywheelTagArrayOutput {
-	return i.ToFlywheelTagArrayOutputWithContext(context.Background())
-}
-
-func (i FlywheelTagArray) ToFlywheelTagArrayOutputWithContext(ctx context.Context) FlywheelTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlywheelTagArrayOutput)
-}
-
-type FlywheelTagOutput struct{ *pulumi.OutputState }
-
-func (FlywheelTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlywheelTag)(nil)).Elem()
-}
-
-func (o FlywheelTagOutput) ToFlywheelTagOutput() FlywheelTagOutput {
-	return o
-}
-
-func (o FlywheelTagOutput) ToFlywheelTagOutputWithContext(ctx context.Context) FlywheelTagOutput {
-	return o
-}
-
-func (o FlywheelTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FlywheelTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o FlywheelTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FlywheelTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FlywheelTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FlywheelTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FlywheelTag)(nil)).Elem()
-}
-
-func (o FlywheelTagArrayOutput) ToFlywheelTagArrayOutput() FlywheelTagArrayOutput {
-	return o
-}
-
-func (o FlywheelTagArrayOutput) ToFlywheelTagArrayOutputWithContext(ctx context.Context) FlywheelTagArrayOutput {
-	return o
-}
-
-func (o FlywheelTagArrayOutput) Index(i pulumi.IntInput) FlywheelTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlywheelTag {
-		return vs[0].([]FlywheelTag)[vs[1].(int)]
-	}).(FlywheelTagOutput)
-}
-
 type FlywheelTaskConfig struct {
 	DocumentClassificationConfig *FlywheelDocumentClassificationConfig `pulumi:"documentClassificationConfig"`
 	EntityRecognitionConfig      *FlywheelEntityRecognitionConfig      `pulumi:"entityRecognitionConfig"`
@@ -1909,8 +1719,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierInputDataConfigInput)(nil)).Elem(), DocumentClassifierInputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierOutputDataConfigInput)(nil)).Elem(), DocumentClassifierOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierOutputDataConfigPtrInput)(nil)).Elem(), DocumentClassifierOutputDataConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierTagInput)(nil)).Elem(), DocumentClassifierTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierTagArrayInput)(nil)).Elem(), DocumentClassifierTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierVpcConfigInput)(nil)).Elem(), DocumentClassifierVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierVpcConfigPtrInput)(nil)).Elem(), DocumentClassifierVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelDataSecurityConfigInput)(nil)).Elem(), FlywheelDataSecurityConfigArgs{})
@@ -1921,8 +1729,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelEntityRecognitionConfigPtrInput)(nil)).Elem(), FlywheelEntityRecognitionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelEntityTypesListItemInput)(nil)).Elem(), FlywheelEntityTypesListItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelEntityTypesListItemArrayInput)(nil)).Elem(), FlywheelEntityTypesListItemArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelTagInput)(nil)).Elem(), FlywheelTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelTagArrayInput)(nil)).Elem(), FlywheelTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelTaskConfigInput)(nil)).Elem(), FlywheelTaskConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelTaskConfigPtrInput)(nil)).Elem(), FlywheelTaskConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelVpcConfigInput)(nil)).Elem(), FlywheelVpcConfigArgs{})
@@ -1936,8 +1742,6 @@ func init() {
 	pulumi.RegisterOutputType(DocumentClassifierInputDataConfigOutput{})
 	pulumi.RegisterOutputType(DocumentClassifierOutputDataConfigOutput{})
 	pulumi.RegisterOutputType(DocumentClassifierOutputDataConfigPtrOutput{})
-	pulumi.RegisterOutputType(DocumentClassifierTagOutput{})
-	pulumi.RegisterOutputType(DocumentClassifierTagArrayOutput{})
 	pulumi.RegisterOutputType(DocumentClassifierVpcConfigOutput{})
 	pulumi.RegisterOutputType(DocumentClassifierVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlywheelDataSecurityConfigOutput{})
@@ -1948,8 +1752,6 @@ func init() {
 	pulumi.RegisterOutputType(FlywheelEntityRecognitionConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlywheelEntityTypesListItemOutput{})
 	pulumi.RegisterOutputType(FlywheelEntityTypesListItemArrayOutput{})
-	pulumi.RegisterOutputType(FlywheelTagOutput{})
-	pulumi.RegisterOutputType(FlywheelTagArrayOutput{})
 	pulumi.RegisterOutputType(FlywheelTaskConfigOutput{})
 	pulumi.RegisterOutputType(FlywheelTaskConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlywheelVpcConfigOutput{})

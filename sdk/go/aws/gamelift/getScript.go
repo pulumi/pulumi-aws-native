@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupScriptResult struct {
 	// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
 	StorageLocation *ScriptS3Location `pulumi:"storageLocation"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ScriptTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The version that is associated with a script. Version strings do not need to be unique.
 	Version *string `pulumi:"version"`
 }
@@ -113,8 +114,8 @@ func (o LookupScriptResultOutput) StorageLocation() ScriptS3LocationPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupScriptResultOutput) Tags() ScriptTagArrayOutput {
-	return o.ApplyT(func(v LookupScriptResult) []ScriptTag { return v.Tags }).(ScriptTagArrayOutput)
+func (o LookupScriptResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupScriptResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The version that is associated with a script. Version strings do not need to be unique.

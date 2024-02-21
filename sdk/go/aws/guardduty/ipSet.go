@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,12 +17,12 @@ import (
 type IpSet struct {
 	pulumi.CustomResourceState
 
-	Activate   pulumi.BoolPtrOutput    `pulumi:"activate"`
-	DetectorId pulumi.StringPtrOutput  `pulumi:"detectorId"`
-	Format     pulumi.StringOutput     `pulumi:"format"`
-	Location   pulumi.StringOutput     `pulumi:"location"`
-	Name       pulumi.StringPtrOutput  `pulumi:"name"`
-	Tags       IpSetTagItemArrayOutput `pulumi:"tags"`
+	Activate   pulumi.BoolPtrOutput   `pulumi:"activate"`
+	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
+	Format     pulumi.StringOutput    `pulumi:"format"`
+	Location   pulumi.StringOutput    `pulumi:"location"`
+	Name       pulumi.StringPtrOutput `pulumi:"name"`
+	Tags       aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewIpSet registers a new resource with the given unique name, arguments, and options.
@@ -75,12 +76,12 @@ func (IpSetState) ElementType() reflect.Type {
 }
 
 type ipSetArgs struct {
-	Activate   *bool          `pulumi:"activate"`
-	DetectorId *string        `pulumi:"detectorId"`
-	Format     string         `pulumi:"format"`
-	Location   string         `pulumi:"location"`
-	Name       *string        `pulumi:"name"`
-	Tags       []IpSetTagItem `pulumi:"tags"`
+	Activate   *bool     `pulumi:"activate"`
+	DetectorId *string   `pulumi:"detectorId"`
+	Format     string    `pulumi:"format"`
+	Location   string    `pulumi:"location"`
+	Name       *string   `pulumi:"name"`
+	Tags       []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpSet resource.
@@ -90,7 +91,7 @@ type IpSetArgs struct {
 	Format     pulumi.StringInput
 	Location   pulumi.StringInput
 	Name       pulumi.StringPtrInput
-	Tags       IpSetTagItemArrayInput
+	Tags       aws.TagArrayInput
 }
 
 func (IpSetArgs) ElementType() reflect.Type {
@@ -150,8 +151,8 @@ func (o IpSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o IpSetOutput) Tags() IpSetTagItemArrayOutput {
-	return o.ApplyT(func(v *IpSet) IpSetTagItemArrayOutput { return v.Tags }).(IpSetTagItemArrayOutput)
+func (o IpSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IpSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

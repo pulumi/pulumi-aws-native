@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupReplicatorResult struct {
 	// Amazon Resource Name for the created replicator.
 	ReplicatorArn *string `pulumi:"replicatorArn"`
 	// A collection of tags associated with a resource
-	Tags []ReplicatorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupReplicatorOutput(ctx *pulumi.Context, args LookupReplicatorOutputArgs, opts ...pulumi.InvokeOption) LookupReplicatorResultOutput {
@@ -90,8 +91,8 @@ func (o LookupReplicatorResultOutput) ReplicatorArn() pulumi.StringPtrOutput {
 }
 
 // A collection of tags associated with a resource
-func (o LookupReplicatorResultOutput) Tags() ReplicatorTagArrayOutput {
-	return o.ApplyT(func(v LookupReplicatorResult) []ReplicatorTag { return v.Tags }).(ReplicatorTagArrayOutput)
+func (o LookupReplicatorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReplicatorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

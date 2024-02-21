@@ -56,7 +56,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
      */
-    public readonly tags!: pulumi.Output<outputs.s3outposts.BucketTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -110,5 +110,5 @@ export interface BucketArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.s3outposts.BucketTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

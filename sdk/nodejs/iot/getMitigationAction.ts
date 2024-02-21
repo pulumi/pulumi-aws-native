@@ -33,7 +33,7 @@ export interface GetMitigationActionResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.iot.MitigationActionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.

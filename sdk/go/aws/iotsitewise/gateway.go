@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Gateway struct {
 	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayPlatformOutput `pulumi:"gatewayPlatform"`
 	// A list of key-value pairs that contain metadata for the gateway.
-	Tags GatewayTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +83,7 @@ type gatewayArgs struct {
 	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayPlatform `pulumi:"gatewayPlatform"`
 	// A list of key-value pairs that contain metadata for the gateway.
-	Tags []GatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Gateway resource.
@@ -94,7 +95,7 @@ type GatewayArgs struct {
 	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayPlatformInput
 	// A list of key-value pairs that contain metadata for the gateway.
-	Tags GatewayTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (GatewayArgs) ElementType() reflect.Type {
@@ -155,8 +156,8 @@ func (o GatewayOutput) GatewayPlatform() GatewayPlatformOutput {
 }
 
 // A list of key-value pairs that contain metadata for the gateway.
-func (o GatewayOutput) Tags() GatewayTagArrayOutput {
-	return o.ApplyT(func(v *Gateway) GatewayTagArrayOutput { return v.Tags }).(GatewayTagArrayOutput)
+func (o GatewayOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Gateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

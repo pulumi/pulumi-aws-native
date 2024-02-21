@@ -73,7 +73,7 @@ export interface GetSiteToSiteVpnAttachmentResult {
     /**
      * Tags for the attachment.
      */
-    readonly tags?: outputs.networkmanager.SiteToSiteVpnAttachmentTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Last update time of the attachment.
      */

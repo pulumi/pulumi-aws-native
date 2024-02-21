@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Output<Pulumi.AwsNative.IoTFleetWise.CampaignStatus> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.CampaignTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
@@ -199,10 +199,10 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Input<string>? StartTime { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.CampaignTagArgs>? _tags;
-        public InputList<Inputs.CampaignTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.CampaignTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

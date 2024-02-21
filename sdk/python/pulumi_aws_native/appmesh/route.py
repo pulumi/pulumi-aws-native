@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['RouteArgs', 'Route']
@@ -21,7 +23,7 @@ class RouteArgs:
                  virtual_router_name: pulumi.Input[str],
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Route resource.
         """
@@ -82,11 +84,11 @@ class RouteArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -104,7 +106,7 @@ class Route(pulumi.CustomResource):
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  spec: Optional[pulumi.Input[pulumi.InputType['RouteSpecArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -141,7 +143,7 @@ class Route(pulumi.CustomResource):
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  spec: Optional[pulumi.Input[pulumi.InputType['RouteSpecArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Route is deprecated: Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -235,7 +237,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RouteTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

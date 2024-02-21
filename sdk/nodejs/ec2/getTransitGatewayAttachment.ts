@@ -29,7 +29,7 @@ export interface GetTransitGatewayAttachmentResult {
      */
     readonly options?: outputs.ec2.OptionsProperties;
     readonly subnetIds?: string[];
-    readonly tags?: outputs.ec2.TransitGatewayAttachmentTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::TransitGatewayAttachment

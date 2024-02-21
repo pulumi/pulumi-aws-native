@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Asset struct {
 	AssetName       pulumi.StringOutput      `pulumi:"assetName"`
 	AssetProperties AssetPropertyArrayOutput `pulumi:"assetProperties"`
 	// A list of key-value pairs that contain metadata for the asset.
-	Tags AssetTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAsset registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +85,7 @@ type assetArgs struct {
 	AssetName       *string         `pulumi:"assetName"`
 	AssetProperties []AssetProperty `pulumi:"assetProperties"`
 	// A list of key-value pairs that contain metadata for the asset.
-	Tags []AssetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Asset resource.
@@ -98,7 +99,7 @@ type AssetArgs struct {
 	AssetName       pulumi.StringPtrInput
 	AssetProperties AssetPropertyArrayInput
 	// A list of key-value pairs that contain metadata for the asset.
-	Tags AssetTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AssetArgs) ElementType() reflect.Type {
@@ -172,8 +173,8 @@ func (o AssetOutput) AssetProperties() AssetPropertyArrayOutput {
 }
 
 // A list of key-value pairs that contain metadata for the asset.
-func (o AssetOutput) Tags() AssetTagArrayOutput {
-	return o.ApplyT(func(v *Asset) AssetTagArrayOutput { return v.Tags }).(AssetTagArrayOutput)
+func (o AssetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Asset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

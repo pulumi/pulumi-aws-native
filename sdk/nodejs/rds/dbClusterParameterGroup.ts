@@ -55,7 +55,7 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
     /**
      * The list of tags for the cluster parameter group.
      */
-    public readonly tags!: pulumi.Output<outputs.rds.DbClusterParameterGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbClusterParameterGroup resource with the given unique name, arguments, and options.
@@ -118,5 +118,5 @@ export interface DbClusterParameterGroupArgs {
     /**
      * The list of tags for the cluster parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.rds.DbClusterParameterGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

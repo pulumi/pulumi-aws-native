@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupFileSystemResult struct {
 	RootVolumeId         *string                         `pulumi:"rootVolumeId"`
 	StorageCapacity      *int                            `pulumi:"storageCapacity"`
 	StorageType          *string                         `pulumi:"storageType"`
-	Tags                 []FileSystemTag                 `pulumi:"tags"`
+	Tags                 []aws.Tag                       `pulumi:"tags"`
 	WindowsConfiguration *FileSystemWindowsConfiguration `pulumi:"windowsConfiguration"`
 }
 
@@ -116,8 +117,8 @@ func (o LookupFileSystemResultOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupFileSystemResultOutput) Tags() FileSystemTagArrayOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) []FileSystemTag { return v.Tags }).(FileSystemTagArrayOutput)
+func (o LookupFileSystemResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupFileSystemResultOutput) WindowsConfiguration() FileSystemWindowsConfigurationPtrOutput {

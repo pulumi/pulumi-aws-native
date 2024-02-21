@@ -29,7 +29,7 @@ export interface GetIpAccessSettingsResult {
     readonly displayName?: string;
     readonly ipAccessSettingsArn?: string;
     readonly ipRules?: outputs.workspacesweb.IpAccessSettingsIpRule[];
-    readonly tags?: outputs.workspacesweb.IpAccessSettingsTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type

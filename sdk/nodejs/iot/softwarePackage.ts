@@ -43,7 +43,7 @@ export class SoftwarePackage extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.iot.SoftwarePackageTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SoftwarePackage resource with the given unique name, arguments, and options.
@@ -82,5 +82,5 @@ export interface SoftwarePackageArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.SoftwarePackageTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -29,7 +29,7 @@ export interface GetWalWorkspaceResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.emr.WalWorkspaceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::EMR::WALWorkspace Type

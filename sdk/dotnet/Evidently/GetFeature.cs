@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Evidently
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FeatureTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<Outputs.FeatureVariationObject> Variations;
 
         [OutputConstructor]
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Evidently
 
             Pulumi.AwsNative.Evidently.FeatureEvaluationStrategy? evaluationStrategy,
 
-            ImmutableArray<Outputs.FeatureTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.FeatureVariationObject> variations)
         {

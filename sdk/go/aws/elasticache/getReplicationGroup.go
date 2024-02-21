@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -59,7 +60,7 @@ type LookupReplicationGroupResult struct {
 	SnapshotRetentionLimit       *int                                              `pulumi:"snapshotRetentionLimit"`
 	SnapshotWindow               *string                                           `pulumi:"snapshotWindow"`
 	SnapshottingClusterId        *string                                           `pulumi:"snapshottingClusterId"`
-	Tags                         []ReplicationGroupTag                             `pulumi:"tags"`
+	Tags                         []aws.Tag                                         `pulumi:"tags"`
 	TransitEncryptionEnabled     *bool                                             `pulumi:"transitEncryptionEnabled"`
 	TransitEncryptionMode        *string                                           `pulumi:"transitEncryptionMode"`
 	UserGroupIds                 []string                                          `pulumi:"userGroupIds"`
@@ -232,8 +233,8 @@ func (o LookupReplicationGroupResultOutput) SnapshottingClusterId() pulumi.Strin
 	return o.ApplyT(func(v LookupReplicationGroupResult) *string { return v.SnapshottingClusterId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupReplicationGroupResultOutput) Tags() ReplicationGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupReplicationGroupResult) []ReplicationGroupTag { return v.Tags }).(ReplicationGroupTagArrayOutput)
+func (o LookupReplicationGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupReplicationGroupResultOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {

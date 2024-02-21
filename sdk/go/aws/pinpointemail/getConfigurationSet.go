@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupConfigurationSetResult struct {
 	Id                *string                            `pulumi:"id"`
 	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
 	SendingOptions    *ConfigurationSetSendingOptions    `pulumi:"sendingOptions"`
-	Tags              []ConfigurationSetTags             `pulumi:"tags"`
+	Tags              []aws.Tag                          `pulumi:"tags"`
 	TrackingOptions   *ConfigurationSetTrackingOptions   `pulumi:"trackingOptions"`
 }
 
@@ -86,8 +87,8 @@ func (o LookupConfigurationSetResultOutput) SendingOptions() ConfigurationSetSen
 	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetSendingOptions { return v.SendingOptions }).(ConfigurationSetSendingOptionsPtrOutput)
 }
 
-func (o LookupConfigurationSetResultOutput) Tags() ConfigurationSetTagsArrayOutput {
-	return o.ApplyT(func(v LookupConfigurationSetResult) []ConfigurationSetTags { return v.Tags }).(ConfigurationSetTagsArrayOutput)
+func (o LookupConfigurationSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupConfigurationSetResultOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {

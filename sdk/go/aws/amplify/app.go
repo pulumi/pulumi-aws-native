@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type App struct {
 	OauthToken               pulumi.StringPtrOutput               `pulumi:"oauthToken"`
 	Platform                 AppPlatformPtrOutput                 `pulumi:"platform"`
 	Repository               pulumi.StringPtrOutput               `pulumi:"repository"`
-	Tags                     AppTagArrayOutput                    `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                   `pulumi:"tags"`
 }
 
 // NewApp registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type appArgs struct {
 	OauthToken               *string                      `pulumi:"oauthToken"`
 	Platform                 *AppPlatform                 `pulumi:"platform"`
 	Repository               *string                      `pulumi:"repository"`
-	Tags                     []AppTag                     `pulumi:"tags"`
+	Tags                     []aws.Tag                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a App resource.
@@ -109,7 +110,7 @@ type AppArgs struct {
 	OauthToken               pulumi.StringPtrInput
 	Platform                 AppPlatformPtrInput
 	Repository               pulumi.StringPtrInput
-	Tags                     AppTagArrayInput
+	Tags                     aws.TagArrayInput
 }
 
 func (AppArgs) ElementType() reflect.Type {
@@ -221,8 +222,8 @@ func (o AppOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Repository }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) Tags() AppTagArrayOutput {
-	return o.ApplyT(func(v *App) AppTagArrayOutput { return v.Tags }).(AppTagArrayOutput)
+func (o AppOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *App) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

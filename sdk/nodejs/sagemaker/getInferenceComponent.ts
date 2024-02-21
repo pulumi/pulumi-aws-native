@@ -33,7 +33,7 @@ export interface GetInferenceComponentResult {
     readonly lastModifiedTime?: string;
     readonly runtimeConfig?: outputs.sagemaker.InferenceComponentRuntimeConfig;
     readonly specification?: outputs.sagemaker.InferenceComponentSpecification;
-    readonly tags?: outputs.sagemaker.InferenceComponentTag[];
+    readonly tags?: outputs.Tag[];
     readonly variantName?: string;
 }
 /**

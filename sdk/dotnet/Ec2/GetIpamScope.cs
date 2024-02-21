@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpamScopeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetIpamScopeResult(
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.Ec2
 
             int? poolCount,
 
-            ImmutableArray<Outputs.IpamScopeTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

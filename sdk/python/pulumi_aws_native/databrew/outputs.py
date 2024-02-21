@@ -65,7 +65,6 @@ __all__ = [
     'RulesetColumnSelector',
     'RulesetRule',
     'RulesetSubstitutionValue',
-    'RulesetTag',
     'RulesetThreshold',
     'ScheduleTag',
 ]
@@ -3245,31 +3244,6 @@ class RulesetSubstitutionValue(dict):
         Variable name
         """
         return pulumi.get(self, "value_reference")
-
-
-@pulumi.output_type
-class RulesetTag(dict):
-    """
-    A key-value pair to associate with a resource
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

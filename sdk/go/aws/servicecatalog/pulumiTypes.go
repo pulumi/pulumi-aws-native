@@ -599,101 +599,6 @@ type CloudFormationProductTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CloudFormationProductTagInput is an input type that accepts CloudFormationProductTagArgs and CloudFormationProductTagOutput values.
-// You can construct a concrete instance of `CloudFormationProductTagInput` via:
-//
-//	CloudFormationProductTagArgs{...}
-type CloudFormationProductTagInput interface {
-	pulumi.Input
-
-	ToCloudFormationProductTagOutput() CloudFormationProductTagOutput
-	ToCloudFormationProductTagOutputWithContext(context.Context) CloudFormationProductTagOutput
-}
-
-type CloudFormationProductTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CloudFormationProductTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationProductTag)(nil)).Elem()
-}
-
-func (i CloudFormationProductTagArgs) ToCloudFormationProductTagOutput() CloudFormationProductTagOutput {
-	return i.ToCloudFormationProductTagOutputWithContext(context.Background())
-}
-
-func (i CloudFormationProductTagArgs) ToCloudFormationProductTagOutputWithContext(ctx context.Context) CloudFormationProductTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductTagOutput)
-}
-
-// CloudFormationProductTagArrayInput is an input type that accepts CloudFormationProductTagArray and CloudFormationProductTagArrayOutput values.
-// You can construct a concrete instance of `CloudFormationProductTagArrayInput` via:
-//
-//	CloudFormationProductTagArray{ CloudFormationProductTagArgs{...} }
-type CloudFormationProductTagArrayInput interface {
-	pulumi.Input
-
-	ToCloudFormationProductTagArrayOutput() CloudFormationProductTagArrayOutput
-	ToCloudFormationProductTagArrayOutputWithContext(context.Context) CloudFormationProductTagArrayOutput
-}
-
-type CloudFormationProductTagArray []CloudFormationProductTagInput
-
-func (CloudFormationProductTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudFormationProductTag)(nil)).Elem()
-}
-
-func (i CloudFormationProductTagArray) ToCloudFormationProductTagArrayOutput() CloudFormationProductTagArrayOutput {
-	return i.ToCloudFormationProductTagArrayOutputWithContext(context.Background())
-}
-
-func (i CloudFormationProductTagArray) ToCloudFormationProductTagArrayOutputWithContext(ctx context.Context) CloudFormationProductTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductTagArrayOutput)
-}
-
-type CloudFormationProductTagOutput struct{ *pulumi.OutputState }
-
-func (CloudFormationProductTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationProductTag)(nil)).Elem()
-}
-
-func (o CloudFormationProductTagOutput) ToCloudFormationProductTagOutput() CloudFormationProductTagOutput {
-	return o
-}
-
-func (o CloudFormationProductTagOutput) ToCloudFormationProductTagOutputWithContext(ctx context.Context) CloudFormationProductTagOutput {
-	return o
-}
-
-func (o CloudFormationProductTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CloudFormationProductTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CloudFormationProductTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CloudFormationProductTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CloudFormationProductTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CloudFormationProductTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudFormationProductTag)(nil)).Elem()
-}
-
-func (o CloudFormationProductTagArrayOutput) ToCloudFormationProductTagArrayOutput() CloudFormationProductTagArrayOutput {
-	return o
-}
-
-func (o CloudFormationProductTagArrayOutput) ToCloudFormationProductTagArrayOutputWithContext(ctx context.Context) CloudFormationProductTagArrayOutput {
-	return o
-}
-
-func (o CloudFormationProductTagArrayOutput) Index(i pulumi.IntInput) CloudFormationProductTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudFormationProductTag {
-		return vs[0].([]CloudFormationProductTag)[vs[1].(int)]
-	}).(CloudFormationProductTagOutput)
-}
-
 type CloudFormationProvisionedProductProvisioningParameter struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1032,199 +937,9 @@ type CloudFormationProvisionedProductTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CloudFormationProvisionedProductTagInput is an input type that accepts CloudFormationProvisionedProductTagArgs and CloudFormationProvisionedProductTagOutput values.
-// You can construct a concrete instance of `CloudFormationProvisionedProductTagInput` via:
-//
-//	CloudFormationProvisionedProductTagArgs{...}
-type CloudFormationProvisionedProductTagInput interface {
-	pulumi.Input
-
-	ToCloudFormationProvisionedProductTagOutput() CloudFormationProvisionedProductTagOutput
-	ToCloudFormationProvisionedProductTagOutputWithContext(context.Context) CloudFormationProvisionedProductTagOutput
-}
-
-type CloudFormationProvisionedProductTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CloudFormationProvisionedProductTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationProvisionedProductTag)(nil)).Elem()
-}
-
-func (i CloudFormationProvisionedProductTagArgs) ToCloudFormationProvisionedProductTagOutput() CloudFormationProvisionedProductTagOutput {
-	return i.ToCloudFormationProvisionedProductTagOutputWithContext(context.Background())
-}
-
-func (i CloudFormationProvisionedProductTagArgs) ToCloudFormationProvisionedProductTagOutputWithContext(ctx context.Context) CloudFormationProvisionedProductTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductTagOutput)
-}
-
-// CloudFormationProvisionedProductTagArrayInput is an input type that accepts CloudFormationProvisionedProductTagArray and CloudFormationProvisionedProductTagArrayOutput values.
-// You can construct a concrete instance of `CloudFormationProvisionedProductTagArrayInput` via:
-//
-//	CloudFormationProvisionedProductTagArray{ CloudFormationProvisionedProductTagArgs{...} }
-type CloudFormationProvisionedProductTagArrayInput interface {
-	pulumi.Input
-
-	ToCloudFormationProvisionedProductTagArrayOutput() CloudFormationProvisionedProductTagArrayOutput
-	ToCloudFormationProvisionedProductTagArrayOutputWithContext(context.Context) CloudFormationProvisionedProductTagArrayOutput
-}
-
-type CloudFormationProvisionedProductTagArray []CloudFormationProvisionedProductTagInput
-
-func (CloudFormationProvisionedProductTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudFormationProvisionedProductTag)(nil)).Elem()
-}
-
-func (i CloudFormationProvisionedProductTagArray) ToCloudFormationProvisionedProductTagArrayOutput() CloudFormationProvisionedProductTagArrayOutput {
-	return i.ToCloudFormationProvisionedProductTagArrayOutputWithContext(context.Background())
-}
-
-func (i CloudFormationProvisionedProductTagArray) ToCloudFormationProvisionedProductTagArrayOutputWithContext(ctx context.Context) CloudFormationProvisionedProductTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductTagArrayOutput)
-}
-
-type CloudFormationProvisionedProductTagOutput struct{ *pulumi.OutputState }
-
-func (CloudFormationProvisionedProductTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationProvisionedProductTag)(nil)).Elem()
-}
-
-func (o CloudFormationProvisionedProductTagOutput) ToCloudFormationProvisionedProductTagOutput() CloudFormationProvisionedProductTagOutput {
-	return o
-}
-
-func (o CloudFormationProvisionedProductTagOutput) ToCloudFormationProvisionedProductTagOutputWithContext(ctx context.Context) CloudFormationProvisionedProductTagOutput {
-	return o
-}
-
-func (o CloudFormationProvisionedProductTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CloudFormationProvisionedProductTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CloudFormationProvisionedProductTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CloudFormationProvisionedProductTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CloudFormationProvisionedProductTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CloudFormationProvisionedProductTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudFormationProvisionedProductTag)(nil)).Elem()
-}
-
-func (o CloudFormationProvisionedProductTagArrayOutput) ToCloudFormationProvisionedProductTagArrayOutput() CloudFormationProvisionedProductTagArrayOutput {
-	return o
-}
-
-func (o CloudFormationProvisionedProductTagArrayOutput) ToCloudFormationProvisionedProductTagArrayOutputWithContext(ctx context.Context) CloudFormationProvisionedProductTagArrayOutput {
-	return o
-}
-
-func (o CloudFormationProvisionedProductTagArrayOutput) Index(i pulumi.IntInput) CloudFormationProvisionedProductTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudFormationProvisionedProductTag {
-		return vs[0].([]CloudFormationProvisionedProductTag)[vs[1].(int)]
-	}).(CloudFormationProvisionedProductTagOutput)
-}
-
 type PortfolioTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// PortfolioTagInput is an input type that accepts PortfolioTagArgs and PortfolioTagOutput values.
-// You can construct a concrete instance of `PortfolioTagInput` via:
-//
-//	PortfolioTagArgs{...}
-type PortfolioTagInput interface {
-	pulumi.Input
-
-	ToPortfolioTagOutput() PortfolioTagOutput
-	ToPortfolioTagOutputWithContext(context.Context) PortfolioTagOutput
-}
-
-type PortfolioTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PortfolioTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioTag)(nil)).Elem()
-}
-
-func (i PortfolioTagArgs) ToPortfolioTagOutput() PortfolioTagOutput {
-	return i.ToPortfolioTagOutputWithContext(context.Background())
-}
-
-func (i PortfolioTagArgs) ToPortfolioTagOutputWithContext(ctx context.Context) PortfolioTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortfolioTagOutput)
-}
-
-// PortfolioTagArrayInput is an input type that accepts PortfolioTagArray and PortfolioTagArrayOutput values.
-// You can construct a concrete instance of `PortfolioTagArrayInput` via:
-//
-//	PortfolioTagArray{ PortfolioTagArgs{...} }
-type PortfolioTagArrayInput interface {
-	pulumi.Input
-
-	ToPortfolioTagArrayOutput() PortfolioTagArrayOutput
-	ToPortfolioTagArrayOutputWithContext(context.Context) PortfolioTagArrayOutput
-}
-
-type PortfolioTagArray []PortfolioTagInput
-
-func (PortfolioTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PortfolioTag)(nil)).Elem()
-}
-
-func (i PortfolioTagArray) ToPortfolioTagArrayOutput() PortfolioTagArrayOutput {
-	return i.ToPortfolioTagArrayOutputWithContext(context.Background())
-}
-
-func (i PortfolioTagArray) ToPortfolioTagArrayOutputWithContext(ctx context.Context) PortfolioTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortfolioTagArrayOutput)
-}
-
-type PortfolioTagOutput struct{ *pulumi.OutputState }
-
-func (PortfolioTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioTag)(nil)).Elem()
-}
-
-func (o PortfolioTagOutput) ToPortfolioTagOutput() PortfolioTagOutput {
-	return o
-}
-
-func (o PortfolioTagOutput) ToPortfolioTagOutputWithContext(ctx context.Context) PortfolioTagOutput {
-	return o
-}
-
-func (o PortfolioTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PortfolioTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PortfolioTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PortfolioTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PortfolioTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PortfolioTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PortfolioTag)(nil)).Elem()
-}
-
-func (o PortfolioTagArrayOutput) ToPortfolioTagArrayOutput() PortfolioTagArrayOutput {
-	return o
-}
-
-func (o PortfolioTagArrayOutput) ToPortfolioTagArrayOutputWithContext(ctx context.Context) PortfolioTagArrayOutput {
-	return o
-}
-
-func (o PortfolioTagArrayOutput) Index(i pulumi.IntInput) PortfolioTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PortfolioTag {
-		return vs[0].([]PortfolioTag)[vs[1].(int)]
-	}).(PortfolioTagOutput)
 }
 
 type ServiceActionDefinitionParameter struct {
@@ -1336,16 +1051,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesArrayInput)(nil)).Elem(), CloudFormationProductProvisioningArtifactPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductSourceConnectionInput)(nil)).Elem(), CloudFormationProductSourceConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductSourceConnectionPtrInput)(nil)).Elem(), CloudFormationProductSourceConnectionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductTagInput)(nil)).Elem(), CloudFormationProductTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductTagArrayInput)(nil)).Elem(), CloudFormationProductTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningParameterInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningParameterArrayInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningPreferencesInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningPreferencesPtrInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningPreferencesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductTagInput)(nil)).Elem(), CloudFormationProvisionedProductTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductTagArrayInput)(nil)).Elem(), CloudFormationProvisionedProductTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioTagInput)(nil)).Elem(), PortfolioTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioTagArrayInput)(nil)).Elem(), PortfolioTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionParameterInput)(nil)).Elem(), ServiceActionDefinitionParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionParameterArrayInput)(nil)).Elem(), ServiceActionDefinitionParameterArray{})
 	pulumi.RegisterOutputType(CloudFormationProductCodeStarParametersOutput{})
@@ -1356,16 +1065,10 @@ func init() {
 	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductSourceConnectionOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductSourceConnectionPtrOutput{})
-	pulumi.RegisterOutputType(CloudFormationProductTagOutput{})
-	pulumi.RegisterOutputType(CloudFormationProductTagArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningParameterOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningPreferencesOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningPreferencesPtrOutput{})
-	pulumi.RegisterOutputType(CloudFormationProvisionedProductTagOutput{})
-	pulumi.RegisterOutputType(CloudFormationProvisionedProductTagArrayOutput{})
-	pulumi.RegisterOutputType(PortfolioTagOutput{})
-	pulumi.RegisterOutputType(PortfolioTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceActionDefinitionParameterOutput{})
 	pulumi.RegisterOutputType(ServiceActionDefinitionParameterArrayOutput{})
 }

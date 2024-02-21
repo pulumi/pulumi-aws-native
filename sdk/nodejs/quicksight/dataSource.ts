@@ -79,7 +79,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.quicksight.DataSourceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly type!: pulumi.Output<enums.quicksight.DataSourceType | undefined>;
     public readonly vpcConnectionProperties!: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
@@ -168,7 +168,7 @@ export interface DataSourceArgs {
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     type?: pulumi.Input<enums.quicksight.DataSourceType>;
     vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionPropertiesArgs>;
 }

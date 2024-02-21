@@ -64,7 +64,7 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the dashboard.
      */
-    public readonly tags!: pulumi.Output<outputs.iotsitewise.DashboardTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -129,5 +129,5 @@ export interface DashboardArgs {
     /**
      * A list of key-value pairs that contain metadata for the dashboard.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotsitewise.DashboardTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

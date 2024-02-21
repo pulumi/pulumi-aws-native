@@ -17,9 +17,7 @@ __all__ = [
     'PolicyOption',
     'PolicyResourceTag',
     'PolicySecurityServicePolicyData',
-    'PolicyTag',
     'PolicyThirdPartyFirewallPolicy',
-    'ResourceSetTag',
 ]
 
 @pulumi.output_type
@@ -210,31 +208,6 @@ class PolicySecurityServicePolicyData(dict):
 
 
 @pulumi.output_type
-class PolicyTag(dict):
-    """
-    A policy tag.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A policy tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class PolicyThirdPartyFirewallPolicy(dict):
     """
     Third party firewall policy.
@@ -267,30 +240,5 @@ class PolicyThirdPartyFirewallPolicy(dict):
     @pulumi.getter(name="firewallDeploymentModel")
     def firewall_deployment_model(self) -> 'PolicyFirewallDeploymentModel':
         return pulumi.get(self, "firewall_deployment_model")
-
-
-@pulumi.output_type
-class ResourceSetTag(dict):
-    """
-    A tag.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

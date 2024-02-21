@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -20,11 +22,11 @@ class MitigationActionArgs:
                  action_params: pulumi.Input['MitigationActionActionParamsArgs'],
                  role_arn: pulumi.Input[str],
                  action_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MitigationActionTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MitigationAction resource.
         :param pulumi.Input[str] action_name: A unique identifier for the mitigation action.
-        :param pulumi.Input[Sequence[pulumi.Input['MitigationActionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "action_params", action_params)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -65,14 +67,14 @@ class MitigationActionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MitigationActionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MitigationActionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -84,7 +86,7 @@ class MitigationAction(pulumi.CustomResource):
                  action_name: Optional[pulumi.Input[str]] = None,
                  action_params: Optional[pulumi.Input[pulumi.InputType['MitigationActionActionParamsArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MitigationActionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
@@ -92,7 +94,7 @@ class MitigationAction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_name: A unique identifier for the mitigation action.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MitigationActionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -121,7 +123,7 @@ class MitigationAction(pulumi.CustomResource):
                  action_name: Optional[pulumi.Input[str]] = None,
                  action_params: Optional[pulumi.Input[pulumi.InputType['MitigationActionActionParamsArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MitigationActionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,7 +205,7 @@ class MitigationAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MitigationActionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

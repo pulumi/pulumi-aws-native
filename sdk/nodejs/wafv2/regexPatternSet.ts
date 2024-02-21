@@ -54,7 +54,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
     public readonly scope!: pulumi.Output<enums.wafv2.RegexPatternSetScope>;
-    public readonly tags!: pulumi.Output<outputs.wafv2.RegexPatternSetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RegexPatternSet resource with the given unique name, arguments, and options.
@@ -111,5 +111,5 @@ export interface RegexPatternSetArgs {
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
     scope: pulumi.Input<enums.wafv2.RegexPatternSetScope>;
-    tags?: pulumi.Input<pulumi.Input<inputs.wafv2.RegexPatternSetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

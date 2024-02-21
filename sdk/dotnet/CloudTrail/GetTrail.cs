@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.CloudTrail
         /// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
         /// </summary>
         public readonly string? SnsTopicName;
-        public readonly ImmutableArray<Outputs.TrailTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetTrailResult(
@@ -145,7 +145,7 @@ namespace Pulumi.AwsNative.CloudTrail
 
             string? snsTopicName,
 
-            ImmutableArray<Outputs.TrailTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AdvancedEventSelectors = advancedEventSelectors;
             Arn = arn;

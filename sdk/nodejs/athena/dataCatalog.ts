@@ -52,7 +52,7 @@ export class DataCatalog extends pulumi.CustomResource {
     /**
      * A list of comma separated tags to add to the data catalog that is created. 
      */
-    public readonly tags!: pulumi.Output<outputs.athena.DataCatalogTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
      */
@@ -110,7 +110,7 @@ export interface DataCatalogArgs {
     /**
      * A list of comma separated tags to add to the data catalog that is created. 
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.athena.DataCatalogTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
      */

@@ -776,101 +776,6 @@ type WorkgroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// WorkgroupTagInput is an input type that accepts WorkgroupTagArgs and WorkgroupTagOutput values.
-// You can construct a concrete instance of `WorkgroupTagInput` via:
-//
-//	WorkgroupTagArgs{...}
-type WorkgroupTagInput interface {
-	pulumi.Input
-
-	ToWorkgroupTagOutput() WorkgroupTagOutput
-	ToWorkgroupTagOutputWithContext(context.Context) WorkgroupTagOutput
-}
-
-type WorkgroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (WorkgroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkgroupTag)(nil)).Elem()
-}
-
-func (i WorkgroupTagArgs) ToWorkgroupTagOutput() WorkgroupTagOutput {
-	return i.ToWorkgroupTagOutputWithContext(context.Background())
-}
-
-func (i WorkgroupTagArgs) ToWorkgroupTagOutputWithContext(ctx context.Context) WorkgroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupTagOutput)
-}
-
-// WorkgroupTagArrayInput is an input type that accepts WorkgroupTagArray and WorkgroupTagArrayOutput values.
-// You can construct a concrete instance of `WorkgroupTagArrayInput` via:
-//
-//	WorkgroupTagArray{ WorkgroupTagArgs{...} }
-type WorkgroupTagArrayInput interface {
-	pulumi.Input
-
-	ToWorkgroupTagArrayOutput() WorkgroupTagArrayOutput
-	ToWorkgroupTagArrayOutputWithContext(context.Context) WorkgroupTagArrayOutput
-}
-
-type WorkgroupTagArray []WorkgroupTagInput
-
-func (WorkgroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkgroupTag)(nil)).Elem()
-}
-
-func (i WorkgroupTagArray) ToWorkgroupTagArrayOutput() WorkgroupTagArrayOutput {
-	return i.ToWorkgroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i WorkgroupTagArray) ToWorkgroupTagArrayOutputWithContext(ctx context.Context) WorkgroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupTagArrayOutput)
-}
-
-type WorkgroupTagOutput struct{ *pulumi.OutputState }
-
-func (WorkgroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkgroupTag)(nil)).Elem()
-}
-
-func (o WorkgroupTagOutput) ToWorkgroupTagOutput() WorkgroupTagOutput {
-	return o
-}
-
-func (o WorkgroupTagOutput) ToWorkgroupTagOutputWithContext(ctx context.Context) WorkgroupTagOutput {
-	return o
-}
-
-func (o WorkgroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkgroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o WorkgroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkgroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type WorkgroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (WorkgroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkgroupTag)(nil)).Elem()
-}
-
-func (o WorkgroupTagArrayOutput) ToWorkgroupTagArrayOutput() WorkgroupTagArrayOutput {
-	return o
-}
-
-func (o WorkgroupTagArrayOutput) ToWorkgroupTagArrayOutputWithContext(ctx context.Context) WorkgroupTagArrayOutput {
-	return o
-}
-
-func (o WorkgroupTagArrayOutput) Index(i pulumi.IntInput) WorkgroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkgroupTag {
-		return vs[0].([]WorkgroupTag)[vs[1].(int)]
-	}).(WorkgroupTagOutput)
-}
-
 type WorkgroupVpcEndpoint struct {
 	NetworkInterfaces []WorkgroupNetworkInterface `pulumi:"networkInterfaces"`
 	VpcEndpointId     *string                     `pulumi:"vpcEndpointId"`
@@ -928,8 +833,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTagArrayInput)(nil)).Elem(), NamespaceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigParameterInput)(nil)).Elem(), WorkgroupConfigParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigParameterArrayInput)(nil)).Elem(), WorkgroupConfigParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupTagInput)(nil)).Elem(), WorkgroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupTagArrayInput)(nil)).Elem(), WorkgroupTagArray{})
 	pulumi.RegisterOutputType(NamespaceTypeOutput{})
 	pulumi.RegisterOutputType(NamespaceTypePtrOutput{})
 	pulumi.RegisterOutputType(NamespaceTagOutput{})
@@ -942,8 +845,6 @@ func init() {
 	pulumi.RegisterOutputType(WorkgroupEndpointPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(WorkgroupNetworkInterfaceArrayOutput{})
-	pulumi.RegisterOutputType(WorkgroupTagOutput{})
-	pulumi.RegisterOutputType(WorkgroupTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkgroupVpcEndpointOutput{})
 	pulumi.RegisterOutputType(WorkgroupVpcEndpointArrayOutput{})
 }

@@ -32,7 +32,7 @@ export interface GetRepositoryResult {
     readonly name?: string;
     readonly repositoryDescription?: string;
     readonly repositoryName?: string;
-    readonly tags?: outputs.codecommit.RepositoryTag[];
+    readonly tags?: outputs.Tag[];
     readonly triggers?: outputs.codecommit.RepositoryTrigger[];
 }
 /**

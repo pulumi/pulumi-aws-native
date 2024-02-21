@@ -13,45 +13,19 @@ from ._enums import *
 
 __all__ = [
     'BrowserSettingsEncryptionContextMap',
-    'BrowserSettingsTag',
     'IdentityProviderDetails',
     'IpAccessSettingsEncryptionContextMap',
     'IpAccessSettingsIpRule',
-    'IpAccessSettingsTag',
-    'NetworkSettingsTag',
     'PortalEncryptionContextMap',
-    'PortalTag',
-    'TrustStoreTag',
-    'UserAccessLoggingSettingsTag',
     'UserSettingsCookieSpecification',
     'UserSettingsCookieSynchronizationConfiguration',
     'UserSettingsEncryptionContextMap',
-    'UserSettingsTag',
 ]
 
 @pulumi.output_type
 class BrowserSettingsEncryptionContextMap(dict):
     def __init__(__self__):
         pass
-
-
-@pulumi.output_type
-class BrowserSettingsTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -110,104 +84,9 @@ class IpAccessSettingsIpRule(dict):
 
 
 @pulumi.output_type
-class IpAccessSettingsTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class NetworkSettingsTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class PortalEncryptionContextMap(dict):
     def __init__(__self__):
         pass
-
-
-@pulumi.output_type
-class PortalTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TrustStoreTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class UserAccessLoggingSettingsTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -262,24 +141,5 @@ class UserSettingsCookieSynchronizationConfiguration(dict):
 class UserSettingsEncryptionContextMap(dict):
     def __init__(__self__):
         pass
-
-
-@pulumi.output_type
-class UserSettingsTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

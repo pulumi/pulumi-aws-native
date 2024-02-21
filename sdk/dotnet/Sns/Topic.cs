@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Sns
         public Output<ImmutableArray<Outputs.TopicSubscription>> Subscription { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TopicTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("topicArn")]
         public Output<string> TopicArn { get; private set; } = null!;
@@ -238,10 +238,10 @@ namespace Pulumi.AwsNative.Sns
         }
 
         [Input("tags")]
-        private InputList<Inputs.TopicTagArgs>? _tags;
-        public InputList<Inputs.TopicTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TopicTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

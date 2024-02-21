@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type Domain struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
 	PermissionsPolicyDocument pulumi.AnyOutput `pulumi:"permissionsPolicyDocument"`
 	// An array of key-value pairs to apply to this resource.
-	Tags DomainTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +88,7 @@ type domainArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DomainTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -101,7 +102,7 @@ type DomainArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
 	PermissionsPolicyDocument pulumi.Input
 	// An array of key-value pairs to apply to this resource.
-	Tags DomainTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -174,8 +175,8 @@ func (o DomainOutput) PermissionsPolicyDocument() pulumi.AnyOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o DomainOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+func (o DomainOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Domain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

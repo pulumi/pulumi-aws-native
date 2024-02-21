@@ -85,7 +85,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly snapshotRetentionLimit!: pulumi.Output<number | undefined>;
     public readonly snapshotWindow!: pulumi.Output<string | undefined>;
     public readonly snapshottingClusterId!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.elasticache.ReplicationGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     public readonly transitEncryptionMode!: pulumi.Output<string | undefined>;
     public readonly userGroupIds!: pulumi.Output<string[] | undefined>;
@@ -262,7 +262,7 @@ export interface ReplicationGroupArgs {
     snapshotRetentionLimit?: pulumi.Input<number>;
     snapshotWindow?: pulumi.Input<string>;
     snapshottingClusterId?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     transitEncryptionEnabled?: pulumi.Input<boolean>;
     transitEncryptionMode?: pulumi.Input<string>;
     userGroupIds?: pulumi.Input<pulumi.Input<string>[]>;

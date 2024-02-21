@@ -43,7 +43,7 @@ export interface GetIdentityProviderConfigResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.eks.IdentityProviderConfigTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * An object representing an Amazon EKS IdentityProviderConfig.

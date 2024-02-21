@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupApplicationResult struct {
 	// The ARN of the Helix application
 	Arn *string `pulumi:"arn"`
 	// The tags of a SystemsManagerSAP application.
-	Tags []ApplicationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -86,8 +87,8 @@ func (o LookupApplicationResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // The tags of a SystemsManagerSAP application.
-func (o LookupApplicationResultOutput) Tags() ApplicationTagArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []ApplicationTag { return v.Tags }).(ApplicationTagArrayOutput)
+func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

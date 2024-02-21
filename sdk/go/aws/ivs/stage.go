@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Stage struct {
 	// Stage name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags StageTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewStage registers a new resource with the given unique name, arguments, and options.
@@ -68,7 +69,7 @@ type stageArgs struct {
 	// Stage name
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []StageTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stage resource.
@@ -76,7 +77,7 @@ type StageArgs struct {
 	// Stage name
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags StageTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (StageArgs) ElementType() reflect.Type {
@@ -132,8 +133,8 @@ func (o StageOutput) Name() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o StageOutput) Tags() StageTagArrayOutput {
-	return o.ApplyT(func(v *Stage) StageTagArrayOutput { return v.Tags }).(StageTagArrayOutput)
+func (o StageOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Stage) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

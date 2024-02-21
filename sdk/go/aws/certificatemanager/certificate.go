@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Certificate struct {
 	DomainValidationOptions                  CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
 	KeyAlgorithm                             pulumi.StringPtrOutput                       `pulumi:"keyAlgorithm"`
 	SubjectAlternativeNames                  pulumi.StringArrayOutput                     `pulumi:"subjectAlternativeNames"`
-	Tags                                     CertificateTagArrayOutput                    `pulumi:"tags"`
+	Tags                                     aws.TagArrayOutput                           `pulumi:"tags"`
 	ValidationMethod                         pulumi.StringPtrOutput                       `pulumi:"validationMethod"`
 }
 
@@ -86,7 +87,7 @@ type certificateArgs struct {
 	DomainValidationOptions                  []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
 	KeyAlgorithm                             *string                             `pulumi:"keyAlgorithm"`
 	SubjectAlternativeNames                  []string                            `pulumi:"subjectAlternativeNames"`
-	Tags                                     []CertificateTag                    `pulumi:"tags"`
+	Tags                                     []aws.Tag                           `pulumi:"tags"`
 	ValidationMethod                         *string                             `pulumi:"validationMethod"`
 }
 
@@ -98,7 +99,7 @@ type CertificateArgs struct {
 	DomainValidationOptions                  CertificateDomainValidationOptionArrayInput
 	KeyAlgorithm                             pulumi.StringPtrInput
 	SubjectAlternativeNames                  pulumi.StringArrayInput
-	Tags                                     CertificateTagArrayInput
+	Tags                                     aws.TagArrayInput
 	ValidationMethod                         pulumi.StringPtrInput
 }
 
@@ -163,8 +164,8 @@ func (o CertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
 }
 
-func (o CertificateOutput) Tags() CertificateTagArrayOutput {
-	return o.ApplyT(func(v *Certificate) CertificateTagArrayOutput { return v.Tags }).(CertificateTagArrayOutput)
+func (o CertificateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Certificate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o CertificateOutput) ValidationMethod() pulumi.StringPtrOutput {

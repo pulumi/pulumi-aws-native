@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type Crl struct {
 	CrlId          pulumi.StringOutput    `pulumi:"crlId"`
 	Enabled        pulumi.BoolPtrOutput   `pulumi:"enabled"`
 	Name           pulumi.StringOutput    `pulumi:"name"`
-	Tags           CrlTagArrayOutput      `pulumi:"tags"`
+	Tags           aws.TagArrayOutput     `pulumi:"tags"`
 	TrustAnchorArn pulumi.StringPtrOutput `pulumi:"trustAnchorArn"`
 }
 
@@ -67,11 +68,11 @@ func (CrlState) ElementType() reflect.Type {
 }
 
 type crlArgs struct {
-	CrlData        string   `pulumi:"crlData"`
-	Enabled        *bool    `pulumi:"enabled"`
-	Name           *string  `pulumi:"name"`
-	Tags           []CrlTag `pulumi:"tags"`
-	TrustAnchorArn *string  `pulumi:"trustAnchorArn"`
+	CrlData        string    `pulumi:"crlData"`
+	Enabled        *bool     `pulumi:"enabled"`
+	Name           *string   `pulumi:"name"`
+	Tags           []aws.Tag `pulumi:"tags"`
+	TrustAnchorArn *string   `pulumi:"trustAnchorArn"`
 }
 
 // The set of arguments for constructing a Crl resource.
@@ -79,7 +80,7 @@ type CrlArgs struct {
 	CrlData        pulumi.StringInput
 	Enabled        pulumi.BoolPtrInput
 	Name           pulumi.StringPtrInput
-	Tags           CrlTagArrayInput
+	Tags           aws.TagArrayInput
 	TrustAnchorArn pulumi.StringPtrInput
 }
 
@@ -136,8 +137,8 @@ func (o CrlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o CrlOutput) Tags() CrlTagArrayOutput {
-	return o.ApplyT(func(v *Crl) CrlTagArrayOutput { return v.Tags }).(CrlTagArrayOutput)
+func (o CrlOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Crl) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o CrlOutput) TrustAnchorArn() pulumi.StringPtrOutput {

@@ -45,7 +45,7 @@ export class IpAccessSettings extends pulumi.CustomResource {
     public readonly displayName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly ipAccessSettingsArn!: pulumi.Output<string>;
     public readonly ipRules!: pulumi.Output<outputs.workspacesweb.IpAccessSettingsIpRule[]>;
-    public readonly tags!: pulumi.Output<outputs.workspacesweb.IpAccessSettingsTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IpAccessSettings resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface IpAccessSettingsArgs {
     description?: pulumi.Input<string>;
     displayName?: pulumi.Input<string>;
     ipRules: pulumi.Input<pulumi.Input<inputs.workspacesweb.IpAccessSettingsIpRuleArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.workspacesweb.IpAccessSettingsTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

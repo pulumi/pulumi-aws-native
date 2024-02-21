@@ -76,13 +76,13 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// The tags for the AggregationAuthorization.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AggregationAuthorizationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAggregationAuthorizationResult(
             string? aggregationAuthorizationArn,
 
-            ImmutableArray<Outputs.AggregationAuthorizationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AggregationAuthorizationArn = aggregationAuthorizationArn;
             Tags = tags;

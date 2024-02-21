@@ -21,107 +21,6 @@ type AgreementTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AgreementTagInput is an input type that accepts AgreementTagArgs and AgreementTagOutput values.
-// You can construct a concrete instance of `AgreementTagInput` via:
-//
-//	AgreementTagArgs{...}
-type AgreementTagInput interface {
-	pulumi.Input
-
-	ToAgreementTagOutput() AgreementTagOutput
-	ToAgreementTagOutputWithContext(context.Context) AgreementTagOutput
-}
-
-// Creates a key-value pair for a specific resource.
-type AgreementTagArgs struct {
-	// The name assigned to the tag that you create.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Contains one or more values that you assigned to the key name you create.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AgreementTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgreementTag)(nil)).Elem()
-}
-
-func (i AgreementTagArgs) ToAgreementTagOutput() AgreementTagOutput {
-	return i.ToAgreementTagOutputWithContext(context.Background())
-}
-
-func (i AgreementTagArgs) ToAgreementTagOutputWithContext(ctx context.Context) AgreementTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgreementTagOutput)
-}
-
-// AgreementTagArrayInput is an input type that accepts AgreementTagArray and AgreementTagArrayOutput values.
-// You can construct a concrete instance of `AgreementTagArrayInput` via:
-//
-//	AgreementTagArray{ AgreementTagArgs{...} }
-type AgreementTagArrayInput interface {
-	pulumi.Input
-
-	ToAgreementTagArrayOutput() AgreementTagArrayOutput
-	ToAgreementTagArrayOutputWithContext(context.Context) AgreementTagArrayOutput
-}
-
-type AgreementTagArray []AgreementTagInput
-
-func (AgreementTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgreementTag)(nil)).Elem()
-}
-
-func (i AgreementTagArray) ToAgreementTagArrayOutput() AgreementTagArrayOutput {
-	return i.ToAgreementTagArrayOutputWithContext(context.Background())
-}
-
-func (i AgreementTagArray) ToAgreementTagArrayOutputWithContext(ctx context.Context) AgreementTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgreementTagArrayOutput)
-}
-
-// Creates a key-value pair for a specific resource.
-type AgreementTagOutput struct{ *pulumi.OutputState }
-
-func (AgreementTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgreementTag)(nil)).Elem()
-}
-
-func (o AgreementTagOutput) ToAgreementTagOutput() AgreementTagOutput {
-	return o
-}
-
-func (o AgreementTagOutput) ToAgreementTagOutputWithContext(ctx context.Context) AgreementTagOutput {
-	return o
-}
-
-// The name assigned to the tag that you create.
-func (o AgreementTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AgreementTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Contains one or more values that you assigned to the key name you create.
-func (o AgreementTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AgreementTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AgreementTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AgreementTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgreementTag)(nil)).Elem()
-}
-
-func (o AgreementTagArrayOutput) ToAgreementTagArrayOutput() AgreementTagArrayOutput {
-	return o
-}
-
-func (o AgreementTagArrayOutput) ToAgreementTagArrayOutputWithContext(ctx context.Context) AgreementTagArrayOutput {
-	return o
-}
-
-func (o AgreementTagArrayOutput) Index(i pulumi.IntInput) AgreementTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgreementTag {
-		return vs[0].([]AgreementTag)[vs[1].(int)]
-	}).(AgreementTagOutput)
-}
-
 // Configuration for an AS2 connector.
 type As2ConfigProperties struct {
 	// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
@@ -426,107 +325,6 @@ type CertificateTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CertificateTagInput is an input type that accepts CertificateTagArgs and CertificateTagOutput values.
-// You can construct a concrete instance of `CertificateTagInput` via:
-//
-//	CertificateTagArgs{...}
-type CertificateTagInput interface {
-	pulumi.Input
-
-	ToCertificateTagOutput() CertificateTagOutput
-	ToCertificateTagOutputWithContext(context.Context) CertificateTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type CertificateTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CertificateTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateTag)(nil)).Elem()
-}
-
-func (i CertificateTagArgs) ToCertificateTagOutput() CertificateTagOutput {
-	return i.ToCertificateTagOutputWithContext(context.Background())
-}
-
-func (i CertificateTagArgs) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagOutput)
-}
-
-// CertificateTagArrayInput is an input type that accepts CertificateTagArray and CertificateTagArrayOutput values.
-// You can construct a concrete instance of `CertificateTagArrayInput` via:
-//
-//	CertificateTagArray{ CertificateTagArgs{...} }
-type CertificateTagArrayInput interface {
-	pulumi.Input
-
-	ToCertificateTagArrayOutput() CertificateTagArrayOutput
-	ToCertificateTagArrayOutputWithContext(context.Context) CertificateTagArrayOutput
-}
-
-type CertificateTagArray []CertificateTagInput
-
-func (CertificateTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CertificateTag)(nil)).Elem()
-}
-
-func (i CertificateTagArray) ToCertificateTagArrayOutput() CertificateTagArrayOutput {
-	return i.ToCertificateTagArrayOutputWithContext(context.Background())
-}
-
-func (i CertificateTagArray) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type CertificateTagOutput struct{ *pulumi.OutputState }
-
-func (CertificateTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateTag)(nil)).Elem()
-}
-
-func (o CertificateTagOutput) ToCertificateTagOutput() CertificateTagOutput {
-	return o
-}
-
-func (o CertificateTagOutput) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CertificateTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CertificateTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CertificateTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CertificateTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CertificateTag)(nil)).Elem()
-}
-
-func (o CertificateTagArrayOutput) ToCertificateTagArrayOutput() CertificateTagArrayOutput {
-	return o
-}
-
-func (o CertificateTagArrayOutput) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
-	return o
-}
-
-func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateTag {
-		return vs[0].([]CertificateTag)[vs[1].(int)]
-	}).(CertificateTagOutput)
-}
-
 // Creates a key-value pair for a specific resource.
 type ConnectorTag struct {
 	// The name assigned to the tag that you create.
@@ -535,214 +333,12 @@ type ConnectorTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ConnectorTagInput is an input type that accepts ConnectorTagArgs and ConnectorTagOutput values.
-// You can construct a concrete instance of `ConnectorTagInput` via:
-//
-//	ConnectorTagArgs{...}
-type ConnectorTagInput interface {
-	pulumi.Input
-
-	ToConnectorTagOutput() ConnectorTagOutput
-	ToConnectorTagOutputWithContext(context.Context) ConnectorTagOutput
-}
-
-// Creates a key-value pair for a specific resource.
-type ConnectorTagArgs struct {
-	// The name assigned to the tag that you create.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Contains one or more values that you assigned to the key name you create.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ConnectorTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorTag)(nil)).Elem()
-}
-
-func (i ConnectorTagArgs) ToConnectorTagOutput() ConnectorTagOutput {
-	return i.ToConnectorTagOutputWithContext(context.Background())
-}
-
-func (i ConnectorTagArgs) ToConnectorTagOutputWithContext(ctx context.Context) ConnectorTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagOutput)
-}
-
-// ConnectorTagArrayInput is an input type that accepts ConnectorTagArray and ConnectorTagArrayOutput values.
-// You can construct a concrete instance of `ConnectorTagArrayInput` via:
-//
-//	ConnectorTagArray{ ConnectorTagArgs{...} }
-type ConnectorTagArrayInput interface {
-	pulumi.Input
-
-	ToConnectorTagArrayOutput() ConnectorTagArrayOutput
-	ToConnectorTagArrayOutputWithContext(context.Context) ConnectorTagArrayOutput
-}
-
-type ConnectorTagArray []ConnectorTagInput
-
-func (ConnectorTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectorTag)(nil)).Elem()
-}
-
-func (i ConnectorTagArray) ToConnectorTagArrayOutput() ConnectorTagArrayOutput {
-	return i.ToConnectorTagArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectorTagArray) ToConnectorTagArrayOutputWithContext(ctx context.Context) ConnectorTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagArrayOutput)
-}
-
-// Creates a key-value pair for a specific resource.
-type ConnectorTagOutput struct{ *pulumi.OutputState }
-
-func (ConnectorTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorTag)(nil)).Elem()
-}
-
-func (o ConnectorTagOutput) ToConnectorTagOutput() ConnectorTagOutput {
-	return o
-}
-
-func (o ConnectorTagOutput) ToConnectorTagOutputWithContext(ctx context.Context) ConnectorTagOutput {
-	return o
-}
-
-// The name assigned to the tag that you create.
-func (o ConnectorTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Contains one or more values that you assigned to the key name you create.
-func (o ConnectorTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ConnectorTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ConnectorTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectorTag)(nil)).Elem()
-}
-
-func (o ConnectorTagArrayOutput) ToConnectorTagArrayOutput() ConnectorTagArrayOutput {
-	return o
-}
-
-func (o ConnectorTagArrayOutput) ToConnectorTagArrayOutputWithContext(ctx context.Context) ConnectorTagArrayOutput {
-	return o
-}
-
-func (o ConnectorTagArrayOutput) Index(i pulumi.IntInput) ConnectorTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectorTag {
-		return vs[0].([]ConnectorTag)[vs[1].(int)]
-	}).(ConnectorTagOutput)
-}
-
 // Creates a key-value pair for a specific resource.
 type ProfileTag struct {
 	// The name assigned to the tag that you create.
 	Key string `pulumi:"key"`
 	// Contains one or more values that you assigned to the key name you create.
 	Value string `pulumi:"value"`
-}
-
-// ProfileTagInput is an input type that accepts ProfileTagArgs and ProfileTagOutput values.
-// You can construct a concrete instance of `ProfileTagInput` via:
-//
-//	ProfileTagArgs{...}
-type ProfileTagInput interface {
-	pulumi.Input
-
-	ToProfileTagOutput() ProfileTagOutput
-	ToProfileTagOutputWithContext(context.Context) ProfileTagOutput
-}
-
-// Creates a key-value pair for a specific resource.
-type ProfileTagArgs struct {
-	// The name assigned to the tag that you create.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Contains one or more values that you assigned to the key name you create.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ProfileTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileTag)(nil)).Elem()
-}
-
-func (i ProfileTagArgs) ToProfileTagOutput() ProfileTagOutput {
-	return i.ToProfileTagOutputWithContext(context.Background())
-}
-
-func (i ProfileTagArgs) ToProfileTagOutputWithContext(ctx context.Context) ProfileTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagOutput)
-}
-
-// ProfileTagArrayInput is an input type that accepts ProfileTagArray and ProfileTagArrayOutput values.
-// You can construct a concrete instance of `ProfileTagArrayInput` via:
-//
-//	ProfileTagArray{ ProfileTagArgs{...} }
-type ProfileTagArrayInput interface {
-	pulumi.Input
-
-	ToProfileTagArrayOutput() ProfileTagArrayOutput
-	ToProfileTagArrayOutputWithContext(context.Context) ProfileTagArrayOutput
-}
-
-type ProfileTagArray []ProfileTagInput
-
-func (ProfileTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileTag)(nil)).Elem()
-}
-
-func (i ProfileTagArray) ToProfileTagArrayOutput() ProfileTagArrayOutput {
-	return i.ToProfileTagArrayOutputWithContext(context.Background())
-}
-
-func (i ProfileTagArray) ToProfileTagArrayOutputWithContext(ctx context.Context) ProfileTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagArrayOutput)
-}
-
-// Creates a key-value pair for a specific resource.
-type ProfileTagOutput struct{ *pulumi.OutputState }
-
-func (ProfileTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileTag)(nil)).Elem()
-}
-
-func (o ProfileTagOutput) ToProfileTagOutput() ProfileTagOutput {
-	return o
-}
-
-func (o ProfileTagOutput) ToProfileTagOutputWithContext(ctx context.Context) ProfileTagOutput {
-	return o
-}
-
-// The name assigned to the tag that you create.
-func (o ProfileTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Contains one or more values that you assigned to the key name you create.
-func (o ProfileTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ProfileTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ProfileTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileTag)(nil)).Elem()
-}
-
-func (o ProfileTagArrayOutput) ToProfileTagArrayOutput() ProfileTagArrayOutput {
-	return o
-}
-
-func (o ProfileTagArrayOutput) ToProfileTagArrayOutputWithContext(ctx context.Context) ProfileTagArrayOutput {
-	return o
-}
-
-func (o ProfileTagArrayOutput) Index(i pulumi.IntInput) ProfileTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileTag {
-		return vs[0].([]ProfileTag)[vs[1].(int)]
-	}).(ProfileTagOutput)
 }
 
 type ServerAs2Transport struct {
@@ -1711,101 +1307,6 @@ type ServerTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ServerTagInput is an input type that accepts ServerTagArgs and ServerTagOutput values.
-// You can construct a concrete instance of `ServerTagInput` via:
-//
-//	ServerTagArgs{...}
-type ServerTagInput interface {
-	pulumi.Input
-
-	ToServerTagOutput() ServerTagOutput
-	ToServerTagOutputWithContext(context.Context) ServerTagOutput
-}
-
-type ServerTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ServerTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerTag)(nil)).Elem()
-}
-
-func (i ServerTagArgs) ToServerTagOutput() ServerTagOutput {
-	return i.ToServerTagOutputWithContext(context.Background())
-}
-
-func (i ServerTagArgs) ToServerTagOutputWithContext(ctx context.Context) ServerTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerTagOutput)
-}
-
-// ServerTagArrayInput is an input type that accepts ServerTagArray and ServerTagArrayOutput values.
-// You can construct a concrete instance of `ServerTagArrayInput` via:
-//
-//	ServerTagArray{ ServerTagArgs{...} }
-type ServerTagArrayInput interface {
-	pulumi.Input
-
-	ToServerTagArrayOutput() ServerTagArrayOutput
-	ToServerTagArrayOutputWithContext(context.Context) ServerTagArrayOutput
-}
-
-type ServerTagArray []ServerTagInput
-
-func (ServerTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerTag)(nil)).Elem()
-}
-
-func (i ServerTagArray) ToServerTagArrayOutput() ServerTagArrayOutput {
-	return i.ToServerTagArrayOutputWithContext(context.Background())
-}
-
-func (i ServerTagArray) ToServerTagArrayOutputWithContext(ctx context.Context) ServerTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerTagArrayOutput)
-}
-
-type ServerTagOutput struct{ *pulumi.OutputState }
-
-func (ServerTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerTag)(nil)).Elem()
-}
-
-func (o ServerTagOutput) ToServerTagOutput() ServerTagOutput {
-	return o
-}
-
-func (o ServerTagOutput) ToServerTagOutputWithContext(ctx context.Context) ServerTagOutput {
-	return o
-}
-
-func (o ServerTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ServerTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ServerTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ServerTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerTag)(nil)).Elem()
-}
-
-func (o ServerTagArrayOutput) ToServerTagArrayOutput() ServerTagArrayOutput {
-	return o
-}
-
-func (o ServerTagArrayOutput) ToServerTagArrayOutputWithContext(ctx context.Context) ServerTagArrayOutput {
-	return o
-}
-
-func (o ServerTagArrayOutput) Index(i pulumi.IntInput) ServerTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerTag {
-		return vs[0].([]ServerTag)[vs[1].(int)]
-	}).(ServerTagOutput)
-}
-
 type ServerWorkflowDetail struct {
 	ExecutionRole string `pulumi:"executionRole"`
 	WorkflowId    string `pulumi:"workflowId"`
@@ -2573,101 +2074,6 @@ func (o UserSshPublicKeyArrayOutput) Index(i pulumi.IntInput) UserSshPublicKeyOu
 type UserTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
-// You can construct a concrete instance of `UserTagInput` via:
-//
-//	UserTagArgs{...}
-type UserTagInput interface {
-	pulumi.Input
-
-	ToUserTagOutput() UserTagOutput
-	ToUserTagOutputWithContext(context.Context) UserTagOutput
-}
-
-type UserTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (UserTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserTag)(nil)).Elem()
-}
-
-func (i UserTagArgs) ToUserTagOutput() UserTagOutput {
-	return i.ToUserTagOutputWithContext(context.Background())
-}
-
-func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
-}
-
-// UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
-// You can construct a concrete instance of `UserTagArrayInput` via:
-//
-//	UserTagArray{ UserTagArgs{...} }
-type UserTagArrayInput interface {
-	pulumi.Input
-
-	ToUserTagArrayOutput() UserTagArrayOutput
-	ToUserTagArrayOutputWithContext(context.Context) UserTagArrayOutput
-}
-
-type UserTagArray []UserTagInput
-
-func (UserTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
-}
-
-func (i UserTagArray) ToUserTagArrayOutput() UserTagArrayOutput {
-	return i.ToUserTagArrayOutputWithContext(context.Background())
-}
-
-func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
-}
-
-type UserTagOutput struct{ *pulumi.OutputState }
-
-func (UserTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserTag)(nil)).Elem()
-}
-
-func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
-	return o
-}
-
-func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
-	return o
-}
-
-func (o UserTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v UserTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o UserTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v UserTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type UserTagArrayOutput struct{ *pulumi.OutputState }
-
-func (UserTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
-}
-
-func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
-	return o
-}
-
-func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
-	return o
-}
-
-func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserTag {
-		return vs[0].([]UserTag)[vs[1].(int)]
-	}).(UserTagOutput)
 }
 
 // Specifies the details for an EFS file.
@@ -4483,118 +3889,9 @@ type WorkflowTag struct {
 	Value string `pulumi:"value"`
 }
 
-// WorkflowTagInput is an input type that accepts WorkflowTagArgs and WorkflowTagOutput values.
-// You can construct a concrete instance of `WorkflowTagInput` via:
-//
-//	WorkflowTagArgs{...}
-type WorkflowTagInput interface {
-	pulumi.Input
-
-	ToWorkflowTagOutput() WorkflowTagOutput
-	ToWorkflowTagOutputWithContext(context.Context) WorkflowTagOutput
-}
-
-// Creates a key-value pair for a specific resource.
-type WorkflowTagArgs struct {
-	// The name assigned to the tag that you create.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Contains one or more values that you assigned to the key name you create.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (WorkflowTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowTag)(nil)).Elem()
-}
-
-func (i WorkflowTagArgs) ToWorkflowTagOutput() WorkflowTagOutput {
-	return i.ToWorkflowTagOutputWithContext(context.Background())
-}
-
-func (i WorkflowTagArgs) ToWorkflowTagOutputWithContext(ctx context.Context) WorkflowTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagOutput)
-}
-
-// WorkflowTagArrayInput is an input type that accepts WorkflowTagArray and WorkflowTagArrayOutput values.
-// You can construct a concrete instance of `WorkflowTagArrayInput` via:
-//
-//	WorkflowTagArray{ WorkflowTagArgs{...} }
-type WorkflowTagArrayInput interface {
-	pulumi.Input
-
-	ToWorkflowTagArrayOutput() WorkflowTagArrayOutput
-	ToWorkflowTagArrayOutputWithContext(context.Context) WorkflowTagArrayOutput
-}
-
-type WorkflowTagArray []WorkflowTagInput
-
-func (WorkflowTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkflowTag)(nil)).Elem()
-}
-
-func (i WorkflowTagArray) ToWorkflowTagArrayOutput() WorkflowTagArrayOutput {
-	return i.ToWorkflowTagArrayOutputWithContext(context.Background())
-}
-
-func (i WorkflowTagArray) ToWorkflowTagArrayOutputWithContext(ctx context.Context) WorkflowTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagArrayOutput)
-}
-
-// Creates a key-value pair for a specific resource.
-type WorkflowTagOutput struct{ *pulumi.OutputState }
-
-func (WorkflowTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowTag)(nil)).Elem()
-}
-
-func (o WorkflowTagOutput) ToWorkflowTagOutput() WorkflowTagOutput {
-	return o
-}
-
-func (o WorkflowTagOutput) ToWorkflowTagOutputWithContext(ctx context.Context) WorkflowTagOutput {
-	return o
-}
-
-// The name assigned to the tag that you create.
-func (o WorkflowTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkflowTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Contains one or more values that you assigned to the key name you create.
-func (o WorkflowTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkflowTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type WorkflowTagArrayOutput struct{ *pulumi.OutputState }
-
-func (WorkflowTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkflowTag)(nil)).Elem()
-}
-
-func (o WorkflowTagArrayOutput) ToWorkflowTagArrayOutput() WorkflowTagArrayOutput {
-	return o
-}
-
-func (o WorkflowTagArrayOutput) ToWorkflowTagArrayOutputWithContext(ctx context.Context) WorkflowTagArrayOutput {
-	return o
-}
-
-func (o WorkflowTagArrayOutput) Index(i pulumi.IntInput) WorkflowTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowTag {
-		return vs[0].([]WorkflowTag)[vs[1].(int)]
-	}).(WorkflowTagOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AgreementTagInput)(nil)).Elem(), AgreementTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgreementTagArrayInput)(nil)).Elem(), AgreementTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesPtrInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagInput)(nil)).Elem(), CertificateTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagArrayInput)(nil)).Elem(), CertificateTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorTagInput)(nil)).Elem(), ConnectorTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorTagArrayInput)(nil)).Elem(), ConnectorTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagInput)(nil)).Elem(), ProfileTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagArrayInput)(nil)).Elem(), ProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportInput)(nil)).Elem(), ServerAs2TransportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportArrayInput)(nil)).Elem(), ServerAs2TransportArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
@@ -4609,8 +3906,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsPtrInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerStructuredLogDestinationInput)(nil)).Elem(), ServerStructuredLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerStructuredLogDestinationArrayInput)(nil)).Elem(), ServerStructuredLogDestinationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerTagInput)(nil)).Elem(), ServerTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerTagArrayInput)(nil)).Elem(), ServerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailInput)(nil)).Elem(), ServerWorkflowDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailArrayInput)(nil)).Elem(), ServerWorkflowDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
@@ -4623,8 +3918,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfilePtrInput)(nil)).Elem(), UserPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSshPublicKeyInput)(nil)).Elem(), UserSshPublicKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSshPublicKeyArrayInput)(nil)).Elem(), UserSshPublicKeyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEfsInputFileLocationInput)(nil)).Elem(), WorkflowEfsInputFileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEfsInputFileLocationPtrInput)(nil)).Elem(), WorkflowEfsInputFileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowInputFileLocationInput)(nil)).Elem(), WorkflowInputFileLocationArgs{})
@@ -4647,18 +3940,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDeleteStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepDeleteStepDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsPropertiesInput)(nil)).Elem(), WorkflowStepTagStepDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepTagStepDetailsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagInput)(nil)).Elem(), WorkflowTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagArrayInput)(nil)).Elem(), WorkflowTagArray{})
-	pulumi.RegisterOutputType(AgreementTagOutput{})
-	pulumi.RegisterOutputType(AgreementTagArrayOutput{})
 	pulumi.RegisterOutputType(As2ConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(As2ConfigPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(CertificateTagOutput{})
-	pulumi.RegisterOutputType(CertificateTagArrayOutput{})
-	pulumi.RegisterOutputType(ConnectorTagOutput{})
-	pulumi.RegisterOutputType(ConnectorTagArrayOutput{})
-	pulumi.RegisterOutputType(ProfileTagOutput{})
-	pulumi.RegisterOutputType(ProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(ServerAs2TransportOutput{})
 	pulumi.RegisterOutputType(ServerAs2TransportArrayOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
@@ -4673,8 +3956,6 @@ func init() {
 	pulumi.RegisterOutputType(ServerS3StorageOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ServerStructuredLogDestinationOutput{})
 	pulumi.RegisterOutputType(ServerStructuredLogDestinationArrayOutput{})
-	pulumi.RegisterOutputType(ServerTagOutput{})
-	pulumi.RegisterOutputType(ServerTagArrayOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailArrayOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsOutput{})
@@ -4687,8 +3968,6 @@ func init() {
 	pulumi.RegisterOutputType(UserPosixProfilePtrOutput{})
 	pulumi.RegisterOutputType(UserSshPublicKeyOutput{})
 	pulumi.RegisterOutputType(UserSshPublicKeyArrayOutput{})
-	pulumi.RegisterOutputType(UserTagOutput{})
-	pulumi.RegisterOutputType(UserTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowEfsInputFileLocationOutput{})
 	pulumi.RegisterOutputType(WorkflowEfsInputFileLocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowInputFileLocationOutput{})
@@ -4711,6 +3990,4 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowStepDeleteStepDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepTagStepDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(WorkflowStepTagStepDetailsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(WorkflowTagOutput{})
-	pulumi.RegisterOutputType(WorkflowTagArrayOutput{})
 }

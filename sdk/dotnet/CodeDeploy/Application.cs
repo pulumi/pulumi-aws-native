@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.CodeDeploy
         /// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ApplicationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -96,14 +96,14 @@ namespace Pulumi.AwsNative.CodeDeploy
         public Input<string>? ComputePlatform { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ApplicationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
         /// </summary>
-        public InputList<Inputs.ApplicationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ApplicationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

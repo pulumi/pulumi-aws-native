@@ -46,7 +46,7 @@ export class NetworkInsightsAccessScopeAnalysis extends pulumi.CustomResource {
     public /*out*/ readonly startDate!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<enums.ec2.NetworkInsightsAccessScopeAnalysisStatus>;
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeAnalysisTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NetworkInsightsAccessScopeAnalysis resource with the given unique name, arguments, and options.
@@ -96,5 +96,5 @@ export class NetworkInsightsAccessScopeAnalysis extends pulumi.CustomResource {
  */
 export interface NetworkInsightsAccessScopeAnalysisArgs {
     networkInsightsAccessScopeId: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAnalysisTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

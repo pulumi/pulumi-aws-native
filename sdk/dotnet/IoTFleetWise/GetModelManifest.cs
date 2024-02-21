@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public readonly ImmutableArray<string> Nodes;
         public readonly string? SignalCatalogArn;
         public readonly Pulumi.AwsNative.IoTFleetWise.ModelManifestManifestStatus? Status;
-        public readonly ImmutableArray<Outputs.ModelManifestTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetModelManifestResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
 
             Pulumi.AwsNative.IoTFleetWise.ModelManifestManifestStatus? status,
 
-            ImmutableArray<Outputs.ModelManifestTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationTime = creationTime;

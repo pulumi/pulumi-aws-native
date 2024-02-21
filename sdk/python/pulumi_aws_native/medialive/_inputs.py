@@ -182,7 +182,6 @@ __all__ = [
     'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs',
     'MultiplexOutputDestinationArgs',
     'MultiplexSettingsArgs',
-    'MultiplexTagsArgs',
     'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs',
     'MultiplexprogramMultiplexProgramPipelineDetailArgs',
     'MultiplexprogramMultiplexProgramServiceDescriptorArgs',
@@ -9650,38 +9649,6 @@ class MultiplexSettingsArgs:
     @transport_stream_reserved_bitrate.setter
     def transport_stream_reserved_bitrate(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "transport_stream_reserved_bitrate", value)
-
-
-@pulumi.input_type
-class MultiplexTagsArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        A key-value pair to associate with a resource.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

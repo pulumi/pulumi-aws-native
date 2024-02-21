@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// Tags for the attachment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SiteToSiteVpnAttachmentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Last update time of the attachment.
@@ -168,14 +168,14 @@ namespace Pulumi.AwsNative.NetworkManager
         public Input<Inputs.SiteToSiteVpnAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.SiteToSiteVpnAttachmentTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags for the attachment.
         /// </summary>
-        public InputList<Inputs.SiteToSiteVpnAttachmentTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SiteToSiteVpnAttachmentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// <summary>
         /// The tags to assign to the trust store.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrustStoreTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the trust store.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             string? status,
 
-            ImmutableArray<Outputs.TrustStoreTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? trustStoreArn)
         {

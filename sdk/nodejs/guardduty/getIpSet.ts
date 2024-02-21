@@ -28,7 +28,7 @@ export interface GetIpSetResult {
     readonly id?: string;
     readonly location?: string;
     readonly name?: string;
-    readonly tags?: outputs.guardduty.IpSetTagItem[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::GuardDuty::IPSet

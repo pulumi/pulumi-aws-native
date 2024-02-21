@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public readonly double? IdleDisconnectTimeoutInMinutes;
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? PasteAllowed;
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? PrintAllowed;
-        public readonly ImmutableArray<Outputs.UserSettingsTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? UploadAllowed;
         public readonly string? UserSettingsArn;
 
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? printAllowed,
 
-            ImmutableArray<Outputs.UserSettingsTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? uploadAllowed,
 

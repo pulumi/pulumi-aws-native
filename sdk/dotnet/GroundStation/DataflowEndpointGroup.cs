@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.GroundStation
         public Output<ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails>> EndpointDetails { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DataflowEndpointGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -102,10 +102,10 @@ namespace Pulumi.AwsNative.GroundStation
         }
 
         [Input("tags")]
-        private InputList<Inputs.DataflowEndpointGroupTagArgs>? _tags;
-        public InputList<Inputs.DataflowEndpointGroupTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DataflowEndpointGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

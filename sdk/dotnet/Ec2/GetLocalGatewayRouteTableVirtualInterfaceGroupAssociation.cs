@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags for the local gateway route table virtual interface group association.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? state,
 
-            ImmutableArray<Outputs.LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             LocalGatewayId = localGatewayId;
             LocalGatewayRouteTableArn = localGatewayRouteTableArn;

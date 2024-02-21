@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupDeliveryResult struct {
 	// The unique ID that identifies this delivery in your account.
 	DeliveryId *string `pulumi:"deliveryId"`
 	// The tags that have been assigned to this delivery.
-	Tags []DeliveryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDeliveryOutput(ctx *pulumi.Context, args LookupDeliveryOutputArgs, opts ...pulumi.InvokeOption) LookupDeliveryResultOutput {
@@ -94,8 +95,8 @@ func (o LookupDeliveryResultOutput) DeliveryId() pulumi.StringPtrOutput {
 }
 
 // The tags that have been assigned to this delivery.
-func (o LookupDeliveryResultOutput) Tags() DeliveryTagArrayOutput {
-	return o.ApplyT(func(v LookupDeliveryResult) []DeliveryTag { return v.Tags }).(DeliveryTagArrayOutput)
+func (o LookupDeliveryResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDeliveryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

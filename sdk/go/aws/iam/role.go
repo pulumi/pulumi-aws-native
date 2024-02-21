@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type Role struct {
 	// A name for the IAM role, up to 64 characters in length.
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
 	// A list of tags that are attached to the role.
-	Tags RoleTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRole registers a new resource with the given unique name, arguments, and options.
@@ -109,7 +110,7 @@ type roleArgs struct {
 	// A name for the IAM role, up to 64 characters in length.
 	RoleName *string `pulumi:"roleName"`
 	// A list of tags that are attached to the role.
-	Tags []RoleTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Role resource.
@@ -133,7 +134,7 @@ type RoleArgs struct {
 	// A name for the IAM role, up to 64 characters in length.
 	RoleName pulumi.StringPtrInput
 	// A list of tags that are attached to the role.
-	Tags RoleTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RoleArgs) ElementType() reflect.Type {
@@ -226,8 +227,8 @@ func (o RoleOutput) RoleName() pulumi.StringPtrOutput {
 }
 
 // A list of tags that are attached to the role.
-func (o RoleOutput) Tags() RoleTagArrayOutput {
-	return o.ApplyT(func(v *Role) RoleTagArrayOutput { return v.Tags }).(RoleTagArrayOutput)
+func (o RoleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Role) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

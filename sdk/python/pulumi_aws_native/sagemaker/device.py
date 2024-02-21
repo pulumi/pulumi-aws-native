@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DeviceInitArgs', 'Device']
@@ -18,12 +20,12 @@ class DeviceInitArgs:
     def __init__(__self__, *,
                  device_fleet_name: pulumi.Input[str],
                  device: Optional[pulumi.Input['DeviceArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Device resource.
         :param pulumi.Input[str] device_fleet_name: The name of the edge device fleet
         :param pulumi.Input['DeviceArgs'] device: The Edge Device you want to register against a device fleet
-        :param pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]] tags: Associate tags with the resource
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Associate tags with the resource
         """
         pulumi.set(__self__, "device_fleet_name", device_fleet_name)
         if device is not None:
@@ -57,14 +59,14 @@ class DeviceInitArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Associate tags with the resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -75,7 +77,7 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device: Optional[pulumi.Input[pulumi.InputType['DeviceArgs']]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SageMaker::Device
@@ -84,7 +86,7 @@ class Device(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DeviceArgs']] device: The Edge Device you want to register against a device fleet
         :param pulumi.Input[str] device_fleet_name: The name of the edge device fleet
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]] tags: Associate tags with the resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Associate tags with the resource
         """
         ...
     @overload
@@ -112,7 +114,7 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device: Optional[pulumi.Input[pulumi.InputType['DeviceArgs']]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -174,7 +176,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeviceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Associate tags with the resource
         """

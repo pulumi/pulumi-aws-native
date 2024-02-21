@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type ConfigurationAggregator struct {
 	ConfigurationAggregatorName   pulumi.StringPtrOutput                                        `pulumi:"configurationAggregatorName"`
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrOutput `pulumi:"organizationAggregationSource"`
 	// The tags for the configuration aggregator.
-	Tags ConfigurationAggregatorTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewConfigurationAggregator registers a new resource with the given unique name, arguments, and options.
@@ -74,7 +75,7 @@ type configurationAggregatorArgs struct {
 	ConfigurationAggregatorName   *string                                               `pulumi:"configurationAggregatorName"`
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
 	// The tags for the configuration aggregator.
-	Tags []ConfigurationAggregatorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfigurationAggregator resource.
@@ -84,7 +85,7 @@ type ConfigurationAggregatorArgs struct {
 	ConfigurationAggregatorName   pulumi.StringPtrInput
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
 	// The tags for the configuration aggregator.
-	Tags ConfigurationAggregatorTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ConfigurationAggregatorArgs) ElementType() reflect.Type {
@@ -147,8 +148,8 @@ func (o ConfigurationAggregatorOutput) OrganizationAggregationSource() Configura
 }
 
 // The tags for the configuration aggregator.
-func (o ConfigurationAggregatorOutput) Tags() ConfigurationAggregatorTagArrayOutput {
-	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregatorTagArrayOutput { return v.Tags }).(ConfigurationAggregatorTagArrayOutput)
+func (o ConfigurationAggregatorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ConfigurationAggregator) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

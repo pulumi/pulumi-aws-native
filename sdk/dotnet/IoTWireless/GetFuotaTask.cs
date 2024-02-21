@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// A list of key-value pairs that contain metadata for the FUOTA task.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FuotaTaskTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFuotaTaskResult(
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? name,
 
-            ImmutableArray<Outputs.FuotaTaskTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AssociateMulticastGroup = associateMulticastGroup;

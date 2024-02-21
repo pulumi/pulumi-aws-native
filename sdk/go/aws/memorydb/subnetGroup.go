@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type SubnetGroup struct {
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// An array of key-value pairs to apply to this subnet group.
-	Tags SubnetGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +83,7 @@ type subnetGroupArgs struct {
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// An array of key-value pairs to apply to this subnet group.
-	Tags []SubnetGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
@@ -94,7 +95,7 @@ type SubnetGroupArgs struct {
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this subnet group.
-	Tags SubnetGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SubnetGroupArgs) ElementType() reflect.Type {
@@ -155,8 +156,8 @@ func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // An array of key-value pairs to apply to this subnet group.
-func (o SubnetGroupOutput) Tags() SubnetGroupTagArrayOutput {
-	return o.ApplyT(func(v *SubnetGroup) SubnetGroupTagArrayOutput { return v.Tags }).(SubnetGroupTagArrayOutput)
+func (o SubnetGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SubnetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

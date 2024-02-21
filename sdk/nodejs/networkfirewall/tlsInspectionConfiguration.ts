@@ -38,7 +38,7 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
     }
 
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly tlsInspectionConfiguration!: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration>;
     public /*out*/ readonly tlsInspectionConfigurationArn!: pulumi.Output<string>;
     public /*out*/ readonly tlsInspectionConfigurationId!: pulumi.Output<string>;
@@ -84,7 +84,7 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
  */
 export interface TlsInspectionConfigurationArgs {
     description?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     tlsInspectionConfiguration: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs>;
     tlsInspectionConfigurationName?: pulumi.Input<string>;
 }

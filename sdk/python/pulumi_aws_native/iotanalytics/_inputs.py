@@ -15,7 +15,6 @@ __all__ = [
     'ChannelRetentionPeriodArgs',
     'ChannelServiceManagedS3Args',
     'ChannelStorageArgs',
-    'ChannelTagArgs',
     'DatasetActionArgs',
     'DatasetContainerActionArgs',
     'DatasetContentDeliveryRuleDestinationArgs',
@@ -34,7 +33,6 @@ __all__ = [
     'DatasetRetentionPeriodArgs',
     'DatasetS3DestinationConfigurationArgs',
     'DatasetScheduleArgs',
-    'DatasetTagArgs',
     'DatasetTriggeringDatasetArgs',
     'DatasetTriggerArgs',
     'DatasetVariableArgs',
@@ -52,7 +50,6 @@ __all__ = [
     'DatastoreSchemaDefinitionArgs',
     'DatastoreServiceManagedS3Args',
     'DatastoreStorageArgs',
-    'DatastoreTagArgs',
     'DatastoreTimestampPartitionArgs',
     'PartitionArgs',
     'PipelineActivityArgs',
@@ -66,7 +63,6 @@ __all__ = [
     'PipelineMathArgs',
     'PipelineRemoveAttributesArgs',
     'PipelineSelectAttributesArgs',
-    'PipelineTagArgs',
 ]
 
 @pulumi.input_type
@@ -170,33 +166,6 @@ class ChannelStorageArgs:
     @service_managed_s3.setter
     def service_managed_s3(self, value: Optional[pulumi.Input['ChannelServiceManagedS3Args']]):
         pulumi.set(self, "service_managed_s3", value)
-
-
-@pulumi.input_type
-class ChannelTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -688,33 +657,6 @@ class DatasetScheduleArgs:
 
 
 @pulumi.input_type
-class DatasetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class DatasetTriggeringDatasetArgs:
     def __init__(__self__, *,
                  dataset_name: pulumi.Input[str]):
@@ -1152,33 +1094,6 @@ class DatastoreStorageArgs:
     @service_managed_s3.setter
     def service_managed_s3(self, value: Optional[pulumi.Input['DatastoreServiceManagedS3Args']]):
         pulumi.set(self, "service_managed_s3", value)
-
-
-@pulumi.input_type
-class DatastoreTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1792,32 +1707,5 @@ class PipelineSelectAttributesArgs:
     @next.setter
     def next(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "next", value)
-
-
-@pulumi.input_type
-class PipelineTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

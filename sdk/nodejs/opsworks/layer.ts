@@ -61,7 +61,7 @@ export class Layer extends pulumi.CustomResource {
     public readonly packages!: pulumi.Output<string[] | undefined>;
     public readonly shortname!: pulumi.Output<string>;
     public readonly stackId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.opsworks.LayerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly type!: pulumi.Output<string>;
     public readonly useEbsOptimizedInstances!: pulumi.Output<boolean | undefined>;
     public readonly volumeConfigurations!: pulumi.Output<outputs.opsworks.LayerVolumeConfiguration[] | undefined>;
@@ -169,7 +169,7 @@ export interface LayerArgs {
     packages?: pulumi.Input<pulumi.Input<string>[]>;
     shortname: pulumi.Input<string>;
     stackId: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.opsworks.LayerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     type: pulumi.Input<string>;
     useEbsOptimizedInstances?: pulumi.Input<boolean>;
     volumeConfigurations?: pulumi.Input<pulumi.Input<inputs.opsworks.LayerVolumeConfigurationArgs>[]>;

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type ReportGroup struct {
 	DeleteReports pulumi.BoolPtrOutput                `pulumi:"deleteReports"`
 	ExportConfig  ReportGroupReportExportConfigOutput `pulumi:"exportConfig"`
 	Name          pulumi.StringPtrOutput              `pulumi:"name"`
-	Tags          ReportGroupTagArrayOutput           `pulumi:"tags"`
+	Tags          aws.TagArrayOutput                  `pulumi:"tags"`
 	Type          pulumi.StringOutput                 `pulumi:"type"`
 }
 
@@ -80,7 +81,7 @@ type reportGroupArgs struct {
 	DeleteReports *bool                         `pulumi:"deleteReports"`
 	ExportConfig  ReportGroupReportExportConfig `pulumi:"exportConfig"`
 	Name          *string                       `pulumi:"name"`
-	Tags          []ReportGroupTag              `pulumi:"tags"`
+	Tags          []aws.Tag                     `pulumi:"tags"`
 	Type          string                        `pulumi:"type"`
 }
 
@@ -89,7 +90,7 @@ type ReportGroupArgs struct {
 	DeleteReports pulumi.BoolPtrInput
 	ExportConfig  ReportGroupReportExportConfigInput
 	Name          pulumi.StringPtrInput
-	Tags          ReportGroupTagArrayInput
+	Tags          aws.TagArrayInput
 	Type          pulumi.StringInput
 }
 
@@ -146,8 +147,8 @@ func (o ReportGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o ReportGroupOutput) Tags() ReportGroupTagArrayOutput {
-	return o.ApplyT(func(v *ReportGroup) ReportGroupTagArrayOutput { return v.Tags }).(ReportGroupTagArrayOutput)
+func (o ReportGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ReportGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ReportGroupOutput) Type() pulumi.StringOutput {

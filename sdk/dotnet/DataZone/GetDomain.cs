@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.DataZone
         /// <summary>
         /// The tags specified for the Amazon DataZone domain.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DomainTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.DataZone
 
             Pulumi.AwsNative.DataZone.DomainStatus? status,
 
-            ImmutableArray<Outputs.DomainTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreatedAt = createdAt;

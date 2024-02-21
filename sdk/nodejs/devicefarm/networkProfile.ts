@@ -45,7 +45,7 @@ export class NetworkProfile extends pulumi.CustomResource {
     public readonly downlinkLossPercent!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly projectArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.devicefarm.NetworkProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly uplinkBandwidthBits!: pulumi.Output<number | undefined>;
     public readonly uplinkDelayMs!: pulumi.Output<number | undefined>;
     public readonly uplinkJitterMs!: pulumi.Output<number | undefined>;
@@ -111,7 +111,7 @@ export interface NetworkProfileArgs {
     downlinkLossPercent?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     projectArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.devicefarm.NetworkProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     uplinkBandwidthBits?: pulumi.Input<number>;
     uplinkDelayMs?: pulumi.Input<number>;
     uplinkJitterMs?: pulumi.Input<number>;

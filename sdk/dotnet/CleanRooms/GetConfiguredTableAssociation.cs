@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConfiguredTableAssociationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetConfiguredTableAssociationResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.CleanRooms
 
             string? roleArn,
 
-            ImmutableArray<Outputs.ConfiguredTableAssociationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             ConfiguredTableAssociationIdentifier = configuredTableAssociationIdentifier;

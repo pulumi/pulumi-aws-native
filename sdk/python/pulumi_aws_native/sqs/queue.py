@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['QueueArgs', 'Queue']
 
@@ -30,7 +30,7 @@ class QueueArgs:
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Queue resource.
@@ -52,7 +52,7 @@ class QueueArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         :param pulumi.Input[bool] sqs_managed_sse_enabled: Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
-        :param pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]] tags: The tags that you attach to this queue.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags that you attach to this queue.
         :param pulumi.Input[int] visibility_timeout: The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
         """
         if content_based_deduplication is not None:
@@ -262,14 +262,14 @@ class QueueArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags that you attach to this queue.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -304,7 +304,7 @@ class Queue(pulumi.CustomResource):
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QueueTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -330,7 +330,7 @@ class Queue(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         :param pulumi.Input[bool] sqs_managed_sse_enabled: Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QueueTagArgs']]]] tags: The tags that you attach to this queue.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags that you attach to this queue.
         :param pulumi.Input[int] visibility_timeout: The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
         """
         ...
@@ -371,7 +371,7 @@ class Queue(pulumi.CustomResource):
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QueueTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -578,7 +578,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.QueueTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags that you attach to this queue.
         """

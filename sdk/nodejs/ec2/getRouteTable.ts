@@ -33,7 +33,7 @@ export interface GetRouteTableResult {
     /**
      * Any tags assigned to the route table.
      */
-    readonly tags?: outputs.ec2.RouteTableTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::RouteTable

@@ -86,7 +86,7 @@ export interface GetIpamPoolResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ec2.IpamPoolTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Schema of AWS::EC2::IPAMPool Type

@@ -29,7 +29,7 @@ export interface GetClusterResult {
     readonly managedScalingPolicy?: outputs.emr.ClusterManagedScalingPolicy;
     readonly masterPublicDns?: string;
     readonly stepConcurrencyLevel?: number;
-    readonly tags?: outputs.emr.ClusterTag[];
+    readonly tags?: outputs.Tag[];
     readonly visibleToAllUsers?: boolean;
 }
 /**

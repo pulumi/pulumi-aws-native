@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Backup
         public Output<int?> StartWindowHours { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RestoreTestingPlanTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -101,10 +101,10 @@ namespace Pulumi.AwsNative.Backup
         public Input<int>? StartWindowHours { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.RestoreTestingPlanTagArgs>? _tags;
-        public InputList<Inputs.RestoreTestingPlanTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RestoreTestingPlanTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

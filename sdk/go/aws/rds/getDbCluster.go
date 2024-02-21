@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -107,7 +108,7 @@ type LookupDbClusterResult struct {
 	// Specifies the storage type to be associated with the DB cluster.
 	StorageType *string `pulumi:"storageType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DbClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A list of EC2 VPC security groups to associate with this DB cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -346,8 +347,8 @@ func (o LookupDbClusterResultOutput) StorageType() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupDbClusterResultOutput) Tags() DbClusterTagArrayOutput {
-	return o.ApplyT(func(v LookupDbClusterResult) []DbClusterTag { return v.Tags }).(DbClusterTagArrayOutput)
+func (o LookupDbClusterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A list of EC2 VPC security groups to associate with this DB cluster.

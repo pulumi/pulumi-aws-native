@@ -47,7 +47,7 @@ export class Feature extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.evidently.FeatureTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly variations!: pulumi.Output<outputs.evidently.FeatureVariationObject[]>;
 
     /**
@@ -107,6 +107,6 @@ export interface FeatureArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     variations: pulumi.Input<pulumi.Input<inputs.evidently.FeatureVariationObjectArgs>[]>;
 }

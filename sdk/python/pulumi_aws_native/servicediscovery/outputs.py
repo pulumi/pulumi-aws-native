@@ -11,40 +11,17 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'HttpNamespaceTag',
     'PrivateDnsNamespacePrivateDnsPropertiesMutable',
     'PrivateDnsNamespaceProperties',
     'PrivateDnsNamespaceSoa',
-    'PrivateDnsNamespaceTag',
     'PublicDnsNamespaceProperties',
     'PublicDnsNamespacePublicDnsPropertiesMutable',
     'PublicDnsNamespaceSoa',
-    'PublicDnsNamespaceTag',
     'ServiceDnsConfig',
     'ServiceDnsRecord',
     'ServiceHealthCheckConfig',
     'ServiceHealthCheckCustomConfig',
-    'ServiceTag',
 ]
-
-@pulumi.output_type
-class HttpNamespaceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class PrivateDnsNamespacePrivateDnsPropertiesMutable(dict):
@@ -103,25 +80,6 @@ class PrivateDnsNamespaceSoa(dict):
 
 
 @pulumi.output_type
-class PrivateDnsNamespaceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class PublicDnsNamespaceProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -175,25 +133,6 @@ class PublicDnsNamespaceSoa(dict):
     @pulumi.getter
     def ttl(self) -> Optional[float]:
         return pulumi.get(self, "ttl")
-
-
-@pulumi.output_type
-class PublicDnsNamespaceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -339,24 +278,5 @@ class ServiceHealthCheckCustomConfig(dict):
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> Optional[float]:
         return pulumi.get(self, "failure_threshold")
-
-
-@pulumi.output_type
-class ServiceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

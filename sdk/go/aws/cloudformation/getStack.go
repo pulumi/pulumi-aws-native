@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupStackResult struct {
 	StackPolicyBody   interface{}  `pulumi:"stackPolicyBody"`
 	StackStatus       *StackStatus `pulumi:"stackStatus"`
 	StackStatusReason *string      `pulumi:"stackStatusReason"`
-	Tags              []StackTag   `pulumi:"tags"`
+	Tags              []aws.Tag    `pulumi:"tags"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
 	TemplateBody     interface{} `pulumi:"templateBody"`
 	TimeoutInMinutes *int        `pulumi:"timeoutInMinutes"`
@@ -155,8 +156,8 @@ func (o LookupStackResultOutput) StackStatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStackResult) *string { return v.StackStatusReason }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupStackResultOutput) Tags() StackTagArrayOutput {
-	return o.ApplyT(func(v LookupStackResult) []StackTag { return v.Tags }).(StackTagArrayOutput)
+func (o LookupStackResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStackResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.

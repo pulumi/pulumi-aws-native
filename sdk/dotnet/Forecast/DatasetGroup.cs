@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Forecast
         /// The tags of Application Insights application.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DatasetGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,14 +119,14 @@ namespace Pulumi.AwsNative.Forecast
         public Input<Pulumi.AwsNative.Forecast.DatasetGroupDomain> Domain { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DatasetGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags of Application Insights application.
         /// </summary>
-        public InputList<Inputs.DatasetGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DatasetGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

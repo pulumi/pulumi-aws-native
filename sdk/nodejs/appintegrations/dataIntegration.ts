@@ -72,7 +72,7 @@ export class DataIntegration extends pulumi.CustomResource {
     /**
      * The tags (keys and values) associated with the data integration.
      */
-    public readonly tags!: pulumi.Output<outputs.appintegrations.DataIntegrationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DataIntegration resource with the given unique name, arguments, and options.
@@ -153,5 +153,5 @@ export interface DataIntegrationArgs {
     /**
      * The tags (keys and values) associated with the data integration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.appintegrations.DataIntegrationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

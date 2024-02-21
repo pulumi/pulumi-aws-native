@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// <summary>
         /// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
 
             string? serviceExecutionRole,
 
-            ImmutableArray<Outputs.ApplicationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApplicationConfiguration = applicationConfiguration;
             ApplicationDescription = applicationDescription;

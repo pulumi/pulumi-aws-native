@@ -45,7 +45,7 @@ export class Template extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly permissions!: pulumi.Output<outputs.quicksight.TemplateResourcePermission[] | undefined>;
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
-    public readonly tags!: pulumi.Output<outputs.quicksight.TemplateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly templateId!: pulumi.Output<string>;
     public readonly validationStrategy!: pulumi.Output<outputs.quicksight.TemplateValidationStrategy | undefined>;
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.TemplateVersion>;
@@ -112,7 +112,7 @@ export interface TemplateArgs {
     name?: pulumi.Input<string>;
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateResourcePermissionArgs>[]>;
     sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntityArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     templateId: pulumi.Input<string>;
     validationStrategy?: pulumi.Input<inputs.quicksight.TemplateValidationStrategyArgs>;
     versionDescription?: pulumi.Input<string>;

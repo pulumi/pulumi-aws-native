@@ -29,7 +29,7 @@ export interface GetFilterResult {
     readonly description?: string;
     readonly findingCriteria?: outputs.guardduty.FilterFindingCriteria;
     readonly rank?: number;
-    readonly tags?: outputs.guardduty.FilterTagItem[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::GuardDuty::Filter

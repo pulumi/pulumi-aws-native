@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupCloudFormationProvisionedProductResult struct {
 	ProvisioningParameters   []CloudFormationProvisionedProductProvisioningParameter  `pulumi:"provisioningParameters"`
 	ProvisioningPreferences  *CloudFormationProvisionedProductProvisioningPreferences `pulumi:"provisioningPreferences"`
 	RecordId                 *string                                                  `pulumi:"recordId"`
-	Tags                     []CloudFormationProvisionedProductTag                    `pulumi:"tags"`
+	Tags                     []aws.Tag                                                `pulumi:"tags"`
 }
 
 func LookupCloudFormationProvisionedProductOutput(ctx *pulumi.Context, args LookupCloudFormationProvisionedProductOutputArgs, opts ...pulumi.InvokeOption) LookupCloudFormationProvisionedProductResultOutput {
@@ -138,10 +139,8 @@ func (o LookupCloudFormationProvisionedProductResultOutput) RecordId() pulumi.St
 	return o.ApplyT(func(v LookupCloudFormationProvisionedProductResult) *string { return v.RecordId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCloudFormationProvisionedProductResultOutput) Tags() CloudFormationProvisionedProductTagArrayOutput {
-	return o.ApplyT(func(v LookupCloudFormationProvisionedProductResult) []CloudFormationProvisionedProductTag {
-		return v.Tags
-	}).(CloudFormationProvisionedProductTagArrayOutput)
+func (o LookupCloudFormationProvisionedProductResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCloudFormationProvisionedProductResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Msk
         /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ReplicatorTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetReplicatorResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Msk
 
             string? replicatorArn,
 
-            ImmutableArray<Outputs.ReplicatorTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CurrentVersion = currentVersion;
             ReplicationInfoList = replicationInfoList;

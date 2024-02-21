@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,8 +46,8 @@ type LookupAcceleratorResult struct {
 	// The IPv6 addresses assigned if the accelerator is dualstack
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Name of accelerator.
-	Name *string          `pulumi:"name"`
-	Tags []AcceleratorTag `pulumi:"tags"`
+	Name *string   `pulumi:"name"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputArgs, opts ...pulumi.InvokeOption) LookupAcceleratorResultOutput {
@@ -130,8 +131,8 @@ func (o LookupAcceleratorResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAcceleratorResultOutput) Tags() AcceleratorTagArrayOutput {
-	return o.ApplyT(func(v LookupAcceleratorResult) []AcceleratorTag { return v.Tags }).(AcceleratorTagArrayOutput)
+func (o LookupAcceleratorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

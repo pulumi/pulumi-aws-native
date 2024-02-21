@@ -56,7 +56,7 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
     public readonly scope!: pulumi.Output<enums.wafv2.RuleGroupScope>;
-    public readonly tags!: pulumi.Output<outputs.wafv2.RuleGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
 
     /**
@@ -133,6 +133,6 @@ export interface RuleGroupArgs {
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleArgs>[]>;
     scope: pulumi.Input<enums.wafv2.RuleGroupScope>;
-    tags?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     visibilityConfig: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfigArgs>;
 }

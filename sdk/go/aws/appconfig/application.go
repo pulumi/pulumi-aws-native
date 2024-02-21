@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Application struct {
 	// A name for the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags ApplicationTagsArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +71,7 @@ type applicationArgs struct {
 	// A name for the application.
 	Name *string `pulumi:"name"`
 	// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags []ApplicationTags `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -80,7 +81,7 @@ type ApplicationArgs struct {
 	// A name for the application.
 	Name pulumi.StringPtrInput
 	// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags ApplicationTagsArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -136,8 +137,8 @@ func (o ApplicationOutput) Name() pulumi.StringOutput {
 }
 
 // Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-func (o ApplicationOutput) Tags() ApplicationTagsArrayOutput {
-	return o.ApplyT(func(v *Application) ApplicationTagsArrayOutput { return v.Tags }).(ApplicationTagsArrayOutput)
+func (o ApplicationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Application) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

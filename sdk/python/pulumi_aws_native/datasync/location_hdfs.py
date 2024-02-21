@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -29,7 +31,7 @@ class LocationHdfsArgs:
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationHdfs resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: ARN(s) of the agent(s) to use for an HDFS location.
@@ -43,7 +45,7 @@ class LocationHdfsArgs:
         :param pulumi.Input[int] replication_factor: Number of copies of each block that exists inside the HDFS cluster.
         :param pulumi.Input[str] simple_user: The user name that has read and write permissions on the specified HDFS cluster.
         :param pulumi.Input[str] subdirectory: The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -212,14 +214,14 @@ class LocationHdfsArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -240,7 +242,7 @@ class LocationHdfs(pulumi.CustomResource):
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationHDFS.
@@ -258,7 +260,7 @@ class LocationHdfs(pulumi.CustomResource):
         :param pulumi.Input[int] replication_factor: Number of copies of each block that exists inside the HDFS cluster.
         :param pulumi.Input[str] simple_user: The user name that has read and write permissions on the specified HDFS cluster.
         :param pulumi.Input[str] subdirectory: The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -296,7 +298,7 @@ class LocationHdfs(pulumi.CustomResource):
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -477,7 +479,7 @@ class LocationHdfs(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationHdfsTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

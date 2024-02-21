@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type FileSystem struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
 	FileSystemPolicy             pulumi.AnyOutput                            `pulumi:"fileSystemPolicy"`
 	FileSystemProtection         FileSystemProtectionPtrOutput               `pulumi:"fileSystemProtection"`
-	FileSystemTags               FileSystemElasticFileSystemTagArrayOutput   `pulumi:"fileSystemTags"`
+	FileSystemTags               aws.TagArrayOutput                          `pulumi:"fileSystemTags"`
 	KmsKeyId                     pulumi.StringPtrOutput                      `pulumi:"kmsKeyId"`
 	LifecyclePolicies            FileSystemLifecyclePolicyArrayOutput        `pulumi:"lifecyclePolicies"`
 	PerformanceMode              pulumi.StringPtrOutput                      `pulumi:"performanceMode"`
@@ -89,7 +90,7 @@ type fileSystemArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
 	FileSystemPolicy             interface{}                         `pulumi:"fileSystemPolicy"`
 	FileSystemProtection         *FileSystemProtection               `pulumi:"fileSystemProtection"`
-	FileSystemTags               []FileSystemElasticFileSystemTag    `pulumi:"fileSystemTags"`
+	FileSystemTags               []aws.Tag                           `pulumi:"fileSystemTags"`
 	KmsKeyId                     *string                             `pulumi:"kmsKeyId"`
 	LifecyclePolicies            []FileSystemLifecyclePolicy         `pulumi:"lifecyclePolicies"`
 	PerformanceMode              *string                             `pulumi:"performanceMode"`
@@ -108,7 +109,7 @@ type FileSystemArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
 	FileSystemPolicy             pulumi.Input
 	FileSystemProtection         FileSystemProtectionPtrInput
-	FileSystemTags               FileSystemElasticFileSystemTagArrayInput
+	FileSystemTags               aws.TagArrayInput
 	KmsKeyId                     pulumi.StringPtrInput
 	LifecyclePolicies            FileSystemLifecyclePolicyArrayInput
 	PerformanceMode              pulumi.StringPtrInput
@@ -188,8 +189,8 @@ func (o FileSystemOutput) FileSystemProtection() FileSystemProtectionPtrOutput {
 	return o.ApplyT(func(v *FileSystem) FileSystemProtectionPtrOutput { return v.FileSystemProtection }).(FileSystemProtectionPtrOutput)
 }
 
-func (o FileSystemOutput) FileSystemTags() FileSystemElasticFileSystemTagArrayOutput {
-	return o.ApplyT(func(v *FileSystem) FileSystemElasticFileSystemTagArrayOutput { return v.FileSystemTags }).(FileSystemElasticFileSystemTagArrayOutput)
+func (o FileSystemOutput) FileSystemTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FileSystem) aws.TagArrayOutput { return v.FileSystemTags }).(aws.TagArrayOutput)
 }
 
 func (o FileSystemOutput) KmsKeyId() pulumi.StringPtrOutput {

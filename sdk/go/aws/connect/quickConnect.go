@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type QuickConnect struct {
 	// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 	QuickConnectType QuickConnectTypeOutput `pulumi:"quickConnectType"`
 	// One or more tags.
-	Tags QuickConnectTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewQuickConnect registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +88,7 @@ type quickConnectArgs struct {
 	// Configuration settings for the quick connect.
 	QuickConnectConfig QuickConnectConfig `pulumi:"quickConnectConfig"`
 	// One or more tags.
-	Tags []QuickConnectTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a QuickConnect resource.
@@ -101,7 +102,7 @@ type QuickConnectArgs struct {
 	// Configuration settings for the quick connect.
 	QuickConnectConfig QuickConnectConfigInput
 	// One or more tags.
-	Tags QuickConnectTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (QuickConnectArgs) ElementType() reflect.Type {
@@ -172,8 +173,8 @@ func (o QuickConnectOutput) QuickConnectType() QuickConnectTypeOutput {
 }
 
 // One or more tags.
-func (o QuickConnectOutput) Tags() QuickConnectTagArrayOutput {
-	return o.ApplyT(func(v *QuickConnect) QuickConnectTagArrayOutput { return v.Tags }).(QuickConnectTagArrayOutput)
+func (o QuickConnectOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *QuickConnect) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

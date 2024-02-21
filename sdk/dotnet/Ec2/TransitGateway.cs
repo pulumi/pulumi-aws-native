@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> PropagationDefaultRouteTableId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TransitGatewayTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("transitGatewayArn")]
         public Output<string> TransitGatewayArn { get; private set; } = null!;
@@ -132,10 +132,10 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? PropagationDefaultRouteTableId { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TransitGatewayTagArgs>? _tags;
-        public InputList<Inputs.TransitGatewayTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TransitGatewayTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

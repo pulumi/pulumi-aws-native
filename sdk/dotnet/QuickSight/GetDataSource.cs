@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.&lt;/p&gt;
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataSourceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.DataSourceVpcConnectionProperties? VpcConnectionProperties;
 
         [OutputConstructor]
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.QuickSight
 
             Pulumi.AwsNative.QuickSight.DataSourceResourceStatus? status,
 
-            ImmutableArray<Outputs.DataSourceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.DataSourceVpcConnectionProperties? vpcConnectionProperties)
         {

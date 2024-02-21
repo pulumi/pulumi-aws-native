@@ -30,7 +30,7 @@ export interface GetContainerResult {
     readonly lifecyclePolicy?: string;
     readonly metricPolicy?: outputs.mediastore.ContainerMetricPolicy;
     readonly policy?: string;
-    readonly tags?: outputs.mediastore.ContainerTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::MediaStore::Container

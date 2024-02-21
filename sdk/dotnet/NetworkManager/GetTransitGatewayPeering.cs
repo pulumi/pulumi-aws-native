@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TransitGatewayPeeringTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ID of the TransitGatewayPeeringAttachment
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? state,
 
-            ImmutableArray<Outputs.TransitGatewayPeeringTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? transitGatewayPeeringAttachmentId)
         {

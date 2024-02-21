@@ -30,7 +30,7 @@ export interface GetTemplateResult {
     readonly lastUpdatedTime?: string;
     readonly name?: string;
     readonly permissions?: outputs.quicksight.TemplateResourcePermission[];
-    readonly tags?: outputs.quicksight.TemplateTag[];
+    readonly tags?: outputs.Tag[];
     readonly version?: outputs.quicksight.TemplateVersion;
 }
 /**

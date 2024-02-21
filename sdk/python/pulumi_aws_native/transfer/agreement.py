@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['AgreementArgs', 'Agreement']
 
@@ -24,7 +24,7 @@ class AgreementArgs:
                  server_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['AgreementStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AgreementTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Agreement resource.
         :param pulumi.Input[str] access_role: Specifies the access role for the agreement.
@@ -34,7 +34,7 @@ class AgreementArgs:
         :param pulumi.Input[str] server_id: A unique identifier for the server.
         :param pulumi.Input[str] description: A textual description for the agreement.
         :param pulumi.Input['AgreementStatus'] status: Specifies the status of the agreement.
-        :param pulumi.Input[Sequence[pulumi.Input['AgreementTagArgs']]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         """
         pulumi.set(__self__, "access_role", access_role)
         pulumi.set(__self__, "base_directory", base_directory)
@@ -134,14 +134,14 @@ class AgreementArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgreementTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgreementTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -157,7 +157,7 @@ class Agreement(pulumi.CustomResource):
                  partner_profile_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['AgreementStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgreementTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Transfer::Agreement
@@ -171,7 +171,7 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[str] partner_profile_id: A unique identifier for the partner profile.
         :param pulumi.Input[str] server_id: A unique identifier for the server.
         :param pulumi.Input['AgreementStatus'] status: Specifies the status of the agreement.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgreementTagArgs']]]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         """
         ...
     @overload
@@ -204,7 +204,7 @@ class Agreement(pulumi.CustomResource):
                  partner_profile_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['AgreementStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgreementTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -344,7 +344,7 @@ class Agreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AgreementTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         """

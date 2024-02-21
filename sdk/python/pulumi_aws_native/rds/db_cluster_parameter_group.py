@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['DbClusterParameterGroupArgs', 'DbClusterParameterGroup']
 
@@ -20,7 +20,7 @@ class DbClusterParameterGroupArgs:
                  family: pulumi.Input[str],
                  parameters: Any,
                  db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterParameterGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbClusterParameterGroup resource.
         :param pulumi.Input[str] description: A friendly description for this DB cluster parameter group.
@@ -28,7 +28,7 @@ class DbClusterParameterGroupArgs:
         :param Any parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input['DbClusterParameterGroupTagArgs']]] tags: The list of tags for the cluster parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of tags for the cluster parameter group.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "family", family)
@@ -87,14 +87,14 @@ class DbClusterParameterGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterParameterGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The list of tags for the cluster parameter group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterParameterGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -107,7 +107,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterParameterGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
@@ -119,7 +119,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
         :param Any parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterParameterGroupTagArgs']]]] tags: The list of tags for the cluster parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of tags for the cluster parameter group.
         """
         ...
     @overload
@@ -149,7 +149,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterParameterGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -234,7 +234,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbClusterParameterGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The list of tags for the cluster parameter group.
         """

@@ -6958,107 +6958,6 @@ type DataSourceTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DataSourceTagInput is an input type that accepts DataSourceTagArgs and DataSourceTagOutput values.
-// You can construct a concrete instance of `DataSourceTagInput` via:
-//
-//	DataSourceTagArgs{...}
-type DataSourceTagInput interface {
-	pulumi.Input
-
-	ToDataSourceTagOutput() DataSourceTagOutput
-	ToDataSourceTagOutputWithContext(context.Context) DataSourceTagOutput
-}
-
-// A label for tagging Kendra resources
-type DataSourceTagArgs struct {
-	// A string used to identify this tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// A string containing the value for the tag
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DataSourceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceTag)(nil)).Elem()
-}
-
-func (i DataSourceTagArgs) ToDataSourceTagOutput() DataSourceTagOutput {
-	return i.ToDataSourceTagOutputWithContext(context.Background())
-}
-
-func (i DataSourceTagArgs) ToDataSourceTagOutputWithContext(ctx context.Context) DataSourceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTagOutput)
-}
-
-// DataSourceTagArrayInput is an input type that accepts DataSourceTagArray and DataSourceTagArrayOutput values.
-// You can construct a concrete instance of `DataSourceTagArrayInput` via:
-//
-//	DataSourceTagArray{ DataSourceTagArgs{...} }
-type DataSourceTagArrayInput interface {
-	pulumi.Input
-
-	ToDataSourceTagArrayOutput() DataSourceTagArrayOutput
-	ToDataSourceTagArrayOutputWithContext(context.Context) DataSourceTagArrayOutput
-}
-
-type DataSourceTagArray []DataSourceTagInput
-
-func (DataSourceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSourceTag)(nil)).Elem()
-}
-
-func (i DataSourceTagArray) ToDataSourceTagArrayOutput() DataSourceTagArrayOutput {
-	return i.ToDataSourceTagArrayOutputWithContext(context.Background())
-}
-
-func (i DataSourceTagArray) ToDataSourceTagArrayOutputWithContext(ctx context.Context) DataSourceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTagArrayOutput)
-}
-
-// A label for tagging Kendra resources
-type DataSourceTagOutput struct{ *pulumi.OutputState }
-
-func (DataSourceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceTag)(nil)).Elem()
-}
-
-func (o DataSourceTagOutput) ToDataSourceTagOutput() DataSourceTagOutput {
-	return o
-}
-
-func (o DataSourceTagOutput) ToDataSourceTagOutputWithContext(ctx context.Context) DataSourceTagOutput {
-	return o
-}
-
-// A string used to identify this tag
-func (o DataSourceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A string containing the value for the tag
-func (o DataSourceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DataSourceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DataSourceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSourceTag)(nil)).Elem()
-}
-
-func (o DataSourceTagArrayOutput) ToDataSourceTagArrayOutput() DataSourceTagArrayOutput {
-	return o
-}
-
-func (o DataSourceTagArrayOutput) ToDataSourceTagArrayOutputWithContext(ctx context.Context) DataSourceTagArrayOutput {
-	return o
-}
-
-func (o DataSourceTagArrayOutput) Index(i pulumi.IntInput) DataSourceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceTag {
-		return vs[0].([]DataSourceTag)[vs[1].(int)]
-	}).(DataSourceTagOutput)
-}
-
 type DataSourceToIndexFieldMapping struct {
 	DataSourceFieldName string  `pulumi:"dataSourceFieldName"`
 	DateFieldFormat     *string `pulumi:"dateFieldFormat"`
@@ -8515,107 +8414,6 @@ type FaqTag struct {
 	Value string `pulumi:"value"`
 }
 
-// FaqTagInput is an input type that accepts FaqTagArgs and FaqTagOutput values.
-// You can construct a concrete instance of `FaqTagInput` via:
-//
-//	FaqTagArgs{...}
-type FaqTagInput interface {
-	pulumi.Input
-
-	ToFaqTagOutput() FaqTagOutput
-	ToFaqTagOutputWithContext(context.Context) FaqTagOutput
-}
-
-// A label for tagging Kendra resources
-type FaqTagArgs struct {
-	// A string used to identify this tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// A string containing the value for the tag
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FaqTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FaqTag)(nil)).Elem()
-}
-
-func (i FaqTagArgs) ToFaqTagOutput() FaqTagOutput {
-	return i.ToFaqTagOutputWithContext(context.Background())
-}
-
-func (i FaqTagArgs) ToFaqTagOutputWithContext(ctx context.Context) FaqTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FaqTagOutput)
-}
-
-// FaqTagArrayInput is an input type that accepts FaqTagArray and FaqTagArrayOutput values.
-// You can construct a concrete instance of `FaqTagArrayInput` via:
-//
-//	FaqTagArray{ FaqTagArgs{...} }
-type FaqTagArrayInput interface {
-	pulumi.Input
-
-	ToFaqTagArrayOutput() FaqTagArrayOutput
-	ToFaqTagArrayOutputWithContext(context.Context) FaqTagArrayOutput
-}
-
-type FaqTagArray []FaqTagInput
-
-func (FaqTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FaqTag)(nil)).Elem()
-}
-
-func (i FaqTagArray) ToFaqTagArrayOutput() FaqTagArrayOutput {
-	return i.ToFaqTagArrayOutputWithContext(context.Background())
-}
-
-func (i FaqTagArray) ToFaqTagArrayOutputWithContext(ctx context.Context) FaqTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FaqTagArrayOutput)
-}
-
-// A label for tagging Kendra resources
-type FaqTagOutput struct{ *pulumi.OutputState }
-
-func (FaqTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FaqTag)(nil)).Elem()
-}
-
-func (o FaqTagOutput) ToFaqTagOutput() FaqTagOutput {
-	return o
-}
-
-func (o FaqTagOutput) ToFaqTagOutputWithContext(ctx context.Context) FaqTagOutput {
-	return o
-}
-
-// A string used to identify this tag
-func (o FaqTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FaqTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A string containing the value for the tag
-func (o FaqTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FaqTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FaqTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FaqTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FaqTag)(nil)).Elem()
-}
-
-func (o FaqTagArrayOutput) ToFaqTagArrayOutput() FaqTagArrayOutput {
-	return o
-}
-
-func (o FaqTagArrayOutput) ToFaqTagArrayOutputWithContext(ctx context.Context) FaqTagArrayOutput {
-	return o
-}
-
-func (o FaqTagArrayOutput) Index(i pulumi.IntInput) FaqTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FaqTag {
-		return vs[0].([]FaqTag)[vs[1].(int)]
-	}).(FaqTagOutput)
-}
-
 type IndexCapacityUnitsConfiguration struct {
 	QueryCapacityUnits   int `pulumi:"queryCapacityUnits"`
 	StorageCapacityUnits int `pulumi:"storageCapacityUnits"`
@@ -9759,107 +9557,6 @@ type IndexTag struct {
 	Value string `pulumi:"value"`
 }
 
-// IndexTagInput is an input type that accepts IndexTagArgs and IndexTagOutput values.
-// You can construct a concrete instance of `IndexTagInput` via:
-//
-//	IndexTagArgs{...}
-type IndexTagInput interface {
-	pulumi.Input
-
-	ToIndexTagOutput() IndexTagOutput
-	ToIndexTagOutputWithContext(context.Context) IndexTagOutput
-}
-
-// A label for tagging Kendra resources
-type IndexTagArgs struct {
-	// A string used to identify this tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// A string containing the value for the tag
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (IndexTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexTag)(nil)).Elem()
-}
-
-func (i IndexTagArgs) ToIndexTagOutput() IndexTagOutput {
-	return i.ToIndexTagOutputWithContext(context.Background())
-}
-
-func (i IndexTagArgs) ToIndexTagOutputWithContext(ctx context.Context) IndexTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexTagOutput)
-}
-
-// IndexTagArrayInput is an input type that accepts IndexTagArray and IndexTagArrayOutput values.
-// You can construct a concrete instance of `IndexTagArrayInput` via:
-//
-//	IndexTagArray{ IndexTagArgs{...} }
-type IndexTagArrayInput interface {
-	pulumi.Input
-
-	ToIndexTagArrayOutput() IndexTagArrayOutput
-	ToIndexTagArrayOutputWithContext(context.Context) IndexTagArrayOutput
-}
-
-type IndexTagArray []IndexTagInput
-
-func (IndexTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IndexTag)(nil)).Elem()
-}
-
-func (i IndexTagArray) ToIndexTagArrayOutput() IndexTagArrayOutput {
-	return i.ToIndexTagArrayOutputWithContext(context.Background())
-}
-
-func (i IndexTagArray) ToIndexTagArrayOutputWithContext(ctx context.Context) IndexTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexTagArrayOutput)
-}
-
-// A label for tagging Kendra resources
-type IndexTagOutput struct{ *pulumi.OutputState }
-
-func (IndexTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexTag)(nil)).Elem()
-}
-
-func (o IndexTagOutput) ToIndexTagOutput() IndexTagOutput {
-	return o
-}
-
-func (o IndexTagOutput) ToIndexTagOutputWithContext(ctx context.Context) IndexTagOutput {
-	return o
-}
-
-// A string used to identify this tag
-func (o IndexTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v IndexTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A string containing the value for the tag
-func (o IndexTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IndexTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type IndexTagArrayOutput struct{ *pulumi.OutputState }
-
-func (IndexTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IndexTag)(nil)).Elem()
-}
-
-func (o IndexTagArrayOutput) ToIndexTagArrayOutput() IndexTagArrayOutput {
-	return o
-}
-
-func (o IndexTagArrayOutput) ToIndexTagArrayOutputWithContext(ctx context.Context) IndexTagArrayOutput {
-	return o
-}
-
-func (o IndexTagArrayOutput) Index(i pulumi.IntInput) IndexTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexTag {
-		return vs[0].([]IndexTag)[vs[1].(int)]
-	}).(IndexTagOutput)
-}
-
 type IndexUserTokenConfiguration struct {
 	JsonTokenTypeConfiguration *IndexJsonTokenTypeConfiguration `pulumi:"jsonTokenTypeConfiguration"`
 	JwtTokenTypeConfiguration  *IndexJwtTokenTypeConfiguration  `pulumi:"jwtTokenTypeConfiguration"`
@@ -10145,8 +9842,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointConfigurationPtrInput)(nil)).Elem(), DataSourceSharePointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSqlConfigurationInput)(nil)).Elem(), DataSourceSqlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSqlConfigurationPtrInput)(nil)).Elem(), DataSourceSqlConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTagInput)(nil)).Elem(), DataSourceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTagArrayInput)(nil)).Elem(), DataSourceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceToIndexFieldMappingInput)(nil)).Elem(), DataSourceToIndexFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceToIndexFieldMappingArrayInput)(nil)).Elem(), DataSourceToIndexFieldMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConfigurationInput)(nil)).Elem(), DataSourceVpcConfigurationArgs{})
@@ -10166,8 +9861,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWorkDocsConfigurationInput)(nil)).Elem(), DataSourceWorkDocsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWorkDocsConfigurationPtrInput)(nil)).Elem(), DataSourceWorkDocsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FaqS3PathInput)(nil)).Elem(), FaqS3PathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FaqTagInput)(nil)).Elem(), FaqTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FaqTagArrayInput)(nil)).Elem(), FaqTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexCapacityUnitsConfigurationInput)(nil)).Elem(), IndexCapacityUnitsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexCapacityUnitsConfigurationPtrInput)(nil)).Elem(), IndexCapacityUnitsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationInput)(nil)).Elem(), IndexDocumentMetadataConfigurationArgs{})
@@ -10182,8 +9875,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexSearchPtrInput)(nil)).Elem(), IndexSearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexServerSideEncryptionConfigurationInput)(nil)).Elem(), IndexServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), IndexServerSideEncryptionConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IndexTagInput)(nil)).Elem(), IndexTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IndexTagArrayInput)(nil)).Elem(), IndexTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexUserTokenConfigurationInput)(nil)).Elem(), IndexUserTokenConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexUserTokenConfigurationArrayInput)(nil)).Elem(), IndexUserTokenConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexValueImportanceItemInput)(nil)).Elem(), IndexValueImportanceItemArgs{})
@@ -10268,8 +9959,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceSharePointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSqlConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSqlConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceTagOutput{})
-	pulumi.RegisterOutputType(DataSourceTagArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceToIndexFieldMappingOutput{})
 	pulumi.RegisterOutputType(DataSourceToIndexFieldMappingArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConfigurationOutput{})
@@ -10289,8 +9978,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceWorkDocsConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceWorkDocsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FaqS3PathOutput{})
-	pulumi.RegisterOutputType(FaqTagOutput{})
-	pulumi.RegisterOutputType(FaqTagArrayOutput{})
 	pulumi.RegisterOutputType(IndexCapacityUnitsConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexCapacityUnitsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationOutput{})
@@ -10305,8 +9992,6 @@ func init() {
 	pulumi.RegisterOutputType(IndexSearchPtrOutput{})
 	pulumi.RegisterOutputType(IndexServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexServerSideEncryptionConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(IndexTagOutput{})
-	pulumi.RegisterOutputType(IndexTagArrayOutput{})
 	pulumi.RegisterOutputType(IndexUserTokenConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexUserTokenConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(IndexValueImportanceItemOutput{})

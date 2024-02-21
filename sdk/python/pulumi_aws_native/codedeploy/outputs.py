@@ -11,7 +11,6 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'ApplicationTag',
     'DeploymentConfigMinimumHealthyHosts',
     'DeploymentConfigMinimumHealthyHostsPerZone',
     'DeploymentConfigTimeBasedCanary',
@@ -38,32 +37,12 @@ __all__ = [
     'DeploymentGroupOnPremisesTagSetListObject',
     'DeploymentGroupRevisionLocation',
     'DeploymentGroupS3Location',
-    'DeploymentGroupTag',
     'DeploymentGroupTagFilter',
     'DeploymentGroupTargetGroupInfo',
     'DeploymentGroupTargetGroupPairInfo',
     'DeploymentGroupTrafficRoute',
     'DeploymentGroupTriggerConfig',
 ]
-
-@pulumi.output_type
-class ApplicationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class DeploymentConfigMinimumHealthyHosts(dict):
@@ -978,25 +957,6 @@ class DeploymentGroupS3Location(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class DeploymentGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

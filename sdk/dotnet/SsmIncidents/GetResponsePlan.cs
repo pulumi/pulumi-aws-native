@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.SsmIncidents
         /// <summary>
         /// The tags to apply to the response plan.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResponsePlanTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetResponsePlanResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.SsmIncidents
 
             ImmutableArray<Outputs.ResponsePlanIntegration> integrations,
 
-            ImmutableArray<Outputs.ResponsePlanTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Actions = actions;
             Arn = arn;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupContainerResult struct {
 	LifecyclePolicy      *string                `pulumi:"lifecyclePolicy"`
 	MetricPolicy         *ContainerMetricPolicy `pulumi:"metricPolicy"`
 	Policy               *string                `pulumi:"policy"`
-	Tags                 []ContainerTag         `pulumi:"tags"`
+	Tags                 []aws.Tag              `pulumi:"tags"`
 }
 
 func LookupContainerOutput(ctx *pulumi.Context, args LookupContainerOutputArgs, opts ...pulumi.InvokeOption) LookupContainerResultOutput {
@@ -100,8 +101,8 @@ func (o LookupContainerResultOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContainerResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupContainerResultOutput) Tags() ContainerTagArrayOutput {
-	return o.ApplyT(func(v LookupContainerResult) []ContainerTag { return v.Tags }).(ContainerTagArrayOutput)
+func (o LookupContainerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupContainerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

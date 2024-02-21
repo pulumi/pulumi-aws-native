@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,7 +19,7 @@ type InternetGateway struct {
 	// ID of internet gateway.
 	InternetGatewayId pulumi.StringOutput `pulumi:"internetGatewayId"`
 	// Any tags to assign to the internet gateway.
-	Tags InternetGatewayTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewInternetGateway registers a new resource with the given unique name, arguments, and options.
@@ -62,13 +63,13 @@ func (InternetGatewayState) ElementType() reflect.Type {
 
 type internetGatewayArgs struct {
 	// Any tags to assign to the internet gateway.
-	Tags []InternetGatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InternetGateway resource.
 type InternetGatewayArgs struct {
 	// Any tags to assign to the internet gateway.
-	Tags InternetGatewayTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (InternetGatewayArgs) ElementType() reflect.Type {
@@ -114,8 +115,8 @@ func (o InternetGatewayOutput) InternetGatewayId() pulumi.StringOutput {
 }
 
 // Any tags to assign to the internet gateway.
-func (o InternetGatewayOutput) Tags() InternetGatewayTagArrayOutput {
-	return o.ApplyT(func(v *InternetGateway) InternetGatewayTagArrayOutput { return v.Tags }).(InternetGatewayTagArrayOutput)
+func (o InternetGatewayOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *InternetGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

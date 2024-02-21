@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,7 +47,7 @@ type LookupDomainResult struct {
 	LogPublishingOptions        interface{}                        `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions `pulumi:"nodeToNodeEncryptionOptions"`
 	SnapshotOptions             *DomainSnapshotOptions             `pulumi:"snapshotOptions"`
-	Tags                        []DomainTag                        `pulumi:"tags"`
+	Tags                        []aws.Tag                          `pulumi:"tags"`
 	VpcOptions                  *DomainVpcOptions                  `pulumi:"vpcOptions"`
 }
 
@@ -152,8 +153,8 @@ func (o LookupDomainResultOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutp
 	return o.ApplyT(func(v LookupDomainResult) *DomainSnapshotOptions { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
 }
 
-func (o LookupDomainResultOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v LookupDomainResult) []DomainTag { return v.Tags }).(DomainTagArrayOutput)
+func (o LookupDomainResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupDomainResultOutput) VpcOptions() DomainVpcOptionsPtrOutput {

@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Dms
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
         /// </summary>
-        public readonly ImmutableArray<Outputs.ReplicationConfigTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
         /// </summary>
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.Dms
 
             object? tableMappings,
 
-            ImmutableArray<Outputs.ReplicationConfigTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? targetEndpointArn)
         {

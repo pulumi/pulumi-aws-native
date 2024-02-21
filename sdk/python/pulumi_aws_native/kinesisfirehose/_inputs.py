@@ -60,7 +60,6 @@ __all__ = [
     'DeliveryStreamSplunkBufferingHintsArgs',
     'DeliveryStreamSplunkDestinationConfigurationArgs',
     'DeliveryStreamSplunkRetryOptionsArgs',
-    'DeliveryStreamTagArgs',
     'DeliveryStreamVpcConfigurationArgs',
 ]
 
@@ -2620,34 +2619,6 @@ class DeliveryStreamSplunkRetryOptionsArgs:
     @duration_in_seconds.setter
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
-
-
-@pulumi.input_type
-class DeliveryStreamTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['TrafficMirrorSessionArgs', 'TrafficMirrorSession']
 
@@ -22,7 +22,7 @@ class TrafficMirrorSessionArgs:
                  traffic_mirror_target_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  packet_length: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorSessionTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  virtual_network_id: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a TrafficMirrorSession resource.
@@ -96,11 +96,11 @@ class TrafficMirrorSessionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorSessionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorSessionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -127,7 +127,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  packet_length: Optional[pulumi.Input[int]] = None,
                  session_number: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficMirrorSessionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  traffic_mirror_filter_id: Optional[pulumi.Input[str]] = None,
                  traffic_mirror_target_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[int]] = None,
@@ -166,7 +166,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  packet_length: Optional[pulumi.Input[int]] = None,
                  session_number: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficMirrorSessionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  traffic_mirror_filter_id: Optional[pulumi.Input[str]] = None,
                  traffic_mirror_target_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[int]] = None,
@@ -252,7 +252,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TrafficMirrorSessionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

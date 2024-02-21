@@ -24,7 +24,7 @@ export interface GetVpcPeeringConnectionArgs {
 
 export interface GetVpcPeeringConnectionResult {
     readonly id?: string;
-    readonly tags?: outputs.ec2.VpcPeeringConnectionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::VPCPeeringConnection

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupStoredQueryResult struct {
 	QueryExpression  *string `pulumi:"queryExpression"`
 	QueryId          *string `pulumi:"queryId"`
 	// The tags for the stored query.
-	Tags []StoredQueryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupStoredQueryOutput(ctx *pulumi.Context, args LookupStoredQueryOutputArgs, opts ...pulumi.InvokeOption) LookupStoredQueryResultOutput {
@@ -87,8 +88,8 @@ func (o LookupStoredQueryResultOutput) QueryId() pulumi.StringPtrOutput {
 }
 
 // The tags for the stored query.
-func (o LookupStoredQueryResultOutput) Tags() StoredQueryTagArrayOutput {
-	return o.ApplyT(func(v LookupStoredQueryResult) []StoredQueryTag { return v.Tags }).(StoredQueryTagArrayOutput)
+func (o LookupStoredQueryResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStoredQueryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -18,299 +18,14 @@ type CellTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CellTagInput is an input type that accepts CellTagArgs and CellTagOutput values.
-// You can construct a concrete instance of `CellTagInput` via:
-//
-//	CellTagArgs{...}
-type CellTagInput interface {
-	pulumi.Input
-
-	ToCellTagOutput() CellTagOutput
-	ToCellTagOutputWithContext(context.Context) CellTagOutput
-}
-
-type CellTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CellTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CellTag)(nil)).Elem()
-}
-
-func (i CellTagArgs) ToCellTagOutput() CellTagOutput {
-	return i.ToCellTagOutputWithContext(context.Background())
-}
-
-func (i CellTagArgs) ToCellTagOutputWithContext(ctx context.Context) CellTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CellTagOutput)
-}
-
-// CellTagArrayInput is an input type that accepts CellTagArray and CellTagArrayOutput values.
-// You can construct a concrete instance of `CellTagArrayInput` via:
-//
-//	CellTagArray{ CellTagArgs{...} }
-type CellTagArrayInput interface {
-	pulumi.Input
-
-	ToCellTagArrayOutput() CellTagArrayOutput
-	ToCellTagArrayOutputWithContext(context.Context) CellTagArrayOutput
-}
-
-type CellTagArray []CellTagInput
-
-func (CellTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CellTag)(nil)).Elem()
-}
-
-func (i CellTagArray) ToCellTagArrayOutput() CellTagArrayOutput {
-	return i.ToCellTagArrayOutputWithContext(context.Background())
-}
-
-func (i CellTagArray) ToCellTagArrayOutputWithContext(ctx context.Context) CellTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CellTagArrayOutput)
-}
-
-type CellTagOutput struct{ *pulumi.OutputState }
-
-func (CellTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CellTag)(nil)).Elem()
-}
-
-func (o CellTagOutput) ToCellTagOutput() CellTagOutput {
-	return o
-}
-
-func (o CellTagOutput) ToCellTagOutputWithContext(ctx context.Context) CellTagOutput {
-	return o
-}
-
-func (o CellTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CellTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CellTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CellTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CellTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CellTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CellTag)(nil)).Elem()
-}
-
-func (o CellTagArrayOutput) ToCellTagArrayOutput() CellTagArrayOutput {
-	return o
-}
-
-func (o CellTagArrayOutput) ToCellTagArrayOutputWithContext(ctx context.Context) CellTagArrayOutput {
-	return o
-}
-
-func (o CellTagArrayOutput) Index(i pulumi.IntInput) CellTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CellTag {
-		return vs[0].([]CellTag)[vs[1].(int)]
-	}).(CellTagOutput)
-}
-
 type ReadinessCheckTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
-// ReadinessCheckTagInput is an input type that accepts ReadinessCheckTagArgs and ReadinessCheckTagOutput values.
-// You can construct a concrete instance of `ReadinessCheckTagInput` via:
-//
-//	ReadinessCheckTagArgs{...}
-type ReadinessCheckTagInput interface {
-	pulumi.Input
-
-	ToReadinessCheckTagOutput() ReadinessCheckTagOutput
-	ToReadinessCheckTagOutputWithContext(context.Context) ReadinessCheckTagOutput
-}
-
-type ReadinessCheckTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ReadinessCheckTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadinessCheckTag)(nil)).Elem()
-}
-
-func (i ReadinessCheckTagArgs) ToReadinessCheckTagOutput() ReadinessCheckTagOutput {
-	return i.ToReadinessCheckTagOutputWithContext(context.Background())
-}
-
-func (i ReadinessCheckTagArgs) ToReadinessCheckTagOutputWithContext(ctx context.Context) ReadinessCheckTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckTagOutput)
-}
-
-// ReadinessCheckTagArrayInput is an input type that accepts ReadinessCheckTagArray and ReadinessCheckTagArrayOutput values.
-// You can construct a concrete instance of `ReadinessCheckTagArrayInput` via:
-//
-//	ReadinessCheckTagArray{ ReadinessCheckTagArgs{...} }
-type ReadinessCheckTagArrayInput interface {
-	pulumi.Input
-
-	ToReadinessCheckTagArrayOutput() ReadinessCheckTagArrayOutput
-	ToReadinessCheckTagArrayOutputWithContext(context.Context) ReadinessCheckTagArrayOutput
-}
-
-type ReadinessCheckTagArray []ReadinessCheckTagInput
-
-func (ReadinessCheckTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReadinessCheckTag)(nil)).Elem()
-}
-
-func (i ReadinessCheckTagArray) ToReadinessCheckTagArrayOutput() ReadinessCheckTagArrayOutput {
-	return i.ToReadinessCheckTagArrayOutputWithContext(context.Background())
-}
-
-func (i ReadinessCheckTagArray) ToReadinessCheckTagArrayOutputWithContext(ctx context.Context) ReadinessCheckTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckTagArrayOutput)
-}
-
-type ReadinessCheckTagOutput struct{ *pulumi.OutputState }
-
-func (ReadinessCheckTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadinessCheckTag)(nil)).Elem()
-}
-
-func (o ReadinessCheckTagOutput) ToReadinessCheckTagOutput() ReadinessCheckTagOutput {
-	return o
-}
-
-func (o ReadinessCheckTagOutput) ToReadinessCheckTagOutputWithContext(ctx context.Context) ReadinessCheckTagOutput {
-	return o
-}
-
-func (o ReadinessCheckTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ReadinessCheckTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ReadinessCheckTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ReadinessCheckTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ReadinessCheckTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ReadinessCheckTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReadinessCheckTag)(nil)).Elem()
-}
-
-func (o ReadinessCheckTagArrayOutput) ToReadinessCheckTagArrayOutput() ReadinessCheckTagArrayOutput {
-	return o
-}
-
-func (o ReadinessCheckTagArrayOutput) ToReadinessCheckTagArrayOutputWithContext(ctx context.Context) ReadinessCheckTagArrayOutput {
-	return o
-}
-
-func (o ReadinessCheckTagArrayOutput) Index(i pulumi.IntInput) ReadinessCheckTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReadinessCheckTag {
-		return vs[0].([]ReadinessCheckTag)[vs[1].(int)]
-	}).(ReadinessCheckTagOutput)
-}
-
 type RecoveryGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// RecoveryGroupTagInput is an input type that accepts RecoveryGroupTagArgs and RecoveryGroupTagOutput values.
-// You can construct a concrete instance of `RecoveryGroupTagInput` via:
-//
-//	RecoveryGroupTagArgs{...}
-type RecoveryGroupTagInput interface {
-	pulumi.Input
-
-	ToRecoveryGroupTagOutput() RecoveryGroupTagOutput
-	ToRecoveryGroupTagOutputWithContext(context.Context) RecoveryGroupTagOutput
-}
-
-type RecoveryGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RecoveryGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryGroupTag)(nil)).Elem()
-}
-
-func (i RecoveryGroupTagArgs) ToRecoveryGroupTagOutput() RecoveryGroupTagOutput {
-	return i.ToRecoveryGroupTagOutputWithContext(context.Background())
-}
-
-func (i RecoveryGroupTagArgs) ToRecoveryGroupTagOutputWithContext(ctx context.Context) RecoveryGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryGroupTagOutput)
-}
-
-// RecoveryGroupTagArrayInput is an input type that accepts RecoveryGroupTagArray and RecoveryGroupTagArrayOutput values.
-// You can construct a concrete instance of `RecoveryGroupTagArrayInput` via:
-//
-//	RecoveryGroupTagArray{ RecoveryGroupTagArgs{...} }
-type RecoveryGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToRecoveryGroupTagArrayOutput() RecoveryGroupTagArrayOutput
-	ToRecoveryGroupTagArrayOutputWithContext(context.Context) RecoveryGroupTagArrayOutput
-}
-
-type RecoveryGroupTagArray []RecoveryGroupTagInput
-
-func (RecoveryGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecoveryGroupTag)(nil)).Elem()
-}
-
-func (i RecoveryGroupTagArray) ToRecoveryGroupTagArrayOutput() RecoveryGroupTagArrayOutput {
-	return i.ToRecoveryGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i RecoveryGroupTagArray) ToRecoveryGroupTagArrayOutputWithContext(ctx context.Context) RecoveryGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryGroupTagArrayOutput)
-}
-
-type RecoveryGroupTagOutput struct{ *pulumi.OutputState }
-
-func (RecoveryGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryGroupTag)(nil)).Elem()
-}
-
-func (o RecoveryGroupTagOutput) ToRecoveryGroupTagOutput() RecoveryGroupTagOutput {
-	return o
-}
-
-func (o RecoveryGroupTagOutput) ToRecoveryGroupTagOutputWithContext(ctx context.Context) RecoveryGroupTagOutput {
-	return o
-}
-
-func (o RecoveryGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RecoveryGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o RecoveryGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RecoveryGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RecoveryGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RecoveryGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecoveryGroupTag)(nil)).Elem()
-}
-
-func (o RecoveryGroupTagArrayOutput) ToRecoveryGroupTagArrayOutput() RecoveryGroupTagArrayOutput {
-	return o
-}
-
-func (o RecoveryGroupTagArrayOutput) ToRecoveryGroupTagArrayOutputWithContext(ctx context.Context) RecoveryGroupTagArrayOutput {
-	return o
-}
-
-func (o RecoveryGroupTagArrayOutput) Index(i pulumi.IntInput) RecoveryGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecoveryGroupTag {
-		return vs[0].([]RecoveryGroupTag)[vs[1].(int)]
-	}).(RecoveryGroupTagOutput)
 }
 
 // A component for DNS/routing control readiness checks.
@@ -953,101 +668,6 @@ type ResourceSetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ResourceSetTagInput is an input type that accepts ResourceSetTagArgs and ResourceSetTagOutput values.
-// You can construct a concrete instance of `ResourceSetTagInput` via:
-//
-//	ResourceSetTagArgs{...}
-type ResourceSetTagInput interface {
-	pulumi.Input
-
-	ToResourceSetTagOutput() ResourceSetTagOutput
-	ToResourceSetTagOutputWithContext(context.Context) ResourceSetTagOutput
-}
-
-type ResourceSetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ResourceSetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSetTag)(nil)).Elem()
-}
-
-func (i ResourceSetTagArgs) ToResourceSetTagOutput() ResourceSetTagOutput {
-	return i.ToResourceSetTagOutputWithContext(context.Background())
-}
-
-func (i ResourceSetTagArgs) ToResourceSetTagOutputWithContext(ctx context.Context) ResourceSetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTagOutput)
-}
-
-// ResourceSetTagArrayInput is an input type that accepts ResourceSetTagArray and ResourceSetTagArrayOutput values.
-// You can construct a concrete instance of `ResourceSetTagArrayInput` via:
-//
-//	ResourceSetTagArray{ ResourceSetTagArgs{...} }
-type ResourceSetTagArrayInput interface {
-	pulumi.Input
-
-	ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput
-	ToResourceSetTagArrayOutputWithContext(context.Context) ResourceSetTagArrayOutput
-}
-
-type ResourceSetTagArray []ResourceSetTagInput
-
-func (ResourceSetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceSetTag)(nil)).Elem()
-}
-
-func (i ResourceSetTagArray) ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput {
-	return i.ToResourceSetTagArrayOutputWithContext(context.Background())
-}
-
-func (i ResourceSetTagArray) ToResourceSetTagArrayOutputWithContext(ctx context.Context) ResourceSetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTagArrayOutput)
-}
-
-type ResourceSetTagOutput struct{ *pulumi.OutputState }
-
-func (ResourceSetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSetTag)(nil)).Elem()
-}
-
-func (o ResourceSetTagOutput) ToResourceSetTagOutput() ResourceSetTagOutput {
-	return o
-}
-
-func (o ResourceSetTagOutput) ToResourceSetTagOutputWithContext(ctx context.Context) ResourceSetTagOutput {
-	return o
-}
-
-func (o ResourceSetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceSetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ResourceSetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceSetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ResourceSetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ResourceSetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceSetTag)(nil)).Elem()
-}
-
-func (o ResourceSetTagArrayOutput) ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput {
-	return o
-}
-
-func (o ResourceSetTagArrayOutput) ToResourceSetTagArrayOutputWithContext(ctx context.Context) ResourceSetTagArrayOutput {
-	return o
-}
-
-func (o ResourceSetTagArrayOutput) Index(i pulumi.IntInput) ResourceSetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceSetTag {
-		return vs[0].([]ResourceSetTag)[vs[1].(int)]
-	}).(ResourceSetTagOutput)
-}
-
 // The target resource that the Route 53 record points to.
 type ResourceSetTargetResource struct {
 	NlbResource *ResourceSetNlbResource       `pulumi:"nlbResource"`
@@ -1200,12 +820,6 @@ func (o ResourceSetTargetResourcePtrOutput) R53Resource() ResourceSetR53Resource
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CellTagInput)(nil)).Elem(), CellTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CellTagArrayInput)(nil)).Elem(), CellTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckTagInput)(nil)).Elem(), ReadinessCheckTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckTagArrayInput)(nil)).Elem(), ReadinessCheckTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupTagInput)(nil)).Elem(), RecoveryGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupTagArrayInput)(nil)).Elem(), RecoveryGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetDnsTargetResourceInput)(nil)).Elem(), ResourceSetDnsTargetResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetDnsTargetResourcePtrInput)(nil)).Elem(), ResourceSetDnsTargetResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetNlbResourceInput)(nil)).Elem(), ResourceSetNlbResourceArgs{})
@@ -1214,16 +828,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetR53ResourceRecordPtrInput)(nil)).Elem(), ResourceSetR53ResourceRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceInput)(nil)).Elem(), ResourceSetResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceArrayInput)(nil)).Elem(), ResourceSetResourceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTagInput)(nil)).Elem(), ResourceSetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTagArrayInput)(nil)).Elem(), ResourceSetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTargetResourceInput)(nil)).Elem(), ResourceSetTargetResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTargetResourcePtrInput)(nil)).Elem(), ResourceSetTargetResourceArgs{})
-	pulumi.RegisterOutputType(CellTagOutput{})
-	pulumi.RegisterOutputType(CellTagArrayOutput{})
-	pulumi.RegisterOutputType(ReadinessCheckTagOutput{})
-	pulumi.RegisterOutputType(ReadinessCheckTagArrayOutput{})
-	pulumi.RegisterOutputType(RecoveryGroupTagOutput{})
-	pulumi.RegisterOutputType(RecoveryGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSetDnsTargetResourceOutput{})
 	pulumi.RegisterOutputType(ResourceSetDnsTargetResourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetNlbResourceOutput{})
@@ -1232,8 +838,6 @@ func init() {
 	pulumi.RegisterOutputType(ResourceSetR53ResourceRecordPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetResourceOutput{})
 	pulumi.RegisterOutputType(ResourceSetResourceArrayOutput{})
-	pulumi.RegisterOutputType(ResourceSetTagOutput{})
-	pulumi.RegisterOutputType(ResourceSetTagArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSetTargetResourceOutput{})
 	pulumi.RegisterOutputType(ResourceSetTargetResourcePtrOutput{})
 }

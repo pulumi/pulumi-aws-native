@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ModelPackageGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetModelPackageGroupResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             Pulumi.AwsNative.SageMaker.ModelPackageGroupStatus? modelPackageGroupStatus,
 
-            ImmutableArray<Outputs.ModelPackageGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreationTime = creationTime;
             ModelPackageGroupArn = modelPackageGroupArn;

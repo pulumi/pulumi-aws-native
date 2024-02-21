@@ -41,7 +41,7 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly domainId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.voiceid.DomainServerSideEncryptionConfiguration>;
-    public readonly tags!: pulumi.Output<outputs.voiceid.DomainTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -81,5 +81,5 @@ export interface DomainArgs {
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     serverSideEncryptionConfiguration: pulumi.Input<inputs.voiceid.DomainServerSideEncryptionConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.voiceid.DomainTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

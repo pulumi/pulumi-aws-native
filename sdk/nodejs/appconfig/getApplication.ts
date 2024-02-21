@@ -41,7 +41,7 @@ export interface GetApplicationResult {
     /**
      * Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    readonly tags?: outputs.appconfig.ApplicationTags[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::AppConfig::Application

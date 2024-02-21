@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// Tags associated with this detector.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DetectorTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDetectorResult(
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.FraudDetector
 
             ImmutableArray<Outputs.DetectorRule> rules,
 
-            ImmutableArray<Outputs.DetectorTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AssociatedModels = associatedModels;

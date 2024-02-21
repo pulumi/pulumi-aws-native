@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupInferenceSchedulerResult struct {
 	// The Amazon Resource Name (ARN) of a role with permission to access the data source being used for the inference.
 	RoleArn *string `pulumi:"roleArn"`
 	// Any tags associated with the inference scheduler.
-	Tags []InferenceSchedulerTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupInferenceSchedulerOutput(ctx *pulumi.Context, args LookupInferenceSchedulerOutputArgs, opts ...pulumi.InvokeOption) LookupInferenceSchedulerResultOutput {
@@ -117,8 +118,8 @@ func (o LookupInferenceSchedulerResultOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // Any tags associated with the inference scheduler.
-func (o LookupInferenceSchedulerResultOutput) Tags() InferenceSchedulerTagArrayOutput {
-	return o.ApplyT(func(v LookupInferenceSchedulerResult) []InferenceSchedulerTag { return v.Tags }).(InferenceSchedulerTagArrayOutput)
+func (o LookupInferenceSchedulerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupInferenceSchedulerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

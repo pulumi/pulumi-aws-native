@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TransitGatewayRouteTableAttachmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Last update time of the attachment.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? state,
 
-            ImmutableArray<Outputs.TransitGatewayRouteTableAttachmentTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updatedAt)
         {

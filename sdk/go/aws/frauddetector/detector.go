@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type Detector struct {
 	RuleExecutionMode DetectorRuleExecutionModePtrOutput `pulumi:"ruleExecutionMode"`
 	Rules             DetectorRuleArrayOutput            `pulumi:"rules"`
 	// Tags associated with this detector.
-	Tags DetectorTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDetector registers a new resource with the given unique name, arguments, and options.
@@ -106,7 +107,7 @@ type detectorArgs struct {
 	RuleExecutionMode *DetectorRuleExecutionMode `pulumi:"ruleExecutionMode"`
 	Rules             []DetectorRule             `pulumi:"rules"`
 	// Tags associated with this detector.
-	Tags []DetectorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Detector resource.
@@ -124,7 +125,7 @@ type DetectorArgs struct {
 	RuleExecutionMode DetectorRuleExecutionModePtrInput
 	Rules             DetectorRuleArrayInput
 	// Tags associated with this detector.
-	Tags DetectorTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DetectorArgs) ElementType() reflect.Type {
@@ -218,8 +219,8 @@ func (o DetectorOutput) Rules() DetectorRuleArrayOutput {
 }
 
 // Tags associated with this detector.
-func (o DetectorOutput) Tags() DetectorTagArrayOutput {
-	return o.ApplyT(func(v *Detector) DetectorTagArrayOutput { return v.Tags }).(DetectorTagArrayOutput)
+func (o DetectorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Detector) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -24,7 +24,7 @@ export interface GetModelArgs {
 
 export interface GetModelResult {
     readonly id?: string;
-    readonly tags?: outputs.sagemaker.ModelTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::Model

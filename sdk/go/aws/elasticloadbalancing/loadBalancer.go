@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LoadBalancer struct {
 	SourceSecurityGroupGroupName  pulumi.StringPtrOutput                           `pulumi:"sourceSecurityGroupGroupName"`
 	SourceSecurityGroupOwnerAlias pulumi.StringPtrOutput                           `pulumi:"sourceSecurityGroupOwnerAlias"`
 	Subnets                       pulumi.StringArrayOutput                         `pulumi:"subnets"`
-	Tags                          LoadBalancerTagArrayOutput                       `pulumi:"tags"`
+	Tags                          aws.TagArrayOutput                               `pulumi:"tags"`
 }
 
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
@@ -106,7 +107,7 @@ type loadBalancerArgs struct {
 	SourceSecurityGroupGroupName  *string                                 `pulumi:"sourceSecurityGroupGroupName"`
 	SourceSecurityGroupOwnerAlias *string                                 `pulumi:"sourceSecurityGroupOwnerAlias"`
 	Subnets                       []string                                `pulumi:"subnets"`
-	Tags                          []LoadBalancerTag                       `pulumi:"tags"`
+	Tags                          []aws.Tag                               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
@@ -128,7 +129,7 @@ type LoadBalancerArgs struct {
 	SourceSecurityGroupGroupName  pulumi.StringPtrInput
 	SourceSecurityGroupOwnerAlias pulumi.StringPtrInput
 	Subnets                       pulumi.StringArrayInput
-	Tags                          LoadBalancerTagArrayInput
+	Tags                          aws.TagArrayInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {
@@ -252,8 +253,8 @@ func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
-func (o LoadBalancerOutput) Tags() LoadBalancerTagArrayOutput {
-	return o.ApplyT(func(v *LoadBalancer) LoadBalancerTagArrayOutput { return v.Tags }).(LoadBalancerTagArrayOutput)
+func (o LoadBalancerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

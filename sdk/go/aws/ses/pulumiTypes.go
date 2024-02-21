@@ -1906,101 +1906,6 @@ type ContactListTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ContactListTagInput is an input type that accepts ContactListTagArgs and ContactListTagOutput values.
-// You can construct a concrete instance of `ContactListTagInput` via:
-//
-//	ContactListTagArgs{...}
-type ContactListTagInput interface {
-	pulumi.Input
-
-	ToContactListTagOutput() ContactListTagOutput
-	ToContactListTagOutputWithContext(context.Context) ContactListTagOutput
-}
-
-type ContactListTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ContactListTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactListTag)(nil)).Elem()
-}
-
-func (i ContactListTagArgs) ToContactListTagOutput() ContactListTagOutput {
-	return i.ToContactListTagOutputWithContext(context.Background())
-}
-
-func (i ContactListTagArgs) ToContactListTagOutputWithContext(ctx context.Context) ContactListTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactListTagOutput)
-}
-
-// ContactListTagArrayInput is an input type that accepts ContactListTagArray and ContactListTagArrayOutput values.
-// You can construct a concrete instance of `ContactListTagArrayInput` via:
-//
-//	ContactListTagArray{ ContactListTagArgs{...} }
-type ContactListTagArrayInput interface {
-	pulumi.Input
-
-	ToContactListTagArrayOutput() ContactListTagArrayOutput
-	ToContactListTagArrayOutputWithContext(context.Context) ContactListTagArrayOutput
-}
-
-type ContactListTagArray []ContactListTagInput
-
-func (ContactListTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ContactListTag)(nil)).Elem()
-}
-
-func (i ContactListTagArray) ToContactListTagArrayOutput() ContactListTagArrayOutput {
-	return i.ToContactListTagArrayOutputWithContext(context.Background())
-}
-
-func (i ContactListTagArray) ToContactListTagArrayOutputWithContext(ctx context.Context) ContactListTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactListTagArrayOutput)
-}
-
-type ContactListTagOutput struct{ *pulumi.OutputState }
-
-func (ContactListTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactListTag)(nil)).Elem()
-}
-
-func (o ContactListTagOutput) ToContactListTagOutput() ContactListTagOutput {
-	return o
-}
-
-func (o ContactListTagOutput) ToContactListTagOutputWithContext(ctx context.Context) ContactListTagOutput {
-	return o
-}
-
-func (o ContactListTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ContactListTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ContactListTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ContactListTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ContactListTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ContactListTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ContactListTag)(nil)).Elem()
-}
-
-func (o ContactListTagArrayOutput) ToContactListTagArrayOutput() ContactListTagArrayOutput {
-	return o
-}
-
-func (o ContactListTagArrayOutput) ToContactListTagArrayOutputWithContext(ctx context.Context) ContactListTagArrayOutput {
-	return o
-}
-
-func (o ContactListTagArrayOutput) Index(i pulumi.IntInput) ContactListTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactListTag {
-		return vs[0].([]ContactListTag)[vs[1].(int)]
-	}).(ContactListTagOutput)
-}
-
 type ContactListTopic struct {
 	DefaultSubscriptionStatus string `pulumi:"defaultSubscriptionStatus"`
 	// The description of the topic.
@@ -4905,8 +4810,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsInput)(nil)).Elem(), ConfigurationSetVdmOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsPtrInput)(nil)).Elem(), ConfigurationSetVdmOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTagInput)(nil)).Elem(), ContactListTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTagArrayInput)(nil)).Elem(), ContactListTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicInput)(nil)).Elem(), ContactListTopicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicArrayInput)(nil)).Elem(), ContactListTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityConfigurationSetAttributesInput)(nil)).Elem(), EmailIdentityConfigurationSetAttributesArgs{})
@@ -4970,8 +4873,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsPtrOutput{})
-	pulumi.RegisterOutputType(ContactListTagOutput{})
-	pulumi.RegisterOutputType(ContactListTagArrayOutput{})
 	pulumi.RegisterOutputType(ContactListTopicOutput{})
 	pulumi.RegisterOutputType(ContactListTopicArrayOutput{})
 	pulumi.RegisterOutputType(EmailIdentityConfigurationSetAttributesOutput{})

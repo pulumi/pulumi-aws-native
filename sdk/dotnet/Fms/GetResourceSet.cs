@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Fms
         public readonly string? Name;
         public readonly ImmutableArray<string> ResourceTypeList;
         public readonly ImmutableArray<string> Resources;
-        public readonly ImmutableArray<Outputs.ResourceSetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetResourceSetResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Fms
 
             ImmutableArray<string> resources,
 
-            ImmutableArray<Outputs.ResourceSetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             Id = id;

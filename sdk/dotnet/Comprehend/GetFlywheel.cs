@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Comprehend
         public readonly string? Arn;
         public readonly string? DataAccessRoleArn;
         public readonly Outputs.FlywheelDataSecurityConfig? DataSecurityConfig;
-        public readonly ImmutableArray<Outputs.FlywheelTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFlywheelResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Comprehend
 
             Outputs.FlywheelDataSecurityConfig? dataSecurityConfig,
 
-            ImmutableArray<Outputs.FlywheelTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ActiveModelArn = activeModelArn;
             Arn = arn;

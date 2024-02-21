@@ -4593,101 +4593,6 @@ type TableTag struct {
 	Value string `pulumi:"value"`
 }
 
-// TableTagInput is an input type that accepts TableTagArgs and TableTagOutput values.
-// You can construct a concrete instance of `TableTagInput` via:
-//
-//	TableTagArgs{...}
-type TableTagInput interface {
-	pulumi.Input
-
-	ToTableTagOutput() TableTagOutput
-	ToTableTagOutputWithContext(context.Context) TableTagOutput
-}
-
-type TableTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TableTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableTag)(nil)).Elem()
-}
-
-func (i TableTagArgs) ToTableTagOutput() TableTagOutput {
-	return i.ToTableTagOutputWithContext(context.Background())
-}
-
-func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTagOutput)
-}
-
-// TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
-// You can construct a concrete instance of `TableTagArrayInput` via:
-//
-//	TableTagArray{ TableTagArgs{...} }
-type TableTagArrayInput interface {
-	pulumi.Input
-
-	ToTableTagArrayOutput() TableTagArrayOutput
-	ToTableTagArrayOutputWithContext(context.Context) TableTagArrayOutput
-}
-
-type TableTagArray []TableTagInput
-
-func (TableTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
-}
-
-func (i TableTagArray) ToTableTagArrayOutput() TableTagArrayOutput {
-	return i.ToTableTagArrayOutputWithContext(context.Background())
-}
-
-func (i TableTagArray) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTagArrayOutput)
-}
-
-type TableTagOutput struct{ *pulumi.OutputState }
-
-func (TableTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableTag)(nil)).Elem()
-}
-
-func (o TableTagOutput) ToTableTagOutput() TableTagOutput {
-	return o
-}
-
-func (o TableTagOutput) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
-	return o
-}
-
-func (o TableTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TableTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o TableTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TableTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TableTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TableTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
-}
-
-func (o TableTagArrayOutput) ToTableTagArrayOutput() TableTagArrayOutput {
-	return o
-}
-
-func (o TableTagArrayOutput) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
-	return o
-}
-
-func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableTag {
-		return vs[0].([]TableTag)[vs[1].(int)]
-	}).(TableTagOutput)
-}
-
 type TableTimeToLiveSpecification struct {
 	AttributeName *string `pulumi:"attributeName"`
 	Enabled       bool    `pulumi:"enabled"`
@@ -4905,8 +4810,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSseSpecificationPtrInput)(nil)).Elem(), TableSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStreamSpecificationInput)(nil)).Elem(), TableStreamSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStreamSpecificationPtrInput)(nil)).Elem(), TableStreamSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTimeToLiveSpecificationInput)(nil)).Elem(), TableTimeToLiveSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTimeToLiveSpecificationPtrInput)(nil)).Elem(), TableTimeToLiveSpecificationArgs{})
 	pulumi.RegisterOutputType(GlobalTableAttributeDefinitionOutput{})
@@ -4977,8 +4880,6 @@ func init() {
 	pulumi.RegisterOutputType(TableSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableStreamSpecificationOutput{})
 	pulumi.RegisterOutputType(TableStreamSpecificationPtrOutput{})
-	pulumi.RegisterOutputType(TableTagOutput{})
-	pulumi.RegisterOutputType(TableTagArrayOutput{})
 	pulumi.RegisterOutputType(TableTimeToLiveSpecificationOutput{})
 	pulumi.RegisterOutputType(TableTimeToLiveSpecificationPtrOutput{})
 }

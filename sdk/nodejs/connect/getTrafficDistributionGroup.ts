@@ -41,7 +41,7 @@ export interface GetTrafficDistributionGroupResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.TrafficDistributionGroupTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The identifier of the traffic distribution group.
      */

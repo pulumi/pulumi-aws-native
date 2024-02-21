@@ -52,7 +52,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * List of tags to tag the Registry
      */
-    public readonly tags!: pulumi.Output<outputs.glue.RegistryTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Registry resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface RegistryArgs {
     /**
      * List of tags to tag the Registry
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.glue.RegistryTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

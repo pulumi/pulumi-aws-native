@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,14 +19,14 @@ import (
 type TrafficMirrorSession struct {
 	pulumi.CustomResourceState
 
-	Description           pulumi.StringPtrOutput             `pulumi:"description"`
-	NetworkInterfaceId    pulumi.StringOutput                `pulumi:"networkInterfaceId"`
-	PacketLength          pulumi.IntPtrOutput                `pulumi:"packetLength"`
-	SessionNumber         pulumi.IntOutput                   `pulumi:"sessionNumber"`
-	Tags                  TrafficMirrorSessionTagArrayOutput `pulumi:"tags"`
-	TrafficMirrorFilterId pulumi.StringOutput                `pulumi:"trafficMirrorFilterId"`
-	TrafficMirrorTargetId pulumi.StringOutput                `pulumi:"trafficMirrorTargetId"`
-	VirtualNetworkId      pulumi.IntPtrOutput                `pulumi:"virtualNetworkId"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	NetworkInterfaceId    pulumi.StringOutput    `pulumi:"networkInterfaceId"`
+	PacketLength          pulumi.IntPtrOutput    `pulumi:"packetLength"`
+	SessionNumber         pulumi.IntOutput       `pulumi:"sessionNumber"`
+	Tags                  aws.TagArrayOutput     `pulumi:"tags"`
+	TrafficMirrorFilterId pulumi.StringOutput    `pulumi:"trafficMirrorFilterId"`
+	TrafficMirrorTargetId pulumi.StringOutput    `pulumi:"trafficMirrorTargetId"`
+	VirtualNetworkId      pulumi.IntPtrOutput    `pulumi:"virtualNetworkId"`
 }
 
 // NewTrafficMirrorSession registers a new resource with the given unique name, arguments, and options.
@@ -84,14 +85,14 @@ func (TrafficMirrorSessionState) ElementType() reflect.Type {
 }
 
 type trafficMirrorSessionArgs struct {
-	Description           *string                   `pulumi:"description"`
-	NetworkInterfaceId    string                    `pulumi:"networkInterfaceId"`
-	PacketLength          *int                      `pulumi:"packetLength"`
-	SessionNumber         int                       `pulumi:"sessionNumber"`
-	Tags                  []TrafficMirrorSessionTag `pulumi:"tags"`
-	TrafficMirrorFilterId string                    `pulumi:"trafficMirrorFilterId"`
-	TrafficMirrorTargetId string                    `pulumi:"trafficMirrorTargetId"`
-	VirtualNetworkId      *int                      `pulumi:"virtualNetworkId"`
+	Description           *string   `pulumi:"description"`
+	NetworkInterfaceId    string    `pulumi:"networkInterfaceId"`
+	PacketLength          *int      `pulumi:"packetLength"`
+	SessionNumber         int       `pulumi:"sessionNumber"`
+	Tags                  []aws.Tag `pulumi:"tags"`
+	TrafficMirrorFilterId string    `pulumi:"trafficMirrorFilterId"`
+	TrafficMirrorTargetId string    `pulumi:"trafficMirrorTargetId"`
+	VirtualNetworkId      *int      `pulumi:"virtualNetworkId"`
 }
 
 // The set of arguments for constructing a TrafficMirrorSession resource.
@@ -100,7 +101,7 @@ type TrafficMirrorSessionArgs struct {
 	NetworkInterfaceId    pulumi.StringInput
 	PacketLength          pulumi.IntPtrInput
 	SessionNumber         pulumi.IntInput
-	Tags                  TrafficMirrorSessionTagArrayInput
+	Tags                  aws.TagArrayInput
 	TrafficMirrorFilterId pulumi.StringInput
 	TrafficMirrorTargetId pulumi.StringInput
 	VirtualNetworkId      pulumi.IntPtrInput
@@ -159,8 +160,8 @@ func (o TrafficMirrorSessionOutput) SessionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntOutput { return v.SessionNumber }).(pulumi.IntOutput)
 }
 
-func (o TrafficMirrorSessionOutput) Tags() TrafficMirrorSessionTagArrayOutput {
-	return o.ApplyT(func(v *TrafficMirrorSession) TrafficMirrorSessionTagArrayOutput { return v.Tags }).(TrafficMirrorSessionTagArrayOutput)
+func (o TrafficMirrorSessionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TrafficMirrorSessionOutput) TrafficMirrorFilterId() pulumi.StringOutput {

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ReplicationGroupArgs', 'ReplicationGroup']
@@ -61,7 +63,7 @@ class ReplicationGroupArgs:
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  snapshotting_cluster_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  transit_encryption_mode: Optional[pulumi.Input[str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -573,11 +575,11 @@ class ReplicationGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -663,7 +665,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  snapshotting_cluster_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  transit_encryption_mode: Optional[pulumi.Input[str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -743,7 +745,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  snapshotting_cluster_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  transit_encryption_mode: Optional[pulumi.Input[str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1110,7 +1112,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicationGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

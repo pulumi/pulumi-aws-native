@@ -57,7 +57,7 @@ export interface GetContactFlowModuleResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.ContactFlowModuleTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Connect::ContactFlowModule.

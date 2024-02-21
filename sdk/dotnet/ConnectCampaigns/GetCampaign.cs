@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CampaignTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCampaignResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
 
             Outputs.CampaignOutboundCallConfig? outboundCallConfig,
 
-            ImmutableArray<Outputs.CampaignTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DialerConfig = dialerConfig;

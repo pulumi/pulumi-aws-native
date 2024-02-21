@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.B2bi
         public Output<Pulumi.AwsNative.B2bi.TransformerStatus> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TransformerTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("transformerArn")]
         public Output<string> TransformerArn { get; private set; } = null!;
@@ -115,10 +115,10 @@ namespace Pulumi.AwsNative.B2bi
         public Input<Pulumi.AwsNative.B2bi.TransformerStatus> Status { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.TransformerTagArgs>? _tags;
-        public InputList<Inputs.TransformerTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TransformerTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

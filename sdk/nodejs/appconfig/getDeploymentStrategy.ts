@@ -29,7 +29,7 @@ export interface GetDeploymentStrategyResult {
     readonly growthFactor?: number;
     readonly growthType?: string;
     readonly id?: string;
-    readonly tags?: outputs.appconfig.DeploymentStrategyTags[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::AppConfig::DeploymentStrategy

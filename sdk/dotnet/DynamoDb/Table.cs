@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public Output<string?> TableName { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TableTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("timeToLiveSpecification")]
         public Output<Outputs.TableTimeToLiveSpecification?> TimeToLiveSpecification { get; private set; } = null!;
@@ -189,10 +189,10 @@ namespace Pulumi.AwsNative.DynamoDb
         public Input<string>? TableName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TableTagArgs>? _tags;
-        public InputList<Inputs.TableTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TableTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -40,7 +40,7 @@ export class Config extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly configData!: pulumi.Output<outputs.groundstation.ConfigData>;
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.groundstation.ConfigTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
@@ -80,5 +80,5 @@ export class Config extends pulumi.CustomResource {
 export interface ConfigArgs {
     configData: pulumi.Input<inputs.groundstation.ConfigDataArgs>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.groundstation.ConfigTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

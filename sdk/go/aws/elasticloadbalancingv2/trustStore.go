@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type TrustStore struct {
 	// The status of the trust store, could be either of ACTIVE or CREATING.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags to assign to the trust store.
-	Tags TrustStoreTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the trust store.
 	TrustStoreArn pulumi.StringOutput `pulumi:"trustStoreArn"`
 }
@@ -86,7 +87,7 @@ type trustStoreArgs struct {
 	// The name of the trust store.
 	Name *string `pulumi:"name"`
 	// The tags to assign to the trust store.
-	Tags []TrustStoreTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustStore resource.
@@ -100,7 +101,7 @@ type TrustStoreArgs struct {
 	// The name of the trust store.
 	Name pulumi.StringPtrInput
 	// The tags to assign to the trust store.
-	Tags TrustStoreTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (TrustStoreArgs) ElementType() reflect.Type {
@@ -171,8 +172,8 @@ func (o TrustStoreOutput) Status() pulumi.StringOutput {
 }
 
 // The tags to assign to the trust store.
-func (o TrustStoreOutput) Tags() TrustStoreTagArrayOutput {
-	return o.ApplyT(func(v *TrustStore) TrustStoreTagArrayOutput { return v.Tags }).(TrustStoreTagArrayOutput)
+func (o TrustStoreOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TrustStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the trust store.

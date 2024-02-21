@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,12 +28,12 @@ type LookupNetworkSettingsArgs struct {
 }
 
 type LookupNetworkSettingsResult struct {
-	AssociatedPortalArns []string             `pulumi:"associatedPortalArns"`
-	NetworkSettingsArn   *string              `pulumi:"networkSettingsArn"`
-	SecurityGroupIds     []string             `pulumi:"securityGroupIds"`
-	SubnetIds            []string             `pulumi:"subnetIds"`
-	Tags                 []NetworkSettingsTag `pulumi:"tags"`
-	VpcId                *string              `pulumi:"vpcId"`
+	AssociatedPortalArns []string  `pulumi:"associatedPortalArns"`
+	NetworkSettingsArn   *string   `pulumi:"networkSettingsArn"`
+	SecurityGroupIds     []string  `pulumi:"securityGroupIds"`
+	SubnetIds            []string  `pulumi:"subnetIds"`
+	Tags                 []aws.Tag `pulumi:"tags"`
+	VpcId                *string   `pulumi:"vpcId"`
 }
 
 func LookupNetworkSettingsOutput(ctx *pulumi.Context, args LookupNetworkSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSettingsResultOutput {
@@ -86,8 +87,8 @@ func (o LookupNetworkSettingsResultOutput) SubnetIds() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LookupNetworkSettingsResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupNetworkSettingsResultOutput) Tags() NetworkSettingsTagArrayOutput {
-	return o.ApplyT(func(v LookupNetworkSettingsResult) []NetworkSettingsTag { return v.Tags }).(NetworkSettingsTagArrayOutput)
+func (o LookupNetworkSettingsResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNetworkSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupNetworkSettingsResultOutput) VpcId() pulumi.StringPtrOutput {

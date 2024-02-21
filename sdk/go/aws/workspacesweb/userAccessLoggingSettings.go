@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,9 +19,9 @@ type UserAccessLoggingSettings struct {
 
 	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
 	// Kinesis stream ARN to which log events are published.
-	KinesisStreamArn             pulumi.StringOutput                     `pulumi:"kinesisStreamArn"`
-	Tags                         UserAccessLoggingSettingsTagArrayOutput `pulumi:"tags"`
-	UserAccessLoggingSettingsArn pulumi.StringOutput                     `pulumi:"userAccessLoggingSettingsArn"`
+	KinesisStreamArn             pulumi.StringOutput `pulumi:"kinesisStreamArn"`
+	Tags                         aws.TagArrayOutput  `pulumi:"tags"`
+	UserAccessLoggingSettingsArn pulumi.StringOutput `pulumi:"userAccessLoggingSettingsArn"`
 }
 
 // NewUserAccessLoggingSettings registers a new resource with the given unique name, arguments, and options.
@@ -67,15 +68,15 @@ func (UserAccessLoggingSettingsState) ElementType() reflect.Type {
 
 type userAccessLoggingSettingsArgs struct {
 	// Kinesis stream ARN to which log events are published.
-	KinesisStreamArn string                         `pulumi:"kinesisStreamArn"`
-	Tags             []UserAccessLoggingSettingsTag `pulumi:"tags"`
+	KinesisStreamArn string    `pulumi:"kinesisStreamArn"`
+	Tags             []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a UserAccessLoggingSettings resource.
 type UserAccessLoggingSettingsArgs struct {
 	// Kinesis stream ARN to which log events are published.
 	KinesisStreamArn pulumi.StringInput
-	Tags             UserAccessLoggingSettingsTagArrayInput
+	Tags             aws.TagArrayInput
 }
 
 func (UserAccessLoggingSettingsArgs) ElementType() reflect.Type {
@@ -124,8 +125,8 @@ func (o UserAccessLoggingSettingsOutput) KinesisStreamArn() pulumi.StringOutput 
 	return o.ApplyT(func(v *UserAccessLoggingSettings) pulumi.StringOutput { return v.KinesisStreamArn }).(pulumi.StringOutput)
 }
 
-func (o UserAccessLoggingSettingsOutput) Tags() UserAccessLoggingSettingsTagArrayOutput {
-	return o.ApplyT(func(v *UserAccessLoggingSettings) UserAccessLoggingSettingsTagArrayOutput { return v.Tags }).(UserAccessLoggingSettingsTagArrayOutput)
+func (o UserAccessLoggingSettingsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *UserAccessLoggingSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o UserAccessLoggingSettingsOutput) UserAccessLoggingSettingsArn() pulumi.StringOutput {

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetEipResult',
@@ -70,7 +70,7 @@ class GetEipResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.EipTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Any tags assigned to the EIP.
         """

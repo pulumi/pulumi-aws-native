@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Ec2
         /// Any tags assigned to the route table.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RouteTableTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the VPC.
@@ -83,14 +83,14 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class RouteTableArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
-        private InputList<Inputs.RouteTableTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Any tags assigned to the route table.
         /// </summary>
-        public InputList<Inputs.RouteTableTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RouteTableTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

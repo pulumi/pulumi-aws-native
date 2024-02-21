@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,7 +48,7 @@ type LookupProjectResult struct {
 	ServiceRole             *string                     `pulumi:"serviceRole"`
 	Source                  *ProjectSource              `pulumi:"source"`
 	SourceVersion           *string                     `pulumi:"sourceVersion"`
-	Tags                    []ProjectTag                `pulumi:"tags"`
+	Tags                    []aws.Tag                   `pulumi:"tags"`
 	TimeoutInMinutes        *int                        `pulumi:"timeoutInMinutes"`
 	Triggers                *ProjectTriggers            `pulumi:"triggers"`
 	Visibility              *string                     `pulumi:"visibility"`
@@ -169,8 +170,8 @@ func (o LookupProjectResultOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupProjectResultOutput) Tags() ProjectTagArrayOutput {
-	return o.ApplyT(func(v LookupProjectResult) []ProjectTag { return v.Tags }).(ProjectTagArrayOutput)
+func (o LookupProjectResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProjectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupProjectResultOutput) TimeoutInMinutes() pulumi.IntPtrOutput {

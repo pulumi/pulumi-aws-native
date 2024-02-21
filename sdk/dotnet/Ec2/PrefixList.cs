@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Ec2
         /// Tags for Prefix List
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PrefixListTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Version of Prefix List.
@@ -145,14 +145,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? PrefixListName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.PrefixListTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags for Prefix List
         /// </summary>
-        public InputList<Inputs.PrefixListTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PrefixListTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -52,7 +52,7 @@ export class ServiceProfile extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the service profile.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.ServiceProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ServiceProfile resource with the given unique name, arguments, and options.
@@ -95,5 +95,5 @@ export interface ServiceProfileArgs {
     /**
      * A list of key-value pairs that contain metadata for the service profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.ServiceProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

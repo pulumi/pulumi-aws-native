@@ -49,7 +49,7 @@ export class VodSource extends pulumi.CustomResource {
     /**
      * The tags to assign to the VOD source.
      */
-    public readonly tags!: pulumi.Output<outputs.mediatailor.VodSourceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vodSourceName!: pulumi.Output<string>;
 
     /**
@@ -100,6 +100,6 @@ export interface VodSourceArgs {
     /**
      * The tags to assign to the VOD source.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.mediatailor.VodSourceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vodSourceName?: pulumi.Input<string>;
 }

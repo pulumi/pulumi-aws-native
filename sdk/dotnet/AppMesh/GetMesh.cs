@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.AppMesh
         public readonly string? MeshOwner;
         public readonly string? ResourceOwner;
         public readonly Outputs.MeshSpec? Spec;
-        public readonly ImmutableArray<Outputs.MeshTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? Uid;
 
         [OutputConstructor]
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.AppMesh
 
             Outputs.MeshSpec? spec,
 
-            ImmutableArray<Outputs.MeshTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? uid)
         {

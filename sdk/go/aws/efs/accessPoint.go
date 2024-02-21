@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,8 +22,8 @@ type AccessPoint struct {
 	AccessPointId pulumi.StringOutput `pulumi:"accessPointId"`
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	AccessPointTags AccessPointTagArrayOutput `pulumi:"accessPointTags"`
-	Arn             pulumi.StringOutput       `pulumi:"arn"`
+	AccessPointTags aws.TagArrayOutput  `pulumi:"accessPointTags"`
+	Arn             pulumi.StringOutput `pulumi:"arn"`
 	// The opaque string specified in the request to ensure idempotent creation.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
 	// The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
@@ -85,7 +86,7 @@ func (AccessPointState) ElementType() reflect.Type {
 type accessPointArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	AccessPointTags []AccessPointTag `pulumi:"accessPointTags"`
+	AccessPointTags []aws.Tag `pulumi:"accessPointTags"`
 	// The opaque string specified in the request to ensure idempotent creation.
 	ClientToken *string `pulumi:"clientToken"`
 	// The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
@@ -100,7 +101,7 @@ type accessPointArgs struct {
 type AccessPointArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	AccessPointTags AccessPointTagArrayInput
+	AccessPointTags aws.TagArrayInput
 	// The opaque string specified in the request to ensure idempotent creation.
 	ClientToken pulumi.StringPtrInput
 	// The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
@@ -155,8 +156,8 @@ func (o AccessPointOutput) AccessPointId() pulumi.StringOutput {
 // An array of key-value pairs to apply to this resource.
 //
 //	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-func (o AccessPointOutput) AccessPointTags() AccessPointTagArrayOutput {
-	return o.ApplyT(func(v *AccessPoint) AccessPointTagArrayOutput { return v.AccessPointTags }).(AccessPointTagArrayOutput)
+func (o AccessPointOutput) AccessPointTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AccessPoint) aws.TagArrayOutput { return v.AccessPointTags }).(aws.TagArrayOutput)
 }
 
 func (o AccessPointOutput) Arn() pulumi.StringOutput {

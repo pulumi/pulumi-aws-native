@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupDomainConfigurationResult struct {
 	DomainType                *DomainConfigurationDomainType                `pulumi:"domainType"`
 	ServerCertificateConfig   *DomainConfigurationServerCertificateConfig   `pulumi:"serverCertificateConfig"`
 	ServerCertificates        []DomainConfigurationServerCertificateSummary `pulumi:"serverCertificates"`
-	Tags                      []DomainConfigurationTag                      `pulumi:"tags"`
+	Tags                      []aws.Tag                                     `pulumi:"tags"`
 	TlsConfig                 *DomainConfigurationTlsConfig                 `pulumi:"tlsConfig"`
 }
 
@@ -102,8 +103,8 @@ func (o LookupDomainConfigurationResultOutput) ServerCertificates() DomainConfig
 	}).(DomainConfigurationServerCertificateSummaryArrayOutput)
 }
 
-func (o LookupDomainConfigurationResultOutput) Tags() DomainConfigurationTagArrayOutput {
-	return o.ApplyT(func(v LookupDomainConfigurationResult) []DomainConfigurationTag { return v.Tags }).(DomainConfigurationTagArrayOutput)
+func (o LookupDomainConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDomainConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupDomainConfigurationResultOutput) TlsConfig() DomainConfigurationTlsConfigPtrOutput {

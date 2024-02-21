@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FleetArgs', 'Fleet']
@@ -35,7 +37,7 @@ class FleetArgs:
                  platform: Optional[pulumi.Input[str]] = None,
                  session_script_s3_location: Optional[pulumi.Input['FleetS3LocationArgs']] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None):
         """
@@ -258,11 +260,11 @@ class FleetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -313,7 +315,7 @@ class Fleet(pulumi.CustomResource):
                  platform: Optional[pulumi.Input[str]] = None,
                  session_script_s3_location: Optional[pulumi.Input[pulumi.InputType['FleetS3LocationArgs']]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']]] = None,
                  __props__=None):
@@ -366,7 +368,7 @@ class Fleet(pulumi.CustomResource):
                  platform: Optional[pulumi.Input[str]] = None,
                  session_script_s3_location: Optional[pulumi.Input[pulumi.InputType['FleetS3LocationArgs']]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']]] = None,
                  __props__=None):
@@ -548,7 +550,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FleetTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

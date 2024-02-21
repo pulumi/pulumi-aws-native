@@ -26,19 +26,13 @@ __all__ = [
     'GameServerGroupAutoScalingPolicyArgs',
     'GameServerGroupInstanceDefinitionArgs',
     'GameServerGroupLaunchTemplateArgs',
-    'GameServerGroupTagArgs',
     'GameServerGroupTargetTrackingConfigurationArgs',
     'GameSessionQueueDestinationArgs',
     'GameSessionQueueFilterConfigurationArgs',
     'GameSessionQueuePlayerLatencyPolicyArgs',
     'GameSessionQueuePriorityConfigurationArgs',
-    'GameSessionQueueTagArgs',
-    'LocationTagArgs',
     'MatchmakingConfigurationGamePropertyArgs',
-    'MatchmakingConfigurationTagArgs',
-    'MatchmakingRuleSetTagArgs',
     'ScriptS3LocationArgs',
-    'ScriptTagArgs',
 ]
 
 @pulumi.input_type
@@ -845,45 +839,6 @@ class GameServerGroupLaunchTemplateArgs:
 
 
 @pulumi.input_type
-class GameServerGroupTagArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] key: The key for a developer-defined key:value pair for tagging an AWS resource.
-        :param pulumi.Input[str] value: The value for a developer-defined key:value pair for tagging an AWS resource.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The key for a developer-defined key:value pair for tagging an AWS resource.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value for a developer-defined key:value pair for tagging an AWS resource.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class GameServerGroupTargetTrackingConfigurationArgs:
     def __init__(__self__, *,
                  target_value: pulumi.Input[float]):
@@ -1009,82 +964,6 @@ class GameSessionQueuePriorityConfigurationArgs:
 
 
 @pulumi.input_type
-class GameSessionQueueTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class LocationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class MatchmakingConfigurationGamePropertyArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -1114,82 +993,6 @@ class MatchmakingConfigurationGamePropertyArgs:
     def value(self) -> pulumi.Input[str]:
         """
         The game property value.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class MatchmakingConfigurationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class MatchmakingRuleSetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -1264,43 +1067,5 @@ class ScriptS3LocationArgs:
     @object_version.setter
     def object_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "object_version", value)
-
-
-@pulumi.input_type
-class ScriptTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

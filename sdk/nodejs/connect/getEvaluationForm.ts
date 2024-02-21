@@ -53,7 +53,7 @@ export interface GetEvaluationFormResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.EvaluationFormTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The title of the evaluation form.
      */

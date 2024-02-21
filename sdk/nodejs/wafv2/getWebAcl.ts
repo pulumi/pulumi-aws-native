@@ -41,7 +41,7 @@ export interface GetWebAclResult {
      * Collection of Rules.
      */
     readonly rules?: outputs.wafv2.WebAclRule[];
-    readonly tags?: outputs.wafv2.WebAclTag[];
+    readonly tags?: outputs.Tag[];
     readonly tokenDomains?: string[];
     readonly visibilityConfig?: outputs.wafv2.WebAclVisibilityConfig;
 }

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,7 +24,7 @@ class RuleGroupInitArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  rule_group: Optional[pulumi.Input['RuleGroupArgs']] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
         """
@@ -84,11 +86,11 @@ class RuleGroupInitArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -101,7 +103,7 @@ class RuleGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupArgs']]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['RuleGroupTypeEnum']] = None,
                  __props__=None):
         """
@@ -138,7 +140,7 @@ class RuleGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupArgs']]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['RuleGroupTypeEnum']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -227,7 +229,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RuleGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

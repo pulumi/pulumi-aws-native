@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,8 +47,8 @@ type LookupVpcResult struct {
 	InstanceTenancy *string  `pulumi:"instanceTenancy"`
 	Ipv6CidrBlocks  []string `pulumi:"ipv6CidrBlocks"`
 	// The tags for the VPC.
-	Tags  []VpcTag `pulumi:"tags"`
-	VpcId *string  `pulumi:"vpcId"`
+	Tags  []aws.Tag `pulumi:"tags"`
+	VpcId *string   `pulumi:"vpcId"`
 }
 
 func LookupVpcOutput(ctx *pulumi.Context, args LookupVpcOutputArgs, opts ...pulumi.InvokeOption) LookupVpcResultOutput {
@@ -125,8 +126,8 @@ func (o LookupVpcResultOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 }
 
 // The tags for the VPC.
-func (o LookupVpcResultOutput) Tags() VpcTagArrayOutput {
-	return o.ApplyT(func(v LookupVpcResult) []VpcTag { return v.Tags }).(VpcTagArrayOutput)
+func (o LookupVpcResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVpcResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupVpcResultOutput) VpcId() pulumi.StringPtrOutput {

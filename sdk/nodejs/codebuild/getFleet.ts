@@ -28,7 +28,7 @@ export interface GetFleetResult {
     readonly computeType?: enums.codebuild.FleetComputeType;
     readonly environmentType?: enums.codebuild.FleetEnvironmentType;
     readonly name?: string;
-    readonly tags?: outputs.codebuild.FleetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::CodeBuild::Fleet

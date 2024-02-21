@@ -59,7 +59,7 @@ export class PricingPlan extends pulumi.CustomResource {
      * Number of associated pricing rules
      */
     public /*out*/ readonly size!: pulumi.Output<number>;
-    public readonly tags!: pulumi.Output<outputs.billingconductor.PricingPlanTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PricingPlan resource with the given unique name, arguments, and options.
@@ -104,5 +104,5 @@ export interface PricingPlanArgs {
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     pricingRuleArns?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.billingconductor.PricingPlanTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

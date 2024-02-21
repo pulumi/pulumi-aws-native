@@ -51,7 +51,7 @@ export class Policy extends pulumi.CustomResource {
     public readonly resourceTypeList!: pulumi.Output<string[] | undefined>;
     public readonly resourcesCleanUp!: pulumi.Output<boolean | undefined>;
     public readonly securityServicePolicyData!: pulumi.Output<outputs.fms.PolicySecurityServicePolicyData>;
-    public readonly tags!: pulumi.Output<outputs.fms.PolicyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -127,5 +127,5 @@ export interface PolicyArgs {
     resourceTypeList?: pulumi.Input<pulumi.Input<string>[]>;
     resourcesCleanUp?: pulumi.Input<boolean>;
     securityServicePolicyData: pulumi.Input<inputs.fms.PolicySecurityServicePolicyDataArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.fms.PolicyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type Domain struct {
 	LogPublishingOptions        pulumi.AnyOutput                           `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrOutput `pulumi:"nodeToNodeEncryptionOptions"`
 	SnapshotOptions             DomainSnapshotOptionsPtrOutput             `pulumi:"snapshotOptions"`
-	Tags                        DomainTagArrayOutput                       `pulumi:"tags"`
+	Tags                        aws.TagArrayOutput                         `pulumi:"tags"`
 	VpcOptions                  DomainVpcOptionsPtrOutput                  `pulumi:"vpcOptions"`
 }
 
@@ -100,7 +101,7 @@ type domainArgs struct {
 	LogPublishingOptions        interface{}                        `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions `pulumi:"nodeToNodeEncryptionOptions"`
 	SnapshotOptions             *DomainSnapshotOptions             `pulumi:"snapshotOptions"`
-	Tags                        []DomainTag                        `pulumi:"tags"`
+	Tags                        []aws.Tag                          `pulumi:"tags"`
 	VpcOptions                  *DomainVpcOptions                  `pulumi:"vpcOptions"`
 }
 
@@ -122,7 +123,7 @@ type DomainArgs struct {
 	LogPublishingOptions        pulumi.Input
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrInput
 	SnapshotOptions             DomainSnapshotOptionsPtrInput
-	Tags                        DomainTagArrayInput
+	Tags                        aws.TagArrayInput
 	VpcOptions                  DomainVpcOptionsPtrInput
 }
 
@@ -230,8 +231,8 @@ func (o DomainOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSnapshotOptionsPtrOutput { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
 }
 
-func (o DomainOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+func (o DomainOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Domain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o DomainOutput) VpcOptions() DomainVpcOptionsPtrOutput {

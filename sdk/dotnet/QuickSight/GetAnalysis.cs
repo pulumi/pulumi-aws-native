@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.AnalysisResourcePermission> Permissions;
         public readonly ImmutableArray<Outputs.AnalysisSheet> Sheets;
-        public readonly ImmutableArray<Outputs.AnalysisTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? ThemeArn;
 
         [OutputConstructor]
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.AnalysisSheet> sheets,
 
-            ImmutableArray<Outputs.AnalysisTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? themeArn)
         {

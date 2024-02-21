@@ -320,118 +320,13 @@ type StreamTag struct {
 	Value string `pulumi:"value"`
 }
 
-// StreamTagInput is an input type that accepts StreamTagArgs and StreamTagOutput values.
-// You can construct a concrete instance of `StreamTagInput` via:
-//
-//	StreamTagArgs{...}
-type StreamTagInput interface {
-	pulumi.Input
-
-	ToStreamTagOutput() StreamTagOutput
-	ToStreamTagOutputWithContext(context.Context) StreamTagOutput
-}
-
-// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
-type StreamTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StreamTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamTag)(nil)).Elem()
-}
-
-func (i StreamTagArgs) ToStreamTagOutput() StreamTagOutput {
-	return i.ToStreamTagOutputWithContext(context.Background())
-}
-
-func (i StreamTagArgs) ToStreamTagOutputWithContext(ctx context.Context) StreamTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamTagOutput)
-}
-
-// StreamTagArrayInput is an input type that accepts StreamTagArray and StreamTagArrayOutput values.
-// You can construct a concrete instance of `StreamTagArrayInput` via:
-//
-//	StreamTagArray{ StreamTagArgs{...} }
-type StreamTagArrayInput interface {
-	pulumi.Input
-
-	ToStreamTagArrayOutput() StreamTagArrayOutput
-	ToStreamTagArrayOutputWithContext(context.Context) StreamTagArrayOutput
-}
-
-type StreamTagArray []StreamTagInput
-
-func (StreamTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamTag)(nil)).Elem()
-}
-
-func (i StreamTagArray) ToStreamTagArrayOutput() StreamTagArrayOutput {
-	return i.ToStreamTagArrayOutputWithContext(context.Background())
-}
-
-func (i StreamTagArray) ToStreamTagArrayOutputWithContext(ctx context.Context) StreamTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamTagArrayOutput)
-}
-
-// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
-type StreamTagOutput struct{ *pulumi.OutputState }
-
-func (StreamTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamTag)(nil)).Elem()
-}
-
-func (o StreamTagOutput) ToStreamTagOutput() StreamTagOutput {
-	return o
-}
-
-func (o StreamTagOutput) ToStreamTagOutputWithContext(ctx context.Context) StreamTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o StreamTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o StreamTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StreamTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StreamTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamTag)(nil)).Elem()
-}
-
-func (o StreamTagArrayOutput) ToStreamTagArrayOutput() StreamTagArrayOutput {
-	return o
-}
-
-func (o StreamTagArrayOutput) ToStreamTagArrayOutputWithContext(ctx context.Context) StreamTagArrayOutput {
-	return o
-}
-
-func (o StreamTagArrayOutput) Index(i pulumi.IntInput) StreamTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamTag {
-		return vs[0].([]StreamTag)[vs[1].(int)]
-	}).(StreamTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionInput)(nil)).Elem(), StreamEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionPtrInput)(nil)).Elem(), StreamEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsInput)(nil)).Elem(), StreamModeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsPtrInput)(nil)).Elem(), StreamModeDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamTagInput)(nil)).Elem(), StreamTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamTagArrayInput)(nil)).Elem(), StreamTagArray{})
 	pulumi.RegisterOutputType(StreamEncryptionOutput{})
 	pulumi.RegisterOutputType(StreamEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(StreamModeDetailsOutput{})
 	pulumi.RegisterOutputType(StreamModeDetailsPtrOutput{})
-	pulumi.RegisterOutputType(StreamTagOutput{})
-	pulumi.RegisterOutputType(StreamTagArrayOutput{})
 }

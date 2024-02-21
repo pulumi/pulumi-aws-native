@@ -51,7 +51,6 @@ __all__ = [
     'DataSourceServiceNowServiceCatalogConfigurationArgs',
     'DataSourceSharePointConfigurationArgs',
     'DataSourceSqlConfigurationArgs',
-    'DataSourceTagArgs',
     'DataSourceToIndexFieldMappingArgs',
     'DataSourceVpcConfigurationArgs',
     'DataSourceWebCrawlerAuthenticationConfigurationArgs',
@@ -62,7 +61,6 @@ __all__ = [
     'DataSourceWebCrawlerUrlsArgs',
     'DataSourceWorkDocsConfigurationArgs',
     'FaqS3PathArgs',
-    'FaqTagArgs',
     'IndexCapacityUnitsConfigurationArgs',
     'IndexDocumentMetadataConfigurationArgs',
     'IndexJsonTokenTypeConfigurationArgs',
@@ -70,7 +68,6 @@ __all__ = [
     'IndexRelevanceArgs',
     'IndexSearchArgs',
     'IndexServerSideEncryptionConfigurationArgs',
-    'IndexTagArgs',
     'IndexUserTokenConfigurationArgs',
     'IndexValueImportanceItemArgs',
 ]
@@ -2244,44 +2241,6 @@ class DataSourceSqlConfigurationArgs:
 
 
 @pulumi.input_type
-class DataSourceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A label for tagging Kendra resources
-        :param pulumi.Input[str] key: A string used to identify this tag
-        :param pulumi.Input[str] value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class DataSourceToIndexFieldMappingArgs:
     def __init__(__self__, *,
                  data_source_field_name: pulumi.Input[str],
@@ -2691,44 +2650,6 @@ class FaqS3PathArgs:
 
 
 @pulumi.input_type
-class FaqTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A label for tagging Kendra resources
-        :param pulumi.Input[str] key: A string used to identify this tag
-        :param pulumi.Input[str] value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class IndexCapacityUnitsConfigurationArgs:
     def __init__(__self__, *,
                  query_capacity_units: pulumi.Input[int],
@@ -3054,44 +2975,6 @@ class IndexServerSideEncryptionConfigurationArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
-
-
-@pulumi.input_type
-class IndexTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A label for tagging Kendra resources
-        :param pulumi.Input[str] key: A string used to identify this tag
-        :param pulumi.Input[str] value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TlsInspectionConfigurationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("tlsInspectionConfiguration")]
         public Output<Outputs.TlsInspectionConfigurationTlsInspectionConfiguration> TLSInspectionConfigurationValue { get; private set; } = null!;
@@ -86,10 +86,10 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Input<string>? Description { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TlsInspectionConfigurationTagArgs>? _tags;
-        public InputList<Inputs.TlsInspectionConfigurationTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TlsInspectionConfigurationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupVehicleResult struct {
 	DecoderManifestArn   *string               `pulumi:"decoderManifestArn"`
 	LastModificationTime *string               `pulumi:"lastModificationTime"`
 	ModelManifestArn     *string               `pulumi:"modelManifestArn"`
-	Tags                 []VehicleTag          `pulumi:"tags"`
+	Tags                 []aws.Tag             `pulumi:"tags"`
 }
 
 func LookupVehicleOutput(ctx *pulumi.Context, args LookupVehicleOutputArgs, opts ...pulumi.InvokeOption) LookupVehicleResultOutput {
@@ -95,8 +96,8 @@ func (o LookupVehicleResultOutput) ModelManifestArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVehicleResult) *string { return v.ModelManifestArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVehicleResultOutput) Tags() VehicleTagArrayOutput {
-	return o.ApplyT(func(v LookupVehicleResult) []VehicleTag { return v.Tags }).(VehicleTagArrayOutput)
+func (o LookupVehicleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVehicleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

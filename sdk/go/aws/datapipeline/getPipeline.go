@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupPipelineResult struct {
 	// The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
 	PipelineObjects []PipelineObject `pulumi:"pipelineObjects"`
 	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
-	PipelineTags []PipelineTag `pulumi:"pipelineTags"`
+	PipelineTags []aws.Tag `pulumi:"pipelineTags"`
 }
 
 func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineResultOutput {
@@ -100,8 +101,8 @@ func (o LookupPipelineResultOutput) PipelineObjects() PipelineObjectArrayOutput 
 }
 
 // A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
-func (o LookupPipelineResultOutput) PipelineTags() PipelineTagArrayOutput {
-	return o.ApplyT(func(v LookupPipelineResult) []PipelineTag { return v.PipelineTags }).(PipelineTagArrayOutput)
+func (o LookupPipelineResultOutput) PipelineTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPipelineResult) []aws.Tag { return v.PipelineTags }).(aws.TagArrayOutput)
 }
 
 func init() {

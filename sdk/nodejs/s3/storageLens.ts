@@ -41,7 +41,7 @@ export class StorageLens extends pulumi.CustomResource {
     /**
      * A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
      */
-    public readonly tags!: pulumi.Output<outputs.s3.StorageLensTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a StorageLens resource with the given unique name, arguments, and options.
@@ -78,5 +78,5 @@ export interface StorageLensArgs {
     /**
      * A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.s3.StorageLensTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

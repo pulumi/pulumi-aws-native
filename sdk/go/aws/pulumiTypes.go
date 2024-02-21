@@ -721,6 +721,115 @@ func (o ProviderIgnoreTagsPtrOutput) Keys() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// A set of tags to apply to the resource.
+type Tag struct {
+	// The key name of the tag
+	Key string `pulumi:"key"`
+	// The value of the tag
+	Value string `pulumi:"value"`
+}
+
+// TagInput is an input type that accepts TagArgs and TagOutput values.
+// You can construct a concrete instance of `TagInput` via:
+//
+//	TagArgs{...}
+type TagInput interface {
+	pulumi.Input
+
+	ToTagOutput() TagOutput
+	ToTagOutputWithContext(context.Context) TagOutput
+}
+
+// A set of tags to apply to the resource.
+type TagArgs struct {
+	// The key name of the tag
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the tag
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Tag)(nil)).Elem()
+}
+
+func (i TagArgs) ToTagOutput() TagOutput {
+	return i.ToTagOutputWithContext(context.Background())
+}
+
+func (i TagArgs) ToTagOutputWithContext(ctx context.Context) TagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagOutput)
+}
+
+// TagArrayInput is an input type that accepts TagArray and TagArrayOutput values.
+// You can construct a concrete instance of `TagArrayInput` via:
+//
+//	TagArray{ TagArgs{...} }
+type TagArrayInput interface {
+	pulumi.Input
+
+	ToTagArrayOutput() TagArrayOutput
+	ToTagArrayOutputWithContext(context.Context) TagArrayOutput
+}
+
+type TagArray []TagInput
+
+func (TagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Tag)(nil)).Elem()
+}
+
+func (i TagArray) ToTagArrayOutput() TagArrayOutput {
+	return i.ToTagArrayOutputWithContext(context.Background())
+}
+
+func (i TagArray) ToTagArrayOutputWithContext(ctx context.Context) TagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagArrayOutput)
+}
+
+// A set of tags to apply to the resource.
+type TagOutput struct{ *pulumi.OutputState }
+
+func (TagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Tag)(nil)).Elem()
+}
+
+func (o TagOutput) ToTagOutput() TagOutput {
+	return o
+}
+
+func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
+	return o
+}
+
+// The key name of the tag
+func (o TagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v Tag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the tag
+func (o TagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v Tag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TagArrayOutput struct{ *pulumi.OutputState }
+
+func (TagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Tag)(nil)).Elem()
+}
+
+func (o TagArrayOutput) ToTagArrayOutput() TagArrayOutput {
+	return o
+}
+
+func (o TagArrayOutput) ToTagArrayOutputWithContext(ctx context.Context) TagArrayOutput {
+	return o
+}
+
+func (o TagArrayOutput) Index(i pulumi.IntInput) TagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Tag {
+		return vs[0].([]Tag)[vs[1].(int)]
+	}).(TagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRolePtrInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
@@ -730,6 +839,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderEndpointArrayInput)(nil)).Elem(), ProviderEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIgnoreTagsInput)(nil)).Elem(), ProviderIgnoreTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIgnoreTagsPtrInput)(nil)).Elem(), ProviderIgnoreTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagInput)(nil)).Elem(), TagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagArrayInput)(nil)).Elem(), TagArray{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRolePtrOutput{})
 	pulumi.RegisterOutputType(ProviderDefaultTagsOutput{})
@@ -738,4 +849,6 @@ func init() {
 	pulumi.RegisterOutputType(ProviderEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ProviderIgnoreTagsOutput{})
 	pulumi.RegisterOutputType(ProviderIgnoreTagsPtrOutput{})
+	pulumi.RegisterOutputType(TagOutput{})
+	pulumi.RegisterOutputType(TagArrayOutput{})
 }

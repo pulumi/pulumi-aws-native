@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['TransitGatewayPeeringArgs', 'TransitGatewayPeering']
 
@@ -18,12 +18,12 @@ class TransitGatewayPeeringArgs:
     def __init__(__self__, *,
                  core_network_id: pulumi.Input[str],
                  transit_gateway_arn: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayPeering resource.
         :param pulumi.Input[str] core_network_id: The Id of the core network that you want to peer a transit gateway to.
         :param pulumi.Input[str] transit_gateway_arn: The ARN (Amazon Resource Name) of the transit gateway that you will peer to a core network
-        :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
@@ -56,14 +56,14 @@ class TransitGatewayPeeringArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -73,7 +73,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayPeeringTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transit_gateway_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -82,7 +82,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The Id of the core network that you want to peer a transit gateway to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayPeeringTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] transit_gateway_arn: The ARN (Amazon Resource Name) of the transit gateway that you will peer to a core network
         """
         ...
@@ -110,7 +110,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayPeeringTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transit_gateway_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -249,7 +249,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TransitGatewayPeeringTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

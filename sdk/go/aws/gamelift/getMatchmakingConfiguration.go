@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -61,7 +62,7 @@ type LookupMatchmakingConfigurationResult struct {
 	// A unique identifier for the matchmaking rule set to use with this configuration.
 	RuleSetName *string `pulumi:"ruleSetName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []MatchmakingConfigurationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupMatchmakingConfigurationOutput(ctx *pulumi.Context, args LookupMatchmakingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupMatchmakingConfigurationResultOutput {
@@ -187,8 +188,8 @@ func (o LookupMatchmakingConfigurationResultOutput) RuleSetName() pulumi.StringP
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupMatchmakingConfigurationResultOutput) Tags() MatchmakingConfigurationTagArrayOutput {
-	return o.ApplyT(func(v LookupMatchmakingConfigurationResult) []MatchmakingConfigurationTag { return v.Tags }).(MatchmakingConfigurationTagArrayOutput)
+func (o LookupMatchmakingConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMatchmakingConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

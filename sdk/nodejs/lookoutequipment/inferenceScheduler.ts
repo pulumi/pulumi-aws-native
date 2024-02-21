@@ -79,7 +79,7 @@ export class InferenceScheduler extends pulumi.CustomResource {
     /**
      * Any tags associated with the inference scheduler.
      */
-    public readonly tags!: pulumi.Output<outputs.lookoutequipment.InferenceSchedulerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a InferenceScheduler resource with the given unique name, arguments, and options.
@@ -177,5 +177,5 @@ export interface InferenceSchedulerArgs {
     /**
      * Any tags associated with the inference scheduler.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.lookoutequipment.InferenceSchedulerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

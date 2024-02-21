@@ -25,7 +25,7 @@ export interface GetSecurityGroupArgs {
 export interface GetSecurityGroupResult {
     readonly description?: string;
     readonly id?: string;
-    readonly tags?: outputs.elasticache.SecurityGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ElastiCache::SecurityGroup

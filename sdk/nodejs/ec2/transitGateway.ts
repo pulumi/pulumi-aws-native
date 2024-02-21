@@ -46,7 +46,7 @@ export class TransitGateway extends pulumi.CustomResource {
     public readonly dnsSupport!: pulumi.Output<string | undefined>;
     public readonly multicastSupport!: pulumi.Output<string | undefined>;
     public readonly propagationDefaultRouteTableId!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly transitGatewayArn!: pulumi.Output<string>;
     public readonly transitGatewayCidrBlocks!: pulumi.Output<string[] | undefined>;
     public readonly vpnEcmpSupport!: pulumi.Output<string | undefined>;
@@ -110,7 +110,7 @@ export interface TransitGatewayArgs {
     dnsSupport?: pulumi.Input<string>;
     multicastSupport?: pulumi.Input<string>;
     propagationDefaultRouteTableId?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     transitGatewayCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     vpnEcmpSupport?: pulumi.Input<string>;
 }

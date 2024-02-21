@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupDecoderManifestResult struct {
 	NetworkInterfaces    []interface{}                  `pulumi:"networkInterfaces"`
 	SignalDecoders       []interface{}                  `pulumi:"signalDecoders"`
 	Status               *DecoderManifestManifestStatus `pulumi:"status"`
-	Tags                 []DecoderManifestTag           `pulumi:"tags"`
+	Tags                 []aws.Tag                      `pulumi:"tags"`
 }
 
 func LookupDecoderManifestOutput(ctx *pulumi.Context, args LookupDecoderManifestOutputArgs, opts ...pulumi.InvokeOption) LookupDecoderManifestResultOutput {
@@ -100,8 +101,8 @@ func (o LookupDecoderManifestResultOutput) Status() DecoderManifestManifestStatu
 	return o.ApplyT(func(v LookupDecoderManifestResult) *DecoderManifestManifestStatus { return v.Status }).(DecoderManifestManifestStatusPtrOutput)
 }
 
-func (o LookupDecoderManifestResultOutput) Tags() DecoderManifestTagArrayOutput {
-	return o.ApplyT(func(v LookupDecoderManifestResult) []DecoderManifestTag { return v.Tags }).(DecoderManifestTagArrayOutput)
+func (o LookupDecoderManifestResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDecoderManifestResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

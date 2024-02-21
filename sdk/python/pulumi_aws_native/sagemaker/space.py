@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,13 +25,13 @@ class SpaceArgs:
                  space_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input['SpaceSettingsArgs']] = None,
                  space_sharing_settings: Optional[pulumi.Input['SpaceSharingSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Space resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] space_name: A name for the Space.
         :param pulumi.Input['SpaceSettingsArgs'] space_settings: A collection of settings.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]] tags: A list of tags to apply to the space.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to apply to the space.
         """
         pulumi.set(__self__, "domain_id", domain_id)
         if ownership_settings is not None:
@@ -110,14 +112,14 @@ class SpaceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to apply to the space.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -132,7 +134,7 @@ class Space(pulumi.CustomResource):
                  space_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSettingsArgs']]] = None,
                  space_sharing_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSharingSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpaceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Space
@@ -142,7 +144,7 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] space_name: A name for the Space.
         :param pulumi.Input[pulumi.InputType['SpaceSettingsArgs']] space_settings: A collection of settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpaceTagArgs']]]] tags: A list of tags to apply to the space.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags to apply to the space.
         """
         ...
     @overload
@@ -174,7 +176,7 @@ class Space(pulumi.CustomResource):
                  space_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSettingsArgs']]] = None,
                  space_sharing_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSharingSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpaceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,7 +281,7 @@ class Space(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SpaceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags to apply to the space.
         """

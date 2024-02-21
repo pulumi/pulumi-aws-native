@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupSoftwarePackageVersionResult struct {
 	PackageVersionArn *string                                     `pulumi:"packageVersionArn"`
 	Status            *SoftwarePackageVersionPackageVersionStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []SoftwarePackageVersionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSoftwarePackageVersionOutput(ctx *pulumi.Context, args LookupSoftwarePackageVersionOutputArgs, opts ...pulumi.InvokeOption) LookupSoftwarePackageVersionResultOutput {
@@ -98,8 +99,8 @@ func (o LookupSoftwarePackageVersionResultOutput) Status() SoftwarePackageVersio
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupSoftwarePackageVersionResultOutput) Tags() SoftwarePackageVersionTagArrayOutput {
-	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) []SoftwarePackageVersionTag { return v.Tags }).(SoftwarePackageVersionTagArrayOutput)
+func (o LookupSoftwarePackageVersionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['GraphArgs', 'Graph']
@@ -21,7 +23,7 @@ class GraphArgs:
                  graph_name: Optional[pulumi.Input[str]] = None,
                  public_connectivity: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vector_search_configuration: Optional[pulumi.Input['GraphVectorSearchConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Graph resource.
@@ -46,7 +48,7 @@ class GraphArgs:
                Replica Count should always be less than or equal to 2.
                
                _Default_: If not specified, the default value is 1.
-        :param pulumi.Input[Sequence[pulumi.Input['GraphTagArgs']]] tags: The tags associated with this graph.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with this graph.
         :param pulumi.Input['GraphVectorSearchConfigurationArgs'] vector_search_configuration: Vector Search Configuration
         """
         pulumi.set(__self__, "provisioned_memory", provisioned_memory)
@@ -141,14 +143,14 @@ class GraphArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags associated with this graph.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -174,7 +176,7 @@ class Graph(pulumi.CustomResource):
                  provisioned_memory: Optional[pulumi.Input[int]] = None,
                  public_connectivity: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vector_search_configuration: Optional[pulumi.Input[pulumi.InputType['GraphVectorSearchConfigurationArgs']]] = None,
                  __props__=None):
         """
@@ -203,7 +205,7 @@ class Graph(pulumi.CustomResource):
                Replica Count should always be less than or equal to 2.
                
                _Default_: If not specified, the default value is 1.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphTagArgs']]]] tags: The tags associated with this graph.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags associated with this graph.
         :param pulumi.Input[pulumi.InputType['GraphVectorSearchConfigurationArgs']] vector_search_configuration: Vector Search Configuration
         """
         ...
@@ -235,7 +237,7 @@ class Graph(pulumi.CustomResource):
                  provisioned_memory: Optional[pulumi.Input[int]] = None,
                  public_connectivity: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vector_search_configuration: Optional[pulumi.Input[pulumi.InputType['GraphVectorSearchConfigurationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -376,7 +378,7 @@ class Graph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GraphTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags associated with this graph.
         """

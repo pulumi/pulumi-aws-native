@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.GroundStation
         public Output<string?> StreamsKmsRole { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.MissionProfileTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("trackingConfigArn")]
         public Output<string> TrackingConfigArn { get; private set; } = null!;
@@ -156,10 +156,10 @@ namespace Pulumi.AwsNative.GroundStation
         public Input<string>? StreamsKmsRole { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.MissionProfileTagArgs>? _tags;
-        public InputList<Inputs.MissionProfileTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.MissionProfileTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

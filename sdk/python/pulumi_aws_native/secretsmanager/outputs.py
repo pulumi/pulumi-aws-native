@@ -14,7 +14,6 @@ __all__ = [
     'RotationScheduleRotationRules',
     'SecretGenerateSecretString',
     'SecretReplicaRegion',
-    'SecretTag',
 ]
 
 @pulumi.output_type
@@ -403,38 +402,5 @@ class SecretReplicaRegion(dict):
         The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses aws/secretsmanager.
         """
         return pulumi.get(self, "kms_key_id")
-
-
-@pulumi.output_type
-class SecretTag(dict):
-    """
-    A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string.
-        :param str key: The value for the tag. You can specify a value that's 1 to 256 characters in length.
-        :param str value: The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The value for the tag. You can specify a value that's 1 to 256 characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws.
-        """
-        return pulumi.get(self, "value")
 
 

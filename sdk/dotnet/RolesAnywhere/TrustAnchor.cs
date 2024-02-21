@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public Output<Outputs.TrustAnchorSource> Source { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TrustAnchorTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("trustAnchorArn")]
         public Output<string> TrustAnchorArn { get; private set; } = null!;
@@ -99,10 +99,10 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public Input<Inputs.TrustAnchorSourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.TrustAnchorTagArgs>? _tags;
-        public InputList<Inputs.TrustAnchorTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TrustAnchorTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

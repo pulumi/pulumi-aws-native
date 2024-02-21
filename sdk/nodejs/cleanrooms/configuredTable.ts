@@ -48,7 +48,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    public readonly tags!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ConfiguredTable resource with the given unique name, arguments, and options.
@@ -110,5 +110,5 @@ export interface ConfiguredTableArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

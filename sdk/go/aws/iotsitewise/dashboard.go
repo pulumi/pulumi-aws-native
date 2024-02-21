@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Dashboard struct {
 	// The ID of the project in which to create the dashboard.
 	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
 	// A list of key-value pairs that contain metadata for the dashboard.
-	Tags DashboardTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -91,7 +92,7 @@ type dashboardArgs struct {
 	// The ID of the project in which to create the dashboard.
 	ProjectId *string `pulumi:"projectId"`
 	// A list of key-value pairs that contain metadata for the dashboard.
-	Tags []DashboardTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
@@ -105,7 +106,7 @@ type DashboardArgs struct {
 	// The ID of the project in which to create the dashboard.
 	ProjectId pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the dashboard.
-	Tags DashboardTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DashboardArgs) ElementType() reflect.Type {
@@ -176,8 +177,8 @@ func (o DashboardOutput) ProjectId() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the dashboard.
-func (o DashboardOutput) Tags() DashboardTagArrayOutput {
-	return o.ApplyT(func(v *Dashboard) DashboardTagArrayOutput { return v.Tags }).(DashboardTagArrayOutput)
+func (o DashboardOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Dashboard) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

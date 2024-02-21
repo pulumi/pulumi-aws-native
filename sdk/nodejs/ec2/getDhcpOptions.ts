@@ -27,7 +27,7 @@ export interface GetDhcpOptionsResult {
     /**
      * Any tags assigned to the DHCP options set.
      */
-    readonly tags?: outputs.ec2.DhcpOptionsTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::DHCPOptions

@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public readonly string? Id;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.StackRdsDbInstance> RdsDbInstances;
-        public readonly ImmutableArray<Outputs.StackTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly bool? UseCustomCookbooks;
         public readonly bool? UseOpsworksSecurityGroups;
 
@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.OpsWorks
 
             ImmutableArray<Outputs.StackRdsDbInstance> rdsDbInstances,
 
-            ImmutableArray<Outputs.StackTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? useCustomCookbooks,
 

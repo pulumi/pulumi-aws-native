@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type Analysis struct {
 	Sheets             AnalysisSheetArrayOutput              `pulumi:"sheets"`
 	SourceEntity       AnalysisSourceEntityPtrOutput         `pulumi:"sourceEntity"`
 	Status             AnalysisResourceStatusPtrOutput       `pulumi:"status"`
-	Tags               AnalysisTagArrayOutput                `pulumi:"tags"`
+	Tags               aws.TagArrayOutput                    `pulumi:"tags"`
 	ThemeArn           pulumi.StringPtrOutput                `pulumi:"themeArn"`
 	ValidationStrategy AnalysisValidationStrategyPtrOutput   `pulumi:"validationStrategy"`
 }
@@ -96,7 +97,7 @@ type analysisArgs struct {
 	Sheets             []AnalysisSheet              `pulumi:"sheets"`
 	SourceEntity       *AnalysisSourceEntity        `pulumi:"sourceEntity"`
 	Status             *AnalysisResourceStatus      `pulumi:"status"`
-	Tags               []AnalysisTag                `pulumi:"tags"`
+	Tags               []aws.Tag                    `pulumi:"tags"`
 	ThemeArn           *string                      `pulumi:"themeArn"`
 	ValidationStrategy *AnalysisValidationStrategy  `pulumi:"validationStrategy"`
 }
@@ -113,7 +114,7 @@ type AnalysisArgs struct {
 	Sheets             AnalysisSheetArrayInput
 	SourceEntity       AnalysisSourceEntityPtrInput
 	Status             AnalysisResourceStatusPtrInput
-	Tags               AnalysisTagArrayInput
+	Tags               aws.TagArrayInput
 	ThemeArn           pulumi.StringPtrInput
 	ValidationStrategy AnalysisValidationStrategyPtrInput
 }
@@ -211,8 +212,8 @@ func (o AnalysisOutput) Status() AnalysisResourceStatusPtrOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisResourceStatusPtrOutput { return v.Status }).(AnalysisResourceStatusPtrOutput)
 }
 
-func (o AnalysisOutput) Tags() AnalysisTagArrayOutput {
-	return o.ApplyT(func(v *Analysis) AnalysisTagArrayOutput { return v.Tags }).(AnalysisTagArrayOutput)
+func (o AnalysisOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Analysis) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o AnalysisOutput) ThemeArn() pulumi.StringPtrOutput {

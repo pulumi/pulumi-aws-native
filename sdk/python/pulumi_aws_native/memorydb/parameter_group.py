@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['ParameterGroupArgs', 'ParameterGroup']
 
@@ -20,7 +20,7 @@ class ParameterGroupArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
         :param pulumi.Input[str] family: The name of the parameter group family that this parameter group is compatible with.
@@ -29,7 +29,7 @@ class ParameterGroupArgs:
         :param Any parameters: An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]] tags: An array of key-value pairs to apply to this parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this parameter group.
         """
         pulumi.set(__self__, "family", family)
         if description is not None:
@@ -93,14 +93,14 @@ class ParameterGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this parameter group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,7 +113,7 @@ class ParameterGroup(pulumi.CustomResource):
                  family: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
@@ -126,7 +126,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param Any parameters: An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupTagArgs']]]] tags: An array of key-value pairs to apply to this parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this parameter group.
         """
         ...
     @overload
@@ -156,7 +156,7 @@ class ParameterGroup(pulumi.CustomResource):
                  family: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -250,7 +250,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ParameterGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this parameter group.
         """

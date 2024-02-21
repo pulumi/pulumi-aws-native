@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['StorageLensGroupArgs', 'StorageLensGroup']
@@ -18,10 +20,10 @@ class StorageLensGroupArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input['StorageLensGroupFilterArgs'],
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageLensGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgs']]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         """
         pulumi.set(__self__, "filter", filter)
         if name is not None:
@@ -49,14 +51,14 @@ class StorageLensGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -67,14 +69,14 @@ class StorageLensGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['StorageLensGroupFilterArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageLensGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageLensGroupTagArgs']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         """
         ...
     @overload
@@ -102,7 +104,7 @@ class StorageLensGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['StorageLensGroupFilterArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageLensGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -168,7 +170,7 @@ class StorageLensGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StorageLensGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
         """

@@ -60,7 +60,7 @@ export class Outcome extends pulumi.CustomResource {
     /**
      * Tags associated with this outcome.
      */
-    public readonly tags!: pulumi.Output<outputs.frauddetector.OutcomeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Outcome resource with the given unique name, arguments, and options.
@@ -109,5 +109,5 @@ export interface OutcomeArgs {
     /**
      * Tags associated with this outcome.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.OutcomeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

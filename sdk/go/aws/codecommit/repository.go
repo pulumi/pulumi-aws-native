@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Repository struct {
 	Name                  pulumi.StringOutput          `pulumi:"name"`
 	RepositoryDescription pulumi.StringPtrOutput       `pulumi:"repositoryDescription"`
 	RepositoryName        pulumi.StringOutput          `pulumi:"repositoryName"`
-	Tags                  RepositoryTagArrayOutput     `pulumi:"tags"`
+	Tags                  aws.TagArrayOutput           `pulumi:"tags"`
 	Triggers              RepositoryTriggerArrayOutput `pulumi:"triggers"`
 }
 
@@ -73,7 +74,7 @@ type repositoryArgs struct {
 	KmsKeyId              *string             `pulumi:"kmsKeyId"`
 	RepositoryDescription *string             `pulumi:"repositoryDescription"`
 	RepositoryName        *string             `pulumi:"repositoryName"`
-	Tags                  []RepositoryTag     `pulumi:"tags"`
+	Tags                  []aws.Tag           `pulumi:"tags"`
 	Triggers              []RepositoryTrigger `pulumi:"triggers"`
 }
 
@@ -83,7 +84,7 @@ type RepositoryArgs struct {
 	KmsKeyId              pulumi.StringPtrInput
 	RepositoryDescription pulumi.StringPtrInput
 	RepositoryName        pulumi.StringPtrInput
-	Tags                  RepositoryTagArrayInput
+	Tags                  aws.TagArrayInput
 	Triggers              RepositoryTriggerArrayInput
 }
 
@@ -156,8 +157,8 @@ func (o RepositoryOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
-func (o RepositoryOutput) Tags() RepositoryTagArrayOutput {
-	return o.ApplyT(func(v *Repository) RepositoryTagArrayOutput { return v.Tags }).(RepositoryTagArrayOutput)
+func (o RepositoryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Repository) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o RepositoryOutput) Triggers() RepositoryTriggerArrayOutput {

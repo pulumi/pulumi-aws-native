@@ -61,7 +61,7 @@ export interface GetAssetResult {
     /**
      * A collection of tags associated with a resource
      */
-    readonly tags?: outputs.mediapackage.AssetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::MediaPackage::Asset

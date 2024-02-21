@@ -29,7 +29,7 @@ export interface GetSignalCatalogResult {
     readonly lastModificationTime?: string;
     readonly nodeCounts?: outputs.iotfleetwise.SignalCatalogNodeCounts;
     readonly nodes?: (outputs.iotfleetwise.SignalCatalogNode0Properties | outputs.iotfleetwise.SignalCatalogNode1Properties | outputs.iotfleetwise.SignalCatalogNode2Properties | outputs.iotfleetwise.SignalCatalogNode3Properties)[];
-    readonly tags?: outputs.iotfleetwise.SignalCatalogTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::IoTFleetWise::SignalCatalog Resource Type

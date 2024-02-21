@@ -27,7 +27,7 @@ export interface GetReportGroupResult {
     readonly deleteReports?: boolean;
     readonly exportConfig?: outputs.codebuild.ReportGroupReportExportConfig;
     readonly id?: string;
-    readonly tags?: outputs.codebuild.ReportGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::CodeBuild::ReportGroup

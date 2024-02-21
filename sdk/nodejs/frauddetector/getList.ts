@@ -49,7 +49,7 @@ export interface GetListResult {
     /**
      * Tags associated with this list.
      */
-    readonly tags?: outputs.frauddetector.ListTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The variable type of the list.
      */

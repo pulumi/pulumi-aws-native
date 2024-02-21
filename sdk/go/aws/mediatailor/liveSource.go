@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type LiveSource struct {
 	LiveSourceName            pulumi.StringOutput                           `pulumi:"liveSourceName"`
 	SourceLocationName        pulumi.StringOutput                           `pulumi:"sourceLocationName"`
 	// The tags to assign to the live source.
-	Tags LiveSourceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLiveSource registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +83,7 @@ type liveSourceArgs struct {
 	LiveSourceName            *string                              `pulumi:"liveSourceName"`
 	SourceLocationName        string                               `pulumi:"sourceLocationName"`
 	// The tags to assign to the live source.
-	Tags []LiveSourceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LiveSource resource.
@@ -92,7 +93,7 @@ type LiveSourceArgs struct {
 	LiveSourceName            pulumi.StringPtrInput
 	SourceLocationName        pulumi.StringInput
 	// The tags to assign to the live source.
-	Tags LiveSourceTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LiveSourceArgs) ElementType() reflect.Type {
@@ -151,8 +152,8 @@ func (o LiveSourceOutput) SourceLocationName() pulumi.StringOutput {
 }
 
 // The tags to assign to the live source.
-func (o LiveSourceOutput) Tags() LiveSourceTagArrayOutput {
-	return o.ApplyT(func(v *LiveSource) LiveSourceTagArrayOutput { return v.Tags }).(LiveSourceTagArrayOutput)
+func (o LiveSourceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LiveSource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

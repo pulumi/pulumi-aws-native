@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type CustomerGateway struct {
 	// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// One or more tags for the customer gateway.
-	Tags CustomerGatewayTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of VPN connection that this customer gateway supports.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -93,7 +94,7 @@ type customerGatewayArgs struct {
 	// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
 	IpAddress string `pulumi:"ipAddress"`
 	// One or more tags for the customer gateway.
-	Tags []CustomerGatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of VPN connection that this customer gateway supports.
 	Type string `pulumi:"type"`
 }
@@ -107,7 +108,7 @@ type CustomerGatewayArgs struct {
 	// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
 	IpAddress pulumi.StringInput
 	// One or more tags for the customer gateway.
-	Tags CustomerGatewayTagArrayInput
+	Tags aws.TagArrayInput
 	// The type of VPN connection that this customer gateway supports.
 	Type pulumi.StringInput
 }
@@ -170,8 +171,8 @@ func (o CustomerGatewayOutput) IpAddress() pulumi.StringOutput {
 }
 
 // One or more tags for the customer gateway.
-func (o CustomerGatewayOutput) Tags() CustomerGatewayTagArrayOutput {
-	return o.ApplyT(func(v *CustomerGateway) CustomerGatewayTagArrayOutput { return v.Tags }).(CustomerGatewayTagArrayOutput)
+func (o CustomerGatewayOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CustomerGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of VPN connection that this customer gateway supports.

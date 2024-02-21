@@ -58,7 +58,7 @@ export class ResourceSet extends pulumi.CustomResource {
     /**
      * A tag to associate with the parameters for a resource set.
      */
-    public readonly tags!: pulumi.Output<outputs.route53recoveryreadiness.ResourceSetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResourceSet resource with the given unique name, arguments, and options.
@@ -117,5 +117,5 @@ export interface ResourceSetArgs {
     /**
      * A tag to associate with the parameters for a resource set.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.ResourceSetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

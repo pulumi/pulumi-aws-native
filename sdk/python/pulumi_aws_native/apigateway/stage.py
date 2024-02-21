@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['StageArgs', 'Stage']
@@ -27,7 +29,7 @@ class StageArgs:
                  documentation_version: Optional[pulumi.Input[str]] = None,
                  method_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -43,7 +45,7 @@ class StageArgs:
         :param pulumi.Input[str] documentation_version: The version of the associated API documentation.
         :param pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]] method_settings: A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
         :param pulumi.Input[str] stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
         :param pulumi.Input[bool] tracing_enabled: Specifies whether active tracing with X-ray is enabled for the Stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
@@ -209,14 +211,14 @@ class StageArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -260,7 +262,7 @@ class Stage(pulumi.CustomResource):
                  method_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageMethodSettingArgs']]]]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -280,7 +282,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageMethodSettingArgs']]]] method_settings: A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[str] stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The collection of tags. Each tag element is associated with a given resource.
         :param pulumi.Input[bool] tracing_enabled: Specifies whether active tracing with X-ray is enabled for the Stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
@@ -319,7 +321,7 @@ class Stage(pulumi.CustomResource):
                  method_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageMethodSettingArgs']]]]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -477,7 +479,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StageTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """

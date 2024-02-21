@@ -370,114 +370,15 @@ type WorkspaceTag struct {
 	Value string `pulumi:"value"`
 }
 
-// WorkspaceTagInput is an input type that accepts WorkspaceTagArgs and WorkspaceTagOutput values.
-// You can construct a concrete instance of `WorkspaceTagInput` via:
-//
-//	WorkspaceTagArgs{...}
-type WorkspaceTagInput interface {
-	pulumi.Input
-
-	ToWorkspaceTagOutput() WorkspaceTagOutput
-	ToWorkspaceTagOutputWithContext(context.Context) WorkspaceTagOutput
-}
-
-type WorkspaceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (WorkspaceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceTag)(nil)).Elem()
-}
-
-func (i WorkspaceTagArgs) ToWorkspaceTagOutput() WorkspaceTagOutput {
-	return i.ToWorkspaceTagOutputWithContext(context.Background())
-}
-
-func (i WorkspaceTagArgs) ToWorkspaceTagOutputWithContext(ctx context.Context) WorkspaceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTagOutput)
-}
-
-// WorkspaceTagArrayInput is an input type that accepts WorkspaceTagArray and WorkspaceTagArrayOutput values.
-// You can construct a concrete instance of `WorkspaceTagArrayInput` via:
-//
-//	WorkspaceTagArray{ WorkspaceTagArgs{...} }
-type WorkspaceTagArrayInput interface {
-	pulumi.Input
-
-	ToWorkspaceTagArrayOutput() WorkspaceTagArrayOutput
-	ToWorkspaceTagArrayOutputWithContext(context.Context) WorkspaceTagArrayOutput
-}
-
-type WorkspaceTagArray []WorkspaceTagInput
-
-func (WorkspaceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkspaceTag)(nil)).Elem()
-}
-
-func (i WorkspaceTagArray) ToWorkspaceTagArrayOutput() WorkspaceTagArrayOutput {
-	return i.ToWorkspaceTagArrayOutputWithContext(context.Background())
-}
-
-func (i WorkspaceTagArray) ToWorkspaceTagArrayOutputWithContext(ctx context.Context) WorkspaceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTagArrayOutput)
-}
-
-type WorkspaceTagOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceTag)(nil)).Elem()
-}
-
-func (o WorkspaceTagOutput) ToWorkspaceTagOutput() WorkspaceTagOutput {
-	return o
-}
-
-func (o WorkspaceTagOutput) ToWorkspaceTagOutputWithContext(ctx context.Context) WorkspaceTagOutput {
-	return o
-}
-
-func (o WorkspaceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o WorkspaceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type WorkspaceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkspaceTag)(nil)).Elem()
-}
-
-func (o WorkspaceTagArrayOutput) ToWorkspaceTagArrayOutput() WorkspaceTagArrayOutput {
-	return o
-}
-
-func (o WorkspaceTagArrayOutput) ToWorkspaceTagArrayOutputWithContext(ctx context.Context) WorkspaceTagArrayOutput {
-	return o
-}
-
-func (o WorkspaceTagArrayOutput) Index(i pulumi.IntInput) WorkspaceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceTag {
-		return vs[0].([]WorkspaceTag)[vs[1].(int)]
-	}).(WorkspaceTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTagInput)(nil)).Elem(), ConnectionAliasTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTagArrayInput)(nil)).Elem(), ConnectionAliasTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesInput)(nil)).Elem(), WorkspacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesPtrInput)(nil)).Elem(), WorkspacePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTagInput)(nil)).Elem(), WorkspaceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTagArrayInput)(nil)).Elem(), WorkspaceTagArray{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasTagOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(WorkspaceTagOutput{})
-	pulumi.RegisterOutputType(WorkspaceTagArrayOutput{})
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupDbProxyResult struct {
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn *string `pulumi:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
-	Tags []DbProxyTagFormat `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// VPC ID to associate with the new DB proxy.
 	VpcId *string `pulumi:"vpcId"`
 	// VPC security group IDs to associate with the new proxy.
@@ -122,8 +123,8 @@ func (o LookupDbProxyResultOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
-func (o LookupDbProxyResultOutput) Tags() DbProxyTagFormatArrayOutput {
-	return o.ApplyT(func(v LookupDbProxyResult) []DbProxyTagFormat { return v.Tags }).(DbProxyTagFormatArrayOutput)
+func (o LookupDbProxyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDbProxyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // VPC ID to associate with the new DB proxy.

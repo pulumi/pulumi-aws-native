@@ -43,7 +43,7 @@ export interface GetStackResult {
     readonly stackPolicyBody?: any;
     readonly stackStatus?: enums.cloudformation.StackStatus;
     readonly stackStatusReason?: string;
-    readonly tags?: outputs.cloudformation.StackTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
      */

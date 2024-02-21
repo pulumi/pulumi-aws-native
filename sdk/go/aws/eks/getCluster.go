@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,7 +47,7 @@ type LookupClusterResult struct {
 	OpenIdConnectIssuerUrl *string                    `pulumi:"openIdConnectIssuerUrl"`
 	ResourcesVpcConfig     *ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version *string `pulumi:"version"`
 }
@@ -135,8 +136,8 @@ func (o LookupClusterResultOutput) ResourcesVpcConfig() ClusterResourcesVpcConfi
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupClusterResultOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v LookupClusterResult) []ClusterTag { return v.Tags }).(ClusterTagArrayOutput)
+func (o LookupClusterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.

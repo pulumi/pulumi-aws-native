@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,12 +28,12 @@ type LookupEventSubscriptionArgs struct {
 }
 
 type LookupEventSubscriptionResult struct {
-	Enabled         *bool                  `pulumi:"enabled"`
-	EventCategories []string               `pulumi:"eventCategories"`
-	Id              *string                `pulumi:"id"`
-	SnsTopicArn     *string                `pulumi:"snsTopicArn"`
-	SourceType      *string                `pulumi:"sourceType"`
-	Tags            []EventSubscriptionTag `pulumi:"tags"`
+	Enabled         *bool     `pulumi:"enabled"`
+	EventCategories []string  `pulumi:"eventCategories"`
+	Id              *string   `pulumi:"id"`
+	SnsTopicArn     *string   `pulumi:"snsTopicArn"`
+	SourceType      *string   `pulumi:"sourceType"`
+	Tags            []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEventSubscriptionOutput(ctx *pulumi.Context, args LookupEventSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupEventSubscriptionResultOutput {
@@ -90,8 +91,8 @@ func (o LookupEventSubscriptionResultOutput) SourceType() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupEventSubscriptionResult) *string { return v.SourceType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEventSubscriptionResultOutput) Tags() EventSubscriptionTagArrayOutput {
-	return o.ApplyT(func(v LookupEventSubscriptionResult) []EventSubscriptionTag { return v.Tags }).(EventSubscriptionTagArrayOutput)
+func (o LookupEventSubscriptionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEventSubscriptionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

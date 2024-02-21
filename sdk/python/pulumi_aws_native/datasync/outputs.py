@@ -12,37 +12,24 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AgentTag',
     'LocationAzureBlobAzureBlobSasConfiguration',
-    'LocationAzureBlobTag',
     'LocationEfsEc2Config',
-    'LocationEfsTag',
-    'LocationFSxLustreTag',
     'LocationFSxOntapNfs',
     'LocationFSxOntapNfsMountOptions',
     'LocationFSxOntapProtocol',
     'LocationFSxOntapSmb',
     'LocationFSxOntapSmbMountOptions',
-    'LocationFSxOntapTag',
     'LocationFSxOpenZfsMountOptions',
     'LocationFSxOpenZfsNfs',
     'LocationFSxOpenZfsProtocol',
-    'LocationFSxOpenZfsTag',
-    'LocationFSxWindowsTag',
     'LocationHdfsNameNode',
     'LocationHdfsQopConfiguration',
-    'LocationHdfsTag',
     'LocationNfsMountOptions',
     'LocationNfsOnPremConfig',
-    'LocationNfsTag',
-    'LocationObjectStorageTag',
-    'LocationS3Tag',
     'LocationS3s3Config',
     'LocationSmbMountOptions',
-    'LocationSmbTag',
     'StorageSystemServerConfiguration',
     'StorageSystemServerCredentials',
-    'StorageSystemTag',
     'TaskFilterRule',
     'TaskOptions',
     'TaskReportConfig',
@@ -54,41 +41,7 @@ __all__ = [
     'TaskReportConfigOverridesPropertiesTransferredProperties',
     'TaskReportConfigOverridesPropertiesVerifiedProperties',
     'TaskSchedule',
-    'TaskTag',
 ]
-
-@pulumi.output_type
-class AgentTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class LocationAzureBlobAzureBlobSasConfiguration(dict):
@@ -127,39 +80,6 @@ class LocationAzureBlobAzureBlobSasConfiguration(dict):
         Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
         """
         return pulumi.get(self, "azure_blob_sas_token")
-
-
-@pulumi.output_type
-class LocationAzureBlobTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -212,72 +132,6 @@ class LocationEfsEc2Config(dict):
         The ARN of the subnet that DataSync uses to access the target EFS file system.
         """
         return pulumi.get(self, "subnet_arn")
-
-
-@pulumi.output_type
-class LocationEfsTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class LocationFSxLustreTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -458,39 +312,6 @@ class LocationFSxOntapSmbMountOptions(dict):
 
 
 @pulumi.output_type
-class LocationFSxOntapTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class LocationFSxOpenZfsMountOptions(dict):
     """
     The NFS mount options that DataSync can use to mount your NFS share.
@@ -565,72 +386,6 @@ class LocationFSxOpenZfsProtocol(dict):
     @pulumi.getter
     def nfs(self) -> Optional['outputs.LocationFSxOpenZfsNfs']:
         return pulumi.get(self, "nfs")
-
-
-@pulumi.output_type
-class LocationFSxOpenZfsTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class LocationFSxWindowsTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -721,39 +476,6 @@ class LocationHdfsQopConfiguration(dict):
 
 
 @pulumi.output_type
-class LocationHdfsTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class LocationNfsMountOptions(dict):
     """
     The NFS mount options that DataSync can use to mount your NFS share.
@@ -816,105 +538,6 @@ class LocationNfsOnPremConfig(dict):
 
 
 @pulumi.output_type
-class LocationNfsTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class LocationObjectStorageTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class LocationS3Tag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class LocationS3s3Config(dict):
     """
     The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
@@ -974,39 +597,6 @@ class LocationSmbMountOptions(dict):
         The specific SMB version that you want DataSync to use to mount your SMB share.
         """
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class LocationSmbTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1093,39 +683,6 @@ class StorageSystemServerCredentials(dict):
         The username for your storage system's management interface.
         """
         return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class StorageSystemTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1843,38 +1400,5 @@ class TaskSchedule(dict):
         A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
         """
         return pulumi.get(self, "schedule_expression")
-
-
-@pulumi.output_type
-class TaskTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key for an AWS resource tag.
-        :param str value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
 
 

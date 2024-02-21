@@ -43,7 +43,7 @@ export interface GetCacheClusterResult {
     readonly redisEndpointPort?: string;
     readonly snapshotRetentionLimit?: number;
     readonly snapshotWindow?: string;
-    readonly tags?: outputs.elasticache.CacheClusterTag[];
+    readonly tags?: outputs.Tag[];
     readonly transitEncryptionEnabled?: boolean;
     readonly vpcSecurityGroupIds?: string[];
 }

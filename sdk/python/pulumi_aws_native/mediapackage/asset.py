@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['AssetArgs', 'Asset']
@@ -21,7 +23,7 @@ class AssetArgs:
                  source_role_arn: pulumi.Input[str],
                  egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Asset resource.
         :param pulumi.Input[str] packaging_group_id: The ID of the PackagingGroup for the Asset.
@@ -29,7 +31,7 @@ class AssetArgs:
         :param pulumi.Input[str] source_role_arn: The IAM role_arn used to access the source S3 bucket.
         :param pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]] egress_endpoints: The list of egress endpoints available for the Asset.
         :param pulumi.Input[str] resource_id: The resource ID to include in SPEKE key requests.
-        :param pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
         """
         pulumi.set(__self__, "packaging_group_id", packaging_group_id)
         pulumi.set(__self__, "source_arn", source_arn)
@@ -103,14 +105,14 @@ class AssetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -124,7 +126,7 @@ class Asset(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
                  source_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaPackage::Asset
@@ -136,7 +138,7 @@ class Asset(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The resource ID to include in SPEKE key requests.
         :param pulumi.Input[str] source_arn: ARN of the source object in S3.
         :param pulumi.Input[str] source_role_arn: The IAM role_arn used to access the source S3 bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -167,7 +169,7 @@ class Asset(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
                  source_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,7 +283,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AssetTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A collection of tags associated with a resource
         """

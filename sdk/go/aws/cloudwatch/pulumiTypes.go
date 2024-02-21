@@ -2236,107 +2236,6 @@ type MetricStreamTag struct {
 	Value string `pulumi:"value"`
 }
 
-// MetricStreamTagInput is an input type that accepts MetricStreamTagArgs and MetricStreamTagOutput values.
-// You can construct a concrete instance of `MetricStreamTagInput` via:
-//
-//	MetricStreamTagArgs{...}
-type MetricStreamTagInput interface {
-	pulumi.Input
-
-	ToMetricStreamTagOutput() MetricStreamTagOutput
-	ToMetricStreamTagOutputWithContext(context.Context) MetricStreamTagOutput
-}
-
-// Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
-type MetricStreamTagArgs struct {
-	// A unique identifier for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// String which you can use to describe or define the tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (MetricStreamTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricStreamTag)(nil)).Elem()
-}
-
-func (i MetricStreamTagArgs) ToMetricStreamTagOutput() MetricStreamTagOutput {
-	return i.ToMetricStreamTagOutputWithContext(context.Background())
-}
-
-func (i MetricStreamTagArgs) ToMetricStreamTagOutputWithContext(ctx context.Context) MetricStreamTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamTagOutput)
-}
-
-// MetricStreamTagArrayInput is an input type that accepts MetricStreamTagArray and MetricStreamTagArrayOutput values.
-// You can construct a concrete instance of `MetricStreamTagArrayInput` via:
-//
-//	MetricStreamTagArray{ MetricStreamTagArgs{...} }
-type MetricStreamTagArrayInput interface {
-	pulumi.Input
-
-	ToMetricStreamTagArrayOutput() MetricStreamTagArrayOutput
-	ToMetricStreamTagArrayOutputWithContext(context.Context) MetricStreamTagArrayOutput
-}
-
-type MetricStreamTagArray []MetricStreamTagInput
-
-func (MetricStreamTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricStreamTag)(nil)).Elem()
-}
-
-func (i MetricStreamTagArray) ToMetricStreamTagArrayOutput() MetricStreamTagArrayOutput {
-	return i.ToMetricStreamTagArrayOutputWithContext(context.Background())
-}
-
-func (i MetricStreamTagArray) ToMetricStreamTagArrayOutputWithContext(ctx context.Context) MetricStreamTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamTagArrayOutput)
-}
-
-// Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
-type MetricStreamTagOutput struct{ *pulumi.OutputState }
-
-func (MetricStreamTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricStreamTag)(nil)).Elem()
-}
-
-func (o MetricStreamTagOutput) ToMetricStreamTagOutput() MetricStreamTagOutput {
-	return o
-}
-
-func (o MetricStreamTagOutput) ToMetricStreamTagOutputWithContext(ctx context.Context) MetricStreamTagOutput {
-	return o
-}
-
-// A unique identifier for the tag.
-func (o MetricStreamTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricStreamTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// String which you can use to describe or define the tag.
-func (o MetricStreamTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricStreamTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type MetricStreamTagArrayOutput struct{ *pulumi.OutputState }
-
-func (MetricStreamTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricStreamTag)(nil)).Elem()
-}
-
-func (o MetricStreamTagArrayOutput) ToMetricStreamTagArrayOutput() MetricStreamTagArrayOutput {
-	return o
-}
-
-func (o MetricStreamTagArrayOutput) ToMetricStreamTagArrayOutputWithContext(ctx context.Context) MetricStreamTagArrayOutput {
-	return o
-}
-
-func (o MetricStreamTagArrayOutput) Index(i pulumi.IntInput) MetricStreamTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricStreamTag {
-		return vs[0].([]MetricStreamTag)[vs[1].(int)]
-	}).(MetricStreamTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionInput)(nil)).Elem(), AlarmDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionArrayInput)(nil)).Elem(), AlarmDimensionArray{})
@@ -2370,8 +2269,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsMetricInput)(nil)).Elem(), MetricStreamStatisticsMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsMetricArrayInput)(nil)).Elem(), MetricStreamStatisticsMetricArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamTagInput)(nil)).Elem(), MetricStreamTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamTagArrayInput)(nil)).Elem(), MetricStreamTagArray{})
 	pulumi.RegisterOutputType(AlarmDimensionOutput{})
 	pulumi.RegisterOutputType(AlarmDimensionArrayOutput{})
 	pulumi.RegisterOutputType(AlarmMetricOutput{})
@@ -2404,6 +2301,4 @@ func init() {
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsMetricOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsMetricArrayOutput{})
-	pulumi.RegisterOutputType(MetricStreamTagOutput{})
-	pulumi.RegisterOutputType(MetricStreamTagArrayOutput{})
 }

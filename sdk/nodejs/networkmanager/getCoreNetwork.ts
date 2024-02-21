@@ -67,7 +67,7 @@ export interface GetCoreNetworkResult {
     /**
      * The tags for the global network.
      */
-    readonly tags?: outputs.networkmanager.CoreNetworkTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * AWS::NetworkManager::CoreNetwork Resource Type Definition.

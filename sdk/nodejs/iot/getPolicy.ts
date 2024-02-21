@@ -29,7 +29,7 @@ export interface GetPolicyResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
      */
     readonly policyDocument?: any;
-    readonly tags?: outputs.iot.PolicyTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::IoT::Policy

@@ -56,7 +56,7 @@ export class Cell extends pulumi.CustomResource {
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.route53recoveryreadiness.CellTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Cell resource with the given unique name, arguments, and options.
@@ -103,5 +103,5 @@ export interface CellArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.CellTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

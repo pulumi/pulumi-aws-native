@@ -48,7 +48,7 @@ export class AppBlockBuilder extends pulumi.CustomResource {
     public readonly instanceType!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly platform!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.appstream.AppBlockBuilderTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcConfig!: pulumi.Output<outputs.appstream.AppBlockBuilderVpcConfig>;
 
     /**
@@ -119,6 +119,6 @@ export interface AppBlockBuilderArgs {
     instanceType: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     platform: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appstream.AppBlockBuilderTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcConfig: pulumi.Input<inputs.appstream.AppBlockBuilderVpcConfigArgs>;
 }

@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAssetResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
             ImmutableArray<Outputs.AssetProperty> assetProperties,
 
-            ImmutableArray<Outputs.AssetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AssetArn = assetArn;
             AssetDescription = assetDescription;

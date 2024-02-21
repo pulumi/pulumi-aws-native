@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public readonly ImmutableArray<Outputs.SchemaMappingSchemaInputAttribute> MappedInputFields;
         public readonly string? SchemaArn;
-        public readonly ImmutableArray<Outputs.SchemaMappingTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UpdatedAt;
 
         [OutputConstructor]
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.EntityResolution
 
             string? schemaArn,
 
-            ImmutableArray<Outputs.SchemaMappingTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updatedAt)
         {

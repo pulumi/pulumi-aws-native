@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Endpoint struct {
 	ExcludeRetainedVariantProperties EndpointVariantPropertyArrayOutput `pulumi:"excludeRetainedVariantProperties"`
 	RetainAllVariantProperties       pulumi.BoolPtrOutput               `pulumi:"retainAllVariantProperties"`
 	RetainDeploymentConfig           pulumi.BoolPtrOutput               `pulumi:"retainDeploymentConfig"`
-	Tags                             EndpointTagArrayOutput             `pulumi:"tags"`
+	Tags                             aws.TagArrayOutput                 `pulumi:"tags"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -80,7 +81,7 @@ type endpointArgs struct {
 	ExcludeRetainedVariantProperties []EndpointVariantProperty `pulumi:"excludeRetainedVariantProperties"`
 	RetainAllVariantProperties       *bool                     `pulumi:"retainAllVariantProperties"`
 	RetainDeploymentConfig           *bool                     `pulumi:"retainDeploymentConfig"`
-	Tags                             []EndpointTag             `pulumi:"tags"`
+	Tags                             []aws.Tag                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
@@ -91,7 +92,7 @@ type EndpointArgs struct {
 	ExcludeRetainedVariantProperties EndpointVariantPropertyArrayInput
 	RetainAllVariantProperties       pulumi.BoolPtrInput
 	RetainDeploymentConfig           pulumi.BoolPtrInput
-	Tags                             EndpointTagArrayInput
+	Tags                             aws.TagArrayInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {
@@ -155,8 +156,8 @@ func (o EndpointOutput) RetainDeploymentConfig() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.RetainDeploymentConfig }).(pulumi.BoolPtrOutput)
 }
 
-func (o EndpointOutput) Tags() EndpointTagArrayOutput {
-	return o.ApplyT(func(v *Endpoint) EndpointTagArrayOutput { return v.Tags }).(EndpointTagArrayOutput)
+func (o EndpointOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Endpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

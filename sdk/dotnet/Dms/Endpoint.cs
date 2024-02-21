@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.Dms
         public Output<Outputs.EndpointSybaseSettings?> SybaseSettings { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.EndpointTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
@@ -250,10 +250,10 @@ namespace Pulumi.AwsNative.Dms
         public Input<Inputs.EndpointSybaseSettingsArgs>? SybaseSettings { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.EndpointTagArgs>? _tags;
-        public InputList<Inputs.EndpointTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.EndpointTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

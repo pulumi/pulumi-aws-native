@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type ContactFlowModule struct {
 	// The status of the contact flow module.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// One or more tags.
-	Tags ContactFlowModuleTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewContactFlowModule registers a new resource with the given unique name, arguments, and options.
@@ -91,7 +92,7 @@ type contactFlowModuleArgs struct {
 	// The state of the contact flow module.
 	State *string `pulumi:"state"`
 	// One or more tags.
-	Tags []ContactFlowModuleTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ContactFlowModule resource.
@@ -107,7 +108,7 @@ type ContactFlowModuleArgs struct {
 	// The state of the contact flow module.
 	State pulumi.StringPtrInput
 	// One or more tags.
-	Tags ContactFlowModuleTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ContactFlowModuleArgs) ElementType() reflect.Type {
@@ -183,8 +184,8 @@ func (o ContactFlowModuleOutput) Status() pulumi.StringOutput {
 }
 
 // One or more tags.
-func (o ContactFlowModuleOutput) Tags() ContactFlowModuleTagArrayOutput {
-	return o.ApplyT(func(v *ContactFlowModule) ContactFlowModuleTagArrayOutput { return v.Tags }).(ContactFlowModuleTagArrayOutput)
+func (o ContactFlowModuleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ContactFlowModule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

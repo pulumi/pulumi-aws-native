@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type LookupNetworkAclArgs struct {
 type LookupNetworkAclResult struct {
 	Id *string `pulumi:"id"`
 	// The tags to assign to the network ACL.
-	Tags []NetworkAclTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupNetworkAclOutput(ctx *pulumi.Context, args LookupNetworkAclOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkAclResultOutput {
@@ -72,8 +73,8 @@ func (o LookupNetworkAclResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The tags to assign to the network ACL.
-func (o LookupNetworkAclResultOutput) Tags() NetworkAclTagArrayOutput {
-	return o.ApplyT(func(v LookupNetworkAclResult) []NetworkAclTag { return v.Tags }).(NetworkAclTagArrayOutput)
+func (o LookupNetworkAclResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNetworkAclResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

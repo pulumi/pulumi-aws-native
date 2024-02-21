@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The tags for the link.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LinkTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The type of the link.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? state,
 
-            ImmutableArray<Outputs.LinkTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? type)
         {

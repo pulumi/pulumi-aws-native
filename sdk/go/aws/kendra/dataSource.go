@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,8 +27,8 @@ type DataSource struct {
 	RoleArn                               pulumi.StringPtrOutput                                   `pulumi:"roleArn"`
 	Schedule                              pulumi.StringPtrOutput                                   `pulumi:"schedule"`
 	// Tags for labeling the data source
-	Tags DataSourceTagArrayOutput `pulumi:"tags"`
-	Type DataSourceTypeOutput     `pulumi:"type"`
+	Tags aws.TagArrayOutput   `pulumi:"tags"`
+	Type DataSourceTypeOutput `pulumi:"type"`
 }
 
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
@@ -89,8 +90,8 @@ type dataSourceArgs struct {
 	RoleArn                               *string                                          `pulumi:"roleArn"`
 	Schedule                              *string                                          `pulumi:"schedule"`
 	// Tags for labeling the data source
-	Tags []DataSourceTag `pulumi:"tags"`
-	Type DataSourceType  `pulumi:"type"`
+	Tags []aws.Tag      `pulumi:"tags"`
+	Type DataSourceType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataSource resource.
@@ -104,7 +105,7 @@ type DataSourceArgs struct {
 	RoleArn                               pulumi.StringPtrInput
 	Schedule                              pulumi.StringPtrInput
 	// Tags for labeling the data source
-	Tags DataSourceTagArrayInput
+	Tags aws.TagArrayInput
 	Type DataSourceTypeInput
 }
 
@@ -184,8 +185,8 @@ func (o DataSourceOutput) Schedule() pulumi.StringPtrOutput {
 }
 
 // Tags for labeling the data source
-func (o DataSourceOutput) Tags() DataSourceTagArrayOutput {
-	return o.ApplyT(func(v *DataSource) DataSourceTagArrayOutput { return v.Tags }).(DataSourceTagArrayOutput)
+func (o DataSourceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DataSource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o DataSourceOutput) Type() DataSourceTypeOutput {

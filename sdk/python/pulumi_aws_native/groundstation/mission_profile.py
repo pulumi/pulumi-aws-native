@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['MissionProfileArgs', 'MissionProfile']
@@ -24,7 +26,7 @@ class MissionProfileArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  streams_kms_key: Optional[pulumi.Input['MissionProfileStreamsKmsKeyArgs']] = None,
                  streams_kms_role: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MissionProfile resource.
         :param pulumi.Input[int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
@@ -142,11 +144,11 @@ class MissionProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -162,7 +164,7 @@ class MissionProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  streams_kms_key: Optional[pulumi.Input[pulumi.InputType['MissionProfileStreamsKmsKeyArgs']]] = None,
                  streams_kms_role: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tracking_config_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -208,7 +210,7 @@ class MissionProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  streams_kms_key: Optional[pulumi.Input[pulumi.InputType['MissionProfileStreamsKmsKeyArgs']]] = None,
                  streams_kms_role: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tracking_config_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -336,7 +338,7 @@ class MissionProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MissionProfileTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

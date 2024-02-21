@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type Dataset struct {
 	DatasetName             pulumi.StringPtrOutput                  `pulumi:"datasetName"`
 	LateDataRules           DatasetLateDataRuleArrayOutput          `pulumi:"lateDataRules"`
 	RetentionPeriod         DatasetRetentionPeriodPtrOutput         `pulumi:"retentionPeriod"`
-	Tags                    DatasetTagArrayOutput                   `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                      `pulumi:"tags"`
 	Triggers                DatasetTriggerArrayOutput               `pulumi:"triggers"`
 	VersioningConfiguration DatasetVersioningConfigurationPtrOutput `pulumi:"versioningConfiguration"`
 }
@@ -78,7 +79,7 @@ type datasetArgs struct {
 	DatasetName             *string                         `pulumi:"datasetName"`
 	LateDataRules           []DatasetLateDataRule           `pulumi:"lateDataRules"`
 	RetentionPeriod         *DatasetRetentionPeriod         `pulumi:"retentionPeriod"`
-	Tags                    []DatasetTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                       `pulumi:"tags"`
 	Triggers                []DatasetTrigger                `pulumi:"triggers"`
 	VersioningConfiguration *DatasetVersioningConfiguration `pulumi:"versioningConfiguration"`
 }
@@ -90,7 +91,7 @@ type DatasetArgs struct {
 	DatasetName             pulumi.StringPtrInput
 	LateDataRules           DatasetLateDataRuleArrayInput
 	RetentionPeriod         DatasetRetentionPeriodPtrInput
-	Tags                    DatasetTagArrayInput
+	Tags                    aws.TagArrayInput
 	Triggers                DatasetTriggerArrayInput
 	VersioningConfiguration DatasetVersioningConfigurationPtrInput
 }
@@ -152,8 +153,8 @@ func (o DatasetOutput) RetentionPeriod() DatasetRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v *Dataset) DatasetRetentionPeriodPtrOutput { return v.RetentionPeriod }).(DatasetRetentionPeriodPtrOutput)
 }
 
-func (o DatasetOutput) Tags() DatasetTagArrayOutput {
-	return o.ApplyT(func(v *Dataset) DatasetTagArrayOutput { return v.Tags }).(DatasetTagArrayOutput)
+func (o DatasetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Dataset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o DatasetOutput) Triggers() DatasetTriggerArrayOutput {

@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The tags (keys and values) associated with the integration.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ObjectTypeTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for the object template.
@@ -210,14 +210,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Input<string>? SourceLastUpdatedTimestampFormat { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ObjectTypeTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags (keys and values) associated with the integration.
         /// </summary>
-        public InputList<Inputs.ObjectTypeTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ObjectTypeTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

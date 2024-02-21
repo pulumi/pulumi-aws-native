@@ -63,7 +63,7 @@ export interface GetRestApiResult {
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
      */
-    readonly tags?: outputs.apigateway.RestApiTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.

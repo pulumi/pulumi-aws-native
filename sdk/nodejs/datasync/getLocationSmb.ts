@@ -46,7 +46,7 @@ export interface GetLocationSmbResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.datasync.LocationSmbTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The user who can mount the share, has the permissions to access files and folders in the SMB share.
      */

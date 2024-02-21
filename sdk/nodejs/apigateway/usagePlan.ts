@@ -53,7 +53,7 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    public readonly tags!: pulumi.Output<outputs.apigateway.UsagePlanTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A map containing method level throttling information for API stage in a usage plan.
      */
@@ -112,7 +112,7 @@ export interface UsagePlanArgs {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A map containing method level throttling information for API stage in a usage plan.
      */

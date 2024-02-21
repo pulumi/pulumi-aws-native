@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Kendra
         /// Tags for labeling the data source
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DataSourceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<Pulumi.AwsNative.Kendra.DataSourceType> Type { get; private set; } = null!;
@@ -125,14 +125,14 @@ namespace Pulumi.AwsNative.Kendra
         public Input<string>? Schedule { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DataSourceTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags for labeling the data source
         /// </summary>
-        public InputList<Inputs.DataSourceTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DataSourceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

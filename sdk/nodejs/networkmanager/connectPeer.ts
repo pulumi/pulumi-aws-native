@@ -88,7 +88,7 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.ConnectPeerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ConnectPeer resource with the given unique name, arguments, and options.
@@ -173,5 +173,5 @@ export interface ConnectPeerArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.ConnectPeerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

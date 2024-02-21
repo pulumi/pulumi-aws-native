@@ -38,7 +38,7 @@ export interface GetReplicationSetResult {
     /**
      * The tags to apply to the replication set.
      */
-    readonly tags?: outputs.ssmincidents.ReplicationSetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource type definition for AWS::SSMIncidents::ReplicationSet

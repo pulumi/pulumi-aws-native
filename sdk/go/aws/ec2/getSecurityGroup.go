@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupSecurityGroupResult struct {
 	Id                   *string                    `pulumi:"id"`
 	SecurityGroupEgress  []SecurityGroupEgressType  `pulumi:"securityGroupEgress"`
 	SecurityGroupIngress []SecurityGroupIngressType `pulumi:"securityGroupIngress"`
-	Tags                 []SecurityGroupTag         `pulumi:"tags"`
+	Tags                 []aws.Tag                  `pulumi:"tags"`
 }
 
 func LookupSecurityGroupOutput(ctx *pulumi.Context, args LookupSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupResultOutput {
@@ -85,8 +86,8 @@ func (o LookupSecurityGroupResultOutput) SecurityGroupIngress() SecurityGroupIng
 	return o.ApplyT(func(v LookupSecurityGroupResult) []SecurityGroupIngressType { return v.SecurityGroupIngress }).(SecurityGroupIngressTypeArrayOutput)
 }
 
-func (o LookupSecurityGroupResultOutput) Tags() SecurityGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupSecurityGroupResult) []SecurityGroupTag { return v.Tags }).(SecurityGroupTagArrayOutput)
+func (o LookupSecurityGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type Studio struct {
 	// A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
-	Tags StudioTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
 	TrustedIdentityPropagationEnabled pulumi.BoolPtrOutput `pulumi:"trustedIdentityPropagationEnabled"`
 	// The unique Studio access URL.
@@ -157,7 +158,7 @@ type studioArgs struct {
 	// A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
-	Tags []StudioTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
 	TrustedIdentityPropagationEnabled *bool `pulumi:"trustedIdentityPropagationEnabled"`
 	// The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
@@ -195,7 +196,7 @@ type StudioArgs struct {
 	// A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds pulumi.StringArrayInput
 	// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
-	Tags StudioTagArrayInput
+	Tags aws.TagArrayInput
 	// A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
 	TrustedIdentityPropagationEnabled pulumi.BoolPtrInput
 	// The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
@@ -314,8 +315,8 @@ func (o StudioOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
-func (o StudioOutput) Tags() StudioTagArrayOutput {
-	return o.ApplyT(func(v *Studio) StudioTagArrayOutput { return v.Tags }).(StudioTagArrayOutput)
+func (o StudioOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Studio) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.

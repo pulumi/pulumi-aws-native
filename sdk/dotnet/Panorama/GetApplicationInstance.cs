@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Panorama
         public readonly int? LastUpdatedTime;
         public readonly Pulumi.AwsNative.Panorama.ApplicationInstanceStatus? Status;
         public readonly string? StatusDescription;
-        public readonly ImmutableArray<Outputs.ApplicationInstanceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetApplicationInstanceResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Panorama
 
             string? statusDescription,
 
-            ImmutableArray<Outputs.ApplicationInstanceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApplicationInstanceId = applicationInstanceId;
             Arn = arn;

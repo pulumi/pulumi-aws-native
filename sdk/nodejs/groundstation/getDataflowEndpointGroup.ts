@@ -34,7 +34,7 @@ export interface GetDataflowEndpointGroupResult {
     readonly contactPrePassDurationSeconds?: number;
     readonly endpointDetails?: outputs.groundstation.DataflowEndpointGroupEndpointDetails[];
     readonly id?: string;
-    readonly tags?: outputs.groundstation.DataflowEndpointGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * AWS Ground Station DataflowEndpointGroup schema for CloudFormation

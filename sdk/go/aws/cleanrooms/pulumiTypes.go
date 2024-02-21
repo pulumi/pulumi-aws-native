@@ -228,101 +228,6 @@ type AnalysisTemplateTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AnalysisTemplateTagInput is an input type that accepts AnalysisTemplateTagArgs and AnalysisTemplateTagOutput values.
-// You can construct a concrete instance of `AnalysisTemplateTagInput` via:
-//
-//	AnalysisTemplateTagArgs{...}
-type AnalysisTemplateTagInput interface {
-	pulumi.Input
-
-	ToAnalysisTemplateTagOutput() AnalysisTemplateTagOutput
-	ToAnalysisTemplateTagOutputWithContext(context.Context) AnalysisTemplateTagOutput
-}
-
-type AnalysisTemplateTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AnalysisTemplateTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTemplateTag)(nil)).Elem()
-}
-
-func (i AnalysisTemplateTagArgs) ToAnalysisTemplateTagOutput() AnalysisTemplateTagOutput {
-	return i.ToAnalysisTemplateTagOutputWithContext(context.Background())
-}
-
-func (i AnalysisTemplateTagArgs) ToAnalysisTemplateTagOutputWithContext(ctx context.Context) AnalysisTemplateTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateTagOutput)
-}
-
-// AnalysisTemplateTagArrayInput is an input type that accepts AnalysisTemplateTagArray and AnalysisTemplateTagArrayOutput values.
-// You can construct a concrete instance of `AnalysisTemplateTagArrayInput` via:
-//
-//	AnalysisTemplateTagArray{ AnalysisTemplateTagArgs{...} }
-type AnalysisTemplateTagArrayInput interface {
-	pulumi.Input
-
-	ToAnalysisTemplateTagArrayOutput() AnalysisTemplateTagArrayOutput
-	ToAnalysisTemplateTagArrayOutputWithContext(context.Context) AnalysisTemplateTagArrayOutput
-}
-
-type AnalysisTemplateTagArray []AnalysisTemplateTagInput
-
-func (AnalysisTemplateTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisTemplateTag)(nil)).Elem()
-}
-
-func (i AnalysisTemplateTagArray) ToAnalysisTemplateTagArrayOutput() AnalysisTemplateTagArrayOutput {
-	return i.ToAnalysisTemplateTagArrayOutputWithContext(context.Background())
-}
-
-func (i AnalysisTemplateTagArray) ToAnalysisTemplateTagArrayOutputWithContext(ctx context.Context) AnalysisTemplateTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateTagArrayOutput)
-}
-
-type AnalysisTemplateTagOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTemplateTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTemplateTag)(nil)).Elem()
-}
-
-func (o AnalysisTemplateTagOutput) ToAnalysisTemplateTagOutput() AnalysisTemplateTagOutput {
-	return o
-}
-
-func (o AnalysisTemplateTagOutput) ToAnalysisTemplateTagOutputWithContext(ctx context.Context) AnalysisTemplateTagOutput {
-	return o
-}
-
-func (o AnalysisTemplateTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisTemplateTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AnalysisTemplateTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisTemplateTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AnalysisTemplateTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTemplateTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisTemplateTag)(nil)).Elem()
-}
-
-func (o AnalysisTemplateTagArrayOutput) ToAnalysisTemplateTagArrayOutput() AnalysisTemplateTagArrayOutput {
-	return o
-}
-
-func (o AnalysisTemplateTagArrayOutput) ToAnalysisTemplateTagArrayOutputWithContext(ctx context.Context) AnalysisTemplateTagArrayOutput {
-	return o
-}
-
-func (o AnalysisTemplateTagArrayOutput) Index(i pulumi.IntInput) AnalysisTemplateTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTemplateTag {
-		return vs[0].([]AnalysisTemplateTag)[vs[1].(int)]
-	}).(AnalysisTemplateTagOutput)
-}
-
 type CollaborationDataEncryptionMetadata struct {
 	AllowCleartext                        bool `pulumi:"allowCleartext"`
 	AllowDuplicates                       bool `pulumi:"allowDuplicates"`
@@ -886,101 +791,6 @@ func (o CollaborationQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.
 type CollaborationTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// CollaborationTagInput is an input type that accepts CollaborationTagArgs and CollaborationTagOutput values.
-// You can construct a concrete instance of `CollaborationTagInput` via:
-//
-//	CollaborationTagArgs{...}
-type CollaborationTagInput interface {
-	pulumi.Input
-
-	ToCollaborationTagOutput() CollaborationTagOutput
-	ToCollaborationTagOutputWithContext(context.Context) CollaborationTagOutput
-}
-
-type CollaborationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CollaborationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CollaborationTag)(nil)).Elem()
-}
-
-func (i CollaborationTagArgs) ToCollaborationTagOutput() CollaborationTagOutput {
-	return i.ToCollaborationTagOutputWithContext(context.Background())
-}
-
-func (i CollaborationTagArgs) ToCollaborationTagOutputWithContext(ctx context.Context) CollaborationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CollaborationTagOutput)
-}
-
-// CollaborationTagArrayInput is an input type that accepts CollaborationTagArray and CollaborationTagArrayOutput values.
-// You can construct a concrete instance of `CollaborationTagArrayInput` via:
-//
-//	CollaborationTagArray{ CollaborationTagArgs{...} }
-type CollaborationTagArrayInput interface {
-	pulumi.Input
-
-	ToCollaborationTagArrayOutput() CollaborationTagArrayOutput
-	ToCollaborationTagArrayOutputWithContext(context.Context) CollaborationTagArrayOutput
-}
-
-type CollaborationTagArray []CollaborationTagInput
-
-func (CollaborationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CollaborationTag)(nil)).Elem()
-}
-
-func (i CollaborationTagArray) ToCollaborationTagArrayOutput() CollaborationTagArrayOutput {
-	return i.ToCollaborationTagArrayOutputWithContext(context.Background())
-}
-
-func (i CollaborationTagArray) ToCollaborationTagArrayOutputWithContext(ctx context.Context) CollaborationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CollaborationTagArrayOutput)
-}
-
-type CollaborationTagOutput struct{ *pulumi.OutputState }
-
-func (CollaborationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CollaborationTag)(nil)).Elem()
-}
-
-func (o CollaborationTagOutput) ToCollaborationTagOutput() CollaborationTagOutput {
-	return o
-}
-
-func (o CollaborationTagOutput) ToCollaborationTagOutputWithContext(ctx context.Context) CollaborationTagOutput {
-	return o
-}
-
-func (o CollaborationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CollaborationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CollaborationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CollaborationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CollaborationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CollaborationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CollaborationTag)(nil)).Elem()
-}
-
-func (o CollaborationTagArrayOutput) ToCollaborationTagArrayOutput() CollaborationTagArrayOutput {
-	return o
-}
-
-func (o CollaborationTagArrayOutput) ToCollaborationTagArrayOutputWithContext(ctx context.Context) CollaborationTagArrayOutput {
-	return o
-}
-
-func (o CollaborationTagArrayOutput) Index(i pulumi.IntInput) CollaborationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CollaborationTag {
-		return vs[0].([]CollaborationTag)[vs[1].(int)]
-	}).(CollaborationTagOutput)
 }
 
 type ConfiguredTableAggregateColumn struct {
@@ -1705,101 +1515,6 @@ type ConfiguredTableAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ConfiguredTableAssociationTagInput is an input type that accepts ConfiguredTableAssociationTagArgs and ConfiguredTableAssociationTagOutput values.
-// You can construct a concrete instance of `ConfiguredTableAssociationTagInput` via:
-//
-//	ConfiguredTableAssociationTagArgs{...}
-type ConfiguredTableAssociationTagInput interface {
-	pulumi.Input
-
-	ToConfiguredTableAssociationTagOutput() ConfiguredTableAssociationTagOutput
-	ToConfiguredTableAssociationTagOutputWithContext(context.Context) ConfiguredTableAssociationTagOutput
-}
-
-type ConfiguredTableAssociationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ConfiguredTableAssociationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfiguredTableAssociationTag)(nil)).Elem()
-}
-
-func (i ConfiguredTableAssociationTagArgs) ToConfiguredTableAssociationTagOutput() ConfiguredTableAssociationTagOutput {
-	return i.ToConfiguredTableAssociationTagOutputWithContext(context.Background())
-}
-
-func (i ConfiguredTableAssociationTagArgs) ToConfiguredTableAssociationTagOutputWithContext(ctx context.Context) ConfiguredTableAssociationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationTagOutput)
-}
-
-// ConfiguredTableAssociationTagArrayInput is an input type that accepts ConfiguredTableAssociationTagArray and ConfiguredTableAssociationTagArrayOutput values.
-// You can construct a concrete instance of `ConfiguredTableAssociationTagArrayInput` via:
-//
-//	ConfiguredTableAssociationTagArray{ ConfiguredTableAssociationTagArgs{...} }
-type ConfiguredTableAssociationTagArrayInput interface {
-	pulumi.Input
-
-	ToConfiguredTableAssociationTagArrayOutput() ConfiguredTableAssociationTagArrayOutput
-	ToConfiguredTableAssociationTagArrayOutputWithContext(context.Context) ConfiguredTableAssociationTagArrayOutput
-}
-
-type ConfiguredTableAssociationTagArray []ConfiguredTableAssociationTagInput
-
-func (ConfiguredTableAssociationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfiguredTableAssociationTag)(nil)).Elem()
-}
-
-func (i ConfiguredTableAssociationTagArray) ToConfiguredTableAssociationTagArrayOutput() ConfiguredTableAssociationTagArrayOutput {
-	return i.ToConfiguredTableAssociationTagArrayOutputWithContext(context.Background())
-}
-
-func (i ConfiguredTableAssociationTagArray) ToConfiguredTableAssociationTagArrayOutputWithContext(ctx context.Context) ConfiguredTableAssociationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationTagArrayOutput)
-}
-
-type ConfiguredTableAssociationTagOutput struct{ *pulumi.OutputState }
-
-func (ConfiguredTableAssociationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfiguredTableAssociationTag)(nil)).Elem()
-}
-
-func (o ConfiguredTableAssociationTagOutput) ToConfiguredTableAssociationTagOutput() ConfiguredTableAssociationTagOutput {
-	return o
-}
-
-func (o ConfiguredTableAssociationTagOutput) ToConfiguredTableAssociationTagOutputWithContext(ctx context.Context) ConfiguredTableAssociationTagOutput {
-	return o
-}
-
-func (o ConfiguredTableAssociationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfiguredTableAssociationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ConfiguredTableAssociationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfiguredTableAssociationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ConfiguredTableAssociationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ConfiguredTableAssociationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfiguredTableAssociationTag)(nil)).Elem()
-}
-
-func (o ConfiguredTableAssociationTagArrayOutput) ToConfiguredTableAssociationTagArrayOutput() ConfiguredTableAssociationTagArrayOutput {
-	return o
-}
-
-func (o ConfiguredTableAssociationTagArrayOutput) ToConfiguredTableAssociationTagArrayOutputWithContext(ctx context.Context) ConfiguredTableAssociationTagArrayOutput {
-	return o
-}
-
-func (o ConfiguredTableAssociationTagArrayOutput) Index(i pulumi.IntInput) ConfiguredTableAssociationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableAssociationTag {
-		return vs[0].([]ConfiguredTableAssociationTag)[vs[1].(int)]
-	}).(ConfiguredTableAssociationTagOutput)
-}
-
 type ConfiguredTableGlueTableReference struct {
 	DatabaseName string `pulumi:"databaseName"`
 	TableName    string `pulumi:"tableName"`
@@ -1907,101 +1622,6 @@ func (o ConfiguredTableTableReferenceOutput) Glue() ConfiguredTableGlueTableRefe
 type ConfiguredTableTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// ConfiguredTableTagInput is an input type that accepts ConfiguredTableTagArgs and ConfiguredTableTagOutput values.
-// You can construct a concrete instance of `ConfiguredTableTagInput` via:
-//
-//	ConfiguredTableTagArgs{...}
-type ConfiguredTableTagInput interface {
-	pulumi.Input
-
-	ToConfiguredTableTagOutput() ConfiguredTableTagOutput
-	ToConfiguredTableTagOutputWithContext(context.Context) ConfiguredTableTagOutput
-}
-
-type ConfiguredTableTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ConfiguredTableTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfiguredTableTag)(nil)).Elem()
-}
-
-func (i ConfiguredTableTagArgs) ToConfiguredTableTagOutput() ConfiguredTableTagOutput {
-	return i.ToConfiguredTableTagOutputWithContext(context.Background())
-}
-
-func (i ConfiguredTableTagArgs) ToConfiguredTableTagOutputWithContext(ctx context.Context) ConfiguredTableTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTagOutput)
-}
-
-// ConfiguredTableTagArrayInput is an input type that accepts ConfiguredTableTagArray and ConfiguredTableTagArrayOutput values.
-// You can construct a concrete instance of `ConfiguredTableTagArrayInput` via:
-//
-//	ConfiguredTableTagArray{ ConfiguredTableTagArgs{...} }
-type ConfiguredTableTagArrayInput interface {
-	pulumi.Input
-
-	ToConfiguredTableTagArrayOutput() ConfiguredTableTagArrayOutput
-	ToConfiguredTableTagArrayOutputWithContext(context.Context) ConfiguredTableTagArrayOutput
-}
-
-type ConfiguredTableTagArray []ConfiguredTableTagInput
-
-func (ConfiguredTableTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfiguredTableTag)(nil)).Elem()
-}
-
-func (i ConfiguredTableTagArray) ToConfiguredTableTagArrayOutput() ConfiguredTableTagArrayOutput {
-	return i.ToConfiguredTableTagArrayOutputWithContext(context.Background())
-}
-
-func (i ConfiguredTableTagArray) ToConfiguredTableTagArrayOutputWithContext(ctx context.Context) ConfiguredTableTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTagArrayOutput)
-}
-
-type ConfiguredTableTagOutput struct{ *pulumi.OutputState }
-
-func (ConfiguredTableTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfiguredTableTag)(nil)).Elem()
-}
-
-func (o ConfiguredTableTagOutput) ToConfiguredTableTagOutput() ConfiguredTableTagOutput {
-	return o
-}
-
-func (o ConfiguredTableTagOutput) ToConfiguredTableTagOutputWithContext(ctx context.Context) ConfiguredTableTagOutput {
-	return o
-}
-
-func (o ConfiguredTableTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfiguredTableTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ConfiguredTableTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfiguredTableTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ConfiguredTableTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ConfiguredTableTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfiguredTableTag)(nil)).Elem()
-}
-
-func (o ConfiguredTableTagArrayOutput) ToConfiguredTableTagArrayOutput() ConfiguredTableTagArrayOutput {
-	return o
-}
-
-func (o ConfiguredTableTagArrayOutput) ToConfiguredTableTagArrayOutputWithContext(ctx context.Context) ConfiguredTableTagArrayOutput {
-	return o
-}
-
-func (o ConfiguredTableTagArrayOutput) Index(i pulumi.IntInput) ConfiguredTableTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableTag {
-		return vs[0].([]ConfiguredTableTag)[vs[1].(int)]
-	}).(ConfiguredTableTagOutput)
 }
 
 type MembershipPaymentConfiguration struct {
@@ -2723,107 +2343,10 @@ type MembershipTag struct {
 	Value string `pulumi:"value"`
 }
 
-// MembershipTagInput is an input type that accepts MembershipTagArgs and MembershipTagOutput values.
-// You can construct a concrete instance of `MembershipTagInput` via:
-//
-//	MembershipTagArgs{...}
-type MembershipTagInput interface {
-	pulumi.Input
-
-	ToMembershipTagOutput() MembershipTagOutput
-	ToMembershipTagOutputWithContext(context.Context) MembershipTagOutput
-}
-
-type MembershipTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (MembershipTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MembershipTag)(nil)).Elem()
-}
-
-func (i MembershipTagArgs) ToMembershipTagOutput() MembershipTagOutput {
-	return i.ToMembershipTagOutputWithContext(context.Background())
-}
-
-func (i MembershipTagArgs) ToMembershipTagOutputWithContext(ctx context.Context) MembershipTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MembershipTagOutput)
-}
-
-// MembershipTagArrayInput is an input type that accepts MembershipTagArray and MembershipTagArrayOutput values.
-// You can construct a concrete instance of `MembershipTagArrayInput` via:
-//
-//	MembershipTagArray{ MembershipTagArgs{...} }
-type MembershipTagArrayInput interface {
-	pulumi.Input
-
-	ToMembershipTagArrayOutput() MembershipTagArrayOutput
-	ToMembershipTagArrayOutputWithContext(context.Context) MembershipTagArrayOutput
-}
-
-type MembershipTagArray []MembershipTagInput
-
-func (MembershipTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MembershipTag)(nil)).Elem()
-}
-
-func (i MembershipTagArray) ToMembershipTagArrayOutput() MembershipTagArrayOutput {
-	return i.ToMembershipTagArrayOutputWithContext(context.Background())
-}
-
-func (i MembershipTagArray) ToMembershipTagArrayOutputWithContext(ctx context.Context) MembershipTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MembershipTagArrayOutput)
-}
-
-type MembershipTagOutput struct{ *pulumi.OutputState }
-
-func (MembershipTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MembershipTag)(nil)).Elem()
-}
-
-func (o MembershipTagOutput) ToMembershipTagOutput() MembershipTagOutput {
-	return o
-}
-
-func (o MembershipTagOutput) ToMembershipTagOutputWithContext(ctx context.Context) MembershipTagOutput {
-	return o
-}
-
-func (o MembershipTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v MembershipTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o MembershipTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v MembershipTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type MembershipTagArrayOutput struct{ *pulumi.OutputState }
-
-func (MembershipTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MembershipTag)(nil)).Elem()
-}
-
-func (o MembershipTagArrayOutput) ToMembershipTagArrayOutput() MembershipTagArrayOutput {
-	return o
-}
-
-func (o MembershipTagArrayOutput) ToMembershipTagArrayOutputWithContext(ctx context.Context) MembershipTagArrayOutput {
-	return o
-}
-
-func (o MembershipTagArrayOutput) Index(i pulumi.IntInput) MembershipTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MembershipTag {
-		return vs[0].([]MembershipTag)[vs[1].(int)]
-	}).(MembershipTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterArrayInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisSourceInput)(nil)).Elem(), AnalysisTemplateAnalysisSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateTagInput)(nil)).Elem(), AnalysisTemplateTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateTagArrayInput)(nil)).Elem(), AnalysisTemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataPtrInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberSpecificationInput)(nil)).Elem(), CollaborationMemberSpecificationArgs{})
@@ -2832,8 +2355,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationPaymentConfigurationPtrInput)(nil)).Elem(), CollaborationPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryComputePaymentConfigInput)(nil)).Elem(), CollaborationQueryComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryComputePaymentConfigPtrInput)(nil)).Elem(), CollaborationQueryComputePaymentConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationTagInput)(nil)).Elem(), CollaborationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationTagArrayInput)(nil)).Elem(), CollaborationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateColumnInput)(nil)).Elem(), ConfiguredTableAggregateColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateColumnArrayInput)(nil)).Elem(), ConfiguredTableAggregateColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationConstraintInput)(nil)).Elem(), ConfiguredTableAggregationConstraintArgs{})
@@ -2847,12 +2368,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV10PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV10PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV11PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV12PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV12PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationTagInput)(nil)).Elem(), ConfiguredTableAssociationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationTagArrayInput)(nil)).Elem(), ConfiguredTableAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableGlueTableReferenceInput)(nil)).Elem(), ConfiguredTableGlueTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReferenceInput)(nil)).Elem(), ConfiguredTableTableReferenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTagInput)(nil)).Elem(), ConfiguredTableTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTagArrayInput)(nil)).Elem(), ConfiguredTableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationPtrInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryOutputConfigurationInput)(nil)).Elem(), MembershipProtectedQueryOutputConfigurationArgs{})
@@ -2863,15 +2380,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryS3OutputConfigurationPtrInput)(nil)).Elem(), MembershipProtectedQueryS3OutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryComputePaymentConfigInput)(nil)).Elem(), MembershipQueryComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryComputePaymentConfigPtrInput)(nil)).Elem(), MembershipQueryComputePaymentConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MembershipTagInput)(nil)).Elem(), MembershipTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MembershipTagArrayInput)(nil)).Elem(), MembershipTagArray{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSchemaOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSchemaPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSourceOutput{})
-	pulumi.RegisterOutputType(AnalysisTemplateTagOutput{})
-	pulumi.RegisterOutputType(AnalysisTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataOutput{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberSpecificationOutput{})
@@ -2880,8 +2393,6 @@ func init() {
 	pulumi.RegisterOutputType(CollaborationPaymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryComputePaymentConfigOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryComputePaymentConfigPtrOutput{})
-	pulumi.RegisterOutputType(CollaborationTagOutput{})
-	pulumi.RegisterOutputType(CollaborationTagArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregateColumnOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregateColumnArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregationConstraintOutput{})
@@ -2895,12 +2406,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV10PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV11PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV12PropertiesOutput{})
-	pulumi.RegisterOutputType(ConfiguredTableAssociationTagOutput{})
-	pulumi.RegisterOutputType(ConfiguredTableAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableGlueTableReferenceOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTableReferenceOutput{})
-	pulumi.RegisterOutputType(ConfiguredTableTagOutput{})
-	pulumi.RegisterOutputType(ConfiguredTableTagArrayOutput{})
 	pulumi.RegisterOutputType(MembershipPaymentConfigurationOutput{})
 	pulumi.RegisterOutputType(MembershipPaymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryOutputConfigurationOutput{})
@@ -2911,6 +2418,4 @@ func init() {
 	pulumi.RegisterOutputType(MembershipProtectedQueryS3OutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipQueryComputePaymentConfigOutput{})
 	pulumi.RegisterOutputType(MembershipQueryComputePaymentConfigPtrOutput{})
-	pulumi.RegisterOutputType(MembershipTagOutput{})
-	pulumi.RegisterOutputType(MembershipTagArrayOutput{})
 }

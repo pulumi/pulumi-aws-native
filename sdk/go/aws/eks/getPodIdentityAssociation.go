@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupPodIdentityAssociationResult struct {
 	// The IAM role ARN that the pod identity association is created for.
 	RoleArn *string `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []PodIdentityAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPodIdentityAssociationOutput(ctx *pulumi.Context, args LookupPodIdentityAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupPodIdentityAssociationResultOutput {
@@ -90,8 +91,8 @@ func (o LookupPodIdentityAssociationResultOutput) RoleArn() pulumi.StringPtrOutp
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupPodIdentityAssociationResultOutput) Tags() PodIdentityAssociationTagArrayOutput {
-	return o.ApplyT(func(v LookupPodIdentityAssociationResult) []PodIdentityAssociationTag { return v.Tags }).(PodIdentityAssociationTagArrayOutput)
+func (o LookupPodIdentityAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPodIdentityAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

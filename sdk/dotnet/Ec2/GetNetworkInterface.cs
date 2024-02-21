@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this network interface.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
@@ -163,7 +163,7 @@ namespace Pulumi.AwsNative.Ec2
 
             bool? sourceDestCheck,
 
-            ImmutableArray<Outputs.NetworkInterfaceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ConnectionTrackingSpecification = connectionTrackingSpecification;
             Description = description;

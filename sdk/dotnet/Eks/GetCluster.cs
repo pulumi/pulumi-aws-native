@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Eks
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
         /// </summary>
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.Eks
 
             Outputs.ClusterResourcesVpcConfig? resourcesVpcConfig,
 
-            ImmutableArray<Outputs.ClusterTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? version)
         {

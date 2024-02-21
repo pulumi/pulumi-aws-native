@@ -53,7 +53,7 @@ export interface GetAllowListResult {
     /**
      * A collection of tags associated with a resource
      */
-    readonly tags?: outputs.macie.AllowListTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Macie AllowList resource schema

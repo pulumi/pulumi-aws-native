@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The tags for the site.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SiteTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -131,14 +131,14 @@ namespace Pulumi.AwsNative.NetworkManager
         public Input<Inputs.SiteLocationArgs>? Location { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.SiteTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the site.
         /// </summary>
-        public InputList<Inputs.SiteTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SiteTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

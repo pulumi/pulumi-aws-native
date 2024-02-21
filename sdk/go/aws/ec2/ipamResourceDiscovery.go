@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type IpamResourceDiscovery struct {
 	// The state of this Resource Discovery.
 	State pulumi.StringOutput `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags IpamResourceDiscoveryTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewIpamResourceDiscovery registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type ipamResourceDiscoveryArgs struct {
 	// The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IpamResourceDiscoveryIpamOperatingRegion `pulumi:"operatingRegions"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IpamResourceDiscoveryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpamResourceDiscovery resource.
@@ -87,7 +88,7 @@ type IpamResourceDiscoveryArgs struct {
 	// The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
 	OperatingRegions IpamResourceDiscoveryIpamOperatingRegionArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags IpamResourceDiscoveryTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (IpamResourceDiscoveryArgs) ElementType() reflect.Type {
@@ -169,8 +170,8 @@ func (o IpamResourceDiscoveryOutput) State() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o IpamResourceDiscoveryOutput) Tags() IpamResourceDiscoveryTagArrayOutput {
-	return o.ApplyT(func(v *IpamResourceDiscovery) IpamResourceDiscoveryTagArrayOutput { return v.Tags }).(IpamResourceDiscoveryTagArrayOutput)
+func (o IpamResourceDiscoveryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IpamResourceDiscovery) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

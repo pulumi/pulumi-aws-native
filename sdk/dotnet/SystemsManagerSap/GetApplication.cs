@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         /// <summary>
         /// The tags of a SystemsManagerSAP application.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
 
             string? arn,
 
-            ImmutableArray<Outputs.ApplicationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApplicationId = applicationId;
             ApplicationType = applicationType;

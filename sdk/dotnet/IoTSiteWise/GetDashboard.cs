@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// A list of key-value pairs that contain metadata for the dashboard.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DashboardTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDashboardResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
             string? dashboardName,
 
-            ImmutableArray<Outputs.DashboardTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DashboardArn = dashboardArn;
             DashboardDefinition = dashboardDefinition;

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['UserArgs', 'User']
@@ -22,7 +24,7 @@ class UserArgs:
                  path: Optional[pulumi.Input[str]] = None,
                  permissions_boundary: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['UserPolicyArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
@@ -32,7 +34,7 @@ class UserArgs:
         :param pulumi.Input[str] path: The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
         :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the user.
         :param pulumi.Input[Sequence[pulumi.Input['UserPolicyArgs']]] policies: Adds or updates an inline policy document that is embedded in the specified IAM role.
-        :param pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]] tags: A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
         :param pulumi.Input[str] user_name: The friendly name identifying the user.
         """
         if groups is not None:
@@ -126,14 +128,14 @@ class UserArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -160,7 +162,7 @@ class User(pulumi.CustomResource):
                  path: Optional[pulumi.Input[str]] = None,
                  permissions_boundary: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPolicyArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -174,7 +176,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] path: The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
         :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the user.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPolicyArgs']]]] policies: Adds or updates an inline policy document that is embedded in the specified IAM role.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]] tags: A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
         :param pulumi.Input[str] user_name: The friendly name identifying the user.
         """
         ...
@@ -207,7 +209,7 @@ class User(pulumi.CustomResource):
                  path: Optional[pulumi.Input[str]] = None,
                  permissions_boundary: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPolicyArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -320,7 +322,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UserTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
         """

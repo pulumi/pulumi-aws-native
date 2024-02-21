@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -55,7 +56,7 @@ type LookupVpcAttachmentResult struct {
 	// Subnet Arn list
 	SubnetArns []string `pulumi:"subnetArns"`
 	// Tags for the attachment.
-	Tags []VpcAttachmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Last update time of the attachment.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
@@ -162,8 +163,8 @@ func (o LookupVpcAttachmentResultOutput) SubnetArns() pulumi.StringArrayOutput {
 }
 
 // Tags for the attachment.
-func (o LookupVpcAttachmentResultOutput) Tags() VpcAttachmentTagArrayOutput {
-	return o.ApplyT(func(v LookupVpcAttachmentResult) []VpcAttachmentTag { return v.Tags }).(VpcAttachmentTagArrayOutput)
+func (o LookupVpcAttachmentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Last update time of the attachment.

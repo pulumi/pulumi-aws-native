@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -58,7 +59,7 @@ type LookupIpamPoolResult struct {
 	// An explanation of how the pool arrived at it current state.
 	StateMessage *string `pulumi:"stateMessage"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IpamPoolTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIpamPoolOutput(ctx *pulumi.Context, args LookupIpamPoolOutputArgs, opts ...pulumi.InvokeOption) LookupIpamPoolResultOutput {
@@ -172,8 +173,8 @@ func (o LookupIpamPoolResultOutput) StateMessage() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupIpamPoolResultOutput) Tags() IpamPoolTagArrayOutput {
-	return o.ApplyT(func(v LookupIpamPoolResult) []IpamPoolTag { return v.Tags }).(IpamPoolTagArrayOutput)
+func (o LookupIpamPoolResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIpamPoolResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

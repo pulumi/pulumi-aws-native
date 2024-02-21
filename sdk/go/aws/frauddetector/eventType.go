@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type EventType struct {
 	// The name for the event type
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags associated with this event type.
-	Tags EventTypeTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewEventType registers a new resource with the given unique name, arguments, and options.
@@ -94,7 +95,7 @@ type eventTypeArgs struct {
 	// The name for the event type
 	Name *string `pulumi:"name"`
 	// Tags associated with this event type.
-	Tags []EventTypeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventType resource.
@@ -107,7 +108,7 @@ type EventTypeArgs struct {
 	// The name for the event type
 	Name pulumi.StringPtrInput
 	// Tags associated with this event type.
-	Tags EventTypeTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (EventTypeArgs) ElementType() reflect.Type {
@@ -185,8 +186,8 @@ func (o EventTypeOutput) Name() pulumi.StringOutput {
 }
 
 // Tags associated with this event type.
-func (o EventTypeOutput) Tags() EventTypeTagArrayOutput {
-	return o.ApplyT(func(v *EventType) EventTypeTagArrayOutput { return v.Tags }).(EventTypeTagArrayOutput)
+func (o EventTypeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EventType) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

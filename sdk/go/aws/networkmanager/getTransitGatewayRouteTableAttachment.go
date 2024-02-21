@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -53,7 +54,7 @@ type LookupTransitGatewayRouteTableAttachmentResult struct {
 	// The state of the attachment.
 	State *string `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []TransitGatewayRouteTableAttachmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Last update time of the attachment.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
@@ -157,10 +158,8 @@ func (o LookupTransitGatewayRouteTableAttachmentResultOutput) State() pulumi.Str
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupTransitGatewayRouteTableAttachmentResultOutput) Tags() TransitGatewayRouteTableAttachmentTagArrayOutput {
-	return o.ApplyT(func(v LookupTransitGatewayRouteTableAttachmentResult) []TransitGatewayRouteTableAttachmentTag {
-		return v.Tags
-	}).(TransitGatewayRouteTableAttachmentTagArrayOutput)
+func (o LookupTransitGatewayRouteTableAttachmentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayRouteTableAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Last update time of the attachment.

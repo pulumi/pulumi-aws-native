@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type Secret struct {
 	// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
 	SecretString pulumi.StringPtrOutput `pulumi:"secretString"`
 	// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-	Tags SecretTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +89,7 @@ type secretArgs struct {
 	// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
 	SecretString *string `pulumi:"secretString"`
 	// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-	Tags []SecretTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Secret resource.
@@ -106,7 +107,7 @@ type SecretArgs struct {
 	// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
 	SecretString pulumi.StringPtrInput
 	// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-	Tags SecretTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {
@@ -177,8 +178,8 @@ func (o SecretOutput) SecretString() pulumi.StringPtrOutput {
 }
 
 // The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-func (o SecretOutput) Tags() SecretTagArrayOutput {
-	return o.ApplyT(func(v *Secret) SecretTagArrayOutput { return v.Tags }).(SecretTagArrayOutput)
+func (o SecretOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Secret) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

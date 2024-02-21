@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this Domain.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DomainTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.DomainVpcOptions? VpcOptions;
 
         [OutputConstructor]
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             Outputs.DomainSoftwareUpdateOptions? softwareUpdateOptions,
 
-            ImmutableArray<Outputs.DomainTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.DomainVpcOptions? vpcOptions)
         {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type VerifiedAccessTrustProvider struct {
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification SseSpecificationPropertiesPtrOutput `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
-	Tags VerifiedAccessTrustProviderTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Type of trust provider. Possible values: user|device
 	TrustProviderType pulumi.StringOutput `pulumi:"trustProviderType"`
 	// The type of device-based trust provider. Possible values: oidc|iam-identity-center
@@ -105,7 +106,7 @@ type verifiedAccessTrustProviderArgs struct {
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification *SseSpecificationProperties `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []VerifiedAccessTrustProviderTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Type of trust provider. Possible values: user|device
 	TrustProviderType string `pulumi:"trustProviderType"`
 	// The type of device-based trust provider. Possible values: oidc|iam-identity-center
@@ -125,7 +126,7 @@ type VerifiedAccessTrustProviderArgs struct {
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification SseSpecificationPropertiesPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags VerifiedAccessTrustProviderTagArrayInput
+	Tags aws.TagArrayInput
 	// Type of trust provider. Possible values: user|device
 	TrustProviderType pulumi.StringInput
 	// The type of device-based trust provider. Possible values: oidc|iam-identity-center
@@ -212,8 +213,8 @@ func (o VerifiedAccessTrustProviderOutput) SseSpecification() SseSpecificationPr
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o VerifiedAccessTrustProviderOutput) Tags() VerifiedAccessTrustProviderTagArrayOutput {
-	return o.ApplyT(func(v *VerifiedAccessTrustProvider) VerifiedAccessTrustProviderTagArrayOutput { return v.Tags }).(VerifiedAccessTrustProviderTagArrayOutput)
+func (o VerifiedAccessTrustProviderOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Type of trust provider. Possible values: user|device

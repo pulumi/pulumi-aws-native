@@ -63,7 +63,7 @@ export interface GetDetectorResult {
     /**
      * Tags associated with this detector.
      */
-    readonly tags?: outputs.frauddetector.DetectorTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A resource schema for a Detector in Amazon Fraud Detector.

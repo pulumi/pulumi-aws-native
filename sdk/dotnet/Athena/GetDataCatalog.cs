@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// A list of comma separated tags to add to the data catalog that is created. 
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataCatalogTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Athena
 
             ImmutableDictionary<string, string>? parameters,
 
-            ImmutableArray<Outputs.DataCatalogTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.Athena.DataCatalogType? type)
         {

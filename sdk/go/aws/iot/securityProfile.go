@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type SecurityProfile struct {
 	// A unique identifier for the security profile.
 	SecurityProfileName pulumi.StringPtrOutput `pulumi:"securityProfileName"`
 	// Metadata that can be used to manage the security profile.
-	Tags SecurityProfileTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A set of target ARNs that the security profile is attached to.
 	TargetArns pulumi.StringArrayOutput `pulumi:"targetArns"`
 }
@@ -92,7 +93,7 @@ type securityProfileArgs struct {
 	// A unique identifier for the security profile.
 	SecurityProfileName *string `pulumi:"securityProfileName"`
 	// Metadata that can be used to manage the security profile.
-	Tags []SecurityProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A set of target ARNs that the security profile is attached to.
 	TargetArns []string `pulumi:"targetArns"`
 }
@@ -112,7 +113,7 @@ type SecurityProfileArgs struct {
 	// A unique identifier for the security profile.
 	SecurityProfileName pulumi.StringPtrInput
 	// Metadata that can be used to manage the security profile.
-	Tags SecurityProfileTagArrayInput
+	Tags aws.TagArrayInput
 	// A set of target ARNs that the security profile is attached to.
 	TargetArns pulumi.StringArrayInput
 }
@@ -192,8 +193,8 @@ func (o SecurityProfileOutput) SecurityProfileName() pulumi.StringPtrOutput {
 }
 
 // Metadata that can be used to manage the security profile.
-func (o SecurityProfileOutput) Tags() SecurityProfileTagArrayOutput {
-	return o.ApplyT(func(v *SecurityProfile) SecurityProfileTagArrayOutput { return v.Tags }).(SecurityProfileTagArrayOutput)
+func (o SecurityProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SecurityProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A set of target ARNs that the security profile is attached to.

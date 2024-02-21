@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -65,7 +66,7 @@ type LookupDbClusterResult struct {
 	// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
 	ServerlessScalingConfiguration *DbClusterServerlessScalingConfiguration `pulumi:"serverlessScalingConfiguration"`
 	// The tags assigned to this cluster.
-	Tags []DbClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Provides a list of VPC security groups that the DB cluster belongs to.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -193,8 +194,8 @@ func (o LookupDbClusterResultOutput) ServerlessScalingConfiguration() DbClusterS
 }
 
 // The tags assigned to this cluster.
-func (o LookupDbClusterResultOutput) Tags() DbClusterTagArrayOutput {
-	return o.ApplyT(func(v LookupDbClusterResult) []DbClusterTag { return v.Tags }).(DbClusterTagArrayOutput)
+func (o LookupDbClusterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Provides a list of VPC security groups that the DB cluster belongs to.

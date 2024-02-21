@@ -27,7 +27,7 @@ export interface GetGatewayRouteResult {
     readonly id?: string;
     readonly resourceOwner?: string;
     readonly spec?: outputs.appmesh.GatewayRouteSpec;
-    readonly tags?: outputs.appmesh.GatewayRouteTag[];
+    readonly tags?: outputs.Tag[];
     readonly uid?: string;
 }
 /**

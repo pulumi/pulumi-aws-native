@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,13 +19,13 @@ import (
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
-	Enabled          pulumi.BoolPtrOutput            `pulumi:"enabled"`
-	EventCategories  pulumi.StringArrayOutput        `pulumi:"eventCategories"`
-	SnsTopicArn      pulumi.StringOutput             `pulumi:"snsTopicArn"`
-	SourceIds        pulumi.StringArrayOutput        `pulumi:"sourceIds"`
-	SourceType       pulumi.StringPtrOutput          `pulumi:"sourceType"`
-	SubscriptionName pulumi.StringPtrOutput          `pulumi:"subscriptionName"`
-	Tags             EventSubscriptionTagArrayOutput `pulumi:"tags"`
+	Enabled          pulumi.BoolPtrOutput     `pulumi:"enabled"`
+	EventCategories  pulumi.StringArrayOutput `pulumi:"eventCategories"`
+	SnsTopicArn      pulumi.StringOutput      `pulumi:"snsTopicArn"`
+	SourceIds        pulumi.StringArrayOutput `pulumi:"sourceIds"`
+	SourceType       pulumi.StringPtrOutput   `pulumi:"sourceType"`
+	SubscriptionName pulumi.StringPtrOutput   `pulumi:"subscriptionName"`
+	Tags             aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
@@ -75,13 +76,13 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 }
 
 type eventSubscriptionArgs struct {
-	Enabled          *bool                  `pulumi:"enabled"`
-	EventCategories  []string               `pulumi:"eventCategories"`
-	SnsTopicArn      string                 `pulumi:"snsTopicArn"`
-	SourceIds        []string               `pulumi:"sourceIds"`
-	SourceType       *string                `pulumi:"sourceType"`
-	SubscriptionName *string                `pulumi:"subscriptionName"`
-	Tags             []EventSubscriptionTag `pulumi:"tags"`
+	Enabled          *bool     `pulumi:"enabled"`
+	EventCategories  []string  `pulumi:"eventCategories"`
+	SnsTopicArn      string    `pulumi:"snsTopicArn"`
+	SourceIds        []string  `pulumi:"sourceIds"`
+	SourceType       *string   `pulumi:"sourceType"`
+	SubscriptionName *string   `pulumi:"subscriptionName"`
+	Tags             []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
@@ -92,7 +93,7 @@ type EventSubscriptionArgs struct {
 	SourceIds        pulumi.StringArrayInput
 	SourceType       pulumi.StringPtrInput
 	SubscriptionName pulumi.StringPtrInput
-	Tags             EventSubscriptionTagArrayInput
+	Tags             aws.TagArrayInput
 }
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {
@@ -156,8 +157,8 @@ func (o EventSubscriptionOutput) SubscriptionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.SubscriptionName }).(pulumi.StringPtrOutput)
 }
 
-func (o EventSubscriptionOutput) Tags() EventSubscriptionTagArrayOutput {
-	return o.ApplyT(func(v *EventSubscription) EventSubscriptionTagArrayOutput { return v.Tags }).(EventSubscriptionTagArrayOutput)
+func (o EventSubscriptionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EventSubscription) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

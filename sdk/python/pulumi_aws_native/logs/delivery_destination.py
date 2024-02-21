@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['DeliveryDestinationArgs', 'DeliveryDestination']
 
@@ -19,7 +19,7 @@ class DeliveryDestinationArgs:
                  delivery_destination_policy: Optional[Any] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeliveryDestination resource.
         :param Any delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
@@ -31,7 +31,7 @@ class DeliveryDestinationArgs:
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
         :param pulumi.Input[str] name: The name of this delivery destination.
-        :param pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationTagArgs']]] tags: The tags that have been assigned to this delivery destination.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags that have been assigned to this delivery destination.
         """
         if delivery_destination_policy is not None:
             pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
@@ -86,14 +86,14 @@ class DeliveryDestinationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags that have been assigned to this delivery destination.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -105,7 +105,7 @@ class DeliveryDestination(pulumi.CustomResource):
                  delivery_destination_policy: Optional[Any] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         This structure contains information about one delivery destination in your account.
@@ -123,7 +123,7 @@ class DeliveryDestination(pulumi.CustomResource):
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
         :param pulumi.Input[str] name: The name of this delivery destination.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationTagArgs']]]] tags: The tags that have been assigned to this delivery destination.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags that have been assigned to this delivery destination.
         """
         ...
     @overload
@@ -154,7 +154,7 @@ class DeliveryDestination(pulumi.CustomResource):
                  delivery_destination_policy: Optional[Any] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -250,7 +250,7 @@ class DeliveryDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeliveryDestinationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags that have been assigned to this delivery destination.
         """

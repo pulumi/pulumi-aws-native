@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type DevicePool struct {
 	Name        pulumi.StringOutput       `pulumi:"name"`
 	ProjectArn  pulumi.StringOutput       `pulumi:"projectArn"`
 	Rules       DevicePoolRuleArrayOutput `pulumi:"rules"`
-	Tags        DevicePoolTagArrayOutput  `pulumi:"tags"`
+	Tags        aws.TagArrayOutput        `pulumi:"tags"`
 }
 
 // NewDevicePool registers a new resource with the given unique name, arguments, and options.
@@ -80,7 +81,7 @@ type devicePoolArgs struct {
 	Name        *string          `pulumi:"name"`
 	ProjectArn  string           `pulumi:"projectArn"`
 	Rules       []DevicePoolRule `pulumi:"rules"`
-	Tags        []DevicePoolTag  `pulumi:"tags"`
+	Tags        []aws.Tag        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DevicePool resource.
@@ -90,7 +91,7 @@ type DevicePoolArgs struct {
 	Name        pulumi.StringPtrInput
 	ProjectArn  pulumi.StringInput
 	Rules       DevicePoolRuleArrayInput
-	Tags        DevicePoolTagArrayInput
+	Tags        aws.TagArrayInput
 }
 
 func (DevicePoolArgs) ElementType() reflect.Type {
@@ -154,8 +155,8 @@ func (o DevicePoolOutput) Rules() DevicePoolRuleArrayOutput {
 	return o.ApplyT(func(v *DevicePool) DevicePoolRuleArrayOutput { return v.Rules }).(DevicePoolRuleArrayOutput)
 }
 
-func (o DevicePoolOutput) Tags() DevicePoolTagArrayOutput {
-	return o.ApplyT(func(v *DevicePool) DevicePoolTagArrayOutput { return v.Tags }).(DevicePoolTagArrayOutput)
+func (o DevicePoolOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DevicePool) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

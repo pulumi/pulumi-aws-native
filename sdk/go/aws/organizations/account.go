@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type Account struct {
 	// The status of the account in the organization.
 	Status AccountStatusOutput `pulumi:"status"`
 	// A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
-	Tags AccountTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type accountArgs struct {
 	// The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
 	RoleName *string `pulumi:"roleName"`
 	// A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
-	Tags []AccountTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
@@ -104,7 +105,7 @@ type AccountArgs struct {
 	// The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
 	RoleName pulumi.StringPtrInput
 	// A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
-	Tags AccountTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -190,8 +191,8 @@ func (o AccountOutput) Status() AccountStatusOutput {
 }
 
 // A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
-func (o AccountOutput) Tags() AccountTagArrayOutput {
-	return o.ApplyT(func(v *Account) AccountTagArrayOutput { return v.Tags }).(AccountTagArrayOutput)
+func (o AccountOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Account) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -45,7 +45,7 @@ export class VirtualService extends pulumi.CustomResource {
     public readonly meshOwner!: pulumi.Output<string | undefined>;
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     public readonly spec!: pulumi.Output<outputs.appmesh.VirtualServiceSpec>;
-    public readonly tags!: pulumi.Output<outputs.appmesh.VirtualServiceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly uid!: pulumi.Output<string>;
     public readonly virtualServiceName!: pulumi.Output<string>;
 
@@ -100,6 +100,6 @@ export interface VirtualServiceArgs {
     meshName: pulumi.Input<string>;
     meshOwner?: pulumi.Input<string>;
     spec: pulumi.Input<inputs.appmesh.VirtualServiceSpecArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualServiceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     virtualServiceName?: pulumi.Input<string>;
 }

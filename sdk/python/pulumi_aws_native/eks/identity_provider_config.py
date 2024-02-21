@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,13 +23,13 @@ class IdentityProviderConfigArgs:
                  type: pulumi.Input['IdentityProviderConfigType'],
                  identity_provider_config_name: Optional[pulumi.Input[str]] = None,
                  oidc: Optional[pulumi.Input['IdentityProviderConfigOidcIdentityProviderConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IdentityProviderConfig resource.
         :param pulumi.Input[str] cluster_name: The name of the identity provider configuration.
         :param pulumi.Input['IdentityProviderConfigType'] type: The type of the identity provider configuration.
         :param pulumi.Input[str] identity_provider_config_name: The name of the OIDC provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "type", type)
@@ -85,14 +87,14 @@ class IdentityProviderConfigArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -104,7 +106,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  identity_provider_config_name: Optional[pulumi.Input[str]] = None,
                  oidc: Optional[pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcIdentityProviderConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityProviderConfigTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['IdentityProviderConfigType']] = None,
                  __props__=None):
         """
@@ -114,7 +116,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the identity provider configuration.
         :param pulumi.Input[str] identity_provider_config_name: The name of the OIDC provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityProviderConfigTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IdentityProviderConfigType'] type: The type of the identity provider configuration.
         """
         ...
@@ -144,7 +146,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  identity_provider_config_name: Optional[pulumi.Input[str]] = None,
                  oidc: Optional[pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcIdentityProviderConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityProviderConfigTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['IdentityProviderConfigType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -228,7 +230,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IdentityProviderConfigTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// Role Arn
         /// </summary>
         public readonly string? RoleArn;
-        public readonly ImmutableArray<Outputs.PipelineTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPipelineResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? roleArn,
 
-            ImmutableArray<Outputs.PipelineTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ParallelismConfiguration = parallelismConfiguration;
             PipelineDefinition = pipelineDefinition;

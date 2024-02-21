@@ -46,7 +46,7 @@ export interface GetWorkspaceResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.aps.WorkspaceTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Required to identify a specific APS Workspace.
      */

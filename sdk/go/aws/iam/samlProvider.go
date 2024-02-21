@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,10 +18,10 @@ type SamlProvider struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the SAML provider
-	Arn                  pulumi.StringOutput        `pulumi:"arn"`
-	Name                 pulumi.StringPtrOutput     `pulumi:"name"`
-	SamlMetadataDocument pulumi.StringOutput        `pulumi:"samlMetadataDocument"`
-	Tags                 SamlProviderTagArrayOutput `pulumi:"tags"`
+	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	Name                 pulumi.StringPtrOutput `pulumi:"name"`
+	SamlMetadataDocument pulumi.StringOutput    `pulumi:"samlMetadataDocument"`
+	Tags                 aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewSamlProvider registers a new resource with the given unique name, arguments, and options.
@@ -70,16 +71,16 @@ func (SamlProviderState) ElementType() reflect.Type {
 }
 
 type samlProviderArgs struct {
-	Name                 *string           `pulumi:"name"`
-	SamlMetadataDocument string            `pulumi:"samlMetadataDocument"`
-	Tags                 []SamlProviderTag `pulumi:"tags"`
+	Name                 *string   `pulumi:"name"`
+	SamlMetadataDocument string    `pulumi:"samlMetadataDocument"`
+	Tags                 []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SamlProvider resource.
 type SamlProviderArgs struct {
 	Name                 pulumi.StringPtrInput
 	SamlMetadataDocument pulumi.StringInput
-	Tags                 SamlProviderTagArrayInput
+	Tags                 aws.TagArrayInput
 }
 
 func (SamlProviderArgs) ElementType() reflect.Type {
@@ -132,8 +133,8 @@ func (o SamlProviderOutput) SamlMetadataDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamlProvider) pulumi.StringOutput { return v.SamlMetadataDocument }).(pulumi.StringOutput)
 }
 
-func (o SamlProviderOutput) Tags() SamlProviderTagArrayOutput {
-	return o.ApplyT(func(v *SamlProvider) SamlProviderTagArrayOutput { return v.Tags }).(SamlProviderTagArrayOutput)
+func (o SamlProviderOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SamlProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['StudioArgs', 'Studio']
 
@@ -31,7 +31,7 @@ class StudioArgs:
                  idp_auth_url: Optional[pulumi.Input[str]] = None,
                  idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StudioTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  trusted_identity_propagation_enabled: Optional[pulumi.Input[bool]] = None,
                  user_role: Optional[pulumi.Input[str]] = None):
         """
@@ -50,7 +50,7 @@ class StudioArgs:
         :param pulumi.Input[str] idp_auth_url: Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
         :param pulumi.Input[str] idp_relay_state_parameter_name: The name of relay state parameter for external Identity Provider.
         :param pulumi.Input[str] name: A descriptive name for the Amazon EMR Studio.
-        :param pulumi.Input[Sequence[pulumi.Input['StudioTagArgs']]] tags: A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         :param pulumi.Input[bool] trusted_identity_propagation_enabled: A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
         :param pulumi.Input[str] user_role: The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
         """
@@ -252,14 +252,14 @@ class StudioArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StudioTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -304,7 +304,7 @@ class Studio(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  trusted_identity_propagation_enabled: Optional[pulumi.Input[bool]] = None,
                  user_role: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -327,7 +327,7 @@ class Studio(pulumi.CustomResource):
         :param pulumi.Input[str] name: A descriptive name for the Amazon EMR Studio.
         :param pulumi.Input[str] service_role: The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioTagArgs']]]] tags: A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         :param pulumi.Input[bool] trusted_identity_propagation_enabled: A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
         :param pulumi.Input[str] user_role: The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
@@ -369,7 +369,7 @@ class Studio(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  trusted_identity_propagation_enabled: Optional[pulumi.Input[bool]] = None,
                  user_role: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -577,7 +577,7 @@ class Studio(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StudioTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         """

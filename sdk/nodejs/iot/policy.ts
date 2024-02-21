@@ -43,7 +43,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly policyDocument!: pulumi.Output<any>;
     public readonly policyName!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iot.PolicyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -85,5 +85,5 @@ export interface PolicyArgs {
      */
     policyDocument: any;
     policyName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.PolicyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

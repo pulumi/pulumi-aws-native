@@ -64,7 +64,7 @@ export class DbCluster extends pulumi.CustomResource {
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     public readonly storageType!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.docdb.DbClusterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly useLatestRestorableTime!: pulumi.Output<boolean | undefined>;
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
@@ -169,7 +169,7 @@ export interface DbClusterArgs {
     sourceDbClusterIdentifier?: pulumi.Input<string>;
     storageEncrypted?: pulumi.Input<boolean>;
     storageType?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.docdb.DbClusterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     useLatestRestorableTime?: pulumi.Input<boolean>;
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

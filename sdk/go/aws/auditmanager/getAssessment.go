@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupAssessmentResult struct {
 	Scope  *AssessmentScope  `pulumi:"scope"`
 	Status *AssessmentStatus `pulumi:"status"`
 	// The tags associated with the assessment.
-	Tags []AssessmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAssessmentOutput(ctx *pulumi.Context, args LookupAssessmentOutputArgs, opts ...pulumi.InvokeOption) LookupAssessmentResultOutput {
@@ -111,8 +112,8 @@ func (o LookupAssessmentResultOutput) Status() AssessmentStatusPtrOutput {
 }
 
 // The tags associated with the assessment.
-func (o LookupAssessmentResultOutput) Tags() AssessmentTagArrayOutput {
-	return o.ApplyT(func(v LookupAssessmentResult) []AssessmentTag { return v.Tags }).(AssessmentTagArrayOutput)
+func (o LookupAssessmentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAssessmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

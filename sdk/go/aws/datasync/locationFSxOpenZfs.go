@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type LocationFSxOpenZfs struct {
 	// A subdirectory in the location's path.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationFSxOpenZfsTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationFSxOpenZfs registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +93,7 @@ type locationFSxOpenZfsArgs struct {
 	// A subdirectory in the location's path.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationFSxOpenZfsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationFSxOpenZfs resource.
@@ -105,7 +106,7 @@ type LocationFSxOpenZfsArgs struct {
 	// A subdirectory in the location's path.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationFSxOpenZfsTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocationFSxOpenZfsArgs) ElementType() reflect.Type {
@@ -175,8 +176,8 @@ func (o LocationFSxOpenZfsOutput) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationFSxOpenZfsOutput) Tags() LocationFSxOpenZfsTagArrayOutput {
-	return o.ApplyT(func(v *LocationFSxOpenZfs) LocationFSxOpenZfsTagArrayOutput { return v.Tags }).(LocationFSxOpenZfsTagArrayOutput)
+func (o LocationFSxOpenZfsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZfs) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

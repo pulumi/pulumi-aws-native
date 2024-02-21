@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MitigationActionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetMitigationActionResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? roleArn,
 
-            ImmutableArray<Outputs.MitigationActionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ActionParams = actionParams;
             MitigationActionArn = mitigationActionArn;

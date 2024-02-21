@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type ImageBuilder struct {
 	InstanceType                pulumi.StringOutput                   `pulumi:"instanceType"`
 	Name                        pulumi.StringOutput                   `pulumi:"name"`
 	StreamingUrl                pulumi.StringOutput                   `pulumi:"streamingUrl"`
-	Tags                        ImageBuilderTagArrayOutput            `pulumi:"tags"`
+	Tags                        aws.TagArrayOutput                    `pulumi:"tags"`
 	VpcConfig                   ImageBuilderVpcConfigPtrOutput        `pulumi:"vpcConfig"`
 }
 
@@ -86,7 +87,7 @@ type imageBuilderArgs struct {
 	ImageName                   *string                      `pulumi:"imageName"`
 	InstanceType                string                       `pulumi:"instanceType"`
 	Name                        *string                      `pulumi:"name"`
-	Tags                        []ImageBuilderTag            `pulumi:"tags"`
+	Tags                        []aws.Tag                    `pulumi:"tags"`
 	VpcConfig                   *ImageBuilderVpcConfig       `pulumi:"vpcConfig"`
 }
 
@@ -103,7 +104,7 @@ type ImageBuilderArgs struct {
 	ImageName                   pulumi.StringPtrInput
 	InstanceType                pulumi.StringInput
 	Name                        pulumi.StringPtrInput
-	Tags                        ImageBuilderTagArrayInput
+	Tags                        aws.TagArrayInput
 	VpcConfig                   ImageBuilderVpcConfigPtrInput
 }
 
@@ -192,8 +193,8 @@ func (o ImageBuilderOutput) StreamingUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.StreamingUrl }).(pulumi.StringOutput)
 }
 
-func (o ImageBuilderOutput) Tags() ImageBuilderTagArrayOutput {
-	return o.ApplyT(func(v *ImageBuilder) ImageBuilderTagArrayOutput { return v.Tags }).(ImageBuilderTagArrayOutput)
+func (o ImageBuilderOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ImageBuilder) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ImageBuilderOutput) VpcConfig() ImageBuilderVpcConfigPtrOutput {

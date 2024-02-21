@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         /// One or more tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.CampaignTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -113,14 +113,14 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         public Input<Inputs.CampaignOutboundCallConfigArgs> OutboundCallConfig { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.CampaignTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public InputList<Inputs.CampaignTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.CampaignTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

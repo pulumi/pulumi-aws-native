@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public readonly string? DecoderManifestArn;
         public readonly string? LastModificationTime;
         public readonly string? ModelManifestArn;
-        public readonly ImmutableArray<Outputs.VehicleTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetVehicleResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
 
             string? modelManifestArn,
 
-            ImmutableArray<Outputs.VehicleTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Attributes = attributes;

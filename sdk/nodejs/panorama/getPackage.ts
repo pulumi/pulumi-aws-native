@@ -27,7 +27,7 @@ export interface GetPackageResult {
     readonly createdTime?: number;
     readonly packageId?: string;
     readonly storageLocation?: outputs.panorama.PackageStorageLocation;
-    readonly tags?: outputs.panorama.PackageTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Schema for Package CloudFormation Resource

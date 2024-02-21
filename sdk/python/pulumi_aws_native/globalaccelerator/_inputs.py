@@ -11,49 +11,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AcceleratorTagArgs',
     'EndpointGroupEndpointConfigurationArgs',
     'EndpointGroupPortOverrideArgs',
     'ListenerPortRangeArgs',
 ]
-
-@pulumi.input_type
-class AcceleratorTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        Tag is a key-value pair associated with accelerator.
-        :param pulumi.Input[str] key: Key of the tag. Value can be 1 to 127 characters.
-        :param pulumi.Input[str] value: Value for the tag. Value can be 1 to 255 characters.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        Key of the tag. Value can be 1 to 127 characters.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Value for the tag. Value can be 1 to 255 characters.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
 
 @pulumi.input_type
 class EndpointGroupEndpointConfigurationArgs:

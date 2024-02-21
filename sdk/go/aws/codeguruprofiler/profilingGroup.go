@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type ProfilingGroup struct {
 	// The name of the profiling group.
 	ProfilingGroupName pulumi.StringOutput `pulumi:"profilingGroupName"`
 	// The tags associated with a profiling group.
-	Tags ProfilingGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewProfilingGroup registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +84,7 @@ type profilingGroupArgs struct {
 	// The name of the profiling group.
 	ProfilingGroupName *string `pulumi:"profilingGroupName"`
 	// The tags associated with a profiling group.
-	Tags []ProfilingGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ProfilingGroup resource.
@@ -97,7 +98,7 @@ type ProfilingGroupArgs struct {
 	// The name of the profiling group.
 	ProfilingGroupName pulumi.StringPtrInput
 	// The tags associated with a profiling group.
-	Tags ProfilingGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ProfilingGroupArgs) ElementType() reflect.Type {
@@ -165,8 +166,8 @@ func (o ProfilingGroupOutput) ProfilingGroupName() pulumi.StringOutput {
 }
 
 // The tags associated with a profiling group.
-func (o ProfilingGroupOutput) Tags() ProfilingGroupTagArrayOutput {
-	return o.ApplyT(func(v *ProfilingGroup) ProfilingGroupTagArrayOutput { return v.Tags }).(ProfilingGroupTagArrayOutput)
+func (o ProfilingGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ProfilingGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

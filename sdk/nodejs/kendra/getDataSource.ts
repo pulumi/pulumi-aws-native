@@ -38,7 +38,7 @@ export interface GetDataSourceResult {
     /**
      * Tags for labeling the data source
      */
-    readonly tags?: outputs.kendra.DataSourceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Kendra DataSource

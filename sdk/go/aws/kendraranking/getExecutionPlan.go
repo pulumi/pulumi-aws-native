@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupExecutionPlanResult struct {
 	Id          *string `pulumi:"id"`
 	Name        *string `pulumi:"name"`
 	// Tags for labeling the execution plan
-	Tags []ExecutionPlanTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupExecutionPlanOutput(ctx *pulumi.Context, args LookupExecutionPlanOutputArgs, opts ...pulumi.InvokeOption) LookupExecutionPlanResultOutput {
@@ -96,8 +97,8 @@ func (o LookupExecutionPlanResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Tags for labeling the execution plan
-func (o LookupExecutionPlanResultOutput) Tags() ExecutionPlanTagArrayOutput {
-	return o.ApplyT(func(v LookupExecutionPlanResult) []ExecutionPlanTag { return v.Tags }).(ExecutionPlanTagArrayOutput)
+func (o LookupExecutionPlanResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupExecutionPlanResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

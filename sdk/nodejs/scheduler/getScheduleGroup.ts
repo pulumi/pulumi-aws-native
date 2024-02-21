@@ -39,7 +39,7 @@ export interface GetScheduleGroupResult {
     /**
      * The list of tags to associate with the schedule group.
      */
-    readonly tags?: outputs.scheduler.ScheduleGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::Scheduler::ScheduleGroup Resource Type

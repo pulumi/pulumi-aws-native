@@ -49,7 +49,7 @@ export interface GetSchemaResult {
     /**
      * Tags associated with the resource.
      */
-    readonly tags?: outputs.eventschemas.SchemaTagsEntry[];
+    readonly tags?: outputs.Tag[];
     /**
      * The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
      */

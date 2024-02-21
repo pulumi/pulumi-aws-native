@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupCoreNetworkResult struct {
 	// The state of core network
 	State *string `pulumi:"state"`
 	// The tags for the global network.
-	Tags []CoreNetworkTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCoreNetworkOutput(ctx *pulumi.Context, args LookupCoreNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupCoreNetworkResultOutput {
@@ -136,8 +137,8 @@ func (o LookupCoreNetworkResultOutput) State() pulumi.StringPtrOutput {
 }
 
 // The tags for the global network.
-func (o LookupCoreNetworkResultOutput) Tags() CoreNetworkTagArrayOutput {
-	return o.ApplyT(func(v LookupCoreNetworkResult) []CoreNetworkTag { return v.Tags }).(CoreNetworkTagArrayOutput)
+func (o LookupCoreNetworkResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCoreNetworkResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

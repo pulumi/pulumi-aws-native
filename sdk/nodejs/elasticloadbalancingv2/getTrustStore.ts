@@ -37,7 +37,7 @@ export interface GetTrustStoreResult {
     /**
      * The tags to assign to the trust store.
      */
-    readonly tags?: outputs.elasticloadbalancingv2.TrustStoreTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The Amazon Resource Name (ARN) of the trust store.
      */

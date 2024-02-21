@@ -12,10 +12,8 @@ from . import outputs
 
 __all__ = [
     'GroupInsightsConfiguration',
-    'GroupTag',
     'SamplingRule',
     'SamplingRuleRecord',
-    'SamplingRuleTag',
     'SamplingRuleUpdate',
 ]
 
@@ -67,35 +65,6 @@ class GroupInsightsConfiguration(dict):
         Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
         """
         return pulumi.get(self, "notifications_enabled")
-
-
-@pulumi.output_type
-class GroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: The key name of the tag.
-        :param str value: The value for the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -335,35 +304,6 @@ class SamplingRuleRecord(dict):
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> Optional['outputs.SamplingRule']:
         return pulumi.get(self, "sampling_rule")
-
-
-@pulumi.output_type
-class SamplingRuleTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: The key name of the tag.
-        :param str value: The value for the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Map struct {
 	MapName       pulumi.StringOutput     `pulumi:"mapName"`
 	PricingPlan   MapPricingPlanPtrOutput `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       MapTagArrayOutput   `pulumi:"tags"`
+	Tags       aws.TagArrayOutput  `pulumi:"tags"`
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
@@ -81,7 +82,7 @@ type mapArgs struct {
 	MapName       *string          `pulumi:"mapName"`
 	PricingPlan   *MapPricingPlan  `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []MapTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Map resource.
@@ -91,7 +92,7 @@ type MapArgs struct {
 	MapName       pulumi.StringPtrInput
 	PricingPlan   MapPricingPlanPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags MapTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (MapArgs) ElementType() reflect.Type {
@@ -160,8 +161,8 @@ func (o MapOutput) PricingPlan() MapPricingPlanPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o MapOutput) Tags() MapTagArrayOutput {
-	return o.ApplyT(func(v *Map) MapTagArrayOutput { return v.Tags }).(MapTagArrayOutput)
+func (o MapOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Map) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o MapOutput) UpdateTime() pulumi.StringOutput {

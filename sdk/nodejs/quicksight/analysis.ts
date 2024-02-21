@@ -51,7 +51,7 @@ export class Analysis extends pulumi.CustomResource {
     public readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[] | undefined>;
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
     public readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus | undefined>;
-    public readonly tags!: pulumi.Output<outputs.quicksight.AnalysisTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly themeArn!: pulumi.Output<string | undefined>;
     public readonly validationStrategy!: pulumi.Output<outputs.quicksight.AnalysisValidationStrategy | undefined>;
 
@@ -129,7 +129,7 @@ export interface AnalysisArgs {
     sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetArgs>[]>;
     sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntityArgs>;
     status?: pulumi.Input<enums.quicksight.AnalysisResourceStatus>;
-    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     themeArn?: pulumi.Input<string>;
     validationStrategy?: pulumi.Input<inputs.quicksight.AnalysisValidationStrategyArgs>;
 }

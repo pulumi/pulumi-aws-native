@@ -15,12 +15,8 @@ __all__ = [
     'CapabilityEdiConfigurationArgs',
     'CapabilityEdiTypePropertiesArgs',
     'CapabilityS3LocationArgs',
-    'CapabilityTagArgs',
     'CapabilityX12DetailsArgs',
-    'PartnershipTagArgs',
-    'ProfileTagArgs',
     'TransformerEdiTypePropertiesArgs',
-    'TransformerTagArgs',
     'TransformerX12DetailsArgs',
 ]
 
@@ -135,33 +131,6 @@ class CapabilityS3LocationArgs:
 
 
 @pulumi.input_type
-class CapabilityTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class CapabilityX12DetailsArgs:
     def __init__(__self__, *,
                  transaction_set: Optional[pulumi.Input['CapabilityX12TransactionSet']] = None,
@@ -191,60 +160,6 @@ class CapabilityX12DetailsArgs:
 
 
 @pulumi.input_type
-class PartnershipTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class ProfileTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class TransformerEdiTypePropertiesArgs:
     def __init__(__self__, *,
                  x12_details: pulumi.Input['TransformerX12DetailsArgs']):
@@ -258,33 +173,6 @@ class TransformerEdiTypePropertiesArgs:
     @x12_details.setter
     def x12_details(self, value: pulumi.Input['TransformerX12DetailsArgs']):
         pulumi.set(self, "x12_details", value)
-
-
-@pulumi.input_type
-class TransformerTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

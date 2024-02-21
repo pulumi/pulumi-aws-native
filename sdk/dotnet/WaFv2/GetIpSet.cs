@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.WaFv2
         public readonly string? Description;
         public readonly string? Id;
         public readonly Pulumi.AwsNative.WaFv2.IpSetIpAddressVersion? IpAddressVersion;
-        public readonly ImmutableArray<Outputs.IpSetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetIpSetResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.WaFv2
 
             Pulumi.AwsNative.WaFv2.IpSetIpAddressVersion? ipAddressVersion,
 
-            ImmutableArray<Outputs.IpSetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Addresses = addresses;
             Arn = arn;

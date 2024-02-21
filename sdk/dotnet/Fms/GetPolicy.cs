@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Fms
         public readonly ImmutableArray<string> ResourceTypeList;
         public readonly bool? ResourcesCleanUp;
         public readonly Outputs.PolicySecurityServicePolicyData? SecurityServicePolicyData;
-        public readonly ImmutableArray<Outputs.PolicyTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPolicyResult(
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Fms
 
             Outputs.PolicySecurityServicePolicyData? securityServicePolicyData,
 
-            ImmutableArray<Outputs.PolicyTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             ExcludeMap = excludeMap;

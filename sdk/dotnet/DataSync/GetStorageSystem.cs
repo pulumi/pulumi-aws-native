@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StorageSystemTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetStorageSystemResult(
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.DataSync
 
             Pulumi.AwsNative.DataSync.StorageSystemSystemType? systemType,
 
-            ImmutableArray<Outputs.StorageSystemTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AgentArns = agentArns;
             CloudWatchLogGroupArn = cloudWatchLogGroupArn;

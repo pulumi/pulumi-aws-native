@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         /// The tags of a SystemsManagerSAP application.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ApplicationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,14 +126,14 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         public Input<string>? Sid { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ApplicationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags of a SystemsManagerSAP application.
         /// </summary>
-        public InputList<Inputs.ApplicationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ApplicationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

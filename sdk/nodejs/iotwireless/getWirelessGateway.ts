@@ -53,7 +53,7 @@ export interface GetWirelessGatewayResult {
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
-    readonly tags?: outputs.iotwireless.WirelessGatewayTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
      */

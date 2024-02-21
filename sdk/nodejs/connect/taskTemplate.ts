@@ -71,7 +71,7 @@ export class TaskTemplate extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.TaskTemplateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a TaskTemplate resource with the given unique name, arguments, and options.
@@ -150,5 +150,5 @@ export interface TaskTemplateArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.TaskTemplateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

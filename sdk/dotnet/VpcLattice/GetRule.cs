@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public readonly string? Id;
         public readonly Outputs.RuleMatch? Match;
         public readonly int? Priority;
-        public readonly ImmutableArray<Outputs.RuleTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRuleResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
             int? priority,
 
-            ImmutableArray<Outputs.RuleTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Action = action;
             Arn = arn;

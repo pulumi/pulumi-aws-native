@@ -43,7 +43,7 @@ export class DbSecurityGroup extends pulumi.CustomResource {
     public readonly dbSecurityGroupIngress!: pulumi.Output<outputs.rds.DbSecurityGroupIngress[]>;
     public readonly ec2VpcId!: pulumi.Output<string | undefined>;
     public readonly groupDescription!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.rds.DbSecurityGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbSecurityGroup resource with the given unique name, arguments, and options.
@@ -88,5 +88,5 @@ export interface DbSecurityGroupArgs {
     dbSecurityGroupIngress: pulumi.Input<pulumi.Input<inputs.rds.DbSecurityGroupIngressArgs>[]>;
     ec2VpcId?: pulumi.Input<string>;
     groupDescription: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.rds.DbSecurityGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

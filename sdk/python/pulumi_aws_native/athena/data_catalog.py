@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['DataCatalogArgs', 'DataCatalog']
 
@@ -21,14 +21,14 @@ class DataCatalogArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataCatalogTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataCatalog resource.
         :param pulumi.Input['DataCatalogType'] type: The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
         :param pulumi.Input[str] description: A description of the data catalog to be created. 
         :param pulumi.Input[str] name: The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
-        :param pulumi.Input[Sequence[pulumi.Input['DataCatalogTagArgs']]] tags: A list of comma separated tags to add to the data catalog that is created. 
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of comma separated tags to add to the data catalog that is created. 
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -90,14 +90,14 @@ class DataCatalogArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataCatalogTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of comma separated tags to add to the data catalog that is created. 
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataCatalogTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -109,7 +109,7 @@ class DataCatalog(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCatalogTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['DataCatalogType']] = None,
                  __props__=None):
         """
@@ -120,7 +120,7 @@ class DataCatalog(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the data catalog to be created. 
         :param pulumi.Input[str] name: The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCatalogTagArgs']]]] tags: A list of comma separated tags to add to the data catalog that is created. 
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of comma separated tags to add to the data catalog that is created. 
         :param pulumi.Input['DataCatalogType'] type: The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
         """
         ...
@@ -150,7 +150,7 @@ class DataCatalog(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCatalogTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['DataCatalogType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -225,7 +225,7 @@ class DataCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DataCatalogTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of comma separated tags to add to the data catalog that is created. 
         """

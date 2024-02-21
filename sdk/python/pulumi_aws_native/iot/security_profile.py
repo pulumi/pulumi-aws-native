@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class SecurityProfileArgs:
                  metrics_export_config: Optional[pulumi.Input['MetricsExportConfigPropertiesArgs']] = None,
                  security_profile_description: Optional[pulumi.Input[str]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SecurityProfile resource.
@@ -33,7 +35,7 @@ class SecurityProfileArgs:
         :param pulumi.Input['MetricsExportConfigPropertiesArgs'] metrics_export_config: A structure containing the mqtt topic for metrics export.
         :param pulumi.Input[str] security_profile_description: A description of the security profile.
         :param pulumi.Input[str] security_profile_name: A unique identifier for the security profile.
-        :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]] tags: Metadata that can be used to manage the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that can be used to manage the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: A set of target ARNs that the security profile is attached to.
         """
         if additional_metrics_to_retain_v2 is not None:
@@ -127,14 +129,14 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata that can be used to manage the security profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -161,7 +163,7 @@ class SecurityProfile(pulumi.CustomResource):
                  metrics_export_config: Optional[pulumi.Input[pulumi.InputType['MetricsExportConfigPropertiesArgs']]] = None,
                  security_profile_description: Optional[pulumi.Input[str]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -175,7 +177,7 @@ class SecurityProfile(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MetricsExportConfigPropertiesArgs']] metrics_export_config: A structure containing the mqtt topic for metrics export.
         :param pulumi.Input[str] security_profile_description: A description of the security profile.
         :param pulumi.Input[str] security_profile_name: A unique identifier for the security profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]] tags: Metadata that can be used to manage the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that can be used to manage the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: A set of target ARNs that the security profile is attached to.
         """
         ...
@@ -208,7 +210,7 @@ class SecurityProfile(pulumi.CustomResource):
                  metrics_export_config: Optional[pulumi.Input[pulumi.InputType['MetricsExportConfigPropertiesArgs']]] = None,
                  security_profile_description: Optional[pulumi.Input[str]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -321,7 +323,7 @@ class SecurityProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityProfileTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Metadata that can be used to manage the security profile.
         """

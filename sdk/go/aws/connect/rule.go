@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Rule struct {
 	// The Amazon Resource Name (ARN) of the rule.
 	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
 	// One or more tags.
-	Tags RuleTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The event source that triggers the rule.
 	TriggerEventSource RuleTriggerEventSourceOutput `pulumi:"triggerEventSource"`
 }
@@ -105,7 +106,7 @@ type ruleArgs struct {
 	// The publish status of a rule, either draft or published.
 	PublishStatus RulePublishStatus `pulumi:"publishStatus"`
 	// One or more tags.
-	Tags []RuleTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The event source that triggers the rule.
 	TriggerEventSource RuleTriggerEventSource `pulumi:"triggerEventSource"`
 }
@@ -123,7 +124,7 @@ type RuleArgs struct {
 	// The publish status of a rule, either draft or published.
 	PublishStatus RulePublishStatusInput
 	// One or more tags.
-	Tags RuleTagArrayInput
+	Tags aws.TagArrayInput
 	// The event source that triggers the rule.
 	TriggerEventSource RuleTriggerEventSourceInput
 }
@@ -196,8 +197,8 @@ func (o RuleOutput) RuleArn() pulumi.StringOutput {
 }
 
 // One or more tags.
-func (o RuleOutput) Tags() RuleTagArrayOutput {
-	return o.ApplyT(func(v *Rule) RuleTagArrayOutput { return v.Tags }).(RuleTagArrayOutput)
+func (o RuleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Rule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The event source that triggers the rule.

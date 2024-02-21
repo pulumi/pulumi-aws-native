@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// An array of key-value pairs to apply to this Serverless Cache.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServerlessCacheTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ID of the user group.
         /// </summary>
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.ElastiCache
 
             string? status,
 
-            ImmutableArray<Outputs.ServerlessCacheTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? userGroupId)
         {

@@ -562,107 +562,6 @@ type LoggingConfigurationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// LoggingConfigurationTagInput is an input type that accepts LoggingConfigurationTagArgs and LoggingConfigurationTagOutput values.
-// You can construct a concrete instance of `LoggingConfigurationTagInput` via:
-//
-//	LoggingConfigurationTagArgs{...}
-type LoggingConfigurationTagInput interface {
-	pulumi.Input
-
-	ToLoggingConfigurationTagOutput() LoggingConfigurationTagOutput
-	ToLoggingConfigurationTagOutputWithContext(context.Context) LoggingConfigurationTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LoggingConfigurationTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LoggingConfigurationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationTag)(nil)).Elem()
-}
-
-func (i LoggingConfigurationTagArgs) ToLoggingConfigurationTagOutput() LoggingConfigurationTagOutput {
-	return i.ToLoggingConfigurationTagOutputWithContext(context.Background())
-}
-
-func (i LoggingConfigurationTagArgs) ToLoggingConfigurationTagOutputWithContext(ctx context.Context) LoggingConfigurationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationTagOutput)
-}
-
-// LoggingConfigurationTagArrayInput is an input type that accepts LoggingConfigurationTagArray and LoggingConfigurationTagArrayOutput values.
-// You can construct a concrete instance of `LoggingConfigurationTagArrayInput` via:
-//
-//	LoggingConfigurationTagArray{ LoggingConfigurationTagArgs{...} }
-type LoggingConfigurationTagArrayInput interface {
-	pulumi.Input
-
-	ToLoggingConfigurationTagArrayOutput() LoggingConfigurationTagArrayOutput
-	ToLoggingConfigurationTagArrayOutputWithContext(context.Context) LoggingConfigurationTagArrayOutput
-}
-
-type LoggingConfigurationTagArray []LoggingConfigurationTagInput
-
-func (LoggingConfigurationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoggingConfigurationTag)(nil)).Elem()
-}
-
-func (i LoggingConfigurationTagArray) ToLoggingConfigurationTagArrayOutput() LoggingConfigurationTagArrayOutput {
-	return i.ToLoggingConfigurationTagArrayOutputWithContext(context.Background())
-}
-
-func (i LoggingConfigurationTagArray) ToLoggingConfigurationTagArrayOutputWithContext(ctx context.Context) LoggingConfigurationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LoggingConfigurationTagOutput struct{ *pulumi.OutputState }
-
-func (LoggingConfigurationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationTag)(nil)).Elem()
-}
-
-func (o LoggingConfigurationTagOutput) ToLoggingConfigurationTagOutput() LoggingConfigurationTagOutput {
-	return o
-}
-
-func (o LoggingConfigurationTagOutput) ToLoggingConfigurationTagOutputWithContext(ctx context.Context) LoggingConfigurationTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o LoggingConfigurationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LoggingConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o LoggingConfigurationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LoggingConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LoggingConfigurationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LoggingConfigurationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoggingConfigurationTag)(nil)).Elem()
-}
-
-func (o LoggingConfigurationTagArrayOutput) ToLoggingConfigurationTagArrayOutput() LoggingConfigurationTagArrayOutput {
-	return o
-}
-
-func (o LoggingConfigurationTagArrayOutput) ToLoggingConfigurationTagArrayOutputWithContext(ctx context.Context) LoggingConfigurationTagArrayOutput {
-	return o
-}
-
-func (o LoggingConfigurationTagArrayOutput) Index(i pulumi.IntInput) LoggingConfigurationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingConfigurationTag {
-		return vs[0].([]LoggingConfigurationTag)[vs[1].(int)]
-	}).(LoggingConfigurationTagOutput)
-}
-
 // Configuration information for optional review of messages.
 type RoomMessageReviewHandler struct {
 	// Specifies the fallback behavior if the handler does not return a valid response, encounters an error, or times out.
@@ -830,107 +729,6 @@ type RoomTag struct {
 	Value string `pulumi:"value"`
 }
 
-// RoomTagInput is an input type that accepts RoomTagArgs and RoomTagOutput values.
-// You can construct a concrete instance of `RoomTagInput` via:
-//
-//	RoomTagArgs{...}
-type RoomTagInput interface {
-	pulumi.Input
-
-	ToRoomTagOutput() RoomTagOutput
-	ToRoomTagOutputWithContext(context.Context) RoomTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type RoomTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RoomTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoomTag)(nil)).Elem()
-}
-
-func (i RoomTagArgs) ToRoomTagOutput() RoomTagOutput {
-	return i.ToRoomTagOutputWithContext(context.Background())
-}
-
-func (i RoomTagArgs) ToRoomTagOutputWithContext(ctx context.Context) RoomTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoomTagOutput)
-}
-
-// RoomTagArrayInput is an input type that accepts RoomTagArray and RoomTagArrayOutput values.
-// You can construct a concrete instance of `RoomTagArrayInput` via:
-//
-//	RoomTagArray{ RoomTagArgs{...} }
-type RoomTagArrayInput interface {
-	pulumi.Input
-
-	ToRoomTagArrayOutput() RoomTagArrayOutput
-	ToRoomTagArrayOutputWithContext(context.Context) RoomTagArrayOutput
-}
-
-type RoomTagArray []RoomTagInput
-
-func (RoomTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RoomTag)(nil)).Elem()
-}
-
-func (i RoomTagArray) ToRoomTagArrayOutput() RoomTagArrayOutput {
-	return i.ToRoomTagArrayOutputWithContext(context.Background())
-}
-
-func (i RoomTagArray) ToRoomTagArrayOutputWithContext(ctx context.Context) RoomTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoomTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type RoomTagOutput struct{ *pulumi.OutputState }
-
-func (RoomTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoomTag)(nil)).Elem()
-}
-
-func (o RoomTagOutput) ToRoomTagOutput() RoomTagOutput {
-	return o
-}
-
-func (o RoomTagOutput) ToRoomTagOutputWithContext(ctx context.Context) RoomTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o RoomTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RoomTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o RoomTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RoomTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RoomTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RoomTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RoomTag)(nil)).Elem()
-}
-
-func (o RoomTagArrayOutput) ToRoomTagArrayOutput() RoomTagArrayOutput {
-	return o
-}
-
-func (o RoomTagArrayOutput) ToRoomTagArrayOutputWithContext(ctx context.Context) RoomTagArrayOutput {
-	return o
-}
-
-func (o RoomTagArrayOutput) Index(i pulumi.IntInput) RoomTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoomTag {
-		return vs[0].([]RoomTag)[vs[1].(int)]
-	}).(RoomTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationCloudWatchLogsDestinationConfigurationInput)(nil)).Elem(), LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrInput)(nil)).Elem(), LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs{})
@@ -939,12 +737,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFirehoseDestinationConfigurationPtrInput)(nil)).Elem(), LoggingConfigurationFirehoseDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationS3DestinationConfigurationInput)(nil)).Elem(), LoggingConfigurationS3DestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationS3DestinationConfigurationPtrInput)(nil)).Elem(), LoggingConfigurationS3DestinationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationTagInput)(nil)).Elem(), LoggingConfigurationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationTagArrayInput)(nil)).Elem(), LoggingConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoomMessageReviewHandlerInput)(nil)).Elem(), RoomMessageReviewHandlerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoomMessageReviewHandlerPtrInput)(nil)).Elem(), RoomMessageReviewHandlerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RoomTagInput)(nil)).Elem(), RoomTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RoomTagArrayInput)(nil)).Elem(), RoomTagArray{})
 	pulumi.RegisterOutputType(LoggingConfigurationCloudWatchLogsDestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationDestinationConfigurationOutput{})
@@ -953,10 +747,6 @@ func init() {
 	pulumi.RegisterOutputType(LoggingConfigurationFirehoseDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationS3DestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationS3DestinationConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationTagOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(RoomMessageReviewHandlerOutput{})
 	pulumi.RegisterOutputType(RoomMessageReviewHandlerPtrOutput{})
-	pulumi.RegisterOutputType(RoomTagOutput{})
-	pulumi.RegisterOutputType(RoomTagArrayOutput{})
 }

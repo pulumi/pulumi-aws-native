@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type FindingsFilter struct {
 	// Findings filter position.
 	Position pulumi.IntPtrOutput `pulumi:"position"`
 	// A collection of tags associated with a resource
-	Tags FindingsFilterTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFindingsFilter registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +87,7 @@ type findingsFilterArgs struct {
 	// Findings filter position.
 	Position *int `pulumi:"position"`
 	// A collection of tags associated with a resource
-	Tags []FindingsFilterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FindingsFilter resource.
@@ -102,7 +103,7 @@ type FindingsFilterArgs struct {
 	// Findings filter position.
 	Position pulumi.IntPtrInput
 	// A collection of tags associated with a resource
-	Tags FindingsFilterTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (FindingsFilterArgs) ElementType() reflect.Type {
@@ -173,8 +174,8 @@ func (o FindingsFilterOutput) Position() pulumi.IntPtrOutput {
 }
 
 // A collection of tags associated with a resource
-func (o FindingsFilterOutput) Tags() FindingsFilterTagArrayOutput {
-	return o.ApplyT(func(v *FindingsFilter) FindingsFilterTagArrayOutput { return v.Tags }).(FindingsFilterTagArrayOutput)
+func (o FindingsFilterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FindingsFilter) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

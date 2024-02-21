@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type LookupCodeRepositoryArgs struct {
 type LookupCodeRepositoryResult struct {
 	GitConfig *CodeRepositoryGitConfig `pulumi:"gitConfig"`
 	Id        *string                  `pulumi:"id"`
-	Tags      []CodeRepositoryTag      `pulumi:"tags"`
+	Tags      []aws.Tag                `pulumi:"tags"`
 }
 
 func LookupCodeRepositoryOutput(ctx *pulumi.Context, args LookupCodeRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupCodeRepositoryResultOutput {
@@ -75,8 +76,8 @@ func (o LookupCodeRepositoryResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCodeRepositoryResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCodeRepositoryResultOutput) Tags() CodeRepositoryTagArrayOutput {
-	return o.ApplyT(func(v LookupCodeRepositoryResult) []CodeRepositoryTag { return v.Tags }).(CodeRepositoryTagArrayOutput)
+func (o LookupCodeRepositoryResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCodeRepositoryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

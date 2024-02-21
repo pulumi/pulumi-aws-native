@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type UserGroup struct {
 	// Indicates user group status. Can be "creating", "active", "modifying", "deleting".
 	Status pulumi.StringOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this user.
-	Tags UserGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the user group.
 	UserGroupId pulumi.StringOutput `pulumi:"userGroupId"`
 	// List of users associated to this user group.
@@ -87,7 +88,7 @@ type userGroupArgs struct {
 	// Must be redis.
 	Engine UserGroupEngine `pulumi:"engine"`
 	// An array of key-value pairs to apply to this user.
-	Tags []UserGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the user group.
 	UserGroupId string `pulumi:"userGroupId"`
 	// List of users associated to this user group.
@@ -99,7 +100,7 @@ type UserGroupArgs struct {
 	// Must be redis.
 	Engine UserGroupEngineInput
 	// An array of key-value pairs to apply to this user.
-	Tags UserGroupTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the user group.
 	UserGroupId pulumi.StringInput
 	// List of users associated to this user group.
@@ -159,8 +160,8 @@ func (o UserGroupOutput) Status() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this user.
-func (o UserGroupOutput) Tags() UserGroupTagArrayOutput {
-	return o.ApplyT(func(v *UserGroup) UserGroupTagArrayOutput { return v.Tags }).(UserGroupTagArrayOutput)
+func (o UserGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *UserGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the user group.

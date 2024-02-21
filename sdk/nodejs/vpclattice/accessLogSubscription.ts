@@ -42,7 +42,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.vpclattice.AccessLogSubscriptionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AccessLogSubscription resource with the given unique name, arguments, and options.
@@ -85,5 +85,5 @@ export class AccessLogSubscription extends pulumi.CustomResource {
 export interface AccessLogSubscriptionArgs {
     destinationArn: pulumi.Input<string>;
     resourceIdentifier?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.vpclattice.AccessLogSubscriptionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

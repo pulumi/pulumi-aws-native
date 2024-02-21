@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupProjectResult struct {
 	// A friendly name for the project.
 	ProjectName *string `pulumi:"projectName"`
 	// A list of key-value pairs that contain metadata for the project.
-	Tags []ProjectTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
@@ -104,8 +105,8 @@ func (o LookupProjectResultOutput) ProjectName() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the project.
-func (o LookupProjectResultOutput) Tags() ProjectTagArrayOutput {
-	return o.ApplyT(func(v LookupProjectResult) []ProjectTag { return v.Tags }).(ProjectTagArrayOutput)
+func (o LookupProjectResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProjectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

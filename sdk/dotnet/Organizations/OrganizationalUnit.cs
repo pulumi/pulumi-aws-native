@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Organizations
         /// A list of tags that you want to attach to the newly created OU.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.OrganizationalUnitTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -101,14 +101,14 @@ namespace Pulumi.AwsNative.Organizations
         public Input<string> ParentId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.OrganizationalUnitTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of tags that you want to attach to the newly created OU.
         /// </summary>
-        public InputList<Inputs.OrganizationalUnitTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.OrganizationalUnitTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

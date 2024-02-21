@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags for the transit gateway peering attachment.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TransitGatewayPeeringAttachmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ID of the transit gateway peering attachment.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Ec2
 
             Outputs.TransitGatewayPeeringAttachmentPeeringAttachmentStatus? status,
 
-            ImmutableArray<Outputs.TransitGatewayPeeringAttachmentTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? transitGatewayAttachmentId)
         {

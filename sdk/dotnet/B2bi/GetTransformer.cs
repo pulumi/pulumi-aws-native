@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.B2bi
         public readonly string? Name;
         public readonly string? SampleDocument;
         public readonly Pulumi.AwsNative.B2bi.TransformerStatus? Status;
-        public readonly ImmutableArray<Outputs.TransformerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TransformerArn;
         public readonly string? TransformerId;
 
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.B2bi
 
             Pulumi.AwsNative.B2bi.TransformerStatus? status,
 
-            ImmutableArray<Outputs.TransformerTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? transformerArn,
 

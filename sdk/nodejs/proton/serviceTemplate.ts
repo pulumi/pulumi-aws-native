@@ -60,7 +60,7 @@ export class ServiceTemplate extends pulumi.CustomResource {
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.proton.ServiceTemplateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ServiceTemplate resource with the given unique name, arguments, and options.
@@ -119,5 +119,5 @@ export interface ServiceTemplateArgs {
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.proton.ServiceTemplateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

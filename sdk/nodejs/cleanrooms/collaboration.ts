@@ -50,7 +50,7 @@ export class Collaboration extends pulumi.CustomResource {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    public readonly tags!: pulumi.Output<outputs.cleanrooms.CollaborationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Collaboration resource with the given unique name, arguments, and options.
@@ -124,5 +124,5 @@ export interface CollaborationArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

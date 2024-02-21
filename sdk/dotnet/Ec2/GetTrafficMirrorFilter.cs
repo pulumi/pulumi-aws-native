@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Ec2
     {
         public readonly string? Id;
         public readonly ImmutableArray<string> NetworkServices;
-        public readonly ImmutableArray<Outputs.TrafficMirrorFilterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetTrafficMirrorFilterResult(
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<string> networkServices,
 
-            ImmutableArray<Outputs.TrafficMirrorFilterTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             NetworkServices = networkServices;

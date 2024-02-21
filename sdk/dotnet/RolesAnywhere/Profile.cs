@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public Output<string?> SessionPolicy { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ProfileTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -122,10 +122,10 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public Input<string>? SessionPolicy { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ProfileTagArgs>? _tags;
-        public InputList<Inputs.ProfileTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ProfileTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

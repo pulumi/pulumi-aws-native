@@ -20,105 +20,6 @@ type FleetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// FleetTagInput is an input type that accepts FleetTagArgs and FleetTagOutput values.
-// You can construct a concrete instance of `FleetTagInput` via:
-//
-//	FleetTagArgs{...}
-type FleetTagInput interface {
-	pulumi.Input
-
-	ToFleetTagOutput() FleetTagOutput
-	ToFleetTagOutputWithContext(context.Context) FleetTagOutput
-}
-
-type FleetTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FleetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetTag)(nil)).Elem()
-}
-
-func (i FleetTagArgs) ToFleetTagOutput() FleetTagOutput {
-	return i.ToFleetTagOutputWithContext(context.Background())
-}
-
-func (i FleetTagArgs) ToFleetTagOutputWithContext(ctx context.Context) FleetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetTagOutput)
-}
-
-// FleetTagArrayInput is an input type that accepts FleetTagArray and FleetTagArrayOutput values.
-// You can construct a concrete instance of `FleetTagArrayInput` via:
-//
-//	FleetTagArray{ FleetTagArgs{...} }
-type FleetTagArrayInput interface {
-	pulumi.Input
-
-	ToFleetTagArrayOutput() FleetTagArrayOutput
-	ToFleetTagArrayOutputWithContext(context.Context) FleetTagArrayOutput
-}
-
-type FleetTagArray []FleetTagInput
-
-func (FleetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FleetTag)(nil)).Elem()
-}
-
-func (i FleetTagArray) ToFleetTagArrayOutput() FleetTagArrayOutput {
-	return i.ToFleetTagArrayOutputWithContext(context.Background())
-}
-
-func (i FleetTagArray) ToFleetTagArrayOutputWithContext(ctx context.Context) FleetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetTagArrayOutput)
-}
-
-type FleetTagOutput struct{ *pulumi.OutputState }
-
-func (FleetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetTag)(nil)).Elem()
-}
-
-func (o FleetTagOutput) ToFleetTagOutput() FleetTagOutput {
-	return o
-}
-
-func (o FleetTagOutput) ToFleetTagOutputWithContext(ctx context.Context) FleetTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o FleetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o FleetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FleetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FleetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FleetTag)(nil)).Elem()
-}
-
-func (o FleetTagArrayOutput) ToFleetTagArrayOutput() FleetTagArrayOutput {
-	return o
-}
-
-func (o FleetTagArrayOutput) ToFleetTagArrayOutputWithContext(ctx context.Context) FleetTagArrayOutput {
-	return o
-}
-
-func (o FleetTagArrayOutput) Index(i pulumi.IntInput) FleetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetTag {
-		return vs[0].([]FleetTag)[vs[1].(int)]
-	}).(FleetTagOutput)
-}
-
 type ProjectArtifacts struct {
 	ArtifactIdentifier   *string `pulumi:"artifactIdentifier"`
 	EncryptionDisabled   *bool   `pulumi:"encryptionDisabled"`
@@ -2935,101 +2836,6 @@ type ProjectTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
-// You can construct a concrete instance of `ProjectTagInput` via:
-//
-//	ProjectTagArgs{...}
-type ProjectTagInput interface {
-	pulumi.Input
-
-	ToProjectTagOutput() ProjectTagOutput
-	ToProjectTagOutputWithContext(context.Context) ProjectTagOutput
-}
-
-type ProjectTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ProjectTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
-}
-
-func (i ProjectTagArgs) ToProjectTagOutput() ProjectTagOutput {
-	return i.ToProjectTagOutputWithContext(context.Background())
-}
-
-func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagOutput)
-}
-
-// ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
-// You can construct a concrete instance of `ProjectTagArrayInput` via:
-//
-//	ProjectTagArray{ ProjectTagArgs{...} }
-type ProjectTagArrayInput interface {
-	pulumi.Input
-
-	ToProjectTagArrayOutput() ProjectTagArrayOutput
-	ToProjectTagArrayOutputWithContext(context.Context) ProjectTagArrayOutput
-}
-
-type ProjectTagArray []ProjectTagInput
-
-func (ProjectTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
-}
-
-func (i ProjectTagArray) ToProjectTagArrayOutput() ProjectTagArrayOutput {
-	return i.ToProjectTagArrayOutputWithContext(context.Background())
-}
-
-func (i ProjectTagArray) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagArrayOutput)
-}
-
-type ProjectTagOutput struct{ *pulumi.OutputState }
-
-func (ProjectTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
-}
-
-func (o ProjectTagOutput) ToProjectTagOutput() ProjectTagOutput {
-	return o
-}
-
-func (o ProjectTagOutput) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
-	return o
-}
-
-func (o ProjectTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ProjectTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ProjectTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ProjectTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
-}
-
-func (o ProjectTagArrayOutput) ToProjectTagArrayOutput() ProjectTagArrayOutput {
-	return o
-}
-
-func (o ProjectTagArrayOutput) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
-	return o
-}
-
-func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectTag {
-		return vs[0].([]ProjectTag)[vs[1].(int)]
-	}).(ProjectTagOutput)
-}
-
 type ProjectTriggers struct {
 	BuildType    *string              `pulumi:"buildType"`
 	FilterGroups []ProjectFilterGroup `pulumi:"filterGroups"`
@@ -3666,104 +3472,7 @@ type ReportGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ReportGroupTagInput is an input type that accepts ReportGroupTagArgs and ReportGroupTagOutput values.
-// You can construct a concrete instance of `ReportGroupTagInput` via:
-//
-//	ReportGroupTagArgs{...}
-type ReportGroupTagInput interface {
-	pulumi.Input
-
-	ToReportGroupTagOutput() ReportGroupTagOutput
-	ToReportGroupTagOutputWithContext(context.Context) ReportGroupTagOutput
-}
-
-type ReportGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ReportGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportGroupTag)(nil)).Elem()
-}
-
-func (i ReportGroupTagArgs) ToReportGroupTagOutput() ReportGroupTagOutput {
-	return i.ToReportGroupTagOutputWithContext(context.Background())
-}
-
-func (i ReportGroupTagArgs) ToReportGroupTagOutputWithContext(ctx context.Context) ReportGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupTagOutput)
-}
-
-// ReportGroupTagArrayInput is an input type that accepts ReportGroupTagArray and ReportGroupTagArrayOutput values.
-// You can construct a concrete instance of `ReportGroupTagArrayInput` via:
-//
-//	ReportGroupTagArray{ ReportGroupTagArgs{...} }
-type ReportGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToReportGroupTagArrayOutput() ReportGroupTagArrayOutput
-	ToReportGroupTagArrayOutputWithContext(context.Context) ReportGroupTagArrayOutput
-}
-
-type ReportGroupTagArray []ReportGroupTagInput
-
-func (ReportGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReportGroupTag)(nil)).Elem()
-}
-
-func (i ReportGroupTagArray) ToReportGroupTagArrayOutput() ReportGroupTagArrayOutput {
-	return i.ToReportGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i ReportGroupTagArray) ToReportGroupTagArrayOutputWithContext(ctx context.Context) ReportGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupTagArrayOutput)
-}
-
-type ReportGroupTagOutput struct{ *pulumi.OutputState }
-
-func (ReportGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportGroupTag)(nil)).Elem()
-}
-
-func (o ReportGroupTagOutput) ToReportGroupTagOutput() ReportGroupTagOutput {
-	return o
-}
-
-func (o ReportGroupTagOutput) ToReportGroupTagOutputWithContext(ctx context.Context) ReportGroupTagOutput {
-	return o
-}
-
-func (o ReportGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ReportGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ReportGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ReportGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ReportGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ReportGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReportGroupTag)(nil)).Elem()
-}
-
-func (o ReportGroupTagArrayOutput) ToReportGroupTagArrayOutput() ReportGroupTagArrayOutput {
-	return o
-}
-
-func (o ReportGroupTagArrayOutput) ToReportGroupTagArrayOutputWithContext(ctx context.Context) ReportGroupTagArrayOutput {
-	return o
-}
-
-func (o ReportGroupTagArrayOutput) Index(i pulumi.IntInput) ReportGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReportGroupTag {
-		return vs[0].([]ReportGroupTag)[vs[1].(int)]
-	}).(ReportGroupTagOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagInput)(nil)).Elem(), FleetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagArrayInput)(nil)).Elem(), FleetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsInput)(nil)).Elem(), ProjectArtifactsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsArrayInput)(nil)).Elem(), ProjectArtifactsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBatchRestrictionsInput)(nil)).Elem(), ProjectBatchRestrictionsArgs{})
@@ -3799,8 +3508,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceAuthPtrInput)(nil)).Elem(), ProjectSourceAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceVersionInput)(nil)).Elem(), ProjectSourceVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceVersionArrayInput)(nil)).Elem(), ProjectSourceVersionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagInput)(nil)).Elem(), ProjectTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagArrayInput)(nil)).Elem(), ProjectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTriggersInput)(nil)).Elem(), ProjectTriggersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTriggersPtrInput)(nil)).Elem(), ProjectTriggersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectVpcConfigInput)(nil)).Elem(), ProjectVpcConfigArgs{})
@@ -3808,10 +3515,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupReportExportConfigInput)(nil)).Elem(), ReportGroupReportExportConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigInput)(nil)).Elem(), ReportGroupS3ReportExportConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigPtrInput)(nil)).Elem(), ReportGroupS3ReportExportConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupTagInput)(nil)).Elem(), ReportGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupTagArrayInput)(nil)).Elem(), ReportGroupTagArray{})
-	pulumi.RegisterOutputType(FleetTagOutput{})
-	pulumi.RegisterOutputType(FleetTagArrayOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsArrayOutput{})
@@ -3850,8 +3553,6 @@ func init() {
 	pulumi.RegisterOutputType(ProjectSourceAuthPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceVersionOutput{})
 	pulumi.RegisterOutputType(ProjectSourceVersionArrayOutput{})
-	pulumi.RegisterOutputType(ProjectTagOutput{})
-	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
 	pulumi.RegisterOutputType(ProjectTriggersOutput{})
 	pulumi.RegisterOutputType(ProjectTriggersPtrOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigOutput{})
@@ -3860,6 +3561,4 @@ func init() {
 	pulumi.RegisterOutputType(ReportGroupReportExportConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigOutput{})
 	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigPtrOutput{})
-	pulumi.RegisterOutputType(ReportGroupTagOutput{})
-	pulumi.RegisterOutputType(ReportGroupTagArrayOutput{})
 }

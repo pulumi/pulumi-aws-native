@@ -42,7 +42,7 @@ export class CodeRepository extends pulumi.CustomResource {
 
     public readonly codeRepositoryName!: pulumi.Output<string | undefined>;
     public readonly gitConfig!: pulumi.Output<outputs.sagemaker.CodeRepositoryGitConfig>;
-    public readonly tags!: pulumi.Output<outputs.sagemaker.CodeRepositoryTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CodeRepository resource with the given unique name, arguments, and options.
@@ -81,5 +81,5 @@ export class CodeRepository extends pulumi.CustomResource {
 export interface CodeRepositoryArgs {
     codeRepositoryName?: pulumi.Input<string>;
     gitConfig: pulumi.Input<inputs.sagemaker.CodeRepositoryGitConfigArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.CodeRepositoryTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

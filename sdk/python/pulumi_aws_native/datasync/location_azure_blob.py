@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -24,7 +26,7 @@ class LocationAzureBlobArgs:
                  azure_blob_sas_configuration: Optional[pulumi.Input['LocationAzureBlobAzureBlobSasConfigurationArgs']] = None,
                  azure_blob_type: Optional[pulumi.Input['LocationAzureBlobAzureBlobType']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationAzureBlobTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationAzureBlob resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
@@ -33,7 +35,7 @@ class LocationAzureBlobArgs:
         :param pulumi.Input[str] azure_blob_container_url: The URL of the Azure Blob container that was described.
         :param pulumi.Input['LocationAzureBlobAzureBlobType'] azure_blob_type: Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
         :param pulumi.Input[str] subdirectory: The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationAzureBlobTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "azure_blob_authentication_type", azure_blob_authentication_type)
@@ -133,14 +135,14 @@ class LocationAzureBlobArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationAzureBlobTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationAzureBlobTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -156,7 +158,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  azure_blob_sas_configuration: Optional[pulumi.Input[pulumi.InputType['LocationAzureBlobAzureBlobSasConfigurationArgs']]] = None,
                  azure_blob_type: Optional[pulumi.Input['LocationAzureBlobAzureBlobType']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationAzureBlobTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationAzureBlob.
@@ -169,7 +171,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[str] azure_blob_container_url: The URL of the Azure Blob container that was described.
         :param pulumi.Input['LocationAzureBlobAzureBlobType'] azure_blob_type: Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
         :param pulumi.Input[str] subdirectory: The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationAzureBlobTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -202,7 +204,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  azure_blob_sas_configuration: Optional[pulumi.Input[pulumi.InputType['LocationAzureBlobAzureBlobSasConfigurationArgs']]] = None,
                  azure_blob_type: Optional[pulumi.Input['LocationAzureBlobAzureBlobType']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationAzureBlobTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,7 +335,7 @@ class LocationAzureBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationAzureBlobTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

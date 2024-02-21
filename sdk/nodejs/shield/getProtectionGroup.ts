@@ -52,7 +52,7 @@ export interface GetProtectionGroupResult {
     /**
      * One or more tag key-value pairs for the Protection object.
      */
-    readonly tags?: outputs.shield.ProtectionGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.

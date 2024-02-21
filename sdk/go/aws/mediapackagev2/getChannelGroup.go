@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,12 +28,12 @@ type LookupChannelGroupArgs struct {
 }
 
 type LookupChannelGroupResult struct {
-	Arn          *string           `pulumi:"arn"`
-	CreatedAt    *string           `pulumi:"createdAt"`
-	Description  *string           `pulumi:"description"`
-	EgressDomain *string           `pulumi:"egressDomain"`
-	ModifiedAt   *string           `pulumi:"modifiedAt"`
-	Tags         []ChannelGroupTag `pulumi:"tags"`
+	Arn          *string   `pulumi:"arn"`
+	CreatedAt    *string   `pulumi:"createdAt"`
+	Description  *string   `pulumi:"description"`
+	EgressDomain *string   `pulumi:"egressDomain"`
+	ModifiedAt   *string   `pulumi:"modifiedAt"`
+	Tags         []aws.Tag `pulumi:"tags"`
 }
 
 func LookupChannelGroupOutput(ctx *pulumi.Context, args LookupChannelGroupOutputArgs, opts ...pulumi.InvokeOption) LookupChannelGroupResultOutput {
@@ -90,8 +91,8 @@ func (o LookupChannelGroupResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelGroupResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupChannelGroupResultOutput) Tags() ChannelGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupChannelGroupResult) []ChannelGroupTag { return v.Tags }).(ChannelGroupTagArrayOutput)
+func (o LookupChannelGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupChannelGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -638,107 +638,6 @@ type IdMappingWorkflowTag struct {
 	Value string `pulumi:"value"`
 }
 
-// IdMappingWorkflowTagInput is an input type that accepts IdMappingWorkflowTagArgs and IdMappingWorkflowTagOutput values.
-// You can construct a concrete instance of `IdMappingWorkflowTagInput` via:
-//
-//	IdMappingWorkflowTagArgs{...}
-type IdMappingWorkflowTagInput interface {
-	pulumi.Input
-
-	ToIdMappingWorkflowTagOutput() IdMappingWorkflowTagOutput
-	ToIdMappingWorkflowTagOutputWithContext(context.Context) IdMappingWorkflowTagOutput
-}
-
-// A key-value pair to associate with a resource
-type IdMappingWorkflowTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (IdMappingWorkflowTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdMappingWorkflowTag)(nil)).Elem()
-}
-
-func (i IdMappingWorkflowTagArgs) ToIdMappingWorkflowTagOutput() IdMappingWorkflowTagOutput {
-	return i.ToIdMappingWorkflowTagOutputWithContext(context.Background())
-}
-
-func (i IdMappingWorkflowTagArgs) ToIdMappingWorkflowTagOutputWithContext(ctx context.Context) IdMappingWorkflowTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowTagOutput)
-}
-
-// IdMappingWorkflowTagArrayInput is an input type that accepts IdMappingWorkflowTagArray and IdMappingWorkflowTagArrayOutput values.
-// You can construct a concrete instance of `IdMappingWorkflowTagArrayInput` via:
-//
-//	IdMappingWorkflowTagArray{ IdMappingWorkflowTagArgs{...} }
-type IdMappingWorkflowTagArrayInput interface {
-	pulumi.Input
-
-	ToIdMappingWorkflowTagArrayOutput() IdMappingWorkflowTagArrayOutput
-	ToIdMappingWorkflowTagArrayOutputWithContext(context.Context) IdMappingWorkflowTagArrayOutput
-}
-
-type IdMappingWorkflowTagArray []IdMappingWorkflowTagInput
-
-func (IdMappingWorkflowTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdMappingWorkflowTag)(nil)).Elem()
-}
-
-func (i IdMappingWorkflowTagArray) ToIdMappingWorkflowTagArrayOutput() IdMappingWorkflowTagArrayOutput {
-	return i.ToIdMappingWorkflowTagArrayOutputWithContext(context.Background())
-}
-
-func (i IdMappingWorkflowTagArray) ToIdMappingWorkflowTagArrayOutputWithContext(ctx context.Context) IdMappingWorkflowTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource
-type IdMappingWorkflowTagOutput struct{ *pulumi.OutputState }
-
-func (IdMappingWorkflowTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdMappingWorkflowTag)(nil)).Elem()
-}
-
-func (o IdMappingWorkflowTagOutput) ToIdMappingWorkflowTagOutput() IdMappingWorkflowTagOutput {
-	return o
-}
-
-func (o IdMappingWorkflowTagOutput) ToIdMappingWorkflowTagOutputWithContext(ctx context.Context) IdMappingWorkflowTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IdMappingWorkflowTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v IdMappingWorkflowTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IdMappingWorkflowTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IdMappingWorkflowTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type IdMappingWorkflowTagArrayOutput struct{ *pulumi.OutputState }
-
-func (IdMappingWorkflowTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdMappingWorkflowTag)(nil)).Elem()
-}
-
-func (o IdMappingWorkflowTagArrayOutput) ToIdMappingWorkflowTagArrayOutput() IdMappingWorkflowTagArrayOutput {
-	return o
-}
-
-func (o IdMappingWorkflowTagArrayOutput) ToIdMappingWorkflowTagArrayOutputWithContext(ctx context.Context) IdMappingWorkflowTagArrayOutput {
-	return o
-}
-
-func (o IdMappingWorkflowTagArrayOutput) Index(i pulumi.IntInput) IdMappingWorkflowTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdMappingWorkflowTag {
-		return vs[0].([]IdMappingWorkflowTag)[vs[1].(int)]
-	}).(IdMappingWorkflowTagOutput)
-}
-
 type MatchingWorkflowInputSource struct {
 	ApplyNormalization *bool `pulumi:"applyNormalization"`
 	// An Glue table ARN for the input source table
@@ -1749,107 +1648,6 @@ type MatchingWorkflowTag struct {
 	Value string `pulumi:"value"`
 }
 
-// MatchingWorkflowTagInput is an input type that accepts MatchingWorkflowTagArgs and MatchingWorkflowTagOutput values.
-// You can construct a concrete instance of `MatchingWorkflowTagInput` via:
-//
-//	MatchingWorkflowTagArgs{...}
-type MatchingWorkflowTagInput interface {
-	pulumi.Input
-
-	ToMatchingWorkflowTagOutput() MatchingWorkflowTagOutput
-	ToMatchingWorkflowTagOutputWithContext(context.Context) MatchingWorkflowTagOutput
-}
-
-// A key-value pair to associate with a resource
-type MatchingWorkflowTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (MatchingWorkflowTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchingWorkflowTag)(nil)).Elem()
-}
-
-func (i MatchingWorkflowTagArgs) ToMatchingWorkflowTagOutput() MatchingWorkflowTagOutput {
-	return i.ToMatchingWorkflowTagOutputWithContext(context.Background())
-}
-
-func (i MatchingWorkflowTagArgs) ToMatchingWorkflowTagOutputWithContext(ctx context.Context) MatchingWorkflowTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowTagOutput)
-}
-
-// MatchingWorkflowTagArrayInput is an input type that accepts MatchingWorkflowTagArray and MatchingWorkflowTagArrayOutput values.
-// You can construct a concrete instance of `MatchingWorkflowTagArrayInput` via:
-//
-//	MatchingWorkflowTagArray{ MatchingWorkflowTagArgs{...} }
-type MatchingWorkflowTagArrayInput interface {
-	pulumi.Input
-
-	ToMatchingWorkflowTagArrayOutput() MatchingWorkflowTagArrayOutput
-	ToMatchingWorkflowTagArrayOutputWithContext(context.Context) MatchingWorkflowTagArrayOutput
-}
-
-type MatchingWorkflowTagArray []MatchingWorkflowTagInput
-
-func (MatchingWorkflowTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MatchingWorkflowTag)(nil)).Elem()
-}
-
-func (i MatchingWorkflowTagArray) ToMatchingWorkflowTagArrayOutput() MatchingWorkflowTagArrayOutput {
-	return i.ToMatchingWorkflowTagArrayOutputWithContext(context.Background())
-}
-
-func (i MatchingWorkflowTagArray) ToMatchingWorkflowTagArrayOutputWithContext(ctx context.Context) MatchingWorkflowTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource
-type MatchingWorkflowTagOutput struct{ *pulumi.OutputState }
-
-func (MatchingWorkflowTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchingWorkflowTag)(nil)).Elem()
-}
-
-func (o MatchingWorkflowTagOutput) ToMatchingWorkflowTagOutput() MatchingWorkflowTagOutput {
-	return o
-}
-
-func (o MatchingWorkflowTagOutput) ToMatchingWorkflowTagOutputWithContext(ctx context.Context) MatchingWorkflowTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o MatchingWorkflowTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v MatchingWorkflowTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o MatchingWorkflowTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v MatchingWorkflowTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type MatchingWorkflowTagArrayOutput struct{ *pulumi.OutputState }
-
-func (MatchingWorkflowTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MatchingWorkflowTag)(nil)).Elem()
-}
-
-func (o MatchingWorkflowTagArrayOutput) ToMatchingWorkflowTagArrayOutput() MatchingWorkflowTagArrayOutput {
-	return o
-}
-
-func (o MatchingWorkflowTagArrayOutput) ToMatchingWorkflowTagArrayOutputWithContext(ctx context.Context) MatchingWorkflowTagArrayOutput {
-	return o
-}
-
-func (o MatchingWorkflowTagArrayOutput) Index(i pulumi.IntInput) MatchingWorkflowTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchingWorkflowTag {
-		return vs[0].([]MatchingWorkflowTag)[vs[1].(int)]
-	}).(MatchingWorkflowTagOutput)
-}
-
 type SchemaMappingSchemaInputAttribute struct {
 	FieldName string  `pulumi:"fieldName"`
 	GroupName *string `pulumi:"groupName"`
@@ -1979,107 +1777,6 @@ type SchemaMappingTag struct {
 	Value string `pulumi:"value"`
 }
 
-// SchemaMappingTagInput is an input type that accepts SchemaMappingTagArgs and SchemaMappingTagOutput values.
-// You can construct a concrete instance of `SchemaMappingTagInput` via:
-//
-//	SchemaMappingTagArgs{...}
-type SchemaMappingTagInput interface {
-	pulumi.Input
-
-	ToSchemaMappingTagOutput() SchemaMappingTagOutput
-	ToSchemaMappingTagOutputWithContext(context.Context) SchemaMappingTagOutput
-}
-
-// A key-value pair to associate with a resource
-type SchemaMappingTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SchemaMappingTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaMappingTag)(nil)).Elem()
-}
-
-func (i SchemaMappingTagArgs) ToSchemaMappingTagOutput() SchemaMappingTagOutput {
-	return i.ToSchemaMappingTagOutputWithContext(context.Background())
-}
-
-func (i SchemaMappingTagArgs) ToSchemaMappingTagOutputWithContext(ctx context.Context) SchemaMappingTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaMappingTagOutput)
-}
-
-// SchemaMappingTagArrayInput is an input type that accepts SchemaMappingTagArray and SchemaMappingTagArrayOutput values.
-// You can construct a concrete instance of `SchemaMappingTagArrayInput` via:
-//
-//	SchemaMappingTagArray{ SchemaMappingTagArgs{...} }
-type SchemaMappingTagArrayInput interface {
-	pulumi.Input
-
-	ToSchemaMappingTagArrayOutput() SchemaMappingTagArrayOutput
-	ToSchemaMappingTagArrayOutputWithContext(context.Context) SchemaMappingTagArrayOutput
-}
-
-type SchemaMappingTagArray []SchemaMappingTagInput
-
-func (SchemaMappingTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaMappingTag)(nil)).Elem()
-}
-
-func (i SchemaMappingTagArray) ToSchemaMappingTagArrayOutput() SchemaMappingTagArrayOutput {
-	return i.ToSchemaMappingTagArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaMappingTagArray) ToSchemaMappingTagArrayOutputWithContext(ctx context.Context) SchemaMappingTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaMappingTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource
-type SchemaMappingTagOutput struct{ *pulumi.OutputState }
-
-func (SchemaMappingTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaMappingTag)(nil)).Elem()
-}
-
-func (o SchemaMappingTagOutput) ToSchemaMappingTagOutput() SchemaMappingTagOutput {
-	return o
-}
-
-func (o SchemaMappingTagOutput) ToSchemaMappingTagOutputWithContext(ctx context.Context) SchemaMappingTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o SchemaMappingTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SchemaMappingTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o SchemaMappingTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SchemaMappingTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type SchemaMappingTagArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaMappingTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaMappingTag)(nil)).Elem()
-}
-
-func (o SchemaMappingTagArrayOutput) ToSchemaMappingTagArrayOutput() SchemaMappingTagArrayOutput {
-	return o
-}
-
-func (o SchemaMappingTagArrayOutput) ToSchemaMappingTagArrayOutputWithContext(ctx context.Context) SchemaMappingTagArrayOutput {
-	return o
-}
-
-func (o SchemaMappingTagArrayOutput) Index(i pulumi.IntInput) SchemaMappingTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaMappingTag {
-		return vs[0].([]SchemaMappingTag)[vs[1].(int)]
-	}).(SchemaMappingTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingTechniquesInput)(nil)).Elem(), IdMappingWorkflowIdMappingTechniquesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowInputSourceInput)(nil)).Elem(), IdMappingWorkflowInputSourceArgs{})
@@ -2090,8 +1787,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowOutputSourceArrayInput)(nil)).Elem(), IdMappingWorkflowOutputSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowProviderPropertiesInput)(nil)).Elem(), IdMappingWorkflowProviderPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowProviderPropertiesPtrInput)(nil)).Elem(), IdMappingWorkflowProviderPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowTagInput)(nil)).Elem(), IdMappingWorkflowTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowTagArrayInput)(nil)).Elem(), IdMappingWorkflowTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceInput)(nil)).Elem(), MatchingWorkflowInputSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceArrayInput)(nil)).Elem(), MatchingWorkflowInputSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIntermediateSourceConfigurationInput)(nil)).Elem(), MatchingWorkflowIntermediateSourceConfigurationArgs{})
@@ -2107,12 +1802,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleArrayInput)(nil)).Elem(), MatchingWorkflowRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleBasedPropertiesInput)(nil)).Elem(), MatchingWorkflowRuleBasedPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleBasedPropertiesPtrInput)(nil)).Elem(), MatchingWorkflowRuleBasedPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowTagInput)(nil)).Elem(), MatchingWorkflowTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowTagArrayInput)(nil)).Elem(), MatchingWorkflowTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaInputAttributeInput)(nil)).Elem(), SchemaMappingSchemaInputAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaInputAttributeArrayInput)(nil)).Elem(), SchemaMappingSchemaInputAttributeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingTagInput)(nil)).Elem(), SchemaMappingTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingTagArrayInput)(nil)).Elem(), SchemaMappingTagArray{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingTechniquesOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingTechniquesPtrOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowInputSourceOutput{})
@@ -2123,8 +1814,6 @@ func init() {
 	pulumi.RegisterOutputType(IdMappingWorkflowOutputSourceArrayOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowProviderPropertiesOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowProviderPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(IdMappingWorkflowTagOutput{})
-	pulumi.RegisterOutputType(IdMappingWorkflowTagArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowIntermediateSourceConfigurationOutput{})
@@ -2141,10 +1830,6 @@ func init() {
 	pulumi.RegisterOutputType(MatchingWorkflowRuleArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowRuleBasedPropertiesOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowRuleBasedPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(MatchingWorkflowTagOutput{})
-	pulumi.RegisterOutputType(MatchingWorkflowTagArrayOutput{})
 	pulumi.RegisterOutputType(SchemaMappingSchemaInputAttributeOutput{})
 	pulumi.RegisterOutputType(SchemaMappingSchemaInputAttributeArrayOutput{})
-	pulumi.RegisterOutputType(SchemaMappingTagOutput{})
-	pulumi.RegisterOutputType(SchemaMappingTagArrayOutput{})
 }

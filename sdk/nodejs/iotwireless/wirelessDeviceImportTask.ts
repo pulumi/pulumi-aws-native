@@ -83,7 +83,7 @@ export class WirelessDeviceImportTask extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.WirelessDeviceImportTaskTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a WirelessDeviceImportTask resource with the given unique name, arguments, and options.
@@ -148,5 +148,5 @@ export interface WirelessDeviceImportTaskArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.WirelessDeviceImportTaskTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

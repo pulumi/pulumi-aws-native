@@ -23,14 +23,12 @@ __all__ = [
     'LayerLoadBasedAutoScaling',
     'LayerRecipes',
     'LayerShutdownEventConfiguration',
-    'LayerTag',
     'LayerVolumeConfiguration',
     'StackChefConfiguration',
     'StackConfigurationManager',
     'StackElasticIp',
     'StackRdsDbInstance',
     'StackSource',
-    'StackTag',
 ]
 
 @pulumi.output_type
@@ -653,25 +651,6 @@ class LayerShutdownEventConfiguration(dict):
 
 
 @pulumi.output_type
-class LayerTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class LayerVolumeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -951,24 +930,5 @@ class StackSource(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class StackTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

@@ -32,7 +32,7 @@ export interface GetDbClusterParameterGroupResult {
     /**
      * The list of tags for the cluster parameter group.
      */
-    readonly tags?: outputs.rds.DbClusterParameterGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.

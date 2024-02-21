@@ -50,7 +50,7 @@ export class ExecutionPlan extends pulumi.CustomResource {
     /**
      * Tags for labeling the execution plan
      */
-    public readonly tags!: pulumi.Output<outputs.kendraranking.ExecutionPlanTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ExecutionPlan resource with the given unique name, arguments, and options.
@@ -96,5 +96,5 @@ export interface ExecutionPlanArgs {
     /**
      * Tags for labeling the execution plan
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.kendraranking.ExecutionPlanTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

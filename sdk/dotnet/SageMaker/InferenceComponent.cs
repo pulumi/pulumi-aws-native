@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Outputs.InferenceComponentSpecification> Specification { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.InferenceComponentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("variantName")]
         public Output<string> VariantName { get; private set; } = null!;
@@ -112,10 +112,10 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.InferenceComponentSpecificationArgs> Specification { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.InferenceComponentTagArgs>? _tags;
-        public InputList<Inputs.InferenceComponentTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.InferenceComponentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

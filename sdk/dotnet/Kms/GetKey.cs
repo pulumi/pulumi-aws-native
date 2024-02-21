@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Kms
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.KeyTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetKeyResult(
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Kms
 
             Pulumi.AwsNative.Kms.KeyOrigin? origin,
 
-            ImmutableArray<Outputs.KeyTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

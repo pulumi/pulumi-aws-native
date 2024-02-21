@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Signer
         /// <summary>
         /// A list of tags associated with the signing profile.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SigningProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSigningProfileResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Signer
 
             string? profileVersionArn,
 
-            ImmutableArray<Outputs.SigningProfileTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             ProfileName = profileName;

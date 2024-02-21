@@ -27,7 +27,6 @@ __all__ = [
     'DataSourceRelationalFilterConfiguration',
     'DataSourceScheduleConfiguration',
     'DomainSingleSignOn',
-    'DomainTag',
     'EnvironmentBlueprintConfigurationParameter',
     'EnvironmentBlueprintConfigurationRegionalParameter',
     'EnvironmentParameter',
@@ -706,39 +705,6 @@ class DomainSingleSignOn(dict):
     @pulumi.getter(name="userAssignment")
     def user_assignment(self) -> Optional['DomainUserAssignment']:
         return pulumi.get(self, "user_assignment")
-
-
-@pulumi.output_type
-class DomainTag(dict):
-    """
-    A key-value pair to associate with the domain.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with the domain.
-        :param str key: The key name of the tag.
-        :param str value: The value for the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

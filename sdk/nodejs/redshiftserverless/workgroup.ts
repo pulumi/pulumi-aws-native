@@ -45,7 +45,7 @@ export class Workgroup extends pulumi.CustomResource {
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.redshiftserverless.WorkgroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup>;
     public readonly workgroupName!: pulumi.Output<string>;
 
@@ -103,6 +103,6 @@ export interface WorkgroupArgs {
     publiclyAccessible?: pulumi.Input<boolean>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     workgroupName?: pulumi.Input<string>;
 }

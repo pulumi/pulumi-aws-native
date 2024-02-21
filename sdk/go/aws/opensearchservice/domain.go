@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type Domain struct {
 	SnapshotOptions             DomainSnapshotOptionsPtrOutput              `pulumi:"snapshotOptions"`
 	SoftwareUpdateOptions       DomainSoftwareUpdateOptionsPtrOutput        `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
-	Tags       DomainTagArrayOutput      `pulumi:"tags"`
+	Tags       aws.TagArrayOutput        `pulumi:"tags"`
 	VpcOptions DomainVpcOptionsPtrOutput `pulumi:"vpcOptions"`
 }
 
@@ -105,7 +106,7 @@ type domainArgs struct {
 	SnapshotOptions             *DomainSnapshotOptions               `pulumi:"snapshotOptions"`
 	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions         `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
-	Tags       []DomainTag       `pulumi:"tags"`
+	Tags       []aws.Tag         `pulumi:"tags"`
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
 
@@ -129,7 +130,7 @@ type DomainArgs struct {
 	SnapshotOptions             DomainSnapshotOptionsPtrInput
 	SoftwareUpdateOptions       DomainSoftwareUpdateOptionsPtrInput
 	// An arbitrary set of tags (key-value pairs) for this Domain.
-	Tags       DomainTagArrayInput
+	Tags       aws.TagArrayInput
 	VpcOptions DomainVpcOptionsPtrInput
 }
 
@@ -260,8 +261,8 @@ func (o DomainOutput) SoftwareUpdateOptions() DomainSoftwareUpdateOptionsPtrOutp
 }
 
 // An arbitrary set of tags (key-value pairs) for this Domain.
-func (o DomainOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+func (o DomainOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Domain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o DomainOutput) VpcOptions() DomainVpcOptionsPtrOutput {

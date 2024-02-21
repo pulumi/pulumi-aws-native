@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type Stack struct {
 	StackPolicyUrl    pulumi.StringPtrOutput `pulumi:"stackPolicyUrl"`
 	StackStatus       StackStatusOutput      `pulumi:"stackStatus"`
 	StackStatusReason pulumi.StringPtrOutput `pulumi:"stackStatusReason"`
-	Tags              StackTagArrayOutput    `pulumi:"tags"`
+	Tags              aws.TagArrayOutput     `pulumi:"tags"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
 	TemplateBody     pulumi.AnyOutput       `pulumi:"templateBody"`
 	TemplateUrl      pulumi.StringPtrOutput `pulumi:"templateUrl"`
@@ -98,7 +99,7 @@ type stackArgs struct {
 	StackPolicyBody   interface{} `pulumi:"stackPolicyBody"`
 	StackPolicyUrl    *string     `pulumi:"stackPolicyUrl"`
 	StackStatusReason *string     `pulumi:"stackStatusReason"`
-	Tags              []StackTag  `pulumi:"tags"`
+	Tags              []aws.Tag   `pulumi:"tags"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
 	TemplateBody     interface{} `pulumi:"templateBody"`
 	TemplateUrl      *string     `pulumi:"templateUrl"`
@@ -119,7 +120,7 @@ type StackArgs struct {
 	StackPolicyBody   pulumi.Input
 	StackPolicyUrl    pulumi.StringPtrInput
 	StackStatusReason pulumi.StringPtrInput
-	Tags              StackTagArrayInput
+	Tags              aws.TagArrayInput
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
 	TemplateBody     pulumi.Input
 	TemplateUrl      pulumi.StringPtrInput
@@ -240,8 +241,8 @@ func (o StackOutput) StackStatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.StackStatusReason }).(pulumi.StringPtrOutput)
 }
 
-func (o StackOutput) Tags() StackTagArrayOutput {
-	return o.ApplyT(func(v *Stack) StackTagArrayOutput { return v.Tags }).(StackTagArrayOutput)
+func (o StackOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Stack) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.

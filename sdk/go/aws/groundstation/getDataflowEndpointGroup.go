@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupDataflowEndpointGroupResult struct {
 	ContactPrePassDurationSeconds *int                                   `pulumi:"contactPrePassDurationSeconds"`
 	EndpointDetails               []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
 	Id                            *string                                `pulumi:"id"`
-	Tags                          []DataflowEndpointGroupTag             `pulumi:"tags"`
+	Tags                          []aws.Tag                              `pulumi:"tags"`
 }
 
 func LookupDataflowEndpointGroupOutput(ctx *pulumi.Context, args LookupDataflowEndpointGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDataflowEndpointGroupResultOutput {
@@ -96,8 +97,8 @@ func (o LookupDataflowEndpointGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDataflowEndpointGroupResultOutput) Tags() DataflowEndpointGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) []DataflowEndpointGroupTag { return v.Tags }).(DataflowEndpointGroupTagArrayOutput)
+func (o LookupDataflowEndpointGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

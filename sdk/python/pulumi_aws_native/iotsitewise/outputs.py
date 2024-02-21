@@ -29,20 +29,14 @@ __all__ = [
     'AssetModelMetricWindow',
     'AssetModelProperty',
     'AssetModelPropertyType',
-    'AssetModelTag',
     'AssetModelTransform',
     'AssetModelTumblingWindow',
     'AssetModelVariableValue',
     'AssetProperty',
-    'AssetTag',
-    'DashboardTag',
     'GatewayCapabilitySummary',
     'GatewayGreengrass',
     'GatewayGreengrassV2',
     'GatewayPlatform',
-    'GatewayTag',
-    'PortalTag',
-    'ProjectTag',
 ]
 
 @pulumi.output_type
@@ -762,25 +756,6 @@ class AssetModelPropertyType(dict):
 
 
 @pulumi.output_type
-class AssetModelTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class AssetModelTransform(dict):
     def __init__(__self__, *,
                  expression: str,
@@ -949,50 +924,6 @@ class AssetProperty(dict):
         The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
         """
         return pulumi.get(self, "unit")
-
-
-@pulumi.output_type
-class AssetTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class DashboardTag(dict):
-    """
-    To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1168,80 +1099,5 @@ class GatewayPlatform(dict):
         A gateway that runs on AWS IoT Greengrass V2.
         """
         return pulumi.get(self, "greengrass_v2")
-
-
-@pulumi.output_type
-class GatewayTag(dict):
-    """
-    To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class PortalTag(dict):
-    """
-    To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ProjectTag(dict):
-    """
-    To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

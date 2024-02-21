@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.NetworkSettingsTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -95,10 +95,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         }
 
         [Input("tags")]
-        private InputList<Inputs.NetworkSettingsTagArgs>? _tags;
-        public InputList<Inputs.NetworkSettingsTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.NetworkSettingsTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

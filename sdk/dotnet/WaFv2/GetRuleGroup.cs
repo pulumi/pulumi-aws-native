@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.WaFv2
         /// Collection of Rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRule> Rules;
-        public readonly ImmutableArray<Outputs.RuleGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.RuleGroupVisibilityConfig? VisibilityConfig;
 
         [OutputConstructor]
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.WaFv2
 
             ImmutableArray<Outputs.RuleGroupRule> rules,
 
-            ImmutableArray<Outputs.RuleGroupTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.RuleGroupVisibilityConfig? visibilityConfig)
         {

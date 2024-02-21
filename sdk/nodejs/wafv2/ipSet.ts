@@ -46,7 +46,7 @@ export class IpSet extends pulumi.CustomResource {
     public readonly ipAddressVersion!: pulumi.Output<enums.wafv2.IpSetIpAddressVersion>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly scope!: pulumi.Output<enums.wafv2.IpSetScope>;
-    public readonly tags!: pulumi.Output<outputs.wafv2.IpSetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IpSet resource with the given unique name, arguments, and options.
@@ -103,5 +103,5 @@ export interface IpSetArgs {
     ipAddressVersion: pulumi.Input<enums.wafv2.IpSetIpAddressVersion>;
     name?: pulumi.Input<string>;
     scope: pulumi.Input<enums.wafv2.IpSetScope>;
-    tags?: pulumi.Input<pulumi.Input<inputs.wafv2.IpSetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

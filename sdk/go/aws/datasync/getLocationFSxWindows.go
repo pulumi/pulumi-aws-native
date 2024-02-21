@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupLocationFSxWindowsResult struct {
 	// The URL of the FSx for Windows location that was described.
 	LocationUri *string `pulumi:"locationUri"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationFSxWindowsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocationFSxWindowsOutput(ctx *pulumi.Context, args LookupLocationFSxWindowsOutputArgs, opts ...pulumi.InvokeOption) LookupLocationFSxWindowsResultOutput {
@@ -83,8 +84,8 @@ func (o LookupLocationFSxWindowsResultOutput) LocationUri() pulumi.StringPtrOutp
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLocationFSxWindowsResultOutput) Tags() LocationFSxWindowsTagArrayOutput {
-	return o.ApplyT(func(v LookupLocationFSxWindowsResult) []LocationFSxWindowsTag { return v.Tags }).(LocationFSxWindowsTagArrayOutput)
+func (o LookupLocationFSxWindowsResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocationFSxWindowsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

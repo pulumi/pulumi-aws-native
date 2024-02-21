@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,12 +25,12 @@ class ServiceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  lambda_endpoint: Optional[pulumi.Input['ServiceLambdaEndpointInputArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  url_endpoint: Optional[pulumi.Input['ServiceUrlEndpointInputArgs']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Service resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         pulumi.set(__self__, "application_identifier", application_identifier)
         pulumi.set(__self__, "endpoint_type", endpoint_type)
@@ -102,14 +104,14 @@ class ServiceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -142,7 +144,7 @@ class Service(pulumi.CustomResource):
                  environment_identifier: Optional[pulumi.Input[str]] = None,
                  lambda_endpoint: Optional[pulumi.Input[pulumi.InputType['ServiceLambdaEndpointInputArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  url_endpoint: Optional[pulumi.Input[pulumi.InputType['ServiceUrlEndpointInputArgs']]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -151,7 +153,7 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         ...
     @overload
@@ -183,7 +185,7 @@ class Service(pulumi.CustomResource):
                  environment_identifier: Optional[pulumi.Input[str]] = None,
                  lambda_endpoint: Optional[pulumi.Input[pulumi.InputType['ServiceLambdaEndpointInputArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  url_endpoint: Optional[pulumi.Input[pulumi.InputType['ServiceUrlEndpointInputArgs']]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -291,7 +293,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """

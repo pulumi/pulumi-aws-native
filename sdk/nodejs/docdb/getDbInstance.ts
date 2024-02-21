@@ -32,7 +32,7 @@ export interface GetDbInstanceResult {
     readonly id?: string;
     readonly port?: string;
     readonly preferredMaintenanceWindow?: string;
-    readonly tags?: outputs.docdb.DbInstanceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::DocDB::DBInstance

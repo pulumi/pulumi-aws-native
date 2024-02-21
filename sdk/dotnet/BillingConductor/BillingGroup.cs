@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.BillingConductor
         public Output<string> StatusReason { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.BillingGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -135,10 +135,10 @@ namespace Pulumi.AwsNative.BillingConductor
         public Input<string> PrimaryAccountId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.BillingGroupTagArgs>? _tags;
-        public InputList<Inputs.BillingGroupTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.BillingGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

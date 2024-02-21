@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type WirelessDeviceImportTask struct {
 	// StatusReason for import task
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
 	// An array of key-value pairs to apply to this resource.
-	Tags WirelessDeviceImportTaskTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewWirelessDeviceImportTask registers a new resource with the given unique name, arguments, and options.
@@ -93,7 +94,7 @@ type wirelessDeviceImportTaskArgs struct {
 	// sidewalk contain file for created device and role
 	Sidewalk SidewalkProperties `pulumi:"sidewalk"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []WirelessDeviceImportTaskTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a WirelessDeviceImportTask resource.
@@ -103,7 +104,7 @@ type WirelessDeviceImportTaskArgs struct {
 	// sidewalk contain file for created device and role
 	Sidewalk SidewalkPropertiesInput
 	// An array of key-value pairs to apply to this resource.
-	Tags WirelessDeviceImportTaskTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (WirelessDeviceImportTaskArgs) ElementType() reflect.Type {
@@ -194,8 +195,8 @@ func (o WirelessDeviceImportTaskOutput) StatusReason() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o WirelessDeviceImportTaskOutput) Tags() WirelessDeviceImportTaskTagArrayOutput {
-	return o.ApplyT(func(v *WirelessDeviceImportTask) WirelessDeviceImportTaskTagArrayOutput { return v.Tags }).(WirelessDeviceImportTaskTagArrayOutput)
+func (o WirelessDeviceImportTaskOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *WirelessDeviceImportTask) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

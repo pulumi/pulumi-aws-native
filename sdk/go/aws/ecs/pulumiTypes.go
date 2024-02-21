@@ -347,101 +347,6 @@ type CapacityProviderTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// CapacityProviderTagInput is an input type that accepts CapacityProviderTagArgs and CapacityProviderTagOutput values.
-// You can construct a concrete instance of `CapacityProviderTagInput` via:
-//
-//	CapacityProviderTagArgs{...}
-type CapacityProviderTagInput interface {
-	pulumi.Input
-
-	ToCapacityProviderTagOutput() CapacityProviderTagOutput
-	ToCapacityProviderTagOutputWithContext(context.Context) CapacityProviderTagOutput
-}
-
-type CapacityProviderTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (CapacityProviderTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityProviderTag)(nil)).Elem()
-}
-
-func (i CapacityProviderTagArgs) ToCapacityProviderTagOutput() CapacityProviderTagOutput {
-	return i.ToCapacityProviderTagOutputWithContext(context.Background())
-}
-
-func (i CapacityProviderTagArgs) ToCapacityProviderTagOutputWithContext(ctx context.Context) CapacityProviderTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTagOutput)
-}
-
-// CapacityProviderTagArrayInput is an input type that accepts CapacityProviderTagArray and CapacityProviderTagArrayOutput values.
-// You can construct a concrete instance of `CapacityProviderTagArrayInput` via:
-//
-//	CapacityProviderTagArray{ CapacityProviderTagArgs{...} }
-type CapacityProviderTagArrayInput interface {
-	pulumi.Input
-
-	ToCapacityProviderTagArrayOutput() CapacityProviderTagArrayOutput
-	ToCapacityProviderTagArrayOutputWithContext(context.Context) CapacityProviderTagArrayOutput
-}
-
-type CapacityProviderTagArray []CapacityProviderTagInput
-
-func (CapacityProviderTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CapacityProviderTag)(nil)).Elem()
-}
-
-func (i CapacityProviderTagArray) ToCapacityProviderTagArrayOutput() CapacityProviderTagArrayOutput {
-	return i.ToCapacityProviderTagArrayOutputWithContext(context.Background())
-}
-
-func (i CapacityProviderTagArray) ToCapacityProviderTagArrayOutputWithContext(ctx context.Context) CapacityProviderTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTagArrayOutput)
-}
-
-type CapacityProviderTagOutput struct{ *pulumi.OutputState }
-
-func (CapacityProviderTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityProviderTag)(nil)).Elem()
-}
-
-func (o CapacityProviderTagOutput) ToCapacityProviderTagOutput() CapacityProviderTagOutput {
-	return o
-}
-
-func (o CapacityProviderTagOutput) ToCapacityProviderTagOutputWithContext(ctx context.Context) CapacityProviderTagOutput {
-	return o
-}
-
-func (o CapacityProviderTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CapacityProviderTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o CapacityProviderTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CapacityProviderTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type CapacityProviderTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CapacityProviderTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CapacityProviderTag)(nil)).Elem()
-}
-
-func (o CapacityProviderTagArrayOutput) ToCapacityProviderTagArrayOutput() CapacityProviderTagArrayOutput {
-	return o
-}
-
-func (o CapacityProviderTagArrayOutput) ToCapacityProviderTagArrayOutputWithContext(ctx context.Context) CapacityProviderTagArrayOutput {
-	return o
-}
-
-func (o CapacityProviderTagArrayOutput) Index(i pulumi.IntInput) CapacityProviderTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderTag {
-		return vs[0].([]CapacityProviderTag)[vs[1].(int)]
-	}).(CapacityProviderTagOutput)
-}
-
 type ClusterCapacityProviderAssociationsCapacityProviderStrategy struct {
 	Base             *int   `pulumi:"base"`
 	CapacityProvider string `pulumi:"capacityProvider"`
@@ -1404,103 +1309,6 @@ func (o ClusterSettingsArrayOutput) Index(i pulumi.IntInput) ClusterSettingsOutp
 type ClusterTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
-}
-
-// ClusterTagInput is an input type that accepts ClusterTagArgs and ClusterTagOutput values.
-// You can construct a concrete instance of `ClusterTagInput` via:
-//
-//	ClusterTagArgs{...}
-type ClusterTagInput interface {
-	pulumi.Input
-
-	ToClusterTagOutput() ClusterTagOutput
-	ToClusterTagOutputWithContext(context.Context) ClusterTagOutput
-}
-
-// The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-type ClusterTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ClusterTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterTag)(nil)).Elem()
-}
-
-func (i ClusterTagArgs) ToClusterTagOutput() ClusterTagOutput {
-	return i.ToClusterTagOutputWithContext(context.Background())
-}
-
-func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagOutput)
-}
-
-// ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
-// You can construct a concrete instance of `ClusterTagArrayInput` via:
-//
-//	ClusterTagArray{ ClusterTagArgs{...} }
-type ClusterTagArrayInput interface {
-	pulumi.Input
-
-	ToClusterTagArrayOutput() ClusterTagArrayOutput
-	ToClusterTagArrayOutputWithContext(context.Context) ClusterTagArrayOutput
-}
-
-type ClusterTagArray []ClusterTagInput
-
-func (ClusterTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterTag)(nil)).Elem()
-}
-
-func (i ClusterTagArray) ToClusterTagArrayOutput() ClusterTagArrayOutput {
-	return i.ToClusterTagArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterTagArray) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagArrayOutput)
-}
-
-// The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-type ClusterTagOutput struct{ *pulumi.OutputState }
-
-func (ClusterTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterTag)(nil)).Elem()
-}
-
-func (o ClusterTagOutput) ToClusterTagOutput() ClusterTagOutput {
-	return o
-}
-
-func (o ClusterTagOutput) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
-	return o
-}
-
-func (o ClusterTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ClusterTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ClusterTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterTag)(nil)).Elem()
-}
-
-func (o ClusterTagArrayOutput) ToClusterTagArrayOutput() ClusterTagArrayOutput {
-	return o
-}
-
-func (o ClusterTagArrayOutput) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
-	return o
-}
-
-func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterTag {
-		return vs[0].([]ClusterTag)[vs[1].(int)]
-	}).(ClusterTagOutput)
 }
 
 type ServiceAwsVpcConfiguration struct {
@@ -8382,101 +8190,6 @@ type TaskDefinitionTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// TaskDefinitionTagInput is an input type that accepts TaskDefinitionTagArgs and TaskDefinitionTagOutput values.
-// You can construct a concrete instance of `TaskDefinitionTagInput` via:
-//
-//	TaskDefinitionTagArgs{...}
-type TaskDefinitionTagInput interface {
-	pulumi.Input
-
-	ToTaskDefinitionTagOutput() TaskDefinitionTagOutput
-	ToTaskDefinitionTagOutputWithContext(context.Context) TaskDefinitionTagOutput
-}
-
-type TaskDefinitionTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskDefinitionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionTag)(nil)).Elem()
-}
-
-func (i TaskDefinitionTagArgs) ToTaskDefinitionTagOutput() TaskDefinitionTagOutput {
-	return i.ToTaskDefinitionTagOutputWithContext(context.Background())
-}
-
-func (i TaskDefinitionTagArgs) ToTaskDefinitionTagOutputWithContext(ctx context.Context) TaskDefinitionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTagOutput)
-}
-
-// TaskDefinitionTagArrayInput is an input type that accepts TaskDefinitionTagArray and TaskDefinitionTagArrayOutput values.
-// You can construct a concrete instance of `TaskDefinitionTagArrayInput` via:
-//
-//	TaskDefinitionTagArray{ TaskDefinitionTagArgs{...} }
-type TaskDefinitionTagArrayInput interface {
-	pulumi.Input
-
-	ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput
-	ToTaskDefinitionTagArrayOutputWithContext(context.Context) TaskDefinitionTagArrayOutput
-}
-
-type TaskDefinitionTagArray []TaskDefinitionTagInput
-
-func (TaskDefinitionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskDefinitionTag)(nil)).Elem()
-}
-
-func (i TaskDefinitionTagArray) ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput {
-	return i.ToTaskDefinitionTagArrayOutputWithContext(context.Background())
-}
-
-func (i TaskDefinitionTagArray) ToTaskDefinitionTagArrayOutputWithContext(ctx context.Context) TaskDefinitionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTagArrayOutput)
-}
-
-type TaskDefinitionTagOutput struct{ *pulumi.OutputState }
-
-func (TaskDefinitionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionTag)(nil)).Elem()
-}
-
-func (o TaskDefinitionTagOutput) ToTaskDefinitionTagOutput() TaskDefinitionTagOutput {
-	return o
-}
-
-func (o TaskDefinitionTagOutput) ToTaskDefinitionTagOutputWithContext(ctx context.Context) TaskDefinitionTagOutput {
-	return o
-}
-
-func (o TaskDefinitionTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskDefinitionTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskDefinitionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskDefinitionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskDefinitionTag)(nil)).Elem()
-}
-
-func (o TaskDefinitionTagArrayOutput) ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput {
-	return o
-}
-
-func (o TaskDefinitionTagArrayOutput) ToTaskDefinitionTagArrayOutputWithContext(ctx context.Context) TaskDefinitionTagArrayOutput {
-	return o
-}
-
-func (o TaskDefinitionTagArrayOutput) Index(i pulumi.IntInput) TaskDefinitionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionTag {
-		return vs[0].([]TaskDefinitionTag)[vs[1].(int)]
-	}).(TaskDefinitionTagOutput)
-}
-
 type TaskDefinitionTmpfs struct {
 	ContainerPath *string  `pulumi:"containerPath"`
 	MountOptions  []string `pulumi:"mountOptions"`
@@ -9625,8 +9338,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingInput)(nil)).Elem(), CapacityProviderManagedScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingPtrInput)(nil)).Elem(), CapacityProviderManagedScalingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTagInput)(nil)).Elem(), CapacityProviderTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTagArrayInput)(nil)).Elem(), CapacityProviderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderStrategyInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProviderStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderStrategyItemInput)(nil)).Elem(), ClusterCapacityProviderStrategyItemArgs{})
@@ -9641,8 +9352,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsPtrInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsInput)(nil)).Elem(), ClusterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsArrayInput)(nil)).Elem(), ClusterSettingsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagArrayInput)(nil)).Elem(), ClusterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationInput)(nil)).Elem(), ServiceAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationPtrInput)(nil)).Elem(), ServiceAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCapacityProviderStrategyItemInput)(nil)).Elem(), ServiceCapacityProviderStrategyItemArgs{})
@@ -9741,8 +9450,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSecretArrayInput)(nil)).Elem(), TaskDefinitionSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSystemControlInput)(nil)).Elem(), TaskDefinitionSystemControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSystemControlArrayInput)(nil)).Elem(), TaskDefinitionSystemControlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTagInput)(nil)).Elem(), TaskDefinitionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTagArrayInput)(nil)).Elem(), TaskDefinitionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTmpfsInput)(nil)).Elem(), TaskDefinitionTmpfsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTmpfsArrayInput)(nil)).Elem(), TaskDefinitionTmpfsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionUlimitInput)(nil)).Elem(), TaskDefinitionUlimitArgs{})
@@ -9765,8 +9472,6 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingPtrOutput{})
-	pulumi.RegisterOutputType(CapacityProviderTagOutput{})
-	pulumi.RegisterOutputType(CapacityProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderStrategyItemOutput{})
@@ -9781,8 +9486,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsArrayOutput{})
-	pulumi.RegisterOutputType(ClusterTagOutput{})
-	pulumi.RegisterOutputType(ClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyItemOutput{})
@@ -9881,8 +9584,6 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionSecretArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSystemControlOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSystemControlArrayOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionTagOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTmpfsOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTmpfsArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUlimitOutput{})

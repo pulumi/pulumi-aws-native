@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.SsmIncidents
         /// The tags to apply to the response plan.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ResponsePlanTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -167,14 +167,14 @@ namespace Pulumi.AwsNative.SsmIncidents
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ResponsePlanTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags to apply to the response plan.
         /// </summary>
-        public InputList<Inputs.ResponsePlanTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ResponsePlanTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         public readonly string? Id;
         public readonly ImmutableArray<string> ResourceArns;
-        public readonly ImmutableArray<Outputs.GroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetGroupResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Synthetics
 
             ImmutableArray<string> resourceArns,
 
-            ImmutableArray<Outputs.GroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             ResourceArns = resourceArns;

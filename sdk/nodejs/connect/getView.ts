@@ -45,7 +45,7 @@ export interface GetViewResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.ViewTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The template of the view as JSON.
      *

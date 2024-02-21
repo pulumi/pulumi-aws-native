@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type StackSet struct {
 	// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
 	StackSetName pulumi.StringOutput `pulumi:"stackSetName"`
 	// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
-	Tags StackSetTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
 	// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
@@ -121,7 +122,7 @@ type stackSetArgs struct {
 	// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
 	StackSetName *string `pulumi:"stackSetName"`
 	// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
-	Tags []StackSetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
@@ -154,7 +155,7 @@ type StackSetArgs struct {
 	// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
 	StackSetName pulumi.StringPtrInput
 	// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
-	Tags StackSetTagArrayInput
+	Tags aws.TagArrayInput
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	TemplateBody pulumi.StringPtrInput
 	// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
@@ -263,8 +264,8 @@ func (o StackSetOutput) StackSetName() pulumi.StringOutput {
 }
 
 // The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
-func (o StackSetOutput) Tags() StackSetTagArrayOutput {
-	return o.ApplyT(func(v *StackSet) StackSetTagArrayOutput { return v.Tags }).(StackSetTagArrayOutput)
+func (o StackSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *StackSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.

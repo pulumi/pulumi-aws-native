@@ -44,7 +44,7 @@ export interface GetLayerResult {
     readonly name?: string;
     readonly packages?: string[];
     readonly shortname?: string;
-    readonly tags?: outputs.opsworks.LayerTag[];
+    readonly tags?: outputs.Tag[];
     readonly useEbsOptimizedInstances?: boolean;
     readonly volumeConfigurations?: outputs.opsworks.LayerVolumeConfiguration[];
 }

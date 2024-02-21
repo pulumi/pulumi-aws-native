@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -24,7 +26,7 @@ class LocationSmbArgs:
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSmbTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationSmb resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
@@ -33,7 +35,7 @@ class LocationSmbArgs:
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-        :param pulumi.Input[Sequence[pulumi.Input['LocationSmbTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "user", user)
@@ -133,14 +135,14 @@ class LocationSmbArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationSmbTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSmbTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -155,7 +157,7 @@ class LocationSmb(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSmbTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -168,7 +170,7 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSmbTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
         """
         ...
@@ -201,7 +203,7 @@ class LocationSmb(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSmbTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -325,7 +327,7 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationSmbTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

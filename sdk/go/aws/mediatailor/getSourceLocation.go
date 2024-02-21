@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupSourceLocationResult struct {
 	// <p>A list of the segment delivery configurations associated with this resource.</p>
 	SegmentDeliveryConfigurations []SourceLocationSegmentDeliveryConfiguration `pulumi:"segmentDeliveryConfigurations"`
 	// The tags to assign to the source location.
-	Tags []SourceLocationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSourceLocationOutput(ctx *pulumi.Context, args LookupSourceLocationOutputArgs, opts ...pulumi.InvokeOption) LookupSourceLocationResultOutput {
@@ -100,8 +101,8 @@ func (o LookupSourceLocationResultOutput) SegmentDeliveryConfigurations() Source
 }
 
 // The tags to assign to the source location.
-func (o LookupSourceLocationResultOutput) Tags() SourceLocationTagArrayOutput {
-	return o.ApplyT(func(v LookupSourceLocationResult) []SourceLocationTag { return v.Tags }).(SourceLocationTagArrayOutput)
+func (o LookupSourceLocationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSourceLocationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

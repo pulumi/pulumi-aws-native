@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LocationAzureBlob struct {
 	// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationAzureBlobTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationAzureBlob registers a new resource with the given unique name, arguments, and options.
@@ -101,7 +102,7 @@ type locationAzureBlobArgs struct {
 	// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationAzureBlobTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationAzureBlob resource.
@@ -120,7 +121,7 @@ type LocationAzureBlobArgs struct {
 	// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationAzureBlobTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocationAzureBlobArgs) ElementType() reflect.Type {
@@ -209,8 +210,8 @@ func (o LocationAzureBlobOutput) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationAzureBlobOutput) Tags() LocationAzureBlobTagArrayOutput {
-	return o.ApplyT(func(v *LocationAzureBlob) LocationAzureBlobTagArrayOutput { return v.Tags }).(LocationAzureBlobTagArrayOutput)
+func (o LocationAzureBlobOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationAzureBlob) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

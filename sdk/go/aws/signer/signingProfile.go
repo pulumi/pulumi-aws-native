@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type SigningProfile struct {
 	// Signature validity period of the profile.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrOutput `pulumi:"signatureValidityPeriod"`
 	// A list of tags associated with the signing profile.
-	Tags SigningProfileTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSigningProfile registers a new resource with the given unique name, arguments, and options.
@@ -85,7 +86,7 @@ type signingProfileArgs struct {
 	// Signature validity period of the profile.
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
 	// A list of tags associated with the signing profile.
-	Tags []SigningProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SigningProfile resource.
@@ -95,7 +96,7 @@ type SigningProfileArgs struct {
 	// Signature validity period of the profile.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
 	// A list of tags associated with the signing profile.
-	Tags SigningProfileTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SigningProfileArgs) ElementType() reflect.Type {
@@ -168,8 +169,8 @@ func (o SigningProfileOutput) SignatureValidityPeriod() SigningProfileSignatureV
 }
 
 // A list of tags associated with the signing profile.
-func (o SigningProfileOutput) Tags() SigningProfileTagArrayOutput {
-	return o.ApplyT(func(v *SigningProfile) SigningProfileTagArrayOutput { return v.Tags }).(SigningProfileTagArrayOutput)
+func (o SigningProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SigningProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

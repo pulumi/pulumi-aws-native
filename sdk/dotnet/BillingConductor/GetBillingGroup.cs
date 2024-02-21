@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.BillingConductor
         public readonly int? Size;
         public readonly Pulumi.AwsNative.BillingConductor.BillingGroupStatus? Status;
         public readonly string? StatusReason;
-        public readonly ImmutableArray<Outputs.BillingGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetBillingGroupResult(
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.BillingConductor
 
             string? statusReason,
 
-            ImmutableArray<Outputs.BillingGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AccountGrouping = accountGrouping;
             Arn = arn;

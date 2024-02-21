@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['WorkspaceArgs', 'Workspace']
@@ -20,7 +22,7 @@ class WorkspaceArgs:
                  directory_id: pulumi.Input[str],
                  user_name: pulumi.Input[str],
                  root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
                  workspace_properties: Optional[pulumi.Input['WorkspacePropertiesArgs']] = None):
@@ -79,11 +81,11 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -127,7 +129,7 @@ class Workspace(pulumi.CustomResource):
                  bundle_id: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
@@ -166,7 +168,7 @@ class Workspace(pulumi.CustomResource):
                  bundle_id: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
@@ -246,7 +248,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.WorkspaceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

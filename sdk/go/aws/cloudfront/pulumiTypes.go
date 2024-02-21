@@ -5395,101 +5395,6 @@ type DistributionTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DistributionTagInput is an input type that accepts DistributionTagArgs and DistributionTagOutput values.
-// You can construct a concrete instance of `DistributionTagInput` via:
-//
-//	DistributionTagArgs{...}
-type DistributionTagInput interface {
-	pulumi.Input
-
-	ToDistributionTagOutput() DistributionTagOutput
-	ToDistributionTagOutputWithContext(context.Context) DistributionTagOutput
-}
-
-type DistributionTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DistributionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionTag)(nil)).Elem()
-}
-
-func (i DistributionTagArgs) ToDistributionTagOutput() DistributionTagOutput {
-	return i.ToDistributionTagOutputWithContext(context.Background())
-}
-
-func (i DistributionTagArgs) ToDistributionTagOutputWithContext(ctx context.Context) DistributionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionTagOutput)
-}
-
-// DistributionTagArrayInput is an input type that accepts DistributionTagArray and DistributionTagArrayOutput values.
-// You can construct a concrete instance of `DistributionTagArrayInput` via:
-//
-//	DistributionTagArray{ DistributionTagArgs{...} }
-type DistributionTagArrayInput interface {
-	pulumi.Input
-
-	ToDistributionTagArrayOutput() DistributionTagArrayOutput
-	ToDistributionTagArrayOutputWithContext(context.Context) DistributionTagArrayOutput
-}
-
-type DistributionTagArray []DistributionTagInput
-
-func (DistributionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DistributionTag)(nil)).Elem()
-}
-
-func (i DistributionTagArray) ToDistributionTagArrayOutput() DistributionTagArrayOutput {
-	return i.ToDistributionTagArrayOutputWithContext(context.Background())
-}
-
-func (i DistributionTagArray) ToDistributionTagArrayOutputWithContext(ctx context.Context) DistributionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionTagArrayOutput)
-}
-
-type DistributionTagOutput struct{ *pulumi.OutputState }
-
-func (DistributionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionTag)(nil)).Elem()
-}
-
-func (o DistributionTagOutput) ToDistributionTagOutput() DistributionTagOutput {
-	return o
-}
-
-func (o DistributionTagOutput) ToDistributionTagOutputWithContext(ctx context.Context) DistributionTagOutput {
-	return o
-}
-
-func (o DistributionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DistributionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DistributionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DistributionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DistributionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DistributionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DistributionTag)(nil)).Elem()
-}
-
-func (o DistributionTagArrayOutput) ToDistributionTagArrayOutput() DistributionTagArrayOutput {
-	return o
-}
-
-func (o DistributionTagArrayOutput) ToDistributionTagArrayOutputWithContext(ctx context.Context) DistributionTagArrayOutput {
-	return o
-}
-
-func (o DistributionTagArrayOutput) Index(i pulumi.IntInput) DistributionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionTag {
-		return vs[0].([]DistributionTag)[vs[1].(int)]
-	}).(DistributionTagOutput)
-}
-
 type DistributionViewerCertificate struct {
 	AcmCertificateArn            *string `pulumi:"acmCertificateArn"`
 	CloudFrontDefaultCertificate *bool   `pulumi:"cloudFrontDefaultCertificate"`
@@ -10505,101 +10410,6 @@ type StreamingDistributionTag struct {
 	Value string `pulumi:"value"`
 }
 
-// StreamingDistributionTagInput is an input type that accepts StreamingDistributionTagArgs and StreamingDistributionTagOutput values.
-// You can construct a concrete instance of `StreamingDistributionTagInput` via:
-//
-//	StreamingDistributionTagArgs{...}
-type StreamingDistributionTagInput interface {
-	pulumi.Input
-
-	ToStreamingDistributionTagOutput() StreamingDistributionTagOutput
-	ToStreamingDistributionTagOutputWithContext(context.Context) StreamingDistributionTagOutput
-}
-
-type StreamingDistributionTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StreamingDistributionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingDistributionTag)(nil)).Elem()
-}
-
-func (i StreamingDistributionTagArgs) ToStreamingDistributionTagOutput() StreamingDistributionTagOutput {
-	return i.ToStreamingDistributionTagOutputWithContext(context.Background())
-}
-
-func (i StreamingDistributionTagArgs) ToStreamingDistributionTagOutputWithContext(ctx context.Context) StreamingDistributionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionTagOutput)
-}
-
-// StreamingDistributionTagArrayInput is an input type that accepts StreamingDistributionTagArray and StreamingDistributionTagArrayOutput values.
-// You can construct a concrete instance of `StreamingDistributionTagArrayInput` via:
-//
-//	StreamingDistributionTagArray{ StreamingDistributionTagArgs{...} }
-type StreamingDistributionTagArrayInput interface {
-	pulumi.Input
-
-	ToStreamingDistributionTagArrayOutput() StreamingDistributionTagArrayOutput
-	ToStreamingDistributionTagArrayOutputWithContext(context.Context) StreamingDistributionTagArrayOutput
-}
-
-type StreamingDistributionTagArray []StreamingDistributionTagInput
-
-func (StreamingDistributionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamingDistributionTag)(nil)).Elem()
-}
-
-func (i StreamingDistributionTagArray) ToStreamingDistributionTagArrayOutput() StreamingDistributionTagArrayOutput {
-	return i.ToStreamingDistributionTagArrayOutputWithContext(context.Background())
-}
-
-func (i StreamingDistributionTagArray) ToStreamingDistributionTagArrayOutputWithContext(ctx context.Context) StreamingDistributionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionTagArrayOutput)
-}
-
-type StreamingDistributionTagOutput struct{ *pulumi.OutputState }
-
-func (StreamingDistributionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingDistributionTag)(nil)).Elem()
-}
-
-func (o StreamingDistributionTagOutput) ToStreamingDistributionTagOutput() StreamingDistributionTagOutput {
-	return o
-}
-
-func (o StreamingDistributionTagOutput) ToStreamingDistributionTagOutputWithContext(ctx context.Context) StreamingDistributionTagOutput {
-	return o
-}
-
-func (o StreamingDistributionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingDistributionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o StreamingDistributionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingDistributionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StreamingDistributionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StreamingDistributionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamingDistributionTag)(nil)).Elem()
-}
-
-func (o StreamingDistributionTagArrayOutput) ToStreamingDistributionTagArrayOutput() StreamingDistributionTagArrayOutput {
-	return o
-}
-
-func (o StreamingDistributionTagArrayOutput) ToStreamingDistributionTagArrayOutputWithContext(ctx context.Context) StreamingDistributionTagArrayOutput {
-	return o
-}
-
-func (o StreamingDistributionTagArrayOutput) Index(i pulumi.IntInput) StreamingDistributionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingDistributionTag {
-		return vs[0].([]StreamingDistributionTag)[vs[1].(int)]
-	}).(StreamingDistributionTagOutput)
-}
-
 type StreamingDistributionTrustedSigners struct {
 	AwsAccountNumbers []string `pulumi:"awsAccountNumbers"`
 	Enabled           bool     `pulumi:"enabled"`
@@ -10760,8 +10570,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionS3OriginConfigInput)(nil)).Elem(), DistributionS3OriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionS3OriginConfigPtrInput)(nil)).Elem(), DistributionS3OriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionStatusCodesInput)(nil)).Elem(), DistributionStatusCodesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTagInput)(nil)).Elem(), DistributionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTagArrayInput)(nil)).Elem(), DistributionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificateInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificatePtrInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigInput)(nil)).Elem(), FunctionConfigArgs{})
@@ -10823,8 +10631,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionLoggingInput)(nil)).Elem(), StreamingDistributionLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionLoggingPtrInput)(nil)).Elem(), StreamingDistributionLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionS3OriginInput)(nil)).Elem(), StreamingDistributionS3OriginArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionTagInput)(nil)).Elem(), StreamingDistributionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionTagArrayInput)(nil)).Elem(), StreamingDistributionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionTrustedSignersInput)(nil)).Elem(), StreamingDistributionTrustedSignersArgs{})
 	pulumi.RegisterOutputType(CachePolicyConfigOutput{})
 	pulumi.RegisterOutputType(CachePolicyConfigPtrOutput{})
@@ -10897,8 +10703,6 @@ func init() {
 	pulumi.RegisterOutputType(DistributionS3OriginConfigOutput{})
 	pulumi.RegisterOutputType(DistributionS3OriginConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionStatusCodesOutput{})
-	pulumi.RegisterOutputType(DistributionTagOutput{})
-	pulumi.RegisterOutputType(DistributionTagArrayOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigOutput{})
@@ -10972,8 +10776,6 @@ func init() {
 	pulumi.RegisterOutputType(StreamingDistributionLoggingPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionS3OriginOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionS3OriginPtrOutput{})
-	pulumi.RegisterOutputType(StreamingDistributionTagOutput{})
-	pulumi.RegisterOutputType(StreamingDistributionTagArrayOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionTrustedSignersOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionTrustedSignersPtrOutput{})
 }

@@ -29,7 +29,7 @@ export interface GetVehicleResult {
     readonly decoderManifestArn?: string;
     readonly lastModificationTime?: string;
     readonly modelManifestArn?: string;
-    readonly tags?: outputs.iotfleetwise.VehicleTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::IoTFleetWise::Vehicle Resource Type

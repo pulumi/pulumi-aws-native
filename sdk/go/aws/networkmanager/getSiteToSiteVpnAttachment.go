@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -51,7 +52,7 @@ type LookupSiteToSiteVpnAttachmentResult struct {
 	// The state of the attachment.
 	State *string `pulumi:"state"`
 	// Tags for the attachment.
-	Tags []SiteToSiteVpnAttachmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Last update time of the attachment.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
@@ -150,8 +151,8 @@ func (o LookupSiteToSiteVpnAttachmentResultOutput) State() pulumi.StringPtrOutpu
 }
 
 // Tags for the attachment.
-func (o LookupSiteToSiteVpnAttachmentResultOutput) Tags() SiteToSiteVpnAttachmentTagArrayOutput {
-	return o.ApplyT(func(v LookupSiteToSiteVpnAttachmentResult) []SiteToSiteVpnAttachmentTag { return v.Tags }).(SiteToSiteVpnAttachmentTagArrayOutput)
+func (o LookupSiteToSiteVpnAttachmentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSiteToSiteVpnAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Last update time of the attachment.

@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.S3Outposts
         /// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.BucketTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,14 +114,14 @@ namespace Pulumi.AwsNative.S3Outposts
         public Input<string> OutpostId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.BucketTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         /// </summary>
-        public InputList<Inputs.BucketTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.BucketTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type Stack struct {
 	RdsDbInstances            StackRdsDbInstanceArrayOutput `pulumi:"rdsDbInstances"`
 	ServiceRoleArn            pulumi.StringOutput           `pulumi:"serviceRoleArn"`
 	SourceStackId             pulumi.StringPtrOutput        `pulumi:"sourceStackId"`
-	Tags                      StackTagArrayOutput           `pulumi:"tags"`
+	Tags                      aws.TagArrayOutput            `pulumi:"tags"`
 	UseCustomCookbooks        pulumi.BoolPtrOutput          `pulumi:"useCustomCookbooks"`
 	UseOpsworksSecurityGroups pulumi.BoolPtrOutput          `pulumi:"useOpsworksSecurityGroups"`
 	VpcId                     pulumi.StringPtrOutput        `pulumi:"vpcId"`
@@ -124,7 +125,7 @@ type stackArgs struct {
 	RdsDbInstances            []StackRdsDbInstance `pulumi:"rdsDbInstances"`
 	ServiceRoleArn            string               `pulumi:"serviceRoleArn"`
 	SourceStackId             *string              `pulumi:"sourceStackId"`
-	Tags                      []StackTag           `pulumi:"tags"`
+	Tags                      []aws.Tag            `pulumi:"tags"`
 	UseCustomCookbooks        *bool                `pulumi:"useCustomCookbooks"`
 	UseOpsworksSecurityGroups *bool                `pulumi:"useOpsworksSecurityGroups"`
 	VpcId                     *string              `pulumi:"vpcId"`
@@ -155,7 +156,7 @@ type StackArgs struct {
 	RdsDbInstances            StackRdsDbInstanceArrayInput
 	ServiceRoleArn            pulumi.StringInput
 	SourceStackId             pulumi.StringPtrInput
-	Tags                      StackTagArrayInput
+	Tags                      aws.TagArrayInput
 	UseCustomCookbooks        pulumi.BoolPtrInput
 	UseOpsworksSecurityGroups pulumi.BoolPtrInput
 	VpcId                     pulumi.StringPtrInput
@@ -284,8 +285,8 @@ func (o StackOutput) SourceStackId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.SourceStackId }).(pulumi.StringPtrOutput)
 }
 
-func (o StackOutput) Tags() StackTagArrayOutput {
-	return o.ApplyT(func(v *Stack) StackTagArrayOutput { return v.Tags }).(StackTagArrayOutput)
+func (o StackOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Stack) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o StackOutput) UseCustomCookbooks() pulumi.BoolPtrOutput {

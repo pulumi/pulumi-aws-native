@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['CertificateProviderArgs', 'CertificateProvider']
 
@@ -20,10 +20,10 @@ class CertificateProviderArgs:
                  account_default_for_operations: pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]],
                  lambda_function_arn: pulumi.Input[str],
                  certificate_provider_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateProviderTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CertificateProvider resource.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateProviderTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "account_default_for_operations", account_default_for_operations)
         pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
@@ -61,14 +61,14 @@ class CertificateProviderArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateProviderTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateProviderTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -80,14 +80,14 @@ class CertificateProvider(pulumi.CustomResource):
                  account_default_for_operations: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]]] = None,
                  certificate_provider_name: Optional[pulumi.Input[str]] = None,
                  lambda_function_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateProviderTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateProviderTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -116,7 +116,7 @@ class CertificateProvider(pulumi.CustomResource):
                  account_default_for_operations: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]]] = None,
                  certificate_provider_name: Optional[pulumi.Input[str]] = None,
                  lambda_function_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateProviderTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -188,7 +188,7 @@ class CertificateProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateProviderTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

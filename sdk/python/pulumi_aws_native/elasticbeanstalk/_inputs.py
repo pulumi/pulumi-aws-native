@@ -18,7 +18,6 @@ __all__ = [
     'ConfigurationTemplateConfigurationOptionSettingArgs',
     'ConfigurationTemplateSourceConfigurationArgs',
     'EnvironmentOptionSettingArgs',
-    'EnvironmentTagArgs',
     'EnvironmentTierArgs',
 ]
 
@@ -419,43 +418,6 @@ class EnvironmentOptionSettingArgs:
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class EnvironmentTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: The key name of the tag.
-        :param pulumi.Input[str] value: The value for the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 

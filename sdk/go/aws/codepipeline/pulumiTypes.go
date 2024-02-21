@@ -433,101 +433,6 @@ type CustomActionTypeTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CustomActionTypeTagInput is an input type that accepts CustomActionTypeTagArgs and CustomActionTypeTagOutput values.
-// You can construct a concrete instance of `CustomActionTypeTagInput` via:
-//
-//	CustomActionTypeTagArgs{...}
-type CustomActionTypeTagInput interface {
-	pulumi.Input
-
-	ToCustomActionTypeTagOutput() CustomActionTypeTagOutput
-	ToCustomActionTypeTagOutputWithContext(context.Context) CustomActionTypeTagOutput
-}
-
-type CustomActionTypeTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CustomActionTypeTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomActionTypeTag)(nil)).Elem()
-}
-
-func (i CustomActionTypeTagArgs) ToCustomActionTypeTagOutput() CustomActionTypeTagOutput {
-	return i.ToCustomActionTypeTagOutputWithContext(context.Background())
-}
-
-func (i CustomActionTypeTagArgs) ToCustomActionTypeTagOutputWithContext(ctx context.Context) CustomActionTypeTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeTagOutput)
-}
-
-// CustomActionTypeTagArrayInput is an input type that accepts CustomActionTypeTagArray and CustomActionTypeTagArrayOutput values.
-// You can construct a concrete instance of `CustomActionTypeTagArrayInput` via:
-//
-//	CustomActionTypeTagArray{ CustomActionTypeTagArgs{...} }
-type CustomActionTypeTagArrayInput interface {
-	pulumi.Input
-
-	ToCustomActionTypeTagArrayOutput() CustomActionTypeTagArrayOutput
-	ToCustomActionTypeTagArrayOutputWithContext(context.Context) CustomActionTypeTagArrayOutput
-}
-
-type CustomActionTypeTagArray []CustomActionTypeTagInput
-
-func (CustomActionTypeTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomActionTypeTag)(nil)).Elem()
-}
-
-func (i CustomActionTypeTagArray) ToCustomActionTypeTagArrayOutput() CustomActionTypeTagArrayOutput {
-	return i.ToCustomActionTypeTagArrayOutputWithContext(context.Background())
-}
-
-func (i CustomActionTypeTagArray) ToCustomActionTypeTagArrayOutputWithContext(ctx context.Context) CustomActionTypeTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeTagArrayOutput)
-}
-
-type CustomActionTypeTagOutput struct{ *pulumi.OutputState }
-
-func (CustomActionTypeTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomActionTypeTag)(nil)).Elem()
-}
-
-func (o CustomActionTypeTagOutput) ToCustomActionTypeTagOutput() CustomActionTypeTagOutput {
-	return o
-}
-
-func (o CustomActionTypeTagOutput) ToCustomActionTypeTagOutputWithContext(ctx context.Context) CustomActionTypeTagOutput {
-	return o
-}
-
-func (o CustomActionTypeTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomActionTypeTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CustomActionTypeTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomActionTypeTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CustomActionTypeTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CustomActionTypeTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomActionTypeTag)(nil)).Elem()
-}
-
-func (o CustomActionTypeTagArrayOutput) ToCustomActionTypeTagArrayOutput() CustomActionTypeTagArrayOutput {
-	return o
-}
-
-func (o CustomActionTypeTagArrayOutput) ToCustomActionTypeTagArrayOutputWithContext(ctx context.Context) CustomActionTypeTagArrayOutput {
-	return o
-}
-
-func (o CustomActionTypeTagArrayOutput) Index(i pulumi.IntInput) CustomActionTypeTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomActionTypeTag {
-		return vs[0].([]CustomActionTypeTag)[vs[1].(int)]
-	}).(CustomActionTypeTagOutput)
-}
-
 type PipelineActionDeclaration struct {
 	ActionTypeId    PipelineActionTypeId     `pulumi:"actionTypeId"`
 	Configuration   interface{}              `pulumi:"configuration"`
@@ -2466,101 +2371,6 @@ type PipelineTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PipelineTagInput is an input type that accepts PipelineTagArgs and PipelineTagOutput values.
-// You can construct a concrete instance of `PipelineTagInput` via:
-//
-//	PipelineTagArgs{...}
-type PipelineTagInput interface {
-	pulumi.Input
-
-	ToPipelineTagOutput() PipelineTagOutput
-	ToPipelineTagOutputWithContext(context.Context) PipelineTagOutput
-}
-
-type PipelineTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PipelineTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineTag)(nil)).Elem()
-}
-
-func (i PipelineTagArgs) ToPipelineTagOutput() PipelineTagOutput {
-	return i.ToPipelineTagOutputWithContext(context.Background())
-}
-
-func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagOutput)
-}
-
-// PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
-// You can construct a concrete instance of `PipelineTagArrayInput` via:
-//
-//	PipelineTagArray{ PipelineTagArgs{...} }
-type PipelineTagArrayInput interface {
-	pulumi.Input
-
-	ToPipelineTagArrayOutput() PipelineTagArrayOutput
-	ToPipelineTagArrayOutputWithContext(context.Context) PipelineTagArrayOutput
-}
-
-type PipelineTagArray []PipelineTagInput
-
-func (PipelineTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PipelineTag)(nil)).Elem()
-}
-
-func (i PipelineTagArray) ToPipelineTagArrayOutput() PipelineTagArrayOutput {
-	return i.ToPipelineTagArrayOutputWithContext(context.Background())
-}
-
-func (i PipelineTagArray) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagArrayOutput)
-}
-
-type PipelineTagOutput struct{ *pulumi.OutputState }
-
-func (PipelineTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineTag)(nil)).Elem()
-}
-
-func (o PipelineTagOutput) ToPipelineTagOutput() PipelineTagOutput {
-	return o
-}
-
-func (o PipelineTagOutput) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
-	return o
-}
-
-func (o PipelineTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PipelineTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PipelineTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PipelineTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PipelineTag)(nil)).Elem()
-}
-
-func (o PipelineTagArrayOutput) ToPipelineTagArrayOutput() PipelineTagArrayOutput {
-	return o
-}
-
-func (o PipelineTagArrayOutput) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
-	return o
-}
-
-func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineTag {
-		return vs[0].([]PipelineTag)[vs[1].(int)]
-	}).(PipelineTagOutput)
-}
-
 type PipelineTriggerDeclaration struct {
 	GitConfiguration *PipelineGitConfiguration `pulumi:"gitConfiguration"`
 	ProviderType     string                    `pulumi:"providerType"`
@@ -2970,8 +2780,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeConfigurationPropertiesArrayInput)(nil)).Elem(), CustomActionTypeConfigurationPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeSettingsInput)(nil)).Elem(), CustomActionTypeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeSettingsPtrInput)(nil)).Elem(), CustomActionTypeSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeTagInput)(nil)).Elem(), CustomActionTypeTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeTagArrayInput)(nil)).Elem(), CustomActionTypeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineActionDeclarationInput)(nil)).Elem(), PipelineActionDeclarationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineActionDeclarationArrayInput)(nil)).Elem(), PipelineActionDeclarationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineActionTypeIdInput)(nil)).Elem(), PipelineActionTypeIdArgs{})
@@ -3003,8 +2811,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageDeclarationArrayInput)(nil)).Elem(), PipelineStageDeclarationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageTransitionInput)(nil)).Elem(), PipelineStageTransitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageTransitionArrayInput)(nil)).Elem(), PipelineStageTransitionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagInput)(nil)).Elem(), PipelineTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagArrayInput)(nil)).Elem(), PipelineTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerDeclarationInput)(nil)).Elem(), PipelineTriggerDeclarationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerDeclarationArrayInput)(nil)).Elem(), PipelineTriggerDeclarationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVariableDeclarationInput)(nil)).Elem(), PipelineVariableDeclarationArgs{})
@@ -3017,8 +2823,6 @@ func init() {
 	pulumi.RegisterOutputType(CustomActionTypeConfigurationPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(CustomActionTypeSettingsOutput{})
 	pulumi.RegisterOutputType(CustomActionTypeSettingsPtrOutput{})
-	pulumi.RegisterOutputType(CustomActionTypeTagOutput{})
-	pulumi.RegisterOutputType(CustomActionTypeTagArrayOutput{})
 	pulumi.RegisterOutputType(PipelineActionDeclarationOutput{})
 	pulumi.RegisterOutputType(PipelineActionDeclarationArrayOutput{})
 	pulumi.RegisterOutputType(PipelineActionTypeIdOutput{})
@@ -3050,8 +2854,6 @@ func init() {
 	pulumi.RegisterOutputType(PipelineStageDeclarationArrayOutput{})
 	pulumi.RegisterOutputType(PipelineStageTransitionOutput{})
 	pulumi.RegisterOutputType(PipelineStageTransitionArrayOutput{})
-	pulumi.RegisterOutputType(PipelineTagOutput{})
-	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
 	pulumi.RegisterOutputType(PipelineTriggerDeclarationOutput{})
 	pulumi.RegisterOutputType(PipelineTriggerDeclarationArrayOutput{})
 	pulumi.RegisterOutputType(PipelineVariableDeclarationOutput{})

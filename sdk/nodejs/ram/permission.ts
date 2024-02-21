@@ -57,7 +57,7 @@ export class Permission extends pulumi.CustomResource {
      * The resource type this permission can be used with.
      */
     public readonly resourceType!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.ram.PermissionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Version of the permission.
      */
@@ -123,5 +123,5 @@ export interface PermissionArgs {
      * The resource type this permission can be used with.
      */
     resourceType: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ram.PermissionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -40,7 +42,7 @@ class ClusterArgs:
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  sns_topic_status: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tls_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -69,7 +71,7 @@ class ClusterArgs:
         :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
         :param pulumi.Input[str] sns_topic_status: The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled.
         :param pulumi.Input[str] subnet_group_name: The name of the subnet group to be used for the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]] tags: An array of key-value pairs to apply to this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this cluster.
         :param pulumi.Input[bool] tls_enabled: A flag that enables in-transit encryption when set to true.
                
                You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
@@ -403,14 +405,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -456,7 +458,7 @@ class Cluster(pulumi.CustomResource):
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  sns_topic_status: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tls_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -489,7 +491,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
         :param pulumi.Input[str] sns_topic_status: The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled.
         :param pulumi.Input[str] subnet_group_name: The name of the subnet group to be used for the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]] tags: An array of key-value pairs to apply to this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this cluster.
         :param pulumi.Input[bool] tls_enabled: A flag that enables in-transit encryption when set to true.
                
                You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
@@ -541,7 +543,7 @@ class Cluster(pulumi.CustomResource):
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  sns_topic_status: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tls_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -850,7 +852,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this cluster.
         """

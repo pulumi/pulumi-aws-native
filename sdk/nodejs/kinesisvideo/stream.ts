@@ -64,7 +64,7 @@ export class Stream extends pulumi.CustomResource {
     /**
      * An array of key-value pairs associated with the Kinesis Video Stream.
      */
-    public readonly tags!: pulumi.Output<outputs.kinesisvideo.StreamTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -127,5 +127,5 @@ export interface StreamArgs {
     /**
      * An array of key-value pairs associated with the Kinesis Video Stream.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.kinesisvideo.StreamTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

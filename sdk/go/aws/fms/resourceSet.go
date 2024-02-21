@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,11 +17,11 @@ import (
 type ResourceSet struct {
 	pulumi.CustomResourceState
 
-	Description      pulumi.StringPtrOutput    `pulumi:"description"`
-	Name             pulumi.StringOutput       `pulumi:"name"`
-	ResourceTypeList pulumi.StringArrayOutput  `pulumi:"resourceTypeList"`
-	Resources        pulumi.StringArrayOutput  `pulumi:"resources"`
-	Tags             ResourceSetTagArrayOutput `pulumi:"tags"`
+	Description      pulumi.StringPtrOutput   `pulumi:"description"`
+	Name             pulumi.StringOutput      `pulumi:"name"`
+	ResourceTypeList pulumi.StringArrayOutput `pulumi:"resourceTypeList"`
+	Resources        pulumi.StringArrayOutput `pulumi:"resources"`
+	Tags             aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewResourceSet registers a new resource with the given unique name, arguments, and options.
@@ -66,11 +67,11 @@ func (ResourceSetState) ElementType() reflect.Type {
 }
 
 type resourceSetArgs struct {
-	Description      *string          `pulumi:"description"`
-	Name             *string          `pulumi:"name"`
-	ResourceTypeList []string         `pulumi:"resourceTypeList"`
-	Resources        []string         `pulumi:"resources"`
-	Tags             []ResourceSetTag `pulumi:"tags"`
+	Description      *string   `pulumi:"description"`
+	Name             *string   `pulumi:"name"`
+	ResourceTypeList []string  `pulumi:"resourceTypeList"`
+	Resources        []string  `pulumi:"resources"`
+	Tags             []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceSet resource.
@@ -79,7 +80,7 @@ type ResourceSetArgs struct {
 	Name             pulumi.StringPtrInput
 	ResourceTypeList pulumi.StringArrayInput
 	Resources        pulumi.StringArrayInput
-	Tags             ResourceSetTagArrayInput
+	Tags             aws.TagArrayInput
 }
 
 func (ResourceSetArgs) ElementType() reflect.Type {
@@ -135,8 +136,8 @@ func (o ResourceSetOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-func (o ResourceSetOutput) Tags() ResourceSetTagArrayOutput {
-	return o.ApplyT(func(v *ResourceSet) ResourceSetTagArrayOutput { return v.Tags }).(ResourceSetTagArrayOutput)
+func (o ResourceSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ResourceSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

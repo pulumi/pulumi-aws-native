@@ -88,7 +88,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * A set of tags to assign to the delivery stream.
      */
-    public readonly tags!: pulumi.Output<outputs.cloudwatch.MetricStreamTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MetricStream resource with the given unique name, arguments, and options.
@@ -184,5 +184,5 @@ export interface MetricStreamArgs {
     /**
      * A set of tags to assign to the delivery stream.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

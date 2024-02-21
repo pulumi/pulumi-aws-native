@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.EventStreamTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("uri")]
         public Output<string> Uri { get; private set; } = null!;
@@ -124,14 +124,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Input<string>? EventStreamName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.EventStreamTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags used to organize, track, or control access for this resource.
         /// </summary>
-        public InputList<Inputs.EventStreamTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.EventStreamTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

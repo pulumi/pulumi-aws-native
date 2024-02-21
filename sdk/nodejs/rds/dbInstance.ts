@@ -345,7 +345,7 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * Tags to assign to the DB instance.
      */
-    public readonly tags!: pulumi.Output<outputs.rds.DbInstanceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN from the key store with which to associate the instance for TDE encryption.
      */
@@ -849,7 +849,7 @@ export interface DbInstanceArgs {
     /**
      * Tags to assign to the DB instance.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.rds.DbInstanceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ARN from the key store with which to associate the instance for TDE encryption.
      */

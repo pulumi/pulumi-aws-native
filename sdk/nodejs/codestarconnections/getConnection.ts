@@ -41,7 +41,7 @@ export interface GetConnectionResult {
     /**
      * Specifies the tags applied to a connection.
      */
-    readonly tags?: outputs.codestarconnections.ConnectionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type DataSource struct {
 	SslProperties DataSourceSslPropertiesPtrOutput        `pulumi:"sslProperties"`
 	Status        DataSourceResourceStatusOutput          `pulumi:"status"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-	Tags                    DataSourceTagArrayOutput                   `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                         `pulumi:"tags"`
 	Type                    DataSourceTypePtrOutput                    `pulumi:"type"`
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrOutput `pulumi:"vpcConnectionProperties"`
 }
@@ -115,7 +116,7 @@ type dataSourceArgs struct {
 	Permissions   []DataSourceResourcePermission `pulumi:"permissions"`
 	SslProperties *DataSourceSslProperties       `pulumi:"sslProperties"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-	Tags                    []DataSourceTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                          `pulumi:"tags"`
 	Type                    *DataSourceType                    `pulumi:"type"`
 	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
@@ -143,7 +144,7 @@ type DataSourceArgs struct {
 	Permissions   DataSourceResourcePermissionArrayInput
 	SslProperties DataSourceSslPropertiesPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-	Tags                    DataSourceTagArrayInput
+	Tags                    aws.TagArrayInput
 	Type                    DataSourceTypePtrInput
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrInput
 }
@@ -253,8 +254,8 @@ func (o DataSourceOutput) Status() DataSourceResourceStatusOutput {
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-func (o DataSourceOutput) Tags() DataSourceTagArrayOutput {
-	return o.ApplyT(func(v *DataSource) DataSourceTagArrayOutput { return v.Tags }).(DataSourceTagArrayOutput)
+func (o DataSourceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DataSource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o DataSourceOutput) Type() DataSourceTypePtrOutput {

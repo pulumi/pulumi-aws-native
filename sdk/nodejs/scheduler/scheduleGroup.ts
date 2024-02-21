@@ -54,7 +54,7 @@ export class ScheduleGroup extends pulumi.CustomResource {
     /**
      * The list of tags to associate with the schedule group.
      */
-    public readonly tags!: pulumi.Output<outputs.scheduler.ScheduleGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ScheduleGroup resource with the given unique name, arguments, and options.
@@ -96,5 +96,5 @@ export interface ScheduleGroupArgs {
     /**
      * The list of tags to associate with the schedule group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.scheduler.ScheduleGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

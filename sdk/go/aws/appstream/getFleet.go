@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupFleetResult struct {
 	Platform                       *string               `pulumi:"platform"`
 	SessionScriptS3Location        *FleetS3Location      `pulumi:"sessionScriptS3Location"`
 	StreamView                     *string               `pulumi:"streamView"`
-	Tags                           []FleetTag            `pulumi:"tags"`
+	Tags                           []aws.Tag             `pulumi:"tags"`
 	UsbDeviceFilterStrings         []string              `pulumi:"usbDeviceFilterStrings"`
 	VpcConfig                      *FleetVpcConfig       `pulumi:"vpcConfig"`
 }
@@ -157,8 +158,8 @@ func (o LookupFleetResultOutput) StreamView() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.StreamView }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupFleetResultOutput) Tags() FleetTagArrayOutput {
-	return o.ApplyT(func(v LookupFleetResult) []FleetTag { return v.Tags }).(FleetTagArrayOutput)
+func (o LookupFleetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFleetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupFleetResultOutput) UsbDeviceFilterStrings() pulumi.StringArrayOutput {

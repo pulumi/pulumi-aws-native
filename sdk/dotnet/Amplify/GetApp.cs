@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Amplify
         public readonly string? Name;
         public readonly Pulumi.AwsNative.Amplify.AppPlatform? Platform;
         public readonly string? Repository;
-        public readonly ImmutableArray<Outputs.AppTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAppResult(
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Amplify
 
             string? repository,
 
-            ImmutableArray<Outputs.AppTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AppId = appId;
             AppName = appName;

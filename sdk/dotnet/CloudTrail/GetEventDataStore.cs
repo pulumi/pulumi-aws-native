@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.CloudTrail
         /// The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
         /// </summary>
         public readonly string? Status;
-        public readonly ImmutableArray<Outputs.EventDataStoreTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Indicates whether the event data store is protected from termination.
         /// </summary>
@@ -159,7 +159,7 @@ namespace Pulumi.AwsNative.CloudTrail
 
             string? status,
 
-            ImmutableArray<Outputs.EventDataStoreTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? terminationProtectionEnabled,
 

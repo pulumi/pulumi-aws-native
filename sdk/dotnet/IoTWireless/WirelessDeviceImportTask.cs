@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.WirelessDeviceImportTaskTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -140,14 +140,14 @@ namespace Pulumi.AwsNative.IoTWireless
         public Input<Inputs.SidewalkPropertiesArgs> Sidewalk { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.WirelessDeviceImportTaskTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.WirelessDeviceImportTaskTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.WirelessDeviceImportTaskTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

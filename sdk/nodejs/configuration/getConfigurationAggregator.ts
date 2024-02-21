@@ -35,7 +35,7 @@ export interface GetConfigurationAggregatorResult {
     /**
      * The tags for the configuration aggregator.
      */
-    readonly tags?: outputs.configuration.ConfigurationAggregatorTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Config::ConfigurationAggregator

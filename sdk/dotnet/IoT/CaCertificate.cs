@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.IoT
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.CaCertificateTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The private key verification certificate.
@@ -118,14 +118,14 @@ namespace Pulumi.AwsNative.IoT
         public Input<Pulumi.AwsNative.IoT.CaCertificateStatus> Status { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.CaCertificateTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.CaCertificateTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.CaCertificateTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

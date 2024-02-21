@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,7 +45,7 @@ type LookupMultiplexResult struct {
 	ProgramCount *int                `pulumi:"programCount"`
 	State        *MultiplexStateEnum `pulumi:"state"`
 	// A collection of key-value pairs.
-	Tags []MultiplexTags `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupMultiplexOutput(ctx *pulumi.Context, args LookupMultiplexOutputArgs, opts ...pulumi.InvokeOption) LookupMultiplexResultOutput {
@@ -123,8 +124,8 @@ func (o LookupMultiplexResultOutput) State() MultiplexStateEnumPtrOutput {
 }
 
 // A collection of key-value pairs.
-func (o LookupMultiplexResultOutput) Tags() MultiplexTagsArrayOutput {
-	return o.ApplyT(func(v LookupMultiplexResult) []MultiplexTags { return v.Tags }).(MultiplexTagsArrayOutput)
+func (o LookupMultiplexResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMultiplexResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The tags (keys and values) associated with the domain
         /// </summary>
-        public readonly ImmutableArray<Outputs.DomainTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             Outputs.DomainStats? stats,
 
-            ImmutableArray<Outputs.DomainTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreatedAt = createdAt;
             DeadLetterQueueUrl = deadLetterQueueUrl;

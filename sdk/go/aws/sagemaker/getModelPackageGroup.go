@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupModelPackageGroupResult struct {
 	// The status of a modelpackage group job.
 	ModelPackageGroupStatus *ModelPackageGroupStatus `pulumi:"modelPackageGroupStatus"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ModelPackageGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupModelPackageGroupOutput(ctx *pulumi.Context, args LookupModelPackageGroupOutputArgs, opts ...pulumi.InvokeOption) LookupModelPackageGroupResultOutput {
@@ -93,8 +94,8 @@ func (o LookupModelPackageGroupResultOutput) ModelPackageGroupStatus() ModelPack
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupModelPackageGroupResultOutput) Tags() ModelPackageGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupModelPackageGroupResult) []ModelPackageGroupTag { return v.Tags }).(ModelPackageGroupTagArrayOutput)
+func (o LookupModelPackageGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupModelPackageGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

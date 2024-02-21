@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupStudioResult struct {
 	// A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
-	Tags []StudioTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The unique Studio access URL.
 	Url *string `pulumi:"url"`
 }
@@ -127,8 +128,8 @@ func (o LookupStudioResultOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
-func (o LookupStudioResultOutput) Tags() StudioTagArrayOutput {
-	return o.ApplyT(func(v LookupStudioResult) []StudioTag { return v.Tags }).(StudioTagArrayOutput)
+func (o LookupStudioResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStudioResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The unique Studio access URL.

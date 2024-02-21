@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,7 +41,7 @@ type Key struct {
 	// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
 	PendingWindowInDays pulumi.IntPtrOutput `pulumi:"pendingWindowInDays"`
 	// An array of key-value pairs to apply to this resource.
-	Tags KeyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -106,7 +107,7 @@ type keyArgs struct {
 	// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
 	PendingWindowInDays *int `pulumi:"pendingWindowInDays"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []KeyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -134,7 +135,7 @@ type KeyArgs struct {
 	// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
 	PendingWindowInDays pulumi.IntPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags KeyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {
@@ -235,8 +236,8 @@ func (o KeyOutput) PendingWindowInDays() pulumi.IntPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o KeyOutput) Tags() KeyTagArrayOutput {
-	return o.ApplyT(func(v *Key) KeyTagArrayOutput { return v.Tags }).(KeyTagArrayOutput)
+func (o KeyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Key) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

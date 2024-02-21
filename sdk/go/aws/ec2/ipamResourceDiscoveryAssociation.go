@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type IpamResourceDiscoveryAssociation struct {
 	// The operational state of the Resource Discovery Association. Related to Create/Delete activities.
 	State pulumi.StringOutput `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags IpamResourceDiscoveryAssociationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewIpamResourceDiscoveryAssociation registers a new resource with the given unique name, arguments, and options.
@@ -96,7 +97,7 @@ type ipamResourceDiscoveryAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the IPAM Resource Discovery Association.
 	IpamResourceDiscoveryId string `pulumi:"ipamResourceDiscoveryId"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IpamResourceDiscoveryAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpamResourceDiscoveryAssociation resource.
@@ -106,7 +107,7 @@ type IpamResourceDiscoveryAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the IPAM Resource Discovery Association.
 	IpamResourceDiscoveryId pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags IpamResourceDiscoveryAssociationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (IpamResourceDiscoveryAssociationArgs) ElementType() reflect.Type {
@@ -201,10 +202,8 @@ func (o IpamResourceDiscoveryAssociationOutput) State() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o IpamResourceDiscoveryAssociationOutput) Tags() IpamResourceDiscoveryAssociationTagArrayOutput {
-	return o.ApplyT(func(v *IpamResourceDiscoveryAssociation) IpamResourceDiscoveryAssociationTagArrayOutput {
-		return v.Tags
-	}).(IpamResourceDiscoveryAssociationTagArrayOutput)
+func (o IpamResourceDiscoveryAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IpamResourceDiscoveryAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

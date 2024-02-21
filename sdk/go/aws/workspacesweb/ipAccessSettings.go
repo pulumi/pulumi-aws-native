@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type IpAccessSettings struct {
 	DisplayName                 pulumi.StringPtrOutput                        `pulumi:"displayName"`
 	IpAccessSettingsArn         pulumi.StringOutput                           `pulumi:"ipAccessSettingsArn"`
 	IpRules                     IpAccessSettingsIpRuleArrayOutput             `pulumi:"ipRules"`
-	Tags                        IpAccessSettingsTagArrayOutput                `pulumi:"tags"`
+	Tags                        aws.TagArrayOutput                            `pulumi:"tags"`
 }
 
 // NewIpAccessSettings registers a new resource with the given unique name, arguments, and options.
@@ -80,7 +81,7 @@ type ipAccessSettingsArgs struct {
 	Description                 *string                               `pulumi:"description"`
 	DisplayName                 *string                               `pulumi:"displayName"`
 	IpRules                     []IpAccessSettingsIpRule              `pulumi:"ipRules"`
-	Tags                        []IpAccessSettingsTag                 `pulumi:"tags"`
+	Tags                        []aws.Tag                             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpAccessSettings resource.
@@ -90,7 +91,7 @@ type IpAccessSettingsArgs struct {
 	Description                 pulumi.StringPtrInput
 	DisplayName                 pulumi.StringPtrInput
 	IpRules                     IpAccessSettingsIpRuleArrayInput
-	Tags                        IpAccessSettingsTagArrayInput
+	Tags                        aws.TagArrayInput
 }
 
 func (IpAccessSettingsArgs) ElementType() reflect.Type {
@@ -164,8 +165,8 @@ func (o IpAccessSettingsOutput) IpRules() IpAccessSettingsIpRuleArrayOutput {
 	return o.ApplyT(func(v *IpAccessSettings) IpAccessSettingsIpRuleArrayOutput { return v.IpRules }).(IpAccessSettingsIpRuleArrayOutput)
 }
 
-func (o IpAccessSettingsOutput) Tags() IpAccessSettingsTagArrayOutput {
-	return o.ApplyT(func(v *IpAccessSettings) IpAccessSettingsTagArrayOutput { return v.Tags }).(IpAccessSettingsTagArrayOutput)
+func (o IpAccessSettingsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IpAccessSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

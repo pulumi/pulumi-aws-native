@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TransitGatewayRouteTableAttachmentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Arn of transit gateway route table.
@@ -174,14 +174,14 @@ namespace Pulumi.AwsNative.NetworkManager
         public Input<Inputs.TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TransitGatewayRouteTableAttachmentTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.TransitGatewayRouteTableAttachmentTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TransitGatewayRouteTableAttachmentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

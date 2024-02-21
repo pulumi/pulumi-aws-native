@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type AppBlockBuilder struct {
 	InstanceType                pulumi.StringOutput                      `pulumi:"instanceType"`
 	Name                        pulumi.StringOutput                      `pulumi:"name"`
 	Platform                    pulumi.StringOutput                      `pulumi:"platform"`
-	Tags                        AppBlockBuilderTagArrayOutput            `pulumi:"tags"`
+	Tags                        aws.TagArrayOutput                       `pulumi:"tags"`
 	VpcConfig                   AppBlockBuilderVpcConfigOutput           `pulumi:"vpcConfig"`
 }
 
@@ -93,7 +94,7 @@ type appBlockBuilderArgs struct {
 	InstanceType                string                          `pulumi:"instanceType"`
 	Name                        *string                         `pulumi:"name"`
 	Platform                    string                          `pulumi:"platform"`
-	Tags                        []AppBlockBuilderTag            `pulumi:"tags"`
+	Tags                        []aws.Tag                       `pulumi:"tags"`
 	VpcConfig                   AppBlockBuilderVpcConfig        `pulumi:"vpcConfig"`
 }
 
@@ -108,7 +109,7 @@ type AppBlockBuilderArgs struct {
 	InstanceType                pulumi.StringInput
 	Name                        pulumi.StringPtrInput
 	Platform                    pulumi.StringInput
-	Tags                        AppBlockBuilderTagArrayInput
+	Tags                        aws.TagArrayInput
 	VpcConfig                   AppBlockBuilderVpcConfigInput
 }
 
@@ -193,8 +194,8 @@ func (o AppBlockBuilderOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppBlockBuilder) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-func (o AppBlockBuilderOutput) Tags() AppBlockBuilderTagArrayOutput {
-	return o.ApplyT(func(v *AppBlockBuilder) AppBlockBuilderTagArrayOutput { return v.Tags }).(AppBlockBuilderTagArrayOutput)
+func (o AppBlockBuilderOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AppBlockBuilder) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o AppBlockBuilderOutput) VpcConfig() AppBlockBuilderVpcConfigOutput {

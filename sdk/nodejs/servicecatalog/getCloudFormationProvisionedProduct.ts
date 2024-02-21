@@ -39,7 +39,7 @@ export interface GetCloudFormationProvisionedProductResult {
     readonly provisioningParameters?: outputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameter[];
     readonly provisioningPreferences?: outputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferences;
     readonly recordId?: string;
-    readonly tags?: outputs.servicecatalog.CloudFormationProvisionedProductTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct

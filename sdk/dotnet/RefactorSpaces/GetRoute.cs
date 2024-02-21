@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RouteTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRouteResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
             string? routeIdentifier,
 
-            ImmutableArray<Outputs.RouteTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             PathResourceToId = pathResourceToId;

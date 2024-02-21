@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public readonly string? Arn;
         public readonly string? Description;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.HttpNamespaceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetHttpNamespaceResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
 
             string? id,
 
-            ImmutableArray<Outputs.HttpNamespaceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

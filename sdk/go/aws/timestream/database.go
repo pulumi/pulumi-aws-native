@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type Database struct {
 	// The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// An array of key-value pairs to apply to this resource.
-	Tags DatabaseTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +74,7 @@ type databaseArgs struct {
 	// The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DatabaseTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -83,7 +84,7 @@ type DatabaseArgs struct {
 	// The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.
 	KmsKeyId pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags DatabaseTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {
@@ -138,8 +139,8 @@ func (o DatabaseOutput) KmsKeyId() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o DatabaseOutput) Tags() DatabaseTagArrayOutput {
-	return o.ApplyT(func(v *Database) DatabaseTagArrayOutput { return v.Tags }).(DatabaseTagArrayOutput)
+func (o DatabaseOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Database) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

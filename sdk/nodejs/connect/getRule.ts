@@ -49,7 +49,7 @@ export interface GetRuleResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.RuleTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS:Connect::Rule

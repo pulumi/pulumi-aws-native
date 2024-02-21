@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupGameSessionQueueResult struct {
 	// Custom settings to use when prioritizing destinations and locations for game session placements.
 	PriorityConfiguration *GameSessionQueuePriorityConfiguration `pulumi:"priorityConfiguration"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []GameSessionQueueTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The maximum time, in seconds, that a new game session placement request remains in the queue.
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 }
@@ -126,8 +127,8 @@ func (o LookupGameSessionQueueResultOutput) PriorityConfiguration() GameSessionQ
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupGameSessionQueueResultOutput) Tags() GameSessionQueueTagArrayOutput {
-	return o.ApplyT(func(v LookupGameSessionQueueResult) []GameSessionQueueTag { return v.Tags }).(GameSessionQueueTagArrayOutput)
+func (o LookupGameSessionQueueResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGameSessionQueueResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The maximum time, in seconds, that a new game session placement request remains in the queue.

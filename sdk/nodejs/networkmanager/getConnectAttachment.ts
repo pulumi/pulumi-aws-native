@@ -69,7 +69,7 @@ export interface GetConnectAttachmentResult {
     /**
      * Tags for the attachment.
      */
-    readonly tags?: outputs.networkmanager.ConnectAttachmentTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Last update time of the attachment.
      */

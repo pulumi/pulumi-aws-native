@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.ControlTower
         public Output<Pulumi.AwsNative.ControlTower.LandingZoneStatus> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.LandingZoneTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -94,10 +94,10 @@ namespace Pulumi.AwsNative.ControlTower
         public Input<object> Manifest { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.LandingZoneTagArgs>? _tags;
-        public InputList<Inputs.LandingZoneTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.LandingZoneTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

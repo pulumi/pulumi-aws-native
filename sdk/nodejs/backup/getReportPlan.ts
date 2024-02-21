@@ -41,7 +41,7 @@ export interface GetReportPlanResult {
     /**
      * Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
      */
-    readonly reportPlanTags?: outputs.backup.ReportPlanTag[];
+    readonly reportPlanTags?: outputs.Tag[];
     /**
      * Identifies the report template for the report. Reports are built using a report template.
      */

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type Fleet struct {
 	Platform                       pulumi.StringPtrOutput        `pulumi:"platform"`
 	SessionScriptS3Location        FleetS3LocationPtrOutput      `pulumi:"sessionScriptS3Location"`
 	StreamView                     pulumi.StringPtrOutput        `pulumi:"streamView"`
-	Tags                           FleetTagArrayOutput           `pulumi:"tags"`
+	Tags                           aws.TagArrayOutput            `pulumi:"tags"`
 	UsbDeviceFilterStrings         pulumi.StringArrayOutput      `pulumi:"usbDeviceFilterStrings"`
 	VpcConfig                      FleetVpcConfigPtrOutput       `pulumi:"vpcConfig"`
 }
@@ -109,7 +110,7 @@ type fleetArgs struct {
 	Platform                       *string               `pulumi:"platform"`
 	SessionScriptS3Location        *FleetS3Location      `pulumi:"sessionScriptS3Location"`
 	StreamView                     *string               `pulumi:"streamView"`
-	Tags                           []FleetTag            `pulumi:"tags"`
+	Tags                           []aws.Tag             `pulumi:"tags"`
 	UsbDeviceFilterStrings         []string              `pulumi:"usbDeviceFilterStrings"`
 	VpcConfig                      *FleetVpcConfig       `pulumi:"vpcConfig"`
 }
@@ -135,7 +136,7 @@ type FleetArgs struct {
 	Platform                       pulumi.StringPtrInput
 	SessionScriptS3Location        FleetS3LocationPtrInput
 	StreamView                     pulumi.StringPtrInput
-	Tags                           FleetTagArrayInput
+	Tags                           aws.TagArrayInput
 	UsbDeviceFilterStrings         pulumi.StringArrayInput
 	VpcConfig                      FleetVpcConfigPtrInput
 }
@@ -253,8 +254,8 @@ func (o FleetOutput) StreamView() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.StreamView }).(pulumi.StringPtrOutput)
 }
 
-func (o FleetOutput) Tags() FleetTagArrayOutput {
-	return o.ApplyT(func(v *Fleet) FleetTagArrayOutput { return v.Tags }).(FleetTagArrayOutput)
+func (o FleetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Fleet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o FleetOutput) UsbDeviceFilterStrings() pulumi.StringArrayOutput {

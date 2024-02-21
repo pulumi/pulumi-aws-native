@@ -47,7 +47,7 @@ export interface GetStackResult {
     readonly id?: string;
     readonly name?: string;
     readonly rdsDbInstances?: outputs.opsworks.StackRdsDbInstance[];
-    readonly tags?: outputs.opsworks.StackTag[];
+    readonly tags?: outputs.Tag[];
     readonly useCustomCookbooks?: boolean;
     readonly useOpsworksSecurityGroups?: boolean;
 }

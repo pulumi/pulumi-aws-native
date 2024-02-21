@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['AgentArgs', 'Agent']
 
@@ -21,7 +21,7 @@ class AgentArgs:
                  agent_name: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Agent resource.
@@ -29,7 +29,7 @@ class AgentArgs:
         :param pulumi.Input[str] agent_name: The name configured for the agent. Text reference used to identify the agent in the console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security group used to protect your data transfer task subnets.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint that the agent has access to.
         """
         if activation_key is not None:
@@ -95,14 +95,14 @@ class AgentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -127,7 +127,7 @@ class Agent(pulumi.CustomResource):
                  agent_name: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -139,7 +139,7 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[str] agent_name: The name configured for the agent. Text reference used to identify the agent in the console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security group used to protect your data transfer task subnets.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint that the agent has access to.
         """
         ...
@@ -170,7 +170,7 @@ class Agent(pulumi.CustomResource):
                  agent_name: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -273,7 +273,7 @@ class Agent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AgentTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

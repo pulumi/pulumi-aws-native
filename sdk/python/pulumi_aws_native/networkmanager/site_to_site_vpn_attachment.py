@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SiteToSiteVpnAttachmentArgs', 'SiteToSiteVpnAttachment']
@@ -19,13 +21,13 @@ class SiteToSiteVpnAttachmentArgs:
                  core_network_id: pulumi.Input[str],
                  vpn_connection_arn: pulumi.Input[str],
                  proposed_segment_change: Optional[pulumi.Input['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SiteToSiteVpnAttachment resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you're creating a site-to-site VPN attachment.
         :param pulumi.Input[str] vpn_connection_arn: The ARN of the site-to-site VPN attachment.
         :param pulumi.Input['SiteToSiteVpnAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
-        :param pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]] tags: Tags for the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the attachment.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "vpn_connection_arn", vpn_connection_arn)
@@ -72,14 +74,14 @@ class SiteToSiteVpnAttachmentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags for the attachment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -90,7 +92,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpn_connection_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -100,7 +102,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you're creating a site-to-site VPN attachment.
         :param pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']] proposed_segment_change: The attachment to move from one segment to another.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentTagArgs']]]] tags: Tags for the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for the attachment.
         :param pulumi.Input[str] vpn_connection_arn: The ARN of the site-to-site VPN attachment.
         """
         ...
@@ -129,7 +131,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpn_connection_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -298,7 +300,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SiteToSiteVpnAttachmentTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Tags for the attachment.
         """

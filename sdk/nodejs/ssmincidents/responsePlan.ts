@@ -66,7 +66,7 @@ export class ResponsePlan extends pulumi.CustomResource {
     /**
      * The tags to apply to the response plan.
      */
-    public readonly tags!: pulumi.Output<outputs.ssmincidents.ResponsePlanTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResponsePlan resource with the given unique name, arguments, and options.
@@ -138,5 +138,5 @@ export interface ResponsePlanArgs {
     /**
      * The tags to apply to the response plan.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type DocumentClassifier struct {
 	ModelKmsKeyId          pulumi.StringPtrOutput                      `pulumi:"modelKmsKeyId"`
 	ModelPolicy            pulumi.StringPtrOutput                      `pulumi:"modelPolicy"`
 	OutputDataConfig       DocumentClassifierOutputDataConfigPtrOutput `pulumi:"outputDataConfig"`
-	Tags                   DocumentClassifierTagArrayOutput            `pulumi:"tags"`
+	Tags                   aws.TagArrayOutput                          `pulumi:"tags"`
 	VersionName            pulumi.StringPtrOutput                      `pulumi:"versionName"`
 	VolumeKmsKeyId         pulumi.StringPtrOutput                      `pulumi:"volumeKmsKeyId"`
 	VpcConfig              DocumentClassifierVpcConfigPtrOutput        `pulumi:"vpcConfig"`
@@ -101,7 +102,7 @@ type documentClassifierArgs struct {
 	ModelKmsKeyId          *string                             `pulumi:"modelKmsKeyId"`
 	ModelPolicy            *string                             `pulumi:"modelPolicy"`
 	OutputDataConfig       *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
-	Tags                   []DocumentClassifierTag             `pulumi:"tags"`
+	Tags                   []aws.Tag                           `pulumi:"tags"`
 	VersionName            *string                             `pulumi:"versionName"`
 	VolumeKmsKeyId         *string                             `pulumi:"volumeKmsKeyId"`
 	VpcConfig              *DocumentClassifierVpcConfig        `pulumi:"vpcConfig"`
@@ -117,7 +118,7 @@ type DocumentClassifierArgs struct {
 	ModelKmsKeyId          pulumi.StringPtrInput
 	ModelPolicy            pulumi.StringPtrInput
 	OutputDataConfig       DocumentClassifierOutputDataConfigPtrInput
-	Tags                   DocumentClassifierTagArrayInput
+	Tags                   aws.TagArrayInput
 	VersionName            pulumi.StringPtrInput
 	VolumeKmsKeyId         pulumi.StringPtrInput
 	VpcConfig              DocumentClassifierVpcConfigPtrInput
@@ -196,8 +197,8 @@ func (o DocumentClassifierOutput) OutputDataConfig() DocumentClassifierOutputDat
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierOutputDataConfigPtrOutput { return v.OutputDataConfig }).(DocumentClassifierOutputDataConfigPtrOutput)
 }
 
-func (o DocumentClassifierOutput) Tags() DocumentClassifierTagArrayOutput {
-	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierTagArrayOutput { return v.Tags }).(DocumentClassifierTagArrayOutput)
+func (o DocumentClassifierOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DocumentClassifier) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o DocumentClassifierOutput) VersionName() pulumi.StringPtrOutput {

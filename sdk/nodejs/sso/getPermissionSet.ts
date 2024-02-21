@@ -56,7 +56,7 @@ export interface GetPermissionSetResult {
      * The length of time that a user can be signed in to an AWS account.
      */
     readonly sessionDuration?: string;
-    readonly tags?: outputs.sso.PermissionSetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for SSO PermissionSet

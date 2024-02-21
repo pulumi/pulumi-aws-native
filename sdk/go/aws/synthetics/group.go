@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,7 +19,7 @@ type Group struct {
 	// Name of the group.
 	Name         pulumi.StringOutput      `pulumi:"name"`
 	ResourceArns pulumi.StringArrayOutput `pulumi:"resourceArns"`
-	Tags         GroupTagArrayOutput      `pulumi:"tags"`
+	Tags         aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -66,9 +67,9 @@ func (GroupState) ElementType() reflect.Type {
 
 type groupArgs struct {
 	// Name of the group.
-	Name         *string    `pulumi:"name"`
-	ResourceArns []string   `pulumi:"resourceArns"`
-	Tags         []GroupTag `pulumi:"tags"`
+	Name         *string   `pulumi:"name"`
+	ResourceArns []string  `pulumi:"resourceArns"`
+	Tags         []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -76,7 +77,7 @@ type GroupArgs struct {
 	// Name of the group.
 	Name         pulumi.StringPtrInput
 	ResourceArns pulumi.StringArrayInput
-	Tags         GroupTagArrayInput
+	Tags         aws.TagArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -125,8 +126,8 @@ func (o GroupOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }
 
-func (o GroupOutput) Tags() GroupTagArrayOutput {
-	return o.ApplyT(func(v *Group) GroupTagArrayOutput { return v.Tags }).(GroupTagArrayOutput)
+func (o GroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Group) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

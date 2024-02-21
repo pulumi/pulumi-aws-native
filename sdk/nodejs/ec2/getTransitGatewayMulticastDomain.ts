@@ -41,7 +41,7 @@ export interface GetTransitGatewayMulticastDomainResult {
     /**
      * The tags for the transit gateway multicast domain.
      */
-    readonly tags?: outputs.ec2.TransitGatewayMulticastDomainTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The Amazon Resource Name (ARN) of the transit gateway multicast domain.
      */

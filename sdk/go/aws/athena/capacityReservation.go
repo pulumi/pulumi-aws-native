@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type CapacityReservation struct {
 	// The status of the reservation.
 	Status CapacityReservationStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags CapacityReservationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The number of DPUs to request to be allocated to the reservation.
 	TargetDpus pulumi.IntOutput `pulumi:"targetDpus"`
 }
@@ -85,7 +86,7 @@ type capacityReservationArgs struct {
 	// The reservation name.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []CapacityReservationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The number of DPUs to request to be allocated to the reservation.
 	TargetDpus int `pulumi:"targetDpus"`
 }
@@ -96,7 +97,7 @@ type CapacityReservationArgs struct {
 	// The reservation name.
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags CapacityReservationTagArrayInput
+	Tags aws.TagArrayInput
 	// The number of DPUs to request to be allocated to the reservation.
 	TargetDpus pulumi.IntInput
 }
@@ -174,8 +175,8 @@ func (o CapacityReservationOutput) Status() CapacityReservationStatusOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o CapacityReservationOutput) Tags() CapacityReservationTagArrayOutput {
-	return o.ApplyT(func(v *CapacityReservation) CapacityReservationTagArrayOutput { return v.Tags }).(CapacityReservationTagArrayOutput)
+func (o CapacityReservationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CapacityReservation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The number of DPUs to request to be allocated to the reservation.

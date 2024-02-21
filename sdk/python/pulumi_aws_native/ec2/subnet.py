@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SubnetArgs', 'Subnet']
@@ -32,7 +34,7 @@ class SubnetArgs:
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  private_dns_name_options_on_launch: Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Subnet resource.
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
@@ -232,11 +234,11 @@ class SubnetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -260,7 +262,7 @@ class Subnet(pulumi.CustomResource):
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  private_dns_name_options_on_launch: Optional[pulumi.Input[pulumi.InputType['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -312,7 +314,7 @@ class Subnet(pulumi.CustomResource):
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  private_dns_name_options_on_launch: Optional[pulumi.Input[pulumi.InputType['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -494,7 +496,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SubnetTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

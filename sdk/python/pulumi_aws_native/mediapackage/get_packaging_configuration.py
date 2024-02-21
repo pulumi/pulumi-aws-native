@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -93,7 +94,7 @@ class GetPackagingConfigurationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.PackagingConfigurationTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         A collection of tags associated with a resource
         """

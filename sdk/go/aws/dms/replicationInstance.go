@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,23 +19,23 @@ import (
 type ReplicationInstance struct {
 	pulumi.CustomResourceState
 
-	AllocatedStorage                      pulumi.IntPtrOutput               `pulumi:"allocatedStorage"`
-	AllowMajorVersionUpgrade              pulumi.BoolPtrOutput              `pulumi:"allowMajorVersionUpgrade"`
-	AutoMinorVersionUpgrade               pulumi.BoolPtrOutput              `pulumi:"autoMinorVersionUpgrade"`
-	AvailabilityZone                      pulumi.StringPtrOutput            `pulumi:"availabilityZone"`
-	EngineVersion                         pulumi.StringPtrOutput            `pulumi:"engineVersion"`
-	KmsKeyId                              pulumi.StringPtrOutput            `pulumi:"kmsKeyId"`
-	MultiAz                               pulumi.BoolPtrOutput              `pulumi:"multiAz"`
-	PreferredMaintenanceWindow            pulumi.StringPtrOutput            `pulumi:"preferredMaintenanceWindow"`
-	PubliclyAccessible                    pulumi.BoolPtrOutput              `pulumi:"publiclyAccessible"`
-	ReplicationInstanceClass              pulumi.StringOutput               `pulumi:"replicationInstanceClass"`
-	ReplicationInstanceIdentifier         pulumi.StringPtrOutput            `pulumi:"replicationInstanceIdentifier"`
-	ReplicationInstancePrivateIpAddresses pulumi.StringOutput               `pulumi:"replicationInstancePrivateIpAddresses"`
-	ReplicationInstancePublicIpAddresses  pulumi.StringOutput               `pulumi:"replicationInstancePublicIpAddresses"`
-	ReplicationSubnetGroupIdentifier      pulumi.StringPtrOutput            `pulumi:"replicationSubnetGroupIdentifier"`
-	ResourceIdentifier                    pulumi.StringPtrOutput            `pulumi:"resourceIdentifier"`
-	Tags                                  ReplicationInstanceTagArrayOutput `pulumi:"tags"`
-	VpcSecurityGroupIds                   pulumi.StringArrayOutput          `pulumi:"vpcSecurityGroupIds"`
+	AllocatedStorage                      pulumi.IntPtrOutput      `pulumi:"allocatedStorage"`
+	AllowMajorVersionUpgrade              pulumi.BoolPtrOutput     `pulumi:"allowMajorVersionUpgrade"`
+	AutoMinorVersionUpgrade               pulumi.BoolPtrOutput     `pulumi:"autoMinorVersionUpgrade"`
+	AvailabilityZone                      pulumi.StringPtrOutput   `pulumi:"availabilityZone"`
+	EngineVersion                         pulumi.StringPtrOutput   `pulumi:"engineVersion"`
+	KmsKeyId                              pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
+	MultiAz                               pulumi.BoolPtrOutput     `pulumi:"multiAz"`
+	PreferredMaintenanceWindow            pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
+	PubliclyAccessible                    pulumi.BoolPtrOutput     `pulumi:"publiclyAccessible"`
+	ReplicationInstanceClass              pulumi.StringOutput      `pulumi:"replicationInstanceClass"`
+	ReplicationInstanceIdentifier         pulumi.StringPtrOutput   `pulumi:"replicationInstanceIdentifier"`
+	ReplicationInstancePrivateIpAddresses pulumi.StringOutput      `pulumi:"replicationInstancePrivateIpAddresses"`
+	ReplicationInstancePublicIpAddresses  pulumi.StringOutput      `pulumi:"replicationInstancePublicIpAddresses"`
+	ReplicationSubnetGroupIdentifier      pulumi.StringPtrOutput   `pulumi:"replicationSubnetGroupIdentifier"`
+	ResourceIdentifier                    pulumi.StringPtrOutput   `pulumi:"resourceIdentifier"`
+	Tags                                  aws.TagArrayOutput       `pulumi:"tags"`
+	VpcSecurityGroupIds                   pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
 // NewReplicationInstance registers a new resource with the given unique name, arguments, and options.
@@ -87,21 +88,21 @@ func (ReplicationInstanceState) ElementType() reflect.Type {
 }
 
 type replicationInstanceArgs struct {
-	AllocatedStorage                 *int                     `pulumi:"allocatedStorage"`
-	AllowMajorVersionUpgrade         *bool                    `pulumi:"allowMajorVersionUpgrade"`
-	AutoMinorVersionUpgrade          *bool                    `pulumi:"autoMinorVersionUpgrade"`
-	AvailabilityZone                 *string                  `pulumi:"availabilityZone"`
-	EngineVersion                    *string                  `pulumi:"engineVersion"`
-	KmsKeyId                         *string                  `pulumi:"kmsKeyId"`
-	MultiAz                          *bool                    `pulumi:"multiAz"`
-	PreferredMaintenanceWindow       *string                  `pulumi:"preferredMaintenanceWindow"`
-	PubliclyAccessible               *bool                    `pulumi:"publiclyAccessible"`
-	ReplicationInstanceClass         string                   `pulumi:"replicationInstanceClass"`
-	ReplicationInstanceIdentifier    *string                  `pulumi:"replicationInstanceIdentifier"`
-	ReplicationSubnetGroupIdentifier *string                  `pulumi:"replicationSubnetGroupIdentifier"`
-	ResourceIdentifier               *string                  `pulumi:"resourceIdentifier"`
-	Tags                             []ReplicationInstanceTag `pulumi:"tags"`
-	VpcSecurityGroupIds              []string                 `pulumi:"vpcSecurityGroupIds"`
+	AllocatedStorage                 *int      `pulumi:"allocatedStorage"`
+	AllowMajorVersionUpgrade         *bool     `pulumi:"allowMajorVersionUpgrade"`
+	AutoMinorVersionUpgrade          *bool     `pulumi:"autoMinorVersionUpgrade"`
+	AvailabilityZone                 *string   `pulumi:"availabilityZone"`
+	EngineVersion                    *string   `pulumi:"engineVersion"`
+	KmsKeyId                         *string   `pulumi:"kmsKeyId"`
+	MultiAz                          *bool     `pulumi:"multiAz"`
+	PreferredMaintenanceWindow       *string   `pulumi:"preferredMaintenanceWindow"`
+	PubliclyAccessible               *bool     `pulumi:"publiclyAccessible"`
+	ReplicationInstanceClass         string    `pulumi:"replicationInstanceClass"`
+	ReplicationInstanceIdentifier    *string   `pulumi:"replicationInstanceIdentifier"`
+	ReplicationSubnetGroupIdentifier *string   `pulumi:"replicationSubnetGroupIdentifier"`
+	ResourceIdentifier               *string   `pulumi:"resourceIdentifier"`
+	Tags                             []aws.Tag `pulumi:"tags"`
+	VpcSecurityGroupIds              []string  `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a ReplicationInstance resource.
@@ -119,7 +120,7 @@ type ReplicationInstanceArgs struct {
 	ReplicationInstanceIdentifier    pulumi.StringPtrInput
 	ReplicationSubnetGroupIdentifier pulumi.StringPtrInput
 	ResourceIdentifier               pulumi.StringPtrInput
-	Tags                             ReplicationInstanceTagArrayInput
+	Tags                             aws.TagArrayInput
 	VpcSecurityGroupIds              pulumi.StringArrayInput
 }
 
@@ -220,8 +221,8 @@ func (o ReplicationInstanceOutput) ResourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o ReplicationInstanceOutput) Tags() ReplicationInstanceTagArrayOutput {
-	return o.ApplyT(func(v *ReplicationInstance) ReplicationInstanceTagArrayOutput { return v.Tags }).(ReplicationInstanceTagArrayOutput)
+func (o ReplicationInstanceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ReplicationInstance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ReplicationInstanceOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

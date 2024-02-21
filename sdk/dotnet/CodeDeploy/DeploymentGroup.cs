@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.CodeDeploy
         public Output<string> ServiceRoleArn { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DeploymentGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("terminationHookEnabled")]
         public Output<bool?> TerminationHookEnabled { get; private set; } = null!;
@@ -198,10 +198,10 @@ namespace Pulumi.AwsNative.CodeDeploy
         public Input<string> ServiceRoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DeploymentGroupTagArgs>? _tags;
-        public InputList<Inputs.DeploymentGroupTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DeploymentGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

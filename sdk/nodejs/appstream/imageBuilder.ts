@@ -49,7 +49,7 @@ export class ImageBuilder extends pulumi.CustomResource {
     public readonly instanceType!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly streamingUrl!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.appstream.ImageBuilderTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcConfig!: pulumi.Output<outputs.appstream.ImageBuilderVpcConfig | undefined>;
 
     /**
@@ -116,6 +116,6 @@ export interface ImageBuilderArgs {
     imageName?: pulumi.Input<string>;
     instanceType: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfigArgs>;
 }

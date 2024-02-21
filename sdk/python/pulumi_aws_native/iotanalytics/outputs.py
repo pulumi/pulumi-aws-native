@@ -16,7 +16,6 @@ __all__ = [
     'ChannelRetentionPeriod',
     'ChannelServiceManagedS3',
     'ChannelStorage',
-    'ChannelTag',
     'DatasetAction',
     'DatasetContainerAction',
     'DatasetContentDeliveryRule',
@@ -35,7 +34,6 @@ __all__ = [
     'DatasetRetentionPeriod',
     'DatasetS3DestinationConfiguration',
     'DatasetSchedule',
-    'DatasetTag',
     'DatasetTrigger',
     'DatasetTriggeringDataset',
     'DatasetVariable',
@@ -53,7 +51,6 @@ __all__ = [
     'DatastoreSchemaDefinition',
     'DatastoreServiceManagedS3',
     'DatastoreStorage',
-    'DatastoreTag',
     'DatastoreTimestampPartition',
     'Partition',
     'PipelineActivity',
@@ -67,7 +64,6 @@ __all__ = [
     'PipelineMath',
     'PipelineRemoveAttributes',
     'PipelineSelectAttributes',
-    'PipelineTag',
 ]
 
 @pulumi.output_type
@@ -198,25 +194,6 @@ class ChannelStorage(dict):
     @pulumi.getter(name="serviceManagedS3")
     def service_managed_s3(self) -> Optional['outputs.ChannelServiceManagedS3']:
         return pulumi.get(self, "service_managed_s3")
-
-
-@pulumi.output_type
-class ChannelTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -894,25 +871,6 @@ class DatasetSchedule(dict):
 
 
 @pulumi.output_type
-class DatasetTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class DatasetTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1450,25 +1408,6 @@ class DatastoreStorage(dict):
     @pulumi.getter(name="serviceManagedS3")
     def service_managed_s3(self) -> Optional['outputs.DatastoreServiceManagedS3']:
         return pulumi.get(self, "service_managed_s3")
-
-
-@pulumi.output_type
-class DatastoreTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2044,24 +1983,5 @@ class PipelineSelectAttributes(dict):
     @pulumi.getter
     def next(self) -> Optional[str]:
         return pulumi.get(self, "next")
-
-
-@pulumi.output_type
-class PipelineTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

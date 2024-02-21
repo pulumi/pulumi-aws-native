@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type ResponsePlan struct {
 	// The name of the response plan.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags to apply to the response plan.
-	Tags ResponsePlanTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewResponsePlan registers a new resource with the given unique name, arguments, and options.
@@ -94,7 +95,7 @@ type responsePlanArgs struct {
 	// The name of the response plan.
 	Name *string `pulumi:"name"`
 	// The tags to apply to the response plan.
-	Tags []ResponsePlanTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResponsePlan resource.
@@ -112,7 +113,7 @@ type ResponsePlanArgs struct {
 	// The name of the response plan.
 	Name pulumi.StringPtrInput
 	// The tags to apply to the response plan.
-	Tags ResponsePlanTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ResponsePlanArgs) ElementType() reflect.Type {
@@ -191,8 +192,8 @@ func (o ResponsePlanOutput) Name() pulumi.StringOutput {
 }
 
 // The tags to apply to the response plan.
-func (o ResponsePlanOutput) Tags() ResponsePlanTagArrayOutput {
-	return o.ApplyT(func(v *ResponsePlan) ResponsePlanTagArrayOutput { return v.Tags }).(ResponsePlanTagArrayOutput)
+func (o ResponsePlanOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ResponsePlan) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

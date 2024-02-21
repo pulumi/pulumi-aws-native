@@ -49,7 +49,7 @@ export class Pipeline extends pulumi.CustomResource {
     public readonly restartExecutionOnUpdate!: pulumi.Output<boolean | undefined>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStageDeclaration[]>;
-    public readonly tags!: pulumi.Output<outputs.codepipeline.PipelineTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTriggerDeclaration[] | undefined>;
     public readonly variables!: pulumi.Output<outputs.codepipeline.PipelineVariableDeclaration[] | undefined>;
     public /*out*/ readonly version!: pulumi.Output<string>;
@@ -121,7 +121,7 @@ export interface PipelineArgs {
     restartExecutionOnUpdate?: pulumi.Input<boolean>;
     roleArn: pulumi.Input<string>;
     stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStageDeclarationArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTriggerDeclarationArgs>[]>;
     variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariableDeclarationArgs>[]>;
 }

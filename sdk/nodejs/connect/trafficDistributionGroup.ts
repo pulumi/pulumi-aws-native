@@ -60,7 +60,7 @@ export class TrafficDistributionGroup extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.TrafficDistributionGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The identifier of the traffic distribution group.
      */
@@ -122,5 +122,5 @@ export interface TrafficDistributionGroupArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.TrafficDistributionGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

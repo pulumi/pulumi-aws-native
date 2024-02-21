@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type DomainConfiguration struct {
 	ServerCertificateConfig   DomainConfigurationServerCertificateConfigPtrOutput    `pulumi:"serverCertificateConfig"`
 	ServerCertificates        DomainConfigurationServerCertificateSummaryArrayOutput `pulumi:"serverCertificates"`
 	ServiceType               DomainConfigurationServiceTypePtrOutput                `pulumi:"serviceType"`
-	Tags                      DomainConfigurationTagArrayOutput                      `pulumi:"tags"`
+	Tags                      aws.TagArrayOutput                                     `pulumi:"tags"`
 	TlsConfig                 DomainConfigurationTlsConfigPtrOutput                  `pulumi:"tlsConfig"`
 	ValidationCertificateArn  pulumi.StringPtrOutput                                 `pulumi:"validationCertificateArn"`
 }
@@ -85,7 +86,7 @@ type domainConfigurationArgs struct {
 	ServerCertificateArns     []string                                    `pulumi:"serverCertificateArns"`
 	ServerCertificateConfig   *DomainConfigurationServerCertificateConfig `pulumi:"serverCertificateConfig"`
 	ServiceType               *DomainConfigurationServiceType             `pulumi:"serviceType"`
-	Tags                      []DomainConfigurationTag                    `pulumi:"tags"`
+	Tags                      []aws.Tag                                   `pulumi:"tags"`
 	TlsConfig                 *DomainConfigurationTlsConfig               `pulumi:"tlsConfig"`
 	ValidationCertificateArn  *string                                     `pulumi:"validationCertificateArn"`
 }
@@ -99,7 +100,7 @@ type DomainConfigurationArgs struct {
 	ServerCertificateArns     pulumi.StringArrayInput
 	ServerCertificateConfig   DomainConfigurationServerCertificateConfigPtrInput
 	ServiceType               DomainConfigurationServiceTypePtrInput
-	Tags                      DomainConfigurationTagArrayInput
+	Tags                      aws.TagArrayInput
 	TlsConfig                 DomainConfigurationTlsConfigPtrInput
 	ValidationCertificateArn  pulumi.StringPtrInput
 }
@@ -185,8 +186,8 @@ func (o DomainConfigurationOutput) ServiceType() DomainConfigurationServiceTypeP
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationServiceTypePtrOutput { return v.ServiceType }).(DomainConfigurationServiceTypePtrOutput)
 }
 
-func (o DomainConfigurationOutput) Tags() DomainConfigurationTagArrayOutput {
-	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationTagArrayOutput { return v.Tags }).(DomainConfigurationTagArrayOutput)
+func (o DomainConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DomainConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o DomainConfigurationOutput) TlsConfig() DomainConfigurationTlsConfigPtrOutput {

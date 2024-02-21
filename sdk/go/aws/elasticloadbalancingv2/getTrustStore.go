@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupTrustStoreResult struct {
 	// The status of the trust store, could be either of ACTIVE or CREATING.
 	Status *string `pulumi:"status"`
 	// The tags to assign to the trust store.
-	Tags []TrustStoreTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the trust store.
 	TrustStoreArn *string `pulumi:"trustStoreArn"`
 }
@@ -85,8 +86,8 @@ func (o LookupTrustStoreResultOutput) Status() pulumi.StringPtrOutput {
 }
 
 // The tags to assign to the trust store.
-func (o LookupTrustStoreResultOutput) Tags() TrustStoreTagArrayOutput {
-	return o.ApplyT(func(v LookupTrustStoreResult) []TrustStoreTag { return v.Tags }).(TrustStoreTagArrayOutput)
+func (o LookupTrustStoreResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTrustStoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the trust store.

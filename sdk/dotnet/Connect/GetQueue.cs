@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.QueueTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The type of queue.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.Connect
 
             Pulumi.AwsNative.Connect.QueueStatus? status,
 
-            ImmutableArray<Outputs.QueueTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.Connect.QueueType? type)
         {

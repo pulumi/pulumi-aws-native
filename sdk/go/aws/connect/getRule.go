@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupRuleResult struct {
 	// The Amazon Resource Name (ARN) of the rule.
 	RuleArn *string `pulumi:"ruleArn"`
 	// One or more tags.
-	Tags []RuleTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRuleResultOutput {
@@ -104,8 +105,8 @@ func (o LookupRuleResultOutput) RuleArn() pulumi.StringPtrOutput {
 }
 
 // One or more tags.
-func (o LookupRuleResultOutput) Tags() RuleTagArrayOutput {
-	return o.ApplyT(func(v LookupRuleResult) []RuleTag { return v.Tags }).(RuleTagArrayOutput)
+func (o LookupRuleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

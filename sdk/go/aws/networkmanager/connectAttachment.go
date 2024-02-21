@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type ConnectAttachment struct {
 	// State of the attachment.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Tags for the attachment.
-	Tags ConnectAttachmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Id of transport attachment
 	TransportAttachmentId pulumi.StringOutput `pulumi:"transportAttachmentId"`
 	// Last update time of the attachment.
@@ -118,7 +119,7 @@ type connectAttachmentArgs struct {
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *ConnectAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Tags for the attachment.
-	Tags []ConnectAttachmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Id of transport attachment
 	TransportAttachmentId string `pulumi:"transportAttachmentId"`
 }
@@ -134,7 +135,7 @@ type ConnectAttachmentArgs struct {
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange ConnectAttachmentProposedSegmentChangePtrInput
 	// Tags for the attachment.
-	Tags ConnectAttachmentTagArrayInput
+	Tags aws.TagArrayInput
 	// Id of transport attachment
 	TransportAttachmentId pulumi.StringInput
 }
@@ -244,8 +245,8 @@ func (o ConnectAttachmentOutput) State() pulumi.StringOutput {
 }
 
 // Tags for the attachment.
-func (o ConnectAttachmentOutput) Tags() ConnectAttachmentTagArrayOutput {
-	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentTagArrayOutput { return v.Tags }).(ConnectAttachmentTagArrayOutput)
+func (o ConnectAttachmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ConnectAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Id of transport attachment

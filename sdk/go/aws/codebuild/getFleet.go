@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupFleetResult struct {
 	ComputeType     *FleetComputeType     `pulumi:"computeType"`
 	EnvironmentType *FleetEnvironmentType `pulumi:"environmentType"`
 	Name            *string               `pulumi:"name"`
-	Tags            []FleetTag            `pulumi:"tags"`
+	Tags            []aws.Tag             `pulumi:"tags"`
 }
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
@@ -90,8 +91,8 @@ func (o LookupFleetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupFleetResultOutput) Tags() FleetTagArrayOutput {
-	return o.ApplyT(func(v LookupFleetResult) []FleetTag { return v.Tags }).(FleetTagArrayOutput)
+func (o LookupFleetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFleetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

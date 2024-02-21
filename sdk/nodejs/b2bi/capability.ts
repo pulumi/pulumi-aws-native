@@ -44,7 +44,7 @@ export class Capability extends pulumi.CustomResource {
     public readonly instructionsDocuments!: pulumi.Output<outputs.b2bi.CapabilityS3Location[] | undefined>;
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.b2bi.CapabilityTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly type!: pulumi.Output<enums.b2bi.CapabilityType>;
 
     /**
@@ -98,6 +98,6 @@ export interface CapabilityArgs {
     configuration: pulumi.Input<inputs.b2bi.CapabilityConfigurationPropertiesArgs>;
     instructionsDocuments?: pulumi.Input<pulumi.Input<inputs.b2bi.CapabilityS3LocationArgs>[]>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.b2bi.CapabilityTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     type: pulumi.Input<enums.b2bi.CapabilityType>;
 }

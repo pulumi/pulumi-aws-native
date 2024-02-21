@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['PrivateDnsNamespaceArgs', 'PrivateDnsNamespace']
@@ -20,7 +22,7 @@ class PrivateDnsNamespaceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['PrivateDnsNamespacePropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateDnsNamespaceTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PrivateDnsNamespace resource.
         """
@@ -72,11 +74,11 @@ class PrivateDnsNamespaceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateDnsNamespaceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateDnsNamespaceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,7 +95,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PrivateDnsNamespacePropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateDnsNamespaceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -129,7 +131,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PrivateDnsNamespacePropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateDnsNamespaceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""PrivateDnsNamespace is deprecated: PrivateDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -210,7 +212,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateDnsNamespaceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

@@ -89,7 +89,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
      */
-    public readonly tags!: pulumi.Output<outputs.ssm.PatchBaselineTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PatchBaseline resource with the given unique name, arguments, and options.
@@ -195,5 +195,5 @@ export interface PatchBaselineArgs {
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

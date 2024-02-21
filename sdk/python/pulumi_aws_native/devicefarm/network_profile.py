@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['NetworkProfileArgs', 'NetworkProfile']
 
@@ -23,7 +23,7 @@ class NetworkProfileArgs:
                  downlink_jitter_ms: Optional[pulumi.Input[int]] = None,
                  downlink_loss_percent: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkProfileTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
                  uplink_delay_ms: Optional[pulumi.Input[int]] = None,
                  uplink_jitter_ms: Optional[pulumi.Input[int]] = None,
@@ -120,11 +120,11 @@ class NetworkProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkProfileTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkProfileTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -176,7 +176,7 @@ class NetworkProfile(pulumi.CustomResource):
                  downlink_loss_percent: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
                  uplink_delay_ms: Optional[pulumi.Input[int]] = None,
                  uplink_jitter_ms: Optional[pulumi.Input[int]] = None,
@@ -219,7 +219,7 @@ class NetworkProfile(pulumi.CustomResource):
                  downlink_loss_percent: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
                  uplink_delay_ms: Optional[pulumi.Input[int]] = None,
                  uplink_jitter_ms: Optional[pulumi.Input[int]] = None,
@@ -329,7 +329,7 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkProfileTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

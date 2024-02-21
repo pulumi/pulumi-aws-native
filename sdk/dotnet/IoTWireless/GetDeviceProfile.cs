@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// A list of key-value pairs that contain metadata for the device profile.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeviceProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDeviceProfileResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? name,
 
-            ImmutableArray<Outputs.DeviceProfileTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Id = id;

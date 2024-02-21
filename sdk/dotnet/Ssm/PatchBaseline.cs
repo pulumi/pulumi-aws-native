@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Ssm
         /// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PatchBaselineTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -245,14 +245,14 @@ namespace Pulumi.AwsNative.Ssm
         }
 
         [Input("tags")]
-        private InputList<Inputs.PatchBaselineTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
         /// </summary>
-        public InputList<Inputs.PatchBaselineTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PatchBaselineTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

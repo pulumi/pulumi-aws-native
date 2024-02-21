@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupWorkspaceResult struct {
 	DirectoryId                 *string              `pulumi:"directoryId"`
 	Id                          *string              `pulumi:"id"`
 	RootVolumeEncryptionEnabled *bool                `pulumi:"rootVolumeEncryptionEnabled"`
-	Tags                        []WorkspaceTag       `pulumi:"tags"`
+	Tags                        []aws.Tag            `pulumi:"tags"`
 	UserVolumeEncryptionEnabled *bool                `pulumi:"userVolumeEncryptionEnabled"`
 	VolumeEncryptionKey         *string              `pulumi:"volumeEncryptionKey"`
 	WorkspaceProperties         *WorkspaceProperties `pulumi:"workspaceProperties"`
@@ -88,8 +89,8 @@ func (o LookupWorkspaceResultOutput) RootVolumeEncryptionEnabled() pulumi.BoolPt
 	return o.ApplyT(func(v LookupWorkspaceResult) *bool { return v.RootVolumeEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupWorkspaceResultOutput) Tags() WorkspaceTagArrayOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) []WorkspaceTag { return v.Tags }).(WorkspaceTagArrayOutput)
+func (o LookupWorkspaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupWorkspaceResultOutput) UserVolumeEncryptionEnabled() pulumi.BoolPtrOutput {

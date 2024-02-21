@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupContactListResult struct {
 	// The description of the contact list.
 	Description *string `pulumi:"description"`
 	// The tags (keys and values) associated with the contact list.
-	Tags []ContactListTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The topics associated with the contact list.
 	Topics []ContactListTopic `pulumi:"topics"`
 }
@@ -78,8 +79,8 @@ func (o LookupContactListResultOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The tags (keys and values) associated with the contact list.
-func (o LookupContactListResultOutput) Tags() ContactListTagArrayOutput {
-	return o.ApplyT(func(v LookupContactListResult) []ContactListTag { return v.Tags }).(ContactListTagArrayOutput)
+func (o LookupContactListResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupContactListResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The topics associated with the contact list.

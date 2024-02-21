@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Neptune
         public readonly string? Id;
         public readonly string? Port;
         public readonly string? PreferredMaintenanceWindow;
-        public readonly ImmutableArray<Outputs.DbInstanceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDbInstanceResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Neptune
 
             string? preferredMaintenanceWindow,
 
-            ImmutableArray<Outputs.DbInstanceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllowMajorVersionUpgrade = allowMajorVersionUpgrade;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;

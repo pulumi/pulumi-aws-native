@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,7 @@ class DocumentClassifierArgs:
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  model_policy: Optional[pulumi.Input[str]] = None,
                  output_data_config: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
                  vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']] = None):
@@ -128,11 +130,11 @@ class DocumentClassifierArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -176,7 +178,7 @@ class DocumentClassifier(pulumi.CustomResource):
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  model_policy: Optional[pulumi.Input[str]] = None,
                  output_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentClassifierTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']]] = None,
@@ -219,7 +221,7 @@ class DocumentClassifier(pulumi.CustomResource):
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  model_policy: Optional[pulumi.Input[str]] = None,
                  output_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentClassifierTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']]] = None,
@@ -337,7 +339,7 @@ class DocumentClassifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DocumentClassifierTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupAgentResult struct {
 	// The service endpoints that the agent will connect to.
 	EndpointType *AgentEndpointType `pulumi:"endpointType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []AgentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAgentOutput(ctx *pulumi.Context, args LookupAgentOutputArgs, opts ...pulumi.InvokeOption) LookupAgentResultOutput {
@@ -90,8 +91,8 @@ func (o LookupAgentResultOutput) EndpointType() AgentEndpointTypePtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupAgentResultOutput) Tags() AgentTagArrayOutput {
-	return o.ApplyT(func(v LookupAgentResult) []AgentTag { return v.Tags }).(AgentTagArrayOutput)
+func (o LookupAgentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAgentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

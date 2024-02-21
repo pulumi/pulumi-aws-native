@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Cluster struct {
 	Configuration                   ClusterConfigurationPtrOutput                  `pulumi:"configuration"`
 	DefaultCapacityProviderStrategy ClusterCapacityProviderStrategyItemArrayOutput `pulumi:"defaultCapacityProviderStrategy"`
 	ServiceConnectDefaults          ClusterServiceConnectDefaultsPtrOutput         `pulumi:"serviceConnectDefaults"`
-	Tags                            ClusterTagArrayOutput                          `pulumi:"tags"`
+	Tags                            aws.TagArrayOutput                             `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type clusterArgs struct {
 	Configuration                   *ClusterConfiguration                 `pulumi:"configuration"`
 	DefaultCapacityProviderStrategy []ClusterCapacityProviderStrategyItem `pulumi:"defaultCapacityProviderStrategy"`
 	ServiceConnectDefaults          *ClusterServiceConnectDefaults        `pulumi:"serviceConnectDefaults"`
-	Tags                            []ClusterTag                          `pulumi:"tags"`
+	Tags                            []aws.Tag                             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -90,7 +91,7 @@ type ClusterArgs struct {
 	Configuration                   ClusterConfigurationPtrInput
 	DefaultCapacityProviderStrategy ClusterCapacityProviderStrategyItemArrayInput
 	ServiceConnectDefaults          ClusterServiceConnectDefaultsPtrInput
-	Tags                            ClusterTagArrayInput
+	Tags                            aws.TagArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -162,8 +163,8 @@ func (o ClusterOutput) ServiceConnectDefaults() ClusterServiceConnectDefaultsPtr
 	return o.ApplyT(func(v *Cluster) ClusterServiceConnectDefaultsPtrOutput { return v.ServiceConnectDefaults }).(ClusterServiceConnectDefaultsPtrOutput)
 }
 
-func (o ClusterOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+func (o ClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Cluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

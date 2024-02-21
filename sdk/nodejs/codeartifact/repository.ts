@@ -74,7 +74,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.codeartifact.RepositoryTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A list of upstream repositories associated with the repository.
      */
@@ -156,7 +156,7 @@ export interface RepositoryArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A list of upstream repositories associated with the repository.
      */

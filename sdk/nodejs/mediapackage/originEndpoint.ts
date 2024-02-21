@@ -69,7 +69,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.mediapackage.OriginEndpointTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
      */
@@ -166,7 +166,7 @@ export interface OriginEndpointArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.mediapackage.OriginEndpointTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
      */

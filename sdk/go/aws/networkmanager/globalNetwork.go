@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type GlobalNetwork struct {
 	// The state of the global network.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The tags for the global network.
-	Tags GlobalNetworkTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewGlobalNetwork registers a new resource with the given unique name, arguments, and options.
@@ -74,7 +75,7 @@ type globalNetworkArgs struct {
 	// The state of the global network.
 	State *string `pulumi:"state"`
 	// The tags for the global network.
-	Tags []GlobalNetworkTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GlobalNetwork resource.
@@ -86,7 +87,7 @@ type GlobalNetworkArgs struct {
 	// The state of the global network.
 	State pulumi.StringPtrInput
 	// The tags for the global network.
-	Tags GlobalNetworkTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (GlobalNetworkArgs) ElementType() reflect.Type {
@@ -147,8 +148,8 @@ func (o GlobalNetworkOutput) State() pulumi.StringPtrOutput {
 }
 
 // The tags for the global network.
-func (o GlobalNetworkOutput) Tags() GlobalNetworkTagArrayOutput {
-	return o.ApplyT(func(v *GlobalNetwork) GlobalNetworkTagArrayOutput { return v.Tags }).(GlobalNetworkTagArrayOutput)
+func (o GlobalNetworkOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *GlobalNetwork) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

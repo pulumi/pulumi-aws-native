@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupCertificateProviderResult struct {
 	Arn                         *string                        `pulumi:"arn"`
 	LambdaFunctionArn           *string                        `pulumi:"lambdaFunctionArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []CertificateProviderTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCertificateProviderOutput(ctx *pulumi.Context, args LookupCertificateProviderOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateProviderResultOutput {
@@ -84,8 +85,8 @@ func (o LookupCertificateProviderResultOutput) LambdaFunctionArn() pulumi.String
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupCertificateProviderResultOutput) Tags() CertificateProviderTagArrayOutput {
-	return o.ApplyT(func(v LookupCertificateProviderResult) []CertificateProviderTag { return v.Tags }).(CertificateProviderTagArrayOutput)
+func (o LookupCertificateProviderResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCertificateProviderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

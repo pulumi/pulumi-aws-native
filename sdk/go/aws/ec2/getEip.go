@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupEipResult struct {
 	// The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
 	PublicIpv4Pool *string `pulumi:"publicIpv4Pool"`
 	// Any tags assigned to the EIP.
-	Tags []EipTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEipOutput(ctx *pulumi.Context, args LookupEipOutputArgs, opts ...pulumi.InvokeOption) LookupEipResultOutput {
@@ -101,8 +102,8 @@ func (o LookupEipResultOutput) PublicIpv4Pool() pulumi.StringPtrOutput {
 }
 
 // Any tags assigned to the EIP.
-func (o LookupEipResultOutput) Tags() EipTagArrayOutput {
-	return o.ApplyT(func(v LookupEipResult) []EipTag { return v.Tags }).(EipTagArrayOutput)
+func (o LookupEipResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEipResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

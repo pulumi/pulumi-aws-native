@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.BillingConductor
         public Output<int> Size { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PricingPlanTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -112,10 +112,10 @@ namespace Pulumi.AwsNative.BillingConductor
         }
 
         [Input("tags")]
-        private InputList<Inputs.PricingPlanTagArgs>? _tags;
-        public InputList<Inputs.PricingPlanTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PricingPlanTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

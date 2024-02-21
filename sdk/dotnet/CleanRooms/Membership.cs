@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.MembershipTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -107,14 +107,14 @@ namespace Pulumi.AwsNative.CleanRooms
         public Input<Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus> QueryLogStatus { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.MembershipTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         /// </summary>
-        public InputList<Inputs.MembershipTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.MembershipTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -39,7 +39,7 @@ export interface GetTableResult {
     readonly streamArn?: string;
     readonly streamSpecification?: outputs.dynamodb.TableStreamSpecification;
     readonly tableClass?: string;
-    readonly tags?: outputs.dynamodb.TableTag[];
+    readonly tags?: outputs.Tag[];
     readonly timeToLiveSpecification?: outputs.dynamodb.TableTimeToLiveSpecification;
 }
 /**

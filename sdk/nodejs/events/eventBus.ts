@@ -58,7 +58,7 @@ export class EventBus extends pulumi.CustomResource {
     /**
      * Any tags assigned to the event bus.
      */
-    public readonly tags!: pulumi.Output<outputs.events.EventBusTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EventBus resource with the given unique name, arguments, and options.
@@ -111,5 +111,5 @@ export interface EventBusArgs {
     /**
      * Any tags assigned to the event bus.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.events.EventBusTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

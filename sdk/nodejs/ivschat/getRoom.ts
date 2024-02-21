@@ -54,7 +54,7 @@ export interface GetRoomResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ivschat.RoomTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource type definition for AWS::IVSChat::Room.

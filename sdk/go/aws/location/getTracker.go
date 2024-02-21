@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,9 +37,9 @@ type LookupTrackerResult struct {
 	PricingPlan                   *TrackerPricingPlan       `pulumi:"pricingPlan"`
 	PricingPlanDataSource         *string                   `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []TrackerTag `pulumi:"tags"`
-	TrackerArn *string      `pulumi:"trackerArn"`
-	UpdateTime *string      `pulumi:"updateTime"`
+	Tags       []aws.Tag `pulumi:"tags"`
+	TrackerArn *string   `pulumi:"trackerArn"`
+	UpdateTime *string   `pulumi:"updateTime"`
 }
 
 func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerResultOutput {
@@ -109,8 +110,8 @@ func (o LookupTrackerResultOutput) PricingPlanDataSource() pulumi.StringPtrOutpu
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupTrackerResultOutput) Tags() TrackerTagArrayOutput {
-	return o.ApplyT(func(v LookupTrackerResult) []TrackerTag { return v.Tags }).(TrackerTagArrayOutput)
+func (o LookupTrackerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTrackerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupTrackerResultOutput) TrackerArn() pulumi.StringPtrOutput {

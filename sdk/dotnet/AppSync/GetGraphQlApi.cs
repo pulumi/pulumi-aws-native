@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? RealtimeDns;
         public readonly string? RealtimeUrl;
         public readonly int? ResolverCountLimit;
-        public readonly ImmutableArray<Outputs.GraphQlApiTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.GraphQlApiUserPoolConfig? UserPoolConfig;
         public readonly string? Visibility;
         public readonly bool? XrayEnabled;
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.AppSync
 
             int? resolverCountLimit,
 
-            ImmutableArray<Outputs.GraphQlApiTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.GraphQlApiUserPoolConfig? userPoolConfig,
 

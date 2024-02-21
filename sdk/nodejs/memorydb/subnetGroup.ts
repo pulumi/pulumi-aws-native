@@ -56,7 +56,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this subnet group.
      */
-    public readonly tags!: pulumi.Output<outputs.memorydb.SubnetGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -110,5 +110,5 @@ export interface SubnetGroupArgs {
     /**
      * An array of key-value pairs to apply to this subnet group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.memorydb.SubnetGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

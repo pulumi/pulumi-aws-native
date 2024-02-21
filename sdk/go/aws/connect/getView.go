@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupViewResult struct {
 	// The name of the view.
 	Name *string `pulumi:"name"`
 	// One or more tags.
-	Tags []ViewTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The template of the view as JSON.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
@@ -107,8 +108,8 @@ func (o LookupViewResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // One or more tags.
-func (o LookupViewResultOutput) Tags() ViewTagArrayOutput {
-	return o.ApplyT(func(v LookupViewResult) []ViewTag { return v.Tags }).(ViewTagArrayOutput)
+func (o LookupViewResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupViewResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The template of the view as JSON.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Room struct {
 	// The name of the room. The value does not need to be unique.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags RoomTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRoom registers a new resource with the given unique name, arguments, and options.
@@ -80,7 +81,7 @@ type roomArgs struct {
 	// The name of the room. The value does not need to be unique.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RoomTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Room resource.
@@ -95,7 +96,7 @@ type RoomArgs struct {
 	// The name of the room. The value does not need to be unique.
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags RoomTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RoomArgs) ElementType() reflect.Type {
@@ -165,8 +166,8 @@ func (o RoomOutput) Name() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o RoomOutput) Tags() RoomTagArrayOutput {
-	return o.ApplyT(func(v *Room) RoomTagArrayOutput { return v.Tags }).(RoomTagArrayOutput)
+func (o RoomOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Room) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

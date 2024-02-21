@@ -45,7 +45,7 @@ export interface GetDeviceProfileResult {
     /**
      * A list of key-value pairs that contain metadata for the device profile.
      */
-    readonly tags?: outputs.iotwireless.DeviceProfileTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Device Profile's resource schema demonstrating some basic constructs and validation rules.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,8 +18,8 @@ import (
 type DedicatedIpPool struct {
 	pulumi.CustomResourceState
 
-	PoolName pulumi.StringPtrOutput         `pulumi:"poolName"`
-	Tags     DedicatedIpPoolTagsArrayOutput `pulumi:"tags"`
+	PoolName pulumi.StringPtrOutput `pulumi:"poolName"`
+	Tags     aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewDedicatedIpPool registers a new resource with the given unique name, arguments, and options.
@@ -65,14 +66,14 @@ func (DedicatedIpPoolState) ElementType() reflect.Type {
 }
 
 type dedicatedIpPoolArgs struct {
-	PoolName *string               `pulumi:"poolName"`
-	Tags     []DedicatedIpPoolTags `pulumi:"tags"`
+	PoolName *string   `pulumi:"poolName"`
+	Tags     []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DedicatedIpPool resource.
 type DedicatedIpPoolArgs struct {
 	PoolName pulumi.StringPtrInput
-	Tags     DedicatedIpPoolTagsArrayInput
+	Tags     aws.TagArrayInput
 }
 
 func (DedicatedIpPoolArgs) ElementType() reflect.Type {
@@ -116,8 +117,8 @@ func (o DedicatedIpPoolOutput) PoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringPtrOutput { return v.PoolName }).(pulumi.StringPtrOutput)
 }
 
-func (o DedicatedIpPoolOutput) Tags() DedicatedIpPoolTagsArrayOutput {
-	return o.ApplyT(func(v *DedicatedIpPool) DedicatedIpPoolTagsArrayOutput { return v.Tags }).(DedicatedIpPoolTagsArrayOutput)
+func (o DedicatedIpPoolOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DedicatedIpPool) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

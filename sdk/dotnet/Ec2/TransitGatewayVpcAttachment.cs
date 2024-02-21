@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TransitGatewayVpcAttachmentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
@@ -121,10 +121,10 @@ namespace Pulumi.AwsNative.Ec2
         }
 
         [Input("tags")]
-        private InputList<Inputs.TransitGatewayVpcAttachmentTagArgs>? _tags;
-        public InputList<Inputs.TransitGatewayVpcAttachmentTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TransitGatewayVpcAttachmentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

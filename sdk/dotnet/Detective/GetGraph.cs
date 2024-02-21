@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Detective
         /// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
         /// </summary>
         public readonly bool? AutoEnableMembers;
-        public readonly ImmutableArray<Outputs.GraphTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetGraphResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Detective
 
             bool? autoEnableMembers,
 
-            ImmutableArray<Outputs.GraphTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AutoEnableMembers = autoEnableMembers;

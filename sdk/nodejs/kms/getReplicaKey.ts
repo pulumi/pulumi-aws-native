@@ -42,7 +42,7 @@ export interface GetReplicaKeyResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.kms.ReplicaKeyTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -15,9 +16,9 @@ import (
 type Activity struct {
 	pulumi.CustomResourceState
 
-	Arn  pulumi.StringOutput          `pulumi:"arn"`
-	Name pulumi.StringOutput          `pulumi:"name"`
-	Tags ActivityTagsEntryArrayOutput `pulumi:"tags"`
+	Arn  pulumi.StringOutput `pulumi:"arn"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	Tags aws.TagArrayOutput  `pulumi:"tags"`
 }
 
 // NewActivity registers a new resource with the given unique name, arguments, and options.
@@ -64,14 +65,14 @@ func (ActivityState) ElementType() reflect.Type {
 }
 
 type activityArgs struct {
-	Name *string             `pulumi:"name"`
-	Tags []ActivityTagsEntry `pulumi:"tags"`
+	Name *string   `pulumi:"name"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Activity resource.
 type ActivityArgs struct {
 	Name pulumi.StringPtrInput
-	Tags ActivityTagsEntryArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ActivityArgs) ElementType() reflect.Type {
@@ -119,8 +120,8 @@ func (o ActivityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ActivityOutput) Tags() ActivityTagsEntryArrayOutput {
-	return o.ApplyT(func(v *Activity) ActivityTagsEntryArrayOutput { return v.Tags }).(ActivityTagsEntryArrayOutput)
+func (o ActivityOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Activity) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,8 +26,8 @@ type PlaceIndex struct {
 	IndexName               pulumi.StringOutput                        `pulumi:"indexName"`
 	PricingPlan             PlaceIndexPricingPlanPtrOutput             `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       PlaceIndexTagArrayOutput `pulumi:"tags"`
-	UpdateTime pulumi.StringOutput      `pulumi:"updateTime"`
+	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewPlaceIndex registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +87,7 @@ type placeIndexArgs struct {
 	IndexName               string                             `pulumi:"indexName"`
 	PricingPlan             *PlaceIndexPricingPlan             `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []PlaceIndexTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlaceIndex resource.
@@ -97,7 +98,7 @@ type PlaceIndexArgs struct {
 	IndexName               pulumi.StringInput
 	PricingPlan             PlaceIndexPricingPlanPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags PlaceIndexTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (PlaceIndexArgs) ElementType() reflect.Type {
@@ -170,8 +171,8 @@ func (o PlaceIndexOutput) PricingPlan() PlaceIndexPricingPlanPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o PlaceIndexOutput) Tags() PlaceIndexTagArrayOutput {
-	return o.ApplyT(func(v *PlaceIndex) PlaceIndexTagArrayOutput { return v.Tags }).(PlaceIndexTagArrayOutput)
+func (o PlaceIndexOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PlaceIndex) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o PlaceIndexOutput) UpdateTime() pulumi.StringOutput {

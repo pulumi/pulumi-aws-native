@@ -32,13 +32,11 @@ __all__ = [
     'GatewayRouteQueryParameter',
     'GatewayRouteRangeMatch',
     'GatewayRouteSpec',
-    'GatewayRouteTag',
     'GatewayRouteTarget',
     'GatewayRouteVirtualService',
     'MeshEgressFilter',
     'MeshServiceDiscovery',
     'MeshSpec',
-    'MeshTag',
     'RouteDuration',
     'RouteGrpcRetryPolicy',
     'RouteGrpcRoute',
@@ -59,7 +57,6 @@ __all__ = [
     'RouteMatchRange',
     'RouteQueryParameter',
     'RouteSpec',
-    'RouteTag',
     'RouteTcpRoute',
     'RouteTcpRouteAction',
     'RouteTcpRouteMatch',
@@ -91,7 +88,6 @@ __all__ = [
     'VirtualGatewaySpec',
     'VirtualGatewaySubjectAlternativeNameMatchers',
     'VirtualGatewaySubjectAlternativeNames',
-    'VirtualGatewayTag',
     'VirtualGatewayTlsValidationContext',
     'VirtualGatewayTlsValidationContextAcmTrust',
     'VirtualGatewayTlsValidationContextFileTrust',
@@ -133,7 +129,6 @@ __all__ = [
     'VirtualNodeSpec',
     'VirtualNodeSubjectAlternativeNameMatchers',
     'VirtualNodeSubjectAlternativeNames',
-    'VirtualNodeTag',
     'VirtualNodeTcpConnectionPool',
     'VirtualNodeTcpTimeout',
     'VirtualNodeTlsValidationContext',
@@ -145,10 +140,8 @@ __all__ = [
     'VirtualRouterListener',
     'VirtualRouterPortMapping',
     'VirtualRouterSpec',
-    'VirtualRouterTag',
     'VirtualServiceProvider',
     'VirtualServiceSpec',
-    'VirtualServiceTag',
     'VirtualServiceVirtualNodeServiceProvider',
     'VirtualServiceVirtualRouterServiceProvider',
 ]
@@ -785,25 +778,6 @@ class GatewayRouteSpec(dict):
 
 
 @pulumi.output_type
-class GatewayRouteTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class GatewayRouteTarget(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -949,25 +923,6 @@ class MeshSpec(dict):
     @pulumi.getter(name="serviceDiscovery")
     def service_discovery(self) -> Optional['outputs.MeshServiceDiscovery']:
         return pulumi.get(self, "service_discovery")
-
-
-@pulumi.output_type
-class MeshTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1772,25 +1727,6 @@ class RouteSpec(dict):
     @pulumi.getter(name="tcpRoute")
     def tcp_route(self) -> Optional['outputs.RouteTcpRoute']:
         return pulumi.get(self, "tcp_route")
-
-
-@pulumi.output_type
-class RouteTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2682,25 +2618,6 @@ class VirtualGatewaySubjectAlternativeNames(dict):
     @pulumi.getter
     def match(self) -> 'outputs.VirtualGatewaySubjectAlternativeNameMatchers':
         return pulumi.get(self, "match")
-
-
-@pulumi.output_type
-class VirtualGatewayTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -4042,25 +3959,6 @@ class VirtualNodeSubjectAlternativeNames(dict):
 
 
 @pulumi.output_type
-class VirtualNodeTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class VirtualNodeTcpConnectionPool(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4355,25 +4253,6 @@ class VirtualRouterSpec(dict):
 
 
 @pulumi.output_type
-class VirtualRouterTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class VirtualServiceProvider(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4424,25 +4303,6 @@ class VirtualServiceSpec(dict):
     @pulumi.getter
     def provider(self) -> Optional['outputs.VirtualServiceProvider']:
         return pulumi.get(self, "provider")
-
-
-@pulumi.output_type
-class VirtualServiceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

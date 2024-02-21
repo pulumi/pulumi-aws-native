@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -29,7 +31,7 @@ class StackSetArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]] = None,
                  stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None):
         """
@@ -45,7 +47,7 @@ class StackSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameters: The input parameters for the stack set template.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
         :param pulumi.Input[str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
-        :param pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]] tags: The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         :param pulumi.Input[str] template_body: The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
         :param pulumi.Input[str] template_url: Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         """
@@ -222,14 +224,14 @@ class StackSetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -274,7 +276,7 @@ class StackSet(pulumi.CustomResource):
                  permission_model: Optional[pulumi.Input['StackSetPermissionModel']] = None,
                  stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -294,7 +296,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.Input['StackSetPermissionModel'] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
         :param pulumi.Input[str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetTagArgs']]]] tags: The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         :param pulumi.Input[str] template_body: The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
         :param pulumi.Input[str] template_url: Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         """
@@ -334,7 +336,7 @@ class StackSet(pulumi.CustomResource):
                  permission_model: Optional[pulumi.Input['StackSetPermissionModel']] = None,
                  stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -509,7 +511,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StackSetTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         """

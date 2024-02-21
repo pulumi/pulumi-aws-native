@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupFileSystemResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
 	FileSystemPolicy             interface{}                         `pulumi:"fileSystemPolicy"`
 	FileSystemProtection         *FileSystemProtection               `pulumi:"fileSystemProtection"`
-	FileSystemTags               []FileSystemElasticFileSystemTag    `pulumi:"fileSystemTags"`
+	FileSystemTags               []aws.Tag                           `pulumi:"fileSystemTags"`
 	LifecyclePolicies            []FileSystemLifecyclePolicy         `pulumi:"lifecyclePolicies"`
 	ProvisionedThroughputInMibps *float64                            `pulumi:"provisionedThroughputInMibps"`
 	ReplicationConfiguration     *FileSystemReplicationConfiguration `pulumi:"replicationConfiguration"`
@@ -96,8 +97,8 @@ func (o LookupFileSystemResultOutput) FileSystemProtection() FileSystemProtectio
 	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemProtection { return v.FileSystemProtection }).(FileSystemProtectionPtrOutput)
 }
 
-func (o LookupFileSystemResultOutput) FileSystemTags() FileSystemElasticFileSystemTagArrayOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) []FileSystemElasticFileSystemTag { return v.FileSystemTags }).(FileSystemElasticFileSystemTagArrayOutput)
+func (o LookupFileSystemResultOutput) FileSystemTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) []aws.Tag { return v.FileSystemTags }).(aws.TagArrayOutput)
 }
 
 func (o LookupFileSystemResultOutput) LifecyclePolicies() FileSystemLifecyclePolicyArrayOutput {

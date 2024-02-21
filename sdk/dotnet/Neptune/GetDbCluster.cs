@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.Neptune
         /// <summary>
         /// The tags assigned to this cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DbClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Provides a list of VPC security groups that the DB cluster belongs to.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AwsNative.Neptune
 
             Outputs.DbClusterServerlessScalingConfiguration? serverlessScalingConfiguration,
 
-            ImmutableArray<Outputs.DbClusterTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

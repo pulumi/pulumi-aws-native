@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type MonitoringSchedule struct {
 	// The status of a schedule job.
 	MonitoringScheduleStatus MonitoringScheduleStatusPtrOutput `pulumi:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
-	Tags MonitoringScheduleTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewMonitoringSchedule registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +93,7 @@ type monitoringScheduleArgs struct {
 	// The status of a schedule job.
 	MonitoringScheduleStatus *MonitoringScheduleStatus `pulumi:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []MonitoringScheduleTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MonitoringSchedule resource.
@@ -107,7 +108,7 @@ type MonitoringScheduleArgs struct {
 	// The status of a schedule job.
 	MonitoringScheduleStatus MonitoringScheduleStatusPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags MonitoringScheduleTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (MonitoringScheduleArgs) ElementType() reflect.Type {
@@ -192,8 +193,8 @@ func (o MonitoringScheduleOutput) MonitoringScheduleStatus() MonitoringScheduleS
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o MonitoringScheduleOutput) Tags() MonitoringScheduleTagArrayOutput {
-	return o.ApplyT(func(v *MonitoringSchedule) MonitoringScheduleTagArrayOutput { return v.Tags }).(MonitoringScheduleTagArrayOutput)
+func (o MonitoringScheduleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *MonitoringSchedule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

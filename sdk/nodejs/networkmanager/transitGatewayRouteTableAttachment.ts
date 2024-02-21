@@ -92,7 +92,7 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.TransitGatewayRouteTableAttachmentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Arn of transit gateway route table.
      */
@@ -175,7 +175,7 @@ export interface TransitGatewayRouteTableAttachmentArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.TransitGatewayRouteTableAttachmentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The Arn of transit gateway route table.
      */

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type Stream struct {
 	// The name of the Kinesis Video stream.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// An array of key-value pairs associated with the Kinesis Video Stream.
-	Tags StreamTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewStream registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +87,7 @@ type streamArgs struct {
 	// The name of the Kinesis Video stream.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs associated with the Kinesis Video Stream.
-	Tags []StreamTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stream resource.
@@ -102,7 +103,7 @@ type StreamArgs struct {
 	// The name of the Kinesis Video stream.
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs associated with the Kinesis Video Stream.
-	Tags StreamTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {
@@ -173,8 +174,8 @@ func (o StreamOutput) Name() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs associated with the Kinesis Video Stream.
-func (o StreamOutput) Tags() StreamTagArrayOutput {
-	return o.ApplyT(func(v *Stream) StreamTagArrayOutput { return v.Tags }).(StreamTagArrayOutput)
+func (o StreamOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Stream) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

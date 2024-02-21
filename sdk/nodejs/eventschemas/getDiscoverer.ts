@@ -49,7 +49,7 @@ export interface GetDiscovererResult {
     /**
      * Tags associated with the resource.
      */
-    readonly tags?: outputs.eventschemas.DiscovererTagsEntry[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EventSchemas::Discoverer

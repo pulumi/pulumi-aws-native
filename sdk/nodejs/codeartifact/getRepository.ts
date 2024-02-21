@@ -51,7 +51,7 @@ export interface GetRepositoryResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.codeartifact.RepositoryTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * A list of upstream repositories associated with the repository.
      */

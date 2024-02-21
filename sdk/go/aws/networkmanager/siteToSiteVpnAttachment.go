@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type SiteToSiteVpnAttachment struct {
 	// The state of the attachment.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Tags for the attachment.
-	Tags SiteToSiteVpnAttachmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Last update time of the attachment.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// The ARN of the site-to-site VPN attachment.
@@ -104,7 +105,7 @@ type siteToSiteVpnAttachmentArgs struct {
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *SiteToSiteVpnAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Tags for the attachment.
-	Tags []SiteToSiteVpnAttachmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the site-to-site VPN attachment.
 	VpnConnectionArn string `pulumi:"vpnConnectionArn"`
 }
@@ -116,7 +117,7 @@ type SiteToSiteVpnAttachmentArgs struct {
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange SiteToSiteVpnAttachmentProposedSegmentChangePtrInput
 	// Tags for the attachment.
-	Tags SiteToSiteVpnAttachmentTagArrayInput
+	Tags aws.TagArrayInput
 	// The ARN of the site-to-site VPN attachment.
 	VpnConnectionArn pulumi.StringInput
 }
@@ -221,8 +222,8 @@ func (o SiteToSiteVpnAttachmentOutput) State() pulumi.StringOutput {
 }
 
 // Tags for the attachment.
-func (o SiteToSiteVpnAttachmentOutput) Tags() SiteToSiteVpnAttachmentTagArrayOutput {
-	return o.ApplyT(func(v *SiteToSiteVpnAttachment) SiteToSiteVpnAttachmentTagArrayOutput { return v.Tags }).(SiteToSiteVpnAttachmentTagArrayOutput)
+func (o SiteToSiteVpnAttachmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Last update time of the attachment.

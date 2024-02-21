@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type TransitGatewayConnect struct {
 	// The state of the attachment.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the attachment.
-	Tags TransitGatewayConnectTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the Connect attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the transit gateway.
@@ -86,7 +87,7 @@ type transitGatewayConnectArgs struct {
 	// The Connect attachment options.
 	Options TransitGatewayConnectOptions `pulumi:"options"`
 	// The tags for the attachment.
-	Tags []TransitGatewayConnectTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the attachment from which the Connect attachment was created.
 	TransportTransitGatewayAttachmentId string `pulumi:"transportTransitGatewayAttachmentId"`
 }
@@ -96,7 +97,7 @@ type TransitGatewayConnectArgs struct {
 	// The Connect attachment options.
 	Options TransitGatewayConnectOptionsInput
 	// The tags for the attachment.
-	Tags TransitGatewayConnectTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the attachment from which the Connect attachment was created.
 	TransportTransitGatewayAttachmentId pulumi.StringInput
 }
@@ -154,8 +155,8 @@ func (o TransitGatewayConnectOutput) State() pulumi.StringOutput {
 }
 
 // The tags for the attachment.
-func (o TransitGatewayConnectOutput) Tags() TransitGatewayConnectTagArrayOutput {
-	return o.ApplyT(func(v *TransitGatewayConnect) TransitGatewayConnectTagArrayOutput { return v.Tags }).(TransitGatewayConnectTagArrayOutput)
+func (o TransitGatewayConnectOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayConnect) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the Connect attachment.

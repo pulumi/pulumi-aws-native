@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public Output<string?> NamespaceId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ServiceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -114,10 +114,10 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public Input<string>? NamespaceId { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ServiceTagArgs>? _tags;
-        public InputList<Inputs.ServiceTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ServiceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

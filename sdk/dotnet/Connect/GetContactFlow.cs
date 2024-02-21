@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContactFlowTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetContactFlowResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Connect
 
             Pulumi.AwsNative.Connect.ContactFlowState? state,
 
-            ImmutableArray<Outputs.ContactFlowTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ContactFlowArn = contactFlowArn;
             Content = content;

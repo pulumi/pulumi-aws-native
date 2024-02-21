@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupSchemaResult struct {
 	// Represents the version ID associated with the initial schema version.
 	InitialSchemaVersionId *string `pulumi:"initialSchemaVersionId"`
 	// List of tags to tag the schema
-	Tags []SchemaTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSchemaOutput(ctx *pulumi.Context, args LookupSchemaOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaResultOutput {
@@ -102,8 +103,8 @@ func (o LookupSchemaResultOutput) InitialSchemaVersionId() pulumi.StringPtrOutpu
 }
 
 // List of tags to tag the schema
-func (o LookupSchemaResultOutput) Tags() SchemaTagArrayOutput {
-	return o.ApplyT(func(v LookupSchemaResult) []SchemaTag { return v.Tags }).(SchemaTagArrayOutput)
+func (o LookupSchemaResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSchemaResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

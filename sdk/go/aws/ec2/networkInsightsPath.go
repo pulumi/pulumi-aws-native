@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type NetworkInsightsPath struct {
 	Source                 pulumi.StringOutput                    `pulumi:"source"`
 	SourceArn              pulumi.StringOutput                    `pulumi:"sourceArn"`
 	SourceIp               pulumi.StringPtrOutput                 `pulumi:"sourceIp"`
-	Tags                   NetworkInsightsPathTagArrayOutput      `pulumi:"tags"`
+	Tags                   aws.TagArrayOutput                     `pulumi:"tags"`
 }
 
 // NewNetworkInsightsPath registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +98,7 @@ type networkInsightsPathArgs struct {
 	Protocol            NetworkInsightsPathProtocol    `pulumi:"protocol"`
 	Source              string                         `pulumi:"source"`
 	SourceIp            *string                        `pulumi:"sourceIp"`
-	Tags                []NetworkInsightsPathTag       `pulumi:"tags"`
+	Tags                []aws.Tag                      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsPath resource.
@@ -110,7 +111,7 @@ type NetworkInsightsPathArgs struct {
 	Protocol            NetworkInsightsPathProtocolInput
 	Source              pulumi.StringInput
 	SourceIp            pulumi.StringPtrInput
-	Tags                NetworkInsightsPathTagArrayInput
+	Tags                aws.TagArrayInput
 }
 
 func (NetworkInsightsPathArgs) ElementType() reflect.Type {
@@ -202,8 +203,8 @@ func (o NetworkInsightsPathOutput) SourceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.SourceIp }).(pulumi.StringPtrOutput)
 }
 
-func (o NetworkInsightsPathOutput) Tags() NetworkInsightsPathTagArrayOutput {
-	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathTagArrayOutput { return v.Tags }).(NetworkInsightsPathTagArrayOutput)
+func (o NetworkInsightsPathOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type CalculatedAttributeDefinition struct {
 	// The timestamp of when the calculated attribute definition was most recently edited.
 	LastUpdatedAt pulumi.StringOutput                          `pulumi:"lastUpdatedAt"`
 	Statistic     CalculatedAttributeDefinitionStatisticOutput `pulumi:"statistic"`
-	Tags          CalculatedAttributeDefinitionTagArrayOutput  `pulumi:"tags"`
+	Tags          aws.TagArrayOutput                           `pulumi:"tags"`
 }
 
 // NewCalculatedAttributeDefinition registers a new resource with the given unique name, arguments, and options.
@@ -94,7 +95,7 @@ type calculatedAttributeDefinitionArgs struct {
 	DisplayName             *string                                       `pulumi:"displayName"`
 	DomainName              string                                        `pulumi:"domainName"`
 	Statistic               CalculatedAttributeDefinitionStatistic        `pulumi:"statistic"`
-	Tags                    []CalculatedAttributeDefinitionTag            `pulumi:"tags"`
+	Tags                    []aws.Tag                                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CalculatedAttributeDefinition resource.
@@ -106,7 +107,7 @@ type CalculatedAttributeDefinitionArgs struct {
 	DisplayName             pulumi.StringPtrInput
 	DomainName              pulumi.StringInput
 	Statistic               CalculatedAttributeDefinitionStatisticInput
-	Tags                    CalculatedAttributeDefinitionTagArrayInput
+	Tags                    aws.TagArrayInput
 }
 
 func (CalculatedAttributeDefinitionArgs) ElementType() reflect.Type {
@@ -190,8 +191,8 @@ func (o CalculatedAttributeDefinitionOutput) Statistic() CalculatedAttributeDefi
 	}).(CalculatedAttributeDefinitionStatisticOutput)
 }
 
-func (o CalculatedAttributeDefinitionOutput) Tags() CalculatedAttributeDefinitionTagArrayOutput {
-	return o.ApplyT(func(v *CalculatedAttributeDefinition) CalculatedAttributeDefinitionTagArrayOutput { return v.Tags }).(CalculatedAttributeDefinitionTagArrayOutput)
+func (o CalculatedAttributeDefinitionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinition) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

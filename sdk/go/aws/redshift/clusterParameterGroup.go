@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type ClusterParameterGroup struct {
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 	Parameters ClusterParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ClusterParameterGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewClusterParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -89,7 +90,7 @@ type clusterParameterGroupArgs struct {
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ClusterParameterGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterParameterGroup resource.
@@ -103,7 +104,7 @@ type ClusterParameterGroupArgs struct {
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 	Parameters ClusterParameterGroupParameterArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ClusterParameterGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ClusterParameterGroupArgs) ElementType() reflect.Type {
@@ -164,8 +165,8 @@ func (o ClusterParameterGroupOutput) Parameters() ClusterParameterGroupParameter
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ClusterParameterGroupOutput) Tags() ClusterParameterGroupTagArrayOutput {
-	return o.ApplyT(func(v *ClusterParameterGroup) ClusterParameterGroupTagArrayOutput { return v.Tags }).(ClusterParameterGroupTagArrayOutput)
+func (o ClusterParameterGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ClusterParameterGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

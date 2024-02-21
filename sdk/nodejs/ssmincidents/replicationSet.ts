@@ -49,7 +49,7 @@ export class ReplicationSet extends pulumi.CustomResource {
     /**
      * The tags to apply to the replication set.
      */
-    public readonly tags!: pulumi.Output<outputs.ssmincidents.ReplicationSetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ReplicationSet resource with the given unique name, arguments, and options.
@@ -92,5 +92,5 @@ export interface ReplicationSetArgs {
     /**
      * The tags to apply to the replication set.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

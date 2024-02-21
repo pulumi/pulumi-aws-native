@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Iam
         /// <summary>
         /// A list of tags that are attached to the role.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RoleTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRoleResult(
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Iam
 
             string? roleId,
 
-            ImmutableArray<Outputs.RoleTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AssumeRolePolicyDocument = assumeRolePolicyDocument;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupCarrierGatewayResult struct {
 	// The state of the carrier gateway.
 	State *string `pulumi:"state"`
 	// The tags for the carrier gateway.
-	Tags []CarrierGatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCarrierGatewayOutput(ctx *pulumi.Context, args LookupCarrierGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupCarrierGatewayResultOutput {
@@ -90,8 +91,8 @@ func (o LookupCarrierGatewayResultOutput) State() pulumi.StringPtrOutput {
 }
 
 // The tags for the carrier gateway.
-func (o LookupCarrierGatewayResultOutput) Tags() CarrierGatewayTagArrayOutput {
-	return o.ApplyT(func(v LookupCarrierGatewayResult) []CarrierGatewayTag { return v.Tags }).(CarrierGatewayTagArrayOutput)
+func (o LookupCarrierGatewayResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCarrierGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

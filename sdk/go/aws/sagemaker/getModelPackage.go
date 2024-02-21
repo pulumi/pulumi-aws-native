@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupModelPackageResult struct {
 	ModelPackageVersion               *int                                                     `pulumi:"modelPackageVersion"`
 	SkipModelValidation               *ModelPackageSkipModelValidation                         `pulumi:"skipModelValidation"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ModelPackageTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupModelPackageOutput(ctx *pulumi.Context, args LookupModelPackageOutputArgs, opts ...pulumi.InvokeOption) LookupModelPackageResultOutput {
@@ -136,8 +137,8 @@ func (o LookupModelPackageResultOutput) SkipModelValidation() ModelPackageSkipMo
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupModelPackageResultOutput) Tags() ModelPackageTagArrayOutput {
-	return o.ApplyT(func(v LookupModelPackageResult) []ModelPackageTag { return v.Tags }).(ModelPackageTagArrayOutput)
+func (o LookupModelPackageResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupModelPackageResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CaCertificateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCaCertificateResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.IoT
 
             Pulumi.AwsNative.IoT.CaCertificateStatus? status,
 
-            ImmutableArray<Outputs.CaCertificateTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AutoRegistrationStatus = autoRegistrationStatus;

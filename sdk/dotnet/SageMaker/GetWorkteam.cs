@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly string? Id;
         public readonly ImmutableArray<Outputs.WorkteamMemberDefinition> MemberDefinitions;
         public readonly Outputs.WorkteamNotificationConfiguration? NotificationConfiguration;
-        public readonly ImmutableArray<Outputs.WorkteamTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetWorkteamResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             Outputs.WorkteamNotificationConfiguration? notificationConfiguration,
 
-            ImmutableArray<Outputs.WorkteamTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             Id = id;

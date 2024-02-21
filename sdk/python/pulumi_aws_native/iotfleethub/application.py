@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['ApplicationArgs', 'Application']
 
@@ -19,13 +19,13 @@ class ApplicationArgs:
                  role_arn: pulumi.Input[str],
                  application_description: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] role_arn: The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
         :param pulumi.Input[str] application_description: Application Description, should be between 1 and 2048 characters.
         :param pulumi.Input[str] application_name: Application Name, should be between 1 and 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: A list of key-value pairs that contain metadata for the application.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the application.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if application_description is not None:
@@ -73,14 +73,14 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,7 +92,7 @@ class Application(pulumi.CustomResource):
                  application_description: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTFleetHub::Application
@@ -102,7 +102,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] application_description: Application Description, should be between 1 and 2048 characters.
         :param pulumi.Input[str] application_name: Application Name, should be between 1 and 256 characters.
         :param pulumi.Input[str] role_arn: The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]] tags: A list of key-value pairs that contain metadata for the application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the application.
         """
         ...
     @overload
@@ -131,7 +131,7 @@ class Application(pulumi.CustomResource):
                  application_description: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,7 +281,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the application.
         """

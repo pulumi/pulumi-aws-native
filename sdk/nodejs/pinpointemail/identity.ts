@@ -50,7 +50,7 @@ export class Identity extends pulumi.CustomResource {
     public /*out*/ readonly identityDnsRecordValue3!: pulumi.Output<string>;
     public readonly mailFromAttributes!: pulumi.Output<outputs.pinpointemail.IdentityMailFromAttributes | undefined>;
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.pinpointemail.IdentityTags[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Identity resource with the given unique name, arguments, and options.
@@ -104,5 +104,5 @@ export interface IdentityArgs {
     feedbackForwardingEnabled?: pulumi.Input<boolean>;
     mailFromAttributes?: pulumi.Input<inputs.pinpointemail.IdentityMailFromAttributesArgs>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.pinpointemail.IdentityTagsArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

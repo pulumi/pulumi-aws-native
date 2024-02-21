@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,7 @@ class EnvironmentArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  software_set_update_mode: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateMode']] = None,
                  software_set_update_schedule: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateSchedule']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] desktop_arn: The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Web, or AppStream 2.0.
@@ -36,7 +38,7 @@ class EnvironmentArgs:
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input['EnvironmentSoftwareSetUpdateMode'] software_set_update_mode: An option to define which software updates to apply.
         :param pulumi.Input['EnvironmentSoftwareSetUpdateSchedule'] software_set_update_schedule: An option to define if software updates should be applied within a maintenance window.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "desktop_arn", desktop_arn)
         if desired_software_set_id is not None:
@@ -154,14 +156,14 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -178,7 +180,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  software_set_update_mode: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateMode']] = None,
                  software_set_update_schedule: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateSchedule']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::WorkSpacesThinClient::Environment.
@@ -193,7 +195,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input['EnvironmentSoftwareSetUpdateMode'] software_set_update_mode: An option to define which software updates to apply.
         :param pulumi.Input['EnvironmentSoftwareSetUpdateSchedule'] software_set_update_schedule: An option to define if software updates should be applied within a maintenance window.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -227,7 +229,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  software_set_update_mode: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateMode']] = None,
                  software_set_update_schedule: Optional[pulumi.Input['EnvironmentSoftwareSetUpdateSchedule']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -431,7 +433,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

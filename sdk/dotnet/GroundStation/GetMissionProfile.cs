@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.GroundStation
         /// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
         /// </summary>
         public readonly string? StreamsKmsRole;
-        public readonly ImmutableArray<Outputs.MissionProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TrackingConfigArn;
 
         [OutputConstructor]
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.GroundStation
 
             string? streamsKmsRole,
 
-            ImmutableArray<Outputs.MissionProfileTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? trackingConfigArn)
         {

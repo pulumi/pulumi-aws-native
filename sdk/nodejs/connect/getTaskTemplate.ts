@@ -60,7 +60,7 @@ export interface GetTaskTemplateResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.TaskTemplateTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Connect::TaskTemplate.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type LocationNfs struct {
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationNfsTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationNfs registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +85,7 @@ type locationNfsArgs struct {
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationNfsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationNfs resource.
@@ -96,7 +97,7 @@ type LocationNfsArgs struct {
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationNfsTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocationNfsArgs) ElementType() reflect.Type {
@@ -165,8 +166,8 @@ func (o LocationNfsOutput) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationNfsOutput) Tags() LocationNfsTagArrayOutput {
-	return o.ApplyT(func(v *LocationNfs) LocationNfsTagArrayOutput { return v.Tags }).(LocationNfsTagArrayOutput)
+func (o LocationNfsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationNfs) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

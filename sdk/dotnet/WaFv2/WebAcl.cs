@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.WaFv2
         public Output<Pulumi.AwsNative.WaFv2.WebAclScope> Scope { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.WebAclTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("tokenDomains")]
         public Output<ImmutableArray<string>> TokenDomains { get; private set; } = null!;
@@ -150,10 +150,10 @@ namespace Pulumi.AwsNative.WaFv2
         public Input<Pulumi.AwsNative.WaFv2.WebAclScope> Scope { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.WebAclTagArgs>? _tags;
-        public InputList<Inputs.WebAclTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.WebAclTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

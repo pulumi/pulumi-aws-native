@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         public Output<bool?> RootVolumeEncryptionEnabled { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.WorkspaceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -99,10 +99,10 @@ namespace Pulumi.AwsNative.WorkSpaces
         public Input<bool>? RootVolumeEncryptionEnabled { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.WorkspaceTagArgs>? _tags;
-        public InputList<Inputs.WorkspaceTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.WorkspaceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -49,7 +49,7 @@ export interface GetProjectResult {
     /**
      * A list of key-value pairs that contain metadata for the project.
      */
-    readonly tags?: outputs.iotsitewise.ProjectTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::IoTSiteWise::Project

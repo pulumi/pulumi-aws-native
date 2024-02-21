@@ -50,7 +50,7 @@ export interface GetDatabaseResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.lightsail.DatabaseTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Lightsail::Database

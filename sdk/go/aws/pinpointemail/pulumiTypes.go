@@ -1288,101 +1288,6 @@ type ConfigurationSetTags struct {
 	Value *string `pulumi:"value"`
 }
 
-// ConfigurationSetTagsInput is an input type that accepts ConfigurationSetTagsArgs and ConfigurationSetTagsOutput values.
-// You can construct a concrete instance of `ConfigurationSetTagsInput` via:
-//
-//	ConfigurationSetTagsArgs{...}
-type ConfigurationSetTagsInput interface {
-	pulumi.Input
-
-	ToConfigurationSetTagsOutput() ConfigurationSetTagsOutput
-	ToConfigurationSetTagsOutputWithContext(context.Context) ConfigurationSetTagsOutput
-}
-
-type ConfigurationSetTagsArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ConfigurationSetTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationSetTags)(nil)).Elem()
-}
-
-func (i ConfigurationSetTagsArgs) ToConfigurationSetTagsOutput() ConfigurationSetTagsOutput {
-	return i.ToConfigurationSetTagsOutputWithContext(context.Background())
-}
-
-func (i ConfigurationSetTagsArgs) ToConfigurationSetTagsOutputWithContext(ctx context.Context) ConfigurationSetTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTagsOutput)
-}
-
-// ConfigurationSetTagsArrayInput is an input type that accepts ConfigurationSetTagsArray and ConfigurationSetTagsArrayOutput values.
-// You can construct a concrete instance of `ConfigurationSetTagsArrayInput` via:
-//
-//	ConfigurationSetTagsArray{ ConfigurationSetTagsArgs{...} }
-type ConfigurationSetTagsArrayInput interface {
-	pulumi.Input
-
-	ToConfigurationSetTagsArrayOutput() ConfigurationSetTagsArrayOutput
-	ToConfigurationSetTagsArrayOutputWithContext(context.Context) ConfigurationSetTagsArrayOutput
-}
-
-type ConfigurationSetTagsArray []ConfigurationSetTagsInput
-
-func (ConfigurationSetTagsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationSetTags)(nil)).Elem()
-}
-
-func (i ConfigurationSetTagsArray) ToConfigurationSetTagsArrayOutput() ConfigurationSetTagsArrayOutput {
-	return i.ToConfigurationSetTagsArrayOutputWithContext(context.Background())
-}
-
-func (i ConfigurationSetTagsArray) ToConfigurationSetTagsArrayOutputWithContext(ctx context.Context) ConfigurationSetTagsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTagsArrayOutput)
-}
-
-type ConfigurationSetTagsOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationSetTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationSetTags)(nil)).Elem()
-}
-
-func (o ConfigurationSetTagsOutput) ToConfigurationSetTagsOutput() ConfigurationSetTagsOutput {
-	return o
-}
-
-func (o ConfigurationSetTagsOutput) ToConfigurationSetTagsOutputWithContext(ctx context.Context) ConfigurationSetTagsOutput {
-	return o
-}
-
-func (o ConfigurationSetTagsOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetTags) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ConfigurationSetTagsOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetTags) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ConfigurationSetTagsArrayOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationSetTagsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationSetTags)(nil)).Elem()
-}
-
-func (o ConfigurationSetTagsArrayOutput) ToConfigurationSetTagsArrayOutput() ConfigurationSetTagsArrayOutput {
-	return o
-}
-
-func (o ConfigurationSetTagsArrayOutput) ToConfigurationSetTagsArrayOutputWithContext(ctx context.Context) ConfigurationSetTagsArrayOutput {
-	return o
-}
-
-func (o ConfigurationSetTagsArrayOutput) Index(i pulumi.IntInput) ConfigurationSetTagsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationSetTags {
-		return vs[0].([]ConfigurationSetTags)[vs[1].(int)]
-	}).(ConfigurationSetTagsOutput)
-}
-
 type ConfigurationSetTrackingOptions struct {
 	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
 }
@@ -1519,101 +1424,6 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 type DedicatedIpPoolTags struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
-}
-
-// DedicatedIpPoolTagsInput is an input type that accepts DedicatedIpPoolTagsArgs and DedicatedIpPoolTagsOutput values.
-// You can construct a concrete instance of `DedicatedIpPoolTagsInput` via:
-//
-//	DedicatedIpPoolTagsArgs{...}
-type DedicatedIpPoolTagsInput interface {
-	pulumi.Input
-
-	ToDedicatedIpPoolTagsOutput() DedicatedIpPoolTagsOutput
-	ToDedicatedIpPoolTagsOutputWithContext(context.Context) DedicatedIpPoolTagsOutput
-}
-
-type DedicatedIpPoolTagsArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (DedicatedIpPoolTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedIpPoolTags)(nil)).Elem()
-}
-
-func (i DedicatedIpPoolTagsArgs) ToDedicatedIpPoolTagsOutput() DedicatedIpPoolTagsOutput {
-	return i.ToDedicatedIpPoolTagsOutputWithContext(context.Background())
-}
-
-func (i DedicatedIpPoolTagsArgs) ToDedicatedIpPoolTagsOutputWithContext(ctx context.Context) DedicatedIpPoolTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpPoolTagsOutput)
-}
-
-// DedicatedIpPoolTagsArrayInput is an input type that accepts DedicatedIpPoolTagsArray and DedicatedIpPoolTagsArrayOutput values.
-// You can construct a concrete instance of `DedicatedIpPoolTagsArrayInput` via:
-//
-//	DedicatedIpPoolTagsArray{ DedicatedIpPoolTagsArgs{...} }
-type DedicatedIpPoolTagsArrayInput interface {
-	pulumi.Input
-
-	ToDedicatedIpPoolTagsArrayOutput() DedicatedIpPoolTagsArrayOutput
-	ToDedicatedIpPoolTagsArrayOutputWithContext(context.Context) DedicatedIpPoolTagsArrayOutput
-}
-
-type DedicatedIpPoolTagsArray []DedicatedIpPoolTagsInput
-
-func (DedicatedIpPoolTagsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DedicatedIpPoolTags)(nil)).Elem()
-}
-
-func (i DedicatedIpPoolTagsArray) ToDedicatedIpPoolTagsArrayOutput() DedicatedIpPoolTagsArrayOutput {
-	return i.ToDedicatedIpPoolTagsArrayOutputWithContext(context.Background())
-}
-
-func (i DedicatedIpPoolTagsArray) ToDedicatedIpPoolTagsArrayOutputWithContext(ctx context.Context) DedicatedIpPoolTagsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpPoolTagsArrayOutput)
-}
-
-type DedicatedIpPoolTagsOutput struct{ *pulumi.OutputState }
-
-func (DedicatedIpPoolTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedIpPoolTags)(nil)).Elem()
-}
-
-func (o DedicatedIpPoolTagsOutput) ToDedicatedIpPoolTagsOutput() DedicatedIpPoolTagsOutput {
-	return o
-}
-
-func (o DedicatedIpPoolTagsOutput) ToDedicatedIpPoolTagsOutputWithContext(ctx context.Context) DedicatedIpPoolTagsOutput {
-	return o
-}
-
-func (o DedicatedIpPoolTagsOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DedicatedIpPoolTags) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o DedicatedIpPoolTagsOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DedicatedIpPoolTags) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type DedicatedIpPoolTagsArrayOutput struct{ *pulumi.OutputState }
-
-func (DedicatedIpPoolTagsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DedicatedIpPoolTags)(nil)).Elem()
-}
-
-func (o DedicatedIpPoolTagsArrayOutput) ToDedicatedIpPoolTagsArrayOutput() DedicatedIpPoolTagsArrayOutput {
-	return o
-}
-
-func (o DedicatedIpPoolTagsArrayOutput) ToDedicatedIpPoolTagsArrayOutputWithContext(ctx context.Context) DedicatedIpPoolTagsArrayOutput {
-	return o
-}
-
-func (o DedicatedIpPoolTagsArrayOutput) Index(i pulumi.IntInput) DedicatedIpPoolTagsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DedicatedIpPoolTags {
-		return vs[0].([]DedicatedIpPoolTags)[vs[1].(int)]
-	}).(DedicatedIpPoolTagsOutput)
 }
 
 type IdentityMailFromAttributes struct {
@@ -1769,101 +1579,6 @@ type IdentityTags struct {
 	Value *string `pulumi:"value"`
 }
 
-// IdentityTagsInput is an input type that accepts IdentityTagsArgs and IdentityTagsOutput values.
-// You can construct a concrete instance of `IdentityTagsInput` via:
-//
-//	IdentityTagsArgs{...}
-type IdentityTagsInput interface {
-	pulumi.Input
-
-	ToIdentityTagsOutput() IdentityTagsOutput
-	ToIdentityTagsOutputWithContext(context.Context) IdentityTagsOutput
-}
-
-type IdentityTagsArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (IdentityTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityTags)(nil)).Elem()
-}
-
-func (i IdentityTagsArgs) ToIdentityTagsOutput() IdentityTagsOutput {
-	return i.ToIdentityTagsOutputWithContext(context.Background())
-}
-
-func (i IdentityTagsArgs) ToIdentityTagsOutputWithContext(ctx context.Context) IdentityTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityTagsOutput)
-}
-
-// IdentityTagsArrayInput is an input type that accepts IdentityTagsArray and IdentityTagsArrayOutput values.
-// You can construct a concrete instance of `IdentityTagsArrayInput` via:
-//
-//	IdentityTagsArray{ IdentityTagsArgs{...} }
-type IdentityTagsArrayInput interface {
-	pulumi.Input
-
-	ToIdentityTagsArrayOutput() IdentityTagsArrayOutput
-	ToIdentityTagsArrayOutputWithContext(context.Context) IdentityTagsArrayOutput
-}
-
-type IdentityTagsArray []IdentityTagsInput
-
-func (IdentityTagsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityTags)(nil)).Elem()
-}
-
-func (i IdentityTagsArray) ToIdentityTagsArrayOutput() IdentityTagsArrayOutput {
-	return i.ToIdentityTagsArrayOutputWithContext(context.Background())
-}
-
-func (i IdentityTagsArray) ToIdentityTagsArrayOutputWithContext(ctx context.Context) IdentityTagsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityTagsArrayOutput)
-}
-
-type IdentityTagsOutput struct{ *pulumi.OutputState }
-
-func (IdentityTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityTags)(nil)).Elem()
-}
-
-func (o IdentityTagsOutput) ToIdentityTagsOutput() IdentityTagsOutput {
-	return o
-}
-
-func (o IdentityTagsOutput) ToIdentityTagsOutputWithContext(ctx context.Context) IdentityTagsOutput {
-	return o
-}
-
-func (o IdentityTagsOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentityTags) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o IdentityTagsOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentityTags) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type IdentityTagsArrayOutput struct{ *pulumi.OutputState }
-
-func (IdentityTagsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityTags)(nil)).Elem()
-}
-
-func (o IdentityTagsArrayOutput) ToIdentityTagsArrayOutput() IdentityTagsArrayOutput {
-	return o
-}
-
-func (o IdentityTagsArrayOutput) ToIdentityTagsArrayOutputWithContext(ctx context.Context) IdentityTagsArrayOutput {
-	return o
-}
-
-func (o IdentityTagsArrayOutput) Index(i pulumi.IntInput) IdentityTagsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityTags {
-		return vs[0].([]IdentityTags)[vs[1].(int)]
-	}).(IdentityTagsOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
@@ -1883,16 +1598,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetReputationOptionsPtrInput)(nil)).Elem(), ConfigurationSetReputationOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSendingOptionsInput)(nil)).Elem(), ConfigurationSetSendingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSendingOptionsPtrInput)(nil)).Elem(), ConfigurationSetSendingOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTagsInput)(nil)).Elem(), ConfigurationSetTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTagsArrayInput)(nil)).Elem(), ConfigurationSetTagsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedIpPoolTagsInput)(nil)).Elem(), DedicatedIpPoolTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedIpPoolTagsArrayInput)(nil)).Elem(), DedicatedIpPoolTagsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityMailFromAttributesInput)(nil)).Elem(), IdentityMailFromAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityMailFromAttributesPtrInput)(nil)).Elem(), IdentityMailFromAttributesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTagsInput)(nil)).Elem(), IdentityTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityTagsArrayInput)(nil)).Elem(), IdentityTagsArray{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationCloudWatchDestinationOutput{})
@@ -1911,14 +1620,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetReputationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetSendingOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetSendingOptionsPtrOutput{})
-	pulumi.RegisterOutputType(ConfigurationSetTagsOutput{})
-	pulumi.RegisterOutputType(ConfigurationSetTagsArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DedicatedIpPoolTagsOutput{})
-	pulumi.RegisterOutputType(DedicatedIpPoolTagsArrayOutput{})
 	pulumi.RegisterOutputType(IdentityMailFromAttributesOutput{})
 	pulumi.RegisterOutputType(IdentityMailFromAttributesPtrOutput{})
-	pulumi.RegisterOutputType(IdentityTagsOutput{})
-	pulumi.RegisterOutputType(IdentityTagsArrayOutput{})
 }

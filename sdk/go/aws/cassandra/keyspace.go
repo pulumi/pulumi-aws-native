@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,7 +19,7 @@ type Keyspace struct {
 	// Name for Cassandra keyspace
 	KeyspaceName             pulumi.StringPtrOutput                    `pulumi:"keyspaceName"`
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrOutput `pulumi:"replicationSpecification"`
-	Tags                     KeyspaceTagArrayOutput                    `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                        `pulumi:"tags"`
 }
 
 // NewKeyspace registers a new resource with the given unique name, arguments, and options.
@@ -69,7 +70,7 @@ type keyspaceArgs struct {
 	// Name for Cassandra keyspace
 	KeyspaceName             *string                           `pulumi:"keyspaceName"`
 	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
-	Tags                     []KeyspaceTag                     `pulumi:"tags"`
+	Tags                     []aws.Tag                         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Keyspace resource.
@@ -77,7 +78,7 @@ type KeyspaceArgs struct {
 	// Name for Cassandra keyspace
 	KeyspaceName             pulumi.StringPtrInput
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrInput
-	Tags                     KeyspaceTagArrayInput
+	Tags                     aws.TagArrayInput
 }
 
 func (KeyspaceArgs) ElementType() reflect.Type {
@@ -126,8 +127,8 @@ func (o KeyspaceOutput) ReplicationSpecification() KeyspaceReplicationSpecificat
 	return o.ApplyT(func(v *Keyspace) KeyspaceReplicationSpecificationPtrOutput { return v.ReplicationSpecification }).(KeyspaceReplicationSpecificationPtrOutput)
 }
 
-func (o KeyspaceOutput) Tags() KeyspaceTagArrayOutput {
-	return o.ApplyT(func(v *Keyspace) KeyspaceTagArrayOutput { return v.Tags }).(KeyspaceTagArrayOutput)
+func (o KeyspaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Keyspace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

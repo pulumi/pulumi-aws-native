@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DbClusterArgs', 'DbCluster']
@@ -38,7 +40,7 @@ class DbClusterArgs:
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -89,7 +91,7 @@ class DbClusterArgs:
                If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
                
                If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
-        :param pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]] tags: The tags assigned to this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags assigned to this cluster.
         :param pulumi.Input[bool] use_latest_restorable_time: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
                
                If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
@@ -438,14 +440,14 @@ class DbClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags assigned to this cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -504,7 +506,7 @@ class DbCluster(pulumi.CustomResource):
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -559,7 +561,7 @@ class DbCluster(pulumi.CustomResource):
                If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
                
                If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterTagArgs']]]] tags: The tags assigned to this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags assigned to this cluster.
         :param pulumi.Input[bool] use_latest_restorable_time: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
                
                If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
@@ -613,7 +615,7 @@ class DbCluster(pulumi.CustomResource):
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -943,7 +945,7 @@ class DbCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbClusterTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags assigned to this cluster.
         """

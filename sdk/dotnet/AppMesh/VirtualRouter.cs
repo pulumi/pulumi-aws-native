@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Output<Outputs.VirtualRouterSpec> Spec { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VirtualRouterTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("uid")]
         public Output<string> Uid { get; private set; } = null!;
@@ -101,10 +101,10 @@ namespace Pulumi.AwsNative.AppMesh
         public Input<Inputs.VirtualRouterSpecArgs> Spec { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.VirtualRouterTagArgs>? _tags;
-        public InputList<Inputs.VirtualRouterTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VirtualRouterTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

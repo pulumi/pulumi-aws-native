@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type DecoderManifest struct {
 	NetworkInterfaces    pulumi.ArrayOutput                     `pulumi:"networkInterfaces"`
 	SignalDecoders       pulumi.ArrayOutput                     `pulumi:"signalDecoders"`
 	Status               DecoderManifestManifestStatusPtrOutput `pulumi:"status"`
-	Tags                 DecoderManifestTagArrayOutput          `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput                     `pulumi:"tags"`
 }
 
 // NewDecoderManifest registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +85,7 @@ type decoderManifestArgs struct {
 	NetworkInterfaces []interface{}                  `pulumi:"networkInterfaces"`
 	SignalDecoders    []interface{}                  `pulumi:"signalDecoders"`
 	Status            *DecoderManifestManifestStatus `pulumi:"status"`
-	Tags              []DecoderManifestTag           `pulumi:"tags"`
+	Tags              []aws.Tag                      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DecoderManifest resource.
@@ -95,7 +96,7 @@ type DecoderManifestArgs struct {
 	NetworkInterfaces pulumi.ArrayInput
 	SignalDecoders    pulumi.ArrayInput
 	Status            DecoderManifestManifestStatusPtrInput
-	Tags              DecoderManifestTagArrayInput
+	Tags              aws.TagArrayInput
 }
 
 func (DecoderManifestArgs) ElementType() reflect.Type {
@@ -171,8 +172,8 @@ func (o DecoderManifestOutput) Status() DecoderManifestManifestStatusPtrOutput {
 	return o.ApplyT(func(v *DecoderManifest) DecoderManifestManifestStatusPtrOutput { return v.Status }).(DecoderManifestManifestStatusPtrOutput)
 }
 
-func (o DecoderManifestOutput) Tags() DecoderManifestTagArrayOutput {
-	return o.ApplyT(func(v *DecoderManifest) DecoderManifestTagArrayOutput { return v.Tags }).(DecoderManifestTagArrayOutput)
+func (o DecoderManifestOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DecoderManifest) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

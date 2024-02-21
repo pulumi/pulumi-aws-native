@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.FSx
         public readonly Outputs.VolumeOntapConfiguration? OntapConfiguration;
         public readonly Outputs.VolumeOpenZfsConfiguration? OpenZfsConfiguration;
         public readonly string? ResourceArn;
-        public readonly ImmutableArray<Outputs.VolumeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? Uuid;
         public readonly string? VolumeId;
 
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.FSx
 
             string? resourceArn,
 
-            ImmutableArray<Outputs.VolumeTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? uuid,
 

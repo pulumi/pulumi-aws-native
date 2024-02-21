@@ -58,7 +58,7 @@ export interface GetStorageSystemResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.datasync.StorageSystemTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataSync::StorageSystem.

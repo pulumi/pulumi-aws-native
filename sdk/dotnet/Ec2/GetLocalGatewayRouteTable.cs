@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags for the local gateway route table.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocalGatewayRouteTableTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLocalGatewayRouteTableResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? state,
 
-            ImmutableArray<Outputs.LocalGatewayRouteTableTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             LocalGatewayRouteTableArn = localGatewayRouteTableArn;
             LocalGatewayRouteTableId = localGatewayRouteTableId;

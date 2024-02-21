@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LookupAnalysisResult struct {
 	Name            *string                      `pulumi:"name"`
 	Permissions     []AnalysisResourcePermission `pulumi:"permissions"`
 	Sheets          []AnalysisSheet              `pulumi:"sheets"`
-	Tags            []AnalysisTag                `pulumi:"tags"`
+	Tags            []aws.Tag                    `pulumi:"tags"`
 	ThemeArn        *string                      `pulumi:"themeArn"`
 }
 
@@ -108,8 +109,8 @@ func (o LookupAnalysisResultOutput) Sheets() AnalysisSheetArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisSheet { return v.Sheets }).(AnalysisSheetArrayOutput)
 }
 
-func (o LookupAnalysisResultOutput) Tags() AnalysisTagArrayOutput {
-	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisTag { return v.Tags }).(AnalysisTagArrayOutput)
+func (o LookupAnalysisResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAnalysisResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupAnalysisResultOutput) ThemeArn() pulumi.StringPtrOutput {

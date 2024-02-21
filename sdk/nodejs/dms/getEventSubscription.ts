@@ -28,7 +28,7 @@ export interface GetEventSubscriptionResult {
     readonly id?: string;
     readonly snsTopicArn?: string;
     readonly sourceType?: string;
-    readonly tags?: outputs.dms.EventSubscriptionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::DMS::EventSubscription

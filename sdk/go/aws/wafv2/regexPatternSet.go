@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,8 +25,8 @@ type RegexPatternSet struct {
 	Name                  pulumi.StringPtrOutput   `pulumi:"name"`
 	RegularExpressionList pulumi.StringArrayOutput `pulumi:"regularExpressionList"`
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
-	Scope RegexPatternSetScopeOutput    `pulumi:"scope"`
-	Tags  RegexPatternSetTagArrayOutput `pulumi:"tags"`
+	Scope RegexPatternSetScopeOutput `pulumi:"scope"`
+	Tags  aws.TagArrayOutput         `pulumi:"tags"`
 }
 
 // NewRegexPatternSet registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +87,7 @@ type regexPatternSetArgs struct {
 	RegularExpressionList []string `pulumi:"regularExpressionList"`
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
 	Scope RegexPatternSetScope `pulumi:"scope"`
-	Tags  []RegexPatternSetTag `pulumi:"tags"`
+	Tags  []aws.Tag            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RegexPatternSet resource.
@@ -98,7 +99,7 @@ type RegexPatternSetArgs struct {
 	RegularExpressionList pulumi.StringArrayInput
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
 	Scope RegexPatternSetScopeInput
-	Tags  RegexPatternSetTagArrayInput
+	Tags  aws.TagArrayInput
 }
 
 func (RegexPatternSetArgs) ElementType() reflect.Type {
@@ -162,8 +163,8 @@ func (o RegexPatternSetOutput) Scope() RegexPatternSetScopeOutput {
 	return o.ApplyT(func(v *RegexPatternSet) RegexPatternSetScopeOutput { return v.Scope }).(RegexPatternSetScopeOutput)
 }
 
-func (o RegexPatternSetOutput) Tags() RegexPatternSetTagArrayOutput {
-	return o.ApplyT(func(v *RegexPatternSet) RegexPatternSetTagArrayOutput { return v.Tags }).(RegexPatternSetTagArrayOutput)
+func (o RegexPatternSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RegexPatternSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

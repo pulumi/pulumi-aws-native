@@ -61,7 +61,7 @@ export interface GetMulticastGroupResult {
     /**
      * A list of key-value pairs that contain metadata for the Multicast group.
      */
-    readonly tags?: outputs.iotwireless.MulticastGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Create and manage Multicast groups.

@@ -29,7 +29,7 @@ export interface GetAccessPointResult {
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    readonly accessPointTags?: outputs.efs.AccessPointTag[];
+    readonly accessPointTags?: outputs.Tag[];
     readonly arn?: string;
 }
 /**

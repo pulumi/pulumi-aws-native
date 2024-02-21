@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type RecoveryGroup struct {
 	// The name of the recovery group to create.
 	RecoveryGroupName pulumi.StringPtrOutput `pulumi:"recoveryGroupName"`
 	// A collection of tags associated with a resource.
-	Tags RecoveryGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRecoveryGroup registers a new resource with the given unique name, arguments, and options.
@@ -74,7 +75,7 @@ type recoveryGroupArgs struct {
 	// The name of the recovery group to create.
 	RecoveryGroupName *string `pulumi:"recoveryGroupName"`
 	// A collection of tags associated with a resource.
-	Tags []RecoveryGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RecoveryGroup resource.
@@ -84,7 +85,7 @@ type RecoveryGroupArgs struct {
 	// The name of the recovery group to create.
 	RecoveryGroupName pulumi.StringPtrInput
 	// A collection of tags associated with a resource.
-	Tags RecoveryGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RecoveryGroupArgs) ElementType() reflect.Type {
@@ -140,8 +141,8 @@ func (o RecoveryGroupOutput) RecoveryGroupName() pulumi.StringPtrOutput {
 }
 
 // A collection of tags associated with a resource.
-func (o RecoveryGroupOutput) Tags() RecoveryGroupTagArrayOutput {
-	return o.ApplyT(func(v *RecoveryGroup) RecoveryGroupTagArrayOutput { return v.Tags }).(RecoveryGroupTagArrayOutput)
+func (o RecoveryGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RecoveryGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

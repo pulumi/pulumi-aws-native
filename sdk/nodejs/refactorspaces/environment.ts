@@ -45,7 +45,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.refactorspaces.EnvironmentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly transitGatewayId!: pulumi.Output<string>;
 
     /**
@@ -95,5 +95,5 @@ export interface EnvironmentArgs {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.refactorspaces.EnvironmentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

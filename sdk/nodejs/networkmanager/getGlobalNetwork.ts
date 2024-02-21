@@ -49,7 +49,7 @@ export interface GetGlobalNetworkResult {
     /**
      * The tags for the global network.
      */
-    readonly tags?: outputs.networkmanager.GlobalNetworkTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account

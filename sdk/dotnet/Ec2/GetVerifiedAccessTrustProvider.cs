@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VerifiedAccessTrustProviderTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ID of the Amazon Web Services Verified Access trust provider.
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Ec2
 
             Outputs.SseSpecificationProperties? sseSpecification,
 
-            ImmutableArray<Outputs.VerifiedAccessTrustProviderTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? verifiedAccessTrustProviderId)
         {

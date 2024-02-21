@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public readonly string? CrlId;
         public readonly bool? Enabled;
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.CrlTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TrustAnchorArn;
 
         [OutputConstructor]
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
             string? name,
 
-            ImmutableArray<Outputs.CrlTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? trustAnchorArn)
         {

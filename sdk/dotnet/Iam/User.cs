@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Iam
         /// A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.UserTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The friendly name identifying the user.
@@ -173,14 +173,14 @@ namespace Pulumi.AwsNative.Iam
         }
 
         [Input("tags")]
-        private InputList<Inputs.UserTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
         /// </summary>
-        public InputList<Inputs.UserTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.UserTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -32,7 +32,7 @@ export interface GetLandingZoneResult {
      */
     readonly manifest?: any;
     readonly status?: enums.controltower.LandingZoneStatus;
-    readonly tags?: outputs.controltower.LandingZoneTag[];
+    readonly tags?: outputs.Tag[];
     readonly version?: string;
 }
 /**

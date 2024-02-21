@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,11 +18,11 @@ import (
 type TrafficMirrorTarget struct {
 	pulumi.CustomResourceState
 
-	Description                   pulumi.StringPtrOutput            `pulumi:"description"`
-	GatewayLoadBalancerEndpointId pulumi.StringPtrOutput            `pulumi:"gatewayLoadBalancerEndpointId"`
-	NetworkInterfaceId            pulumi.StringPtrOutput            `pulumi:"networkInterfaceId"`
-	NetworkLoadBalancerArn        pulumi.StringPtrOutput            `pulumi:"networkLoadBalancerArn"`
-	Tags                          TrafficMirrorTargetTagArrayOutput `pulumi:"tags"`
+	Description                   pulumi.StringPtrOutput `pulumi:"description"`
+	GatewayLoadBalancerEndpointId pulumi.StringPtrOutput `pulumi:"gatewayLoadBalancerEndpointId"`
+	NetworkInterfaceId            pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
+	NetworkLoadBalancerArn        pulumi.StringPtrOutput `pulumi:"networkLoadBalancerArn"`
+	Tags                          aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewTrafficMirrorTarget registers a new resource with the given unique name, arguments, and options.
@@ -71,11 +72,11 @@ func (TrafficMirrorTargetState) ElementType() reflect.Type {
 }
 
 type trafficMirrorTargetArgs struct {
-	Description                   *string                  `pulumi:"description"`
-	GatewayLoadBalancerEndpointId *string                  `pulumi:"gatewayLoadBalancerEndpointId"`
-	NetworkInterfaceId            *string                  `pulumi:"networkInterfaceId"`
-	NetworkLoadBalancerArn        *string                  `pulumi:"networkLoadBalancerArn"`
-	Tags                          []TrafficMirrorTargetTag `pulumi:"tags"`
+	Description                   *string   `pulumi:"description"`
+	GatewayLoadBalancerEndpointId *string   `pulumi:"gatewayLoadBalancerEndpointId"`
+	NetworkInterfaceId            *string   `pulumi:"networkInterfaceId"`
+	NetworkLoadBalancerArn        *string   `pulumi:"networkLoadBalancerArn"`
+	Tags                          []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrafficMirrorTarget resource.
@@ -84,7 +85,7 @@ type TrafficMirrorTargetArgs struct {
 	GatewayLoadBalancerEndpointId pulumi.StringPtrInput
 	NetworkInterfaceId            pulumi.StringPtrInput
 	NetworkLoadBalancerArn        pulumi.StringPtrInput
-	Tags                          TrafficMirrorTargetTagArrayInput
+	Tags                          aws.TagArrayInput
 }
 
 func (TrafficMirrorTargetArgs) ElementType() reflect.Type {
@@ -140,8 +141,8 @@ func (o TrafficMirrorTargetOutput) NetworkLoadBalancerArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *TrafficMirrorTarget) pulumi.StringPtrOutput { return v.NetworkLoadBalancerArn }).(pulumi.StringPtrOutput)
 }
 
-func (o TrafficMirrorTargetOutput) Tags() TrafficMirrorTargetTagArrayOutput {
-	return o.ApplyT(func(v *TrafficMirrorTarget) TrafficMirrorTargetTagArrayOutput { return v.Tags }).(TrafficMirrorTargetTagArrayOutput)
+func (o TrafficMirrorTargetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TrafficMirrorTarget) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

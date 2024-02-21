@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupStreamResult struct {
 	Arn *string `pulumi:"arn"`
 	Id  *string `pulumi:"id"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []StreamTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts ...pulumi.InvokeOption) LookupStreamResultOutput {
@@ -79,8 +80,8 @@ func (o LookupStreamResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupStreamResultOutput) Tags() StreamTagArrayOutput {
-	return o.ApplyT(func(v LookupStreamResult) []StreamTag { return v.Tags }).(StreamTagArrayOutput)
+func (o LookupStreamResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStreamResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

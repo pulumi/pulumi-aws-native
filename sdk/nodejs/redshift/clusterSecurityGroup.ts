@@ -41,7 +41,7 @@ export class ClusterSecurityGroup extends pulumi.CustomResource {
     }
 
     public readonly description!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.redshift.ClusterSecurityGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ClusterSecurityGroup resource with the given unique name, arguments, and options.
@@ -77,5 +77,5 @@ export class ClusterSecurityGroup extends pulumi.CustomResource {
  */
 export interface ClusterSecurityGroupArgs {
     description: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterSecurityGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// The tags associated with a profiling group.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ProfilingGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -132,14 +132,14 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         public Input<string>? ProfilingGroupName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ProfilingGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags associated with a profiling group.
         /// </summary>
-        public InputList<Inputs.ProfilingGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ProfilingGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

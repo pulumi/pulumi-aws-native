@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['EnvironmentTemplateArgs', 'EnvironmentTemplate']
 
@@ -22,13 +22,13 @@ class EnvironmentTemplateArgs:
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning: Optional[pulumi.Input['EnvironmentTemplateProvisioning']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTemplateTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentTemplate resource.
         :param pulumi.Input[str] description: <p>A description of the environment template.</p>
         :param pulumi.Input[str] display_name: <p>The environment template name as displayed in the developer interface.</p>
         :param pulumi.Input[str] encryption_key: <p>A customer provided encryption key that Proton uses to encrypt data.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentTemplateTagArgs']]] tags: <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
         """
@@ -101,7 +101,7 @@ class EnvironmentTemplateArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTemplateTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
                  <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
@@ -110,7 +110,7 @@ class EnvironmentTemplateArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTemplateTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -124,7 +124,7 @@ class EnvironmentTemplate(pulumi.CustomResource):
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning: Optional[pulumi.Input['EnvironmentTemplateProvisioning']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTemplateTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Proton::EnvironmentTemplate Resource Type
@@ -134,7 +134,7 @@ class EnvironmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] description: <p>A description of the environment template.</p>
         :param pulumi.Input[str] display_name: <p>The environment template name as displayed in the developer interface.</p>
         :param pulumi.Input[str] encryption_key: <p>A customer provided encryption key that Proton uses to encrypt data.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTemplateTagArgs']]]] tags: <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
         """
@@ -167,7 +167,7 @@ class EnvironmentTemplate(pulumi.CustomResource):
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning: Optional[pulumi.Input['EnvironmentTemplateProvisioning']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTemplateTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -261,7 +261,7 @@ class EnvironmentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentTemplateTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
                  <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the

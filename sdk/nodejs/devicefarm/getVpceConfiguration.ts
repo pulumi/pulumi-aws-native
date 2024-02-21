@@ -25,7 +25,7 @@ export interface GetVpceConfigurationArgs {
 export interface GetVpceConfigurationResult {
     readonly arn?: string;
     readonly serviceDnsName?: string;
-    readonly tags?: outputs.devicefarm.VpceConfigurationTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpceConfigurationDescription?: string;
     readonly vpceConfigurationName?: string;
     readonly vpceServiceName?: string;

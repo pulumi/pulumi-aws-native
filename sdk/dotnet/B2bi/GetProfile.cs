@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.B2bi
         public readonly string? Phone;
         public readonly string? ProfileArn;
         public readonly string? ProfileId;
-        public readonly ImmutableArray<Outputs.ProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetProfileResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.B2bi
 
             string? profileId,
 
-            ImmutableArray<Outputs.ProfileTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             BusinessName = businessName;
             CreatedAt = createdAt;

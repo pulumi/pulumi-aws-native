@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupCertificateResult struct {
 	// The validation status of the certificate.
 	Status *string `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []CertificateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
@@ -81,8 +82,8 @@ func (o LookupCertificateResultOutput) Status() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupCertificateResultOutput) Tags() CertificateTagArrayOutput {
-	return o.ApplyT(func(v LookupCertificateResult) []CertificateTag { return v.Tags }).(CertificateTagArrayOutput)
+func (o LookupCertificateResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCertificateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

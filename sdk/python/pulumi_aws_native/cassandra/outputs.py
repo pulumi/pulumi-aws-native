@@ -13,7 +13,6 @@ from ._enums import *
 
 __all__ = [
     'KeyspaceReplicationSpecification',
-    'KeyspaceTag',
     'TableAutoScalingSetting',
     'TableAutoScalingSpecification',
     'TableBillingMode',
@@ -23,7 +22,6 @@ __all__ = [
     'TableProvisionedThroughput',
     'TableReplicaSpecification',
     'TableScalingPolicy',
-    'TableTag',
     'TableTargetTrackingScalingPolicyConfiguration',
 ]
 
@@ -65,25 +63,6 @@ class KeyspaceReplicationSpecification(dict):
     @pulumi.getter(name="replicationStrategy")
     def replication_strategy(self) -> Optional['KeyspaceReplicationSpecificationReplicationStrategy']:
         return pulumi.get(self, "replication_strategy")
-
-
-@pulumi.output_type
-class KeyspaceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -486,31 +465,6 @@ class TableScalingPolicy(dict):
     @pulumi.getter(name="targetTrackingScalingPolicyConfiguration")
     def target_tracking_scaling_policy_configuration(self) -> Optional['outputs.TableTargetTrackingScalingPolicyConfiguration']:
         return pulumi.get(self, "target_tracking_scaling_policy_configuration")
-
-
-@pulumi.output_type
-class TableTag(dict):
-    """
-    A key-value pair to apply to the resource
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to apply to the resource
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

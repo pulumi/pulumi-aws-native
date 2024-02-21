@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type Datastore struct {
 	DatastoreStorage        DatastoreStoragePtrOutput                 `pulumi:"datastoreStorage"`
 	FileFormatConfiguration DatastoreFileFormatConfigurationPtrOutput `pulumi:"fileFormatConfiguration"`
 	RetentionPeriod         DatastoreRetentionPeriodPtrOutput         `pulumi:"retentionPeriod"`
-	Tags                    DatastoreTagArrayOutput                   `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                        `pulumi:"tags"`
 }
 
 // NewDatastore registers a new resource with the given unique name, arguments, and options.
@@ -72,7 +73,7 @@ type datastoreArgs struct {
 	DatastoreStorage        *DatastoreStorage                 `pulumi:"datastoreStorage"`
 	FileFormatConfiguration *DatastoreFileFormatConfiguration `pulumi:"fileFormatConfiguration"`
 	RetentionPeriod         *DatastoreRetentionPeriod         `pulumi:"retentionPeriod"`
-	Tags                    []DatastoreTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Datastore resource.
@@ -82,7 +83,7 @@ type DatastoreArgs struct {
 	DatastoreStorage        DatastoreStoragePtrInput
 	FileFormatConfiguration DatastoreFileFormatConfigurationPtrInput
 	RetentionPeriod         DatastoreRetentionPeriodPtrInput
-	Tags                    DatastoreTagArrayInput
+	Tags                    aws.TagArrayInput
 }
 
 func (DatastoreArgs) ElementType() reflect.Type {
@@ -142,8 +143,8 @@ func (o DatastoreOutput) RetentionPeriod() DatastoreRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v *Datastore) DatastoreRetentionPeriodPtrOutput { return v.RetentionPeriod }).(DatastoreRetentionPeriodPtrOutput)
 }
 
-func (o DatastoreOutput) Tags() DatastoreTagArrayOutput {
-	return o.ApplyT(func(v *Datastore) DatastoreTagArrayOutput { return v.Tags }).(DatastoreTagArrayOutput)
+func (o DatastoreOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Datastore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

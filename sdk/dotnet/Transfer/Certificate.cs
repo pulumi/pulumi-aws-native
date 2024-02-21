@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Transfer
         /// Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.CertificateTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Describing the type of certificate. With or without a private key.
@@ -193,14 +193,14 @@ namespace Pulumi.AwsNative.Transfer
         public Input<string>? PrivateKey { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.CertificateTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
         /// </summary>
-        public InputList<Inputs.CertificateTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.CertificateTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -65,7 +65,7 @@ export class LocationFSxOntap extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.datasync.LocationFSxOntapTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocationFSxOntap resource with the given unique name, arguments, and options.
@@ -129,5 +129,5 @@ export interface LocationFSxOntapArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.datasync.LocationFSxOntapTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

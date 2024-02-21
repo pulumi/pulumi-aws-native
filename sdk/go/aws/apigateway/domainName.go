@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type DomainName struct {
 	RegionalDomainName                  pulumi.StringOutput                        `pulumi:"regionalDomainName"`
 	RegionalHostedZoneId                pulumi.StringOutput                        `pulumi:"regionalHostedZoneId"`
 	SecurityPolicy                      pulumi.StringPtrOutput                     `pulumi:"securityPolicy"`
-	Tags                                DomainNameTagArrayOutput                   `pulumi:"tags"`
+	Tags                                aws.TagArrayOutput                         `pulumi:"tags"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -80,7 +81,7 @@ type domainNameArgs struct {
 	OwnershipVerificationCertificateArn *string                            `pulumi:"ownershipVerificationCertificateArn"`
 	RegionalCertificateArn              *string                            `pulumi:"regionalCertificateArn"`
 	SecurityPolicy                      *string                            `pulumi:"securityPolicy"`
-	Tags                                []DomainNameTag                    `pulumi:"tags"`
+	Tags                                []aws.Tag                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainName resource.
@@ -92,7 +93,7 @@ type DomainNameArgs struct {
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput
 	RegionalCertificateArn              pulumi.StringPtrInput
 	SecurityPolicy                      pulumi.StringPtrInput
-	Tags                                DomainNameTagArrayInput
+	Tags                                aws.TagArrayInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {
@@ -176,8 +177,8 @@ func (o DomainNameOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainNameOutput) Tags() DomainNameTagArrayOutput {
-	return o.ApplyT(func(v *DomainName) DomainNameTagArrayOutput { return v.Tags }).(DomainNameTagArrayOutput)
+func (o DomainNameOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DomainName) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

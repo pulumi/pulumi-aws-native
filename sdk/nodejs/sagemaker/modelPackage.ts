@@ -64,7 +64,7 @@ export class ModelPackage extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.ModelPackageTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly task!: pulumi.Output<string | undefined>;
     public readonly validationSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageValidationSpecification | undefined>;
 
@@ -170,7 +170,7 @@ export interface ModelPackageArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelPackageTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     task?: pulumi.Input<string>;
     validationSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageValidationSpecificationArgs>;
 }

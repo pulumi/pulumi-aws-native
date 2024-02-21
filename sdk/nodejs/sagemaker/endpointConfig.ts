@@ -49,7 +49,7 @@ export class EndpointConfig extends pulumi.CustomResource {
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly productionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigProductionVariant[]>;
     public readonly shadowProductionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigProductionVariant[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.sagemaker.EndpointConfigTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigVpcConfig | undefined>;
 
     /**
@@ -112,6 +112,6 @@ export interface EndpointConfigArgs {
     kmsKeyId?: pulumi.Input<string>;
     productionVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigProductionVariantArgs>[]>;
     shadowProductionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigProductionVariantArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigVpcConfigArgs>;
 }

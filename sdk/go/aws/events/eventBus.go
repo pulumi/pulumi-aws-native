@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type EventBus struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// Any tags assigned to the event bus.
-	Tags EventBusTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewEventBus registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +83,7 @@ type eventBusArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// Any tags assigned to the event bus.
-	Tags []EventBusTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventBus resource.
@@ -96,7 +97,7 @@ type EventBusArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
 	Policy pulumi.Input
 	// Any tags assigned to the event bus.
-	Tags EventBusTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (EventBusArgs) ElementType() reflect.Type {
@@ -159,8 +160,8 @@ func (o EventBusOutput) Policy() pulumi.AnyOutput {
 }
 
 // Any tags assigned to the event bus.
-func (o EventBusOutput) Tags() EventBusTagArrayOutput {
-	return o.ApplyT(func(v *EventBus) EventBusTagArrayOutput { return v.Tags }).(EventBusTagArrayOutput)
+func (o EventBusOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EventBus) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

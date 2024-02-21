@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type Faq struct {
 	// FAQ S3 path
 	S3Path FaqS3PathOutput `pulumi:"s3Path"`
 	// Tags for labeling the FAQ
-	Tags FaqTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFaq registers a new resource with the given unique name, arguments, and options.
@@ -106,7 +107,7 @@ type faqArgs struct {
 	// FAQ S3 path
 	S3Path FaqS3Path `pulumi:"s3Path"`
 	// Tags for labeling the FAQ
-	Tags []FaqTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Faq resource.
@@ -125,7 +126,7 @@ type FaqArgs struct {
 	// FAQ S3 path
 	S3Path FaqS3PathInput
 	// Tags for labeling the FAQ
-	Tags FaqTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (FaqArgs) ElementType() reflect.Type {
@@ -204,8 +205,8 @@ func (o FaqOutput) S3Path() FaqS3PathOutput {
 }
 
 // Tags for labeling the FAQ
-func (o FaqOutput) Tags() FaqTagArrayOutput {
-	return o.ApplyT(func(v *Faq) FaqTagArrayOutput { return v.Tags }).(FaqTagArrayOutput)
+func (o FaqOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Faq) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

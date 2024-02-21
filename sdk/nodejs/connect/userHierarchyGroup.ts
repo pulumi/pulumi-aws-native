@@ -52,7 +52,7 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.UserHierarchyGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the user hierarchy group.
      */
@@ -110,5 +110,5 @@ export interface UserHierarchyGroupArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.UserHierarchyGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -24,7 +26,7 @@ class GameSessionQueueArgs:
                  notification_target: Optional[pulumi.Input[str]] = None,
                  player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]] = None,
                  priority_configuration: Optional[pulumi.Input['GameSessionQueuePriorityConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a GameSessionQueue resource.
@@ -35,7 +37,7 @@ class GameSessionQueueArgs:
         :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
         :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]] player_latency_policies: A set of policies that act as a sliding cap on player latency.
         :param pulumi.Input['GameSessionQueuePriorityConfigurationArgs'] priority_configuration: Custom settings to use when prioritizing destinations and locations for game session placements.
-        :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueueTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[int] timeout_in_seconds: The maximum time, in seconds, that a new game session placement request remains in the queue.
         """
         if custom_event_data is not None:
@@ -143,14 +145,14 @@ class GameSessionQueueArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -178,7 +180,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  notification_target: Optional[pulumi.Input[str]] = None,
                  player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueuePlayerLatencyPolicyArgs']]]]] = None,
                  priority_configuration: Optional[pulumi.Input[pulumi.InputType['GameSessionQueuePriorityConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueueTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -193,7 +195,7 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueuePlayerLatencyPolicyArgs']]]] player_latency_policies: A set of policies that act as a sliding cap on player latency.
         :param pulumi.Input[pulumi.InputType['GameSessionQueuePriorityConfigurationArgs']] priority_configuration: Custom settings to use when prioritizing destinations and locations for game session placements.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueueTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[int] timeout_in_seconds: The maximum time, in seconds, that a new game session placement request remains in the queue.
         """
         ...
@@ -227,7 +229,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  notification_target: Optional[pulumi.Input[str]] = None,
                  player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueuePlayerLatencyPolicyArgs']]]]] = None,
                  priority_configuration: Optional[pulumi.Input[pulumi.InputType['GameSessionQueuePriorityConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueueTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -350,7 +352,7 @@ class GameSessionQueue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GameSessionQueueTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

@@ -3125,101 +3125,6 @@ type GatewayRouteTag struct {
 	Value string `pulumi:"value"`
 }
 
-// GatewayRouteTagInput is an input type that accepts GatewayRouteTagArgs and GatewayRouteTagOutput values.
-// You can construct a concrete instance of `GatewayRouteTagInput` via:
-//
-//	GatewayRouteTagArgs{...}
-type GatewayRouteTagInput interface {
-	pulumi.Input
-
-	ToGatewayRouteTagOutput() GatewayRouteTagOutput
-	ToGatewayRouteTagOutputWithContext(context.Context) GatewayRouteTagOutput
-}
-
-type GatewayRouteTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (GatewayRouteTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteTag)(nil)).Elem()
-}
-
-func (i GatewayRouteTagArgs) ToGatewayRouteTagOutput() GatewayRouteTagOutput {
-	return i.ToGatewayRouteTagOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteTagArgs) ToGatewayRouteTagOutputWithContext(ctx context.Context) GatewayRouteTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTagOutput)
-}
-
-// GatewayRouteTagArrayInput is an input type that accepts GatewayRouteTagArray and GatewayRouteTagArrayOutput values.
-// You can construct a concrete instance of `GatewayRouteTagArrayInput` via:
-//
-//	GatewayRouteTagArray{ GatewayRouteTagArgs{...} }
-type GatewayRouteTagArrayInput interface {
-	pulumi.Input
-
-	ToGatewayRouteTagArrayOutput() GatewayRouteTagArrayOutput
-	ToGatewayRouteTagArrayOutputWithContext(context.Context) GatewayRouteTagArrayOutput
-}
-
-type GatewayRouteTagArray []GatewayRouteTagInput
-
-func (GatewayRouteTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayRouteTag)(nil)).Elem()
-}
-
-func (i GatewayRouteTagArray) ToGatewayRouteTagArrayOutput() GatewayRouteTagArrayOutput {
-	return i.ToGatewayRouteTagArrayOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteTagArray) ToGatewayRouteTagArrayOutputWithContext(ctx context.Context) GatewayRouteTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTagArrayOutput)
-}
-
-type GatewayRouteTagOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteTag)(nil)).Elem()
-}
-
-func (o GatewayRouteTagOutput) ToGatewayRouteTagOutput() GatewayRouteTagOutput {
-	return o
-}
-
-func (o GatewayRouteTagOutput) ToGatewayRouteTagOutputWithContext(ctx context.Context) GatewayRouteTagOutput {
-	return o
-}
-
-func (o GatewayRouteTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayRouteTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o GatewayRouteTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayRouteTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type GatewayRouteTagArrayOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayRouteTag)(nil)).Elem()
-}
-
-func (o GatewayRouteTagArrayOutput) ToGatewayRouteTagArrayOutput() GatewayRouteTagArrayOutput {
-	return o
-}
-
-func (o GatewayRouteTagArrayOutput) ToGatewayRouteTagArrayOutputWithContext(ctx context.Context) GatewayRouteTagArrayOutput {
-	return o
-}
-
-func (o GatewayRouteTagArrayOutput) Index(i pulumi.IntInput) GatewayRouteTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRouteTag {
-		return vs[0].([]GatewayRouteTag)[vs[1].(int)]
-	}).(GatewayRouteTagOutput)
-}
-
 type GatewayRouteTarget struct {
 	Port           *int                       `pulumi:"port"`
 	VirtualService GatewayRouteVirtualService `pulumi:"virtualService"`
@@ -3918,101 +3823,6 @@ func (o MeshSpecPtrOutput) ServiceDiscovery() MeshServiceDiscoveryPtrOutput {
 type MeshTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// MeshTagInput is an input type that accepts MeshTagArgs and MeshTagOutput values.
-// You can construct a concrete instance of `MeshTagInput` via:
-//
-//	MeshTagArgs{...}
-type MeshTagInput interface {
-	pulumi.Input
-
-	ToMeshTagOutput() MeshTagOutput
-	ToMeshTagOutputWithContext(context.Context) MeshTagOutput
-}
-
-type MeshTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (MeshTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshTag)(nil)).Elem()
-}
-
-func (i MeshTagArgs) ToMeshTagOutput() MeshTagOutput {
-	return i.ToMeshTagOutputWithContext(context.Background())
-}
-
-func (i MeshTagArgs) ToMeshTagOutputWithContext(ctx context.Context) MeshTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshTagOutput)
-}
-
-// MeshTagArrayInput is an input type that accepts MeshTagArray and MeshTagArrayOutput values.
-// You can construct a concrete instance of `MeshTagArrayInput` via:
-//
-//	MeshTagArray{ MeshTagArgs{...} }
-type MeshTagArrayInput interface {
-	pulumi.Input
-
-	ToMeshTagArrayOutput() MeshTagArrayOutput
-	ToMeshTagArrayOutputWithContext(context.Context) MeshTagArrayOutput
-}
-
-type MeshTagArray []MeshTagInput
-
-func (MeshTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MeshTag)(nil)).Elem()
-}
-
-func (i MeshTagArray) ToMeshTagArrayOutput() MeshTagArrayOutput {
-	return i.ToMeshTagArrayOutputWithContext(context.Background())
-}
-
-func (i MeshTagArray) ToMeshTagArrayOutputWithContext(ctx context.Context) MeshTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshTagArrayOutput)
-}
-
-type MeshTagOutput struct{ *pulumi.OutputState }
-
-func (MeshTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshTag)(nil)).Elem()
-}
-
-func (o MeshTagOutput) ToMeshTagOutput() MeshTagOutput {
-	return o
-}
-
-func (o MeshTagOutput) ToMeshTagOutputWithContext(ctx context.Context) MeshTagOutput {
-	return o
-}
-
-func (o MeshTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v MeshTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o MeshTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v MeshTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type MeshTagArrayOutput struct{ *pulumi.OutputState }
-
-func (MeshTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MeshTag)(nil)).Elem()
-}
-
-func (o MeshTagArrayOutput) ToMeshTagArrayOutput() MeshTagArrayOutput {
-	return o
-}
-
-func (o MeshTagArrayOutput) ToMeshTagArrayOutputWithContext(ctx context.Context) MeshTagArrayOutput {
-	return o
-}
-
-func (o MeshTagArrayOutput) Index(i pulumi.IntInput) MeshTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MeshTag {
-		return vs[0].([]MeshTag)[vs[1].(int)]
-	}).(MeshTagOutput)
 }
 
 type RouteDuration struct {
@@ -7125,101 +6935,6 @@ func (o RouteSpecPtrOutput) TcpRoute() RouteTcpRoutePtrOutput {
 type RouteTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// RouteTagInput is an input type that accepts RouteTagArgs and RouteTagOutput values.
-// You can construct a concrete instance of `RouteTagInput` via:
-//
-//	RouteTagArgs{...}
-type RouteTagInput interface {
-	pulumi.Input
-
-	ToRouteTagOutput() RouteTagOutput
-	ToRouteTagOutputWithContext(context.Context) RouteTagOutput
-}
-
-type RouteTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RouteTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteTag)(nil)).Elem()
-}
-
-func (i RouteTagArgs) ToRouteTagOutput() RouteTagOutput {
-	return i.ToRouteTagOutputWithContext(context.Background())
-}
-
-func (i RouteTagArgs) ToRouteTagOutputWithContext(ctx context.Context) RouteTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteTagOutput)
-}
-
-// RouteTagArrayInput is an input type that accepts RouteTagArray and RouteTagArrayOutput values.
-// You can construct a concrete instance of `RouteTagArrayInput` via:
-//
-//	RouteTagArray{ RouteTagArgs{...} }
-type RouteTagArrayInput interface {
-	pulumi.Input
-
-	ToRouteTagArrayOutput() RouteTagArrayOutput
-	ToRouteTagArrayOutputWithContext(context.Context) RouteTagArrayOutput
-}
-
-type RouteTagArray []RouteTagInput
-
-func (RouteTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RouteTag)(nil)).Elem()
-}
-
-func (i RouteTagArray) ToRouteTagArrayOutput() RouteTagArrayOutput {
-	return i.ToRouteTagArrayOutputWithContext(context.Background())
-}
-
-func (i RouteTagArray) ToRouteTagArrayOutputWithContext(ctx context.Context) RouteTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteTagArrayOutput)
-}
-
-type RouteTagOutput struct{ *pulumi.OutputState }
-
-func (RouteTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteTag)(nil)).Elem()
-}
-
-func (o RouteTagOutput) ToRouteTagOutput() RouteTagOutput {
-	return o
-}
-
-func (o RouteTagOutput) ToRouteTagOutputWithContext(ctx context.Context) RouteTagOutput {
-	return o
-}
-
-func (o RouteTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RouteTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o RouteTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RouteTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RouteTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RouteTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RouteTag)(nil)).Elem()
-}
-
-func (o RouteTagArrayOutput) ToRouteTagArrayOutput() RouteTagArrayOutput {
-	return o
-}
-
-func (o RouteTagArrayOutput) ToRouteTagArrayOutputWithContext(ctx context.Context) RouteTagArrayOutput {
-	return o
-}
-
-func (o RouteTagArrayOutput) Index(i pulumi.IntInput) RouteTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteTag {
-		return vs[0].([]RouteTag)[vs[1].(int)]
-	}).(RouteTagOutput)
 }
 
 type RouteTcpRoute struct {
@@ -11538,101 +11253,6 @@ func (o VirtualGatewaySubjectAlternativeNamesPtrOutput) Match() VirtualGatewaySu
 type VirtualGatewayTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// VirtualGatewayTagInput is an input type that accepts VirtualGatewayTagArgs and VirtualGatewayTagOutput values.
-// You can construct a concrete instance of `VirtualGatewayTagInput` via:
-//
-//	VirtualGatewayTagArgs{...}
-type VirtualGatewayTagInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayTagOutput() VirtualGatewayTagOutput
-	ToVirtualGatewayTagOutputWithContext(context.Context) VirtualGatewayTagOutput
-}
-
-type VirtualGatewayTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VirtualGatewayTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayTag)(nil)).Elem()
-}
-
-func (i VirtualGatewayTagArgs) ToVirtualGatewayTagOutput() VirtualGatewayTagOutput {
-	return i.ToVirtualGatewayTagOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayTagArgs) ToVirtualGatewayTagOutputWithContext(ctx context.Context) VirtualGatewayTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTagOutput)
-}
-
-// VirtualGatewayTagArrayInput is an input type that accepts VirtualGatewayTagArray and VirtualGatewayTagArrayOutput values.
-// You can construct a concrete instance of `VirtualGatewayTagArrayInput` via:
-//
-//	VirtualGatewayTagArray{ VirtualGatewayTagArgs{...} }
-type VirtualGatewayTagArrayInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayTagArrayOutput() VirtualGatewayTagArrayOutput
-	ToVirtualGatewayTagArrayOutputWithContext(context.Context) VirtualGatewayTagArrayOutput
-}
-
-type VirtualGatewayTagArray []VirtualGatewayTagInput
-
-func (VirtualGatewayTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualGatewayTag)(nil)).Elem()
-}
-
-func (i VirtualGatewayTagArray) ToVirtualGatewayTagArrayOutput() VirtualGatewayTagArrayOutput {
-	return i.ToVirtualGatewayTagArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayTagArray) ToVirtualGatewayTagArrayOutputWithContext(ctx context.Context) VirtualGatewayTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTagArrayOutput)
-}
-
-type VirtualGatewayTagOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayTag)(nil)).Elem()
-}
-
-func (o VirtualGatewayTagOutput) ToVirtualGatewayTagOutput() VirtualGatewayTagOutput {
-	return o
-}
-
-func (o VirtualGatewayTagOutput) ToVirtualGatewayTagOutputWithContext(ctx context.Context) VirtualGatewayTagOutput {
-	return o
-}
-
-func (o VirtualGatewayTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VirtualGatewayTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VirtualGatewayTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualGatewayTag)(nil)).Elem()
-}
-
-func (o VirtualGatewayTagArrayOutput) ToVirtualGatewayTagArrayOutput() VirtualGatewayTagArrayOutput {
-	return o
-}
-
-func (o VirtualGatewayTagArrayOutput) ToVirtualGatewayTagArrayOutputWithContext(ctx context.Context) VirtualGatewayTagArrayOutput {
-	return o
-}
-
-func (o VirtualGatewayTagArrayOutput) Index(i pulumi.IntInput) VirtualGatewayTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualGatewayTag {
-		return vs[0].([]VirtualGatewayTag)[vs[1].(int)]
-	}).(VirtualGatewayTagOutput)
 }
 
 type VirtualGatewayTlsValidationContext struct {
@@ -17543,101 +17163,6 @@ type VirtualNodeTag struct {
 	Value string `pulumi:"value"`
 }
 
-// VirtualNodeTagInput is an input type that accepts VirtualNodeTagArgs and VirtualNodeTagOutput values.
-// You can construct a concrete instance of `VirtualNodeTagInput` via:
-//
-//	VirtualNodeTagArgs{...}
-type VirtualNodeTagInput interface {
-	pulumi.Input
-
-	ToVirtualNodeTagOutput() VirtualNodeTagOutput
-	ToVirtualNodeTagOutputWithContext(context.Context) VirtualNodeTagOutput
-}
-
-type VirtualNodeTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VirtualNodeTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeTag)(nil)).Elem()
-}
-
-func (i VirtualNodeTagArgs) ToVirtualNodeTagOutput() VirtualNodeTagOutput {
-	return i.ToVirtualNodeTagOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeTagArgs) ToVirtualNodeTagOutputWithContext(ctx context.Context) VirtualNodeTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTagOutput)
-}
-
-// VirtualNodeTagArrayInput is an input type that accepts VirtualNodeTagArray and VirtualNodeTagArrayOutput values.
-// You can construct a concrete instance of `VirtualNodeTagArrayInput` via:
-//
-//	VirtualNodeTagArray{ VirtualNodeTagArgs{...} }
-type VirtualNodeTagArrayInput interface {
-	pulumi.Input
-
-	ToVirtualNodeTagArrayOutput() VirtualNodeTagArrayOutput
-	ToVirtualNodeTagArrayOutputWithContext(context.Context) VirtualNodeTagArrayOutput
-}
-
-type VirtualNodeTagArray []VirtualNodeTagInput
-
-func (VirtualNodeTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualNodeTag)(nil)).Elem()
-}
-
-func (i VirtualNodeTagArray) ToVirtualNodeTagArrayOutput() VirtualNodeTagArrayOutput {
-	return i.ToVirtualNodeTagArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeTagArray) ToVirtualNodeTagArrayOutputWithContext(ctx context.Context) VirtualNodeTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTagArrayOutput)
-}
-
-type VirtualNodeTagOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeTag)(nil)).Elem()
-}
-
-func (o VirtualNodeTagOutput) ToVirtualNodeTagOutput() VirtualNodeTagOutput {
-	return o
-}
-
-func (o VirtualNodeTagOutput) ToVirtualNodeTagOutputWithContext(ctx context.Context) VirtualNodeTagOutput {
-	return o
-}
-
-func (o VirtualNodeTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNodeTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VirtualNodeTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNodeTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VirtualNodeTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualNodeTag)(nil)).Elem()
-}
-
-func (o VirtualNodeTagArrayOutput) ToVirtualNodeTagArrayOutput() VirtualNodeTagArrayOutput {
-	return o
-}
-
-func (o VirtualNodeTagArrayOutput) ToVirtualNodeTagArrayOutputWithContext(ctx context.Context) VirtualNodeTagArrayOutput {
-	return o
-}
-
-func (o VirtualNodeTagArrayOutput) Index(i pulumi.IntInput) VirtualNodeTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNodeTag {
-		return vs[0].([]VirtualNodeTag)[vs[1].(int)]
-	}).(VirtualNodeTagOutput)
-}
-
 type VirtualNodeTcpConnectionPool struct {
 	MaxConnections int `pulumi:"maxConnections"`
 }
@@ -19000,101 +18525,6 @@ type VirtualRouterTag struct {
 	Value string `pulumi:"value"`
 }
 
-// VirtualRouterTagInput is an input type that accepts VirtualRouterTagArgs and VirtualRouterTagOutput values.
-// You can construct a concrete instance of `VirtualRouterTagInput` via:
-//
-//	VirtualRouterTagArgs{...}
-type VirtualRouterTagInput interface {
-	pulumi.Input
-
-	ToVirtualRouterTagOutput() VirtualRouterTagOutput
-	ToVirtualRouterTagOutputWithContext(context.Context) VirtualRouterTagOutput
-}
-
-type VirtualRouterTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VirtualRouterTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouterTag)(nil)).Elem()
-}
-
-func (i VirtualRouterTagArgs) ToVirtualRouterTagOutput() VirtualRouterTagOutput {
-	return i.ToVirtualRouterTagOutputWithContext(context.Background())
-}
-
-func (i VirtualRouterTagArgs) ToVirtualRouterTagOutputWithContext(ctx context.Context) VirtualRouterTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterTagOutput)
-}
-
-// VirtualRouterTagArrayInput is an input type that accepts VirtualRouterTagArray and VirtualRouterTagArrayOutput values.
-// You can construct a concrete instance of `VirtualRouterTagArrayInput` via:
-//
-//	VirtualRouterTagArray{ VirtualRouterTagArgs{...} }
-type VirtualRouterTagArrayInput interface {
-	pulumi.Input
-
-	ToVirtualRouterTagArrayOutput() VirtualRouterTagArrayOutput
-	ToVirtualRouterTagArrayOutputWithContext(context.Context) VirtualRouterTagArrayOutput
-}
-
-type VirtualRouterTagArray []VirtualRouterTagInput
-
-func (VirtualRouterTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualRouterTag)(nil)).Elem()
-}
-
-func (i VirtualRouterTagArray) ToVirtualRouterTagArrayOutput() VirtualRouterTagArrayOutput {
-	return i.ToVirtualRouterTagArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualRouterTagArray) ToVirtualRouterTagArrayOutputWithContext(ctx context.Context) VirtualRouterTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterTagArrayOutput)
-}
-
-type VirtualRouterTagOutput struct{ *pulumi.OutputState }
-
-func (VirtualRouterTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouterTag)(nil)).Elem()
-}
-
-func (o VirtualRouterTagOutput) ToVirtualRouterTagOutput() VirtualRouterTagOutput {
-	return o
-}
-
-func (o VirtualRouterTagOutput) ToVirtualRouterTagOutputWithContext(ctx context.Context) VirtualRouterTagOutput {
-	return o
-}
-
-func (o VirtualRouterTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualRouterTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VirtualRouterTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualRouterTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VirtualRouterTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualRouterTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualRouterTag)(nil)).Elem()
-}
-
-func (o VirtualRouterTagArrayOutput) ToVirtualRouterTagArrayOutput() VirtualRouterTagArrayOutput {
-	return o
-}
-
-func (o VirtualRouterTagArrayOutput) ToVirtualRouterTagArrayOutputWithContext(ctx context.Context) VirtualRouterTagArrayOutput {
-	return o
-}
-
-func (o VirtualRouterTagArrayOutput) Index(i pulumi.IntInput) VirtualRouterTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualRouterTag {
-		return vs[0].([]VirtualRouterTag)[vs[1].(int)]
-	}).(VirtualRouterTagOutput)
-}
-
 type VirtualServiceProvider struct {
 	VirtualNode   *VirtualServiceVirtualNodeServiceProvider   `pulumi:"virtualNode"`
 	VirtualRouter *VirtualServiceVirtualRouterServiceProvider `pulumi:"virtualRouter"`
@@ -19328,101 +18758,6 @@ func (o VirtualServiceSpecPtrOutput) Provider() VirtualServiceProviderPtrOutput 
 type VirtualServiceTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// VirtualServiceTagInput is an input type that accepts VirtualServiceTagArgs and VirtualServiceTagOutput values.
-// You can construct a concrete instance of `VirtualServiceTagInput` via:
-//
-//	VirtualServiceTagArgs{...}
-type VirtualServiceTagInput interface {
-	pulumi.Input
-
-	ToVirtualServiceTagOutput() VirtualServiceTagOutput
-	ToVirtualServiceTagOutputWithContext(context.Context) VirtualServiceTagOutput
-}
-
-type VirtualServiceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VirtualServiceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServiceTag)(nil)).Elem()
-}
-
-func (i VirtualServiceTagArgs) ToVirtualServiceTagOutput() VirtualServiceTagOutput {
-	return i.ToVirtualServiceTagOutputWithContext(context.Background())
-}
-
-func (i VirtualServiceTagArgs) ToVirtualServiceTagOutputWithContext(ctx context.Context) VirtualServiceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceTagOutput)
-}
-
-// VirtualServiceTagArrayInput is an input type that accepts VirtualServiceTagArray and VirtualServiceTagArrayOutput values.
-// You can construct a concrete instance of `VirtualServiceTagArrayInput` via:
-//
-//	VirtualServiceTagArray{ VirtualServiceTagArgs{...} }
-type VirtualServiceTagArrayInput interface {
-	pulumi.Input
-
-	ToVirtualServiceTagArrayOutput() VirtualServiceTagArrayOutput
-	ToVirtualServiceTagArrayOutputWithContext(context.Context) VirtualServiceTagArrayOutput
-}
-
-type VirtualServiceTagArray []VirtualServiceTagInput
-
-func (VirtualServiceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualServiceTag)(nil)).Elem()
-}
-
-func (i VirtualServiceTagArray) ToVirtualServiceTagArrayOutput() VirtualServiceTagArrayOutput {
-	return i.ToVirtualServiceTagArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualServiceTagArray) ToVirtualServiceTagArrayOutputWithContext(ctx context.Context) VirtualServiceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceTagArrayOutput)
-}
-
-type VirtualServiceTagOutput struct{ *pulumi.OutputState }
-
-func (VirtualServiceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServiceTag)(nil)).Elem()
-}
-
-func (o VirtualServiceTagOutput) ToVirtualServiceTagOutput() VirtualServiceTagOutput {
-	return o
-}
-
-func (o VirtualServiceTagOutput) ToVirtualServiceTagOutputWithContext(ctx context.Context) VirtualServiceTagOutput {
-	return o
-}
-
-func (o VirtualServiceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualServiceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VirtualServiceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualServiceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VirtualServiceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualServiceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualServiceTag)(nil)).Elem()
-}
-
-func (o VirtualServiceTagArrayOutput) ToVirtualServiceTagArrayOutput() VirtualServiceTagArrayOutput {
-	return o
-}
-
-func (o VirtualServiceTagArrayOutput) ToVirtualServiceTagArrayOutputWithContext(ctx context.Context) VirtualServiceTagArrayOutput {
-	return o
-}
-
-func (o VirtualServiceTagArrayOutput) Index(i pulumi.IntInput) VirtualServiceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualServiceTag {
-		return vs[0].([]VirtualServiceTag)[vs[1].(int)]
-	}).(VirtualServiceTagOutput)
 }
 
 type VirtualServiceVirtualNodeServiceProvider struct {
@@ -19733,8 +19068,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteRangeMatchInput)(nil)).Elem(), GatewayRouteRangeMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteRangeMatchPtrInput)(nil)).Elem(), GatewayRouteRangeMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecInput)(nil)).Elem(), GatewayRouteSpecArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteTagInput)(nil)).Elem(), GatewayRouteTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteTagArrayInput)(nil)).Elem(), GatewayRouteTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteTargetInput)(nil)).Elem(), GatewayRouteTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteTargetPtrInput)(nil)).Elem(), GatewayRouteTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteVirtualServiceInput)(nil)).Elem(), GatewayRouteVirtualServiceArgs{})
@@ -19745,8 +19078,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshServiceDiscoveryPtrInput)(nil)).Elem(), MeshServiceDiscoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecInput)(nil)).Elem(), MeshSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecPtrInput)(nil)).Elem(), MeshSpecArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MeshTagInput)(nil)).Elem(), MeshTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MeshTagArrayInput)(nil)).Elem(), MeshTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteDurationInput)(nil)).Elem(), RouteDurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteDurationPtrInput)(nil)).Elem(), RouteDurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteGrpcRetryPolicyInput)(nil)).Elem(), RouteGrpcRetryPolicyArgs{})
@@ -19786,8 +19117,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteQueryParameterInput)(nil)).Elem(), RouteQueryParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteQueryParameterArrayInput)(nil)).Elem(), RouteQueryParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecInput)(nil)).Elem(), RouteSpecArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RouteTagInput)(nil)).Elem(), RouteTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RouteTagArrayInput)(nil)).Elem(), RouteTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTcpRouteInput)(nil)).Elem(), RouteTcpRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTcpRoutePtrInput)(nil)).Elem(), RouteTcpRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTcpRouteActionInput)(nil)).Elem(), RouteTcpRouteActionArgs{})
@@ -19848,8 +19177,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySubjectAlternativeNameMatchersPtrInput)(nil)).Elem(), VirtualGatewaySubjectAlternativeNameMatchersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySubjectAlternativeNamesInput)(nil)).Elem(), VirtualGatewaySubjectAlternativeNamesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySubjectAlternativeNamesPtrInput)(nil)).Elem(), VirtualGatewaySubjectAlternativeNamesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayTagInput)(nil)).Elem(), VirtualGatewayTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayTagArrayInput)(nil)).Elem(), VirtualGatewayTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayTlsValidationContextInput)(nil)).Elem(), VirtualGatewayTlsValidationContextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayTlsValidationContextPtrInput)(nil)).Elem(), VirtualGatewayTlsValidationContextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayTlsValidationContextAcmTrustInput)(nil)).Elem(), VirtualGatewayTlsValidationContextAcmTrustArgs{})
@@ -19930,8 +19257,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSubjectAlternativeNameMatchersPtrInput)(nil)).Elem(), VirtualNodeSubjectAlternativeNameMatchersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSubjectAlternativeNamesInput)(nil)).Elem(), VirtualNodeSubjectAlternativeNamesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSubjectAlternativeNamesPtrInput)(nil)).Elem(), VirtualNodeSubjectAlternativeNamesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeTagInput)(nil)).Elem(), VirtualNodeTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeTagArrayInput)(nil)).Elem(), VirtualNodeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeTcpConnectionPoolInput)(nil)).Elem(), VirtualNodeTcpConnectionPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeTcpConnectionPoolPtrInput)(nil)).Elem(), VirtualNodeTcpConnectionPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeTcpTimeoutInput)(nil)).Elem(), VirtualNodeTcpTimeoutArgs{})
@@ -19952,13 +19277,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterListenerArrayInput)(nil)).Elem(), VirtualRouterListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterPortMappingInput)(nil)).Elem(), VirtualRouterPortMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterSpecInput)(nil)).Elem(), VirtualRouterSpecArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterTagInput)(nil)).Elem(), VirtualRouterTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterTagArrayInput)(nil)).Elem(), VirtualRouterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceProviderInput)(nil)).Elem(), VirtualServiceProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceProviderPtrInput)(nil)).Elem(), VirtualServiceProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceSpecInput)(nil)).Elem(), VirtualServiceSpecArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceTagInput)(nil)).Elem(), VirtualServiceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceTagArrayInput)(nil)).Elem(), VirtualServiceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceVirtualNodeServiceProviderInput)(nil)).Elem(), VirtualServiceVirtualNodeServiceProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceVirtualNodeServiceProviderPtrInput)(nil)).Elem(), VirtualServiceVirtualNodeServiceProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceVirtualRouterServiceProviderInput)(nil)).Elem(), VirtualServiceVirtualRouterServiceProviderArgs{})
@@ -20005,8 +19326,6 @@ func init() {
 	pulumi.RegisterOutputType(GatewayRouteRangeMatchPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecPtrOutput{})
-	pulumi.RegisterOutputType(GatewayRouteTagOutput{})
-	pulumi.RegisterOutputType(GatewayRouteTagArrayOutput{})
 	pulumi.RegisterOutputType(GatewayRouteTargetOutput{})
 	pulumi.RegisterOutputType(GatewayRouteTargetPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteVirtualServiceOutput{})
@@ -20017,8 +19336,6 @@ func init() {
 	pulumi.RegisterOutputType(MeshServiceDiscoveryPtrOutput{})
 	pulumi.RegisterOutputType(MeshSpecOutput{})
 	pulumi.RegisterOutputType(MeshSpecPtrOutput{})
-	pulumi.RegisterOutputType(MeshTagOutput{})
-	pulumi.RegisterOutputType(MeshTagArrayOutput{})
 	pulumi.RegisterOutputType(RouteDurationOutput{})
 	pulumi.RegisterOutputType(RouteDurationPtrOutput{})
 	pulumi.RegisterOutputType(RouteGrpcRetryPolicyOutput{})
@@ -20059,8 +19376,6 @@ func init() {
 	pulumi.RegisterOutputType(RouteQueryParameterArrayOutput{})
 	pulumi.RegisterOutputType(RouteSpecOutput{})
 	pulumi.RegisterOutputType(RouteSpecPtrOutput{})
-	pulumi.RegisterOutputType(RouteTagOutput{})
-	pulumi.RegisterOutputType(RouteTagArrayOutput{})
 	pulumi.RegisterOutputType(RouteTcpRouteOutput{})
 	pulumi.RegisterOutputType(RouteTcpRoutePtrOutput{})
 	pulumi.RegisterOutputType(RouteTcpRouteActionOutput{})
@@ -20122,8 +19437,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualGatewaySubjectAlternativeNameMatchersPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySubjectAlternativeNamesOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySubjectAlternativeNamesPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayTagOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayTagArrayOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextAcmTrustOutput{})
@@ -20205,8 +19518,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeSubjectAlternativeNameMatchersPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSubjectAlternativeNamesOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSubjectAlternativeNamesPtrOutput{})
-	pulumi.RegisterOutputType(VirtualNodeTagOutput{})
-	pulumi.RegisterOutputType(VirtualNodeTagArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTcpConnectionPoolOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTcpConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTcpTimeoutOutput{})
@@ -20228,14 +19539,10 @@ func init() {
 	pulumi.RegisterOutputType(VirtualRouterPortMappingOutput{})
 	pulumi.RegisterOutputType(VirtualRouterSpecOutput{})
 	pulumi.RegisterOutputType(VirtualRouterSpecPtrOutput{})
-	pulumi.RegisterOutputType(VirtualRouterTagOutput{})
-	pulumi.RegisterOutputType(VirtualRouterTagArrayOutput{})
 	pulumi.RegisterOutputType(VirtualServiceProviderOutput{})
 	pulumi.RegisterOutputType(VirtualServiceProviderPtrOutput{})
 	pulumi.RegisterOutputType(VirtualServiceSpecOutput{})
 	pulumi.RegisterOutputType(VirtualServiceSpecPtrOutput{})
-	pulumi.RegisterOutputType(VirtualServiceTagOutput{})
-	pulumi.RegisterOutputType(VirtualServiceTagArrayOutput{})
 	pulumi.RegisterOutputType(VirtualServiceVirtualNodeServiceProviderOutput{})
 	pulumi.RegisterOutputType(VirtualServiceVirtualNodeServiceProviderPtrOutput{})
 	pulumi.RegisterOutputType(VirtualServiceVirtualRouterServiceProviderOutput{})

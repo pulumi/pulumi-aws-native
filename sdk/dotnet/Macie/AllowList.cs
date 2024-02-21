@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Macie
         /// A collection of tags associated with a resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AllowListTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -115,14 +115,14 @@ namespace Pulumi.AwsNative.Macie
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AllowListTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
-        public InputList<Inputs.AllowListTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AllowListTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

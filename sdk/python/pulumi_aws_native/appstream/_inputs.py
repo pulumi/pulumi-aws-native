@@ -11,7 +11,6 @@ from .. import _utilities
 
 __all__ = [
     'AppBlockBuilderAccessEndpointArgs',
-    'AppBlockBuilderTagArgs',
     'AppBlockBuilderVpcConfigArgs',
     'AppBlockS3LocationArgs',
     'AppBlockScriptDetailsArgs',
@@ -26,17 +25,14 @@ __all__ = [
     'FleetComputeCapacityArgs',
     'FleetDomainJoinInfoArgs',
     'FleetS3LocationArgs',
-    'FleetTagArgs',
     'FleetVpcConfigArgs',
     'ImageBuilderAccessEndpointArgs',
     'ImageBuilderDomainJoinInfoArgs',
-    'ImageBuilderTagArgs',
     'ImageBuilderVpcConfigArgs',
     'StackAccessEndpointArgs',
     'StackApplicationSettingsArgs',
     'StackStorageConnectorArgs',
     'StackStreamingExperienceSettingsArgs',
-    'StackTagArgs',
     'StackUserSettingArgs',
 ]
 
@@ -65,33 +61,6 @@ class AppBlockBuilderAccessEndpointArgs:
     @vpce_id.setter
     def vpce_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpce_id", value)
-
-
-@pulumi.input_type
-class AppBlockBuilderTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -505,33 +474,6 @@ class FleetS3LocationArgs:
 
 
 @pulumi.input_type
-class FleetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class FleetVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -614,33 +556,6 @@ class ImageBuilderDomainJoinInfoArgs:
     @organizational_unit_distinguished_name.setter
     def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organizational_unit_distinguished_name", value)
-
-
-@pulumi.input_type
-class ImageBuilderTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -782,33 +697,6 @@ class StackStreamingExperienceSettingsArgs:
     @preferred_protocol.setter
     def preferred_protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "preferred_protocol", value)
-
-
-@pulumi.input_type
-class StackTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

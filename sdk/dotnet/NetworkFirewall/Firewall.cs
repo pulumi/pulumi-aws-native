@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<ImmutableArray<Outputs.FirewallSubnetMapping>> SubnetMappings { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FirewallTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -128,10 +128,10 @@ namespace Pulumi.AwsNative.NetworkFirewall
         }
 
         [Input("tags")]
-        private InputList<Inputs.FirewallTagArgs>? _tags;
-        public InputList<Inputs.FirewallTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FirewallTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

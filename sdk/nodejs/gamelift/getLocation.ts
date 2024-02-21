@@ -27,7 +27,7 @@ export interface GetLocationResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.gamelift.LocationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.

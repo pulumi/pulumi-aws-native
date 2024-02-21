@@ -45,7 +45,7 @@ export interface GetPricingPlanResult {
      * Number of associated pricing rules
      */
     readonly size?: number;
-    readonly tags?: outputs.billingconductor.PricingPlanTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.

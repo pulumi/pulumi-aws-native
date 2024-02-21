@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Timestream
         /// Configuration of target store where scheduled query results are written to.
         /// </summary>
         public readonly string? SqTargetConfiguration;
-        public readonly ImmutableArray<Outputs.ScheduledQueryTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetScheduledQueryResult(
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Timestream
 
             string? sqTargetConfiguration,
 
-            ImmutableArray<Outputs.ScheduledQueryTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             SqErrorReportConfiguration = sqErrorReportConfiguration;

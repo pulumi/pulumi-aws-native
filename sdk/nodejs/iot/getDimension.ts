@@ -37,7 +37,7 @@ export interface GetDimensionResult {
     /**
      * Metadata that can be used to manage the dimension.
      */
-    readonly tags?: outputs.iot.DimensionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.

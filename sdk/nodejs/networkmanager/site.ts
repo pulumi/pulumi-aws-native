@@ -68,7 +68,7 @@ export class Site extends pulumi.CustomResource {
     /**
      * The tags for the site.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.SiteTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Site resource with the given unique name, arguments, and options.
@@ -128,5 +128,5 @@ export interface SiteArgs {
     /**
      * The tags for the site.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.SiteTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

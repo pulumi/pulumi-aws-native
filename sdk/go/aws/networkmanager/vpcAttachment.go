@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type VpcAttachment struct {
 	// Subnet Arn list
 	SubnetArns pulumi.StringArrayOutput `pulumi:"subnetArns"`
 	// Tags for the attachment.
-	Tags VpcAttachmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Last update time of the attachment.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// The ARN of the VPC.
@@ -115,7 +116,7 @@ type vpcAttachmentArgs struct {
 	// Subnet Arn list
 	SubnetArns []string `pulumi:"subnetArns"`
 	// Tags for the attachment.
-	Tags []VpcAttachmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the VPC.
 	VpcArn string `pulumi:"vpcArn"`
 }
@@ -131,7 +132,7 @@ type VpcAttachmentArgs struct {
 	// Subnet Arn list
 	SubnetArns pulumi.StringArrayInput
 	// Tags for the attachment.
-	Tags VpcAttachmentTagArrayInput
+	Tags aws.TagArrayInput
 	// The ARN of the VPC.
 	VpcArn pulumi.StringInput
 }
@@ -244,8 +245,8 @@ func (o VpcAttachmentOutput) SubnetArns() pulumi.StringArrayOutput {
 }
 
 // Tags for the attachment.
-func (o VpcAttachmentOutput) Tags() VpcAttachmentTagArrayOutput {
-	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentTagArrayOutput { return v.Tags }).(VpcAttachmentTagArrayOutput)
+func (o VpcAttachmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VpcAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Last update time of the attachment.

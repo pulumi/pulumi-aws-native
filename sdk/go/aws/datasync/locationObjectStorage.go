@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LocationObjectStorage struct {
 	// The subdirectory in the self-managed object storage server that is used to read data from.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationObjectStorageTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationObjectStorage registers a new resource with the given unique name, arguments, and options.
@@ -109,7 +110,7 @@ type locationObjectStorageArgs struct {
 	// The subdirectory in the self-managed object storage server that is used to read data from.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationObjectStorageTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationObjectStorage resource.
@@ -133,7 +134,7 @@ type LocationObjectStorageArgs struct {
 	// The subdirectory in the self-managed object storage server that is used to read data from.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationObjectStorageTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocationObjectStorageArgs) ElementType() reflect.Type {
@@ -229,8 +230,8 @@ func (o LocationObjectStorageOutput) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationObjectStorageOutput) Tags() LocationObjectStorageTagArrayOutput {
-	return o.ApplyT(func(v *LocationObjectStorage) LocationObjectStorageTagArrayOutput { return v.Tags }).(LocationObjectStorageTagArrayOutput)
+func (o LocationObjectStorageOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupTableResult struct {
 	StreamArn                        *string                                `pulumi:"streamArn"`
 	StreamSpecification              *TableStreamSpecification              `pulumi:"streamSpecification"`
 	TableClass                       *string                                `pulumi:"tableClass"`
-	Tags                             []TableTag                             `pulumi:"tags"`
+	Tags                             []aws.Tag                              `pulumi:"tags"`
 	TimeToLiveSpecification          *TableTimeToLiveSpecification          `pulumi:"timeToLiveSpecification"`
 }
 
@@ -150,8 +151,8 @@ func (o LookupTableResultOutput) TableClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.TableClass }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTableResultOutput) Tags() TableTagArrayOutput {
-	return o.ApplyT(func(v LookupTableResult) []TableTag { return v.Tags }).(TableTagArrayOutput)
+func (o LookupTableResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupTableResultOutput) TimeToLiveSpecification() TableTimeToLiveSpecificationPtrOutput {

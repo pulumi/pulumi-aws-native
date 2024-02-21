@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['UserHierarchyGroupArgs', 'UserHierarchyGroup']
 
@@ -19,13 +19,13 @@ class UserHierarchyGroupArgs:
                  instance_arn: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  parent_group_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a UserHierarchyGroup resource.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[str] name: The name of the user hierarchy group.
         :param pulumi.Input[str] parent_group_arn: The Amazon Resource Name (ARN) for the parent user hierarchy group.
-        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupTagArgs']]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         if name is not None:
@@ -73,14 +73,14 @@ class UserHierarchyGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,7 +92,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_group_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHierarchyGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::UserHierarchyGroup
@@ -102,7 +102,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[str] name: The name of the user hierarchy group.
         :param pulumi.Input[str] parent_group_arn: The Amazon Resource Name (ARN) for the parent user hierarchy group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHierarchyGroupTagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -131,7 +131,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_group_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHierarchyGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,7 +205,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UserHierarchyGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         One or more tags.
         """

@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// Tags for the attachment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VpcAttachmentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Last update time of the attachment.
@@ -198,14 +198,14 @@ namespace Pulumi.AwsNative.NetworkManager
         }
 
         [Input("tags")]
-        private InputList<Inputs.VpcAttachmentTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags for the attachment.
         /// </summary>
-        public InputList<Inputs.VpcAttachmentTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VpcAttachmentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Ivs
         /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PlaybackKeyPairTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -108,14 +108,14 @@ namespace Pulumi.AwsNative.Ivs
         public Input<string>? PublicKeyMaterial { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.PlaybackKeyPairTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
-        public InputList<Inputs.PlaybackKeyPairTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PlaybackKeyPairTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

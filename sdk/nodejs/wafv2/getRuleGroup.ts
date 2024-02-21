@@ -45,7 +45,7 @@ export interface GetRuleGroupResult {
      * Collection of Rules.
      */
     readonly rules?: outputs.wafv2.RuleGroupRule[];
-    readonly tags?: outputs.wafv2.RuleGroupTag[];
+    readonly tags?: outputs.Tag[];
     readonly visibilityConfig?: outputs.wafv2.RuleGroupVisibilityConfig;
 }
 /**

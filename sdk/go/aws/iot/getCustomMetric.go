@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupCustomMetricResult struct {
 	// The Amazon Resource Number (ARN) of the custom metric.
 	MetricArn *string `pulumi:"metricArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []CustomMetricTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCustomMetricOutput(ctx *pulumi.Context, args LookupCustomMetricOutputArgs, opts ...pulumi.InvokeOption) LookupCustomMetricResultOutput {
@@ -83,8 +84,8 @@ func (o LookupCustomMetricResultOutput) MetricArn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupCustomMetricResultOutput) Tags() CustomMetricTagArrayOutput {
-	return o.ApplyT(func(v LookupCustomMetricResult) []CustomMetricTag { return v.Tags }).(CustomMetricTagArrayOutput)
+func (o LookupCustomMetricResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCustomMetricResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

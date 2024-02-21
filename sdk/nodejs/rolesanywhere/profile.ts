@@ -46,7 +46,7 @@ export class Profile extends pulumi.CustomResource {
     public readonly requireInstanceProperties!: pulumi.Output<boolean | undefined>;
     public readonly roleArns!: pulumi.Output<string[]>;
     public readonly sessionPolicy!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.rolesanywhere.ProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -100,5 +100,5 @@ export interface ProfileArgs {
     requireInstanceProperties?: pulumi.Input<boolean>;
     roleArns: pulumi.Input<pulumi.Input<string>[]>;
     sessionPolicy?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.ProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

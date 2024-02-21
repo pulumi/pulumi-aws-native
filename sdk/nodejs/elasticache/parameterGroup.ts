@@ -46,7 +46,7 @@ export class ParameterGroup extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
      */
     public readonly properties!: pulumi.Output<any | undefined>;
-    public readonly tags!: pulumi.Output<outputs.elasticache.ParameterGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.
@@ -94,5 +94,5 @@ export interface ParameterGroupArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
      */
     properties?: any;
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

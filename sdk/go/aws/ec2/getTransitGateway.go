@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,18 +28,18 @@ type LookupTransitGatewayArgs struct {
 }
 
 type LookupTransitGatewayResult struct {
-	AssociationDefaultRouteTableId *string             `pulumi:"associationDefaultRouteTableId"`
-	AutoAcceptSharedAttachments    *string             `pulumi:"autoAcceptSharedAttachments"`
-	DefaultRouteTableAssociation   *string             `pulumi:"defaultRouteTableAssociation"`
-	DefaultRouteTablePropagation   *string             `pulumi:"defaultRouteTablePropagation"`
-	Description                    *string             `pulumi:"description"`
-	DnsSupport                     *string             `pulumi:"dnsSupport"`
-	Id                             *string             `pulumi:"id"`
-	PropagationDefaultRouteTableId *string             `pulumi:"propagationDefaultRouteTableId"`
-	Tags                           []TransitGatewayTag `pulumi:"tags"`
-	TransitGatewayArn              *string             `pulumi:"transitGatewayArn"`
-	TransitGatewayCidrBlocks       []string            `pulumi:"transitGatewayCidrBlocks"`
-	VpnEcmpSupport                 *string             `pulumi:"vpnEcmpSupport"`
+	AssociationDefaultRouteTableId *string   `pulumi:"associationDefaultRouteTableId"`
+	AutoAcceptSharedAttachments    *string   `pulumi:"autoAcceptSharedAttachments"`
+	DefaultRouteTableAssociation   *string   `pulumi:"defaultRouteTableAssociation"`
+	DefaultRouteTablePropagation   *string   `pulumi:"defaultRouteTablePropagation"`
+	Description                    *string   `pulumi:"description"`
+	DnsSupport                     *string   `pulumi:"dnsSupport"`
+	Id                             *string   `pulumi:"id"`
+	PropagationDefaultRouteTableId *string   `pulumi:"propagationDefaultRouteTableId"`
+	Tags                           []aws.Tag `pulumi:"tags"`
+	TransitGatewayArn              *string   `pulumi:"transitGatewayArn"`
+	TransitGatewayCidrBlocks       []string  `pulumi:"transitGatewayCidrBlocks"`
+	VpnEcmpSupport                 *string   `pulumi:"vpnEcmpSupport"`
 }
 
 func LookupTransitGatewayOutput(ctx *pulumi.Context, args LookupTransitGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayResultOutput {
@@ -108,8 +109,8 @@ func (o LookupTransitGatewayResultOutput) PropagationDefaultRouteTableId() pulum
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.PropagationDefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTransitGatewayResultOutput) Tags() TransitGatewayTagArrayOutput {
-	return o.ApplyT(func(v LookupTransitGatewayResult) []TransitGatewayTag { return v.Tags }).(TransitGatewayTagArrayOutput)
+func (o LookupTransitGatewayResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupTransitGatewayResultOutput) TransitGatewayArn() pulumi.StringPtrOutput {

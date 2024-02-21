@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,7 +45,7 @@ type Broker struct {
 	StompEndpoints                  pulumi.StringArrayOutput          `pulumi:"stompEndpoints"`
 	StorageType                     pulumi.StringPtrOutput            `pulumi:"storageType"`
 	SubnetIds                       pulumi.StringArrayOutput          `pulumi:"subnetIds"`
-	Tags                            BrokerTagsEntryArrayOutput        `pulumi:"tags"`
+	Tags                            aws.TagArrayOutput                `pulumi:"tags"`
 	Users                           BrokerUserArrayOutput             `pulumi:"users"`
 	WssEndpoints                    pulumi.StringArrayOutput          `pulumi:"wssEndpoints"`
 }
@@ -139,7 +140,7 @@ type brokerArgs struct {
 	SecurityGroups                  []string                  `pulumi:"securityGroups"`
 	StorageType                     *string                   `pulumi:"storageType"`
 	SubnetIds                       []string                  `pulumi:"subnetIds"`
-	Tags                            []BrokerTagsEntry         `pulumi:"tags"`
+	Tags                            []aws.Tag                 `pulumi:"tags"`
 	Users                           []BrokerUser              `pulumi:"users"`
 }
 
@@ -163,7 +164,7 @@ type BrokerArgs struct {
 	SecurityGroups                  pulumi.StringArrayInput
 	StorageType                     pulumi.StringPtrInput
 	SubnetIds                       pulumi.StringArrayInput
-	Tags                            BrokerTagsEntryArrayInput
+	Tags                            aws.TagArrayInput
 	Users                           BrokerUserArrayInput
 }
 
@@ -308,8 +309,8 @@ func (o BrokerOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o BrokerOutput) Tags() BrokerTagsEntryArrayOutput {
-	return o.ApplyT(func(v *Broker) BrokerTagsEntryArrayOutput { return v.Tags }).(BrokerTagsEntryArrayOutput)
+func (o BrokerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Broker) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o BrokerOutput) Users() BrokerUserArrayOutput {

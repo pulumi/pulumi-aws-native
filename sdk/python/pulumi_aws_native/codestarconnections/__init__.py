@@ -11,5 +11,3 @@ from .get_repository_link import *
 from .get_sync_configuration import *
 from .repository_link import *
 from .sync_configuration import *
-from ._inputs import *
-from . import outputs

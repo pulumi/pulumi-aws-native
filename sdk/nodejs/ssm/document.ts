@@ -66,7 +66,7 @@ export class Document extends pulumi.CustomResource {
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
      */
-    public readonly tags!: pulumi.Output<outputs.ssm.DocumentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specify a target type to define the kinds of resources the document can run on.
      */
@@ -156,7 +156,7 @@ export interface DocumentArgs {
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Specify a target type to define the kinds of resources the document can run on.
      */

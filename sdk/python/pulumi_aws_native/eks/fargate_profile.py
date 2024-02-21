@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FargateProfileArgs', 'FargateProfile']
@@ -21,13 +23,13 @@ class FargateProfileArgs:
                  selectors: pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]],
                  fargate_profile_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FargateProfile resource.
         :param pulumi.Input[str] cluster_name: Name of the Cluster
         :param pulumi.Input[str] pod_execution_role_arn: The IAM policy arn for pods
         :param pulumi.Input[str] fargate_profile_name: Name of FargateProfile
-        :param pulumi.Input[Sequence[pulumi.Input['FargateProfileTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "pod_execution_role_arn", pod_execution_role_arn)
@@ -95,14 +97,14 @@ class FargateProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -116,7 +118,7 @@ class FargateProfile(pulumi.CustomResource):
                  pod_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Schema for AWS::EKS::FargateProfile
@@ -126,7 +128,7 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Name of the Cluster
         :param pulumi.Input[str] fargate_profile_name: Name of FargateProfile
         :param pulumi.Input[str] pod_execution_role_arn: The IAM policy arn for pods
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -157,7 +159,7 @@ class FargateProfile(pulumi.CustomResource):
                  pod_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -254,7 +256,7 @@ class FargateProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FargateProfileTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

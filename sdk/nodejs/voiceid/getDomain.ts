@@ -24,7 +24,7 @@ export interface GetDomainArgs {
 
 export interface GetDomainResult {
     readonly domainId?: string;
-    readonly tags?: outputs.voiceid.DomainTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.

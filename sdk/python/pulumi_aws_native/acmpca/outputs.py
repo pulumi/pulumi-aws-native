@@ -25,7 +25,6 @@ __all__ = [
     'CertificateAuthorityOtherName',
     'CertificateAuthorityRevocationConfiguration',
     'CertificateAuthoritySubject',
-    'CertificateAuthorityTag',
     'CertificateCustomAttribute',
     'CertificateCustomExtension',
     'CertificateEdiPartyName',
@@ -925,27 +924,6 @@ class CertificateAuthoritySubject(dict):
     @pulumi.getter
     def title(self) -> Optional[str]:
         return pulumi.get(self, "title")
-
-
-@pulumi.output_type
-class CertificateAuthorityTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

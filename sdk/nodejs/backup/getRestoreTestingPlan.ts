@@ -28,7 +28,7 @@ export interface GetRestoreTestingPlanResult {
     readonly scheduleExpression?: string;
     readonly scheduleExpressionTimezone?: string;
     readonly startWindowHours?: number;
-    readonly tags?: outputs.backup.RestoreTestingPlanTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::Backup::RestoreTestingPlan Resource Type

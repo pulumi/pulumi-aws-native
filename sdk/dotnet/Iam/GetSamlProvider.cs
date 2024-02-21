@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Iam
         /// </summary>
         public readonly string? Arn;
         public readonly string? SamlMetadataDocument;
-        public readonly ImmutableArray<Outputs.SamlProviderTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSamlProviderResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Iam
 
             string? samlMetadataDocument,
 
-            ImmutableArray<Outputs.SamlProviderTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             SamlMetadataDocument = samlMetadataDocument;

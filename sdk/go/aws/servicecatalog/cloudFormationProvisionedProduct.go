@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type CloudFormationProvisionedProduct struct {
 	ProvisioningParameters   CloudFormationProvisionedProductProvisioningParameterArrayOutput `pulumi:"provisioningParameters"`
 	ProvisioningPreferences  CloudFormationProvisionedProductProvisioningPreferencesPtrOutput `pulumi:"provisioningPreferences"`
 	RecordId                 pulumi.StringOutput                                              `pulumi:"recordId"`
-	Tags                     CloudFormationProvisionedProductTagArrayOutput                   `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                                               `pulumi:"tags"`
 }
 
 // NewCloudFormationProvisionedProduct registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type cloudFormationProvisionedProductArgs struct {
 	ProvisioningArtifactName *string                                                  `pulumi:"provisioningArtifactName"`
 	ProvisioningParameters   []CloudFormationProvisionedProductProvisioningParameter  `pulumi:"provisioningParameters"`
 	ProvisioningPreferences  *CloudFormationProvisionedProductProvisioningPreferences `pulumi:"provisioningPreferences"`
-	Tags                     []CloudFormationProvisionedProductTag                    `pulumi:"tags"`
+	Tags                     []aws.Tag                                                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CloudFormationProvisionedProduct resource.
@@ -106,7 +107,7 @@ type CloudFormationProvisionedProductArgs struct {
 	ProvisioningArtifactName pulumi.StringPtrInput
 	ProvisioningParameters   CloudFormationProvisionedProductProvisioningParameterArrayInput
 	ProvisioningPreferences  CloudFormationProvisionedProductProvisioningPreferencesPtrInput
-	Tags                     CloudFormationProvisionedProductTagArrayInput
+	Tags                     aws.TagArrayInput
 }
 
 func (CloudFormationProvisionedProductArgs) ElementType() reflect.Type {
@@ -213,10 +214,8 @@ func (o CloudFormationProvisionedProductOutput) RecordId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringOutput { return v.RecordId }).(pulumi.StringOutput)
 }
 
-func (o CloudFormationProvisionedProductOutput) Tags() CloudFormationProvisionedProductTagArrayOutput {
-	return o.ApplyT(func(v *CloudFormationProvisionedProduct) CloudFormationProvisionedProductTagArrayOutput {
-		return v.Tags
-	}).(CloudFormationProvisionedProductTagArrayOutput)
+func (o CloudFormationProvisionedProductOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProduct) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,9 +29,9 @@ type LookupServerCertificateArgs struct {
 
 type LookupServerCertificateResult struct {
 	// Amazon Resource Name (ARN) of the server certificate
-	Arn  *string                `pulumi:"arn"`
-	Path *string                `pulumi:"path"`
-	Tags []ServerCertificateTag `pulumi:"tags"`
+	Arn  *string   `pulumi:"arn"`
+	Path *string   `pulumi:"path"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupServerCertificateOutput(ctx *pulumi.Context, args LookupServerCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupServerCertificateResultOutput {
@@ -77,8 +78,8 @@ func (o LookupServerCertificateResultOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerCertificateResult) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupServerCertificateResultOutput) Tags() ServerCertificateTagArrayOutput {
-	return o.ApplyT(func(v LookupServerCertificateResult) []ServerCertificateTag { return v.Tags }).(ServerCertificateTagArrayOutput)
+func (o LookupServerCertificateResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServerCertificateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

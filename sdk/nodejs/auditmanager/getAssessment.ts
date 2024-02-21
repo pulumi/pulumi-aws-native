@@ -40,7 +40,7 @@ export interface GetAssessmentResult {
     /**
      * The tags associated with the assessment.
      */
-    readonly tags?: outputs.auditmanager.AssessmentTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * An entity that defines the scope of audit evidence collected by AWS Audit Manager.

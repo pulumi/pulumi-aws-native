@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         public readonly string? Id;
         public readonly Outputs.ConfigurationSetReputationOptions? ReputationOptions;
         public readonly Outputs.ConfigurationSetSendingOptions? SendingOptions;
-        public readonly ImmutableArray<Outputs.ConfigurationSetTags> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.ConfigurationSetTrackingOptions? TrackingOptions;
 
         [OutputConstructor]
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.PinpointEmail
 
             Outputs.ConfigurationSetSendingOptions? sendingOptions,
 
-            ImmutableArray<Outputs.ConfigurationSetTags> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.ConfigurationSetTrackingOptions? trackingOptions)
         {

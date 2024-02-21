@@ -24,7 +24,7 @@ export interface GetTlsInspectionConfigurationArgs {
 
 export interface GetTlsInspectionConfigurationResult {
     readonly description?: string;
-    readonly tags?: outputs.networkfirewall.TlsInspectionConfigurationTag[];
+    readonly tags?: outputs.Tag[];
     readonly tlsInspectionConfiguration?: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration;
     readonly tlsInspectionConfigurationArn?: string;
     readonly tlsInspectionConfigurationId?: string;

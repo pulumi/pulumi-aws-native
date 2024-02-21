@@ -51,7 +51,7 @@ export interface GetResponsePlanResult {
     /**
      * The tags to apply to the response plan.
      */
-    readonly tags?: outputs.ssmincidents.ResponsePlanTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource type definition for AWS::SSMIncidents::ResponsePlan

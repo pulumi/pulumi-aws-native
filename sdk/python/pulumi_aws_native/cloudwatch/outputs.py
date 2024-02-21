@@ -27,7 +27,6 @@ __all__ = [
     'MetricStreamFilter',
     'MetricStreamStatisticsConfiguration',
     'MetricStreamStatisticsMetric',
-    'MetricStreamTag',
 ]
 
 @pulumi.output_type
@@ -795,38 +794,5 @@ class MetricStreamStatisticsMetric(dict):
         The namespace of the metric.
         """
         return pulumi.get(self, "namespace")
-
-
-@pulumi.output_type
-class MetricStreamTag(dict):
-    """
-    Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
-        :param str key: A unique identifier for the tag.
-        :param str value: String which you can use to describe or define the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A unique identifier for the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        String which you can use to describe or define the tag.
-        """
-        return pulumi.get(self, "value")
 
 

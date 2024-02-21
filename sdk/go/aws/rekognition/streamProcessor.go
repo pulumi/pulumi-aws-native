@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type StreamProcessor struct {
 	// Detailed status message about the stream processor.
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// An array of key-value pairs to apply to this resource.
-	Tags StreamProcessorTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewStreamProcessor registers a new resource with the given unique name, arguments, and options.
@@ -121,7 +122,7 @@ type streamProcessorArgs struct {
 	RoleArn       string                        `pulumi:"roleArn"`
 	S3Destination *StreamProcessorS3Destination `pulumi:"s3Destination"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []StreamProcessorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamProcessor resource.
@@ -144,7 +145,7 @@ type StreamProcessorArgs struct {
 	RoleArn       pulumi.StringInput
 	S3Destination StreamProcessorS3DestinationPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags StreamProcessorTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (StreamProcessorArgs) ElementType() reflect.Type {
@@ -252,8 +253,8 @@ func (o StreamProcessorOutput) StatusMessage() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o StreamProcessorOutput) Tags() StreamProcessorTagArrayOutput {
-	return o.ApplyT(func(v *StreamProcessor) StreamProcessorTagArrayOutput { return v.Tags }).(StreamProcessorTagArrayOutput)
+func (o StreamProcessorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *StreamProcessor) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

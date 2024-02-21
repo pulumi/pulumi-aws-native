@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class GetModelResult
     {
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.ModelTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetModelResult(
             string? id,
 
-            ImmutableArray<Outputs.ModelTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Tags = tags;

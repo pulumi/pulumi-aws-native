@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type Stage struct {
 	// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags StageTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled pulumi.BoolPtrOutput `pulumi:"tracingEnabled"`
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
@@ -117,7 +118,7 @@ type stageArgs struct {
 	// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 	StageName *string `pulumi:"stageName"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags []StageTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled *bool `pulumi:"tracingEnabled"`
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
@@ -149,7 +150,7 @@ type StageArgs struct {
 	// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 	StageName pulumi.StringPtrInput
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags StageTagArrayInput
+	Tags aws.TagArrayInput
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled pulumi.BoolPtrInput
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
@@ -249,8 +250,8 @@ func (o StageOutput) StageName() pulumi.StringPtrOutput {
 }
 
 // The collection of tags. Each tag element is associated with a given resource.
-func (o StageOutput) Tags() StageTagArrayOutput {
-	return o.ApplyT(func(v *Stage) StageTagArrayOutput { return v.Tags }).(StageTagArrayOutput)
+func (o StageOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Stage) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Specifies whether active tracing with X-ray is enabled for the Stage.

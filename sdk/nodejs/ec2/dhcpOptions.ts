@@ -61,7 +61,7 @@ export class DhcpOptions extends pulumi.CustomResource {
     /**
      * Any tags assigned to the DHCP options set.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.DhcpOptionsTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DhcpOptions resource with the given unique name, arguments, and options.
@@ -124,5 +124,5 @@ export interface DhcpOptionsArgs {
     /**
      * Any tags assigned to the DHCP options set.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.DhcpOptionsTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

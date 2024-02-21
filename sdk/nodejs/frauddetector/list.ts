@@ -64,7 +64,7 @@ export class List extends pulumi.CustomResource {
     /**
      * Tags associated with this list.
      */
-    public readonly tags!: pulumi.Output<outputs.frauddetector.ListTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The variable type of the list.
      */
@@ -125,7 +125,7 @@ export interface ListArgs {
     /**
      * Tags associated with this list.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.ListTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The variable type of the list.
      */

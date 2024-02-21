@@ -67,7 +67,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.osis.PipelineTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The VPC interface endpoints that have access to the pipeline.
      */
@@ -153,6 +153,6 @@ export interface PipelineArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.osis.PipelineTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcOptions?: pulumi.Input<inputs.osis.PipelineVpcOptionsArgs>;
 }

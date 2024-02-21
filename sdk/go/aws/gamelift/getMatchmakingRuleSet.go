@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupMatchmakingRuleSetResult struct {
 	// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
 	CreationTime *string `pulumi:"creationTime"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []MatchmakingRuleSetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupMatchmakingRuleSetOutput(ctx *pulumi.Context, args LookupMatchmakingRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupMatchmakingRuleSetResultOutput {
@@ -83,8 +84,8 @@ func (o LookupMatchmakingRuleSetResultOutput) CreationTime() pulumi.StringPtrOut
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupMatchmakingRuleSetResultOutput) Tags() MatchmakingRuleSetTagArrayOutput {
-	return o.ApplyT(func(v LookupMatchmakingRuleSetResult) []MatchmakingRuleSetTag { return v.Tags }).(MatchmakingRuleSetTagArrayOutput)
+func (o LookupMatchmakingRuleSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMatchmakingRuleSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -49,7 +49,7 @@ export interface GetTaskDefinitionResult {
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    readonly tags?: outputs.iotwireless.TaskDefinitionTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * A filter to list only the wireless gateway task definitions that use this task definition type
      */

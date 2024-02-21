@@ -31,7 +31,7 @@ export interface GetCaCertificateResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.iot.CaCertificateTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Registers a CA Certificate in IoT.

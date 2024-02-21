@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -59,7 +60,7 @@ type LookupEnvironmentResult struct {
 	// An option to define if software updates should be applied within a maintenance window.
 	SoftwareSetUpdateSchedule *EnvironmentSoftwareSetUpdateSchedule `pulumi:"softwareSetUpdateSchedule"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []EnvironmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The timestamp in unix epoch format when environment was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
@@ -180,8 +181,8 @@ func (o LookupEnvironmentResultOutput) SoftwareSetUpdateSchedule() EnvironmentSo
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupEnvironmentResultOutput) Tags() EnvironmentTagArrayOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentTag { return v.Tags }).(EnvironmentTagArrayOutput)
+func (o LookupEnvironmentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The timestamp in unix epoch format when environment was last updated.

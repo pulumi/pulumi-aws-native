@@ -26,7 +26,7 @@ export interface GetBrowserSettingsResult {
     readonly associatedPortalArns?: string[];
     readonly browserPolicy?: string;
     readonly browserSettingsArn?: string;
-    readonly tags?: outputs.workspacesweb.BrowserSettingsTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type

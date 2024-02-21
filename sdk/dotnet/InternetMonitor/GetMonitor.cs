@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.InternetMonitor
         public readonly string? ProcessingStatusInfo;
         public readonly ImmutableArray<string> Resources;
         public readonly Pulumi.AwsNative.InternetMonitor.MonitorConfigState? Status;
-        public readonly ImmutableArray<Outputs.MonitorTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly int? TrafficPercentageToMonitor;
 
         [OutputConstructor]
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.InternetMonitor
 
             Pulumi.AwsNative.InternetMonitor.MonitorConfigState? status,
 
-            ImmutableArray<Outputs.MonitorTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? trafficPercentageToMonitor)
         {

@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// The tags (keys and values) associated with the event integration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EventIntegrationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEventIntegrationResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.AppIntegrations
 
             string? eventIntegrationArn,
 
-            ImmutableArray<Outputs.EventIntegrationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             EventIntegrationArn = eventIntegrationArn;

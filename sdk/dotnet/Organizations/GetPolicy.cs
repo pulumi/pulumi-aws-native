@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Organizations
         /// <summary>
         /// A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PolicyTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Organizations
 
             string? name,
 
-            ImmutableArray<Outputs.PolicyTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> targetIds)
         {

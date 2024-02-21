@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['TargetGroupArgs', 'TargetGroup']
@@ -29,7 +31,7 @@ class TargetGroupArgs:
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]] = None,
@@ -50,7 +52,7 @@ class TargetGroupArgs:
         :param pulumi.Input[int] port: The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets.
         :param pulumi.Input[str] protocol_version: [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
-        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTagArgs']]] tags: The tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]] target_group_attributes: The attributes.
         :param pulumi.Input[str] target_type: The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]] targets: The targets.
@@ -254,14 +256,14 @@ class TargetGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -343,7 +345,7 @@ class TargetGroup(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupAttributeArgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetDescriptionArgs']]]]] = None,
@@ -368,7 +370,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[int] port: The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets.
         :param pulumi.Input[str] protocol_version: [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTagArgs']]]] tags: The tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupAttributeArgs']]]] target_group_attributes: The attributes.
         :param pulumi.Input[str] target_type: The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetDescriptionArgs']]]] targets: The targets.
@@ -412,7 +414,7 @@ class TargetGroup(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupAttributeArgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetDescriptionArgs']]]]] = None,
@@ -613,7 +615,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TargetGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags.
         """

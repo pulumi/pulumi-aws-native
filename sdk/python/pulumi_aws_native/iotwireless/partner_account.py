@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class PartnerAccountArgs:
                  sidewalk: Optional[pulumi.Input['PartnerAccountSidewalkAccountInfoArgs']] = None,
                  sidewalk_response: Optional[pulumi.Input['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']] = None,
                  sidewalk_update: Optional[pulumi.Input['PartnerAccountSidewalkUpdateAccountArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerAccountTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PartnerAccount resource.
         :param pulumi.Input[bool] account_linked: Whether the partner account is linked to the AWS account.
@@ -32,7 +34,7 @@ class PartnerAccountArgs:
         :param pulumi.Input['PartnerAccountSidewalkAccountInfoArgs'] sidewalk: The Sidewalk account credentials.
         :param pulumi.Input['PartnerAccountSidewalkAccountInfoWithFingerprintArgs'] sidewalk_response: The Sidewalk account credentials.
         :param pulumi.Input['PartnerAccountSidewalkUpdateAccountArgs'] sidewalk_update: The Sidewalk account credentials.
-        :param pulumi.Input[Sequence[pulumi.Input['PartnerAccountTagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
         """
         if account_linked is not None:
             pulumi.set(__self__, "account_linked", account_linked)
@@ -123,14 +125,14 @@ class PartnerAccountArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartnerAccountTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the destination.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerAccountTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -150,7 +152,7 @@ class PartnerAccount(pulumi.CustomResource):
                  sidewalk: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoArgs']]] = None,
                  sidewalk_response: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']]] = None,
                  sidewalk_update: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkUpdateAccountArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerAccountTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Create and manage partner account
@@ -163,7 +165,7 @@ class PartnerAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoArgs']] sidewalk: The Sidewalk account credentials.
         :param pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']] sidewalk_response: The Sidewalk account credentials.
         :param pulumi.Input[pulumi.InputType['PartnerAccountSidewalkUpdateAccountArgs']] sidewalk_update: The Sidewalk account credentials.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerAccountTagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
         """
         ...
     @overload
@@ -195,7 +197,7 @@ class PartnerAccount(pulumi.CustomResource):
                  sidewalk: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoArgs']]] = None,
                  sidewalk_response: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']]] = None,
                  sidewalk_update: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkUpdateAccountArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerAccountTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""PartnerAccount is deprecated: PartnerAccount is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -316,7 +318,7 @@ class PartnerAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PartnerAccountTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the destination.
         """

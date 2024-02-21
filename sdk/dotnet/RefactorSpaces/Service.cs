@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ServiceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("urlEndpoint")]
         public Output<Outputs.ServiceUrlEndpointInput?> UrlEndpoint { get; private set; } = null!;
@@ -126,14 +126,14 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ServiceTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
-        public InputList<Inputs.ServiceTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ServiceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type PhoneNumber struct {
 	// The source phone number arn.
 	SourcePhoneNumberArn pulumi.StringPtrOutput `pulumi:"sourcePhoneNumberArn"`
 	// One or more tags.
-	Tags PhoneNumberTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the target the phone number is claimed to.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 	// The phone number type
@@ -95,7 +96,7 @@ type phoneNumberArgs struct {
 	// The source phone number arn.
 	SourcePhoneNumberArn *string `pulumi:"sourcePhoneNumberArn"`
 	// One or more tags.
-	Tags []PhoneNumberTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the target the phone number is claimed to.
 	TargetArn string `pulumi:"targetArn"`
 	// The phone number type
@@ -113,7 +114,7 @@ type PhoneNumberArgs struct {
 	// The source phone number arn.
 	SourcePhoneNumberArn pulumi.StringPtrInput
 	// One or more tags.
-	Tags PhoneNumberTagArrayInput
+	Tags aws.TagArrayInput
 	// The ARN of the target the phone number is claimed to.
 	TargetArn pulumi.StringInput
 	// The phone number type
@@ -188,8 +189,8 @@ func (o PhoneNumberOutput) SourcePhoneNumberArn() pulumi.StringPtrOutput {
 }
 
 // One or more tags.
-func (o PhoneNumberOutput) Tags() PhoneNumberTagArrayOutput {
-	return o.ApplyT(func(v *PhoneNumber) PhoneNumberTagArrayOutput { return v.Tags }).(PhoneNumberTagArrayOutput)
+func (o PhoneNumberOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PhoneNumber) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the target the phone number is claimed to.

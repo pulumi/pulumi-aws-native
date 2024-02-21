@@ -42,7 +42,7 @@ export class StreamingDistribution extends pulumi.CustomResource {
 
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     public readonly streamingDistributionConfig!: pulumi.Output<outputs.cloudfront.StreamingDistributionConfig>;
-    public readonly tags!: pulumi.Output<outputs.cloudfront.StreamingDistributionTag[]>;
+    public readonly tags!: pulumi.Output<outputs.Tag[]>;
 
     /**
      * Create a StreamingDistribution resource with the given unique name, arguments, and options.
@@ -81,5 +81,5 @@ export class StreamingDistribution extends pulumi.CustomResource {
  */
 export interface StreamingDistributionArgs {
     streamingDistributionConfig: pulumi.Input<inputs.cloudfront.StreamingDistributionConfigArgs>;
-    tags: pulumi.Input<pulumi.Input<inputs.cloudfront.StreamingDistributionTagArgs>[]>;
+    tags: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

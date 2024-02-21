@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// A list of key-value pairs that contain metadata for the device profile.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DeviceProfileTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,14 +97,14 @@ namespace Pulumi.AwsNative.IoTWireless
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DeviceProfileTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the device profile.
         /// </summary>
-        public InputList<Inputs.DeviceProfileTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DeviceProfileTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

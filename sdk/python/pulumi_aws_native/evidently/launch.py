@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['LaunchArgs', 'Launch']
@@ -24,11 +26,11 @@ class LaunchArgs:
                  metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricDefinitionObjectArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Launch resource.
         :param pulumi.Input['LaunchExecutionStatusObjectArgs'] execution_status: Start or Stop Launch Launch. Default is not started.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "groups", groups)
         pulumi.set(__self__, "project", project)
@@ -123,14 +125,14 @@ class LaunchArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -147,7 +149,7 @@ class Launch(pulumi.CustomResource):
                  project: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
                  scheduled_splits_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchStepConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Evidently::Launch.
@@ -155,7 +157,7 @@ class Launch(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LaunchExecutionStatusObjectArgs']] execution_status: Start or Stop Launch Launch. Default is not started.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -189,7 +191,7 @@ class Launch(pulumi.CustomResource):
                  project: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
                  scheduled_splits_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchStepConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,7 +303,7 @@ class Launch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

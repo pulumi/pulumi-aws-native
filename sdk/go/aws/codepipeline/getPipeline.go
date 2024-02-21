@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LookupPipelineResult struct {
 	RestartExecutionOnUpdate       *bool                         `pulumi:"restartExecutionOnUpdate"`
 	RoleArn                        *string                       `pulumi:"roleArn"`
 	Stages                         []PipelineStageDeclaration    `pulumi:"stages"`
-	Tags                           []PipelineTag                 `pulumi:"tags"`
+	Tags                           []aws.Tag                     `pulumi:"tags"`
 	Triggers                       []PipelineTriggerDeclaration  `pulumi:"triggers"`
 	Variables                      []PipelineVariableDeclaration `pulumi:"variables"`
 	Version                        *string                       `pulumi:"version"`
@@ -113,8 +114,8 @@ func (o LookupPipelineResultOutput) Stages() PipelineStageDeclarationArrayOutput
 	return o.ApplyT(func(v LookupPipelineResult) []PipelineStageDeclaration { return v.Stages }).(PipelineStageDeclarationArrayOutput)
 }
 
-func (o LookupPipelineResultOutput) Tags() PipelineTagArrayOutput {
-	return o.ApplyT(func(v LookupPipelineResult) []PipelineTag { return v.Tags }).(PipelineTagArrayOutput)
+func (o LookupPipelineResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPipelineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupPipelineResultOutput) Triggers() PipelineTriggerDeclarationArrayOutput {

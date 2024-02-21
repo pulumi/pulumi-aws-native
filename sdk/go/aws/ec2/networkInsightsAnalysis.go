@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type NetworkInsightsAnalysis struct {
 	Status                     NetworkInsightsAnalysisStatusOutput                 `pulumi:"status"`
 	StatusMessage              pulumi.StringOutput                                 `pulumi:"statusMessage"`
 	SuggestedAccounts          pulumi.StringArrayOutput                            `pulumi:"suggestedAccounts"`
-	Tags                       NetworkInsightsAnalysisTagArrayOutput               `pulumi:"tags"`
+	Tags                       aws.TagArrayOutput                                  `pulumi:"tags"`
 }
 
 // NewNetworkInsightsAnalysis registers a new resource with the given unique name, arguments, and options.
@@ -81,10 +82,10 @@ func (NetworkInsightsAnalysisState) ElementType() reflect.Type {
 }
 
 type networkInsightsAnalysisArgs struct {
-	AdditionalAccounts    []string                     `pulumi:"additionalAccounts"`
-	FilterInArns          []string                     `pulumi:"filterInArns"`
-	NetworkInsightsPathId string                       `pulumi:"networkInsightsPathId"`
-	Tags                  []NetworkInsightsAnalysisTag `pulumi:"tags"`
+	AdditionalAccounts    []string  `pulumi:"additionalAccounts"`
+	FilterInArns          []string  `pulumi:"filterInArns"`
+	NetworkInsightsPathId string    `pulumi:"networkInsightsPathId"`
+	Tags                  []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsAnalysis resource.
@@ -92,7 +93,7 @@ type NetworkInsightsAnalysisArgs struct {
 	AdditionalAccounts    pulumi.StringArrayInput
 	FilterInArns          pulumi.StringArrayInput
 	NetworkInsightsPathId pulumi.StringInput
-	Tags                  NetworkInsightsAnalysisTagArrayInput
+	Tags                  aws.TagArrayInput
 }
 
 func (NetworkInsightsAnalysisArgs) ElementType() reflect.Type {
@@ -194,8 +195,8 @@ func (o NetworkInsightsAnalysisOutput) SuggestedAccounts() pulumi.StringArrayOut
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringArrayOutput { return v.SuggestedAccounts }).(pulumi.StringArrayOutput)
 }
 
-func (o NetworkInsightsAnalysisOutput) Tags() NetworkInsightsAnalysisTagArrayOutput {
-	return o.ApplyT(func(v *NetworkInsightsAnalysis) NetworkInsightsAnalysisTagArrayOutput { return v.Tags }).(NetworkInsightsAnalysisTagArrayOutput)
+func (o NetworkInsightsAnalysisOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

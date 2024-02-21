@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// <summary>
         /// An array of key-value pairs associated with the Kinesis Video Stream.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StreamTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetStreamResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.KinesisVideo
 
             string? mediaType,
 
-            ImmutableArray<Outputs.StreamTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DataRetentionInHours = dataRetentionInHours;

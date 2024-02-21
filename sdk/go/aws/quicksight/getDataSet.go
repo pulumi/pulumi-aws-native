@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -57,7 +58,7 @@ type LookupDataSetResult struct {
 	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags []DataSetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetResultOutput {
@@ -180,8 +181,8 @@ func (o LookupDataSetResultOutput) RowLevelPermissionTagConfiguration() DataSetR
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-func (o LookupDataSetResultOutput) Tags() DataSetTagArrayOutput {
-	return o.ApplyT(func(v LookupDataSetResult) []DataSetTag { return v.Tags }).(DataSetTagArrayOutput)
+func (o LookupDataSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

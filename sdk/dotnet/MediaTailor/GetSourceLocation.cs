@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// <summary>
         /// The tags to assign to the source location.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SourceLocationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSourceLocationResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.MediaTailor
 
             ImmutableArray<Outputs.SourceLocationSegmentDeliveryConfiguration> segmentDeliveryConfigurations,
 
-            ImmutableArray<Outputs.SourceLocationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AccessConfiguration = accessConfiguration;
             Arn = arn;

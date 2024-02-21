@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['ProjectArgs', 'Project']
 
@@ -20,14 +20,14 @@ class ProjectArgs:
                  asset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[str] portal_id: The ID of the portal in which to create the project.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] asset_ids: The IDs of the assets to be associated to the project.
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[str] project_name: A friendly name for the project.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: A list of key-value pairs that contain metadata for the project.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the project.
         """
         pulumi.set(__self__, "portal_id", portal_id)
         if asset_ids is not None:
@@ -89,14 +89,14 @@ class ProjectArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the project.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -109,7 +109,7 @@ class Project(pulumi.CustomResource):
                  portal_id: Optional[pulumi.Input[str]] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Project
@@ -120,7 +120,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] portal_id: The ID of the portal in which to create the project.
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[str] project_name: A friendly name for the project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]] tags: A list of key-value pairs that contain metadata for the project.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the project.
         """
         ...
     @overload
@@ -150,7 +150,7 @@ class Project(pulumi.CustomResource):
                  portal_id: Optional[pulumi.Input[str]] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -252,7 +252,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the project.
         """

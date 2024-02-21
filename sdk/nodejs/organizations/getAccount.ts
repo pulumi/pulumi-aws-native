@@ -61,7 +61,7 @@ export interface GetAccountResult {
     /**
      * A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
      */
-    readonly tags?: outputs.organizations.AccountTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * You can use AWS::Organizations::Account to manage accounts in organization.

@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string?> SecurityPolicy { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DomainNameTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -122,10 +122,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? SecurityPolicy { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DomainNameTagArgs>? _tags;
-        public InputList<Inputs.DomainNameTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DomainNameTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

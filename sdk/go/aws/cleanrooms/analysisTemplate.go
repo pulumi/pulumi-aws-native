@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type AnalysisTemplate struct {
 	Schema                     AnalysisTemplateAnalysisSchemaOutput         `pulumi:"schema"`
 	Source                     AnalysisTemplateAnalysisSourceOutput         `pulumi:"source"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
-	Tags AnalysisTemplateTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAnalysisTemplate registers a new resource with the given unique name, arguments, and options.
@@ -98,7 +99,7 @@ type analysisTemplateArgs struct {
 	Name                 *string                             `pulumi:"name"`
 	Source               AnalysisTemplateAnalysisSource      `pulumi:"source"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
-	Tags []AnalysisTemplateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AnalysisTemplate resource.
@@ -111,7 +112,7 @@ type AnalysisTemplateArgs struct {
 	Name                 pulumi.StringPtrInput
 	Source               AnalysisTemplateAnalysisSourceInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
-	Tags AnalysisTemplateTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AnalysisTemplateArgs) ElementType() reflect.Type {
@@ -201,8 +202,8 @@ func (o AnalysisTemplateOutput) Source() AnalysisTemplateAnalysisSourceOutput {
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
-func (o AnalysisTemplateOutput) Tags() AnalysisTemplateTagArrayOutput {
-	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateTagArrayOutput { return v.Tags }).(AnalysisTemplateTagArrayOutput)
+func (o AnalysisTemplateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AnalysisTemplate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

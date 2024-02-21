@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupProfileResult struct {
 	// A unique identifier for the profile
 	ProfileId *string `pulumi:"profileId"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProfileOutput(ctx *pulumi.Context, args LookupProfileOutputArgs, opts ...pulumi.InvokeOption) LookupProfileResultOutput {
@@ -97,8 +98,8 @@ func (o LookupProfileResultOutput) ProfileId() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupProfileResultOutput) Tags() ProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupProfileResult) []ProfileTag { return v.Tags }).(ProfileTagArrayOutput)
+func (o LookupProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

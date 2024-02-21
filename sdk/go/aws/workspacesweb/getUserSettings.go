@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupUserSettingsResult struct {
 	IdleDisconnectTimeoutInMinutes     *float64                                        `pulumi:"idleDisconnectTimeoutInMinutes"`
 	PasteAllowed                       *UserSettingsEnabledType                        `pulumi:"pasteAllowed"`
 	PrintAllowed                       *UserSettingsEnabledType                        `pulumi:"printAllowed"`
-	Tags                               []UserSettingsTag                               `pulumi:"tags"`
+	Tags                               []aws.Tag                                       `pulumi:"tags"`
 	UploadAllowed                      *UserSettingsEnabledType                        `pulumi:"uploadAllowed"`
 	UserSettingsArn                    *string                                         `pulumi:"userSettingsArn"`
 }
@@ -109,8 +110,8 @@ func (o LookupUserSettingsResultOutput) PrintAllowed() UserSettingsEnabledTypePt
 	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsEnabledType { return v.PrintAllowed }).(UserSettingsEnabledTypePtrOutput)
 }
 
-func (o LookupUserSettingsResultOutput) Tags() UserSettingsTagArrayOutput {
-	return o.ApplyT(func(v LookupUserSettingsResult) []UserSettingsTag { return v.Tags }).(UserSettingsTagArrayOutput)
+func (o LookupUserSettingsResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupUserSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupUserSettingsResultOutput) UploadAllowed() UserSettingsEnabledTypePtrOutput {

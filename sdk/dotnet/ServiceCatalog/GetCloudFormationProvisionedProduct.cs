@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public readonly ImmutableArray<Outputs.CloudFormationProvisionedProductProvisioningParameter> ProvisioningParameters;
         public readonly Outputs.CloudFormationProvisionedProductProvisioningPreferences? ProvisioningPreferences;
         public readonly string? RecordId;
-        public readonly ImmutableArray<Outputs.CloudFormationProvisionedProductTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCloudFormationProvisionedProductResult(
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
             string? recordId,
 
-            ImmutableArray<Outputs.CloudFormationProvisionedProductTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AcceptLanguage = acceptLanguage;
             CloudformationStackArn = cloudformationStackArn;

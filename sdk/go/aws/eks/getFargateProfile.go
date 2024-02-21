@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupFargateProfileArgs struct {
 type LookupFargateProfileResult struct {
 	Arn *string `pulumi:"arn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []FargateProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFargateProfileOutput(ctx *pulumi.Context, args LookupFargateProfileOutputArgs, opts ...pulumi.InvokeOption) LookupFargateProfileResultOutput {
@@ -78,8 +79,8 @@ func (o LookupFargateProfileResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupFargateProfileResultOutput) Tags() FargateProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupFargateProfileResult) []FargateProfileTag { return v.Tags }).(FargateProfileTagArrayOutput)
+func (o LookupFargateProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFargateProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

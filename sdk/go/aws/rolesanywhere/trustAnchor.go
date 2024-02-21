@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type TrustAnchor struct {
 	Name                 pulumi.StringOutput                       `pulumi:"name"`
 	NotificationSettings TrustAnchorNotificationSettingArrayOutput `pulumi:"notificationSettings"`
 	Source               TrustAnchorSourceOutput                   `pulumi:"source"`
-	Tags                 TrustAnchorTagArrayOutput                 `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput                        `pulumi:"tags"`
 	TrustAnchorArn       pulumi.StringOutput                       `pulumi:"trustAnchorArn"`
 	TrustAnchorId        pulumi.StringOutput                       `pulumi:"trustAnchorId"`
 }
@@ -72,7 +73,7 @@ type trustAnchorArgs struct {
 	Name                 *string                          `pulumi:"name"`
 	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
 	Source               TrustAnchorSource                `pulumi:"source"`
-	Tags                 []TrustAnchorTag                 `pulumi:"tags"`
+	Tags                 []aws.Tag                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustAnchor resource.
@@ -81,7 +82,7 @@ type TrustAnchorArgs struct {
 	Name                 pulumi.StringPtrInput
 	NotificationSettings TrustAnchorNotificationSettingArrayInput
 	Source               TrustAnchorSourceInput
-	Tags                 TrustAnchorTagArrayInput
+	Tags                 aws.TagArrayInput
 }
 
 func (TrustAnchorArgs) ElementType() reflect.Type {
@@ -137,8 +138,8 @@ func (o TrustAnchorOutput) Source() TrustAnchorSourceOutput {
 	return o.ApplyT(func(v *TrustAnchor) TrustAnchorSourceOutput { return v.Source }).(TrustAnchorSourceOutput)
 }
 
-func (o TrustAnchorOutput) Tags() TrustAnchorTagArrayOutput {
-	return o.ApplyT(func(v *TrustAnchor) TrustAnchorTagArrayOutput { return v.Tags }).(TrustAnchorTagArrayOutput)
+func (o TrustAnchorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TrustAnchor) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TrustAnchorOutput) TrustAnchorArn() pulumi.StringOutput {

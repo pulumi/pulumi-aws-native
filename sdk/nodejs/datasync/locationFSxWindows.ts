@@ -68,7 +68,7 @@ export class LocationFSxWindows extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.datasync.LocationFSxWindowsTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      */
@@ -145,7 +145,7 @@ export interface LocationFSxWindowsArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.datasync.LocationFSxWindowsTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      */

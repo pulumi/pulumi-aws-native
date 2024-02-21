@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupSamplingRuleResult struct {
 	SamplingRule       *SamplingRuleType   `pulumi:"samplingRule"`
 	SamplingRuleRecord *SamplingRuleRecord `pulumi:"samplingRuleRecord"`
 	SamplingRuleUpdate *SamplingRuleUpdate `pulumi:"samplingRuleUpdate"`
-	Tags               []SamplingRuleTag   `pulumi:"tags"`
+	Tags               []aws.Tag           `pulumi:"tags"`
 }
 
 func LookupSamplingRuleOutput(ctx *pulumi.Context, args LookupSamplingRuleOutputArgs, opts ...pulumi.InvokeOption) LookupSamplingRuleResultOutput {
@@ -90,8 +91,8 @@ func (o LookupSamplingRuleResultOutput) SamplingRuleUpdate() SamplingRuleUpdateP
 	return o.ApplyT(func(v LookupSamplingRuleResult) *SamplingRuleUpdate { return v.SamplingRuleUpdate }).(SamplingRuleUpdatePtrOutput)
 }
 
-func (o LookupSamplingRuleResultOutput) Tags() SamplingRuleTagArrayOutput {
-	return o.ApplyT(func(v LookupSamplingRuleResult) []SamplingRuleTag { return v.Tags }).(SamplingRuleTagArrayOutput)
+func (o LookupSamplingRuleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSamplingRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

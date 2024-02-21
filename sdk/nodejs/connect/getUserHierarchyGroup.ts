@@ -37,7 +37,7 @@ export interface GetUserHierarchyGroupResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.UserHierarchyGroupTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The Amazon Resource Name (ARN) for the user hierarchy group.
      */

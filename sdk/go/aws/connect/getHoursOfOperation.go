@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupHoursOfOperationResult struct {
 	// The name of the hours of operation.
 	Name *string `pulumi:"name"`
 	// One or more tags.
-	Tags []HoursOfOperationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The time zone of the hours of operation.
 	TimeZone *string `pulumi:"timeZone"`
 }
@@ -106,8 +107,8 @@ func (o LookupHoursOfOperationResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // One or more tags.
-func (o LookupHoursOfOperationResultOutput) Tags() HoursOfOperationTagArrayOutput {
-	return o.ApplyT(func(v LookupHoursOfOperationResult) []HoursOfOperationTag { return v.Tags }).(HoursOfOperationTagArrayOutput)
+func (o LookupHoursOfOperationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The time zone of the hours of operation.

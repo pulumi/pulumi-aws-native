@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['LayerArgs', 'Layer']
@@ -32,7 +34,7 @@ class LayerArgs:
                  load_based_auto_scaling: Optional[pulumi.Input['LayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LayerTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LayerVolumeConfigurationArgs']]]] = None):
         """
@@ -225,11 +227,11 @@ class LayerArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LayerTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LayerTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -276,7 +278,7 @@ class Layer(pulumi.CustomResource):
                  packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shortname: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LayerTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LayerVolumeConfigurationArgs']]]]] = None,
@@ -328,7 +330,7 @@ class Layer(pulumi.CustomResource):
                  packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shortname: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LayerTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LayerVolumeConfigurationArgs']]]]] = None,
@@ -501,7 +503,7 @@ class Layer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LayerTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupCollaborationResult struct {
 	Description             *string `pulumi:"description"`
 	Name                    *string `pulumi:"name"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags []CollaborationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCollaborationOutput(ctx *pulumi.Context, args LookupCollaborationOutputArgs, opts ...pulumi.InvokeOption) LookupCollaborationResultOutput {
@@ -87,8 +88,8 @@ func (o LookupCollaborationResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-func (o LookupCollaborationResultOutput) Tags() CollaborationTagArrayOutput {
-	return o.ApplyT(func(v LookupCollaborationResult) []CollaborationTag { return v.Tags }).(CollaborationTagArrayOutput)
+func (o LookupCollaborationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCollaborationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

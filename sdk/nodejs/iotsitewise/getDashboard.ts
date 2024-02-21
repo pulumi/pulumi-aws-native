@@ -49,7 +49,7 @@ export interface GetDashboardResult {
     /**
      * A list of key-value pairs that contain metadata for the dashboard.
      */
-    readonly tags?: outputs.iotsitewise.DashboardTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::IoTSiteWise::Dashboard

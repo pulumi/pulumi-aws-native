@@ -27,7 +27,7 @@ export interface GetConfigResult {
     readonly configData?: outputs.groundstation.ConfigData;
     readonly id?: string;
     readonly name?: string;
-    readonly tags?: outputs.groundstation.ConfigTag[];
+    readonly tags?: outputs.Tag[];
     readonly type?: string;
 }
 /**

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,8 +31,8 @@ type LookupParameterGroupResult struct {
 	Description *string `pulumi:"description"`
 	Id          *string `pulumi:"id"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
-	Properties interface{}         `pulumi:"properties"`
-	Tags       []ParameterGroupTag `pulumi:"tags"`
+	Properties interface{} `pulumi:"properties"`
+	Tags       []aws.Tag   `pulumi:"tags"`
 }
 
 func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupParameterGroupResultOutput {
@@ -82,8 +83,8 @@ func (o LookupParameterGroupResultOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
-func (o LookupParameterGroupResultOutput) Tags() ParameterGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupParameterGroupResult) []ParameterGroupTag { return v.Tags }).(ParameterGroupTagArrayOutput)
+func (o LookupParameterGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

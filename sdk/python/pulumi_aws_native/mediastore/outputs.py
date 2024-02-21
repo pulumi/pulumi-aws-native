@@ -14,7 +14,6 @@ __all__ = [
     'ContainerCorsRule',
     'ContainerMetricPolicy',
     'ContainerMetricPolicyRule',
-    'ContainerTag',
 ]
 
 @pulumi.output_type
@@ -162,24 +161,5 @@ class ContainerMetricPolicyRule(dict):
     @pulumi.getter(name="objectGroupName")
     def object_group_name(self) -> str:
         return pulumi.get(self, "object_group_name")
-
-
-@pulumi.output_type
-class ContainerTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

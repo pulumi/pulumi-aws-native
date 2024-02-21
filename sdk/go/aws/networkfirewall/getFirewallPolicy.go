@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupFirewallPolicyResult struct {
 	FirewallPolicy    *FirewallPolicyType `pulumi:"firewallPolicy"`
 	FirewallPolicyArn *string             `pulumi:"firewallPolicyArn"`
 	FirewallPolicyId  *string             `pulumi:"firewallPolicyId"`
-	Tags              []FirewallPolicyTag `pulumi:"tags"`
+	Tags              []aws.Tag           `pulumi:"tags"`
 }
 
 func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallPolicyResultOutput {
@@ -85,8 +86,8 @@ func (o LookupFirewallPolicyResultOutput) FirewallPolicyId() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupFirewallPolicyResult) *string { return v.FirewallPolicyId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupFirewallPolicyResultOutput) Tags() FirewallPolicyTagArrayOutput {
-	return o.ApplyT(func(v LookupFirewallPolicyResult) []FirewallPolicyTag { return v.Tags }).(FirewallPolicyTagArrayOutput)
+func (o LookupFirewallPolicyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

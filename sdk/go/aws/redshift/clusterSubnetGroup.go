@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type ClusterSubnetGroup struct {
 	// The list of VPC subnet IDs
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// The list of tags for the cluster parameter group.
-	Tags ClusterSubnetGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewClusterSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +78,7 @@ type clusterSubnetGroupArgs struct {
 	// The list of VPC subnet IDs
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The list of tags for the cluster parameter group.
-	Tags []ClusterSubnetGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterSubnetGroup resource.
@@ -87,7 +88,7 @@ type ClusterSubnetGroupArgs struct {
 	// The list of VPC subnet IDs
 	SubnetIds pulumi.StringArrayInput
 	// The list of tags for the cluster parameter group.
-	Tags ClusterSubnetGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ClusterSubnetGroupArgs) ElementType() reflect.Type {
@@ -143,8 +144,8 @@ func (o ClusterSubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // The list of tags for the cluster parameter group.
-func (o ClusterSubnetGroupOutput) Tags() ClusterSubnetGroupTagArrayOutput {
-	return o.ApplyT(func(v *ClusterSubnetGroup) ClusterSubnetGroupTagArrayOutput { return v.Tags }).(ClusterSubnetGroupTagArrayOutput)
+func (o ClusterSubnetGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ClusterSubnetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

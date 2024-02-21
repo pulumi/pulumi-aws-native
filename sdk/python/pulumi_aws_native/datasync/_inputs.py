@@ -11,37 +11,24 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AgentTagArgs',
     'LocationAzureBlobAzureBlobSasConfigurationArgs',
-    'LocationAzureBlobTagArgs',
     'LocationEfsEc2ConfigArgs',
-    'LocationEfsTagArgs',
-    'LocationFSxLustreTagArgs',
     'LocationFSxOntapNfsMountOptionsArgs',
     'LocationFSxOntapNfsArgs',
     'LocationFSxOntapProtocolArgs',
     'LocationFSxOntapSmbMountOptionsArgs',
     'LocationFSxOntapSmbArgs',
-    'LocationFSxOntapTagArgs',
     'LocationFSxOpenZfsMountOptionsArgs',
     'LocationFSxOpenZfsNfsArgs',
     'LocationFSxOpenZfsProtocolArgs',
-    'LocationFSxOpenZfsTagArgs',
-    'LocationFSxWindowsTagArgs',
     'LocationHdfsNameNodeArgs',
     'LocationHdfsQopConfigurationArgs',
-    'LocationHdfsTagArgs',
     'LocationNfsMountOptionsArgs',
     'LocationNfsOnPremConfigArgs',
-    'LocationNfsTagArgs',
-    'LocationObjectStorageTagArgs',
-    'LocationS3TagArgs',
     'LocationS3s3ConfigArgs',
     'LocationSmbMountOptionsArgs',
-    'LocationSmbTagArgs',
     'StorageSystemServerConfigurationArgs',
     'StorageSystemServerCredentialsArgs',
-    'StorageSystemTagArgs',
     'TaskFilterRuleArgs',
     'TaskOptionsArgs',
     'TaskReportConfigDestinationPropertiesS3PropertiesArgs',
@@ -53,46 +40,7 @@ __all__ = [
     'TaskReportConfigOverridesPropertiesArgs',
     'TaskReportConfigArgs',
     'TaskScheduleArgs',
-    'TaskTagArgs',
 ]
-
-@pulumi.input_type
-class AgentTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
 
 @pulumi.input_type
 class LocationAzureBlobAzureBlobSasConfigurationArgs:
@@ -115,44 +63,6 @@ class LocationAzureBlobAzureBlobSasConfigurationArgs:
     @azure_blob_sas_token.setter
     def azure_blob_sas_token(self, value: pulumi.Input[str]):
         pulumi.set(self, "azure_blob_sas_token", value)
-
-
-@pulumi.input_type
-class LocationAzureBlobTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -191,82 +101,6 @@ class LocationEfsEc2ConfigArgs:
     @subnet_arn.setter
     def subnet_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_arn", value)
-
-
-@pulumi.input_type
-class LocationEfsTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class LocationFSxLustreTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -434,44 +268,6 @@ class LocationFSxOntapSmbArgs:
 
 
 @pulumi.input_type
-class LocationFSxOntapTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class LocationFSxOpenZfsMountOptionsArgs:
     def __init__(__self__, *,
                  version: Optional[pulumi.Input['LocationFSxOpenZfsMountOptionsVersion']] = None):
@@ -532,82 +328,6 @@ class LocationFSxOpenZfsProtocolArgs:
     @nfs.setter
     def nfs(self, value: Optional[pulumi.Input['LocationFSxOpenZfsNfsArgs']]):
         pulumi.set(self, "nfs", value)
-
-
-@pulumi.input_type
-class LocationFSxOpenZfsTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class LocationFSxWindowsTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -689,44 +409,6 @@ class LocationHdfsQopConfigurationArgs:
 
 
 @pulumi.input_type
-class LocationHdfsTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class LocationNfsMountOptionsArgs:
     def __init__(__self__, *,
                  version: Optional[pulumi.Input['LocationNfsMountOptionsVersion']] = None):
@@ -774,120 +456,6 @@ class LocationNfsOnPremConfigArgs:
 
 
 @pulumi.input_type
-class LocationNfsTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class LocationObjectStorageTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class LocationS3TagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class LocationS3s3ConfigArgs:
     def __init__(__self__, *,
                  bucket_access_role_arn: pulumi.Input[str]):
@@ -932,44 +500,6 @@ class LocationSmbMountOptionsArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input['LocationSmbMountOptionsVersion']]):
         pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class LocationSmbTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1047,44 +577,6 @@ class StorageSystemServerCredentialsArgs:
     @username.setter
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
-
-
-@pulumi.input_type
-class StorageSystemTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1730,43 +1222,5 @@ class TaskScheduleArgs:
     @schedule_expression.setter
     def schedule_expression(self, value: pulumi.Input[str]):
         pulumi.set(self, "schedule_expression", value)
-
-
-@pulumi.input_type
-class TaskTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key for an AWS resource tag.
-        :param pulumi.Input[str] value: The value for an AWS resource tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key for an AWS resource tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for an AWS resource tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

@@ -33,7 +33,7 @@ export interface GetContactListResult {
     /**
      * The tags (keys and values) associated with the contact list.
      */
-    readonly tags?: outputs.ses.ContactListTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The topics associated with the contact list.
      */

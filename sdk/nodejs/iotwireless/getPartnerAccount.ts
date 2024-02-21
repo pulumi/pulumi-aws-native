@@ -49,7 +49,7 @@ export interface GetPartnerAccountResult {
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    readonly tags?: outputs.iotwireless.PartnerAccountTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Create and manage partner account

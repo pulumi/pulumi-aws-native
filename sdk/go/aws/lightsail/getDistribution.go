@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,7 +49,7 @@ type LookupDistributionResult struct {
 	// The status of the distribution.
 	Status *string `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DistributionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionResultOutput {
@@ -137,8 +138,8 @@ func (o LookupDistributionResultOutput) Status() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupDistributionResultOutput) Tags() DistributionTagArrayOutput {
-	return o.ApplyT(func(v LookupDistributionResult) []DistributionTag { return v.Tags }).(DistributionTagArrayOutput)
+func (o LookupDistributionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDistributionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,8 +24,8 @@ type VpcPeeringConnection struct {
 	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
 	PeerRoleArn pulumi.StringPtrOutput `pulumi:"peerRoleArn"`
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
-	PeerVpcId pulumi.StringOutput                `pulumi:"peerVpcId"`
-	Tags      VpcPeeringConnectionTagArrayOutput `pulumi:"tags"`
+	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
+	Tags      aws.TagArrayOutput  `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -90,8 +91,8 @@ type vpcPeeringConnectionArgs struct {
 	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
 	PeerRoleArn *string `pulumi:"peerRoleArn"`
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
-	PeerVpcId string                    `pulumi:"peerVpcId"`
-	Tags      []VpcPeeringConnectionTag `pulumi:"tags"`
+	PeerVpcId string    `pulumi:"peerVpcId"`
+	Tags      []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -106,7 +107,7 @@ type VpcPeeringConnectionArgs struct {
 	PeerRoleArn pulumi.StringPtrInput
 	// The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
 	PeerVpcId pulumi.StringInput
-	Tags      VpcPeeringConnectionTagArrayInput
+	Tags      aws.TagArrayInput
 	// The ID of the VPC.
 	VpcId pulumi.StringInput
 }
@@ -168,8 +169,8 @@ func (o VpcPeeringConnectionOutput) PeerVpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.PeerVpcId }).(pulumi.StringOutput)
 }
 
-func (o VpcPeeringConnectionOutput) Tags() VpcPeeringConnectionTagArrayOutput {
-	return o.ApplyT(func(v *VpcPeeringConnection) VpcPeeringConnectionTagArrayOutput { return v.Tags }).(VpcPeeringConnectionTagArrayOutput)
+func (o VpcPeeringConnectionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VpcPeeringConnection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the VPC.

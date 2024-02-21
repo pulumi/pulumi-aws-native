@@ -45,7 +45,7 @@ export class VirtualRouter extends pulumi.CustomResource {
     public readonly meshOwner!: pulumi.Output<string | undefined>;
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     public readonly spec!: pulumi.Output<outputs.appmesh.VirtualRouterSpec>;
-    public readonly tags!: pulumi.Output<outputs.appmesh.VirtualRouterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly uid!: pulumi.Output<string>;
     public readonly virtualRouterName!: pulumi.Output<string | undefined>;
 
@@ -100,6 +100,6 @@ export interface VirtualRouterArgs {
     meshName: pulumi.Input<string>;
     meshOwner?: pulumi.Input<string>;
     spec: pulumi.Input<inputs.appmesh.VirtualRouterSpecArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualRouterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     virtualRouterName?: pulumi.Input<string>;
 }

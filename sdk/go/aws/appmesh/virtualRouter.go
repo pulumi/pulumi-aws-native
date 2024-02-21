@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,14 +19,14 @@ import (
 type VirtualRouter struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput         `pulumi:"arn"`
-	MeshName          pulumi.StringOutput         `pulumi:"meshName"`
-	MeshOwner         pulumi.StringPtrOutput      `pulumi:"meshOwner"`
-	ResourceOwner     pulumi.StringOutput         `pulumi:"resourceOwner"`
-	Spec              VirtualRouterSpecOutput     `pulumi:"spec"`
-	Tags              VirtualRouterTagArrayOutput `pulumi:"tags"`
-	Uid               pulumi.StringOutput         `pulumi:"uid"`
-	VirtualRouterName pulumi.StringPtrOutput      `pulumi:"virtualRouterName"`
+	Arn               pulumi.StringOutput     `pulumi:"arn"`
+	MeshName          pulumi.StringOutput     `pulumi:"meshName"`
+	MeshOwner         pulumi.StringPtrOutput  `pulumi:"meshOwner"`
+	ResourceOwner     pulumi.StringOutput     `pulumi:"resourceOwner"`
+	Spec              VirtualRouterSpecOutput `pulumi:"spec"`
+	Tags              aws.TagArrayOutput      `pulumi:"tags"`
+	Uid               pulumi.StringOutput     `pulumi:"uid"`
+	VirtualRouterName pulumi.StringPtrOutput  `pulumi:"virtualRouterName"`
 }
 
 // NewVirtualRouter registers a new resource with the given unique name, arguments, and options.
@@ -80,11 +81,11 @@ func (VirtualRouterState) ElementType() reflect.Type {
 }
 
 type virtualRouterArgs struct {
-	MeshName          string             `pulumi:"meshName"`
-	MeshOwner         *string            `pulumi:"meshOwner"`
-	Spec              VirtualRouterSpec  `pulumi:"spec"`
-	Tags              []VirtualRouterTag `pulumi:"tags"`
-	VirtualRouterName *string            `pulumi:"virtualRouterName"`
+	MeshName          string            `pulumi:"meshName"`
+	MeshOwner         *string           `pulumi:"meshOwner"`
+	Spec              VirtualRouterSpec `pulumi:"spec"`
+	Tags              []aws.Tag         `pulumi:"tags"`
+	VirtualRouterName *string           `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a VirtualRouter resource.
@@ -92,7 +93,7 @@ type VirtualRouterArgs struct {
 	MeshName          pulumi.StringInput
 	MeshOwner         pulumi.StringPtrInput
 	Spec              VirtualRouterSpecInput
-	Tags              VirtualRouterTagArrayInput
+	Tags              aws.TagArrayInput
 	VirtualRouterName pulumi.StringPtrInput
 }
 
@@ -153,8 +154,8 @@ func (o VirtualRouterOutput) Spec() VirtualRouterSpecOutput {
 	return o.ApplyT(func(v *VirtualRouter) VirtualRouterSpecOutput { return v.Spec }).(VirtualRouterSpecOutput)
 }
 
-func (o VirtualRouterOutput) Tags() VirtualRouterTagArrayOutput {
-	return o.ApplyT(func(v *VirtualRouter) VirtualRouterTagArrayOutput { return v.Tags }).(VirtualRouterTagArrayOutput)
+func (o VirtualRouterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VirtualRouter) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o VirtualRouterOutput) Uid() pulumi.StringOutput {

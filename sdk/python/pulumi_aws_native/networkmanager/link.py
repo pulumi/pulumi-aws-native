@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['LinkArgs', 'Link']
@@ -21,7 +23,7 @@ class LinkArgs:
                  site_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Link resource.
@@ -30,7 +32,7 @@ class LinkArgs:
         :param pulumi.Input[str] site_id: The ID of the site
         :param pulumi.Input[str] description: The description of the link.
         :param pulumi.Input[str] provider: The provider of the link.
-        :param pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]] tags: The tags for the link.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the link.
         :param pulumi.Input[str] type: The type of the link.
         """
         pulumi.set(__self__, "bandwidth", bandwidth)
@@ -107,14 +109,14 @@ class LinkArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the link.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -140,7 +142,7 @@ class Link(pulumi.CustomResource):
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -153,7 +155,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] provider: The provider of the link.
         :param pulumi.Input[str] site_id: The ID of the site
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkTagArgs']]]] tags: The tags for the link.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the link.
         :param pulumi.Input[str] type: The type of the link.
         """
         ...
@@ -185,7 +187,7 @@ class Link(pulumi.CustomResource):
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -324,7 +326,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LinkTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags for the link.
         """

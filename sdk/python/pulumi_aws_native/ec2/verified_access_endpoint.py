@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['VerifiedAccessEndpointArgs', 'VerifiedAccessEndpoint']
@@ -29,7 +31,7 @@ class VerifiedAccessEndpointArgs:
                  policy_enabled: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sse_specification: Optional[pulumi.Input['VerifiedAccessEndpointSseSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VerifiedAccessEndpoint resource.
         :param pulumi.Input[str] application_domain: The DNS name for users to reach your application.
@@ -45,7 +47,7 @@ class VerifiedAccessEndpointArgs:
         :param pulumi.Input[bool] policy_enabled: The status of the Verified Access policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups for the endpoint.
         :param pulumi.Input['VerifiedAccessEndpointSseSpecificationArgs'] sse_specification: The configuration options for customer provided KMS encryption.
-        :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "application_domain", application_domain)
         pulumi.set(__self__, "attachment_type", attachment_type)
@@ -228,14 +230,14 @@ class VerifiedAccessEndpointArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -256,7 +258,7 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
                  policy_enabled: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sse_specification: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessEndpointSseSpecificationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessEndpointTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  verified_access_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -276,7 +278,7 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] policy_enabled: The status of the Verified Access policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups for the endpoint.
         :param pulumi.Input[pulumi.InputType['VerifiedAccessEndpointSseSpecificationArgs']] sse_specification: The configuration options for customer provided KMS encryption.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessEndpointTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] verified_access_group_id: The ID of the AWS Verified Access group.
         """
         ...
@@ -315,7 +317,7 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
                  policy_enabled: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sse_specification: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessEndpointSseSpecificationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessEndpointTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  verified_access_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -544,7 +546,7 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VerifiedAccessEndpointTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

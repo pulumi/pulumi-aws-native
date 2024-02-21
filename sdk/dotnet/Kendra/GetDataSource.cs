@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Kendra
         /// <summary>
         /// Tags for labeling the data source
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataSourceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDataSourceResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Kendra
 
             string? schedule,
 
-            ImmutableArray<Outputs.DataSourceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CustomDocumentEnrichmentConfiguration = customDocumentEnrichmentConfiguration;

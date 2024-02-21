@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GameSessionQueueTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The maximum time, in seconds, that a new game session placement request remains in the queue.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.GameLift
 
             Outputs.GameSessionQueuePriorityConfiguration? priorityConfiguration,
 
-            ImmutableArray<Outputs.GameSessionQueueTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? timeoutInSeconds)
         {

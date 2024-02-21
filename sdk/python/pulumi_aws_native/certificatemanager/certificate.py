@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -22,7 +24,7 @@ class CertificateArgs:
                  domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]] = None,
                  key_algorithm: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
@@ -99,11 +101,11 @@ class CertificateArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -132,7 +134,7 @@ class Certificate(pulumi.CustomResource):
                  domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]]] = None,
                  key_algorithm: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -171,7 +173,7 @@ class Certificate(pulumi.CustomResource):
                  domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]]] = None,
                  key_algorithm: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Certificate is deprecated: Certificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -259,7 +261,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

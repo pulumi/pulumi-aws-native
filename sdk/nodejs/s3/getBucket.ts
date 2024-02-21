@@ -95,7 +95,7 @@ export interface GetBucketResult {
     /**
      * An arbitrary set of tags (key-value pairs) for this S3 bucket.
      */
-    readonly tags?: outputs.s3.BucketTag[];
+    readonly tags?: outputs.Tag[];
     readonly versioningConfiguration?: outputs.s3.BucketVersioningConfiguration;
     readonly websiteConfiguration?: outputs.s3.BucketWebsiteConfiguration;
     /**

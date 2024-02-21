@@ -66,7 +66,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.datasync.TaskTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the task.
      */
@@ -154,6 +154,6 @@ export interface TaskArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.datasync.TaskTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     taskReportConfig?: pulumi.Input<inputs.datasync.TaskReportConfigArgs>;
 }

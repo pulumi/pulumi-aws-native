@@ -93,6 +93,20 @@ export interface ProviderIgnoreTagsArgs {
      */
     keys?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * A set of tags to apply to the resource.
+ */
+export interface TagArgs {
+    /**
+     * The key name of the tag
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The value of the tag
+     */
+    value: pulumi.Input<string>;
+}
 export namespace accessanalyzer {
     /**
      * An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
@@ -118,20 +132,6 @@ export namespace accessanalyzer {
         exists?: pulumi.Input<boolean>;
         neq?: pulumi.Input<pulumi.Input<string>[]>;
         property: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AnalyzerTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -288,11 +288,6 @@ export namespace acmpca {
         state?: pulumi.Input<string>;
         surname?: pulumi.Input<string>;
         title?: pulumi.Input<string>;
-    }
-
-    export interface CertificateAuthorityTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface CertificateCustomAttributeArgs {
@@ -493,11 +488,6 @@ export namespace amazonmq {
         timeZone: pulumi.Input<string>;
     }
 
-    export interface BrokerTagsEntryArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface BrokerUserArgs {
         consoleAccess?: pulumi.Input<boolean>;
         groups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -511,10 +501,6 @@ export namespace amazonmq {
         revision: pulumi.Input<number>;
     }
 
-    export interface ConfigurationTagsEntryArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace amplify {
@@ -550,11 +536,6 @@ export namespace amplify {
         value: pulumi.Input<string>;
     }
 
-    export interface AppTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface BranchBackendArgs {
         stackArn?: pulumi.Input<string>;
     }
@@ -567,11 +548,6 @@ export namespace amplify {
 
     export interface BranchEnvironmentVariableArgs {
         name: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface BranchTagArgs {
-        key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
@@ -697,22 +673,6 @@ export namespace apigateway {
          * The stage name associated with the stage key.
          */
         stageName?: pulumi.Input<string>;
-    }
-
-    export interface ApiKeyTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface ClientCertificateTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -944,11 +904,6 @@ export namespace apigateway {
         truststoreVersion?: pulumi.Input<string>;
     }
 
-    export interface DomainNameTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     /**
      * ``Integration`` is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that specifies information about the target backend that a method calls.
      */
@@ -1097,11 +1052,6 @@ export namespace apigateway {
         version?: pulumi.Input<string>;
     }
 
-    export interface RestApiTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
      *   ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
@@ -1186,17 +1136,6 @@ export namespace apigateway {
         throttlingRateLimit?: pulumi.Input<number>;
     }
 
-    export interface StageTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * API stage name of the associated API stage in a usage plan.
      */
@@ -1234,17 +1173,6 @@ export namespace apigateway {
         period?: pulumi.Input<string>;
     }
 
-    export interface UsagePlanTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * ``ThrottleSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
      */
@@ -1259,10 +1187,6 @@ export namespace apigateway {
         rateLimit?: pulumi.Input<number>;
     }
 
-    export interface VpcLinkTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace apigatewayv2 {
@@ -1424,34 +1348,6 @@ export namespace apigatewayv2 {
 
 export namespace appconfig {
     /**
-     * Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-     */
-    export interface ApplicationTagsArgs {
-        /**
-         * The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag value can be up to 256 characters.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-     */
-    export interface ConfigurationProfileTagsArgs {
-        /**
-         * The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
-         */
-        key?: pulumi.Input<string>;
-        /**
-         * The tag value can be up to 256 characters.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
      * A list of methods for validating the configuration.
      */
     export interface ConfigurationProfileValidatorsArgs {
@@ -1463,11 +1359,6 @@ export namespace appconfig {
          * AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
          */
         type?: pulumi.Input<string>;
-    }
-
-    export interface DeploymentStrategyTagsArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface DeploymentTagsArgs {
@@ -1487,20 +1378,6 @@ export namespace appconfig {
          * ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
          */
         alarmRoleArn?: pulumi.Input<string>;
-    }
-
-    /**
-     * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-     */
-    export interface EnvironmentTagArgs {
-        /**
-         * The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag value can be up to 256 characters.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -2483,20 +2360,6 @@ export namespace appflow {
         bucketPrefix?: pulumi.Input<string>;
     }
 
-    /**
-     * A label for tagging AppFlow resources
-     */
-    export interface FlowTagArgs {
-        /**
-         * A string used to identify this tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for the tag
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface FlowTaskArgs {
         /**
          * Operation to be performed on provided source fields
@@ -2617,20 +2480,6 @@ export namespace appintegrations {
         scheduleExpression: pulumi.Input<string>;
     }
 
-    /**
-     * A label for tagging DataIntegration resources
-     */
-    export interface DataIntegrationTagArgs {
-        /**
-         * A key to identify the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Corresponding tag value for the key.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface EventIntegrationEventFilterArgs {
         /**
          * The source of the events.
@@ -2638,16 +2487,6 @@ export namespace appintegrations {
         source: pulumi.Input<string>;
     }
 
-    export interface EventIntegrationTagArgs {
-        /**
-         * A key to identify the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Corresponding tag value for the key.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace applicationautoscaling {
@@ -3154,20 +2993,6 @@ export namespace applicationinsights {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ApplicationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * A Windows Event to be monitored for the component.
      */
     export interface ApplicationWindowsEventArgs {
@@ -3310,11 +3135,6 @@ export namespace appmesh {
         priority?: pulumi.Input<number>;
     }
 
-    export interface GatewayRouteTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface GatewayRouteTargetArgs {
         port?: pulumi.Input<number>;
         virtualService: pulumi.Input<inputs.appmesh.GatewayRouteVirtualServiceArgs>;
@@ -3335,11 +3155,6 @@ export namespace appmesh {
     export interface MeshSpecArgs {
         egressFilter?: pulumi.Input<inputs.appmesh.MeshEgressFilterArgs>;
         serviceDiscovery?: pulumi.Input<inputs.appmesh.MeshServiceDiscoveryArgs>;
-    }
-
-    export interface MeshTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface RouteDurationArgs {
@@ -3464,11 +3279,6 @@ export namespace appmesh {
         httpRoute?: pulumi.Input<inputs.appmesh.RouteHttpRouteArgs>;
         priority?: pulumi.Input<number>;
         tcpRoute?: pulumi.Input<inputs.appmesh.RouteTcpRouteArgs>;
-    }
-
-    export interface RouteTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface RouteTcpRouteArgs {
@@ -3626,11 +3436,6 @@ export namespace appmesh {
 
     export interface VirtualGatewaySubjectAlternativeNamesArgs {
         match: pulumi.Input<inputs.appmesh.VirtualGatewaySubjectAlternativeNameMatchersArgs>;
-    }
-
-    export interface VirtualGatewayTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface VirtualGatewayTlsValidationContextArgs {
@@ -3850,11 +3655,6 @@ export namespace appmesh {
         match: pulumi.Input<inputs.appmesh.VirtualNodeSubjectAlternativeNameMatchersArgs>;
     }
 
-    export interface VirtualNodeTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface VirtualNodeTcpConnectionPoolArgs {
         maxConnections: pulumi.Input<number>;
     }
@@ -3904,11 +3704,6 @@ export namespace appmesh {
         listeners: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualRouterListenerArgs>[]>;
     }
 
-    export interface VirtualRouterTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface VirtualServiceProviderArgs {
         virtualNode?: pulumi.Input<inputs.appmesh.VirtualServiceVirtualNodeServiceProviderArgs>;
         virtualRouter?: pulumi.Input<inputs.appmesh.VirtualServiceVirtualRouterServiceProviderArgs>;
@@ -3916,11 +3711,6 @@ export namespace appmesh {
 
     export interface VirtualServiceSpecArgs {
         provider?: pulumi.Input<inputs.appmesh.VirtualServiceProviderArgs>;
-    }
-
-    export interface VirtualServiceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface VirtualServiceVirtualNodeServiceProviderArgs {
@@ -4231,11 +4021,6 @@ export namespace appstream {
         vpceId: pulumi.Input<string>;
     }
 
-    export interface AppBlockBuilderTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface AppBlockBuilderVpcConfigArgs {
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -4308,11 +4093,6 @@ export namespace appstream {
         s3Key: pulumi.Input<string>;
     }
 
-    export interface FleetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface FleetVpcConfigArgs {
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -4326,11 +4106,6 @@ export namespace appstream {
     export interface ImageBuilderDomainJoinInfoArgs {
         directoryName?: pulumi.Input<string>;
         organizationalUnitDistinguishedName?: pulumi.Input<string>;
-    }
-
-    export interface ImageBuilderTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface ImageBuilderVpcConfigArgs {
@@ -4356,11 +4131,6 @@ export namespace appstream {
 
     export interface StackStreamingExperienceSettingsArgs {
         preferredProtocol?: pulumi.Input<string>;
-    }
-
-    export interface StackTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface StackUserSettingArgs {
@@ -4508,11 +4278,6 @@ export namespace appsync {
         issuer?: pulumi.Input<string>;
     }
 
-    export interface GraphQlApiTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface GraphQlApiUserPoolConfigArgs {
         appIdClientRegex?: pulumi.Input<string>;
         awsRegion?: pulumi.Input<string>;
@@ -4605,20 +4370,6 @@ export namespace appsync {
 
 export namespace aps {
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RuleGroupsNamespaceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Logging configuration
      */
     export interface WorkspaceLoggingConfigurationArgs {
@@ -4628,19 +4379,6 @@ export namespace aps {
         logGroupArn?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface WorkspaceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace arczonalshift {
@@ -4687,16 +4425,6 @@ export namespace athena {
      */
     export interface CapacityReservationCapacityAssignmentConfigurationArgs {
         capacityAssignments: pulumi.Input<pulumi.Input<inputs.athena.CapacityReservationCapacityAssignmentArgs>[]>;
-    }
-
-    export interface CapacityReservationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface DataCatalogTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -4782,10 +4510,6 @@ export namespace athena {
         removeOutputLocation?: pulumi.Input<boolean>;
     }
 
-    export interface WorkGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace auditmanager {
@@ -4852,19 +4576,6 @@ export namespace auditmanager {
         awsServices?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentAwsServiceArgs>[]>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AssessmentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace autoscaling {
@@ -5269,33 +4980,13 @@ export namespace b2bi {
         key?: pulumi.Input<string>;
     }
 
-    export interface CapabilityTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface CapabilityX12DetailsArgs {
         transactionSet?: pulumi.Input<enums.b2bi.CapabilityX12TransactionSet>;
         version?: pulumi.Input<enums.b2bi.CapabilityX12Version>;
     }
 
-    export interface PartnershipTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ProfileTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface TransformerEdiTypePropertiesArgs {
         x12Details: pulumi.Input<inputs.b2bi.TransformerX12DetailsArgs>;
-    }
-
-    export interface TransformerTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface TransformerX12DetailsArgs {
@@ -5449,20 +5140,6 @@ export namespace backup {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ReportPlanTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key?: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
      * Identifies the report template for the report. Reports are built using a report template.
      */
     export interface ReportSettingPropertiesArgs {
@@ -5494,17 +5171,6 @@ export namespace backup {
         includeVaults: pulumi.Input<pulumi.Input<string>[]>;
         recoveryPointTypes: pulumi.Input<pulumi.Input<enums.backup.RestoreTestingPlanRestoreTestingRecoveryPointType>[]>;
         selectionWindowDays?: pulumi.Input<number>;
-    }
-
-    export interface RestoreTestingPlanTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface RestoreTestingSelectionKeyValueArgs {
@@ -5836,11 +5502,6 @@ export namespace billingconductor {
         pricingPlanArn: pulumi.Input<string>;
     }
 
-    export interface BillingGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface CustomLineItemBillingPeriodRangeArgs {
         exclusiveEndBillingPeriod?: pulumi.Input<string>;
         inclusiveStartBillingPeriod?: pulumi.Input<string>;
@@ -5868,26 +5529,11 @@ export namespace billingconductor {
         percentageValue: pulumi.Input<number>;
     }
 
-    export interface CustomLineItemTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface PricingPlanTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * The possible customizable free tier configurations.
      */
     export interface PricingRuleFreeTierArgs {
         activated: pulumi.Input<boolean>;
-    }
-
-    export interface PricingRuleTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -6002,11 +5648,6 @@ export namespace cassandra {
         replicationStrategy?: pulumi.Input<enums.cassandra.KeyspaceReplicationSpecificationReplicationStrategy>;
     }
 
-    export interface KeyspaceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Represents configuration for auto scaling.
      */
@@ -6073,14 +5714,6 @@ export namespace cassandra {
     }
 
     /**
-     * A key-value pair to apply to the resource
-     */
-    export interface TableTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Represents configuration for target tracking scaling policy.
      */
     export interface TableTargetTrackingScalingPolicyConfigurationArgs {
@@ -6138,10 +5771,6 @@ export namespace certificatemanager {
         validationDomain?: pulumi.Input<string>;
     }
 
-    export interface CertificateTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace cleanrooms {
@@ -6153,11 +5782,6 @@ export namespace cleanrooms {
 
     export interface AnalysisTemplateAnalysisSourceArgs {
         text: pulumi.Input<string>;
-    }
-
-    export interface AnalysisTemplateTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface CollaborationDataEncryptionMetadataArgs {
@@ -6180,11 +5804,6 @@ export namespace cleanrooms {
 
     export interface CollaborationQueryComputePaymentConfigArgs {
         isResponsible: pulumi.Input<boolean>;
-    }
-
-    export interface CollaborationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface ConfiguredTableAggregateColumnArgs {
@@ -6240,11 +5859,6 @@ export namespace cleanrooms {
         custom: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRuleCustomArgs>;
     }
 
-    export interface ConfiguredTableAssociationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface ConfiguredTableGlueTableReferenceArgs {
         databaseName: pulumi.Input<string>;
         tableName: pulumi.Input<string>;
@@ -6252,11 +5866,6 @@ export namespace cleanrooms {
 
     export interface ConfiguredTableTableReferenceArgs {
         glue: pulumi.Input<inputs.cleanrooms.ConfiguredTableGlueTableReferenceArgs>;
-    }
-
-    export interface ConfiguredTableTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface MembershipPaymentConfigurationArgs {
@@ -6282,10 +5891,6 @@ export namespace cleanrooms {
         isResponsible: pulumi.Input<boolean>;
     }
 
-    export interface MembershipTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace cloud9 {
@@ -6294,10 +5899,6 @@ export namespace cloud9 {
         repositoryUrl: pulumi.Input<string>;
     }
 
-    export interface EnvironmentEc2TagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace cloudformation {
@@ -6399,25 +6000,6 @@ export namespace cloudformation {
          * The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
          */
         regions: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
-     */
-    export interface StackSetTagArgs {
-        /**
-         * A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface StackTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface TypeActivationLoggingConfigArgs {
@@ -6701,11 +6283,6 @@ export namespace cloudfront {
         quantity: pulumi.Input<number>;
     }
 
-    export interface DistributionTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface DistributionViewerCertificateArgs {
         acmCertificateArn?: pulumi.Input<string>;
         cloudFrontDefaultCertificate?: pulumi.Input<boolean>;
@@ -6917,11 +6494,6 @@ export namespace cloudfront {
         originAccessIdentity: pulumi.Input<string>;
     }
 
-    export interface StreamingDistributionTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface StreamingDistributionTrustedSignersArgs {
         awsAccountNumbers?: pulumi.Input<pulumi.Input<string>[]>;
         enabled: pulumi.Input<boolean>;
@@ -6941,20 +6513,6 @@ export namespace cloudtrail {
          * The type of destination for events arriving from a channel.
          */
         type: pulumi.Input<enums.cloudtrail.ChannelDestinationType>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ChannelTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -7013,20 +6571,6 @@ export namespace cloudtrail {
          * The type of Insights to log on an event data store.
          */
         insightType?: pulumi.Input<string>;
-    }
-
-    /**
-     * An arbitrary set of tags (key-value pairs) for this event data store.
-     */
-    export interface EventDataStoreTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -7120,19 +6664,6 @@ export namespace cloudtrail {
         insightType?: pulumi.Input<string>;
     }
 
-    /**
-     * An arbitrary set of tags (key-value pairs) for this trail.
-     */
-    export interface TrailTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace cloudwatch {
@@ -7318,63 +6849,12 @@ export namespace cloudwatch {
         namespace: pulumi.Input<string>;
     }
 
-    /**
-     * Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
-     */
-    export interface MetricStreamTagArgs {
-        /**
-         * A unique identifier for the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * String which you can use to describe or define the tag.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace codeartifact {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DomainTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RepositoryTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace codebuild {
-    export interface FleetTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface ProjectArtifactsArgs {
         artifactIdentifier?: pulumi.Input<string>;
         encryptionDisabled?: pulumi.Input<boolean>;
@@ -7493,11 +6973,6 @@ export namespace codebuild {
         sourceVersion?: pulumi.Input<string>;
     }
 
-    export interface ProjectTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface ProjectTriggersArgs {
         buildType?: pulumi.Input<string>;
         filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFilterGroupArgs>[]>;
@@ -7524,10 +6999,6 @@ export namespace codebuild {
         path?: pulumi.Input<string>;
     }
 
-    export interface ReportGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace codecommit {
@@ -7542,11 +7013,6 @@ export namespace codecommit {
         objectVersion?: pulumi.Input<string>;
     }
 
-    export interface RepositoryTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface RepositoryTriggerArgs {
         branches?: pulumi.Input<pulumi.Input<string>[]>;
         customData?: pulumi.Input<string>;
@@ -7557,11 +7023,6 @@ export namespace codecommit {
 }
 
 export namespace codedeploy {
-    export interface ApplicationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface DeploymentConfigMinimumHealthyHostsArgs {
         type: pulumi.Input<string>;
         value: pulumi.Input<number>;
@@ -7696,11 +7157,6 @@ export namespace codedeploy {
         version?: pulumi.Input<string>;
     }
 
-    export interface DeploymentGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface DeploymentGroupTagFilterArgs {
         key?: pulumi.Input<string>;
         type?: pulumi.Input<string>;
@@ -7747,19 +7203,6 @@ export namespace codeguruprofiler {
         channelUri: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ProfilingGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace codegurureviewer {
@@ -7847,11 +7290,6 @@ export namespace codepipeline {
          * The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
          */
         thirdPartyConfigurationUrl?: pulumi.Input<string>;
-    }
-
-    export interface CustomActionTypeTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface PipelineActionDeclarationArgs {
@@ -7946,11 +7384,6 @@ export namespace codepipeline {
         stageName: pulumi.Input<string>;
     }
 
-    export interface PipelineTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface PipelineTriggerDeclarationArgs {
         gitConfiguration?: pulumi.Input<inputs.codepipeline.PipelineGitConfigurationArgs>;
         providerType: pulumi.Input<string>;
@@ -7986,33 +7419,6 @@ export namespace codestar {
 }
 
 export namespace codestarconnections {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ConnectionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RepositoryLinkTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace codestarnotifications {
@@ -8302,11 +7708,6 @@ export namespace comprehend {
         s3Uri?: pulumi.Input<string>;
     }
 
-    export interface DocumentClassifierTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface DocumentClassifierVpcConfigArgs {
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         subnets: pulumi.Input<pulumi.Input<string>[]>;
@@ -8332,11 +7733,6 @@ export namespace comprehend {
         type: pulumi.Input<string>;
     }
 
-    export interface FlywheelTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface FlywheelTaskConfigArgs {
         documentClassificationConfig?: pulumi.Input<inputs.comprehend.FlywheelDocumentClassificationConfigArgs>;
         entityRecognitionConfig?: pulumi.Input<inputs.comprehend.FlywheelEntityRecognitionConfigArgs>;
@@ -8353,20 +7749,6 @@ export namespace config {
 }
 
 export namespace configuration {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AggregationAuthorizationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Compliance details of the Config rule
      */
@@ -8479,20 +7861,6 @@ export namespace configuration {
         roleArn: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ConfigurationAggregatorTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface ConfigurationRecorderExclusionByResourceTypesArgs {
         resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -8587,20 +7955,6 @@ export namespace configuration {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface StoredQueryTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
      */
     export interface TemplateSsmDocumentDetailsPropertiesArgs {
@@ -8617,34 +7971,6 @@ export namespace connect {
         invisibleFields?: pulumi.Input<pulumi.Input<inputs.connect.TaskTemplateInvisibleFieldInfoArgs>[]>;
         readOnlyFields?: pulumi.Input<pulumi.Input<inputs.connect.TaskTemplateReadOnlyFieldInfoArgs>[]>;
         requiredFields?: pulumi.Input<pulumi.Input<inputs.connect.TaskTemplateRequiredFieldInfoArgs>[]>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ContactFlowModuleTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ContactFlowTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -8906,20 +8232,6 @@ export namespace connect {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface EvaluationFormTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Contains information about the hours of operation.
      */
     export interface HoursOfOperationConfigArgs {
@@ -8935,20 +8247,6 @@ export namespace connect {
          * The start time that your contact center opens.
          */
         startTime: pulumi.Input<inputs.connect.HoursOfOperationTimeSliceArgs>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface HoursOfOperationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -9001,62 +8299,12 @@ export namespace connect {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface InstanceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface PhoneNumberTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface PromptTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The outbound caller ID name, number, and outbound whisper flow.
      */
     export interface QueueOutboundCallerConfigArgs {
         outboundCallerIdName?: pulumi.Input<string>;
         outboundCallerIdNumberArn?: pulumi.Input<string>;
         outboundFlowArn?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface QueueTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -9082,20 +8330,6 @@ export namespace connect {
     export interface QuickConnectQueueQuickConnectConfigArgs {
         contactFlowArn: pulumi.Input<string>;
         queueArn: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface QuickConnectTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -9137,20 +8371,6 @@ export namespace connect {
     export interface RoutingProfileQueueReferenceArgs {
         channel: pulumi.Input<enums.connect.RoutingProfileChannel>;
         queueArn: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RoutingProfileTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -9255,20 +8475,6 @@ export namespace connect {
          * The subject of notification.
          */
         subject?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RuleTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -9384,48 +8590,6 @@ export namespace connect {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface TaskTemplateTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface TrafficDistributionGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface UserHierarchyGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Contains information about the identity of a user.
      */
     export interface UserIdentityInfoArgs {
@@ -9456,39 +8620,12 @@ export namespace connect {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface UserTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The values of a predefined attribute.
      */
     export interface ValuesPropertiesArgs {
         stringList?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ViewTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. . You can specify a value that is maximum of 256 Unicode characters
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace connectcampaigns {
@@ -9568,19 +8705,6 @@ export namespace connectcampaigns {
         dialingCapacity?: pulumi.Input<number>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CampaignTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace controltower {
@@ -9589,10 +8713,6 @@ export namespace controltower {
         value: pulumi.Input<pulumi.Input<string | number | any | boolean>[] | string | number | any | boolean>;
     }
 
-    export interface LandingZoneTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace customerprofiles {
@@ -9626,20 +8746,6 @@ export namespace customerprofiles {
     export interface CalculatedAttributeDefinitionRangeArgs {
         unit: pulumi.Input<enums.customerprofiles.CalculatedAttributeDefinitionRangeUnit>;
         value: pulumi.Input<number>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CalculatedAttributeDefinitionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -9793,25 +8899,6 @@ export namespace customerprofiles {
         s3KeyName?: pulumi.Input<string>;
     }
 
-    export interface DomainTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface EventStreamTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface IntegrationConnectorOperatorArgs {
         marketo?: pulumi.Input<enums.customerprofiles.IntegrationMarketoConnectorOperator>;
         s3?: pulumi.Input<enums.customerprofiles.IntegrationS3ConnectorOperator>;
@@ -9882,11 +8969,6 @@ export namespace customerprofiles {
         sourceConnectorProperties: pulumi.Input<inputs.customerprofiles.IntegrationSourceConnectorPropertiesArgs>;
     }
 
-    export interface IntegrationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface IntegrationTaskArgs {
         connectorOperator?: pulumi.Input<inputs.customerprofiles.IntegrationConnectorOperatorArgs>;
         destinationField?: pulumi.Input<string>;
@@ -9955,10 +9037,6 @@ export namespace customerprofiles {
         objectTypeKeyList?: pulumi.Input<pulumi.Input<inputs.customerprofiles.ObjectTypeKeyArgs>[]>;
     }
 
-    export interface ObjectTypeTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace databrew {
@@ -10540,14 +9618,6 @@ export namespace databrew {
         valueReference: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource
-     */
-    export interface RulesetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface RulesetThresholdArgs {
         type?: pulumi.Input<enums.databrew.RulesetThresholdType>;
         unit?: pulumi.Input<enums.databrew.RulesetThresholdUnit>;
@@ -10627,33 +9697,9 @@ export namespace datapipeline {
         stringValue: pulumi.Input<string>;
     }
 
-    export interface PipelineTagArgs {
-        /**
-         * The key name of a tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value to associate with the key name.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace datasync {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AgentTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
      */
@@ -10662,20 +9708,6 @@ export namespace datasync {
          * Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
          */
         azureBlobSasToken: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationAzureBlobTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -10690,34 +9722,6 @@ export namespace datasync {
          * The ARN of the subnet that DataSync uses to access the target EFS file system.
          */
         subnetArn: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationEfsTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationFSxLustreTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -10775,20 +9779,6 @@ export namespace datasync {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationFSxOntapTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The NFS mount options that DataSync can use to mount your NFS share.
      */
     export interface LocationFSxOpenZfsMountOptionsArgs {
@@ -10810,34 +9800,6 @@ export namespace datasync {
      */
     export interface LocationFSxOpenZfsProtocolArgs {
         nfs?: pulumi.Input<inputs.datasync.LocationFSxOpenZfsNfsArgs>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationFSxOpenZfsTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationFSxWindowsTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -10869,20 +9831,6 @@ export namespace datasync {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationHdfsTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The NFS mount options that DataSync can use to mount your NFS share.
      */
     export interface LocationNfsMountOptionsArgs {
@@ -10903,48 +9851,6 @@ export namespace datasync {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationNfsTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationObjectStorageTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationS3TagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
      */
     export interface LocationS3s3ConfigArgs {
@@ -10962,20 +9868,6 @@ export namespace datasync {
          * The specific SMB version that you want DataSync to use to mount your SMB share.
          */
         version?: pulumi.Input<enums.datasync.LocationSmbMountOptionsVersion>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationSmbTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -11004,20 +9896,6 @@ export namespace datasync {
          * The username for your storage system's management interface.
          */
         username: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface StorageSystemTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -11226,19 +10104,6 @@ export namespace datasync {
         scheduleExpression: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface TaskTagArgs {
-        /**
-         * The key for an AWS resource tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for an AWS resource tag.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace datazone {
@@ -11410,20 +10275,6 @@ export namespace datazone {
         userAssignment?: pulumi.Input<enums.datazone.DomainUserAssignment>;
     }
 
-    /**
-     * A key-value pair to associate with the domain.
-     */
-    export interface DomainTagArgs {
-        /**
-         * The key name of the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface EnvironmentBlueprintConfigurationParameterArgs {
     }
 
@@ -11482,19 +10333,6 @@ export namespace dax {
 }
 
 export namespace detective {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface GraphTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ 
-         */
-        key?: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ 
-         */
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace devicefarm {
@@ -11516,26 +10354,6 @@ export namespace devicefarm {
         value?: pulumi.Input<string>;
     }
 
-    export interface DevicePoolTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface InstanceProfileTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface NetworkProfileTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ProjectTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * The VPC security groups and subnets that are attached to a project
      */
@@ -11554,11 +10372,6 @@ export namespace devicefarm {
         vpcId: pulumi.Input<string>;
     }
 
-    export interface TestGridProjectTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * The VPC security groups and subnets that are attached to a TestGrid project.
      */
@@ -11574,10 +10387,6 @@ export namespace devicefarm {
         vpcId: pulumi.Input<string>;
     }
 
-    export interface VpceConfigurationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace devopsguru {
@@ -11821,20 +10630,6 @@ export namespace dlm {
 }
 
 export namespace dms {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DataProviderTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface EndpointDocDbSettingsArgs {
         docsToInvestigate?: pulumi.Input<number>;
         extractDocId?: pulumi.Input<boolean>;
@@ -12119,30 +10914,6 @@ export namespace dms {
         secretsManagerSecretId?: pulumi.Input<string>;
     }
 
-    export interface EndpointTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface EventSubscriptionTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface InstanceProfileTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
      */
@@ -12152,20 +10923,6 @@ export namespace dms {
         dataProviderName?: pulumi.Input<string>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface MigrationProjectTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -12181,36 +10938,6 @@ export namespace dms {
         preferredMaintenanceWindow?: pulumi.Input<string>;
         replicationSubnetGroupId?: pulumi.Input<string>;
         vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
-    export interface ReplicationConfigTagArgs {
-        /**
-         * <p>Tag key.</p>
-         */
-        key: pulumi.Input<string>;
-        /**
-         * <p>Tag value.</p>
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface ReplicationInstanceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ReplicationSubnetGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ReplicationTaskTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -12287,32 +11014,9 @@ export namespace dms {
 }
 
 export namespace docdb {
-    export interface DbClusterParameterGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface DbClusterTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface DbInstanceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface DbSubnetGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace docdbelastic {
-    export interface ClusterTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace dynamodb {
@@ -12506,11 +11210,6 @@ export namespace dynamodb {
         streamViewType: pulumi.Input<string>;
     }
 
-    export interface TableTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface TableTimeToLiveSpecificationArgs {
         attributeName?: pulumi.Input<string>;
         enabled: pulumi.Input<boolean>;
@@ -12546,11 +11245,6 @@ export namespace ec2 {
     export interface CapacityReservationTagSpecificationArgs {
         resourceType?: pulumi.Input<string>;
         tags?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationTagArgs>[]>;
-    }
-
-    export interface CarrierGatewayTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface ClientVpnEndpointCertificateAuthenticationRequestArgs {
@@ -12603,20 +11297,10 @@ export namespace ec2 {
         tags: pulumi.Input<pulumi.Input<inputs.ec2.ClientVpnEndpointTagArgs>[]>;
     }
 
-    export interface CustomerGatewayTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface DestinationOptionsPropertiesArgs {
         fileFormat: pulumi.Input<enums.ec2.FlowLogDestinationOptionsPropertiesFileFormat>;
         hiveCompatiblePartitions: pulumi.Input<boolean>;
         perHourPartition: pulumi.Input<boolean>;
-    }
-
-    export interface DhcpOptionsTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface Ec2FleetAcceleratorCountRequestArgs {
@@ -12774,16 +11458,6 @@ export namespace ec2 {
         min?: pulumi.Input<number>;
     }
 
-    export interface EipTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface FlowLogTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface InstanceAssociationParameterArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<pulumi.Input<string>[]>;
@@ -12794,14 +11468,6 @@ export namespace ec2 {
         ebs?: pulumi.Input<inputs.ec2.InstanceEbsArgs>;
         noDevice?: pulumi.Input<inputs.ec2.InstanceNoDeviceArgs>;
         virtualName?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface InstanceConnectEndpointTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface InstanceCpuOptionsArgs {
@@ -12889,19 +11555,9 @@ export namespace ec2 {
         documentName: pulumi.Input<string>;
     }
 
-    export interface InstanceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface InstanceVolumeArgs {
         device: pulumi.Input<string>;
         volumeId: pulumi.Input<string>;
-    }
-
-    export interface InternetGatewayTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -12946,20 +11602,6 @@ export namespace ec2 {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IpamResourceDiscoveryAssociationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
      */
     export interface IpamResourceDiscoveryIpamOperatingRegionArgs {
@@ -12967,48 +11609,6 @@ export namespace ec2 {
          * The name of the region.
          */
         regionName: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IpamResourceDiscoveryTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IpamScopeTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IpamTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -13808,35 +12408,6 @@ export namespace ec2 {
         min?: pulumi.Input<number>;
     }
 
-    export interface LocalGatewayRouteTableTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
-    export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
-    export interface LocalGatewayRouteTableVpcAssociationTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
-    /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
-     */
-    export interface NatGatewayTagArgs {
-        /**
-         * The tag key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag value.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface NetworkAclEntryIcmpArgs {
         code?: pulumi.Input<number>;
         type?: pulumi.Input<number>;
@@ -13847,20 +12418,10 @@ export namespace ec2 {
         to?: pulumi.Input<number>;
     }
 
-    export interface NetworkAclTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface NetworkInsightsAccessScopeAccessScopePathRequestArgs {
         destination?: pulumi.Input<inputs.ec2.NetworkInsightsAccessScopePathStatementRequestArgs>;
         source?: pulumi.Input<inputs.ec2.NetworkInsightsAccessScopePathStatementRequestArgs>;
         throughResources?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs>[]>;
-    }
-
-    export interface NetworkInsightsAccessScopeAnalysisTagArgs {
-        key: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface NetworkInsightsAccessScopePacketHeaderStatementRequestArgs {
@@ -13883,18 +12444,8 @@ export namespace ec2 {
         resources?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface NetworkInsightsAccessScopeTagArgs {
-        key: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs {
         resourceStatement?: pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeResourceStatementRequestArgs>;
-    }
-
-    export interface NetworkInsightsAnalysisTagArgs {
-        key: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface NetworkInsightsPathFilterPortRangeArgs {
@@ -13907,11 +12458,6 @@ export namespace ec2 {
         destinationPortRange?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterPortRangeArgs>;
         sourceAddress?: pulumi.Input<string>;
         sourcePortRange?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterPortRangeArgs>;
-    }
-
-    export interface NetworkInsightsPathTagArgs {
-        key: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface NetworkInterfaceConnectionTrackingSpecificationArgs {
@@ -13935,11 +12481,6 @@ export namespace ec2 {
     export interface NetworkInterfacePrivateIpAddressSpecificationArgs {
         primary: pulumi.Input<boolean>;
         privateIpAddress: pulumi.Input<string>;
-    }
-
-    export interface NetworkInterfaceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -13979,20 +12520,10 @@ export namespace ec2 {
         description?: pulumi.Input<string>;
     }
 
-    export interface PrefixListTagArgs {
-        key: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface PrivateDnsNameOptionsOnLaunchPropertiesArgs {
         enableResourceNameDnsARecord?: pulumi.Input<boolean>;
         enableResourceNameDnsAaaaRecord?: pulumi.Input<boolean>;
         hostnameType?: pulumi.Input<string>;
-    }
-
-    export interface RouteTableTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface SecurityGroupEgressArgs {
@@ -14017,11 +12548,6 @@ export namespace ec2 {
         sourceSecurityGroupName?: pulumi.Input<string>;
         sourceSecurityGroupOwnerId?: pulumi.Input<string>;
         toPort?: pulumi.Input<number>;
-    }
-
-    export interface SecurityGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface SpotFleetAcceleratorCountRequestArgs {
@@ -14274,11 +12800,6 @@ export namespace ec2 {
         kmsKeyArn?: pulumi.Input<string>;
     }
 
-    export interface SubnetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Specifies the tags to apply to a resource when the resource is created for the launch template.
      */
@@ -14298,64 +12819,11 @@ export namespace ec2 {
         toPort: pulumi.Input<number>;
     }
 
-    export interface TrafficMirrorFilterTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface TrafficMirrorSessionTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface TrafficMirrorTargetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface TransitGatewayAttachmentTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface TransitGatewayConnectOptionsArgs {
         /**
          * The tunnel protocol.
          */
         protocol?: pulumi.Input<string>;
-    }
-
-    export interface TransitGatewayConnectTagArgs {
-        /**
-         * The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
-         */
-        key?: pulumi.Input<string>;
-        /**
-         * The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    export interface TransitGatewayMulticastDomainTagArgs {
-        /**
-         * The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
-         */
-        key?: pulumi.Input<string>;
-        /**
-         * The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    export interface TransitGatewayPeeringAttachmentTagArgs {
-        /**
-         * The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
-         */
-        key?: pulumi.Input<string>;
-        /**
-         * The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
-         */
-        value?: pulumi.Input<string>;
     }
 
     export interface TransitGatewayRouteTableTagArgs {
@@ -14366,16 +12834,6 @@ export namespace ec2 {
         /**
          * The value of the associated tag key-value pair
          */
-        value: pulumi.Input<string>;
-    }
-
-    export interface TransitGatewayTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface TransitGatewayVpcAttachmentTagArgs {
-        key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
@@ -14434,20 +12892,6 @@ export namespace ec2 {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface VerifiedAccessEndpointTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The configuration options for customer provided KMS encryption.
      */
     export interface VerifiedAccessGroupSseSpecificationArgs {
@@ -14459,34 +12903,6 @@ export namespace ec2 {
          * KMS Key Arn used to encrypt the group policy
          */
         kmsKeyArn?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface VerifiedAccessGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface VerifiedAccessInstanceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -14639,90 +13055,14 @@ export namespace ec2 {
         userInfoEndpoint?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface VerifiedAccessTrustProviderTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface VolumeTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface VpcPeeringConnectionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
-     */
-    export interface VpcTagArgs {
-        /**
-         * The tag key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag value.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface VpnConnectionTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface VpnConnectionVpnTunnelOptionsSpecificationArgs {
         preSharedKey?: pulumi.Input<string>;
         tunnelInsideCidr?: pulumi.Input<string>;
     }
 
-    export interface VpnGatewayTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace ecr {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface PublicRepositoryTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * An object representing the replication configuration for a registry.
      */
@@ -14801,19 +13141,6 @@ export namespace ecr {
         registryId?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RepositoryTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace ecs {
@@ -14833,11 +13160,6 @@ export namespace ecs {
         minimumScalingStepSize?: pulumi.Input<number>;
         status?: pulumi.Input<enums.ecs.CapacityProviderManagedScalingStatus>;
         targetCapacity?: pulumi.Input<number>;
-    }
-
-    export interface CapacityProviderTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs {
@@ -14897,14 +13219,6 @@ export namespace ecs {
      */
     export interface ClusterSettingsArgs {
         name?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
-    /**
-     * The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-     */
-    export interface ClusterTagArgs {
-        key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
     }
 
@@ -15272,11 +13586,6 @@ export namespace ecs {
         value?: pulumi.Input<string>;
     }
 
-    export interface TaskDefinitionTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface TaskDefinitionTmpfsArgs {
         containerPath?: pulumi.Input<string>;
         mountOptions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -15430,27 +13739,8 @@ export namespace efs {
         path?: pulumi.Input<string>;
     }
 
-    /**
-     * A tag is a key-value pair attached to a file system. Allowed characters in the ``Key`` and ``Value`` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:``+ - = . _ : /``
-     */
-    export interface AccessPointTagArgs {
-        /**
-         * The tag key (String). The key can't start with ``aws:``.
-         */
-        key?: pulumi.Input<string>;
-        /**
-         * The value of the tag key.
-         */
-        value?: pulumi.Input<string>;
-    }
-
     export interface FileSystemBackupPolicyArgs {
         status: pulumi.Input<string>;
-    }
-
-    export interface FileSystemElasticFileSystemTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface FileSystemLifecyclePolicyArgs {
@@ -15499,34 +13789,6 @@ export namespace eks {
          * The type of the access scope.
          */
         type: pulumi.Input<enums.eks.AccessEntryAccessScopeType>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AccessEntryTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AddonTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -15654,20 +13916,6 @@ export namespace eks {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ClusterTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * A key-value pair to associate with a pod.
      */
     export interface FargateProfileLabelArgs {
@@ -15684,20 +13932,6 @@ export namespace eks {
     export interface FargateProfileSelectorArgs {
         labels?: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileLabelArgs>[]>;
         namespace: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface FargateProfileTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -15741,20 +13975,6 @@ export namespace eks {
         key: pulumi.Input<string>;
         /**
          * The value for the requiredClaims.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IdentityProviderConfigTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
     }
@@ -15818,19 +14038,6 @@ export namespace eks {
         maxUnavailablePercentage?: pulumi.Input<number>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface PodIdentityAssociationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace elasticache {
@@ -15863,11 +14070,6 @@ export namespace elasticache {
         destinationType: pulumi.Input<string>;
         logFormat: pulumi.Input<string>;
         logType: pulumi.Input<string>;
-    }
-
-    export interface CacheClusterTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface GlobalReplicationGroupMemberArgs {
@@ -15911,11 +14113,6 @@ export namespace elasticache {
         preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface ParameterGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface ReplicationGroupCloudWatchLogsDestinationDetailsArgs {
         logGroup: pulumi.Input<string>;
     }
@@ -15942,16 +14139,6 @@ export namespace elasticache {
         replicaAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
         replicaCount?: pulumi.Input<number>;
         slots?: pulumi.Input<string>;
-    }
-
-    export interface ReplicationGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface SecurityGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -16000,55 +14187,6 @@ export namespace elasticache {
         port?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with Serverless Cache.
-     */
-    export interface ServerlessCacheTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
-     * A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
-     */
-    export interface SubnetGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface UserGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface UserTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace elasticbeanstalk {
@@ -16164,17 +14302,6 @@ export namespace elasticbeanstalk {
         value?: pulumi.Input<string>;
     }
 
-    export interface EnvironmentTagArgs {
-        /**
-         * The key name of the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface EnvironmentTierArgs {
         /**
          * The name of this environment tier.
@@ -16243,10 +14370,6 @@ export namespace elasticloadbalancing {
         policyType: pulumi.Input<string>;
     }
 
-    export interface LoadBalancerTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace elasticloadbalancingv2 {
@@ -16451,11 +14574,6 @@ export namespace elasticloadbalancingv2 {
         subnetId: pulumi.Input<string>;
     }
 
-    export interface LoadBalancerTagArgs {
-        key: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface TargetGroupAttributeArgs {
         /**
          * The value of the attribute.
@@ -16476,17 +14594,6 @@ export namespace elasticloadbalancingv2 {
          * For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
          */
         httpCode?: pulumi.Input<string>;
-    }
-
-    export interface TargetGroupTagArgs {
-        /**
-         * The value for the tag. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The key name of the tag. 
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface TargetGroupTargetDescriptionArgs {
@@ -16511,10 +14618,6 @@ export namespace elasticloadbalancingv2 {
         s3ObjectVersion?: pulumi.Input<string>;
     }
 
-    export interface TrustStoreTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace elasticsearch {
@@ -16582,11 +14685,6 @@ export namespace elasticsearch {
 
     export interface DomainSnapshotOptionsArgs {
         automatedSnapshotStartHour?: pulumi.Input<number>;
-    }
-
-    export interface DomainTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface DomainVpcOptionsArgs {
@@ -16800,11 +14898,6 @@ export namespace emr {
         name: pulumi.Input<string>;
     }
 
-    export interface ClusterTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface ClusterVolumeSpecificationArgs {
         iops?: pulumi.Input<number>;
         sizeInGb: pulumi.Input<number>;
@@ -16945,33 +15038,6 @@ export namespace emr {
         value?: pulumi.Input<string>;
     }
 
-    /**
-     * An arbitrary set of tags (key-value pairs) for this EMR Studio.
-     */
-    export interface StudioTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface WalWorkspaceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace emrcontainers {
@@ -16995,19 +15061,6 @@ export namespace emrcontainers {
         namespace: pulumi.Input<string>;
     }
 
-    /**
-     * An arbitrary set of tags (key-value pairs) for this virtual cluster.
-     */
-    export interface VirtualClusterTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace emrserverless {
@@ -17164,20 +15217,6 @@ export namespace emrserverless {
         logUri?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ApplicationTagArgs {
-        /**
-         * The value for the tag. You can specify a value that is 1 to 128 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface ApplicationWorkerConfigurationArgs {
         /**
          * Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
@@ -17236,20 +15275,6 @@ export namespace entityresolution {
          * Arn of the Provider Service being used.
          */
         providerServiceArn: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource
-     */
-    export interface IdMappingWorkflowTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface MatchingWorkflowInputSourceArgs {
@@ -17311,20 +15336,6 @@ export namespace entityresolution {
         rules: pulumi.Input<pulumi.Input<inputs.entityresolution.MatchingWorkflowRuleArgs>[]>;
     }
 
-    /**
-     * A key-value pair to associate with a resource
-     */
-    export interface MatchingWorkflowTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface SchemaMappingSchemaInputAttributeArgs {
         fieldName: pulumi.Input<string>;
         groupName?: pulumi.Input<string>;
@@ -17336,19 +15347,6 @@ export namespace entityresolution {
         type: pulumi.Input<enums.entityresolution.SchemaMappingSchemaAttributeType>;
     }
 
-    /**
-     * A key-value pair to associate with a resource
-     */
-    export interface SchemaMappingTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace events {
@@ -17422,11 +15420,6 @@ export namespace events {
         key?: pulumi.Input<string>;
         type?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
-    }
-
-    export interface EventBusTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface RuleAppSyncParametersArgs {
@@ -17574,20 +15567,6 @@ export namespace events {
 }
 
 export namespace eventschemas {
-    export interface DiscovererTagsEntryArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface RegistryTagsEntryArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface SchemaTagsEntryArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace evidently {
@@ -17633,20 +15612,6 @@ export namespace evidently {
         status?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ExperimentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface ExperimentTreatmentObjectArgs {
         description?: pulumi.Input<string>;
         feature: pulumi.Input<string>;
@@ -17662,20 +15627,6 @@ export namespace evidently {
     export interface FeatureEntityOverrideArgs {
         entityId?: pulumi.Input<string>;
         variation?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface FeatureTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface FeatureVariationObjectArgs {
@@ -17742,20 +15693,6 @@ export namespace evidently {
         startTime: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LaunchTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface ProjectAppConfigResourceObjectArgs {
         applicationId: pulumi.Input<string>;
         environmentId: pulumi.Input<string>;
@@ -17774,33 +15711,6 @@ export namespace evidently {
         prefix?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ProjectTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SegmentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace finspace {
@@ -17965,27 +15875,12 @@ export namespace fms {
     }
 
     /**
-     * A policy tag.
-     */
-    export interface PolicyTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Third party firewall policy.
      */
     export interface PolicyThirdPartyFirewallPolicyArgs {
         firewallDeploymentModel: pulumi.Input<enums.fms.PolicyFirewallDeploymentModel>;
     }
 
-    /**
-     * A tag.
-     */
-    export interface ResourceSetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace forecast {
@@ -18000,20 +15895,6 @@ export namespace forecast {
         attributeType?: pulumi.Input<enums.forecast.DatasetAttributesItemPropertiesAttributeType>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DatasetGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface EncryptionConfigPropertiesArgs {
         kmsKeyArn?: pulumi.Input<string>;
         roleArn?: pulumi.Input<string>;
@@ -18023,13 +15904,6 @@ export namespace forecast {
         attributes?: pulumi.Input<pulumi.Input<inputs.forecast.DatasetAttributesItemPropertiesArgs>[]>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface TagsItemPropertiesArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace frauddetector {
@@ -18194,11 +16068,6 @@ export namespace frauddetector {
         value: pulumi.Input<string>;
     }
 
-    export interface EntityTypeTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface EventTypeEntityTypeArgs {
         arn?: pulumi.Input<string>;
         /**
@@ -18274,34 +16143,6 @@ export namespace frauddetector {
         value: pulumi.Input<string>;
     }
 
-    export interface LabelTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ListTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface OutcomeTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface VariableTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace fsx {
@@ -18351,20 +16192,6 @@ export namespace fsx {
          *  The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
          */
         autoImportPolicy?: pulumi.Input<inputs.fsx.DataRepositoryAssociationAutoImportPolicyArgs>;
-    }
-
-    /**
-     * Specifies a key-value pair for a resource tag.
-     */
-    export interface DataRepositoryAssociationTagArgs {
-        /**
-         * A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface FileSystemAuditLogConfigurationArgs {
@@ -18451,11 +16278,6 @@ export namespace fsx {
         userName?: pulumi.Input<string>;
     }
 
-    export interface FileSystemTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface FileSystemUserAndGroupQuotasArgs {
         id?: pulumi.Input<number>;
         storageCapacityQuotaGiB?: pulumi.Input<number>;
@@ -18477,11 +16299,6 @@ export namespace fsx {
         weeklyMaintenanceStartTime?: pulumi.Input<string>;
     }
 
-    export interface SnapshotTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface StorageVirtualMachineActiveDirectoryConfigurationArgs {
         netBiosName?: pulumi.Input<string>;
         selfManagedActiveDirectoryConfiguration?: pulumi.Input<inputs.fsx.StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs>;
@@ -18494,11 +16311,6 @@ export namespace fsx {
         organizationalUnitDistinguishedName?: pulumi.Input<string>;
         password?: pulumi.Input<string>;
         userName?: pulumi.Input<string>;
-    }
-
-    export interface StorageVirtualMachineTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface VolumeAggregateConfigurationArgs {
@@ -18573,11 +16385,6 @@ export namespace fsx {
         defaultRetention: pulumi.Input<inputs.fsx.VolumeRetentionPeriodArgs>;
         maximumRetention: pulumi.Input<inputs.fsx.VolumeRetentionPeriodArgs>;
         minimumRetention: pulumi.Input<inputs.fsx.VolumeRetentionPeriodArgs>;
-    }
-
-    export interface VolumeTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface VolumeTieringPolicyArgs {
@@ -18838,17 +16645,6 @@ export namespace gamelift {
         version?: pulumi.Input<string>;
     }
 
-    export interface GameServerGroupTagArgs {
-        /**
-         * The key for a developer-defined key:value pair for tagging an AWS resource.
-         */
-        key?: pulumi.Input<string>;
-        /**
-         * The value for a developer-defined key:value pair for tagging an AWS resource.
-         */
-        value?: pulumi.Input<string>;
-    }
-
     /**
      * Settings for a target-based scaling policy applied to Auto Scaling group.
      */
@@ -18887,34 +16683,6 @@ export namespace gamelift {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface GameSessionQueueTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LocationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * A key-value pair that contains information about a game session.
      */
     export interface MatchmakingConfigurationGamePropertyArgs {
@@ -18924,34 +16692,6 @@ export namespace gamelift {
         key: pulumi.Input<string>;
         /**
          * The game property value.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface MatchmakingConfigurationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface MatchmakingRuleSetTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
          */
         value: pulumi.Input<string>;
     }
@@ -18975,36 +16715,9 @@ export namespace gamelift {
         roleArn: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ScriptTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace globalaccelerator {
-    /**
-     * Tag is a key-value pair associated with accelerator.
-     */
-    export interface AcceleratorTagArgs {
-        /**
-         * Key of the tag. Value can be 1 to 127 characters.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Value for the tag. Value can be 1 to 255 characters.
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * The configuration for a given endpoint
      */
@@ -19319,17 +17032,6 @@ export namespace glue {
         storedAsSubDirectories?: pulumi.Input<boolean>;
     }
 
-    export interface RegistryTagArgs {
-        /**
-         * A key to identify the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Corresponding tag value for the key.
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Identifier for the registry which the schema is part of.
      */
@@ -19342,17 +17044,6 @@ export namespace glue {
          * Name of the registry in which the schema will be created.
          */
         name?: pulumi.Input<string>;
-    }
-
-    export interface SchemaTagArgs {
-        /**
-         * A key to identify the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Corresponding tag value for the key.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -20135,11 +17826,6 @@ export namespace groundstation {
         polarization?: pulumi.Input<enums.groundstation.ConfigPolarization>;
     }
 
-    export interface ConfigTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface ConfigTrackingConfigArgs {
         autotrack?: pulumi.Input<enums.groundstation.ConfigTrackingConfigAutotrack>;
     }
@@ -20238,11 +17924,6 @@ export namespace groundstation {
         port?: pulumi.Input<number>;
     }
 
-    export interface DataflowEndpointGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface MissionProfileDataflowEdgeArgs {
         destination?: pulumi.Input<string>;
         source?: pulumi.Input<string>;
@@ -20253,10 +17934,6 @@ export namespace groundstation {
         kmsKeyArn?: pulumi.Input<string>;
     }
 
-    export interface MissionProfileTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace guardduty {
@@ -20297,11 +17974,6 @@ export namespace guardduty {
         enable: pulumi.Input<boolean>;
     }
 
-    export interface DetectorTagItemArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface FilterConditionArgs {
         eq?: pulumi.Input<pulumi.Input<string>[]>;
         equals?: pulumi.Input<pulumi.Input<string>[]>;
@@ -20321,20 +17993,6 @@ export namespace guardduty {
         criterion?: pulumi.Input<{[key: string]: pulumi.Input<inputs.guardduty.FilterConditionArgs>}>;
     }
 
-    export interface FilterTagItemArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface IpSetTagItemArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ThreatIntelSetTagItemArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace healthimaging {
@@ -20399,19 +18057,6 @@ export namespace healthlake {
         kmsEncryptionConfig: pulumi.Input<inputs.healthlake.FhirDatastoreKmsEncryptionConfigArgs>;
     }
 
-    /**
-     * A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
-     */
-    export interface FhirDatastoreTagArgs {
-        /**
-         * The key of the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value of the tag.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace iam {
@@ -20427,20 +18072,6 @@ export namespace iam {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface OidcProviderTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The inline policy document that is embedded in the specified IAM role.
      */
     export interface RolePolicyArgs {
@@ -20452,48 +18083,6 @@ export namespace iam {
          * The friendly name (not ARN) identifying the policy.
          */
         policyName: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RoleTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SamlProviderTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ServerCertificateTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -20524,33 +18113,6 @@ export namespace iam {
         policyName: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface UserTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface VirtualMfaDeviceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace identitystore {
@@ -21454,13 +19016,6 @@ export namespace internetmonitor {
         logDeliveryStatus?: pulumi.Input<enums.internetmonitor.MonitorS3ConfigLogDeliveryStatus>;
     }
 
-    /**
-     * The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-     */
-    export interface MonitorTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace iot {
@@ -21525,89 +19080,14 @@ export namespace iot {
         sns?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditNotificationTargetArgs>;
     }
 
-    export interface AuthorizerTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface BillingGroupPropertiesPropertiesArgs {
         billingGroupDescription?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface BillingGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface CaCertificateRegistrationConfigArgs {
         roleArn?: pulumi.Input<string>;
         templateBody?: pulumi.Input<string>;
         templateName?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CaCertificateTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CertificateProviderTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CustomMetricTagArgs {
-        /**
-         * The tag's key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DimensionTagArgs {
-        /**
-         * The tag's key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value.
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface DomainConfigurationAuthorizerConfigArgs {
@@ -21617,11 +19097,6 @@ export namespace iot {
 
     export interface DomainConfigurationServerCertificateConfigArgs {
         enableOcspCheck?: pulumi.Input<boolean>;
-    }
-
-    export interface DomainConfigurationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface DomainConfigurationTlsConfigArgs {
@@ -21640,20 +19115,6 @@ export namespace iot {
          * Fleet Indexing aggregation type values
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource
-     */
-    export interface FleetMetricTagArgs {
-        /**
-         * The tag's key
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface JobExecutionsRetryConfigPropertiesArgs {
@@ -21821,20 +19282,6 @@ export namespace iot {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface MitigationActionTagArgs {
-        /**
-         * The tag's key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
      */
     export interface MitigationActionUpdateCaCertificateParamsArgs {
@@ -21848,11 +19295,6 @@ export namespace iot {
         action: pulumi.Input<enums.iot.MitigationActionUpdateDeviceCertificateParamsAction>;
     }
 
-    export interface PolicyTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Configuration for pre-signed S3 URLs.
      */
@@ -21864,39 +19306,6 @@ export namespace iot {
     export interface ProvisioningTemplateProvisioningHookArgs {
         payloadVersion?: pulumi.Input<string>;
         targetArn?: pulumi.Input<string>;
-    }
-
-    export interface ProvisioningTemplateTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RoleAliasTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ScheduledAuditTagArgs {
-        /**
-         * The tag's key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -22035,49 +19444,7 @@ export namespace iot {
         statistic?: pulumi.Input<enums.iot.SecurityProfileStatisticalThresholdStatistic>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SecurityProfileTagArgs {
-        /**
-         * The tag's key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SoftwarePackageTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface SoftwarePackageVersionResourceAttributesArgs {
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SoftwarePackageVersionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface ThingAttributePayloadArgs {
@@ -22093,37 +19460,9 @@ export namespace iot {
         thingGroupDescription?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ThingGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface ThingTypePropertiesPropertiesArgs {
         searchableAttributes?: pulumi.Input<pulumi.Input<string>[]>;
         thingTypeDescription?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ThingTypeTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -22384,11 +19723,6 @@ export namespace iot {
         stateMachineName: pulumi.Input<string>;
     }
 
-    export interface TopicRuleTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface TopicRuleTimestampArgs {
         unit?: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -22443,11 +19777,6 @@ export namespace iotanalytics {
     export interface ChannelStorageArgs {
         customerManagedS3?: pulumi.Input<inputs.iotanalytics.ChannelCustomerManagedS3Args>;
         serviceManagedS3?: pulumi.Input<inputs.iotanalytics.ChannelServiceManagedS3Args>;
-    }
-
-    export interface ChannelTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface DatasetActionArgs {
@@ -22539,11 +19868,6 @@ export namespace iotanalytics {
         scheduleExpression: pulumi.Input<string>;
     }
 
-    export interface DatasetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface DatasetTriggerArgs {
         schedule?: pulumi.Input<inputs.iotanalytics.DatasetScheduleArgs>;
         triggeringDataset?: pulumi.Input<inputs.iotanalytics.DatasetTriggeringDatasetArgs>;
@@ -22623,11 +19947,6 @@ export namespace iotanalytics {
         customerManagedS3?: pulumi.Input<inputs.iotanalytics.DatastoreCustomerManagedS3Args>;
         iotSiteWiseMultiLayerStorage?: pulumi.Input<inputs.iotanalytics.DatastoreIotSiteWiseMultiLayerStorageArgs>;
         serviceManagedS3?: pulumi.Input<inputs.iotanalytics.DatastoreServiceManagedS3Args>;
-    }
-
-    export interface DatastoreTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface DatastoreTimestampPartitionArgs {
@@ -22717,10 +20036,6 @@ export namespace iotanalytics {
         next?: pulumi.Input<string>;
     }
 
-    export interface PipelineTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace iotcoredeviceadvisor {
@@ -22737,19 +20052,6 @@ export namespace iotcoredeviceadvisor {
         thingArn?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SuiteDefinitionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace iotevents {
@@ -23059,20 +20361,6 @@ export namespace iotevents {
          * Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
          */
         useBase64?: pulumi.Input<boolean>;
-    }
-
-    /**
-     * Tags to be applied to Input.
-     */
-    export interface AlarmModelTagArgs {
-        /**
-         * Key of the Tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Value of the Tag.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -23456,20 +20744,6 @@ export namespace iotevents {
     }
 
     /**
-     * Tags to be applied to Input.
-     */
-    export interface DetectorModelTagArgs {
-        /**
-         * Key of the Tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Value of the Tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Specifies the `actions `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
      */
     export interface DetectorModelTransitionEventArgs {
@@ -23513,35 +20787,9 @@ export namespace iotevents {
         attributes: pulumi.Input<pulumi.Input<inputs.iotevents.InputAttributeArgs>[]>;
     }
 
-    /**
-     * Tags to be applied to Input.
-     */
-    export interface InputTagArgs {
-        /**
-         * Key of the Tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Value of the Tag.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace iotfleethub {
-    /**
-     * To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
-     */
-    export interface ApplicationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace iotfleetwise {
@@ -23579,11 +20827,6 @@ export namespace iotfleetwise {
         maxSampleCount?: pulumi.Input<number>;
         minimumSamplingIntervalMs?: pulumi.Input<number>;
         name: pulumi.Input<string>;
-    }
-
-    export interface CampaignTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface CampaignTimeBasedCollectionSchemeArgs {
@@ -23660,21 +20903,6 @@ export namespace iotfleetwise {
         type: pulumi.Input<enums.iotfleetwise.DecoderManifestObdSignalDecoderType>;
     }
 
-    export interface DecoderManifestTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface FleetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ModelManifestTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface SignalCatalogActuatorArgs {
         allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
         assignedValue?: pulumi.Input<string>;
@@ -23735,16 +20963,6 @@ export namespace iotfleetwise {
         max?: pulumi.Input<number>;
         min?: pulumi.Input<number>;
         unit?: pulumi.Input<string>;
-    }
-
-    export interface SignalCatalogTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface VehicleTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface VehicleattributesMapArgs {
@@ -23964,11 +21182,6 @@ export namespace iotsitewise {
         typeName: pulumi.Input<enums.iotsitewise.AssetModelTypeName>;
     }
 
-    export interface AssetModelTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface AssetModelTransformArgs {
         /**
          * The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
@@ -24015,19 +21228,6 @@ export namespace iotsitewise {
         unit?: pulumi.Input<string>;
     }
 
-    export interface AssetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-     */
-    export interface DashboardTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Contains a summary of a gateway capability configuration.
      */
@@ -24070,29 +21270,6 @@ export namespace iotsitewise {
         greengrassV2?: pulumi.Input<inputs.iotsitewise.GatewayGreengrassV2Args>;
     }
 
-    /**
-     * To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-     */
-    export interface GatewayTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
-     */
-    export interface PortalTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
-     */
-    export interface ProjectTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace iotthingsgraph {
@@ -24531,11 +21708,6 @@ export namespace iottwinmaker {
 }
 
 export namespace iotwireless {
-    export interface DestinationTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface DeviceProfileLoRaWanDeviceProfileArgs {
         classBTimeout?: pulumi.Input<number>;
         classCTimeout?: pulumi.Input<number>;
@@ -24558,11 +21730,6 @@ export namespace iotwireless {
         supportsJoin?: pulumi.Input<boolean>;
     }
 
-    export interface DeviceProfileTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface FuotaTaskLoRaWanArgs {
         /**
          * FUOTA task LoRaWAN RF region
@@ -24572,11 +21739,6 @@ export namespace iotwireless {
          * FUOTA task LoRaWAN start time
          */
         startTime?: pulumi.Input<string>;
-    }
-
-    export interface FuotaTaskTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface MulticastGroupLoRaWanArgs {
@@ -24596,11 +21758,6 @@ export namespace iotwireless {
          * Multicast group LoRaWAN RF region
          */
         rfRegion: pulumi.Input<string>;
-    }
-
-    export interface MulticastGroupTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     /**
@@ -24631,11 +21788,6 @@ export namespace iotwireless {
         appServerPrivateKey?: pulumi.Input<string>;
     }
 
-    export interface PartnerAccountTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface ServiceProfileLoRaWanServiceProfileArgs {
         addGwMetadata?: pulumi.Input<boolean>;
         channelMask?: pulumi.Input<string>;
@@ -24656,11 +21808,6 @@ export namespace iotwireless {
         ulBucketSize?: pulumi.Input<number>;
         ulRate?: pulumi.Input<number>;
         ulRatePolicy?: pulumi.Input<string>;
-    }
-
-    export interface ServiceProfileTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     /**
@@ -24691,11 +21838,6 @@ export namespace iotwireless {
         updateVersion?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWanGatewayVersionArgs>;
     }
 
-    export interface TaskDefinitionTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface TaskDefinitionUpdateWirelessGatewayTaskCreateArgs {
         loRaWan?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs>;
         updateDataRole?: pulumi.Input<string>;
@@ -24718,20 +21860,6 @@ export namespace iotwireless {
     export interface WirelessDeviceAbpV11Args {
         devAddr: pulumi.Input<string>;
         sessionKeys: pulumi.Input<inputs.iotwireless.WirelessDeviceSessionKeysAbpV11Args>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface WirelessDeviceImportTaskTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface WirelessDeviceLoRaWanDeviceArgs {
@@ -24767,33 +21895,14 @@ export namespace iotwireless {
         sNwkSIntKey: pulumi.Input<string>;
     }
 
-    export interface WirelessDeviceTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface WirelessGatewayLoRaWanGatewayArgs {
         gatewayEui: pulumi.Input<string>;
         rfRegion: pulumi.Input<string>;
     }
 
-    export interface WirelessGatewayTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace ivs {
-    export interface ChannelTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface PlaybackKeyPairTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Recording Destination Configuration.
      */
@@ -24822,11 +21931,6 @@ export namespace ivs {
         bucketName: pulumi.Input<string>;
     }
 
-    export interface RecordingConfigurationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Recording Thumbnail Configuration.
      */
@@ -24849,15 +21953,6 @@ export namespace ivs {
         targetIntervalSeconds?: pulumi.Input<number>;
     }
 
-    export interface StageTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface StreamKeyTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace ivschat {
@@ -24901,20 +21996,6 @@ export namespace ivschat {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LoggingConfigurationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Configuration information for optional review of messages.
      */
     export interface RoomMessageReviewHandlerArgs {
@@ -24928,19 +22009,6 @@ export namespace ivschat {
         uri?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RoomTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace kafkaconnect {
@@ -25445,20 +22513,6 @@ export namespace kendra {
         queryIdentifiersEnclosingOption?: pulumi.Input<enums.kendra.DataSourceQueryIdentifiersEnclosingOption>;
     }
 
-    /**
-     * A label for tagging Kendra resources
-     */
-    export interface DataSourceTagArgs {
-        /**
-         * A string used to identify this tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for the tag
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface DataSourceToIndexFieldMappingArgs {
         dataSourceFieldName: pulumi.Input<string>;
         dateFieldFormat?: pulumi.Input<string>;
@@ -25520,20 +22574,6 @@ export namespace kendra {
         key: pulumi.Input<string>;
     }
 
-    /**
-     * A label for tagging Kendra resources
-     */
-    export interface FaqTagArgs {
-        /**
-         * A string used to identify this tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for the tag
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface IndexCapacityUnitsConfigurationArgs {
         queryCapacityUnits: pulumi.Input<number>;
         storageCapacityUnits: pulumi.Input<number>;
@@ -25580,20 +22620,6 @@ export namespace kendra {
         kmsKeyId?: pulumi.Input<string>;
     }
 
-    /**
-     * A label for tagging Kendra resources
-     */
-    export interface IndexTagArgs {
-        /**
-         * A string used to identify this tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for the tag
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface IndexUserTokenConfigurationArgs {
         jsonTokenTypeConfiguration?: pulumi.Input<inputs.kendra.IndexJsonTokenTypeConfigurationArgs>;
         jwtTokenTypeConfiguration?: pulumi.Input<inputs.kendra.IndexJwtTokenTypeConfigurationArgs>;
@@ -25610,19 +22636,6 @@ export namespace kendraranking {
         rescoreCapacityUnits: pulumi.Input<number>;
     }
 
-    /**
-     * A label for tagging KendraRanking resources
-     */
-    export interface ExecutionPlanTagArgs {
-        /**
-         * A string used to identify this tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for the tag
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace kinesis {
@@ -25650,19 +22663,6 @@ export namespace kinesis {
         streamMode: pulumi.Input<enums.kinesis.StreamModeDetailsStreamMode>;
     }
 
-    /**
-     * An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
-     */
-    export interface StreamTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace kinesisanalytics {
@@ -26379,20 +23379,6 @@ export namespace kinesisanalyticsv2 {
     }
 
     /**
-     * A key-value pair that identifies an application.
-     */
-    export interface ApplicationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that's 0 to 256 characters in length.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Describes the parameters of a VPC used by the application.
      */
     export interface ApplicationVpcConfigurationArgs {
@@ -26784,11 +23770,6 @@ export namespace kinesisfirehose {
         durationInSeconds?: pulumi.Input<number>;
     }
 
-    export interface DeliveryStreamTagArgs {
-        key: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface DeliveryStreamVpcConfigurationArgs {
         roleArn: pulumi.Input<string>;
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
@@ -26797,63 +23778,9 @@ export namespace kinesisfirehose {
 }
 
 export namespace kinesisvideo {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SignalingChannelTagArgs {
-        /**
-         * The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. Specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.  The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associated with the Kinesis Video Stream.
-     */
-    export interface StreamTagArgs {
-        /**
-         * The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. Specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace kms {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface KeyTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ReplicaKeyTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace lakeformation {
@@ -27353,17 +24280,6 @@ export namespace lambda {
          * Applying SnapStart setting on function resource type.
          */
         applyOn: pulumi.Input<enums.lambda.FunctionSnapStartApplyOn>;
-    }
-
-    export interface FunctionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
     }
 
     /**
@@ -28832,34 +25748,6 @@ export namespace lightsail {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface BucketTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CertificateTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
      * Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
      */
     export interface ContainerArgs {
@@ -28993,20 +25881,6 @@ export namespace lightsail {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ContainerTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
      * Describes the parameters of the database.
      */
     export interface DatabaseRelationalDatabaseParameterArgs {
@@ -29042,20 +25916,6 @@ export namespace lightsail {
          * Specifies the value of the parameter.
          */
         parameterValue?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DatabaseTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
     }
 
     /**
@@ -29095,20 +25955,6 @@ export namespace lightsail {
          * The Region Name in which to create your disk.
          */
         regionName?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DiskTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
     }
 
     /**
@@ -29231,20 +26077,6 @@ export namespace lightsail {
          * The specific query strings that the distribution forwards to the origin.
          */
         queryStringsAllowList?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DistributionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
     }
 
     /**
@@ -29410,33 +26242,6 @@ export namespace lightsail {
         name?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface InstanceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LoadBalancerTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace location {
@@ -29446,158 +26251,19 @@ export namespace location {
         allowResources: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ApiKeyTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface GeofenceCollectionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface MapConfigurationArgs {
         customLayers?: pulumi.Input<pulumi.Input<string>[]>;
         politicalView?: pulumi.Input<string>;
         style: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface MapTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface PlaceIndexDataSourceConfigurationArgs {
         intendedUse?: pulumi.Input<enums.location.PlaceIndexIntendedUse>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface PlaceIndexTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RouteCalculatorTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface TrackerTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace logs {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DeliveryDestinationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DeliverySourceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DeliveryTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface LogGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, - and @.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, - and @.
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * the key-value pairs that further define a metric.
      */
@@ -29694,19 +26360,6 @@ export namespace lookoutequipment {
         prefix?: pulumi.Input<string>;
     }
 
-    /**
-     * A tag is a key-value pair that can be added to a resource as metadata.
-     */
-    export interface InferenceSchedulerTagArgs {
-        /**
-         * The key for the specified tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the specified tag.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace lookoutmetrics {
@@ -29908,34 +26561,6 @@ export namespace macie {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AllowListTagArgs {
-        /**
-         * The tag's key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CustomDataIdentifierTagArgs {
-        /**
-         * The tag's key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Map of filter criteria.
      */
     export interface FindingsFilterCriterionArgs {
@@ -29945,36 +26570,9 @@ export namespace macie {
         criterion?: pulumi.Input<inputs.macie.FindingsFilterCriterionArgs>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface FindingsFilterTagArgs {
-        /**
-         * The tag's key.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace managedblockchain {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AccessorTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface MemberApprovalThresholdPolicyArgs {
         proposalDurationInHours?: pulumi.Input<number>;
         thresholdComparator?: pulumi.Input<string>;
@@ -31841,14 +28439,6 @@ export namespace medialive {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface MultiplexTagsArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
-    /**
      * Packet identifiers map for a given Multiplex program.
      */
     export interface MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs {
@@ -31934,11 +28524,6 @@ export namespace mediapackage {
          * The URL of the parent manifest for the repackaged Asset.
          */
         url: pulumi.Input<string>;
-    }
-
-    export interface AssetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -32303,11 +28888,6 @@ export namespace mediapackage {
         streamOrder?: pulumi.Input<enums.mediapackage.OriginEndpointStreamSelectionStreamOrder>;
     }
 
-    export interface OriginEndpointTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * A CMAF encryption configuration.
      */
@@ -32524,11 +29104,6 @@ export namespace mediapackage {
         streamOrder?: pulumi.Input<enums.mediapackage.PackagingConfigurationStreamSelectionStreamOrder>;
     }
 
-    export interface PackagingConfigurationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface PackagingGroupAuthorizationArgs {
         /**
          * The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
@@ -32554,16 +29129,6 @@ export namespace mediapackage {
 }
 
 export namespace mediapackagev2 {
-    export interface ChannelGroupTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
-    export interface ChannelTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     /**
      * <p>The parameters for encrypting content.</p>
      */
@@ -32758,10 +29323,6 @@ export namespace mediapackagev2 {
         url: pulumi.Input<string>;
     }
 
-    export interface OriginEndpointTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace mediastore {
@@ -32783,10 +29344,6 @@ export namespace mediastore {
         objectGroupName: pulumi.Input<string>;
     }
 
-    export interface ContainerTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace mediatailor {
@@ -32866,11 +29423,6 @@ export namespace mediatailor {
         vodSourceName?: pulumi.Input<string>;
     }
 
-    export interface ChannelTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * <p>The configuration for time-shifted viewing.</p>
      */
@@ -32894,11 +29446,6 @@ export namespace mediatailor {
          */
         sourceGroup: pulumi.Input<string>;
         type: pulumi.Input<enums.mediatailor.LiveSourceType>;
-    }
-
-    export interface LiveSourceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -33002,11 +29549,6 @@ export namespace mediatailor {
         adMarkerPassthrough?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAdMarkerPassthroughArgs>;
     }
 
-    export interface PlaybackConfigurationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * <p>Access configuration parameters.</p>
      */
@@ -33067,11 +29609,6 @@ export namespace mediatailor {
         name?: pulumi.Input<string>;
     }
 
-    export interface SourceLocationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * <p>The HTTP package configuration properties for the requested VOD source.</p>
      */
@@ -33087,27 +29624,9 @@ export namespace mediatailor {
         type: pulumi.Input<enums.mediatailor.VodSourceType>;
     }
 
-    export interface VodSourceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace memorydb {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AclTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
     export interface AuthenticationModePropertiesArgs {
         /**
          * Passwords used for this user account. You can create up to two passwords for each user.
@@ -33130,61 +29649,6 @@ export namespace memorydb {
         port?: pulumi.Input<number>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ClusterTagArgs {
-        /**
-         * The key for the tag. May not be null.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value. May be null.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ParameterGroupTagArgs {
-        /**
-         * The key for the tag. May not be null.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value. May be null.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SubnetGroupTagArgs {
-        /**
-         * The key for the tag. May not be null.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag's value. May be null.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface UserTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace msk {
@@ -33428,11 +29892,6 @@ export namespace msk {
         topicReplication: pulumi.Input<inputs.msk.ReplicatorTopicReplicationArgs>;
     }
 
-    export interface ReplicatorTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface ReplicatorTopicReplicationArgs {
         /**
          * Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
@@ -33531,11 +29990,6 @@ export namespace neptune {
         roleArn: pulumi.Input<string>;
     }
 
-    export interface DbClusterParameterGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Contains the scaling configuration of an Neptune Serverless DB cluster.
      */
@@ -33550,51 +30004,9 @@ export namespace neptune {
         minCapacity: pulumi.Input<number>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DbClusterTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    export interface DbInstanceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface DbParameterGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface DbSubnetGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace neptunegraph {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface GraphTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value?: pulumi.Input<string>;
-    }
-
     /**
      * The vector search configuration.
      */
@@ -33663,11 +30075,6 @@ export namespace networkfirewall {
         resourceArn: pulumi.Input<string>;
     }
 
-    export interface FirewallPolicyTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface FirewallSubnetMappingArgs {
         /**
          * A IPAddressType
@@ -33677,11 +30084,6 @@ export namespace networkfirewall {
          * A SubnetId.
          */
         subnetId: pulumi.Input<string>;
-    }
-
-    export interface FirewallTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface LoggingConfigurationArgs {
@@ -33812,11 +30214,6 @@ export namespace networkfirewall {
         statelessRules: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupStatelessRuleArgs>[]>;
     }
 
-    export interface RuleGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface RuleGroupTcpFlagFieldArgs {
         flags: pulumi.Input<pulumi.Input<enums.networkfirewall.RuleGroupTcpFlag>[]>;
         masks?: pulumi.Input<pulumi.Input<enums.networkfirewall.RuleGroupTcpFlag>[]>;
@@ -33853,11 +30250,6 @@ export namespace networkfirewall {
         protocols?: pulumi.Input<pulumi.Input<number>[]>;
         sourcePorts?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationPortRangeArgs>[]>;
         sources?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationAddressArgs>[]>;
-    }
-
-    export interface TlsInspectionConfigurationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface TlsInspectionConfigurationTlsInspectionConfigurationArgs {
@@ -33916,34 +30308,6 @@ export namespace networkmanager {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ConnectPeerTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CoreNetworkTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The Amazon Web Services location of the device, if applicable.
      */
     export interface DeviceAwsLocationArgs {
@@ -33976,34 +30340,6 @@ export namespace networkmanager {
     }
 
     /**
-     * A key-value pair to associate with a device resource.
-     */
-    export interface DeviceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a global network resource.
-     */
-    export interface GlobalNetworkTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The bandwidth for the link.
      */
     export interface LinkBandwidthArgs {
@@ -34015,20 +30351,6 @@ export namespace networkmanager {
          * Upload speed in Mbps.
          */
         uploadSpeed?: pulumi.Input<number>;
-    }
-
-    /**
-     * A key-value pair to associate with a link resource.
-     */
-    export interface LinkTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -34047,20 +30369,6 @@ export namespace networkmanager {
          * The longitude.
          */
         longitude?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a site resource.
-     */
-    export interface SiteTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -34085,20 +30393,6 @@ export namespace networkmanager {
      * A key-value pair to associate with a resource.
      */
     export interface SiteToSiteVpnAttachmentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface TransitGatewayPeeringTagArgs {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -34703,17 +30997,6 @@ export namespace opensearchservice {
         autoSoftwareUpdateEnabled?: pulumi.Input<boolean>;
     }
 
-    export interface DomainTagArgs {
-        /**
-         * The value of the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The key of the tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface DomainVpcOptionsArgs {
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -34814,11 +31097,6 @@ export namespace opsworks {
         executionTimeout?: pulumi.Input<number>;
     }
 
-    export interface LayerTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface LayerVolumeConfigurationArgs {
         encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
@@ -34859,10 +31137,6 @@ export namespace opsworks {
         username?: pulumi.Input<string>;
     }
 
-    export interface StackTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace opsworkscm {
@@ -34871,68 +31145,9 @@ export namespace opsworkscm {
         value?: pulumi.Input<string>;
     }
 
-    export interface ServerTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace organizations {
-    /**
-     * A custom key-value pair associated with a resource within your organization.
-     */
-    export interface AccountTagArgs {
-        /**
-         * The key identifier, or name, of the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A custom key-value pair associated with a resource within your organization.
-     */
-    export interface OrganizationalUnitTagArgs {
-        /**
-         * The key identifier, or name, of the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A custom key-value pair associated with a resource within your organization.
-     */
-    export interface PolicyTagArgs {
-        /**
-         * The key identifier, or name, of the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A custom key-value pair associated with a resource within your organization.
-     */
-    export interface ResourcePolicyTagArgs {
-        /**
-         * The key identifier, or name, of the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace osis {
@@ -34978,20 +31193,6 @@ export namespace osis {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface PipelineTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
      */
     export interface PipelineVpcOptionsArgs {
@@ -35015,17 +31216,6 @@ export namespace panorama {
         payloadData?: pulumi.Input<string>;
     }
 
-    export interface ApplicationInstanceTagArgs {
-        /**
-         * A string used to identify this tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for the tag
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface PackageStorageLocationArgs {
         binaryPrefixLocation?: pulumi.Input<string>;
         bucket?: pulumi.Input<string>;
@@ -35034,10 +31224,6 @@ export namespace panorama {
         repoPrefixLocation?: pulumi.Input<string>;
     }
 
-    export interface PackageTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace pcaconnectorad {
@@ -35856,18 +32042,8 @@ export namespace pinpointemail {
         sendingEnabled?: pulumi.Input<boolean>;
     }
 
-    export interface ConfigurationSetTagsArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface ConfigurationSetTrackingOptionsArgs {
         customRedirectDomain?: pulumi.Input<string>;
-    }
-
-    export interface DedicatedIpPoolTagsArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface IdentityMailFromAttributesArgs {
@@ -35875,10 +32051,6 @@ export namespace pinpointemail {
         mailFromDomain?: pulumi.Input<string>;
     }
 
-    export interface IdentityTagsArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace pipes {
@@ -36298,73 +32470,14 @@ export namespace pipes {
 }
 
 export namespace proton {
-    /**
-     * <p>A description of a resource tag.</p>
-     */
-    export interface EnvironmentAccountConnectionTagArgs {
-        /**
-         * <p>The key of the resource tag.</p>
-         */
-        key: pulumi.Input<string>;
-        /**
-         * <p>The value of the resource tag.</p>
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * <p>A description of a resource tag.</p>
-     */
-    export interface EnvironmentTemplateTagArgs {
-        /**
-         * <p>The key of the resource tag.</p>
-         */
-        key: pulumi.Input<string>;
-        /**
-         * <p>The value of the resource tag.</p>
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * <p>A description of a resource tag.</p>
-     */
-    export interface ServiceTemplateTagArgs {
-        /**
-         * <p>The key of the resource tag.</p>
-         */
-        key: pulumi.Input<string>;
-        /**
-         * <p>The value of the resource tag.</p>
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace qldb {
-    export interface LedgerTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface StreamKinesisConfigurationArgs {
         aggregationEnabled?: pulumi.Input<boolean>;
         streamArn?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface StreamTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace quicksight {
@@ -39058,11 +35171,6 @@ export namespace quicksight {
         subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
         title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
         visualId: pulumi.Input<string>;
-    }
-
-    export interface AnalysisTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface AnalysisTextAreaControlDisplayOptionsArgs {
@@ -42126,11 +38234,6 @@ export namespace quicksight {
         visualId: pulumi.Input<string>;
     }
 
-    export interface DashboardTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface DashboardTextAreaControlDisplayOptionsArgs {
         infoIconLabelOptions?: pulumi.Input<inputs.quicksight.DashboardSheetControlInfoIconLabelOptionsArgs>;
         placeholderOptions?: pulumi.Input<inputs.quicksight.DashboardTextControlPlaceholderOptionsArgs>;
@@ -42756,21 +38859,6 @@ export namespace quicksight {
     }
 
     /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
-    export interface DataSetTagArgs {
-        /**
-         * <p>Tag key.</p>
-         */
-        key: pulumi.Input<string>;
-        /**
-         * <p>Tag value.</p>
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * <p>The dataset usage configuration for the dataset.</p>
      */
     export interface DataSetUsageConfigurationArgs {
@@ -43198,21 +39286,6 @@ export namespace quicksight {
          */
         port: pulumi.Input<number>;
         productType?: pulumi.Input<enums.quicksight.DataSourceStarburstProductType>;
-    }
-
-    /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
-    export interface DataSourceTagArgs {
-        /**
-         * <p>Tag key.</p>
-         */
-        key: pulumi.Input<string>;
-        /**
-         * <p>Tag value.</p>
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -45971,11 +42044,6 @@ export namespace quicksight {
         visualId: pulumi.Input<string>;
     }
 
-    export interface TemplateTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface TemplateTextAreaControlDisplayOptionsArgs {
         infoIconLabelOptions?: pulumi.Input<inputs.quicksight.TemplateSheetControlInfoIconLabelOptionsArgs>;
         placeholderOptions?: pulumi.Input<inputs.quicksight.TemplateTextControlPlaceholderOptionsArgs>;
@@ -46367,11 +42435,6 @@ export namespace quicksight {
         tileLayout?: pulumi.Input<inputs.quicksight.ThemeTileLayoutStyleArgs>;
     }
 
-    export interface ThemeTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface ThemeTileLayoutStyleArgs {
         gutter?: pulumi.Input<inputs.quicksight.ThemeGutterStyleArgs>;
         margin?: pulumi.Input<inputs.quicksight.ThemeMarginStyleArgs>;
@@ -46605,45 +42668,12 @@ export namespace quicksight {
     export interface TopicTypeParametersArgs {
     }
 
-    export interface VpcConnectionTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace ram {
-    export interface PermissionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface ResourceShareTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace rds {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CustomDbEngineVersionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
     /**
      * Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
      */
@@ -46667,20 +42697,6 @@ export namespace rds {
          * The Amazon Resource Name (ARN) of the secret.
          */
         secretArn?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DbClusterParameterGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
     }
 
     export interface DbClusterReadEndpointArgs {
@@ -46745,20 +42761,6 @@ export namespace rds {
         minCapacity?: pulumi.Input<number>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DbClusterTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value?: pulumi.Input<string>;
-    }
-
     export interface DbInstanceCertificateDetailsArgs {
         /**
          * The CA identifier of the CA certificate used for the DB instance's server certificate.
@@ -46818,34 +42820,6 @@ export namespace rds {
         value?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DbInstanceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DbParameterGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
     export interface DbProxyAuthFormatArgs {
         /**
          * The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
@@ -46867,16 +42841,6 @@ export namespace rds {
          * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
          */
         secretArn?: pulumi.Input<string>;
-    }
-
-    export interface DbProxyEndpointTagFormatArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
-    export interface DbProxyTagFormatArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs {
@@ -46909,57 +42873,10 @@ export namespace rds {
         ec2SecurityGroupOwnerId?: pulumi.Input<string>;
     }
 
-    export interface DbSecurityGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DbSubnetGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface EventSubscriptionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value?: pulumi.Input<string>;
-    }
-
     /**
      * An optional set of non-secret key–value pairs that contains additional contextual information about the data.
      */
     export interface IntegrationEncryptionContextMapArgs {
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface IntegrationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value?: pulumi.Input<string>;
     }
 
     /**
@@ -47006,19 +42923,6 @@ export namespace rds {
         value?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface OptionGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace redshift {
@@ -47043,67 +42947,6 @@ export namespace redshift {
         parameterValue: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ClusterParameterGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface ClusterSecurityGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ClusterSubnetGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ClusterTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface EventSubscriptionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface ScheduledActionTypeArgs {
     }
 
@@ -47120,11 +42963,6 @@ export namespace redshiftserverless {
         parameterValue?: pulumi.Input<string>;
     }
 
-    export interface WorkgroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
 }
 
 export namespace refactorspaces {
@@ -47133,50 +42971,8 @@ export namespace refactorspaces {
         stageName?: pulumi.Input<string>;
     }
 
-    /**
-     * A label for tagging Environment resource
-     */
-    export interface ApplicationTagArgs {
-        /**
-         * A string used to identify this tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for the tag
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A label for tagging Environment resource
-     */
-    export interface EnvironmentTagArgs {
-        /**
-         * A string used to identify this tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for the tag
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface RouteDefaultRouteInputArgs {
         activationState: pulumi.Input<enums.refactorspaces.RouteActivationState>;
-    }
-
-    /**
-     * A label for tagging Environment resource
-     */
-    export interface RouteTagArgs {
-        /**
-         * A string used to identify this tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for the tag
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface RouteUriPathRouteInputArgs {
@@ -47191,20 +42987,6 @@ export namespace refactorspaces {
         arn: pulumi.Input<string>;
     }
 
-    /**
-     * A label for tagging Environment resource
-     */
-    export interface ServiceTagArgs {
-        /**
-         * A string used to identify this tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * A string containing the value for the tag
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface ServiceUrlEndpointInputArgs {
         healthUrl?: pulumi.Input<string>;
         url: pulumi.Input<string>;
@@ -47212,20 +42994,6 @@ export namespace refactorspaces {
 }
 
 export namespace rekognition {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CollectionTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * A bounding box denoting a region of interest in the frame to be analyzed.
      */
@@ -47329,19 +43097,6 @@ export namespace rekognition {
         objectKeyPrefix?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface StreamProcessorTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace resiliencehub {
@@ -47446,11 +43201,6 @@ export namespace resourcegroups {
     export interface GroupResourceQueryArgs {
         query?: pulumi.Input<inputs.resourcegroups.GroupQueryArgs>;
         type?: pulumi.Input<enums.resourcegroups.GroupResourceQueryType>;
-    }
-
-    export interface GroupTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     export interface GroupTagFilterArgs {
@@ -47575,16 +43325,6 @@ export namespace robomaker {
 }
 
 export namespace rolesanywhere {
-    export interface CrlTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ProfileTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface TrustAnchorNotificationSettingArgs {
         channel?: pulumi.Input<enums.rolesanywhere.TrustAnchorNotificationChannel>;
         enabled: pulumi.Input<boolean>;
@@ -47605,10 +43345,6 @@ export namespace rolesanywhere {
         acmPcaArn: pulumi.Input<string>;
     }
 
-    export interface TrustAnchorTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace route53 {
@@ -47868,21 +43604,6 @@ export namespace route53recoverycontrol {
 }
 
 export namespace route53recoveryreadiness {
-    export interface CellTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ReadinessCheckTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface RecoveryGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * A component for DNS/routing control readiness checks.
      */
@@ -47949,11 +43670,6 @@ export namespace route53recoveryreadiness {
         resourceArn?: pulumi.Input<string>;
     }
 
-    export interface ResourceSetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * The target resource that the Route 53 record points to.
      */
@@ -47964,34 +43680,6 @@ export namespace route53recoveryreadiness {
 }
 
 export namespace route53resolver {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface FirewallDomainListTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface FirewallRuleGroupAssociationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Firewall Rule associating the Rule Group to a Domain List
      */
@@ -48030,54 +43718,10 @@ export namespace route53resolver {
         qtype?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface FirewallRuleGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface OutpostResolverTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface ResolverEndpointIpAddressRequestArgs {
         ip?: pulumi.Input<string>;
         ipv6?: pulumi.Input<string>;
         subnetId: pulumi.Input<string>;
-    }
-
-    export interface ResolverEndpointTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ResolverRuleTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface ResolverRuleTargetAddressArgs {
@@ -48265,19 +43909,6 @@ export namespace rum {
         metricDefinitions?: pulumi.Input<pulumi.Input<inputs.rum.AppMonitorMetricDefinitionArgs>[]>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AppMonitorTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace s3 {
@@ -48948,11 +44579,6 @@ export namespace s3 {
         dataExport?: pulumi.Input<inputs.s3.BucketDataExportArgs>;
     }
 
-    export interface BucketTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Tags to use to identify a subset of objects for an Amazon S3 bucket.
      */
@@ -49325,10 +44951,6 @@ export namespace s3 {
         minStorageBytesPercentage?: pulumi.Input<number>;
     }
 
-    export interface StorageLensTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace s3objectlambda {
@@ -49447,11 +45069,6 @@ export namespace s3outposts {
          * Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
          */
         tag?: pulumi.Input<inputs.s3outposts.BucketFilterTagArgs>;
-    }
-
-    export interface BucketTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface EndpointFailedReasonArgs {
@@ -49573,11 +45190,6 @@ export namespace sagemaker {
         branch?: pulumi.Input<string>;
         repositoryUrl: pulumi.Input<string>;
         secretArn?: pulumi.Input<string>;
-    }
-
-    export interface CodeRepositoryTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -49874,31 +45486,6 @@ export namespace sagemaker {
          * The Amazon Simple Storage (S3) bucket URI
          */
         s3OutputLocation: pulumi.Input<string>;
-    }
-
-    /**
-     * Key-value pair to associate as a tag for the resource
-     */
-    export interface DeviceFleetTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface DeviceTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -50333,11 +45920,6 @@ export namespace sagemaker {
         provisionedConcurrency?: pulumi.Input<number>;
     }
 
-    export interface EndpointConfigTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface EndpointConfigVpcConfigArgs {
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         subnets: pulumi.Input<pulumi.Input<string>[]>;
@@ -50354,11 +45936,6 @@ export namespace sagemaker {
         maximumExecutionTimeoutInSeconds?: pulumi.Input<number>;
         rollbackMaximumBatchSize?: pulumi.Input<inputs.sagemaker.EndpointCapacitySizeArgs>;
         waitIntervalInSeconds: pulumi.Input<number>;
-    }
-
-    export interface EndpointTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface EndpointTrafficRoutingConfigArgs {
@@ -50412,20 +45989,6 @@ export namespace sagemaker {
         throughputMode: pulumi.Input<enums.sagemaker.FeatureGroupThroughputMode>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ImageTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface InferenceComponentComputeResourceRequirementsArgs {
         maxMemoryRequiredInMb?: pulumi.Input<number>;
         minMemoryRequiredInMb?: pulumi.Input<number>;
@@ -50474,20 +46037,6 @@ export namespace sagemaker {
     export interface InferenceComponentStartupParametersArgs {
         containerStartupHealthCheckTimeoutInSeconds?: pulumi.Input<number>;
         modelDataDownloadTimeoutInSeconds?: pulumi.Input<number>;
-    }
-
-    /**
-     * A tag in the form of a key-value pair to associate with the resource
-     */
-    export interface InferenceComponentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -50599,20 +46148,6 @@ export namespace sagemaker {
          * The name of the shadow variant.
          */
         shadowModelVariantName: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface InferenceExperimentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface ModelAccessConfigArgs {
@@ -51221,20 +46756,6 @@ export namespace sagemaker {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ModelCardTagArgs {
-        /**
-         * The tag key. Tag keys must be unique per resource.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The tag value.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Overview about the training.
      */
     export interface ModelCardTrainingDetailsArgs {
@@ -51765,20 +47286,6 @@ export namespace sagemaker {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ModelPackageGroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Details about inference jobs that can be run with models based on this model package.
      */
     export interface ModelPackageInferenceSpecificationArgs {
@@ -51931,20 +47438,6 @@ export namespace sagemaker {
          * The current status.
          */
         status: pulumi.Input<enums.sagemaker.ModelPackageStatusItemStatus>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ModelPackageTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -52355,11 +47848,6 @@ export namespace sagemaker {
         s3Uri: pulumi.Input<string>;
     }
 
-    export interface ModelTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface ModelVpcConfigArgs {
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         subnets: pulumi.Input<pulumi.Input<string>[]>;
@@ -52684,20 +48172,6 @@ export namespace sagemaker {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface MonitoringScheduleTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
      */
     export interface MonitoringScheduleVpcConfigArgs {
@@ -52717,11 +48191,6 @@ export namespace sagemaker {
 
     export interface NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs {
         content?: pulumi.Input<string>;
-    }
-
-    export interface NotebookInstanceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface OfflineStoreConfigPropertiesArgs {
@@ -52772,11 +48241,6 @@ export namespace sagemaker {
          * For versioning-enabled buckets, a specific version of the PipelineDefinition file.
          */
         version?: pulumi.Input<string>;
-    }
-
-    export interface PipelineTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -52963,11 +48427,6 @@ export namespace sagemaker {
 
     export interface SpaceStorageSettingsArgs {
         ebsStorageSettings?: pulumi.Input<inputs.sagemaker.SpaceEbsStorageSettingsArgs>;
-    }
-
-    export interface SpaceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -53198,10 +48657,6 @@ export namespace sagemaker {
         oidcGroups: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface WorkteamTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace scheduler {
@@ -53324,20 +48779,6 @@ export namespace scheduler {
          */
         maximumWindowInMinutes?: pulumi.Input<number>;
         mode: pulumi.Input<enums.scheduler.ScheduleFlexibleTimeWindowMode>;
-    }
-
-    /**
-     * Tag to associate with the resource.
-     */
-    export interface ScheduleGroupTagArgs {
-        /**
-         * Key for the tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Value for the tag
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -53534,19 +48975,6 @@ export namespace secretsmanager {
         region: pulumi.Input<string>;
     }
 
-    /**
-     * A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string.
-     */
-    export interface SecretTagArgs {
-        /**
-         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace securityhub {
@@ -53732,11 +49160,6 @@ export namespace servicecatalog {
         type: pulumi.Input<string>;
     }
 
-    export interface CloudFormationProductTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface CloudFormationProvisionedProductProvisioningParameterArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -53750,16 +49173,6 @@ export namespace servicecatalog {
         stackSetMaxConcurrencyPercentage?: pulumi.Input<number>;
         stackSetOperationType?: pulumi.Input<enums.servicecatalog.CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType>;
         stackSetRegions?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface CloudFormationProvisionedProductTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface PortfolioTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface ServiceActionDefinitionParameterArgs {
@@ -53777,11 +49190,6 @@ export namespace servicecatalogappregistry {
 }
 
 export namespace servicediscovery {
-    export interface HttpNamespaceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface PrivateDnsNamespacePrivateDnsPropertiesMutableArgs {
         soa?: pulumi.Input<inputs.servicediscovery.PrivateDnsNamespaceSoaArgs>;
     }
@@ -53794,11 +49202,6 @@ export namespace servicediscovery {
         ttl?: pulumi.Input<number>;
     }
 
-    export interface PrivateDnsNamespaceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface PublicDnsNamespacePropertiesArgs {
         dnsProperties?: pulumi.Input<inputs.servicediscovery.PublicDnsNamespacePublicDnsPropertiesMutableArgs>;
     }
@@ -53809,11 +49212,6 @@ export namespace servicediscovery {
 
     export interface PublicDnsNamespaceSoaArgs {
         ttl?: pulumi.Input<number>;
-    }
-
-    export interface PublicDnsNamespaceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface ServiceDnsConfigArgs {
@@ -53837,10 +49235,6 @@ export namespace servicediscovery {
         failureThreshold?: pulumi.Input<number>;
     }
 
-    export interface ServiceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace ses {
@@ -53997,11 +49391,6 @@ export namespace ses {
     export interface ConfigurationSetVdmOptionsArgs {
         dashboardOptions?: pulumi.Input<inputs.ses.ConfigurationSetDashboardOptionsArgs>;
         guardianOptions?: pulumi.Input<inputs.ses.ConfigurationSetGuardianOptionsArgs>;
-    }
-
-    export interface ContactListTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface ContactListTopicArgs {
@@ -54250,33 +49639,6 @@ export namespace shield {
         block?: any;
     }
 
-    /**
-     * A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
-     */
-    export interface ProtectionGroupTagArgs {
-        /**
-         * Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
-     */
-    export interface ProtectionTagArgs {
-        /**
-         * Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace signer {
@@ -54285,10 +49647,6 @@ export namespace signer {
         value?: pulumi.Input<number>;
     }
 
-    export interface SigningProfileTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace simspaceweaver {
@@ -54329,29 +49687,9 @@ export namespace sns {
         protocol: pulumi.Input<string>;
     }
 
-    export interface TopicTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_`, `.`, `/`, `=`, `+`, and `-`.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 characters in length.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace sqs {
-    export interface QueueTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace ssm {
@@ -54394,22 +49732,6 @@ export namespace ssm {
          * The document version required by the current document.
          */
         version?: pulumi.Input<string>;
-    }
-
-    export interface DocumentTagArgs {
-        /**
-         * The name of the tag.
-         */
-        key?: pulumi.Input<string>;
-        /**
-         * The value of the tag.
-         */
-        value?: pulumi.Input<string>;
-    }
-
-    export interface MaintenanceWindowTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface MaintenanceWindowTargetTargetsArgs {
@@ -54516,14 +49838,6 @@ export namespace ssm {
      */
     export interface PatchBaselineRuleGroupArgs {
         patchRules?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineRuleArgs>[]>;
-    }
-
-    /**
-     * Metadata that you assign to your AWS resources.
-     */
-    export interface PatchBaselineTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface ResourceDataSyncAwsOrganizationsSourceArgs {
@@ -54713,20 +50027,6 @@ export namespace ssmcontacts {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RotationTagArgs {
-        /**
-         * The key name of the tag
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
      */
     export interface RotationWeeklySettingArgs {
@@ -54749,14 +50049,6 @@ export namespace ssmincidents {
     export interface ReplicationSetReplicationRegionArgs {
         regionConfiguration?: pulumi.Input<inputs.ssmincidents.ReplicationSetRegionConfigurationArgs>;
         regionName?: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to tag a resource.
-     */
-    export interface ReplicationSetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -54928,21 +50220,9 @@ export namespace sso {
         managedPolicyArn?: pulumi.Input<string>;
     }
 
-    /**
-     * The metadata that you apply to the permission set to help you categorize and organize them.
-     */
-    export interface PermissionSetTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace stepfunctions {
-    export interface ActivityTagsEntryArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     /**
      * The settings to enable gradual state machine deployments.
      */
@@ -55001,11 +50281,6 @@ export namespace stepfunctions {
         bucket: pulumi.Input<string>;
         key: pulumi.Input<string>;
         version?: pulumi.Input<string>;
-    }
-
-    export interface StateMachineTagsEntryArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface StateMachineTracingConfigurationArgs {
@@ -55076,20 +50351,6 @@ export namespace synthetics {
         expression: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CanaryTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface CanaryVisualReferenceArgs {
         /**
          * Canary run id to be used as base reference for visual testing
@@ -55107,19 +50368,6 @@ export namespace synthetics {
         vpcId?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface GroupTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace systemsmanagersap {
@@ -55129,30 +50377,9 @@ export namespace systemsmanagersap {
         secretId?: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ApplicationTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace timestream {
-    /**
-     * You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-     */
-    export interface DatabaseTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     /**
      * The properties that determine whether magnetic store writes are enabled.
      */
@@ -55287,14 +50514,6 @@ export namespace timestream {
     }
 
     /**
-     * A key-value pair to label the scheduled query.
-     */
-    export interface ScheduledQueryTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Configuration of target store where scheduled query results are written to.
      */
     export interface ScheduledQueryTargetConfigurationArgs {
@@ -55330,30 +50549,9 @@ export namespace timestream {
         type: pulumi.Input<enums.timestream.TablePartitionKeyType>;
     }
 
-    /**
-     * You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-     */
-    export interface TableTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
 }
 
 export namespace transfer {
-    /**
-     * Creates a key-value pair for a specific resource.
-     */
-    export interface AgreementTagArgs {
-        /**
-         * The name assigned to the tag that you create.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Contains one or more values that you assigned to the key name you create.
-         */
-        value: pulumi.Input<string>;
-    }
-
     /**
      * Configuration for an AS2 connector.
      */
@@ -55396,48 +50594,6 @@ export namespace transfer {
         signingAlgorithm?: pulumi.Input<enums.transfer.ConnectorAs2ConfigPropertiesSigningAlgorithm>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface CertificateTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * Creates a key-value pair for a specific resource.
-     */
-    export interface ConnectorTagArgs {
-        /**
-         * The name assigned to the tag that you create.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Contains one or more values that you assigned to the key name you create.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * Creates a key-value pair for a specific resource.
-     */
-    export interface ProfileTagArgs {
-        /**
-         * The name assigned to the tag that you create.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Contains one or more values that you assigned to the key name you create.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface ServerAs2TransportArgs {
     }
 
@@ -55472,11 +50628,6 @@ export namespace transfer {
     }
 
     export interface ServerStructuredLogDestinationArgs {
-    }
-
-    export interface ServerTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface ServerWorkflowDetailArgs {
@@ -55516,11 +50667,6 @@ export namespace transfer {
     }
 
     export interface UserSshPublicKeyArgs {
-    }
-
-    export interface UserTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -55703,19 +50849,6 @@ export namespace transfer {
         tags?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowS3TagArgs>[]>;
     }
 
-    /**
-     * Creates a key-value pair for a specific resource.
-     */
-    export interface WorkflowTagArgs {
-        /**
-         * The name assigned to the tag that you create.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * Contains one or more values that you assigned to the key name you create.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace verifiedpermissions {
@@ -55766,18 +50899,9 @@ export namespace voiceid {
         kmsKeyId: pulumi.Input<string>;
     }
 
-    export interface DomainTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace vpclattice {
-    export interface AccessLogSubscriptionTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface ListenerDefaultActionArgs {
         fixedResponse?: pulumi.Input<inputs.vpclattice.ListenerFixedResponseArgs>;
         forward?: pulumi.Input<inputs.vpclattice.ListenerForwardArgs>;
@@ -55789,11 +50913,6 @@ export namespace vpclattice {
 
     export interface ListenerForwardArgs {
         targetGroups: pulumi.Input<pulumi.Input<inputs.vpclattice.ListenerWeightedTargetGroupArgs>[]>;
-    }
-
-    export interface ListenerTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface ListenerWeightedTargetGroupArgs {
@@ -55846,11 +50965,6 @@ export namespace vpclattice {
         prefix?: pulumi.Input<string>;
     }
 
-    export interface RuleTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface RuleWeightedTargetGroupArgs {
         targetGroupIdentifier: pulumi.Input<string>;
         weight?: pulumi.Input<number>;
@@ -55864,26 +50978,6 @@ export namespace vpclattice {
     export interface ServiceNetworkServiceAssociationDnsEntryArgs {
         domainName?: pulumi.Input<string>;
         hostedZoneId?: pulumi.Input<string>;
-    }
-
-    export interface ServiceNetworkServiceAssociationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ServiceNetworkTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ServiceNetworkVpcAssociationTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface ServiceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface TargetGroupConfigArgs {
@@ -55911,11 +51005,6 @@ export namespace vpclattice {
 
     export interface TargetGroupMatcherArgs {
         httpCode: pulumi.Input<string>;
-    }
-
-    export interface TargetGroupTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface TargetGroupTargetArgs {
@@ -56072,11 +51161,6 @@ export namespace wafregional {
 }
 
 export namespace wafv2 {
-    export interface IpSetTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     export interface LoggingConfigurationConditionArgs {
         /**
          * A single action condition.
@@ -56167,11 +51251,6 @@ export namespace wafv2 {
          * The filters that you want to apply to the logs.
          */
         filters: pulumi.Input<pulumi.Input<inputs.wafv2.LoggingConfigurationFilterArgs>[]>;
-    }
-
-    export interface RegexPatternSetTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     /**
@@ -56606,11 +51685,6 @@ export namespace wafv2 {
         sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupSizeConstraintStatementArgs>;
         sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupSqliMatchStatementArgs>;
         xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupXssMatchStatementArgs>;
-    }
-
-    export interface RuleGroupTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
     }
 
     /**
@@ -57257,11 +52331,6 @@ export namespace wafv2 {
         xssMatchStatement?: pulumi.Input<inputs.wafv2.WebAclXssMatchStatementArgs>;
     }
 
-    export interface WebAclTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
-    }
-
     /**
      * Text Transformation on the Search String before match.
      */
@@ -57344,10 +52413,6 @@ export namespace workspaces {
         userVolumeSizeGib?: pulumi.Input<number>;
     }
 
-    export interface WorkspaceTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace workspacesthinclient {
@@ -57382,28 +52447,10 @@ export namespace workspacesthinclient {
         type: pulumi.Input<enums.workspacesthinclient.EnvironmentMaintenanceWindowType>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface EnvironmentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace workspacesweb {
     export interface BrowserSettingsEncryptionContextMapArgs {
-    }
-
-    export interface BrowserSettingsTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface IdentityProviderDetailsArgs {
@@ -57420,32 +52467,7 @@ export namespace workspacesweb {
         ipRange: pulumi.Input<string>;
     }
 
-    export interface IpAccessSettingsTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface NetworkSettingsTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
     export interface PortalEncryptionContextMapArgs {
-    }
-
-    export interface PortalTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface TrustStoreTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-
-    export interface UserAccessLoggingSettingsTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 
     export interface UserSettingsCookieSpecificationArgs {
@@ -57462,10 +52484,6 @@ export namespace workspacesweb {
     export interface UserSettingsEncryptionContextMapArgs {
     }
 
-    export interface UserSettingsTagArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
 }
 
 export namespace xray {
@@ -57478,17 +52496,6 @@ export namespace xray {
          * Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
          */
         notificationsEnabled?: pulumi.Input<boolean>;
-    }
-
-    export interface GroupTagArgs {
-        /**
-         * The key name of the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag.
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface SamplingRuleArgs {
@@ -57550,17 +52557,6 @@ export namespace xray {
          */
         modifiedAt?: pulumi.Input<string>;
         samplingRule?: pulumi.Input<inputs.xray.SamplingRuleArgs>;
-    }
-
-    export interface SamplingRuleTagArgs {
-        /**
-         * The key name of the tag.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag.
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface SamplingRuleUpdateArgs {

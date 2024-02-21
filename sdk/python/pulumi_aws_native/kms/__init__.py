@@ -12,5 +12,3 @@ from .get_key import *
 from .get_replica_key import *
 from .key import *
 from .replica_key import *
-from ._inputs import *
-from . import outputs

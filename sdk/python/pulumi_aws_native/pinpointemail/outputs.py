@@ -20,11 +20,8 @@ __all__ = [
     'ConfigurationSetEventDestinationSnsDestination',
     'ConfigurationSetReputationOptions',
     'ConfigurationSetSendingOptions',
-    'ConfigurationSetTags',
     'ConfigurationSetTrackingOptions',
-    'DedicatedIpPoolTags',
     'IdentityMailFromAttributes',
-    'IdentityTags',
 ]
 
 @pulumi.output_type
@@ -369,27 +366,6 @@ class ConfigurationSetSendingOptions(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetTags(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ConfigurationSetTrackingOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -417,27 +393,6 @@ class ConfigurationSetTrackingOptions(dict):
     @pulumi.getter(name="customRedirectDomain")
     def custom_redirect_domain(self) -> Optional[str]:
         return pulumi.get(self, "custom_redirect_domain")
-
-
-@pulumi.output_type
-class DedicatedIpPoolTags(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -478,26 +433,5 @@ class IdentityMailFromAttributes(dict):
     @pulumi.getter(name="mailFromDomain")
     def mail_from_domain(self) -> Optional[str]:
         return pulumi.get(self, "mail_from_domain")
-
-
-@pulumi.output_type
-class IdentityTags(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 

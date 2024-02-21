@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['CustomActionTypeArgs', 'CustomActionType']
@@ -23,7 +25,7 @@ class CustomActionTypeArgs:
                  version: pulumi.Input[str],
                  configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]]] = None,
                  settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomActionType resource.
         :param pulumi.Input[str] category: The category of the custom action, such as a build action or a test action.
@@ -33,7 +35,7 @@ class CustomActionTypeArgs:
         :param pulumi.Input[str] version: The version identifier of the custom action.
         :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]] configuration_properties: The configuration properties for the custom action.
         :param pulumi.Input['CustomActionTypeSettingsArgs'] settings: URLs that provide users information about this custom action.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeTagArgs']]] tags: Any tags assigned to the custom action.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the custom action.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "input_artifact_details", input_artifact_details)
@@ -133,14 +135,14 @@ class CustomActionTypeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the custom action.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -155,7 +157,7 @@ class CustomActionType(pulumi.CustomResource):
                  output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -169,7 +171,7 @@ class CustomActionType(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']] output_artifact_details: The details of the output artifact of the action, such as its commit ID.
         :param pulumi.Input[str] provider: The provider of the service used in the custom action, such as AWS CodeDeploy.
         :param pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']] settings: URLs that provide users information about this custom action.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeTagArgs']]]] tags: Any tags assigned to the custom action.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Any tags assigned to the custom action.
         :param pulumi.Input[str] version: The version identifier of the custom action.
         """
         ...
@@ -202,7 +204,7 @@ class CustomActionType(pulumi.CustomResource):
                  output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -315,7 +317,7 @@ class CustomActionType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CustomActionTypeTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Any tags assigned to the custom action.
         """

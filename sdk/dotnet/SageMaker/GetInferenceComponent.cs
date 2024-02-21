@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly string? LastModifiedTime;
         public readonly Outputs.InferenceComponentRuntimeConfig? RuntimeConfig;
         public readonly Outputs.InferenceComponentSpecification? Specification;
-        public readonly ImmutableArray<Outputs.InferenceComponentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? VariantName;
 
         [OutputConstructor]
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             Outputs.InferenceComponentSpecification? specification,
 
-            ImmutableArray<Outputs.InferenceComponentTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? variantName)
         {

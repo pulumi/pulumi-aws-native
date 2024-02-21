@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type DataCatalog struct {
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A list of comma separated tags to add to the data catalog that is created.
-	Tags DataCatalogTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
 	Type DataCatalogTypeOutput `pulumi:"type"`
 }
@@ -82,7 +83,7 @@ type dataCatalogArgs struct {
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
 	Parameters map[string]string `pulumi:"parameters"`
 	// A list of comma separated tags to add to the data catalog that is created.
-	Tags []DataCatalogTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
 	Type DataCatalogType `pulumi:"type"`
 }
@@ -96,7 +97,7 @@ type DataCatalogArgs struct {
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
 	Parameters pulumi.StringMapInput
 	// A list of comma separated tags to add to the data catalog that is created.
-	Tags DataCatalogTagArrayInput
+	Tags aws.TagArrayInput
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
 	Type DataCatalogTypeInput
 }
@@ -154,8 +155,8 @@ func (o DataCatalogOutput) Parameters() pulumi.StringMapOutput {
 }
 
 // A list of comma separated tags to add to the data catalog that is created.
-func (o DataCatalogOutput) Tags() DataCatalogTagArrayOutput {
-	return o.ApplyT(func(v *DataCatalog) DataCatalogTagArrayOutput { return v.Tags }).(DataCatalogTagArrayOutput)
+func (o DataCatalogOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DataCatalog) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.

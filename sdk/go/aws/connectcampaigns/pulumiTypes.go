@@ -878,107 +878,6 @@ type CampaignTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CampaignTagInput is an input type that accepts CampaignTagArgs and CampaignTagOutput values.
-// You can construct a concrete instance of `CampaignTagInput` via:
-//
-//	CampaignTagArgs{...}
-type CampaignTagInput interface {
-	pulumi.Input
-
-	ToCampaignTagOutput() CampaignTagOutput
-	ToCampaignTagOutputWithContext(context.Context) CampaignTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type CampaignTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that's 1 to 256 characters in length.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CampaignTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignTag)(nil)).Elem()
-}
-
-func (i CampaignTagArgs) ToCampaignTagOutput() CampaignTagOutput {
-	return i.ToCampaignTagOutputWithContext(context.Background())
-}
-
-func (i CampaignTagArgs) ToCampaignTagOutputWithContext(ctx context.Context) CampaignTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignTagOutput)
-}
-
-// CampaignTagArrayInput is an input type that accepts CampaignTagArray and CampaignTagArrayOutput values.
-// You can construct a concrete instance of `CampaignTagArrayInput` via:
-//
-//	CampaignTagArray{ CampaignTagArgs{...} }
-type CampaignTagArrayInput interface {
-	pulumi.Input
-
-	ToCampaignTagArrayOutput() CampaignTagArrayOutput
-	ToCampaignTagArrayOutputWithContext(context.Context) CampaignTagArrayOutput
-}
-
-type CampaignTagArray []CampaignTagInput
-
-func (CampaignTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CampaignTag)(nil)).Elem()
-}
-
-func (i CampaignTagArray) ToCampaignTagArrayOutput() CampaignTagArrayOutput {
-	return i.ToCampaignTagArrayOutputWithContext(context.Background())
-}
-
-func (i CampaignTagArray) ToCampaignTagArrayOutputWithContext(ctx context.Context) CampaignTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type CampaignTagOutput struct{ *pulumi.OutputState }
-
-func (CampaignTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignTag)(nil)).Elem()
-}
-
-func (o CampaignTagOutput) ToCampaignTagOutput() CampaignTagOutput {
-	return o
-}
-
-func (o CampaignTagOutput) ToCampaignTagOutputWithContext(ctx context.Context) CampaignTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CampaignTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CampaignTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that's 1 to 256 characters in length.
-func (o CampaignTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CampaignTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CampaignTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CampaignTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CampaignTag)(nil)).Elem()
-}
-
-func (o CampaignTagArrayOutput) ToCampaignTagArrayOutput() CampaignTagArrayOutput {
-	return o
-}
-
-func (o CampaignTagArrayOutput) ToCampaignTagArrayOutputWithContext(ctx context.Context) CampaignTagArrayOutput {
-	return o
-}
-
-func (o CampaignTagArrayOutput) Index(i pulumi.IntInput) CampaignTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignTag {
-		return vs[0].([]CampaignTag)[vs[1].(int)]
-	}).(CampaignTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAgentlessDialerConfigInput)(nil)).Elem(), CampaignAgentlessDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAgentlessDialerConfigPtrInput)(nil)).Elem(), CampaignAgentlessDialerConfigArgs{})
@@ -990,8 +889,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPredictiveDialerConfigPtrInput)(nil)).Elem(), CampaignPredictiveDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignProgressiveDialerConfigInput)(nil)).Elem(), CampaignProgressiveDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignProgressiveDialerConfigPtrInput)(nil)).Elem(), CampaignProgressiveDialerConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagInput)(nil)).Elem(), CampaignTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagArrayInput)(nil)).Elem(), CampaignTagArray{})
 	pulumi.RegisterOutputType(CampaignAgentlessDialerConfigOutput{})
 	pulumi.RegisterOutputType(CampaignAgentlessDialerConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignAnswerMachineDetectionConfigOutput{})
@@ -1004,6 +901,4 @@ func init() {
 	pulumi.RegisterOutputType(CampaignPredictiveDialerConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignProgressiveDialerConfigOutput{})
 	pulumi.RegisterOutputType(CampaignProgressiveDialerConfigPtrOutput{})
-	pulumi.RegisterOutputType(CampaignTagOutput{})
-	pulumi.RegisterOutputType(CampaignTagArrayOutput{})
 }

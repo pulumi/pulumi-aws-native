@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,7 +41,7 @@ type ModelPackage struct {
 	SkipModelValidation                    ModelPackageSkipModelValidationPtrOutput                          `pulumi:"skipModelValidation"`
 	SourceAlgorithmSpecification           ModelPackageSourceAlgorithmSpecificationPtrOutput                 `pulumi:"sourceAlgorithmSpecification"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                    ModelPackageTagArrayOutput                   `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                           `pulumi:"tags"`
 	Task                    pulumi.StringPtrOutput                       `pulumi:"task"`
 	ValidationSpecification ModelPackageValidationSpecificationPtrOutput `pulumi:"validationSpecification"`
 }
@@ -122,7 +123,7 @@ type modelPackageArgs struct {
 	SkipModelValidation                    *ModelPackageSkipModelValidation                         `pulumi:"skipModelValidation"`
 	SourceAlgorithmSpecification           *ModelPackageSourceAlgorithmSpecification                `pulumi:"sourceAlgorithmSpecification"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                    []ModelPackageTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                            `pulumi:"tags"`
 	Task                    *string                              `pulumi:"task"`
 	ValidationSpecification *ModelPackageValidationSpecification `pulumi:"validationSpecification"`
 }
@@ -151,7 +152,7 @@ type ModelPackageArgs struct {
 	SkipModelValidation                    ModelPackageSkipModelValidationPtrInput
 	SourceAlgorithmSpecification           ModelPackageSourceAlgorithmSpecificationPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags                    ModelPackageTagArrayInput
+	Tags                    aws.TagArrayInput
 	Task                    pulumi.StringPtrInput
 	ValidationSpecification ModelPackageValidationSpecificationPtrInput
 }
@@ -298,8 +299,8 @@ func (o ModelPackageOutput) SourceAlgorithmSpecification() ModelPackageSourceAlg
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ModelPackageOutput) Tags() ModelPackageTagArrayOutput {
-	return o.ApplyT(func(v *ModelPackage) ModelPackageTagArrayOutput { return v.Tags }).(ModelPackageTagArrayOutput)
+func (o ModelPackageOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ModelPackage) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ModelPackageOutput) Task() pulumi.StringPtrOutput {

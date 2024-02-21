@@ -37,7 +37,7 @@ export interface GetResourceSetResult {
     /**
      * A tag to associate with the parameters for a resource set.
      */
-    readonly tags?: outputs.route53recoveryreadiness.ResourceSetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.

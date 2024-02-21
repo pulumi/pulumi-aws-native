@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupDiskResult struct {
 	// Support code to help identify any issues
 	SupportCode *string `pulumi:"supportCode"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DiskTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDiskOutput(ctx *pulumi.Context, args LookupDiskOutputArgs, opts ...pulumi.InvokeOption) LookupDiskResultOutput {
@@ -142,8 +143,8 @@ func (o LookupDiskResultOutput) SupportCode() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupDiskResultOutput) Tags() DiskTagArrayOutput {
-	return o.ApplyT(func(v LookupDiskResult) []DiskTag { return v.Tags }).(DiskTagArrayOutput)
+func (o LookupDiskResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDiskResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

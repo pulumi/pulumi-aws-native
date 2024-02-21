@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type LookupDomainResult struct {
 	RuleBasedMatching *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
 	Stats             *DomainStats             `pulumi:"stats"`
 	// The tags (keys and values) associated with the domain
-	Tags []DomainTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -119,8 +120,8 @@ func (o LookupDomainResultOutput) Stats() DomainStatsPtrOutput {
 }
 
 // The tags (keys and values) associated with the domain
-func (o LookupDomainResultOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v LookupDomainResult) []DomainTag { return v.Tags }).(DomainTagArrayOutput)
+func (o LookupDomainResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

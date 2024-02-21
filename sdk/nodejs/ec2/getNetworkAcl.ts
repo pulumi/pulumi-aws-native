@@ -27,7 +27,7 @@ export interface GetNetworkAclResult {
     /**
      * The tags to assign to the network ACL.
      */
-    readonly tags?: outputs.ec2.NetworkAclTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::NetworkAcl

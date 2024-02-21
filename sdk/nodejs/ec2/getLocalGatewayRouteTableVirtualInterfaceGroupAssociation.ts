@@ -49,7 +49,7 @@ export interface GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
     /**
      * The tags for the local gateway route table virtual interface group association.
      */
-    readonly tags?: outputs.ec2.LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Describes a local gateway route table virtual interface group association for a local gateway.

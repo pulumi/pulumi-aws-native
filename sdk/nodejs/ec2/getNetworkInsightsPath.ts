@@ -28,7 +28,7 @@ export interface GetNetworkInsightsPathResult {
     readonly networkInsightsPathArn?: string;
     readonly networkInsightsPathId?: string;
     readonly sourceArn?: string;
-    readonly tags?: outputs.ec2.NetworkInsightsPathTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::EC2::NetworkInsightsPath

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupEventIntegrationResult struct {
 	// The Amazon Resource Name (ARN) of the event integration.
 	EventIntegrationArn *string `pulumi:"eventIntegrationArn"`
 	// The tags (keys and values) associated with the event integration.
-	Tags []EventIntegrationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEventIntegrationOutput(ctx *pulumi.Context, args LookupEventIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupEventIntegrationResultOutput {
@@ -83,8 +84,8 @@ func (o LookupEventIntegrationResultOutput) EventIntegrationArn() pulumi.StringP
 }
 
 // The tags (keys and values) associated with the event integration.
-func (o LookupEventIntegrationResultOutput) Tags() EventIntegrationTagArrayOutput {
-	return o.ApplyT(func(v LookupEventIntegrationResult) []EventIntegrationTag { return v.Tags }).(EventIntegrationTagArrayOutput)
+func (o LookupEventIntegrationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEventIntegrationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

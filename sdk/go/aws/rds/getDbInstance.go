@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -139,7 +140,7 @@ type LookupDbInstanceResult struct {
 	// Specifies the storage type to be associated with the DB instance.
 	StorageType *string `pulumi:"storageType"`
 	// Tags to assign to the DB instance.
-	Tags []DbInstanceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN from the key store with which to associate the instance for TDE encryption.
 	TdeCredentialArn *string `pulumi:"tdeCredentialArn"`
 	// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
@@ -446,8 +447,8 @@ func (o LookupDbInstanceResultOutput) StorageType() pulumi.StringPtrOutput {
 }
 
 // Tags to assign to the DB instance.
-func (o LookupDbInstanceResultOutput) Tags() DbInstanceTagArrayOutput {
-	return o.ApplyT(func(v LookupDbInstanceResult) []DbInstanceTag { return v.Tags }).(DbInstanceTagArrayOutput)
+func (o LookupDbInstanceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN from the key store with which to associate the instance for TDE encryption.

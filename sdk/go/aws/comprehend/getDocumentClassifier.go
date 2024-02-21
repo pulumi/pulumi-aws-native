@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,9 +28,9 @@ type LookupDocumentClassifierArgs struct {
 }
 
 type LookupDocumentClassifierResult struct {
-	Arn         *string                 `pulumi:"arn"`
-	ModelPolicy *string                 `pulumi:"modelPolicy"`
-	Tags        []DocumentClassifierTag `pulumi:"tags"`
+	Arn         *string   `pulumi:"arn"`
+	ModelPolicy *string   `pulumi:"modelPolicy"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDocumentClassifierOutput(ctx *pulumi.Context, args LookupDocumentClassifierOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentClassifierResultOutput {
@@ -75,8 +76,8 @@ func (o LookupDocumentClassifierResultOutput) ModelPolicy() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupDocumentClassifierResult) *string { return v.ModelPolicy }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDocumentClassifierResultOutput) Tags() DocumentClassifierTagArrayOutput {
-	return o.ApplyT(func(v LookupDocumentClassifierResult) []DocumentClassifierTag { return v.Tags }).(DocumentClassifierTagArrayOutput)
+func (o LookupDocumentClassifierResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDocumentClassifierResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

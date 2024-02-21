@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['CustomerGatewayArgs', 'CustomerGateway']
 
@@ -20,14 +20,14 @@ class CustomerGatewayArgs:
                  ip_address: pulumi.Input[str],
                  type: pulumi.Input[str],
                  device_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomerGateway resource.
         :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
         :param pulumi.Input[str] ip_address: The internet-routable IP address for the customer gateway's outside interface. The address must be static.
         :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports.
         :param pulumi.Input[str] device_name: A name for the customer gateway device.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]] tags: One or more tags for the customer gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags for the customer gateway.
         """
         pulumi.set(__self__, "bgp_asn", bgp_asn)
         pulumi.set(__self__, "ip_address", ip_address)
@@ -87,14 +87,14 @@ class CustomerGatewayArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags for the customer gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -106,7 +106,7 @@ class CustomerGateway(pulumi.CustomResource):
                  bgp_asn: Optional[pulumi.Input[int]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerGatewayTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -117,7 +117,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
         :param pulumi.Input[str] device_name: A name for the customer gateway device.
         :param pulumi.Input[str] ip_address: The internet-routable IP address for the customer gateway's outside interface. The address must be static.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerGatewayTagArgs']]]] tags: One or more tags for the customer gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags for the customer gateway.
         :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports.
         """
         ...
@@ -147,7 +147,7 @@ class CustomerGateway(pulumi.CustomResource):
                  bgp_asn: Optional[pulumi.Input[int]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerGatewayTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -236,7 +236,7 @@ class CustomerGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CustomerGatewayTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         One or more tags for the customer gateway.
         """

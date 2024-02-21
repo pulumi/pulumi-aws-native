@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['VerifiedAccessTrustProviderArgs', 'VerifiedAccessTrustProvider']
@@ -23,7 +25,7 @@ class VerifiedAccessTrustProviderArgs:
                  device_trust_provider_type: Optional[pulumi.Input[str]] = None,
                  oidc_options: Optional[pulumi.Input['VerifiedAccessTrustProviderOidcOptionsArgs']] = None,
                  sse_specification: Optional[pulumi.Input['SseSpecificationPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessTrustProviderTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  user_trust_provider_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VerifiedAccessTrustProvider resource.
@@ -32,7 +34,7 @@ class VerifiedAccessTrustProviderArgs:
         :param pulumi.Input[str] description: A description for the Amazon Web Services Verified Access trust provider.
         :param pulumi.Input[str] device_trust_provider_type: The type of device-based trust provider. Possible values: jamf|crowdstrike
         :param pulumi.Input['SseSpecificationPropertiesArgs'] sse_specification: The configuration options for customer provided KMS encryption.
-        :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessTrustProviderTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] user_trust_provider_type: The type of device-based trust provider. Possible values: oidc|iam-identity-center
         """
         pulumi.set(__self__, "policy_reference_name", policy_reference_name)
@@ -132,14 +134,14 @@ class VerifiedAccessTrustProviderArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessTrustProviderTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessTrustProviderTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -166,7 +168,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
                  oidc_options: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessTrustProviderOidcOptionsArgs']]] = None,
                  policy_reference_name: Optional[pulumi.Input[str]] = None,
                  sse_specification: Optional[pulumi.Input[pulumi.InputType['SseSpecificationPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessTrustProviderTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  trust_provider_type: Optional[pulumi.Input[str]] = None,
                  user_trust_provider_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -179,7 +181,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
         :param pulumi.Input[str] device_trust_provider_type: The type of device-based trust provider. Possible values: jamf|crowdstrike
         :param pulumi.Input[str] policy_reference_name: The identifier to be used when working with policy rules.
         :param pulumi.Input[pulumi.InputType['SseSpecificationPropertiesArgs']] sse_specification: The configuration options for customer provided KMS encryption.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessTrustProviderTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] trust_provider_type: Type of trust provider. Possible values: user|device
         :param pulumi.Input[str] user_trust_provider_type: The type of device-based trust provider. Possible values: oidc|iam-identity-center
         """
@@ -213,7 +215,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
                  oidc_options: Optional[pulumi.Input[pulumi.InputType['VerifiedAccessTrustProviderOidcOptionsArgs']]] = None,
                  policy_reference_name: Optional[pulumi.Input[str]] = None,
                  sse_specification: Optional[pulumi.Input[pulumi.InputType['SseSpecificationPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VerifiedAccessTrustProviderTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  trust_provider_type: Optional[pulumi.Input[str]] = None,
                  user_trust_provider_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -339,7 +341,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VerifiedAccessTrustProviderTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

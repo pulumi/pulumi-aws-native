@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Ledger struct {
 	KmsKey             pulumi.StringPtrOutput `pulumi:"kmsKey"`
 	Name               pulumi.StringPtrOutput `pulumi:"name"`
 	PermissionsMode    pulumi.StringOutput    `pulumi:"permissionsMode"`
-	Tags               LedgerTagArrayOutput   `pulumi:"tags"`
+	Tags               aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewLedger registers a new resource with the given unique name, arguments, and options.
@@ -72,11 +73,11 @@ func (LedgerState) ElementType() reflect.Type {
 }
 
 type ledgerArgs struct {
-	DeletionProtection *bool       `pulumi:"deletionProtection"`
-	KmsKey             *string     `pulumi:"kmsKey"`
-	Name               *string     `pulumi:"name"`
-	PermissionsMode    string      `pulumi:"permissionsMode"`
-	Tags               []LedgerTag `pulumi:"tags"`
+	DeletionProtection *bool     `pulumi:"deletionProtection"`
+	KmsKey             *string   `pulumi:"kmsKey"`
+	Name               *string   `pulumi:"name"`
+	PermissionsMode    string    `pulumi:"permissionsMode"`
+	Tags               []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Ledger resource.
@@ -85,7 +86,7 @@ type LedgerArgs struct {
 	KmsKey             pulumi.StringPtrInput
 	Name               pulumi.StringPtrInput
 	PermissionsMode    pulumi.StringInput
-	Tags               LedgerTagArrayInput
+	Tags               aws.TagArrayInput
 }
 
 func (LedgerArgs) ElementType() reflect.Type {
@@ -141,8 +142,8 @@ func (o LedgerOutput) PermissionsMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ledger) pulumi.StringOutput { return v.PermissionsMode }).(pulumi.StringOutput)
 }
 
-func (o LedgerOutput) Tags() LedgerTagArrayOutput {
-	return o.ApplyT(func(v *Ledger) LedgerTagArrayOutput { return v.Tags }).(LedgerTagArrayOutput)
+func (o LedgerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Ledger) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

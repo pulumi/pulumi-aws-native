@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupCampaignResult struct {
 	Name               *string                     `pulumi:"name"`
 	OutboundCallConfig *CampaignOutboundCallConfig `pulumi:"outboundCallConfig"`
 	// One or more tags.
-	Tags []CampaignTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCampaignOutput(ctx *pulumi.Context, args LookupCampaignOutputArgs, opts ...pulumi.InvokeOption) LookupCampaignResultOutput {
@@ -93,8 +94,8 @@ func (o LookupCampaignResultOutput) OutboundCallConfig() CampaignOutboundCallCon
 }
 
 // One or more tags.
-func (o LookupCampaignResultOutput) Tags() CampaignTagArrayOutput {
-	return o.ApplyT(func(v LookupCampaignResult) []CampaignTag { return v.Tags }).(CampaignTagArrayOutput)
+func (o LookupCampaignResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCampaignResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

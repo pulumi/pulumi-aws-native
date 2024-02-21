@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type OriginEndpoint struct {
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
 	StartoverWindowSeconds pulumi.IntPtrOutput `pulumi:"startoverWindowSeconds"`
 	// A collection of tags associated with a resource
-	Tags OriginEndpointTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
 	TimeDelaySeconds pulumi.IntPtrOutput `pulumi:"timeDelaySeconds"`
 	// The URL of the packaged OriginEndpoint for consumption.
@@ -102,7 +103,7 @@ type originEndpointArgs struct {
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
 	StartoverWindowSeconds *int `pulumi:"startoverWindowSeconds"`
 	// A collection of tags associated with a resource
-	Tags []OriginEndpointTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
 	TimeDelaySeconds *int `pulumi:"timeDelaySeconds"`
 	// A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
@@ -127,7 +128,7 @@ type OriginEndpointArgs struct {
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
 	StartoverWindowSeconds pulumi.IntPtrInput
 	// A collection of tags associated with a resource
-	Tags OriginEndpointTagArrayInput
+	Tags aws.TagArrayInput
 	// Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
 	TimeDelaySeconds pulumi.IntPtrInput
 	// A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
@@ -222,8 +223,8 @@ func (o OriginEndpointOutput) StartoverWindowSeconds() pulumi.IntPtrOutput {
 }
 
 // A collection of tags associated with a resource
-func (o OriginEndpointOutput) Tags() OriginEndpointTagArrayOutput {
-	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointTagArrayOutput { return v.Tags }).(OriginEndpointTagArrayOutput)
+func (o OriginEndpointOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *OriginEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.

@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// A list of key-value pairs that contain metadata for the Multicast group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MulticastGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetMulticastGroupResult(
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? status,
 
-            ImmutableArray<Outputs.MulticastGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AssociateWirelessDevice = associateWirelessDevice;

@@ -38,7 +38,7 @@ export interface GetExperimentResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.evidently.ExperimentTag[];
+    readonly tags?: outputs.Tag[];
     readonly treatments?: outputs.evidently.ExperimentTreatmentObject[];
 }
 /**

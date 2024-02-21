@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         public readonly string? Id;
         public readonly ImmutableArray<string> RegularExpressionList;
-        public readonly ImmutableArray<Outputs.RegexPatternSetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRegexPatternSetResult(
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.WaFv2
 
             ImmutableArray<string> regularExpressionList,
 
-            ImmutableArray<Outputs.RegexPatternSetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

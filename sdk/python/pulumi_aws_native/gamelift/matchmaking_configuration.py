@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -33,7 +35,7 @@ class MatchmakingConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
                  rule_set_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MatchmakingConfiguration resource.
         :param pulumi.Input[bool] acceptance_required: A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
@@ -52,7 +54,7 @@ class MatchmakingConfigurationArgs:
         :param pulumi.Input[str] name: A unique identifier for the matchmaking configuration.
         :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive matchmaking notifications.
         :param pulumi.Input[str] rule_set_arn: The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
-        :param pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "acceptance_required", acceptance_required)
         pulumi.set(__self__, "request_timeout_seconds", request_timeout_seconds)
@@ -280,14 +282,14 @@ class MatchmakingConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -312,7 +314,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  request_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  rule_set_arn: Optional[pulumi.Input[str]] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
@@ -335,7 +337,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[int] request_timeout_seconds: The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
         :param pulumi.Input[str] rule_set_arn: The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
         :param pulumi.Input[str] rule_set_name: A unique identifier for the matchmaking rule set to use with this configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -377,7 +379,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  request_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  rule_set_arn: Optional[pulumi.Input[str]] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -593,7 +595,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MatchmakingConfigurationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

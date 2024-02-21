@@ -16,7 +16,6 @@ __all__ = [
     'CalculatedAttributeDefinitionAttributeItem',
     'CalculatedAttributeDefinitionConditions',
     'CalculatedAttributeDefinitionRange',
-    'CalculatedAttributeDefinitionTag',
     'CalculatedAttributeDefinitionThreshold',
     'DestinationDetailsProperties',
     'DomainAttributeTypesSelector',
@@ -30,8 +29,6 @@ __all__ = [
     'DomainRuleBasedMatching',
     'DomainS3ExportingConfig',
     'DomainStats',
-    'DomainTag',
-    'EventStreamTag',
     'IntegrationConnectorOperator',
     'IntegrationFlowDefinition',
     'IntegrationIncrementalPullConfig',
@@ -43,7 +40,6 @@ __all__ = [
     'IntegrationServiceNowSourceProperties',
     'IntegrationSourceConnectorProperties',
     'IntegrationSourceFlowConfig',
-    'IntegrationTag',
     'IntegrationTask',
     'IntegrationTaskPropertiesMap',
     'IntegrationTriggerConfig',
@@ -53,7 +49,6 @@ __all__ = [
     'ObjectTypeFieldMap',
     'ObjectTypeKey',
     'ObjectTypeKeyMap',
-    'ObjectTypeTag',
 ]
 
 @pulumi.output_type
@@ -173,39 +168,6 @@ class CalculatedAttributeDefinitionRange(dict):
     @property
     @pulumi.getter
     def value(self) -> int:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class CalculatedAttributeDefinitionTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
         return pulumi.get(self, "value")
 
 
@@ -923,58 +885,6 @@ class DomainStats(dict):
 
 
 @pulumi.output_type
-class DomainTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class EventStreamTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class IntegrationConnectorOperator(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1474,25 +1384,6 @@ class IntegrationSourceFlowConfig(dict):
 
 
 @pulumi.output_type
-class IntegrationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class IntegrationTask(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1852,24 +1743,5 @@ class ObjectTypeKeyMap(dict):
     @pulumi.getter(name="objectTypeKeyList")
     def object_type_key_list(self) -> Optional[Sequence['outputs.ObjectTypeKey']]:
         return pulumi.get(self, "object_type_key_list")
-
-
-@pulumi.output_type
-class ObjectTypeTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

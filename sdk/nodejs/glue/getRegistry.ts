@@ -37,7 +37,7 @@ export interface GetRegistryResult {
     /**
      * List of tags to tag the Registry
      */
-    readonly tags?: outputs.glue.RegistryTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * This resource creates a Registry for authoring schemas as part of Glue Schema Registry.

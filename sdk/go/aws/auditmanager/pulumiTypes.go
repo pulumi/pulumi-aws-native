@@ -899,107 +899,6 @@ type AssessmentTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AssessmentTagInput is an input type that accepts AssessmentTagArgs and AssessmentTagOutput values.
-// You can construct a concrete instance of `AssessmentTagInput` via:
-//
-//	AssessmentTagArgs{...}
-type AssessmentTagInput interface {
-	pulumi.Input
-
-	ToAssessmentTagOutput() AssessmentTagOutput
-	ToAssessmentTagOutputWithContext(context.Context) AssessmentTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type AssessmentTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AssessmentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentTag)(nil)).Elem()
-}
-
-func (i AssessmentTagArgs) ToAssessmentTagOutput() AssessmentTagOutput {
-	return i.ToAssessmentTagOutputWithContext(context.Background())
-}
-
-func (i AssessmentTagArgs) ToAssessmentTagOutputWithContext(ctx context.Context) AssessmentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTagOutput)
-}
-
-// AssessmentTagArrayInput is an input type that accepts AssessmentTagArray and AssessmentTagArrayOutput values.
-// You can construct a concrete instance of `AssessmentTagArrayInput` via:
-//
-//	AssessmentTagArray{ AssessmentTagArgs{...} }
-type AssessmentTagArrayInput interface {
-	pulumi.Input
-
-	ToAssessmentTagArrayOutput() AssessmentTagArrayOutput
-	ToAssessmentTagArrayOutputWithContext(context.Context) AssessmentTagArrayOutput
-}
-
-type AssessmentTagArray []AssessmentTagInput
-
-func (AssessmentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssessmentTag)(nil)).Elem()
-}
-
-func (i AssessmentTagArray) ToAssessmentTagArrayOutput() AssessmentTagArrayOutput {
-	return i.ToAssessmentTagArrayOutputWithContext(context.Background())
-}
-
-func (i AssessmentTagArray) ToAssessmentTagArrayOutputWithContext(ctx context.Context) AssessmentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type AssessmentTagOutput struct{ *pulumi.OutputState }
-
-func (AssessmentTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentTag)(nil)).Elem()
-}
-
-func (o AssessmentTagOutput) ToAssessmentTagOutput() AssessmentTagOutput {
-	return o
-}
-
-func (o AssessmentTagOutput) ToAssessmentTagOutputWithContext(ctx context.Context) AssessmentTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o AssessmentTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o AssessmentTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AssessmentTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AssessmentTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssessmentTag)(nil)).Elem()
-}
-
-func (o AssessmentTagArrayOutput) ToAssessmentTagArrayOutput() AssessmentTagArrayOutput {
-	return o
-}
-
-func (o AssessmentTagArrayOutput) ToAssessmentTagArrayOutputWithContext(ctx context.Context) AssessmentTagArrayOutput {
-	return o
-}
-
-func (o AssessmentTagArrayOutput) Index(i pulumi.IntInput) AssessmentTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentTag {
-		return vs[0].([]AssessmentTag)[vs[1].(int)]
-	}).(AssessmentTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAwsAccountInput)(nil)).Elem(), AssessmentAwsAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAwsAccountPtrInput)(nil)).Elem(), AssessmentAwsAccountArgs{})
@@ -1014,8 +913,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentRoleArrayInput)(nil)).Elem(), AssessmentRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentScopeInput)(nil)).Elem(), AssessmentScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentScopePtrInput)(nil)).Elem(), AssessmentScopeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTagInput)(nil)).Elem(), AssessmentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTagArrayInput)(nil)).Elem(), AssessmentTagArray{})
 	pulumi.RegisterOutputType(AssessmentAwsAccountOutput{})
 	pulumi.RegisterOutputType(AssessmentAwsAccountPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentAwsAccountArrayOutput{})
@@ -1029,6 +926,4 @@ func init() {
 	pulumi.RegisterOutputType(AssessmentRoleArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentScopeOutput{})
 	pulumi.RegisterOutputType(AssessmentScopePtrOutput{})
-	pulumi.RegisterOutputType(AssessmentTagOutput{})
-	pulumi.RegisterOutputType(AssessmentTagArrayOutput{})
 }

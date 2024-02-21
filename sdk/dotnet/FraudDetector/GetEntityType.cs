@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// Tags associated with this entity type.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EntityTypeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEntityTypeResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.FraudDetector
 
             string? lastUpdatedTime,
 
-            ImmutableArray<Outputs.EntityTypeTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreatedTime = createdTime;

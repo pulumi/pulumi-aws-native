@@ -53,7 +53,7 @@ export interface GetConnectorResult {
     /**
      * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
      */
-    readonly tags?: outputs.transfer.ConnectorTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * URL for Connector
      */

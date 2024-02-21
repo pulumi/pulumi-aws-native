@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         public readonly string? DirectoryId;
         public readonly string? Id;
         public readonly bool? RootVolumeEncryptionEnabled;
-        public readonly ImmutableArray<Outputs.WorkspaceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly bool? UserVolumeEncryptionEnabled;
         public readonly string? VolumeEncryptionKey;
         public readonly Outputs.WorkspaceProperties? WorkspaceProperties;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.WorkSpaces
 
             bool? rootVolumeEncryptionEnabled,
 
-            ImmutableArray<Outputs.WorkspaceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? userVolumeEncryptionEnabled,
 

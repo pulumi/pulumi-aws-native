@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,10 +28,10 @@ type LookupReplicationSubnetGroupArgs struct {
 }
 
 type LookupReplicationSubnetGroupResult struct {
-	Id                                *string                     `pulumi:"id"`
-	ReplicationSubnetGroupDescription *string                     `pulumi:"replicationSubnetGroupDescription"`
-	SubnetIds                         []string                    `pulumi:"subnetIds"`
-	Tags                              []ReplicationSubnetGroupTag `pulumi:"tags"`
+	Id                                *string   `pulumi:"id"`
+	ReplicationSubnetGroupDescription *string   `pulumi:"replicationSubnetGroupDescription"`
+	SubnetIds                         []string  `pulumi:"subnetIds"`
+	Tags                              []aws.Tag `pulumi:"tags"`
 }
 
 func LookupReplicationSubnetGroupOutput(ctx *pulumi.Context, args LookupReplicationSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSubnetGroupResultOutput {
@@ -80,8 +81,8 @@ func (o LookupReplicationSubnetGroupResultOutput) SubnetIds() pulumi.StringArray
 	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupReplicationSubnetGroupResultOutput) Tags() ReplicationSubnetGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) []ReplicationSubnetGroupTag { return v.Tags }).(ReplicationSubnetGroupTagArrayOutput)
+func (o LookupReplicationSubnetGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

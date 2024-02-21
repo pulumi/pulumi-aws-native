@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -33,14 +35,14 @@ class DataSetArgs:
                  physical_table_map: Optional[pulumi.Input['DataSetPhysicalTableMapArgs']] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataSet resource.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]] dataset_parameters: <p>The parameters declared in the dataset.</p>
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the dataset.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -235,14 +237,14 @@ class DataSetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -267,7 +269,7 @@ class DataSet(pulumi.CustomResource):
                  physical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::DataSet Resource Type.
@@ -278,7 +280,7 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]] dataset_parameters: <p>The parameters declared in the dataset.</p>
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]] permissions: <p>A list of resource permissions on the dataset.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         ...
     @overload
@@ -320,7 +322,7 @@ class DataSet(pulumi.CustomResource):
                  physical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -536,7 +538,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """

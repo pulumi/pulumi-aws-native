@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type EnvironmentEc2 struct {
 	OwnerArn                 pulumi.StringPtrOutput              `pulumi:"ownerArn"`
 	Repositories             EnvironmentEc2RepositoryArrayOutput `pulumi:"repositories"`
 	SubnetId                 pulumi.StringPtrOutput              `pulumi:"subnetId"`
-	Tags                     EnvironmentEc2TagArrayOutput        `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                  `pulumi:"tags"`
 }
 
 // NewEnvironmentEc2 registers a new resource with the given unique name, arguments, and options.
@@ -96,7 +97,7 @@ type environmentEc2Args struct {
 	OwnerArn                 *string                    `pulumi:"ownerArn"`
 	Repositories             []EnvironmentEc2Repository `pulumi:"repositories"`
 	SubnetId                 *string                    `pulumi:"subnetId"`
-	Tags                     []EnvironmentEc2Tag        `pulumi:"tags"`
+	Tags                     []aws.Tag                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EnvironmentEc2 resource.
@@ -110,7 +111,7 @@ type EnvironmentEc2Args struct {
 	OwnerArn                 pulumi.StringPtrInput
 	Repositories             EnvironmentEc2RepositoryArrayInput
 	SubnetId                 pulumi.StringPtrInput
-	Tags                     EnvironmentEc2TagArrayInput
+	Tags                     aws.TagArrayInput
 }
 
 func (EnvironmentEc2Args) ElementType() reflect.Type {
@@ -190,8 +191,8 @@ func (o EnvironmentEc2Output) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentEc2) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-func (o EnvironmentEc2Output) Tags() EnvironmentEc2TagArrayOutput {
-	return o.ApplyT(func(v *EnvironmentEc2) EnvironmentEc2TagArrayOutput { return v.Tags }).(EnvironmentEc2TagArrayOutput)
+func (o EnvironmentEc2Output) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EnvironmentEc2) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

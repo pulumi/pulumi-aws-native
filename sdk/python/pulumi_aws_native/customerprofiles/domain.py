@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,14 +25,14 @@ class DomainArgs:
                  domain_name: Optional[pulumi.Input[str]] = None,
                  matching: Optional[pulumi.Input['DomainMatchingArgs']] = None,
                  rule_based_matching: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] dead_letter_queue_url: The URL of the SQS dead letter queue
         :param pulumi.Input[str] default_encryption_key: The default encryption key
         :param pulumi.Input[int] default_expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: The tags (keys and values) associated with the domain
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the domain
         """
         if dead_letter_queue_url is not None:
             pulumi.set(__self__, "dead_letter_queue_url", dead_letter_queue_url)
@@ -115,14 +117,14 @@ class DomainArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the domain
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -137,7 +139,7 @@ class Domain(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  matching: Optional[pulumi.Input[pulumi.InputType['DomainMatchingArgs']]] = None,
                  rule_based_matching: Optional[pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         A domain defined for 3rd party data source in Profile Service
@@ -148,7 +150,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] default_encryption_key: The default encryption key
         :param pulumi.Input[int] default_expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]] tags: The tags (keys and values) associated with the domain
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the domain
         """
         ...
     @overload
@@ -180,7 +182,7 @@ class Domain(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  matching: Optional[pulumi.Input[pulumi.InputType['DomainMatchingArgs']]] = None,
                  rule_based_matching: Optional[pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,7 +303,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DomainTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags (keys and values) associated with the domain
         """

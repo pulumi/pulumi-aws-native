@@ -12,11 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AgreementTag',
     'As2ConfigProperties',
-    'CertificateTag',
-    'ConnectorTag',
-    'ProfileTag',
     'ServerAs2Transport',
     'ServerEndpointDetails',
     'ServerIdentityProviderDetails',
@@ -24,14 +20,12 @@ __all__ = [
     'ServerProtocolDetails',
     'ServerS3StorageOptions',
     'ServerStructuredLogDestination',
-    'ServerTag',
     'ServerWorkflowDetail',
     'ServerWorkflowDetails',
     'SftpConfigProperties',
     'UserHomeDirectoryMapEntry',
     'UserPosixProfile',
     'UserSshPublicKey',
-    'UserTag',
     'WorkflowEfsInputFileLocation',
     'WorkflowInputFileLocation',
     'WorkflowS3FileLocation',
@@ -43,41 +37,7 @@ __all__ = [
     'WorkflowStepDecryptStepDetailsProperties',
     'WorkflowStepDeleteStepDetailsProperties',
     'WorkflowStepTagStepDetailsProperties',
-    'WorkflowTag',
 ]
-
-@pulumi.output_type
-class AgreementTag(dict):
-    """
-    Creates a key-value pair for a specific resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Creates a key-value pair for a specific resource.
-        :param str key: The name assigned to the tag that you create.
-        :param str value: Contains one or more values that you assigned to the key name you create.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The name assigned to the tag that you create.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Contains one or more values that you assigned to the key name you create.
-        """
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class As2ConfigProperties(dict):
@@ -227,105 +187,6 @@ class As2ConfigProperties(dict):
         Signing algorithm for this AS2 connector configuration.
         """
         return pulumi.get(self, "signing_algorithm")
-
-
-@pulumi.output_type
-class CertificateTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ConnectorTag(dict):
-    """
-    Creates a key-value pair for a specific resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Creates a key-value pair for a specific resource.
-        :param str key: The name assigned to the tag that you create.
-        :param str value: Contains one or more values that you assigned to the key name you create.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The name assigned to the tag that you create.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Contains one or more values that you assigned to the key name you create.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ProfileTag(dict):
-    """
-    Creates a key-value pair for a specific resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Creates a key-value pair for a specific resource.
-        :param str key: The name assigned to the tag that you create.
-        :param str value: Contains one or more values that you assigned to the key name you create.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The name assigned to the tag that you create.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Contains one or more values that you assigned to the key name you create.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -573,25 +434,6 @@ class ServerStructuredLogDestination(dict):
 
 
 @pulumi.output_type
-class ServerTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ServerWorkflowDetail(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -798,25 +640,6 @@ class UserPosixProfile(dict):
 class UserSshPublicKey(dict):
     def __init__(__self__):
         pass
-
-
-@pulumi.output_type
-class UserTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1481,38 +1304,5 @@ class WorkflowStepTagStepDetailsProperties(dict):
         Array that contains from 1 to 10 key/value pairs.
         """
         return pulumi.get(self, "tags")
-
-
-@pulumi.output_type
-class WorkflowTag(dict):
-    """
-    Creates a key-value pair for a specific resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Creates a key-value pair for a specific resource.
-        :param str key: The name assigned to the tag that you create.
-        :param str value: Contains one or more values that you assigned to the key name you create.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The name assigned to the tag that you create.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Contains one or more values that you assigned to the key name you create.
-        """
-        return pulumi.get(self, "value")
 
 

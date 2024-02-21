@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type WebAcl struct {
 	// Collection of Rules.
 	Rules            WebAclRuleArrayOutput        `pulumi:"rules"`
 	Scope            WebAclScopeOutput            `pulumi:"scope"`
-	Tags             WebAclTagArrayOutput         `pulumi:"tags"`
+	Tags             aws.TagArrayOutput           `pulumi:"tags"`
 	TokenDomains     pulumi.StringArrayOutput     `pulumi:"tokenDomains"`
 	VisibilityConfig WebAclVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
@@ -98,7 +99,7 @@ type webAclArgs struct {
 	// Collection of Rules.
 	Rules            []WebAclRule           `pulumi:"rules"`
 	Scope            WebAclScope            `pulumi:"scope"`
-	Tags             []WebAclTag            `pulumi:"tags"`
+	Tags             []aws.Tag              `pulumi:"tags"`
 	TokenDomains     []string               `pulumi:"tokenDomains"`
 	VisibilityConfig WebAclVisibilityConfig `pulumi:"visibilityConfig"`
 }
@@ -115,7 +116,7 @@ type WebAclArgs struct {
 	// Collection of Rules.
 	Rules            WebAclRuleArrayInput
 	Scope            WebAclScopeInput
-	Tags             WebAclTagArrayInput
+	Tags             aws.TagArrayInput
 	TokenDomains     pulumi.StringArrayInput
 	VisibilityConfig WebAclVisibilityConfigInput
 }
@@ -206,8 +207,8 @@ func (o WebAclOutput) Scope() WebAclScopeOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclScopeOutput { return v.Scope }).(WebAclScopeOutput)
 }
 
-func (o WebAclOutput) Tags() WebAclTagArrayOutput {
-	return o.ApplyT(func(v *WebAcl) WebAclTagArrayOutput { return v.Tags }).(WebAclTagArrayOutput)
+func (o WebAclOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *WebAcl) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o WebAclOutput) TokenDomains() pulumi.StringArrayOutput {

@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public Output<Outputs.PrivateDnsNamespaceProperties?> Properties { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PrivateDnsNamespaceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpc")]
         public Output<string> Vpc { get; private set; } = null!;
@@ -97,10 +97,10 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public Input<Inputs.PrivateDnsNamespacePropertiesArgs>? Properties { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.PrivateDnsNamespaceTagArgs>? _tags;
-        public InputList<Inputs.PrivateDnsNamespaceTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PrivateDnsNamespaceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

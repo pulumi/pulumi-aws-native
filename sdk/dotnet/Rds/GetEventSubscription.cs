@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EventSubscriptionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Rds
 
             string? sourceType,
 
-            ImmutableArray<Outputs.EventSubscriptionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Enabled = enabled;
             EventCategories = eventCategories;

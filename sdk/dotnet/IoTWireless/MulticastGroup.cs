@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// A list of key-value pairs that contain metadata for the Multicast group.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.MulticastGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -139,14 +139,14 @@ namespace Pulumi.AwsNative.IoTWireless
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.MulticastGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the Multicast group.
         /// </summary>
-        public InputList<Inputs.MulticastGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.MulticastGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

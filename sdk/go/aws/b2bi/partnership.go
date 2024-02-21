@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,17 +17,17 @@ import (
 type Partnership struct {
 	pulumi.CustomResourceState
 
-	Capabilities     pulumi.StringArrayOutput  `pulumi:"capabilities"`
-	CreatedAt        pulumi.StringOutput       `pulumi:"createdAt"`
-	Email            pulumi.StringOutput       `pulumi:"email"`
-	ModifiedAt       pulumi.StringOutput       `pulumi:"modifiedAt"`
-	Name             pulumi.StringOutput       `pulumi:"name"`
-	PartnershipArn   pulumi.StringOutput       `pulumi:"partnershipArn"`
-	PartnershipId    pulumi.StringOutput       `pulumi:"partnershipId"`
-	Phone            pulumi.StringPtrOutput    `pulumi:"phone"`
-	ProfileId        pulumi.StringOutput       `pulumi:"profileId"`
-	Tags             PartnershipTagArrayOutput `pulumi:"tags"`
-	TradingPartnerId pulumi.StringOutput       `pulumi:"tradingPartnerId"`
+	Capabilities     pulumi.StringArrayOutput `pulumi:"capabilities"`
+	CreatedAt        pulumi.StringOutput      `pulumi:"createdAt"`
+	Email            pulumi.StringOutput      `pulumi:"email"`
+	ModifiedAt       pulumi.StringOutput      `pulumi:"modifiedAt"`
+	Name             pulumi.StringOutput      `pulumi:"name"`
+	PartnershipArn   pulumi.StringOutput      `pulumi:"partnershipArn"`
+	PartnershipId    pulumi.StringOutput      `pulumi:"partnershipId"`
+	Phone            pulumi.StringPtrOutput   `pulumi:"phone"`
+	ProfileId        pulumi.StringOutput      `pulumi:"profileId"`
+	Tags             aws.TagArrayOutput       `pulumi:"tags"`
+	TradingPartnerId pulumi.StringOutput      `pulumi:"tradingPartnerId"`
 }
 
 // NewPartnership registers a new resource with the given unique name, arguments, and options.
@@ -81,12 +82,12 @@ func (PartnershipState) ElementType() reflect.Type {
 }
 
 type partnershipArgs struct {
-	Capabilities []string         `pulumi:"capabilities"`
-	Email        string           `pulumi:"email"`
-	Name         *string          `pulumi:"name"`
-	Phone        *string          `pulumi:"phone"`
-	ProfileId    string           `pulumi:"profileId"`
-	Tags         []PartnershipTag `pulumi:"tags"`
+	Capabilities []string  `pulumi:"capabilities"`
+	Email        string    `pulumi:"email"`
+	Name         *string   `pulumi:"name"`
+	Phone        *string   `pulumi:"phone"`
+	ProfileId    string    `pulumi:"profileId"`
+	Tags         []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Partnership resource.
@@ -96,7 +97,7 @@ type PartnershipArgs struct {
 	Name         pulumi.StringPtrInput
 	Phone        pulumi.StringPtrInput
 	ProfileId    pulumi.StringInput
-	Tags         PartnershipTagArrayInput
+	Tags         aws.TagArrayInput
 }
 
 func (PartnershipArgs) ElementType() reflect.Type {
@@ -172,8 +173,8 @@ func (o PartnershipOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
-func (o PartnershipOutput) Tags() PartnershipTagArrayOutput {
-	return o.ApplyT(func(v *Partnership) PartnershipTagArrayOutput { return v.Tags }).(PartnershipTagArrayOutput)
+func (o PartnershipOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Partnership) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o PartnershipOutput) TradingPartnerId() pulumi.StringOutput {

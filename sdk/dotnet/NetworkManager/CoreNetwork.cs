@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The tags for the global network.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.CoreNetworkTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -153,14 +153,14 @@ namespace Pulumi.AwsNative.NetworkManager
         public Input<object>? PolicyDocument { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.CoreNetworkTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the global network.
         /// </summary>
-        public InputList<Inputs.CoreNetworkTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.CoreNetworkTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

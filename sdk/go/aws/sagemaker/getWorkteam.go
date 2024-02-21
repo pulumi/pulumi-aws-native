@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupWorkteamResult struct {
 	Id                        *string                            `pulumi:"id"`
 	MemberDefinitions         []WorkteamMemberDefinition         `pulumi:"memberDefinitions"`
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
-	Tags                      []WorkteamTag                      `pulumi:"tags"`
+	Tags                      []aws.Tag                          `pulumi:"tags"`
 }
 
 func LookupWorkteamOutput(ctx *pulumi.Context, args LookupWorkteamOutputArgs, opts ...pulumi.InvokeOption) LookupWorkteamResultOutput {
@@ -85,8 +86,8 @@ func (o LookupWorkteamResultOutput) NotificationConfiguration() WorkteamNotifica
 	return o.ApplyT(func(v LookupWorkteamResult) *WorkteamNotificationConfiguration { return v.NotificationConfiguration }).(WorkteamNotificationConfigurationPtrOutput)
 }
 
-func (o LookupWorkteamResultOutput) Tags() WorkteamTagArrayOutput {
-	return o.ApplyT(func(v LookupWorkteamResult) []WorkteamTag { return v.Tags }).(WorkteamTagArrayOutput)
+func (o LookupWorkteamResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWorkteamResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

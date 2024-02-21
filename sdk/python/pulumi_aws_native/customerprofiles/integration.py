@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,14 +23,14 @@ class IntegrationArgs:
                  flow_definition: Optional[pulumi.Input['IntegrationFlowDefinitionArgs']] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
                  object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]] object_type_names: The mapping between 3rd party event types and ObjectType names
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]] tags: The tags (keys and values) associated with the integration
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the integration
         :param pulumi.Input[str] uri: The URI of the S3 bucket or any other type of data source.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -90,14 +92,14 @@ class IntegrationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the integration
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -122,7 +124,7 @@ class Integration(pulumi.CustomResource):
                  flow_definition: Optional[pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
                  object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -133,7 +135,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]] object_type_names: The mapping between 3rd party event types and ObjectType names
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]] tags: The tags (keys and values) associated with the integration
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the integration
         :param pulumi.Input[str] uri: The URI of the S3 bucket or any other type of data source.
         """
         ...
@@ -164,7 +166,7 @@ class Integration(pulumi.CustomResource):
                  flow_definition: Optional[pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
                  object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -266,7 +268,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags (keys and values) associated with the integration
         """

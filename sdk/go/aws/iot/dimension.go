@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type Dimension struct {
 	// Specifies the value or list of values for the dimension.
 	StringValues pulumi.StringArrayOutput `pulumi:"stringValues"`
 	// Metadata that can be used to manage the dimension.
-	Tags DimensionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Specifies the type of the dimension.
 	Type DimensionTypeOutput `pulumi:"type"`
 }
@@ -84,7 +85,7 @@ type dimensionArgs struct {
 	// Specifies the value or list of values for the dimension.
 	StringValues []string `pulumi:"stringValues"`
 	// Metadata that can be used to manage the dimension.
-	Tags []DimensionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies the type of the dimension.
 	Type DimensionType `pulumi:"type"`
 }
@@ -96,7 +97,7 @@ type DimensionArgs struct {
 	// Specifies the value or list of values for the dimension.
 	StringValues pulumi.StringArrayInput
 	// Metadata that can be used to manage the dimension.
-	Tags DimensionTagArrayInput
+	Tags aws.TagArrayInput
 	// Specifies the type of the dimension.
 	Type DimensionTypeInput
 }
@@ -154,8 +155,8 @@ func (o DimensionOutput) StringValues() pulumi.StringArrayOutput {
 }
 
 // Metadata that can be used to manage the dimension.
-func (o DimensionOutput) Tags() DimensionTagArrayOutput {
-	return o.ApplyT(func(v *Dimension) DimensionTagArrayOutput { return v.Tags }).(DimensionTagArrayOutput)
+func (o DimensionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Dimension) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Specifies the type of the dimension.

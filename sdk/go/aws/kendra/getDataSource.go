@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupDataSourceResult struct {
 	RoleArn                               *string                                          `pulumi:"roleArn"`
 	Schedule                              *string                                          `pulumi:"schedule"`
 	// Tags for labeling the data source
-	Tags []DataSourceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDataSourceOutput(ctx *pulumi.Context, args LookupDataSourceOutputArgs, opts ...pulumi.InvokeOption) LookupDataSourceResultOutput {
@@ -121,8 +122,8 @@ func (o LookupDataSourceResultOutput) Schedule() pulumi.StringPtrOutput {
 }
 
 // Tags for labeling the data source
-func (o LookupDataSourceResultOutput) Tags() DataSourceTagArrayOutput {
-	return o.ApplyT(func(v LookupDataSourceResult) []DataSourceTag { return v.Tags }).(DataSourceTagArrayOutput)
+func (o LookupDataSourceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDataSourceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

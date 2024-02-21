@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetEnvironmentResult',
@@ -73,7 +74,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.EnvironmentTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Specifies the tags applied to resources in the environment.
         """

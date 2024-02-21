@@ -33,7 +33,7 @@ export interface GetStreamKeyResult {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    readonly tags?: outputs.ivs.StreamKeyTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Stream-key value.
      */

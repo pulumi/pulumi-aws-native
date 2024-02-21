@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type Domain struct {
 	// The status of the Amazon DataZone domain.
 	Status DomainStatusOutput `pulumi:"status"`
 	// The tags specified for the Amazon DataZone domain.
-	Tags DomainTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -100,7 +101,7 @@ type domainArgs struct {
 	// The single-sign on configuration of the Amazon DataZone domain.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
 	// The tags specified for the Amazon DataZone domain.
-	Tags []DomainTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -116,7 +117,7 @@ type DomainArgs struct {
 	// The single-sign on configuration of the Amazon DataZone domain.
 	SingleSignOn DomainSingleSignOnPtrInput
 	// The tags specified for the Amazon DataZone domain.
-	Tags DomainTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -212,8 +213,8 @@ func (o DomainOutput) Status() DomainStatusOutput {
 }
 
 // The tags specified for the Amazon DataZone domain.
-func (o DomainOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+func (o DomainOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Domain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

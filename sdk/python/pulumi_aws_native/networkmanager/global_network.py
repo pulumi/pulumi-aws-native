@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['GlobalNetworkArgs', 'GlobalNetwork']
 
@@ -19,13 +19,13 @@ class GlobalNetworkArgs:
                  created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalNetworkTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalNetwork resource.
         :param pulumi.Input[str] created_at: The date and time that the global network was created.
         :param pulumi.Input[str] description: The description of the global network.
         :param pulumi.Input[str] state: The state of the global network.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalNetworkTagArgs']]] tags: The tags for the global network.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the global network.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -74,14 +74,14 @@ class GlobalNetworkArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalNetworkTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the global network.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalNetworkTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,7 +93,7 @@ class GlobalNetwork(pulumi.CustomResource):
                  created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalNetworkTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
@@ -103,7 +103,7 @@ class GlobalNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] created_at: The date and time that the global network was created.
         :param pulumi.Input[str] description: The description of the global network.
         :param pulumi.Input[str] state: The state of the global network.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalNetworkTagArgs']]]] tags: The tags for the global network.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the global network.
         """
         ...
     @overload
@@ -132,7 +132,7 @@ class GlobalNetwork(pulumi.CustomResource):
                  created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalNetworkTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,7 +210,7 @@ class GlobalNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalNetworkTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags for the global network.
         """

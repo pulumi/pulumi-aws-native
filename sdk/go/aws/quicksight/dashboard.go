@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Dashboard struct {
 	Parameters               DashboardParametersPtrOutput               `pulumi:"parameters"`
 	Permissions              DashboardResourcePermissionArrayOutput     `pulumi:"permissions"`
 	SourceEntity             DashboardSourceEntityPtrOutput             `pulumi:"sourceEntity"`
-	Tags                     DashboardTagArrayOutput                    `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                         `pulumi:"tags"`
 	ThemeArn                 pulumi.StringPtrOutput                     `pulumi:"themeArn"`
 	ValidationStrategy       DashboardValidationStrategyPtrOutput       `pulumi:"validationStrategy"`
 	Version                  DashboardVersionOutput                     `pulumi:"version"`
@@ -96,7 +97,7 @@ type dashboardArgs struct {
 	Parameters               *DashboardParameters               `pulumi:"parameters"`
 	Permissions              []DashboardResourcePermission      `pulumi:"permissions"`
 	SourceEntity             *DashboardSourceEntity             `pulumi:"sourceEntity"`
-	Tags                     []DashboardTag                     `pulumi:"tags"`
+	Tags                     []aws.Tag                          `pulumi:"tags"`
 	ThemeArn                 *string                            `pulumi:"themeArn"`
 	ValidationStrategy       *DashboardValidationStrategy       `pulumi:"validationStrategy"`
 	VersionDescription       *string                            `pulumi:"versionDescription"`
@@ -113,7 +114,7 @@ type DashboardArgs struct {
 	Parameters               DashboardParametersPtrInput
 	Permissions              DashboardResourcePermissionArrayInput
 	SourceEntity             DashboardSourceEntityPtrInput
-	Tags                     DashboardTagArrayInput
+	Tags                     aws.TagArrayInput
 	ThemeArn                 pulumi.StringPtrInput
 	ValidationStrategy       DashboardValidationStrategyPtrInput
 	VersionDescription       pulumi.StringPtrInput
@@ -208,8 +209,8 @@ func (o DashboardOutput) SourceEntity() DashboardSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardSourceEntityPtrOutput { return v.SourceEntity }).(DashboardSourceEntityPtrOutput)
 }
 
-func (o DashboardOutput) Tags() DashboardTagArrayOutput {
-	return o.ApplyT(func(v *Dashboard) DashboardTagArrayOutput { return v.Tags }).(DashboardTagArrayOutput)
+func (o DashboardOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Dashboard) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o DashboardOutput) ThemeArn() pulumi.StringPtrOutput {

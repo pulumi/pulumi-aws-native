@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// A list of key-value pairs that contain metadata for the destination.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PartnerAccountTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPartnerAccountResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             Outputs.PartnerAccountSidewalkAccountInfoWithFingerprint? sidewalkResponse,
 
-            ImmutableArray<Outputs.PartnerAccountTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AccountLinked = accountLinked;
             Arn = arn;

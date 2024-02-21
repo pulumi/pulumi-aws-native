@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['LocationFSxWindowsArgs', 'LocationFSxWindows']
 
@@ -22,7 +22,7 @@ class LocationFSxWindowsArgs:
                  fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationFSxWindows resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx for Windows file system.
@@ -31,7 +31,7 @@ class LocationFSxWindowsArgs:
         :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Windows file system.
         :param pulumi.Input[str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "security_group_arns", security_group_arns)
         pulumi.set(__self__, "user", user)
@@ -120,14 +120,14 @@ class LocationFSxWindowsArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -141,7 +141,7 @@ class LocationFSxWindows(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxWindowsTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -154,7 +154,7 @@ class LocationFSxWindows(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx for Windows file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxWindowsTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] user: The user who has the permissions to access files and folders in the FSx for Windows file system.
         """
         ...
@@ -186,7 +186,7 @@ class LocationFSxWindows(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxWindowsTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -303,7 +303,7 @@ class LocationFSxWindows(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationFSxWindowsTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

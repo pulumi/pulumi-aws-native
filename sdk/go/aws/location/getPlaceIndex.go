@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,8 +35,8 @@ type LookupPlaceIndexResult struct {
 	IndexArn                *string                            `pulumi:"indexArn"`
 	PricingPlan             *PlaceIndexPricingPlan             `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []PlaceIndexTag `pulumi:"tags"`
-	UpdateTime *string         `pulumi:"updateTime"`
+	Tags       []aws.Tag `pulumi:"tags"`
+	UpdateTime *string   `pulumi:"updateTime"`
 }
 
 func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs, opts ...pulumi.InvokeOption) LookupPlaceIndexResultOutput {
@@ -98,8 +99,8 @@ func (o LookupPlaceIndexResultOutput) PricingPlan() PlaceIndexPricingPlanPtrOutp
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupPlaceIndexResultOutput) Tags() PlaceIndexTagArrayOutput {
-	return o.ApplyT(func(v LookupPlaceIndexResult) []PlaceIndexTag { return v.Tags }).(PlaceIndexTagArrayOutput)
+func (o LookupPlaceIndexResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPlaceIndexResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupPlaceIndexResultOutput) UpdateTime() pulumi.StringPtrOutput {

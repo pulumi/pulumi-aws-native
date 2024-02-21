@@ -13,7 +13,6 @@ from ._enums import *
 
 __all__ = [
     'AssetEgressEndpoint',
-    'AssetTag',
     'ChannelHlsIngest',
     'ChannelIngestEndpoint',
     'ChannelLogConfiguration',
@@ -31,7 +30,6 @@ __all__ = [
     'OriginEndpointMssPackage',
     'OriginEndpointSpekeKeyProvider',
     'OriginEndpointStreamSelection',
-    'OriginEndpointTag',
     'PackagingConfigurationCmafEncryption',
     'PackagingConfigurationCmafPackage',
     'PackagingConfigurationDashEncryption',
@@ -46,7 +44,6 @@ __all__ = [
     'PackagingConfigurationMssPackage',
     'PackagingConfigurationSpekeKeyProvider',
     'PackagingConfigurationStreamSelection',
-    'PackagingConfigurationTag',
     'PackagingGroupAuthorization',
     'PackagingGroupLogConfiguration',
     'PackagingGroupTag',
@@ -100,25 +97,6 @@ class AssetEgressEndpoint(dict):
         The URL of the parent manifest for the repackaged Asset.
         """
         return pulumi.get(self, "url")
-
-
-@pulumi.output_type
-class AssetTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1525,25 +1503,6 @@ class OriginEndpointStreamSelection(dict):
 
 
 @pulumi.output_type
-class OriginEndpointTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class PackagingConfigurationCmafEncryption(dict):
     """
     A CMAF encryption configuration.
@@ -2472,25 +2431,6 @@ class PackagingConfigurationStreamSelection(dict):
         A directive that determines the order of streams in the output.
         """
         return pulumi.get(self, "stream_order")
-
-
-@pulumi.output_type
-class PackagingConfigurationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

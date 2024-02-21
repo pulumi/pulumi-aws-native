@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupServiceNetworkVpcAssociationResult struct {
 	ServiceNetworkId   *string                             `pulumi:"serviceNetworkId"`
 	ServiceNetworkName *string                             `pulumi:"serviceNetworkName"`
 	Status             *ServiceNetworkVpcAssociationStatus `pulumi:"status"`
-	Tags               []ServiceNetworkVpcAssociationTag   `pulumi:"tags"`
+	Tags               []aws.Tag                           `pulumi:"tags"`
 	VpcId              *string                             `pulumi:"vpcId"`
 }
 
@@ -106,8 +107,8 @@ func (o LookupServiceNetworkVpcAssociationResultOutput) Status() ServiceNetworkV
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *ServiceNetworkVpcAssociationStatus { return v.Status }).(ServiceNetworkVpcAssociationStatusPtrOutput)
 }
 
-func (o LookupServiceNetworkVpcAssociationResultOutput) Tags() ServiceNetworkVpcAssociationTagArrayOutput {
-	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) []ServiceNetworkVpcAssociationTag { return v.Tags }).(ServiceNetworkVpcAssociationTagArrayOutput)
+func (o LookupServiceNetworkVpcAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupServiceNetworkVpcAssociationResultOutput) VpcId() pulumi.StringPtrOutput {

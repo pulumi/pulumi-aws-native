@@ -1026,101 +1026,6 @@ type BucketTag struct {
 	Value string `pulumi:"value"`
 }
 
-// BucketTagInput is an input type that accepts BucketTagArgs and BucketTagOutput values.
-// You can construct a concrete instance of `BucketTagInput` via:
-//
-//	BucketTagArgs{...}
-type BucketTagInput interface {
-	pulumi.Input
-
-	ToBucketTagOutput() BucketTagOutput
-	ToBucketTagOutputWithContext(context.Context) BucketTagOutput
-}
-
-type BucketTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (BucketTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketTag)(nil)).Elem()
-}
-
-func (i BucketTagArgs) ToBucketTagOutput() BucketTagOutput {
-	return i.ToBucketTagOutputWithContext(context.Background())
-}
-
-func (i BucketTagArgs) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketTagOutput)
-}
-
-// BucketTagArrayInput is an input type that accepts BucketTagArray and BucketTagArrayOutput values.
-// You can construct a concrete instance of `BucketTagArrayInput` via:
-//
-//	BucketTagArray{ BucketTagArgs{...} }
-type BucketTagArrayInput interface {
-	pulumi.Input
-
-	ToBucketTagArrayOutput() BucketTagArrayOutput
-	ToBucketTagArrayOutputWithContext(context.Context) BucketTagArrayOutput
-}
-
-type BucketTagArray []BucketTagInput
-
-func (BucketTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketTag)(nil)).Elem()
-}
-
-func (i BucketTagArray) ToBucketTagArrayOutput() BucketTagArrayOutput {
-	return i.ToBucketTagArrayOutputWithContext(context.Background())
-}
-
-func (i BucketTagArray) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketTagArrayOutput)
-}
-
-type BucketTagOutput struct{ *pulumi.OutputState }
-
-func (BucketTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketTag)(nil)).Elem()
-}
-
-func (o BucketTagOutput) ToBucketTagOutput() BucketTagOutput {
-	return o
-}
-
-func (o BucketTagOutput) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
-	return o
-}
-
-func (o BucketTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o BucketTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type BucketTagArrayOutput struct{ *pulumi.OutputState }
-
-func (BucketTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketTag)(nil)).Elem()
-}
-
-func (o BucketTagArrayOutput) ToBucketTagArrayOutput() BucketTagArrayOutput {
-	return o
-}
-
-func (o BucketTagArrayOutput) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
-	return o
-}
-
-func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTag {
-		return vs[0].([]BucketTag)[vs[1].(int)]
-	}).(BucketTagOutput)
-}
-
 type EndpointFailedReason struct {
 	// The failure code, if any, for a create or delete endpoint operation.
 	ErrorCode *string `pulumi:"errorCode"`
@@ -1336,8 +1241,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleArrayInput)(nil)).Elem(), BucketRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleFilterPropertiesInput)(nil)).Elem(), BucketRuleFilterPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleFilterPropertiesPtrInput)(nil)).Elem(), BucketRuleFilterPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagInput)(nil)).Elem(), BucketTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagArrayInput)(nil)).Elem(), BucketTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointFailedReasonInput)(nil)).Elem(), EndpointFailedReasonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointFailedReasonPtrInput)(nil)).Elem(), EndpointFailedReasonArgs{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
@@ -1354,8 +1257,6 @@ func init() {
 	pulumi.RegisterOutputType(BucketRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketRuleFilterPropertiesOutput{})
 	pulumi.RegisterOutputType(BucketRuleFilterPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(BucketTagOutput{})
-	pulumi.RegisterOutputType(BucketTagArrayOutput{})
 	pulumi.RegisterOutputType(EndpointFailedReasonOutput{})
 	pulumi.RegisterOutputType(EndpointFailedReasonPtrOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceOutput{})

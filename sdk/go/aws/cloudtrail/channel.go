@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Channel struct {
 	// The ARN of an on-premises storage solution or application, or a partner event source.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ChannelTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -75,7 +76,7 @@ type channelArgs struct {
 	// The ARN of an on-premises storage solution or application, or a partner event source.
 	Source *string `pulumi:"source"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ChannelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -86,7 +87,7 @@ type ChannelArgs struct {
 	// The ARN of an on-premises storage solution or application, or a partner event source.
 	Source pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ChannelTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -145,8 +146,8 @@ func (o ChannelOutput) Source() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ChannelOutput) Tags() ChannelTagArrayOutput {
-	return o.ApplyT(func(v *Channel) ChannelTagArrayOutput { return v.Tags }).(ChannelTagArrayOutput)
+func (o ChannelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Channel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

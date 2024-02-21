@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public Output<string> ServiceDnsName { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VpceConfigurationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpceConfigurationDescription")]
         public Output<string?> VpceConfigurationDescription { get; private set; } = null!;
@@ -82,10 +82,10 @@ namespace Pulumi.AwsNative.DeviceFarm
         public Input<string> ServiceDnsName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.VpceConfigurationTagArgs>? _tags;
-        public InputList<Inputs.VpceConfigurationTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VpceConfigurationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

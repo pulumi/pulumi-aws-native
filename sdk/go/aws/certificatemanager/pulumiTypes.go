@@ -206,111 +206,12 @@ type CertificateTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CertificateTagInput is an input type that accepts CertificateTagArgs and CertificateTagOutput values.
-// You can construct a concrete instance of `CertificateTagInput` via:
-//
-//	CertificateTagArgs{...}
-type CertificateTagInput interface {
-	pulumi.Input
-
-	ToCertificateTagOutput() CertificateTagOutput
-	ToCertificateTagOutputWithContext(context.Context) CertificateTagOutput
-}
-
-type CertificateTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CertificateTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateTag)(nil)).Elem()
-}
-
-func (i CertificateTagArgs) ToCertificateTagOutput() CertificateTagOutput {
-	return i.ToCertificateTagOutputWithContext(context.Background())
-}
-
-func (i CertificateTagArgs) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagOutput)
-}
-
-// CertificateTagArrayInput is an input type that accepts CertificateTagArray and CertificateTagArrayOutput values.
-// You can construct a concrete instance of `CertificateTagArrayInput` via:
-//
-//	CertificateTagArray{ CertificateTagArgs{...} }
-type CertificateTagArrayInput interface {
-	pulumi.Input
-
-	ToCertificateTagArrayOutput() CertificateTagArrayOutput
-	ToCertificateTagArrayOutputWithContext(context.Context) CertificateTagArrayOutput
-}
-
-type CertificateTagArray []CertificateTagInput
-
-func (CertificateTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CertificateTag)(nil)).Elem()
-}
-
-func (i CertificateTagArray) ToCertificateTagArrayOutput() CertificateTagArrayOutput {
-	return i.ToCertificateTagArrayOutputWithContext(context.Background())
-}
-
-func (i CertificateTagArray) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagArrayOutput)
-}
-
-type CertificateTagOutput struct{ *pulumi.OutputState }
-
-func (CertificateTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateTag)(nil)).Elem()
-}
-
-func (o CertificateTagOutput) ToCertificateTagOutput() CertificateTagOutput {
-	return o
-}
-
-func (o CertificateTagOutput) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
-	return o
-}
-
-func (o CertificateTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CertificateTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CertificateTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CertificateTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CertificateTag)(nil)).Elem()
-}
-
-func (o CertificateTagArrayOutput) ToCertificateTagArrayOutput() CertificateTagArrayOutput {
-	return o
-}
-
-func (o CertificateTagArrayOutput) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
-	return o
-}
-
-func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateTag {
-		return vs[0].([]CertificateTag)[vs[1].(int)]
-	}).(CertificateTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountExpiryEventsConfigurationInput)(nil)).Elem(), AccountExpiryEventsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionInput)(nil)).Elem(), CertificateDomainValidationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionArrayInput)(nil)).Elem(), CertificateDomainValidationOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagInput)(nil)).Elem(), CertificateTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagArrayInput)(nil)).Elem(), CertificateTagArray{})
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationOutput{})
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionArrayOutput{})
-	pulumi.RegisterOutputType(CertificateTagOutput{})
-	pulumi.RegisterOutputType(CertificateTagArrayOutput{})
 }

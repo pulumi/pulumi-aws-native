@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupImageResult struct {
 	ImageDisplayName *string `pulumi:"imageDisplayName"`
 	ImageRoleArn     *string `pulumi:"imageRoleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ImageTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...pulumi.InvokeOption) LookupImageResultOutput {
@@ -87,8 +88,8 @@ func (o LookupImageResultOutput) ImageRoleArn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupImageResultOutput) Tags() ImageTagArrayOutput {
-	return o.ApplyT(func(v LookupImageResult) []ImageTag { return v.Tags }).(ImageTagArrayOutput)
+func (o LookupImageResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupImageResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

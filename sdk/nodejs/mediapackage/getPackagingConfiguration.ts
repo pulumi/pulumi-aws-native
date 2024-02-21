@@ -53,7 +53,7 @@ export interface GetPackagingConfigurationResult {
     /**
      * A collection of tags associated with a resource
      */
-    readonly tags?: outputs.mediapackage.PackagingConfigurationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::MediaPackage::PackagingConfiguration

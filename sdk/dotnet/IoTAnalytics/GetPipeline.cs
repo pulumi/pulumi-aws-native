@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
     {
         public readonly string? Id;
         public readonly ImmutableArray<Outputs.PipelineActivity> PipelineActivities;
-        public readonly ImmutableArray<Outputs.PipelineTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPipelineResult(
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
             ImmutableArray<Outputs.PipelineActivity> pipelineActivities,
 
-            ImmutableArray<Outputs.PipelineTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             PipelineActivities = pipelineActivities;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupServiceTemplateResult struct {
 	// <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags []ServiceTemplateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupServiceTemplateOutput(ctx *pulumi.Context, args LookupServiceTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupServiceTemplateResultOutput {
@@ -95,8 +96,8 @@ func (o LookupServiceTemplateResultOutput) DisplayName() pulumi.StringPtrOutput 
 //
 //	 <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 //	<i>Proton User Guide</i>.</p>
-func (o LookupServiceTemplateResultOutput) Tags() ServiceTemplateTagArrayOutput {
-	return o.ApplyT(func(v LookupServiceTemplateResult) []ServiceTemplateTag { return v.Tags }).(ServiceTemplateTagArrayOutput)
+func (o LookupServiceTemplateResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServiceTemplateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

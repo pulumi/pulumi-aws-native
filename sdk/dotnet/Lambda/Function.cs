@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.Lambda
         /// A list of tags to apply to the function.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FunctionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
@@ -364,14 +364,14 @@ namespace Pulumi.AwsNative.Lambda
         public Input<Inputs.FunctionSnapStartArgs>? SnapStart { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.FunctionTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of tags to apply to the function.
         /// </summary>
-        public InputList<Inputs.FunctionTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FunctionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

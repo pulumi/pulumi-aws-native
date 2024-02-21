@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type Assessment struct {
 	Scope  AssessmentScopePtrOutput  `pulumi:"scope"`
 	Status AssessmentStatusPtrOutput `pulumi:"status"`
 	// The tags associated with the assessment.
-	Tags AssessmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type assessmentArgs struct {
 	Scope  *AssessmentScope  `pulumi:"scope"`
 	Status *AssessmentStatus `pulumi:"status"`
 	// The tags associated with the assessment.
-	Tags []AssessmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Assessment resource.
@@ -107,7 +108,7 @@ type AssessmentArgs struct {
 	Scope  AssessmentScopePtrInput
 	Status AssessmentStatusPtrInput
 	// The tags associated with the assessment.
-	Tags AssessmentTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AssessmentArgs) ElementType() reflect.Type {
@@ -198,8 +199,8 @@ func (o AssessmentOutput) Status() AssessmentStatusPtrOutput {
 }
 
 // The tags associated with the assessment.
-func (o AssessmentOutput) Tags() AssessmentTagArrayOutput {
-	return o.ApplyT(func(v *Assessment) AssessmentTagArrayOutput { return v.Tags }).(AssessmentTagArrayOutput)
+func (o AssessmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Assessment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

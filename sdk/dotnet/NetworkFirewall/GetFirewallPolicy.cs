@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public readonly Outputs.FirewallPolicy? FirewallPolicyValue;
         public readonly string? FirewallPolicyArn;
         public readonly string? FirewallPolicyId;
-        public readonly ImmutableArray<Outputs.FirewallPolicyTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFirewallPolicyResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
             string? firewallPolicyId,
 
-            ImmutableArray<Outputs.FirewallPolicyTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             FirewallPolicyValue = firewallPolicy;

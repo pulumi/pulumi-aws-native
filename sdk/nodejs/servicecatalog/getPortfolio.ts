@@ -29,7 +29,7 @@ export interface GetPortfolioResult {
     readonly id?: string;
     readonly portfolioName?: string;
     readonly providerName?: string;
-    readonly tags?: outputs.servicecatalog.PortfolioTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ServiceCatalog::Portfolio

@@ -43,7 +43,7 @@ export interface GetEnvironmentTemplateResult {
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    readonly tags?: outputs.proton.EnvironmentTemplateTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::Proton::EnvironmentTemplate Resource Type

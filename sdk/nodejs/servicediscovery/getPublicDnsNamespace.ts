@@ -28,7 +28,7 @@ export interface GetPublicDnsNamespaceResult {
     readonly hostedZoneId?: string;
     readonly id?: string;
     readonly properties?: outputs.servicediscovery.PublicDnsNamespaceProperties;
-    readonly tags?: outputs.servicediscovery.PublicDnsNamespaceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ServiceDiscovery::PublicDnsNamespace

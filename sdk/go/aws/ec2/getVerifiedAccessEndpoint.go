@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -51,7 +52,7 @@ type LookupVerifiedAccessEndpointResult struct {
 	// The endpoint status.
 	Status *string `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []VerifiedAccessEndpointTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the AWS Verified Access endpoint.
 	VerifiedAccessEndpointId *string `pulumi:"verifiedAccessEndpointId"`
 	// The ID of the AWS Verified Access group.
@@ -158,8 +159,8 @@ func (o LookupVerifiedAccessEndpointResultOutput) Status() pulumi.StringPtrOutpu
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupVerifiedAccessEndpointResultOutput) Tags() VerifiedAccessEndpointTagArrayOutput {
-	return o.ApplyT(func(v LookupVerifiedAccessEndpointResult) []VerifiedAccessEndpointTag { return v.Tags }).(VerifiedAccessEndpointTagArrayOutput)
+func (o LookupVerifiedAccessEndpointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the AWS Verified Access endpoint.

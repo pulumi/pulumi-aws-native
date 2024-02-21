@@ -59,7 +59,7 @@ export class Server extends pulumi.CustomResource {
     public readonly serverName!: pulumi.Output<string>;
     public readonly serviceRoleArn!: pulumi.Output<string>;
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.opsworkscm.ServerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -160,5 +160,5 @@ export interface ServerArgs {
     serverName?: pulumi.Input<string>;
     serviceRoleArn: pulumi.Input<string>;
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.opsworkscm.ServerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

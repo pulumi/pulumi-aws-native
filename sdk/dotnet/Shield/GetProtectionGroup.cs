@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Shield
         /// <summary>
         /// One or more tag key-value pairs for the Protection object.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProtectionGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetProtectionGroupResult(
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Shield
 
             Pulumi.AwsNative.Shield.ProtectionGroupResourceType? resourceType,
 
-            ImmutableArray<Outputs.ProtectionGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Aggregation = aggregation;
             Members = members;

@@ -39,7 +39,7 @@ export interface GetEventBusResult {
     /**
      * Any tags assigned to the event bus.
      */
-    readonly tags?: outputs.events.EventBusTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource type definition for AWS::Events::EventBus

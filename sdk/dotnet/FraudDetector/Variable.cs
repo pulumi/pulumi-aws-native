@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// Tags associated with this variable.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VariableTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
@@ -155,14 +155,14 @@ namespace Pulumi.AwsNative.FraudDetector
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.VariableTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags associated with this variable.
         /// </summary>
-        public InputList<Inputs.VariableTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VariableTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

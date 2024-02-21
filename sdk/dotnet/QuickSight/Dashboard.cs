@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<Outputs.DashboardSourceEntity?> SourceEntity { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DashboardTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
@@ -152,10 +152,10 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<Inputs.DashboardSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DashboardTagArgs>? _tags;
-        public InputList<Inputs.DashboardTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DashboardTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

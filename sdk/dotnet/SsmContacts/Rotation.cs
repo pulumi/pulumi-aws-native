@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.SsmContacts
         public Output<string> StartTime { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RotationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// TimeZone Identifier for the Oncall Schedule
@@ -124,10 +124,10 @@ namespace Pulumi.AwsNative.SsmContacts
         public Input<string> StartTime { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.RotationTagArgs>? _tags;
-        public InputList<Inputs.RotationTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RotationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['EnvironmentAccountConnectionArgs', 'EnvironmentAccountConnection']
 
@@ -23,7 +23,7 @@ class EnvironmentAccountConnectionArgs:
                  environment_name: Optional[pulumi.Input[str]] = None,
                  management_account_id: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentAccountConnectionTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentAccountConnection resource.
         :param pulumi.Input[str] codebuild_role_arn: The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
@@ -32,7 +32,7 @@ class EnvironmentAccountConnectionArgs:
         :param pulumi.Input[str] environment_name: The name of the AWS Proton environment that's created in the associated management account.
         :param pulumi.Input[str] management_account_id: The ID of the management account that accepts or rejects the environment account connection. You create an manage the AWS Proton environment in this account. If the management account accepts the environment account connection, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. AWS Proton uses this role to provision infrastructure resources in the associated environment account.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentAccountConnectionTagArgs']]] tags: <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
         """
@@ -125,7 +125,7 @@ class EnvironmentAccountConnectionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentAccountConnectionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
                  <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
@@ -134,7 +134,7 @@ class EnvironmentAccountConnectionArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentAccountConnectionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -149,7 +149,7 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  management_account_id: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentAccountConnectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
@@ -162,7 +162,7 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
         :param pulumi.Input[str] environment_name: The name of the AWS Proton environment that's created in the associated management account.
         :param pulumi.Input[str] management_account_id: The ID of the management account that accepts or rejects the environment account connection. You create an manage the AWS Proton environment in this account. If the management account accepts the environment account connection, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. AWS Proton uses this role to provision infrastructure resources in the associated environment account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentAccountConnectionTagArgs']]]] tags: <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
         """
@@ -196,7 +196,7 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  management_account_id: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentAccountConnectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -314,7 +314,7 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentAccountConnectionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
                  <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the

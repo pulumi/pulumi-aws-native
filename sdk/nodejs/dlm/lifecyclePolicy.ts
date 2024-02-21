@@ -52,7 +52,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     public readonly policyDetails!: pulumi.Output<outputs.dlm.LifecyclePolicyPolicyDetails | undefined>;
     public readonly retainInterval!: pulumi.Output<number | undefined>;
     public readonly state!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.dlm.LifecyclePolicyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LifecyclePolicy resource with the given unique name, arguments, and options.
@@ -115,5 +115,5 @@ export interface LifecyclePolicyArgs {
     policyDetails?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsArgs>;
     retainInterval?: pulumi.Input<number>;
     state?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

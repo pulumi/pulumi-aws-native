@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,10 +26,10 @@ type Tracker struct {
 	PricingPlan                   TrackerPricingPlanPtrOutput       `pulumi:"pricingPlan"`
 	PricingPlanDataSource         pulumi.StringPtrOutput            `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
-	Tags        TrackerTagArrayOutput `pulumi:"tags"`
-	TrackerArn  pulumi.StringOutput   `pulumi:"trackerArn"`
-	TrackerName pulumi.StringOutput   `pulumi:"trackerName"`
-	UpdateTime  pulumi.StringOutput   `pulumi:"updateTime"`
+	Tags        aws.TagArrayOutput  `pulumi:"tags"`
+	TrackerArn  pulumi.StringOutput `pulumi:"trackerArn"`
+	TrackerName pulumi.StringOutput `pulumi:"trackerName"`
+	UpdateTime  pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewTracker registers a new resource with the given unique name, arguments, and options.
@@ -84,8 +85,8 @@ type trackerArgs struct {
 	PricingPlan                   *TrackerPricingPlan       `pulumi:"pricingPlan"`
 	PricingPlanDataSource         *string                   `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
-	Tags        []TrackerTag `pulumi:"tags"`
-	TrackerName *string      `pulumi:"trackerName"`
+	Tags        []aws.Tag `pulumi:"tags"`
+	TrackerName *string   `pulumi:"trackerName"`
 }
 
 // The set of arguments for constructing a Tracker resource.
@@ -98,7 +99,7 @@ type TrackerArgs struct {
 	PricingPlan                   TrackerPricingPlanPtrInput
 	PricingPlanDataSource         pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags        TrackerTagArrayInput
+	Tags        aws.TagArrayInput
 	TrackerName pulumi.StringPtrInput
 }
 
@@ -176,8 +177,8 @@ func (o TrackerOutput) PricingPlanDataSource() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o TrackerOutput) Tags() TrackerTagArrayOutput {
-	return o.ApplyT(func(v *Tracker) TrackerTagArrayOutput { return v.Tags }).(TrackerTagArrayOutput)
+func (o TrackerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Tracker) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TrackerOutput) TrackerArn() pulumi.StringOutput {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupChannelResult struct {
 	Description     *string                 `pulumi:"description"`
 	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
 	ModifiedAt      *string                 `pulumi:"modifiedAt"`
-	Tags            []ChannelTag            `pulumi:"tags"`
+	Tags            []aws.Tag               `pulumi:"tags"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -90,8 +91,8 @@ func (o LookupChannelResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupChannelResultOutput) Tags() ChannelTagArrayOutput {
-	return o.ApplyT(func(v LookupChannelResult) []ChannelTag { return v.Tags }).(ChannelTagArrayOutput)
+func (o LookupChannelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type Project struct {
 	ServiceRole             pulumi.StringOutput                  `pulumi:"serviceRole"`
 	Source                  ProjectSourceOutput                  `pulumi:"source"`
 	SourceVersion           pulumi.StringPtrOutput               `pulumi:"sourceVersion"`
-	Tags                    ProjectTagArrayOutput                `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                   `pulumi:"tags"`
 	TimeoutInMinutes        pulumi.IntPtrOutput                  `pulumi:"timeoutInMinutes"`
 	Triggers                ProjectTriggersPtrOutput             `pulumi:"triggers"`
 	Visibility              pulumi.StringPtrOutput               `pulumi:"visibility"`
@@ -120,7 +121,7 @@ type projectArgs struct {
 	ServiceRole             string                      `pulumi:"serviceRole"`
 	Source                  ProjectSource               `pulumi:"source"`
 	SourceVersion           *string                     `pulumi:"sourceVersion"`
-	Tags                    []ProjectTag                `pulumi:"tags"`
+	Tags                    []aws.Tag                   `pulumi:"tags"`
 	TimeoutInMinutes        *int                        `pulumi:"timeoutInMinutes"`
 	Triggers                *ProjectTriggers            `pulumi:"triggers"`
 	Visibility              *string                     `pulumi:"visibility"`
@@ -148,7 +149,7 @@ type ProjectArgs struct {
 	ServiceRole             pulumi.StringInput
 	Source                  ProjectSourceInput
 	SourceVersion           pulumi.StringPtrInput
-	Tags                    ProjectTagArrayInput
+	Tags                    aws.TagArrayInput
 	TimeoutInMinutes        pulumi.IntPtrInput
 	Triggers                ProjectTriggersPtrInput
 	Visibility              pulumi.StringPtrInput
@@ -272,8 +273,8 @@ func (o ProjectOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.SourceVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o ProjectOutput) Tags() ProjectTagArrayOutput {
-	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+func (o ProjectOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Project) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ProjectOutput) TimeoutInMinutes() pulumi.IntPtrOutput {

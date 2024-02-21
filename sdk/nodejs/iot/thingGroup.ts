@@ -43,7 +43,7 @@ export class ThingGroup extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.iot.ThingGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly thingGroupName!: pulumi.Output<string | undefined>;
     public readonly thingGroupProperties!: pulumi.Output<outputs.iot.ThingGroupPropertiesProperties | undefined>;
 
@@ -88,7 +88,7 @@ export interface ThingGroupArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.ThingGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     thingGroupName?: pulumi.Input<string>;
     thingGroupProperties?: pulumi.Input<inputs.iot.ThingGroupPropertiesPropertiesArgs>;
 }

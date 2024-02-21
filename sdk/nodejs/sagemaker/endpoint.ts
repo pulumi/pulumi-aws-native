@@ -46,7 +46,7 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly excludeRetainedVariantProperties!: pulumi.Output<outputs.sagemaker.EndpointVariantProperty[] | undefined>;
     public readonly retainAllVariantProperties!: pulumi.Output<boolean | undefined>;
     public readonly retainDeploymentConfig!: pulumi.Output<boolean | undefined>;
-    public readonly tags!: pulumi.Output<outputs.sagemaker.EndpointTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface EndpointArgs {
     excludeRetainedVariantProperties?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointVariantPropertyArgs>[]>;
     retainAllVariantProperties?: pulumi.Input<boolean>;
     retainDeploymentConfig?: pulumi.Input<boolean>;
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

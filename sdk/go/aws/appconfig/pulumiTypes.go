@@ -21,214 +21,12 @@ type ApplicationTags struct {
 	Value string `pulumi:"value"`
 }
 
-// ApplicationTagsInput is an input type that accepts ApplicationTagsArgs and ApplicationTagsOutput values.
-// You can construct a concrete instance of `ApplicationTagsInput` via:
-//
-//	ApplicationTagsArgs{...}
-type ApplicationTagsInput interface {
-	pulumi.Input
-
-	ToApplicationTagsOutput() ApplicationTagsOutput
-	ToApplicationTagsOutputWithContext(context.Context) ApplicationTagsOutput
-}
-
-// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-type ApplicationTagsArgs struct {
-	// The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The tag value can be up to 256 characters.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ApplicationTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTags)(nil)).Elem()
-}
-
-func (i ApplicationTagsArgs) ToApplicationTagsOutput() ApplicationTagsOutput {
-	return i.ToApplicationTagsOutputWithContext(context.Background())
-}
-
-func (i ApplicationTagsArgs) ToApplicationTagsOutputWithContext(ctx context.Context) ApplicationTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagsOutput)
-}
-
-// ApplicationTagsArrayInput is an input type that accepts ApplicationTagsArray and ApplicationTagsArrayOutput values.
-// You can construct a concrete instance of `ApplicationTagsArrayInput` via:
-//
-//	ApplicationTagsArray{ ApplicationTagsArgs{...} }
-type ApplicationTagsArrayInput interface {
-	pulumi.Input
-
-	ToApplicationTagsArrayOutput() ApplicationTagsArrayOutput
-	ToApplicationTagsArrayOutputWithContext(context.Context) ApplicationTagsArrayOutput
-}
-
-type ApplicationTagsArray []ApplicationTagsInput
-
-func (ApplicationTagsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationTags)(nil)).Elem()
-}
-
-func (i ApplicationTagsArray) ToApplicationTagsArrayOutput() ApplicationTagsArrayOutput {
-	return i.ToApplicationTagsArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationTagsArray) ToApplicationTagsArrayOutputWithContext(ctx context.Context) ApplicationTagsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagsArrayOutput)
-}
-
-// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-type ApplicationTagsOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTags)(nil)).Elem()
-}
-
-func (o ApplicationTagsOutput) ToApplicationTagsOutput() ApplicationTagsOutput {
-	return o
-}
-
-func (o ApplicationTagsOutput) ToApplicationTagsOutputWithContext(ctx context.Context) ApplicationTagsOutput {
-	return o
-}
-
-// The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
-func (o ApplicationTagsOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTags) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The tag value can be up to 256 characters.
-func (o ApplicationTagsOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTags) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ApplicationTagsArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTagsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationTags)(nil)).Elem()
-}
-
-func (o ApplicationTagsArrayOutput) ToApplicationTagsArrayOutput() ApplicationTagsArrayOutput {
-	return o
-}
-
-func (o ApplicationTagsArrayOutput) ToApplicationTagsArrayOutputWithContext(ctx context.Context) ApplicationTagsArrayOutput {
-	return o
-}
-
-func (o ApplicationTagsArrayOutput) Index(i pulumi.IntInput) ApplicationTagsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationTags {
-		return vs[0].([]ApplicationTags)[vs[1].(int)]
-	}).(ApplicationTagsOutput)
-}
-
 // Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 type ConfigurationProfileTags struct {
 	// The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
 	Key *string `pulumi:"key"`
 	// The tag value can be up to 256 characters.
 	Value *string `pulumi:"value"`
-}
-
-// ConfigurationProfileTagsInput is an input type that accepts ConfigurationProfileTagsArgs and ConfigurationProfileTagsOutput values.
-// You can construct a concrete instance of `ConfigurationProfileTagsInput` via:
-//
-//	ConfigurationProfileTagsArgs{...}
-type ConfigurationProfileTagsInput interface {
-	pulumi.Input
-
-	ToConfigurationProfileTagsOutput() ConfigurationProfileTagsOutput
-	ToConfigurationProfileTagsOutputWithContext(context.Context) ConfigurationProfileTagsOutput
-}
-
-// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-type ConfigurationProfileTagsArgs struct {
-	// The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The tag value can be up to 256 characters.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ConfigurationProfileTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileTags)(nil)).Elem()
-}
-
-func (i ConfigurationProfileTagsArgs) ToConfigurationProfileTagsOutput() ConfigurationProfileTagsOutput {
-	return i.ToConfigurationProfileTagsOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfileTagsArgs) ToConfigurationProfileTagsOutputWithContext(ctx context.Context) ConfigurationProfileTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileTagsOutput)
-}
-
-// ConfigurationProfileTagsArrayInput is an input type that accepts ConfigurationProfileTagsArray and ConfigurationProfileTagsArrayOutput values.
-// You can construct a concrete instance of `ConfigurationProfileTagsArrayInput` via:
-//
-//	ConfigurationProfileTagsArray{ ConfigurationProfileTagsArgs{...} }
-type ConfigurationProfileTagsArrayInput interface {
-	pulumi.Input
-
-	ToConfigurationProfileTagsArrayOutput() ConfigurationProfileTagsArrayOutput
-	ToConfigurationProfileTagsArrayOutputWithContext(context.Context) ConfigurationProfileTagsArrayOutput
-}
-
-type ConfigurationProfileTagsArray []ConfigurationProfileTagsInput
-
-func (ConfigurationProfileTagsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationProfileTags)(nil)).Elem()
-}
-
-func (i ConfigurationProfileTagsArray) ToConfigurationProfileTagsArrayOutput() ConfigurationProfileTagsArrayOutput {
-	return i.ToConfigurationProfileTagsArrayOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfileTagsArray) ToConfigurationProfileTagsArrayOutputWithContext(ctx context.Context) ConfigurationProfileTagsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileTagsArrayOutput)
-}
-
-// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-type ConfigurationProfileTagsOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationProfileTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileTags)(nil)).Elem()
-}
-
-func (o ConfigurationProfileTagsOutput) ToConfigurationProfileTagsOutput() ConfigurationProfileTagsOutput {
-	return o
-}
-
-func (o ConfigurationProfileTagsOutput) ToConfigurationProfileTagsOutputWithContext(ctx context.Context) ConfigurationProfileTagsOutput {
-	return o
-}
-
-// The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
-func (o ConfigurationProfileTagsOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileTags) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-// The tag value can be up to 256 characters.
-func (o ConfigurationProfileTagsOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileTags) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ConfigurationProfileTagsArrayOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationProfileTagsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationProfileTags)(nil)).Elem()
-}
-
-func (o ConfigurationProfileTagsArrayOutput) ToConfigurationProfileTagsArrayOutput() ConfigurationProfileTagsArrayOutput {
-	return o
-}
-
-func (o ConfigurationProfileTagsArrayOutput) ToConfigurationProfileTagsArrayOutputWithContext(ctx context.Context) ConfigurationProfileTagsArrayOutput {
-	return o
-}
-
-func (o ConfigurationProfileTagsArrayOutput) Index(i pulumi.IntInput) ConfigurationProfileTagsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationProfileTags {
-		return vs[0].([]ConfigurationProfileTags)[vs[1].(int)]
-	}).(ConfigurationProfileTagsOutput)
 }
 
 // A list of methods for validating the configuration.
@@ -343,101 +141,6 @@ func (o ConfigurationProfileValidatorsArrayOutput) Index(i pulumi.IntInput) Conf
 type DeploymentStrategyTags struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
-}
-
-// DeploymentStrategyTagsInput is an input type that accepts DeploymentStrategyTagsArgs and DeploymentStrategyTagsOutput values.
-// You can construct a concrete instance of `DeploymentStrategyTagsInput` via:
-//
-//	DeploymentStrategyTagsArgs{...}
-type DeploymentStrategyTagsInput interface {
-	pulumi.Input
-
-	ToDeploymentStrategyTagsOutput() DeploymentStrategyTagsOutput
-	ToDeploymentStrategyTagsOutputWithContext(context.Context) DeploymentStrategyTagsOutput
-}
-
-type DeploymentStrategyTagsArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (DeploymentStrategyTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentStrategyTags)(nil)).Elem()
-}
-
-func (i DeploymentStrategyTagsArgs) ToDeploymentStrategyTagsOutput() DeploymentStrategyTagsOutput {
-	return i.ToDeploymentStrategyTagsOutputWithContext(context.Background())
-}
-
-func (i DeploymentStrategyTagsArgs) ToDeploymentStrategyTagsOutputWithContext(ctx context.Context) DeploymentStrategyTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStrategyTagsOutput)
-}
-
-// DeploymentStrategyTagsArrayInput is an input type that accepts DeploymentStrategyTagsArray and DeploymentStrategyTagsArrayOutput values.
-// You can construct a concrete instance of `DeploymentStrategyTagsArrayInput` via:
-//
-//	DeploymentStrategyTagsArray{ DeploymentStrategyTagsArgs{...} }
-type DeploymentStrategyTagsArrayInput interface {
-	pulumi.Input
-
-	ToDeploymentStrategyTagsArrayOutput() DeploymentStrategyTagsArrayOutput
-	ToDeploymentStrategyTagsArrayOutputWithContext(context.Context) DeploymentStrategyTagsArrayOutput
-}
-
-type DeploymentStrategyTagsArray []DeploymentStrategyTagsInput
-
-func (DeploymentStrategyTagsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentStrategyTags)(nil)).Elem()
-}
-
-func (i DeploymentStrategyTagsArray) ToDeploymentStrategyTagsArrayOutput() DeploymentStrategyTagsArrayOutput {
-	return i.ToDeploymentStrategyTagsArrayOutputWithContext(context.Background())
-}
-
-func (i DeploymentStrategyTagsArray) ToDeploymentStrategyTagsArrayOutputWithContext(ctx context.Context) DeploymentStrategyTagsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStrategyTagsArrayOutput)
-}
-
-type DeploymentStrategyTagsOutput struct{ *pulumi.OutputState }
-
-func (DeploymentStrategyTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentStrategyTags)(nil)).Elem()
-}
-
-func (o DeploymentStrategyTagsOutput) ToDeploymentStrategyTagsOutput() DeploymentStrategyTagsOutput {
-	return o
-}
-
-func (o DeploymentStrategyTagsOutput) ToDeploymentStrategyTagsOutputWithContext(ctx context.Context) DeploymentStrategyTagsOutput {
-	return o
-}
-
-func (o DeploymentStrategyTagsOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentStrategyTags) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o DeploymentStrategyTagsOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentStrategyTags) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type DeploymentStrategyTagsArrayOutput struct{ *pulumi.OutputState }
-
-func (DeploymentStrategyTagsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentStrategyTags)(nil)).Elem()
-}
-
-func (o DeploymentStrategyTagsArrayOutput) ToDeploymentStrategyTagsArrayOutput() DeploymentStrategyTagsArrayOutput {
-	return o
-}
-
-func (o DeploymentStrategyTagsArrayOutput) ToDeploymentStrategyTagsArrayOutputWithContext(ctx context.Context) DeploymentStrategyTagsArrayOutput {
-	return o
-}
-
-func (o DeploymentStrategyTagsArrayOutput) Index(i pulumi.IntInput) DeploymentStrategyTagsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentStrategyTags {
-		return vs[0].([]DeploymentStrategyTags)[vs[1].(int)]
-	}).(DeploymentStrategyTagsOutput)
 }
 
 type DeploymentTags struct {
@@ -655,107 +358,6 @@ type EnvironmentTag struct {
 	Key string `pulumi:"key"`
 	// The tag value can be up to 256 characters.
 	Value string `pulumi:"value"`
-}
-
-// EnvironmentTagInput is an input type that accepts EnvironmentTagArgs and EnvironmentTagOutput values.
-// You can construct a concrete instance of `EnvironmentTagInput` via:
-//
-//	EnvironmentTagArgs{...}
-type EnvironmentTagInput interface {
-	pulumi.Input
-
-	ToEnvironmentTagOutput() EnvironmentTagOutput
-	ToEnvironmentTagOutputWithContext(context.Context) EnvironmentTagOutput
-}
-
-// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-type EnvironmentTagArgs struct {
-	// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The tag value can be up to 256 characters.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (EnvironmentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentTag)(nil)).Elem()
-}
-
-func (i EnvironmentTagArgs) ToEnvironmentTagOutput() EnvironmentTagOutput {
-	return i.ToEnvironmentTagOutputWithContext(context.Background())
-}
-
-func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagOutput)
-}
-
-// EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
-// You can construct a concrete instance of `EnvironmentTagArrayInput` via:
-//
-//	EnvironmentTagArray{ EnvironmentTagArgs{...} }
-type EnvironmentTagArrayInput interface {
-	pulumi.Input
-
-	ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput
-	ToEnvironmentTagArrayOutputWithContext(context.Context) EnvironmentTagArrayOutput
-}
-
-type EnvironmentTagArray []EnvironmentTagInput
-
-func (EnvironmentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentTag)(nil)).Elem()
-}
-
-func (i EnvironmentTagArray) ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput {
-	return i.ToEnvironmentTagArrayOutputWithContext(context.Background())
-}
-
-func (i EnvironmentTagArray) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagArrayOutput)
-}
-
-// Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-type EnvironmentTagOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentTag)(nil)).Elem()
-}
-
-func (o EnvironmentTagOutput) ToEnvironmentTagOutput() EnvironmentTagOutput {
-	return o
-}
-
-func (o EnvironmentTagOutput) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
-	return o
-}
-
-// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
-func (o EnvironmentTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The tag value can be up to 256 characters.
-func (o EnvironmentTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type EnvironmentTagArrayOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentTag)(nil)).Elem()
-}
-
-func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput {
-	return o
-}
-
-func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
-	return o
-}
-
-func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentTag {
-		return vs[0].([]EnvironmentTag)[vs[1].(int)]
-	}).(EnvironmentTagOutput)
 }
 
 // An action for an extension to take at a specific action point.
@@ -1255,20 +857,12 @@ func (o ExtensionActionArrayMapOutput) MapIndex(k pulumi.StringInput) ExtensionA
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagsInput)(nil)).Elem(), ApplicationTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagsArrayInput)(nil)).Elem(), ApplicationTagsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileTagsInput)(nil)).Elem(), ConfigurationProfileTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileTagsArrayInput)(nil)).Elem(), ConfigurationProfileTagsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorsInput)(nil)).Elem(), ConfigurationProfileValidatorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorsArrayInput)(nil)).Elem(), ConfigurationProfileValidatorsArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyTagsInput)(nil)).Elem(), DeploymentStrategyTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyTagsArrayInput)(nil)).Elem(), DeploymentStrategyTagsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTagsInput)(nil)).Elem(), DeploymentTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTagsArrayInput)(nil)).Elem(), DeploymentTagsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorInput)(nil)).Elem(), EnvironmentMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorArrayInput)(nil)).Elem(), EnvironmentMonitorArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagInput)(nil)).Elem(), EnvironmentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagArrayInput)(nil)).Elem(), EnvironmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionInput)(nil)).Elem(), ExtensionActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionArrayInput)(nil)).Elem(), ExtensionActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionAssociationTagInput)(nil)).Elem(), ExtensionAssociationTagArgs{})
@@ -1278,20 +872,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionTagInput)(nil)).Elem(), ExtensionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionTagArrayInput)(nil)).Elem(), ExtensionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionArrayMapInput)(nil)).Elem(), ExtensionActionArrayMap{})
-	pulumi.RegisterOutputType(ApplicationTagsOutput{})
-	pulumi.RegisterOutputType(ApplicationTagsArrayOutput{})
-	pulumi.RegisterOutputType(ConfigurationProfileTagsOutput{})
-	pulumi.RegisterOutputType(ConfigurationProfileTagsArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileValidatorsOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileValidatorsArrayOutput{})
-	pulumi.RegisterOutputType(DeploymentStrategyTagsOutput{})
-	pulumi.RegisterOutputType(DeploymentStrategyTagsArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentTagsOutput{})
 	pulumi.RegisterOutputType(DeploymentTagsArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorArrayOutput{})
-	pulumi.RegisterOutputType(EnvironmentTagOutput{})
-	pulumi.RegisterOutputType(EnvironmentTagArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionActionOutput{})
 	pulumi.RegisterOutputType(ExtensionActionArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionAssociationTagOutput{})

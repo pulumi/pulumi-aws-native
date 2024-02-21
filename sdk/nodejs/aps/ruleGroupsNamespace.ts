@@ -52,7 +52,7 @@ export class RuleGroupsNamespace extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.aps.RuleGroupsNamespaceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
      */
@@ -109,7 +109,7 @@ export interface RuleGroupsNamespaceArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.aps.RuleGroupsNamespaceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
      */

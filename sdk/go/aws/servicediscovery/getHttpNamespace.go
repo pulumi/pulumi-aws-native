@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,10 +28,10 @@ type LookupHttpNamespaceArgs struct {
 }
 
 type LookupHttpNamespaceResult struct {
-	Arn         *string            `pulumi:"arn"`
-	Description *string            `pulumi:"description"`
-	Id          *string            `pulumi:"id"`
-	Tags        []HttpNamespaceTag `pulumi:"tags"`
+	Arn         *string   `pulumi:"arn"`
+	Description *string   `pulumi:"description"`
+	Id          *string   `pulumi:"id"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 func LookupHttpNamespaceOutput(ctx *pulumi.Context, args LookupHttpNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupHttpNamespaceResultOutput {
@@ -80,8 +81,8 @@ func (o LookupHttpNamespaceResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHttpNamespaceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupHttpNamespaceResultOutput) Tags() HttpNamespaceTagArrayOutput {
-	return o.ApplyT(func(v LookupHttpNamespaceResult) []HttpNamespaceTag { return v.Tags }).(HttpNamespaceTagArrayOutput)
+func (o LookupHttpNamespaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupHttpNamespaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

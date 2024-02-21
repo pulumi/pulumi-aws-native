@@ -57,7 +57,7 @@ export interface GetVariableResult {
     /**
      * Tags associated with this variable.
      */
-    readonly tags?: outputs.frauddetector.VariableTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
      */

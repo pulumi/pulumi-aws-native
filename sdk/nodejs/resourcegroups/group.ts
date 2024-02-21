@@ -52,7 +52,7 @@ export class Group extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery | undefined>;
     public readonly resources!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.resourcegroups.GroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -103,5 +103,5 @@ export interface GroupArgs {
     name?: pulumi.Input<string>;
     resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQueryArgs>;
     resources?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

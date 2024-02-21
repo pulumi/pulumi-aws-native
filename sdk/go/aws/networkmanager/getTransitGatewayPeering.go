@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupTransitGatewayPeeringResult struct {
 	// The state of the transit gateway peering
 	State *string `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []TransitGatewayPeeringTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the TransitGatewayPeeringAttachment
 	TransitGatewayPeeringAttachmentId *string `pulumi:"transitGatewayPeeringAttachmentId"`
 }
@@ -127,8 +128,8 @@ func (o LookupTransitGatewayPeeringResultOutput) State() pulumi.StringPtrOutput 
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupTransitGatewayPeeringResultOutput) Tags() TransitGatewayPeeringTagArrayOutput {
-	return o.ApplyT(func(v LookupTransitGatewayPeeringResult) []TransitGatewayPeeringTag { return v.Tags }).(TransitGatewayPeeringTagArrayOutput)
+func (o LookupTransitGatewayPeeringResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayPeeringResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the TransitGatewayPeeringAttachment

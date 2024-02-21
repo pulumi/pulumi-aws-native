@@ -241,7 +241,7 @@ export interface GetDbInstanceResult {
     /**
      * Tags to assign to the DB instance.
      */
-    readonly tags?: outputs.rds.DbInstanceTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ARN from the key store with which to associate the instance for TDE encryption.
      */

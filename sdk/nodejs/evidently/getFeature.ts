@@ -31,7 +31,7 @@ export interface GetFeatureResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.evidently.FeatureTag[];
+    readonly tags?: outputs.Tag[];
     readonly variations?: outputs.evidently.FeatureVariationObject[];
 }
 /**

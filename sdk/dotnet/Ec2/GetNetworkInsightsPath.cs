@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly string? NetworkInsightsPathArn;
         public readonly string? NetworkInsightsPathId;
         public readonly string? SourceArn;
-        public readonly ImmutableArray<Outputs.NetworkInsightsPathTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetNetworkInsightsPathResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? sourceArn,
 
-            ImmutableArray<Outputs.NetworkInsightsPathTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreatedDate = createdDate;
             DestinationArn = destinationArn;

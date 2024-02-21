@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CertificateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCertificateResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Lightsail
 
             string? status,
 
-            ImmutableArray<Outputs.CertificateTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CertificateArn = certificateArn;
             Status = status;

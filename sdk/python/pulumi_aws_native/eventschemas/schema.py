@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['SchemaArgs', 'Schema']
 
@@ -21,7 +21,7 @@ class SchemaArgs:
                  type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagsEntryArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[str] content: The source of the schema definition.
@@ -29,7 +29,7 @@ class SchemaArgs:
         :param pulumi.Input[str] type: The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
         :param pulumi.Input[str] description: A description of the schema.
         :param pulumi.Input[str] schema_name: The name of the schema.
-        :param pulumi.Input[Sequence[pulumi.Input['SchemaTagsEntryArgs']]] tags: Tags associated with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with the resource.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "registry_name", registry_name)
@@ -103,14 +103,14 @@ class SchemaArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagsEntryArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags associated with the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagsEntryArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -123,7 +123,7 @@ class Schema(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagsEntryArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -135,7 +135,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the schema.
         :param pulumi.Input[str] registry_name: The name of the schema registry.
         :param pulumi.Input[str] schema_name: The name of the schema.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagsEntryArgs']]]] tags: Tags associated with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with the resource.
         :param pulumi.Input[str] type: The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
         """
         ...
@@ -166,7 +166,7 @@ class Schema(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagsEntryArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -287,7 +287,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SchemaTagsEntry']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Tags associated with the resource.
         """

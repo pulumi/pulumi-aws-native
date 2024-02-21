@@ -84,7 +84,7 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
     /**
      * Tags
      */
-    public readonly tags!: pulumi.Output<outputs.route53resolver.FirewallRuleGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FirewallRuleGroup resource with the given unique name, arguments, and options.
@@ -145,5 +145,5 @@ export interface FirewallRuleGroupArgs {
     /**
      * Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.FirewallRuleGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

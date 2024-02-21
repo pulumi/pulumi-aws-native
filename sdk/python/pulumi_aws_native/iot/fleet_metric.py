@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FleetMetricArgs', 'FleetMetric']
@@ -24,7 +26,7 @@ class FleetMetricArgs:
                  period: Optional[pulumi.Input[int]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  query_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FleetMetric resource.
@@ -35,7 +37,7 @@ class FleetMetricArgs:
         :param pulumi.Input[int] period: The period of metric emission in seconds
         :param pulumi.Input[str] query_string: The Fleet Indexing query used by a fleet metric
         :param pulumi.Input[str] query_version: The version of a Fleet Indexing query used by a fleet metric
-        :param pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource
         :param pulumi.Input[str] unit: The unit of data points emitted by a fleet metric
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -153,14 +155,14 @@ class FleetMetricArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -189,7 +191,7 @@ class FleetMetric(pulumi.CustomResource):
                  period: Optional[pulumi.Input[int]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  query_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetMetricTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -204,7 +206,7 @@ class FleetMetric(pulumi.CustomResource):
         :param pulumi.Input[int] period: The period of metric emission in seconds
         :param pulumi.Input[str] query_string: The Fleet Indexing query used by a fleet metric
         :param pulumi.Input[str] query_version: The version of a Fleet Indexing query used by a fleet metric
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetMetricTagArgs']]]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource
         :param pulumi.Input[str] unit: The unit of data points emitted by a fleet metric
         """
         ...
@@ -239,7 +241,7 @@ class FleetMetric(pulumi.CustomResource):
                  period: Optional[pulumi.Input[int]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  query_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetMetricTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -393,7 +395,7 @@ class FleetMetric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FleetMetricTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource
         """

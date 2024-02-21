@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
@@ -32,7 +34,7 @@ class NetworkInterfaceArgs:
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfacePrivateIpAddressSpecificationArgs']]]] = None,
                  secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the network interface.
@@ -50,7 +52,7 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfacePrivateIpAddressSpecificationArgs']]] private_ip_addresses: Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
         :param pulumi.Input[int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
         :param pulumi.Input[bool] source_dest_check: Indicates whether traffic to or from the instance is validated.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this network interface.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if connection_tracking_specification is not None:
@@ -277,14 +279,14 @@ class NetworkInterfaceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this network interface.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -309,7 +311,7 @@ class NetworkInterface(pulumi.CustomResource):
                  secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::EC2::NetworkInterface resource creates network interface
@@ -331,7 +333,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
         :param pulumi.Input[bool] source_dest_check: Indicates whether traffic to or from the instance is validated.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this network interface.
         """
         ...
     @overload
@@ -373,7 +375,7 @@ class NetworkInterface(pulumi.CustomResource):
                  secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -602,7 +604,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInterfaceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An arbitrary set of tags (key-value pairs) for this network interface.
         """

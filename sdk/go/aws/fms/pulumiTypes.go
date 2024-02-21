@@ -675,103 +675,6 @@ type PolicyTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PolicyTagInput is an input type that accepts PolicyTagArgs and PolicyTagOutput values.
-// You can construct a concrete instance of `PolicyTagInput` via:
-//
-//	PolicyTagArgs{...}
-type PolicyTagInput interface {
-	pulumi.Input
-
-	ToPolicyTagOutput() PolicyTagOutput
-	ToPolicyTagOutputWithContext(context.Context) PolicyTagOutput
-}
-
-// A policy tag.
-type PolicyTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PolicyTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyTag)(nil)).Elem()
-}
-
-func (i PolicyTagArgs) ToPolicyTagOutput() PolicyTagOutput {
-	return i.ToPolicyTagOutputWithContext(context.Background())
-}
-
-func (i PolicyTagArgs) ToPolicyTagOutputWithContext(ctx context.Context) PolicyTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyTagOutput)
-}
-
-// PolicyTagArrayInput is an input type that accepts PolicyTagArray and PolicyTagArrayOutput values.
-// You can construct a concrete instance of `PolicyTagArrayInput` via:
-//
-//	PolicyTagArray{ PolicyTagArgs{...} }
-type PolicyTagArrayInput interface {
-	pulumi.Input
-
-	ToPolicyTagArrayOutput() PolicyTagArrayOutput
-	ToPolicyTagArrayOutputWithContext(context.Context) PolicyTagArrayOutput
-}
-
-type PolicyTagArray []PolicyTagInput
-
-func (PolicyTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyTag)(nil)).Elem()
-}
-
-func (i PolicyTagArray) ToPolicyTagArrayOutput() PolicyTagArrayOutput {
-	return i.ToPolicyTagArrayOutputWithContext(context.Background())
-}
-
-func (i PolicyTagArray) ToPolicyTagArrayOutputWithContext(ctx context.Context) PolicyTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyTagArrayOutput)
-}
-
-// A policy tag.
-type PolicyTagOutput struct{ *pulumi.OutputState }
-
-func (PolicyTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyTag)(nil)).Elem()
-}
-
-func (o PolicyTagOutput) ToPolicyTagOutput() PolicyTagOutput {
-	return o
-}
-
-func (o PolicyTagOutput) ToPolicyTagOutputWithContext(ctx context.Context) PolicyTagOutput {
-	return o
-}
-
-func (o PolicyTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PolicyTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PolicyTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PolicyTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyTag)(nil)).Elem()
-}
-
-func (o PolicyTagArrayOutput) ToPolicyTagArrayOutput() PolicyTagArrayOutput {
-	return o
-}
-
-func (o PolicyTagArrayOutput) ToPolicyTagArrayOutputWithContext(ctx context.Context) PolicyTagArrayOutput {
-	return o
-}
-
-func (o PolicyTagArrayOutput) Index(i pulumi.IntInput) PolicyTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyTag {
-		return vs[0].([]PolicyTag)[vs[1].(int)]
-	}).(PolicyTagOutput)
-}
-
 // Third party firewall policy.
 type PolicyThirdPartyFirewallPolicy struct {
 	FirewallDeploymentModel PolicyFirewallDeploymentModel `pulumi:"firewallDeploymentModel"`
@@ -914,103 +817,6 @@ type ResourceSetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ResourceSetTagInput is an input type that accepts ResourceSetTagArgs and ResourceSetTagOutput values.
-// You can construct a concrete instance of `ResourceSetTagInput` via:
-//
-//	ResourceSetTagArgs{...}
-type ResourceSetTagInput interface {
-	pulumi.Input
-
-	ToResourceSetTagOutput() ResourceSetTagOutput
-	ToResourceSetTagOutputWithContext(context.Context) ResourceSetTagOutput
-}
-
-// A tag.
-type ResourceSetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ResourceSetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSetTag)(nil)).Elem()
-}
-
-func (i ResourceSetTagArgs) ToResourceSetTagOutput() ResourceSetTagOutput {
-	return i.ToResourceSetTagOutputWithContext(context.Background())
-}
-
-func (i ResourceSetTagArgs) ToResourceSetTagOutputWithContext(ctx context.Context) ResourceSetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTagOutput)
-}
-
-// ResourceSetTagArrayInput is an input type that accepts ResourceSetTagArray and ResourceSetTagArrayOutput values.
-// You can construct a concrete instance of `ResourceSetTagArrayInput` via:
-//
-//	ResourceSetTagArray{ ResourceSetTagArgs{...} }
-type ResourceSetTagArrayInput interface {
-	pulumi.Input
-
-	ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput
-	ToResourceSetTagArrayOutputWithContext(context.Context) ResourceSetTagArrayOutput
-}
-
-type ResourceSetTagArray []ResourceSetTagInput
-
-func (ResourceSetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceSetTag)(nil)).Elem()
-}
-
-func (i ResourceSetTagArray) ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput {
-	return i.ToResourceSetTagArrayOutputWithContext(context.Background())
-}
-
-func (i ResourceSetTagArray) ToResourceSetTagArrayOutputWithContext(ctx context.Context) ResourceSetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTagArrayOutput)
-}
-
-// A tag.
-type ResourceSetTagOutput struct{ *pulumi.OutputState }
-
-func (ResourceSetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSetTag)(nil)).Elem()
-}
-
-func (o ResourceSetTagOutput) ToResourceSetTagOutput() ResourceSetTagOutput {
-	return o
-}
-
-func (o ResourceSetTagOutput) ToResourceSetTagOutputWithContext(ctx context.Context) ResourceSetTagOutput {
-	return o
-}
-
-func (o ResourceSetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceSetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ResourceSetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceSetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ResourceSetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ResourceSetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceSetTag)(nil)).Elem()
-}
-
-func (o ResourceSetTagArrayOutput) ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput {
-	return o
-}
-
-func (o ResourceSetTagArrayOutput) ToResourceSetTagArrayOutputWithContext(ctx context.Context) ResourceSetTagArrayOutput {
-	return o
-}
-
-func (o ResourceSetTagArrayOutput) Index(i pulumi.IntInput) ResourceSetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceSetTag {
-		return vs[0].([]ResourceSetTag)[vs[1].(int)]
-	}).(ResourceSetTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIeMapInput)(nil)).Elem(), PolicyIeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIeMapPtrInput)(nil)).Elem(), PolicyIeMapArgs{})
@@ -1021,12 +827,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyResourceTagInput)(nil)).Elem(), PolicyResourceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyResourceTagArrayInput)(nil)).Elem(), PolicyResourceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataInput)(nil)).Elem(), PolicySecurityServicePolicyDataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagInput)(nil)).Elem(), PolicyTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagArrayInput)(nil)).Elem(), PolicyTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyThirdPartyFirewallPolicyInput)(nil)).Elem(), PolicyThirdPartyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyThirdPartyFirewallPolicyPtrInput)(nil)).Elem(), PolicyThirdPartyFirewallPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTagInput)(nil)).Elem(), ResourceSetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTagArrayInput)(nil)).Elem(), ResourceSetTagArray{})
 	pulumi.RegisterOutputType(PolicyIeMapOutput{})
 	pulumi.RegisterOutputType(PolicyIeMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicyNetworkFirewallPolicyOutput{})
@@ -1037,10 +839,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicyResourceTagArrayOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPtrOutput{})
-	pulumi.RegisterOutputType(PolicyTagOutput{})
-	pulumi.RegisterOutputType(PolicyTagArrayOutput{})
 	pulumi.RegisterOutputType(PolicyThirdPartyFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(PolicyThirdPartyFirewallPolicyPtrOutput{})
-	pulumi.RegisterOutputType(ResourceSetTagOutput{})
-	pulumi.RegisterOutputType(ResourceSetTagArrayOutput{})
 }

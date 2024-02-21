@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupTransitGatewayMulticastDomainResult struct {
 	// The state of the transit gateway multicast domain.
 	State *string `pulumi:"state"`
 	// The tags for the transit gateway multicast domain.
-	Tags []TransitGatewayMulticastDomainTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainArn *string `pulumi:"transitGatewayMulticastDomainArn"`
 	// The ID of the transit gateway multicast domain.
@@ -94,8 +95,8 @@ func (o LookupTransitGatewayMulticastDomainResultOutput) State() pulumi.StringPt
 }
 
 // The tags for the transit gateway multicast domain.
-func (o LookupTransitGatewayMulticastDomainResultOutput) Tags() TransitGatewayMulticastDomainTagArrayOutput {
-	return o.ApplyT(func(v LookupTransitGatewayMulticastDomainResult) []TransitGatewayMulticastDomainTag { return v.Tags }).(TransitGatewayMulticastDomainTagArrayOutput)
+func (o LookupTransitGatewayMulticastDomainResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayMulticastDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the transit gateway multicast domain.

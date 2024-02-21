@@ -90,7 +90,7 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.quicksight.DataSetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DataSet resource with the given unique name, arguments, and options.
@@ -191,5 +191,5 @@ export interface DataSetArgs {
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

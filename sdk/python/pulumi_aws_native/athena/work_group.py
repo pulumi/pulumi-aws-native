@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,7 +23,7 @@ class WorkGroupArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input['WorkGroupState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkGroupTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  work_group_configuration: Optional[pulumi.Input['WorkGroupConfigurationArgs']] = None,
                  work_group_configuration_updates: Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']] = None):
         """
@@ -30,7 +32,7 @@ class WorkGroupArgs:
         :param pulumi.Input[str] name: The workGroup name.
         :param pulumi.Input[bool] recursive_delete_option: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input['WorkGroupState'] state: The state of the workgroup: ENABLED or DISABLED.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkGroupTagArgs']]] tags: One or more tags, separated by commas, that you want to attach to the workgroup as you create it
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags, separated by commas, that you want to attach to the workgroup as you create it
         :param pulumi.Input['WorkGroupConfigurationArgs'] work_group_configuration: The workgroup configuration
         :param pulumi.Input['WorkGroupConfigurationUpdatesArgs'] work_group_configuration_updates: The workgroup configuration update object
         """
@@ -99,14 +101,14 @@ class WorkGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags, separated by commas, that you want to attach to the workgroup as you create it
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -143,7 +145,7 @@ class WorkGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input['WorkGroupState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  work_group_configuration: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationArgs']]] = None,
                  work_group_configuration_updates: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationUpdatesArgs']]] = None,
                  __props__=None):
@@ -156,7 +158,7 @@ class WorkGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The workGroup name.
         :param pulumi.Input[bool] recursive_delete_option: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input['WorkGroupState'] state: The state of the workgroup: ENABLED or DISABLED.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkGroupTagArgs']]]] tags: One or more tags, separated by commas, that you want to attach to the workgroup as you create it
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags, separated by commas, that you want to attach to the workgroup as you create it
         :param pulumi.Input[pulumi.InputType['WorkGroupConfigurationArgs']] work_group_configuration: The workgroup configuration
         :param pulumi.Input[pulumi.InputType['WorkGroupConfigurationUpdatesArgs']] work_group_configuration_updates: The workgroup configuration update object
         """
@@ -188,7 +190,7 @@ class WorkGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input['WorkGroupState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  work_group_configuration: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationArgs']]] = None,
                  work_group_configuration_updates: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationUpdatesArgs']]] = None,
                  __props__=None):
@@ -284,7 +286,7 @@ class WorkGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.WorkGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         One or more tags, separated by commas, that you want to attach to the workgroup as you create it
         """

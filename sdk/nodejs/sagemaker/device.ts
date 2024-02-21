@@ -48,7 +48,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * Associate tags with the resource
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.DeviceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -94,5 +94,5 @@ export interface DeviceArgs {
     /**
      * Associate tags with the resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.DeviceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

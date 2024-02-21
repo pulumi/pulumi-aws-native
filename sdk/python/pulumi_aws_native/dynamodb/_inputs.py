@@ -46,7 +46,6 @@ __all__ = [
     'TableS3BucketSourceArgs',
     'TableSseSpecificationArgs',
     'TableStreamSpecificationArgs',
-    'TableTagArgs',
     'TableTimeToLiveSpecificationArgs',
 ]
 
@@ -1199,33 +1198,6 @@ class TableStreamSpecificationArgs:
     @resource_policy.setter
     def resource_policy(self, value: Optional[pulumi.Input['TableResourcePolicyArgs']]):
         pulumi.set(self, "resource_policy", value)
-
-
-@pulumi.input_type
-class TableTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

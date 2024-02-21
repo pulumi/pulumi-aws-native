@@ -50,7 +50,7 @@ export class EnvironmentEc2 extends pulumi.CustomResource {
     public readonly ownerArn!: pulumi.Output<string | undefined>;
     public readonly repositories!: pulumi.Output<outputs.cloud9.EnvironmentEc2Repository[] | undefined>;
     public readonly subnetId!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.cloud9.EnvironmentEc2Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EnvironmentEc2 resource with the given unique name, arguments, and options.
@@ -115,5 +115,5 @@ export interface EnvironmentEc2Args {
     ownerArn?: pulumi.Input<string>;
     repositories?: pulumi.Input<pulumi.Input<inputs.cloud9.EnvironmentEc2RepositoryArgs>[]>;
     subnetId?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.cloud9.EnvironmentEc2TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

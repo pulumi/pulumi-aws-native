@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupExperimentResult struct {
 	SamplingRate  *int                           `pulumi:"samplingRate"`
 	Segment       *string                        `pulumi:"segment"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []ExperimentTag             `pulumi:"tags"`
+	Tags       []aws.Tag                   `pulumi:"tags"`
 	Treatments []ExperimentTreatmentObject `pulumi:"treatments"`
 }
 
@@ -115,8 +116,8 @@ func (o LookupExperimentResultOutput) Segment() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupExperimentResultOutput) Tags() ExperimentTagArrayOutput {
-	return o.ApplyT(func(v LookupExperimentResult) []ExperimentTag { return v.Tags }).(ExperimentTagArrayOutput)
+func (o LookupExperimentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupExperimentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupExperimentResultOutput) Treatments() ExperimentTreatmentObjectArrayOutput {

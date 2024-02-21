@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type DbClusterParameterGroup struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// The list of tags for the cluster parameter group.
-	Tags DbClusterParameterGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDbClusterParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -94,7 +95,7 @@ type dbClusterParameterGroupArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{} `pulumi:"parameters"`
 	// The list of tags for the cluster parameter group.
-	Tags []DbClusterParameterGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DbClusterParameterGroup resource.
@@ -109,7 +110,7 @@ type DbClusterParameterGroupArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.Input
 	// The list of tags for the cluster parameter group.
-	Tags DbClusterParameterGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DbClusterParameterGroupArgs) ElementType() reflect.Type {
@@ -171,8 +172,8 @@ func (o DbClusterParameterGroupOutput) Parameters() pulumi.AnyOutput {
 }
 
 // The list of tags for the cluster parameter group.
-func (o DbClusterParameterGroupOutput) Tags() DbClusterParameterGroupTagArrayOutput {
-	return o.ApplyT(func(v *DbClusterParameterGroup) DbClusterParameterGroupTagArrayOutput { return v.Tags }).(DbClusterParameterGroupTagArrayOutput)
+func (o DbClusterParameterGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbClusterParameterGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type ModelManifest struct {
 	Nodes                pulumi.StringArrayOutput             `pulumi:"nodes"`
 	SignalCatalogArn     pulumi.StringOutput                  `pulumi:"signalCatalogArn"`
 	Status               ModelManifestManifestStatusPtrOutput `pulumi:"status"`
-	Tags                 ModelManifestTagArrayOutput          `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput                   `pulumi:"tags"`
 }
 
 // NewModelManifest registers a new resource with the given unique name, arguments, and options.
@@ -81,7 +82,7 @@ type modelManifestArgs struct {
 	Nodes            []string                     `pulumi:"nodes"`
 	SignalCatalogArn string                       `pulumi:"signalCatalogArn"`
 	Status           *ModelManifestManifestStatus `pulumi:"status"`
-	Tags             []ModelManifestTag           `pulumi:"tags"`
+	Tags             []aws.Tag                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ModelManifest resource.
@@ -91,7 +92,7 @@ type ModelManifestArgs struct {
 	Nodes            pulumi.StringArrayInput
 	SignalCatalogArn pulumi.StringInput
 	Status           ModelManifestManifestStatusPtrInput
-	Tags             ModelManifestTagArrayInput
+	Tags             aws.TagArrayInput
 }
 
 func (ModelManifestArgs) ElementType() reflect.Type {
@@ -163,8 +164,8 @@ func (o ModelManifestOutput) Status() ModelManifestManifestStatusPtrOutput {
 	return o.ApplyT(func(v *ModelManifest) ModelManifestManifestStatusPtrOutput { return v.Status }).(ModelManifestManifestStatusPtrOutput)
 }
 
-func (o ModelManifestOutput) Tags() ModelManifestTagArrayOutput {
-	return o.ApplyT(func(v *ModelManifest) ModelManifestTagArrayOutput { return v.Tags }).(ModelManifestTagArrayOutput)
+func (o ModelManifestOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ModelManifest) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

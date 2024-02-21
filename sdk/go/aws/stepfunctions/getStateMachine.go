@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupStateMachineResult struct {
 	Name                   *string                           `pulumi:"name"`
 	RoleArn                *string                           `pulumi:"roleArn"`
 	StateMachineRevisionId *string                           `pulumi:"stateMachineRevisionId"`
-	Tags                   []StateMachineTagsEntry           `pulumi:"tags"`
+	Tags                   []aws.Tag                         `pulumi:"tags"`
 	TracingConfiguration   *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
 }
 
@@ -96,8 +97,8 @@ func (o LookupStateMachineResultOutput) StateMachineRevisionId() pulumi.StringPt
 	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.StateMachineRevisionId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupStateMachineResultOutput) Tags() StateMachineTagsEntryArrayOutput {
-	return o.ApplyT(func(v LookupStateMachineResult) []StateMachineTagsEntry { return v.Tags }).(StateMachineTagsEntryArrayOutput)
+func (o LookupStateMachineResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupStateMachineResultOutput) TracingConfiguration() StateMachineTracingConfigurationPtrOutput {

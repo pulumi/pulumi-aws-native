@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,11 +28,11 @@ type LookupLedgerArgs struct {
 }
 
 type LookupLedgerResult struct {
-	DeletionProtection *bool       `pulumi:"deletionProtection"`
-	Id                 *string     `pulumi:"id"`
-	KmsKey             *string     `pulumi:"kmsKey"`
-	PermissionsMode    *string     `pulumi:"permissionsMode"`
-	Tags               []LedgerTag `pulumi:"tags"`
+	DeletionProtection *bool     `pulumi:"deletionProtection"`
+	Id                 *string   `pulumi:"id"`
+	KmsKey             *string   `pulumi:"kmsKey"`
+	PermissionsMode    *string   `pulumi:"permissionsMode"`
+	Tags               []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLedgerOutput(ctx *pulumi.Context, args LookupLedgerOutputArgs, opts ...pulumi.InvokeOption) LookupLedgerResultOutput {
@@ -85,8 +86,8 @@ func (o LookupLedgerResultOutput) PermissionsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLedgerResult) *string { return v.PermissionsMode }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLedgerResultOutput) Tags() LedgerTagArrayOutput {
-	return o.ApplyT(func(v LookupLedgerResult) []LedgerTag { return v.Tags }).(LedgerTagArrayOutput)
+func (o LookupLedgerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLedgerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

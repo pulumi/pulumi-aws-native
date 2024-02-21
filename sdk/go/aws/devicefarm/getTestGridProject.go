@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,10 +28,10 @@ type LookupTestGridProjectArgs struct {
 }
 
 type LookupTestGridProjectResult struct {
-	Arn         *string              `pulumi:"arn"`
-	Description *string              `pulumi:"description"`
-	Name        *string              `pulumi:"name"`
-	Tags        []TestGridProjectTag `pulumi:"tags"`
+	Arn         *string   `pulumi:"arn"`
+	Description *string   `pulumi:"description"`
+	Name        *string   `pulumi:"name"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 func LookupTestGridProjectOutput(ctx *pulumi.Context, args LookupTestGridProjectOutputArgs, opts ...pulumi.InvokeOption) LookupTestGridProjectResultOutput {
@@ -80,8 +81,8 @@ func (o LookupTestGridProjectResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTestGridProjectResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTestGridProjectResultOutput) Tags() TestGridProjectTagArrayOutput {
-	return o.ApplyT(func(v LookupTestGridProjectResult) []TestGridProjectTag { return v.Tags }).(TestGridProjectTagArrayOutput)
+func (o LookupTestGridProjectResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTestGridProjectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

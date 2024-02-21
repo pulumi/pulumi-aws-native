@@ -46,7 +46,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
     public readonly modelKmsKeyId!: pulumi.Output<string | undefined>;
     public readonly modelPolicy!: pulumi.Output<string | undefined>;
     public readonly outputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierOutputDataConfig | undefined>;
-    public readonly tags!: pulumi.Output<outputs.comprehend.DocumentClassifierTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly versionName!: pulumi.Output<string | undefined>;
     public readonly volumeKmsKeyId!: pulumi.Output<string | undefined>;
     public readonly vpcConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierVpcConfig | undefined>;
@@ -118,7 +118,7 @@ export interface DocumentClassifierArgs {
     modelKmsKeyId?: pulumi.Input<string>;
     modelPolicy?: pulumi.Input<string>;
     outputDataConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierOutputDataConfigArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.comprehend.DocumentClassifierTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     versionName?: pulumi.Input<string>;
     volumeKmsKeyId?: pulumi.Input<string>;
     vpcConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierVpcConfigArgs>;

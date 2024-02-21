@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,11 +25,11 @@ class AnalysisTemplateArgs:
                  analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AnalysisTemplate resource.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]] analysis_parameters: The member who can query can provide this placeholder for a literal data value in an analysis template
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "membership_identifier", membership_identifier)
@@ -100,14 +102,14 @@ class AnalysisTemplateArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -122,7 +124,7 @@ class AnalysisTemplate(pulumi.CustomResource):
                  membership_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisSourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTemplateTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Represents a stored analysis within a collaboration
@@ -130,7 +132,7 @@ class AnalysisTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisParameterArgs']]]] analysis_parameters: The member who can query can provide this placeholder for a literal data value in an analysis template
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTemplateTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """
         ...
     @overload
@@ -162,7 +164,7 @@ class AnalysisTemplate(pulumi.CustomResource):
                  membership_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisSourceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTemplateTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -295,7 +297,7 @@ class AnalysisTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisTemplateTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """

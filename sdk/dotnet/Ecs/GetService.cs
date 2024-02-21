@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Ecs
         public readonly Pulumi.AwsNative.Ecs.ServicePropagateTags? PropagateTags;
         public readonly string? ServiceArn;
         public readonly ImmutableArray<Outputs.ServiceRegistry> ServiceRegistries;
-        public readonly ImmutableArray<Outputs.ServiceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TaskDefinition;
 
         [OutputConstructor]
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.Ecs
 
             ImmutableArray<Outputs.ServiceRegistry> serviceRegistries,
 
-            ImmutableArray<Outputs.ServiceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? taskDefinition)
         {

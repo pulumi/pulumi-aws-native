@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetApplicationResult',
@@ -59,7 +59,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ApplicationTags']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         """

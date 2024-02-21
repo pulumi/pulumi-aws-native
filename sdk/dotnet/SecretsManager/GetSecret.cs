@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.SecretsManager
         /// <summary>
         /// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SecretTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSecretResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.SecretsManager
 
             ImmutableArray<Outputs.SecretReplicaRegion> replicaRegions,
 
-            ImmutableArray<Outputs.SecretTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             Id = id;

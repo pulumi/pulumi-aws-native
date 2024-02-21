@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags for the local gateway route table virtual interface group association.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,14 +126,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string> LocalGatewayVirtualInterfaceGroupId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the local gateway route table virtual interface group association.
         /// </summary>
-        public InputList<Inputs.LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

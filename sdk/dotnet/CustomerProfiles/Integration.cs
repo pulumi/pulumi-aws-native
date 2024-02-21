@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The tags (keys and values) associated with the integration
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.IntegrationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The URI of the S3 bucket or any other type of data source.
@@ -138,14 +138,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
         }
 
         [Input("tags")]
-        private InputList<Inputs.IntegrationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags (keys and values) associated with the integration
         /// </summary>
-        public InputList<Inputs.IntegrationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.IntegrationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

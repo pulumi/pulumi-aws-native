@@ -18,7 +18,6 @@ __all__ = [
     'CampaignDataDestinationConfig1PropertiesArgs',
     'CampaignS3ConfigArgs',
     'CampaignSignalInformationArgs',
-    'CampaignTagArgs',
     'CampaignTimeBasedCollectionSchemeArgs',
     'CampaignTimestreamConfigArgs',
     'DecoderManifestCanInterfaceArgs',
@@ -29,9 +28,6 @@ __all__ = [
     'DecoderManifestObdNetworkInterfaceArgs',
     'DecoderManifestObdSignalDecoderArgs',
     'DecoderManifestObdSignalArgs',
-    'DecoderManifestTagArgs',
-    'FleetTagArgs',
-    'ModelManifestTagArgs',
     'SignalCatalogActuatorArgs',
     'SignalCatalogAttributeArgs',
     'SignalCatalogBranchArgs',
@@ -41,8 +37,6 @@ __all__ = [
     'SignalCatalogNode3PropertiesArgs',
     'SignalCatalogNodeCountsArgs',
     'SignalCatalogSensorArgs',
-    'SignalCatalogTagArgs',
-    'VehicleTagArgs',
     'VehicleattributesMapArgs',
 ]
 
@@ -252,33 +246,6 @@ class CampaignSignalInformationArgs:
     @minimum_sampling_interval_ms.setter
     def minimum_sampling_interval_ms(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "minimum_sampling_interval_ms", value)
-
-
-@pulumi.input_type
-class CampaignTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -826,87 +793,6 @@ class DecoderManifestObdSignalArgs:
 
 
 @pulumi.input_type
-class DecoderManifestTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class FleetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class ModelManifestTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class SignalCatalogActuatorArgs:
     def __init__(__self__, *,
                  data_type: pulumi.Input['SignalCatalogNodeDataType'],
@@ -1362,60 +1248,6 @@ class SignalCatalogSensorArgs:
     @unit.setter
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
-
-
-@pulumi.input_type
-class SignalCatalogTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class VehicleTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type LocalGatewayRouteTableVpcAssociation struct {
 	// The state of the association.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the association.
-	Tags LocalGatewayRouteTableVpcAssociationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -84,7 +85,7 @@ type localGatewayRouteTableVpcAssociationArgs struct {
 	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
 	// The tags for the association.
-	Tags []LocalGatewayRouteTableVpcAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -94,7 +95,7 @@ type LocalGatewayRouteTableVpcAssociationArgs struct {
 	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId pulumi.StringInput
 	// The tags for the association.
-	Tags LocalGatewayRouteTableVpcAssociationTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the VPC.
 	VpcId pulumi.StringInput
 }
@@ -159,10 +160,8 @@ func (o LocalGatewayRouteTableVpcAssociationOutput) State() pulumi.StringOutput 
 }
 
 // The tags for the association.
-func (o LocalGatewayRouteTableVpcAssociationOutput) Tags() LocalGatewayRouteTableVpcAssociationTagArrayOutput {
-	return o.ApplyT(func(v *LocalGatewayRouteTableVpcAssociation) LocalGatewayRouteTableVpcAssociationTagArrayOutput {
-		return v.Tags
-	}).(LocalGatewayRouteTableVpcAssociationTagArrayOutput)
+func (o LocalGatewayRouteTableVpcAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocalGatewayRouteTableVpcAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the VPC.

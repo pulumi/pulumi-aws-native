@@ -48,7 +48,7 @@ export class Membership extends pulumi.CustomResource {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
      */
-    public readonly tags!: pulumi.Output<outputs.cleanrooms.MembershipTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Membership resource with the given unique name, arguments, and options.
@@ -105,5 +105,5 @@ export interface MembershipArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.cleanrooms.MembershipTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -39,7 +39,7 @@ export interface GetDeploymentGroupResult {
     readonly onPremisesTagSet?: outputs.codedeploy.DeploymentGroupOnPremisesTagSet;
     readonly outdatedInstancesStrategy?: string;
     readonly serviceRoleArn?: string;
-    readonly tags?: outputs.codedeploy.DeploymentGroupTag[];
+    readonly tags?: outputs.Tag[];
     readonly terminationHookEnabled?: boolean;
     readonly triggerConfigurations?: outputs.codedeploy.DeploymentGroupTriggerConfig[];
 }

@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Dms
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ReplicationConfigTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
@@ -191,14 +191,14 @@ namespace Pulumi.AwsNative.Dms
         public Input<object>? TableMappings { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ReplicationConfigTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
         /// </summary>
-        public InputList<Inputs.ReplicationConfigTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ReplicationConfigTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

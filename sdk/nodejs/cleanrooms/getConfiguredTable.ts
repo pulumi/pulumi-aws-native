@@ -31,7 +31,7 @@ export interface GetConfiguredTableResult {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    readonly tags?: outputs.cleanrooms.ConfiguredTableTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Represents a table that can be associated with collaborations

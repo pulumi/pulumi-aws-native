@@ -12,5 +12,3 @@ from .get_environment_account_connection import *
 from .get_environment_template import *
 from .get_service_template import *
 from .service_template import *
-from ._inputs import *
-from . import outputs

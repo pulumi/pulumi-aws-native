@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type Campaign struct {
 	SpoolingMode                  CampaignSpoolingModePtrOutput        `pulumi:"spoolingMode"`
 	StartTime                     pulumi.StringPtrOutput               `pulumi:"startTime"`
 	Status                        CampaignStatusOutput                 `pulumi:"status"`
-	Tags                          CampaignTagArrayOutput               `pulumi:"tags"`
+	Tags                          aws.TagArrayOutput                   `pulumi:"tags"`
 	TargetArn                     pulumi.StringOutput                  `pulumi:"targetArn"`
 }
 
@@ -122,7 +123,7 @@ type campaignArgs struct {
 	SignalsToCollect              []CampaignSignalInformation  `pulumi:"signalsToCollect"`
 	SpoolingMode                  *CampaignSpoolingMode        `pulumi:"spoolingMode"`
 	StartTime                     *string                      `pulumi:"startTime"`
-	Tags                          []CampaignTag                `pulumi:"tags"`
+	Tags                          []aws.Tag                    `pulumi:"tags"`
 	TargetArn                     string                       `pulumi:"targetArn"`
 }
 
@@ -143,7 +144,7 @@ type CampaignArgs struct {
 	SignalsToCollect              CampaignSignalInformationArrayInput
 	SpoolingMode                  CampaignSpoolingModePtrInput
 	StartTime                     pulumi.StringPtrInput
-	Tags                          CampaignTagArrayInput
+	Tags                          aws.TagArrayInput
 	TargetArn                     pulumi.StringInput
 }
 
@@ -260,8 +261,8 @@ func (o CampaignOutput) Status() CampaignStatusOutput {
 	return o.ApplyT(func(v *Campaign) CampaignStatusOutput { return v.Status }).(CampaignStatusOutput)
 }
 
-func (o CampaignOutput) Tags() CampaignTagArrayOutput {
-	return o.ApplyT(func(v *Campaign) CampaignTagArrayOutput { return v.Tags }).(CampaignTagArrayOutput)
+func (o CampaignOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Campaign) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o CampaignOutput) TargetArn() pulumi.StringOutput {

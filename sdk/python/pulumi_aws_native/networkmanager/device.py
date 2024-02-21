@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DeviceArgs', 'Device']
@@ -23,7 +25,7 @@ class DeviceArgs:
                  model: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vendor: Optional[pulumi.Input[str]] = None):
         """
@@ -35,7 +37,7 @@ class DeviceArgs:
         :param pulumi.Input[str] model: The device model
         :param pulumi.Input[str] serial_number: The device serial number.
         :param pulumi.Input[str] site_id: The site ID.
-        :param pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]] tags: The tags for the device.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the device.
         :param pulumi.Input[str] type: The device type.
         :param pulumi.Input[str] vendor: The device vendor.
         """
@@ -145,14 +147,14 @@ class DeviceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the device.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -192,7 +194,7 @@ class Device(pulumi.CustomResource):
                  model: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -208,7 +210,7 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[str] model: The device model
         :param pulumi.Input[str] serial_number: The device serial number.
         :param pulumi.Input[str] site_id: The site ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]] tags: The tags for the device.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the device.
         :param pulumi.Input[str] type: The device type.
         :param pulumi.Input[str] vendor: The device vendor.
         """
@@ -243,7 +245,7 @@ class Device(pulumi.CustomResource):
                  model: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -401,7 +403,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeviceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags for the device.
         """

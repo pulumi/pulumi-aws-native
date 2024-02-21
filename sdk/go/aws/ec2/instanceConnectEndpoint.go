@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type InstanceConnectEndpoint struct {
 	// The subnet id of the instance connect endpoint
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// The tags of the instance connect endpoint.
-	Tags InstanceConnectEndpointTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewInstanceConnectEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +88,7 @@ type instanceConnectEndpointArgs struct {
 	// The subnet id of the instance connect endpoint
 	SubnetId string `pulumi:"subnetId"`
 	// The tags of the instance connect endpoint.
-	Tags []InstanceConnectEndpointTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InstanceConnectEndpoint resource.
@@ -101,7 +102,7 @@ type InstanceConnectEndpointArgs struct {
 	// The subnet id of the instance connect endpoint
 	SubnetId pulumi.StringInput
 	// The tags of the instance connect endpoint.
-	Tags InstanceConnectEndpointTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (InstanceConnectEndpointArgs) ElementType() reflect.Type {
@@ -162,8 +163,8 @@ func (o InstanceConnectEndpointOutput) SubnetId() pulumi.StringOutput {
 }
 
 // The tags of the instance connect endpoint.
-func (o InstanceConnectEndpointOutput) Tags() InstanceConnectEndpointTagArrayOutput {
-	return o.ApplyT(func(v *InstanceConnectEndpoint) InstanceConnectEndpointTagArrayOutput { return v.Tags }).(InstanceConnectEndpointTagArrayOutput)
+func (o InstanceConnectEndpointOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

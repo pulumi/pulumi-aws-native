@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Connect
         /// One or more tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.QuickConnectTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -127,14 +127,14 @@ namespace Pulumi.AwsNative.Connect
         public Input<Inputs.QuickConnectConfigArgs> QuickConnectConfig { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.QuickConnectTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public InputList<Inputs.QuickConnectTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.QuickConnectTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

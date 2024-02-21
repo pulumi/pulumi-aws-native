@@ -49,7 +49,7 @@ export interface GetLocalGatewayRouteTableResult {
     /**
      * The tags for the local gateway route table.
      */
-    readonly tags?: outputs.ec2.LocalGatewayRouteTableTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Describes a route table for a local gateway.

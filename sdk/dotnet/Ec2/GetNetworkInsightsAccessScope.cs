@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly string? CreatedDate;
         public readonly string? NetworkInsightsAccessScopeArn;
         public readonly string? NetworkInsightsAccessScopeId;
-        public readonly ImmutableArray<Outputs.NetworkInsightsAccessScopeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UpdatedDate;
 
         [OutputConstructor]
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? networkInsightsAccessScopeId,
 
-            ImmutableArray<Outputs.NetworkInsightsAccessScopeTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updatedDate)
         {

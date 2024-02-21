@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.PackagingConfigurationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPackagingConfigurationResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.MediaPackage
 
             string? packagingGroupId,
 
-            ImmutableArray<Outputs.PackagingConfigurationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CmafPackage = cmafPackage;

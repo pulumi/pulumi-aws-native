@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupGraphResult struct {
 	// _Default_: If not specified, the default value is false.
 	PublicConnectivity *bool `pulumi:"publicConnectivity"`
 	// The tags associated with this graph.
-	Tags []GraphTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupGraphOutput(ctx *pulumi.Context, args LookupGraphOutputArgs, opts ...pulumi.InvokeOption) LookupGraphResultOutput {
@@ -127,8 +128,8 @@ func (o LookupGraphResultOutput) PublicConnectivity() pulumi.BoolPtrOutput {
 }
 
 // The tags associated with this graph.
-func (o LookupGraphResultOutput) Tags() GraphTagArrayOutput {
-	return o.ApplyT(func(v LookupGraphResult) []GraphTag { return v.Tags }).(GraphTagArrayOutput)
+func (o LookupGraphResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGraphResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

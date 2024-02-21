@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -30,7 +32,7 @@ class PlaybackConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  personalization_threshold_seconds: Optional[pulumi.Input[int]] = None,
                  slate_ad_url: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackConfigurationTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  transcode_profile_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PlaybackConfiguration resource.
@@ -49,7 +51,7 @@ class PlaybackConfigurationArgs:
         :param pulumi.Input[str] name: The identifier for the playback configuration.
         :param pulumi.Input[int] personalization_threshold_seconds: Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         :param pulumi.Input[str] slate_ad_url: The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
-        :param pulumi.Input[Sequence[pulumi.Input['PlaybackConfigurationTagArgs']]] tags: The tags to assign to the playback configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the playback configuration.
         :param pulumi.Input[str] transcode_profile_name: The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
         """
         pulumi.set(__self__, "ad_decision_server_url", ad_decision_server_url)
@@ -241,14 +243,14 @@ class PlaybackConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackConfigurationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to assign to the playback configuration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackConfigurationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -281,7 +283,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  personalization_threshold_seconds: Optional[pulumi.Input[int]] = None,
                  slate_ad_url: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaybackConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transcode_profile_name: Optional[pulumi.Input[str]] = None,
                  video_content_source_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -304,7 +306,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] name: The identifier for the playback configuration.
         :param pulumi.Input[int] personalization_threshold_seconds: Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         :param pulumi.Input[str] slate_ad_url: The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaybackConfigurationTagArgs']]]] tags: The tags to assign to the playback configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the playback configuration.
         :param pulumi.Input[str] transcode_profile_name: The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
         :param pulumi.Input[str] video_content_source_url: The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
         """
@@ -344,7 +346,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  personalization_threshold_seconds: Optional[pulumi.Input[int]] = None,
                  slate_ad_url: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaybackConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transcode_profile_name: Optional[pulumi.Input[str]] = None,
                  video_content_source_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -546,7 +548,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PlaybackConfigurationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags to assign to the playback configuration.
         """

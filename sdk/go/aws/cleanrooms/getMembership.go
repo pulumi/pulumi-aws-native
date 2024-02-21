@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupMembershipResult struct {
 	PaymentConfiguration          *MembershipPaymentConfiguration              `pulumi:"paymentConfiguration"`
 	QueryLogStatus                *MembershipQueryLogStatus                    `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
-	Tags []MembershipTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupMembershipOutput(ctx *pulumi.Context, args LookupMembershipOutputArgs, opts ...pulumi.InvokeOption) LookupMembershipResultOutput {
@@ -104,8 +105,8 @@ func (o LookupMembershipResultOutput) QueryLogStatus() MembershipQueryLogStatusP
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
-func (o LookupMembershipResultOutput) Tags() MembershipTagArrayOutput {
-	return o.ApplyT(func(v LookupMembershipResult) []MembershipTag { return v.Tags }).(MembershipTagArrayOutput)
+func (o LookupMembershipResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMembershipResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

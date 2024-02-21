@@ -60,7 +60,7 @@ export class Label extends pulumi.CustomResource {
     /**
      * Tags associated with this label.
      */
-    public readonly tags!: pulumi.Output<outputs.frauddetector.LabelTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Label resource with the given unique name, arguments, and options.
@@ -109,5 +109,5 @@ export interface LabelArgs {
     /**
      * Tags associated with this label.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.LabelTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

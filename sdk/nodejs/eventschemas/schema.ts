@@ -68,7 +68,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * Tags associated with the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.eventschemas.SchemaTagsEntry[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
      */
@@ -150,7 +150,7 @@ export interface SchemaArgs {
     /**
      * Tags associated with the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.eventschemas.SchemaTagsEntryArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
      */

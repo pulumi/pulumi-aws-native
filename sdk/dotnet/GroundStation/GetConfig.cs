@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.GroundStation
         public readonly Outputs.ConfigData? ConfigData;
         public readonly string? Id;
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.ConfigTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? Type;
 
         [OutputConstructor]
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.GroundStation
 
             string? name,
 
-            ImmutableArray<Outputs.ConfigTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? type)
         {

@@ -55,7 +55,7 @@ export interface GetMonitoringScheduleResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.sagemaker.MonitoringScheduleTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::MonitoringSchedule

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['EndpointConfigArgs', 'EndpointConfig']
@@ -25,7 +27,7 @@ class EndpointConfigArgs:
                  explainer_config: Optional[pulumi.Input['EndpointConfigExplainerConfigArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigProductionVariantArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_config: Optional[pulumi.Input['EndpointConfigVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a EndpointConfig resource.
@@ -135,11 +137,11 @@ class EndpointConfigArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -171,7 +173,7 @@ class EndpointConfig(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigProductionVariantArgs']]]]] = None,
                  shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigProductionVariantArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigVpcConfigArgs']]] = None,
                  __props__=None):
         """
@@ -213,7 +215,7 @@ class EndpointConfig(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigProductionVariantArgs']]]]] = None,
                  shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigProductionVariantArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigVpcConfigArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""EndpointConfig is deprecated: EndpointConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -322,7 +324,7 @@ class EndpointConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointConfigTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

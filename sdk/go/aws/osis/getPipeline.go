@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type LookupPipelineResult struct {
 	// The Data Prepper pipeline configuration in YAML format.
 	PipelineConfigurationBody *string `pulumi:"pipelineConfigurationBody"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []PipelineTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC interface endpoints that have access to the pipeline.
 	VpcEndpoints []PipelineVpcEndpoint `pulumi:"vpcEndpoints"`
 }
@@ -121,8 +122,8 @@ func (o LookupPipelineResultOutput) PipelineConfigurationBody() pulumi.StringPtr
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupPipelineResultOutput) Tags() PipelineTagArrayOutput {
-	return o.ApplyT(func(v LookupPipelineResult) []PipelineTag { return v.Tags }).(PipelineTagArrayOutput)
+func (o LookupPipelineResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPipelineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The VPC interface endpoints that have access to the pipeline.

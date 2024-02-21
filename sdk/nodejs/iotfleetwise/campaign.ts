@@ -59,7 +59,7 @@ export class Campaign extends pulumi.CustomResource {
     public readonly spoolingMode!: pulumi.Output<enums.iotfleetwise.CampaignSpoolingMode | undefined>;
     public readonly startTime!: pulumi.Output<string | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.iotfleetwise.CampaignStatus>;
-    public readonly tags!: pulumi.Output<outputs.iotfleetwise.CampaignTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly targetArn!: pulumi.Output<string>;
 
     /**
@@ -157,6 +157,6 @@ export interface CampaignArgs {
     signalsToCollect?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.CampaignSignalInformationArgs>[]>;
     spoolingMode?: pulumi.Input<enums.iotfleetwise.CampaignSpoolingMode>;
     startTime?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.CampaignTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     targetArn: pulumi.Input<string>;
 }

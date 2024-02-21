@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,7 @@ class OriginEndpointArgs:
                  origin_endpoint_name: Optional[pulumi.Input[str]] = None,
                  segment: Optional[pulumi.Input['OriginEndpointSegmentArgs']] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OriginEndpoint resource.
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
@@ -149,11 +151,11 @@ class OriginEndpointArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -171,7 +173,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  origin_endpoint_name: Optional[pulumi.Input[str]] = None,
                  segment: Optional[pulumi.Input[pulumi.InputType['OriginEndpointSegmentArgs']]] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
@@ -216,7 +218,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  origin_endpoint_name: Optional[pulumi.Input[str]] = None,
                  segment: Optional[pulumi.Input[pulumi.InputType['OriginEndpointSegmentArgs']]] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -363,6 +365,6 @@ class OriginEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.OriginEndpointTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

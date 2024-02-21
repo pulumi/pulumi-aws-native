@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// 
         /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         /// </summary>
-        public readonly ImmutableArray<Outputs.AlarmModelTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAlarmModelResult(
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.IoTEvents
 
             int? severity,
 
-            ImmutableArray<Outputs.AlarmModelTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AlarmCapabilities = alarmCapabilities;
             AlarmEventActions = alarmEventActions;

@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.CodeCommit
         public readonly string? Name;
         public readonly string? RepositoryDescription;
         public readonly string? RepositoryName;
-        public readonly ImmutableArray<Outputs.RepositoryTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<Outputs.RepositoryTrigger> Triggers;
 
         [OutputConstructor]
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.CodeCommit
 
             string? repositoryName,
 
-            ImmutableArray<Outputs.RepositoryTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.RepositoryTrigger> triggers)
         {

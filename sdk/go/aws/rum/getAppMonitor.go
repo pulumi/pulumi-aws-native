@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,8 +36,8 @@ type LookupAppMonitorResult struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain *string `pulumi:"domain"`
 	// The unique ID of the new app monitor.
-	Id   *string         `pulumi:"id"`
-	Tags []AppMonitorTag `pulumi:"tags"`
+	Id   *string   `pulumi:"id"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAppMonitorOutput(ctx *pulumi.Context, args LookupAppMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupAppMonitorResultOutput {
@@ -98,8 +99,8 @@ func (o LookupAppMonitorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAppMonitorResultOutput) Tags() AppMonitorTagArrayOutput {
-	return o.ApplyT(func(v LookupAppMonitorResult) []AppMonitorTag { return v.Tags }).(AppMonitorTagArrayOutput)
+func (o LookupAppMonitorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAppMonitorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

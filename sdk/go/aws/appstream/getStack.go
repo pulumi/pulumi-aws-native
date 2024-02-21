@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupStackResult struct {
 	RedirectUrl                 *string                           `pulumi:"redirectUrl"`
 	StorageConnectors           []StackStorageConnector           `pulumi:"storageConnectors"`
 	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
-	Tags                        []StackTag                        `pulumi:"tags"`
+	Tags                        []aws.Tag                         `pulumi:"tags"`
 	UserSettings                []StackUserSetting                `pulumi:"userSettings"`
 }
 
@@ -126,8 +127,8 @@ func (o LookupStackResultOutput) StreamingExperienceSettings() StackStreamingExp
 	return o.ApplyT(func(v LookupStackResult) *StackStreamingExperienceSettings { return v.StreamingExperienceSettings }).(StackStreamingExperienceSettingsPtrOutput)
 }
 
-func (o LookupStackResultOutput) Tags() StackTagArrayOutput {
-	return o.ApplyT(func(v LookupStackResult) []StackTag { return v.Tags }).(StackTagArrayOutput)
+func (o LookupStackResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStackResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupStackResultOutput) UserSettings() StackUserSettingArrayOutput {

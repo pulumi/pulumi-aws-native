@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupAssetResult struct {
 	// The IAM role_arn used to access the source S3 bucket.
 	SourceRoleArn *string `pulumi:"sourceRoleArn"`
 	// A collection of tags associated with a resource
-	Tags []AssetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAssetOutput(ctx *pulumi.Context, args LookupAssetOutputArgs, opts ...pulumi.InvokeOption) LookupAssetResultOutput {
@@ -125,8 +126,8 @@ func (o LookupAssetResultOutput) SourceRoleArn() pulumi.StringPtrOutput {
 }
 
 // A collection of tags associated with a resource
-func (o LookupAssetResultOutput) Tags() AssetTagArrayOutput {
-	return o.ApplyT(func(v LookupAssetResult) []AssetTag { return v.Tags }).(AssetTagArrayOutput)
+func (o LookupAssetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAssetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

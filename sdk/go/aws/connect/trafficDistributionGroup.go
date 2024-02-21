@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type TrafficDistributionGroup struct {
 	// The status of the traffic distribution group.
 	Status TrafficDistributionGroupStatusOutput `pulumi:"status"`
 	// One or more tags.
-	Tags TrafficDistributionGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The identifier of the traffic distribution group.
 	TrafficDistributionGroupArn pulumi.StringOutput `pulumi:"trafficDistributionGroupArn"`
 }
@@ -87,7 +88,7 @@ type trafficDistributionGroupArgs struct {
 	// The name for the traffic distribution group.
 	Name *string `pulumi:"name"`
 	// One or more tags.
-	Tags []TrafficDistributionGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrafficDistributionGroup resource.
@@ -99,7 +100,7 @@ type TrafficDistributionGroupArgs struct {
 	// The name for the traffic distribution group.
 	Name pulumi.StringPtrInput
 	// One or more tags.
-	Tags TrafficDistributionGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (TrafficDistributionGroupArgs) ElementType() reflect.Type {
@@ -165,8 +166,8 @@ func (o TrafficDistributionGroupOutput) Status() TrafficDistributionGroupStatusO
 }
 
 // One or more tags.
-func (o TrafficDistributionGroupOutput) Tags() TrafficDistributionGroupTagArrayOutput {
-	return o.ApplyT(func(v *TrafficDistributionGroup) TrafficDistributionGroupTagArrayOutput { return v.Tags }).(TrafficDistributionGroupTagArrayOutput)
+func (o TrafficDistributionGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TrafficDistributionGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The identifier of the traffic distribution group.

@@ -28,7 +28,6 @@ __all__ = [
     'DomainServiceSoftwareOptions',
     'DomainSnapshotOptions',
     'DomainSoftwareUpdateOptions',
-    'DomainTag',
     'DomainVpcOptions',
     'DomainWindowStartTime',
     'DomainZoneAwarenessConfig',
@@ -944,35 +943,6 @@ class DomainSoftwareUpdateOptions(dict):
     @pulumi.getter(name="autoSoftwareUpdateEnabled")
     def auto_software_update_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "auto_software_update_enabled")
-
-
-@pulumi.output_type
-class DomainTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: The value of the tag.
-        :param str value: The key of the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The value of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The key of the tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

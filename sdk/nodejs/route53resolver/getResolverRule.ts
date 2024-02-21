@@ -49,7 +49,7 @@ export interface GetResolverRuleResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.route53resolver.ResolverRuleTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
      */

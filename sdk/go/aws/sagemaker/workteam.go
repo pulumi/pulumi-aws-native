@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type Workteam struct {
 	Description               pulumi.StringPtrOutput                     `pulumi:"description"`
 	MemberDefinitions         WorkteamMemberDefinitionArrayOutput        `pulumi:"memberDefinitions"`
 	NotificationConfiguration WorkteamNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
-	Tags                      WorkteamTagArrayOutput                     `pulumi:"tags"`
+	Tags                      aws.TagArrayOutput                         `pulumi:"tags"`
 	WorkforceName             pulumi.StringPtrOutput                     `pulumi:"workforceName"`
 	WorkteamName              pulumi.StringPtrOutput                     `pulumi:"workteamName"`
 }
@@ -73,7 +74,7 @@ type workteamArgs struct {
 	Description               *string                            `pulumi:"description"`
 	MemberDefinitions         []WorkteamMemberDefinition         `pulumi:"memberDefinitions"`
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
-	Tags                      []WorkteamTag                      `pulumi:"tags"`
+	Tags                      []aws.Tag                          `pulumi:"tags"`
 	WorkforceName             *string                            `pulumi:"workforceName"`
 	WorkteamName              *string                            `pulumi:"workteamName"`
 }
@@ -83,7 +84,7 @@ type WorkteamArgs struct {
 	Description               pulumi.StringPtrInput
 	MemberDefinitions         WorkteamMemberDefinitionArrayInput
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
-	Tags                      WorkteamTagArrayInput
+	Tags                      aws.TagArrayInput
 	WorkforceName             pulumi.StringPtrInput
 	WorkteamName              pulumi.StringPtrInput
 }
@@ -137,8 +138,8 @@ func (o WorkteamOutput) NotificationConfiguration() WorkteamNotificationConfigur
 	return o.ApplyT(func(v *Workteam) WorkteamNotificationConfigurationPtrOutput { return v.NotificationConfiguration }).(WorkteamNotificationConfigurationPtrOutput)
 }
 
-func (o WorkteamOutput) Tags() WorkteamTagArrayOutput {
-	return o.ApplyT(func(v *Workteam) WorkteamTagArrayOutput { return v.Tags }).(WorkteamTagArrayOutput)
+func (o WorkteamOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Workteam) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o WorkteamOutput) WorkforceName() pulumi.StringPtrOutput {

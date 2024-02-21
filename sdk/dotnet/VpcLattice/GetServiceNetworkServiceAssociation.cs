@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public readonly string? ServiceNetworkId;
         public readonly string? ServiceNetworkName;
         public readonly Pulumi.AwsNative.VpcLattice.ServiceNetworkServiceAssociationStatus? Status;
-        public readonly ImmutableArray<Outputs.ServiceNetworkServiceAssociationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetServiceNetworkServiceAssociationResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
             Pulumi.AwsNative.VpcLattice.ServiceNetworkServiceAssociationStatus? status,
 
-            ImmutableArray<Outputs.ServiceNetworkServiceAssociationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreatedAt = createdAt;

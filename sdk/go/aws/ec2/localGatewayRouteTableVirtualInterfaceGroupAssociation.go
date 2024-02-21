@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LocalGatewayRouteTableVirtualInterfaceGroupAssociation struct {
 	// The state of the local gateway route table virtual interface group association.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the local gateway route table virtual interface group association.
-	Tags LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocalGatewayRouteTableVirtualInterfaceGroupAssociation registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type localGatewayRouteTableVirtualInterfaceGroupAssociationArgs struct {
 	// The ID of the local gateway route table virtual interface group.
 	LocalGatewayVirtualInterfaceGroupId string `pulumi:"localGatewayVirtualInterfaceGroupId"`
 	// The tags for the local gateway route table virtual interface group association.
-	Tags []LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocalGatewayRouteTableVirtualInterfaceGroupAssociation resource.
@@ -100,7 +101,7 @@ type LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs struct {
 	// The ID of the local gateway route table virtual interface group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringInput
 	// The tags for the local gateway route table virtual interface group association.
-	Tags LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs) ElementType() reflect.Type {
@@ -186,10 +187,8 @@ func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput) State() pu
 }
 
 // The tags for the local gateway route table virtual interface group association.
-func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput) Tags() LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput {
-	return o.ApplyT(func(v *LocalGatewayRouteTableVirtualInterfaceGroupAssociation) LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput {
-		return v.Tags
-	}).(LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput)
+func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocalGatewayRouteTableVirtualInterfaceGroupAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

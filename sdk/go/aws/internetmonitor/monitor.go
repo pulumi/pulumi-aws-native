@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type Monitor struct {
 	ResourcesToAdd                  pulumi.StringArrayOutput                        `pulumi:"resourcesToAdd"`
 	ResourcesToRemove               pulumi.StringArrayOutput                        `pulumi:"resourcesToRemove"`
 	Status                          MonitorConfigStatePtrOutput                     `pulumi:"status"`
-	Tags                            MonitorTagArrayOutput                           `pulumi:"tags"`
+	Tags                            aws.TagArrayOutput                              `pulumi:"tags"`
 	TrafficPercentageToMonitor      pulumi.IntPtrOutput                             `pulumi:"trafficPercentageToMonitor"`
 }
 
@@ -84,7 +85,7 @@ type monitorArgs struct {
 	ResourcesToAdd                  []string                                `pulumi:"resourcesToAdd"`
 	ResourcesToRemove               []string                                `pulumi:"resourcesToRemove"`
 	Status                          *MonitorConfigState                     `pulumi:"status"`
-	Tags                            []MonitorTag                            `pulumi:"tags"`
+	Tags                            []aws.Tag                               `pulumi:"tags"`
 	TrafficPercentageToMonitor      *int                                    `pulumi:"trafficPercentageToMonitor"`
 }
 
@@ -98,7 +99,7 @@ type MonitorArgs struct {
 	ResourcesToAdd                  pulumi.StringArrayInput
 	ResourcesToRemove               pulumi.StringArrayInput
 	Status                          MonitorConfigStatePtrInput
-	Tags                            MonitorTagArrayInput
+	Tags                            aws.TagArrayInput
 	TrafficPercentageToMonitor      pulumi.IntPtrInput
 }
 
@@ -193,8 +194,8 @@ func (o MonitorOutput) Status() MonitorConfigStatePtrOutput {
 	return o.ApplyT(func(v *Monitor) MonitorConfigStatePtrOutput { return v.Status }).(MonitorConfigStatePtrOutput)
 }
 
-func (o MonitorOutput) Tags() MonitorTagArrayOutput {
-	return o.ApplyT(func(v *Monitor) MonitorTagArrayOutput { return v.Tags }).(MonitorTagArrayOutput)
+func (o MonitorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Monitor) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o MonitorOutput) TrafficPercentageToMonitor() pulumi.IntPtrOutput {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupApplicationResult struct {
 	// A name for the application.
 	Name *string `pulumi:"name"`
 	// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags []ApplicationTags `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -90,8 +91,8 @@ func (o LookupApplicationResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-func (o LookupApplicationResultOutput) Tags() ApplicationTagsArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []ApplicationTags { return v.Tags }).(ApplicationTagsArrayOutput)
+func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

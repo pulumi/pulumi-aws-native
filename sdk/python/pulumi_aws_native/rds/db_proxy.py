@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,7 @@ class DbProxyArgs:
                  debug_logging: Optional[pulumi.Input[bool]] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
                  require_tls: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DbProxy resource.
@@ -37,7 +39,7 @@ class DbProxyArgs:
         :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
         :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         :param pulumi.Input[bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-        :param pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new proxy.
         """
         pulumi.set(__self__, "auth", auth)
@@ -155,14 +157,14 @@ class DbProxyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -190,7 +192,7 @@ class DbProxy(pulumi.CustomResource):
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
                  require_tls: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbProxyTagFormatArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -206,7 +208,7 @@ class DbProxy(pulumi.CustomResource):
         :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         :param pulumi.Input[bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbProxyTagFormatArgs']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
         """
@@ -241,7 +243,7 @@ class DbProxy(pulumi.CustomResource):
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
                  require_tls: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbProxyTagFormatArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -387,7 +389,7 @@ class DbProxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbProxyTagFormat']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         """

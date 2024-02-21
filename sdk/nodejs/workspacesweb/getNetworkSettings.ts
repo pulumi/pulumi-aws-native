@@ -27,7 +27,7 @@ export interface GetNetworkSettingsResult {
     readonly networkSettingsArn?: string;
     readonly securityGroupIds?: string[];
     readonly subnetIds?: string[];
-    readonly tags?: outputs.workspacesweb.NetworkSettingsTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcId?: string;
 }
 /**

@@ -29,7 +29,7 @@ export interface GetTargetGroupResult {
     readonly id?: string;
     readonly lastUpdatedAt?: string;
     readonly status?: enums.vpclattice.TargetGroupStatus;
-    readonly tags?: outputs.vpclattice.TargetGroupTag[];
+    readonly tags?: outputs.Tag[];
     readonly targets?: outputs.vpclattice.TargetGroupTarget[];
 }
 /**

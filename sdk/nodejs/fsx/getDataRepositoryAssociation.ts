@@ -39,7 +39,7 @@ export interface GetDataRepositoryAssociationResult {
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    readonly tags?: outputs.fsx.DataRepositoryAssociationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type.

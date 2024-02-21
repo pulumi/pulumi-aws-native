@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Connect
         /// One or more tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.HoursOfOperationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The time zone of the hours of operation.
@@ -133,14 +133,14 @@ namespace Pulumi.AwsNative.Connect
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.HoursOfOperationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public InputList<Inputs.HoursOfOperationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.HoursOfOperationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

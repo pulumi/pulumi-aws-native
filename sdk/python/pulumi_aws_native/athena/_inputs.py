@@ -13,8 +13,6 @@ from ._enums import *
 __all__ = [
     'CapacityReservationCapacityAssignmentConfigurationArgs',
     'CapacityReservationCapacityAssignmentArgs',
-    'CapacityReservationTagArgs',
-    'DataCatalogTagArgs',
     'WorkGroupAclConfigurationArgs',
     'WorkGroupConfigurationUpdatesArgs',
     'WorkGroupConfigurationArgs',
@@ -23,7 +21,6 @@ __all__ = [
     'WorkGroupEngineVersionArgs',
     'WorkGroupResultConfigurationUpdatesArgs',
     'WorkGroupResultConfigurationArgs',
-    'WorkGroupTagArgs',
 ]
 
 @pulumi.input_type
@@ -59,60 +56,6 @@ class CapacityReservationCapacityAssignmentArgs:
     @workgroup_names.setter
     def workgroup_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "workgroup_names", value)
-
-
-@pulumi.input_type
-class CapacityReservationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class DataCatalogTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -627,32 +570,5 @@ class WorkGroupResultConfigurationArgs:
     @output_location.setter
     def output_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "output_location", value)
-
-
-@pulumi.input_type
-class WorkGroupTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.B2bi
         public readonly string? Name;
         public readonly string? PartnershipArn;
         public readonly string? PartnershipId;
-        public readonly ImmutableArray<Outputs.PartnershipTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TradingPartnerId;
 
         [OutputConstructor]
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.B2bi
 
             string? partnershipId,
 
-            ImmutableArray<Outputs.PartnershipTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? tradingPartnerId)
         {

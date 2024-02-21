@@ -28,7 +28,7 @@ export interface GetSamplingRuleResult {
     readonly samplingRule?: outputs.xray.SamplingRule;
     readonly samplingRuleRecord?: outputs.xray.SamplingRuleRecord;
     readonly samplingRuleUpdate?: outputs.xray.SamplingRuleUpdate;
-    readonly tags?: outputs.xray.SamplingRuleTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.

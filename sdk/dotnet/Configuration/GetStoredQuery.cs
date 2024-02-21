@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// The tags for the stored query.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StoredQueryTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetStoredQueryResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Configuration
 
             string? queryId,
 
-            ImmutableArray<Outputs.StoredQueryTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             QueryArn = queryArn;
             QueryDescription = queryDescription;

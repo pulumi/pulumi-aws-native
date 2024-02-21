@@ -40,7 +40,7 @@ export class TestGridProject extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.devicefarm.TestGridProjectTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcConfig!: pulumi.Output<outputs.devicefarm.TestGridProjectVpcConfig | undefined>;
 
     /**
@@ -77,6 +77,6 @@ export class TestGridProject extends pulumi.CustomResource {
 export interface TestGridProjectArgs {
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.devicefarm.TestGridProjectTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcConfig?: pulumi.Input<inputs.devicefarm.TestGridProjectVpcConfigArgs>;
 }

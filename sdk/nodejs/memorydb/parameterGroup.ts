@@ -62,7 +62,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this parameter group.
      */
-    public readonly tags!: pulumi.Output<outputs.memorydb.ParameterGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.
@@ -124,5 +124,5 @@ export interface ParameterGroupArgs {
     /**
      * An array of key-value pairs to apply to this parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.memorydb.ParameterGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -33,7 +33,7 @@ export interface GetInstanceConnectEndpointResult {
     /**
      * The tags of the instance connect endpoint.
      */
-    readonly tags?: outputs.ec2.InstanceConnectEndpointTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::InstanceConnectEndpoint

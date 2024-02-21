@@ -13,7 +13,6 @@ from . import outputs
 __all__ = [
     'RepositoryCode',
     'RepositoryS3',
-    'RepositoryTag',
     'RepositoryTrigger',
 ]
 
@@ -96,25 +95,6 @@ class RepositoryS3(dict):
     @pulumi.getter(name="objectVersion")
     def object_version(self) -> Optional[str]:
         return pulumi.get(self, "object_version")
-
-
-@pulumi.output_type
-class RepositoryTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

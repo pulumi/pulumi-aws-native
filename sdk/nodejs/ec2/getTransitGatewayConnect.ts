@@ -37,7 +37,7 @@ export interface GetTransitGatewayConnectResult {
     /**
      * The tags for the attachment.
      */
-    readonly tags?: outputs.ec2.TransitGatewayConnectTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ID of the Connect attachment.
      */

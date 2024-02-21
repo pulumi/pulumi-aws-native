@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type Addon struct {
 	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn pulumi.StringPtrOutput `pulumi:"serviceAccountRoleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags AddonTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAddon registers a new resource with the given unique name, arguments, and options.
@@ -99,7 +100,7 @@ type addonArgs struct {
 	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []AddonTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Addon resource.
@@ -119,7 +120,7 @@ type AddonArgs struct {
 	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags AddonTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AddonArgs) ElementType() reflect.Type {
@@ -200,8 +201,8 @@ func (o AddonOutput) ServiceAccountRoleArn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o AddonOutput) Tags() AddonTagArrayOutput {
-	return o.ApplyT(func(v *Addon) AddonTagArrayOutput { return v.Tags }).(AddonTagArrayOutput)
+func (o AddonOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Addon) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

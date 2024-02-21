@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type Container struct {
 	// The name for the container service.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ContainerTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The publicly accessible URL of the container service.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
@@ -107,7 +108,7 @@ type containerArgs struct {
 	// The name for the container service.
 	ServiceName string `pulumi:"serviceName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ContainerTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Container resource.
@@ -127,7 +128,7 @@ type ContainerArgs struct {
 	// The name for the container service.
 	ServiceName pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ContainerTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ContainerArgs) ElementType() reflect.Type {
@@ -212,8 +213,8 @@ func (o ContainerOutput) ServiceName() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ContainerOutput) Tags() ContainerTagArrayOutput {
-	return o.ApplyT(func(v *Container) ContainerTagArrayOutput { return v.Tags }).(ContainerTagArrayOutput)
+func (o ContainerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Container) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The publicly accessible URL of the container service.

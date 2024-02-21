@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupCalculatedAttributeDefinitionResult struct {
 	// The timestamp of when the calculated attribute definition was most recently edited.
 	LastUpdatedAt *string                                 `pulumi:"lastUpdatedAt"`
 	Statistic     *CalculatedAttributeDefinitionStatistic `pulumi:"statistic"`
-	Tags          []CalculatedAttributeDefinitionTag      `pulumi:"tags"`
+	Tags          []aws.Tag                               `pulumi:"tags"`
 }
 
 func LookupCalculatedAttributeDefinitionOutput(ctx *pulumi.Context, args LookupCalculatedAttributeDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupCalculatedAttributeDefinitionResultOutput {
@@ -112,8 +113,8 @@ func (o LookupCalculatedAttributeDefinitionResultOutput) Statistic() CalculatedA
 	}).(CalculatedAttributeDefinitionStatisticPtrOutput)
 }
 
-func (o LookupCalculatedAttributeDefinitionResultOutput) Tags() CalculatedAttributeDefinitionTagArrayOutput {
-	return o.ApplyT(func(v LookupCalculatedAttributeDefinitionResult) []CalculatedAttributeDefinitionTag { return v.Tags }).(CalculatedAttributeDefinitionTagArrayOutput)
+func (o LookupCalculatedAttributeDefinitionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCalculatedAttributeDefinitionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

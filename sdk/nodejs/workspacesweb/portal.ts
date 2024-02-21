@@ -52,7 +52,7 @@ export class Portal extends pulumi.CustomResource {
     public /*out*/ readonly rendererType!: pulumi.Output<enums.workspacesweb.PortalRendererType>;
     public /*out*/ readonly serviceProviderSamlMetadata!: pulumi.Output<string>;
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.workspacesweb.PortalTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly trustStoreArn!: pulumi.Output<string | undefined>;
     public readonly userAccessLoggingSettingsArn!: pulumi.Output<string | undefined>;
     public readonly userSettingsArn!: pulumi.Output<string | undefined>;
@@ -126,7 +126,7 @@ export interface PortalArgs {
     displayName?: pulumi.Input<string>;
     ipAccessSettingsArn?: pulumi.Input<string>;
     networkSettingsArn?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.workspacesweb.PortalTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     trustStoreArn?: pulumi.Input<string>;
     userAccessLoggingSettingsArn?: pulumi.Input<string>;
     userSettingsArn?: pulumi.Input<string>;

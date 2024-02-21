@@ -49,7 +49,7 @@ export interface GetRepositoryLinkResult {
     /**
      * Specifies the tags applied to a RepositoryLink.
      */
-    readonly tags?: outputs.codestarconnections.RepositoryLinkTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Schema for AWS::CodeStarConnections::RepositoryLink resource which is used to aggregate repository metadata relevant to synchronizing source provider content to AWS Resources.

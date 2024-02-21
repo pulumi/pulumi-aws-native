@@ -19,7 +19,6 @@ __all__ = [
     'BucketLifecycleConfiguration',
     'BucketRule',
     'BucketRuleFilterProperties',
-    'BucketTag',
     'EndpointFailedReason',
     'EndpointNetworkInterface',
 ]
@@ -334,25 +333,6 @@ class BucketRuleFilterProperties(dict):
         Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
         """
         return pulumi.get(self, "tag")
-
-
-@pulumi.output_type
-class BucketTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

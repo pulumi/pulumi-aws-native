@@ -28,7 +28,7 @@ export interface GetListenerResult {
     readonly id?: string;
     readonly serviceArn?: string;
     readonly serviceId?: string;
-    readonly tags?: outputs.vpclattice.ListenerTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.

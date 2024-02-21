@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.AmazonMq
         public readonly string? Description;
         public readonly string? Id;
         public readonly int? Revision;
-        public readonly ImmutableArray<Outputs.ConfigurationTagsEntry> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetConfigurationResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.AmazonMq
 
             int? revision,
 
-            ImmutableArray<Outputs.ConfigurationTagsEntry> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Data = data;

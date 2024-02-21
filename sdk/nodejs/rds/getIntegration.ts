@@ -34,7 +34,7 @@ export interface GetIntegrationResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.rds.IntegrationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.

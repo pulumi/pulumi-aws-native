@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.BillingConductor
         public Output<string?> Service { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PricingRuleTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The set of tiering configurations for the pricing rule.
@@ -199,10 +199,10 @@ namespace Pulumi.AwsNative.BillingConductor
         public Input<string>? Service { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.PricingRuleTagArgs>? _tags;
-        public InputList<Inputs.PricingRuleTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PricingRuleTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

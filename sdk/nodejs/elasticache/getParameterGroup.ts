@@ -29,7 +29,7 @@ export interface GetParameterGroupResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
      */
     readonly properties?: any;
-    readonly tags?: outputs.elasticache.ParameterGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ElastiCache::ParameterGroup

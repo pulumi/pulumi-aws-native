@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,9 +30,9 @@ type LookupPermissionArgs struct {
 type LookupPermissionResult struct {
 	Arn *string `pulumi:"arn"`
 	// Set to true to use this as the default permission.
-	IsResourceTypeDefault *bool           `pulumi:"isResourceTypeDefault"`
-	PermissionType        *string         `pulumi:"permissionType"`
-	Tags                  []PermissionTag `pulumi:"tags"`
+	IsResourceTypeDefault *bool     `pulumi:"isResourceTypeDefault"`
+	PermissionType        *string   `pulumi:"permissionType"`
+	Tags                  []aws.Tag `pulumi:"tags"`
 	// Version of the permission.
 	Version *string `pulumi:"version"`
 }
@@ -84,8 +85,8 @@ func (o LookupPermissionResultOutput) PermissionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPermissionResult) *string { return v.PermissionType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPermissionResultOutput) Tags() PermissionTagArrayOutput {
-	return o.ApplyT(func(v LookupPermissionResult) []PermissionTag { return v.Tags }).(PermissionTagArrayOutput)
+func (o LookupPermissionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPermissionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Version of the permission.

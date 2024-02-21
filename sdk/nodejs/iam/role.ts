@@ -82,7 +82,7 @@ export class Role extends pulumi.CustomResource {
     /**
      * A list of tags that are attached to the role.
      */
-    public readonly tags!: pulumi.Output<outputs.iam.RoleTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Role resource with the given unique name, arguments, and options.
@@ -170,5 +170,5 @@ export interface RoleArgs {
     /**
      * A list of tags that are attached to the role.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iam.RoleTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

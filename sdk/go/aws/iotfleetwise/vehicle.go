@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type Vehicle struct {
 	LastModificationTime pulumi.StringOutput                 `pulumi:"lastModificationTime"`
 	ModelManifestArn     pulumi.StringOutput                 `pulumi:"modelManifestArn"`
 	Name                 pulumi.StringOutput                 `pulumi:"name"`
-	Tags                 VehicleTagArrayOutput               `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput                  `pulumi:"tags"`
 }
 
 // NewVehicle registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +85,7 @@ type vehicleArgs struct {
 	DecoderManifestArn  string                      `pulumi:"decoderManifestArn"`
 	ModelManifestArn    string                      `pulumi:"modelManifestArn"`
 	Name                *string                     `pulumi:"name"`
-	Tags                []VehicleTag                `pulumi:"tags"`
+	Tags                []aws.Tag                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vehicle resource.
@@ -94,7 +95,7 @@ type VehicleArgs struct {
 	DecoderManifestArn  pulumi.StringInput
 	ModelManifestArn    pulumi.StringInput
 	Name                pulumi.StringPtrInput
-	Tags                VehicleTagArrayInput
+	Tags                aws.TagArrayInput
 }
 
 func (VehicleArgs) ElementType() reflect.Type {
@@ -166,8 +167,8 @@ func (o VehicleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vehicle) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o VehicleOutput) Tags() VehicleTagArrayOutput {
-	return o.ApplyT(func(v *Vehicle) VehicleTagArrayOutput { return v.Tags }).(VehicleTagArrayOutput)
+func (o VehicleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Vehicle) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -55,13 +55,13 @@ namespace Pulumi.AwsNative.Rekognition
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CollectionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCollectionResult(
             string? arn,
 
-            ImmutableArray<Outputs.CollectionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Tags = tags;

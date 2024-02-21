@@ -38,7 +38,7 @@ export interface GetCalculatedAttributeDefinitionResult {
      */
     readonly lastUpdatedAt?: string;
     readonly statistic?: enums.customerprofiles.CalculatedAttributeDefinitionStatistic;
-    readonly tags?: outputs.customerprofiles.CalculatedAttributeDefinitionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A calculated attribute definition for Customer Profiles

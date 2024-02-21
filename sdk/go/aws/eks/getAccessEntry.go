@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupAccessEntryResult struct {
 	// The Kubernetes groups that the access entry is associated with.
 	KubernetesGroups []string `pulumi:"kubernetesGroups"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []AccessEntryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Kubernetes user that the access entry is associated with.
 	Username *string `pulumi:"username"`
 }
@@ -96,8 +97,8 @@ func (o LookupAccessEntryResultOutput) KubernetesGroups() pulumi.StringArrayOutp
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupAccessEntryResultOutput) Tags() AccessEntryTagArrayOutput {
-	return o.ApplyT(func(v LookupAccessEntryResult) []AccessEntryTag { return v.Tags }).(AccessEntryTagArrayOutput)
+func (o LookupAccessEntryResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAccessEntryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Kubernetes user that the access entry is associated with.

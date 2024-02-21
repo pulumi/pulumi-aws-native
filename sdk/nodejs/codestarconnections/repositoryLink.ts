@@ -68,7 +68,7 @@ export class RepositoryLink extends pulumi.CustomResource {
     /**
      * Specifies the tags applied to a RepositoryLink.
      */
-    public readonly tags!: pulumi.Output<outputs.codestarconnections.RepositoryLinkTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RepositoryLink resource with the given unique name, arguments, and options.
@@ -138,5 +138,5 @@ export interface RepositoryLinkArgs {
     /**
      * Specifies the tags applied to a RepositoryLink.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.codestarconnections.RepositoryLinkTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

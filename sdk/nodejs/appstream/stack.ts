@@ -52,7 +52,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly redirectUrl!: pulumi.Output<string | undefined>;
     public readonly storageConnectors!: pulumi.Output<outputs.appstream.StackStorageConnector[] | undefined>;
     public readonly streamingExperienceSettings!: pulumi.Output<outputs.appstream.StackStreamingExperienceSettings | undefined>;
-    public readonly tags!: pulumi.Output<outputs.appstream.StackTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly userSettings!: pulumi.Output<outputs.appstream.StackUserSetting[] | undefined>;
 
     /**
@@ -121,6 +121,6 @@ export interface StackArgs {
     redirectUrl?: pulumi.Input<string>;
     storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnectorArgs>[]>;
     streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettingsArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appstream.StackTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSettingArgs>[]>;
 }

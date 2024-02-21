@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,7 +24,7 @@ class ConnectorArgs:
                  as2_config: Optional[pulumi.Input['As2ConfigPropertiesArgs']] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
                  sftp_config: Optional[pulumi.Input['SftpConfigPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Connector resource.
         :param pulumi.Input[str] access_role: Specifies the access role for the connector.
@@ -30,7 +32,7 @@ class ConnectorArgs:
         :param pulumi.Input['As2ConfigPropertiesArgs'] as2_config: Configuration for an AS2 connector.
         :param pulumi.Input[str] logging_role: Specifies the logging role for the connector.
         :param pulumi.Input['SftpConfigPropertiesArgs'] sftp_config: Configuration for an SFTP connector.
-        :param pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         """
         pulumi.set(__self__, "access_role", access_role)
         pulumi.set(__self__, "url", url)
@@ -105,14 +107,14 @@ class ConnectorArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -125,7 +127,7 @@ class Connector(pulumi.CustomResource):
                  as2_config: Optional[pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
                  sftp_config: Optional[pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -137,7 +139,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']] as2_config: Configuration for an AS2 connector.
         :param pulumi.Input[str] logging_role: Specifies the logging role for the connector.
         :param pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']] sftp_config: Configuration for an SFTP connector.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectorTagArgs']]]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         :param pulumi.Input[str] url: URL for Connector
         """
         ...
@@ -168,7 +170,7 @@ class Connector(pulumi.CustomResource):
                  as2_config: Optional[pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
                  sftp_config: Optional[pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -273,7 +275,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ConnectorTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         """

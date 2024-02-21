@@ -41,7 +41,7 @@ export class NetworkSettings extends pulumi.CustomResource {
     public /*out*/ readonly networkSettingsArn!: pulumi.Output<string>;
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     public readonly subnetIds!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<outputs.workspacesweb.NetworkSettingsTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -89,6 +89,6 @@ export class NetworkSettings extends pulumi.CustomResource {
 export interface NetworkSettingsArgs {
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.workspacesweb.NetworkSettingsTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcId: pulumi.Input<string>;
 }

@@ -29,7 +29,7 @@ export interface GetCertificateProviderResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.iot.CertificateProviderTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.

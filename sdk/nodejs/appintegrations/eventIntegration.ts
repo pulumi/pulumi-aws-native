@@ -60,7 +60,7 @@ export class EventIntegration extends pulumi.CustomResource {
     /**
      * The tags (keys and values) associated with the event integration.
      */
-    public readonly tags!: pulumi.Output<outputs.appintegrations.EventIntegrationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EventIntegration resource with the given unique name, arguments, and options.
@@ -123,5 +123,5 @@ export interface EventIntegrationArgs {
     /**
      * The tags (keys and values) associated with the event integration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.appintegrations.EventIntegrationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

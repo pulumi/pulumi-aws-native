@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type NotebookInstance struct {
 	RootAccess                           pulumi.StringPtrOutput                                        `pulumi:"rootAccess"`
 	SecurityGroupIds                     pulumi.StringArrayOutput                                      `pulumi:"securityGroupIds"`
 	SubnetId                             pulumi.StringPtrOutput                                        `pulumi:"subnetId"`
-	Tags                                 NotebookInstanceTagArrayOutput                                `pulumi:"tags"`
+	Tags                                 aws.TagArrayOutput                                            `pulumi:"tags"`
 	VolumeSizeInGb                       pulumi.IntPtrOutput                                           `pulumi:"volumeSizeInGb"`
 }
 
@@ -105,7 +106,7 @@ type notebookInstanceArgs struct {
 	RootAccess                           *string                                               `pulumi:"rootAccess"`
 	SecurityGroupIds                     []string                                              `pulumi:"securityGroupIds"`
 	SubnetId                             *string                                               `pulumi:"subnetId"`
-	Tags                                 []NotebookInstanceTag                                 `pulumi:"tags"`
+	Tags                                 []aws.Tag                                             `pulumi:"tags"`
 	VolumeSizeInGb                       *int                                                  `pulumi:"volumeSizeInGb"`
 }
 
@@ -125,7 +126,7 @@ type NotebookInstanceArgs struct {
 	RootAccess                           pulumi.StringPtrInput
 	SecurityGroupIds                     pulumi.StringArrayInput
 	SubnetId                             pulumi.StringPtrInput
-	Tags                                 NotebookInstanceTagArrayInput
+	Tags                                 aws.TagArrayInput
 	VolumeSizeInGb                       pulumi.IntPtrInput
 }
 
@@ -224,8 +225,8 @@ func (o NotebookInstanceOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-func (o NotebookInstanceOutput) Tags() NotebookInstanceTagArrayOutput {
-	return o.ApplyT(func(v *NotebookInstance) NotebookInstanceTagArrayOutput { return v.Tags }).(NotebookInstanceTagArrayOutput)
+func (o NotebookInstanceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *NotebookInstance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o NotebookInstanceOutput) VolumeSizeInGb() pulumi.IntPtrOutput {

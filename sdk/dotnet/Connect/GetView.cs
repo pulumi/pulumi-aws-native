@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ViewTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The template of the view as JSON.
         /// 
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Connect
 
             string? name,
 
-            ImmutableArray<Outputs.ViewTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             object? template,
 

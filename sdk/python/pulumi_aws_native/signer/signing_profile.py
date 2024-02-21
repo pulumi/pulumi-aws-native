@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -19,12 +21,12 @@ class SigningProfileArgs:
     def __init__(__self__, *,
                  platform_id: pulumi.Input['SigningProfilePlatformId'],
                  signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SigningProfile resource.
         :param pulumi.Input['SigningProfilePlatformId'] platform_id: The ID of the target signing platform.
         :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: Signature validity period of the profile.
-        :param pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]] tags: A list of tags associated with the signing profile.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags associated with the signing profile.
         """
         pulumi.set(__self__, "platform_id", platform_id)
         if signature_validity_period is not None:
@@ -58,14 +60,14 @@ class SigningProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags associated with the signing profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -76,7 +78,7 @@ class SigningProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         A signing profile is a signing template that can be used to carry out a pre-defined signing job.
@@ -85,7 +87,7 @@ class SigningProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['SigningProfilePlatformId'] platform_id: The ID of the target signing platform.
         :param pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']] signature_validity_period: Signature validity period of the profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileTagArgs']]]] tags: A list of tags associated with the signing profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags associated with the signing profile.
         """
         ...
     @overload
@@ -113,7 +115,7 @@ class SigningProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -215,7 +217,7 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SigningProfileTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags associated with the signing profile.
         """

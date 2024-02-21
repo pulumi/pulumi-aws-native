@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type ReadinessCheck struct {
 	// The name of the resource set to check.
 	ResourceSetName pulumi.StringPtrOutput `pulumi:"resourceSetName"`
 	// A collection of tags associated with a resource.
-	Tags ReadinessCheckTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewReadinessCheck registers a new resource with the given unique name, arguments, and options.
@@ -74,7 +75,7 @@ type readinessCheckArgs struct {
 	// The name of the resource set to check.
 	ResourceSetName *string `pulumi:"resourceSetName"`
 	// A collection of tags associated with a resource.
-	Tags []ReadinessCheckTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReadinessCheck resource.
@@ -84,7 +85,7 @@ type ReadinessCheckArgs struct {
 	// The name of the resource set to check.
 	ResourceSetName pulumi.StringPtrInput
 	// A collection of tags associated with a resource.
-	Tags ReadinessCheckTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ReadinessCheckArgs) ElementType() reflect.Type {
@@ -140,8 +141,8 @@ func (o ReadinessCheckOutput) ResourceSetName() pulumi.StringPtrOutput {
 }
 
 // A collection of tags associated with a resource.
-func (o ReadinessCheckOutput) Tags() ReadinessCheckTagArrayOutput {
-	return o.ApplyT(func(v *ReadinessCheck) ReadinessCheckTagArrayOutput { return v.Tags }).(ReadinessCheckTagArrayOutput)
+func (o ReadinessCheckOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ReadinessCheck) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

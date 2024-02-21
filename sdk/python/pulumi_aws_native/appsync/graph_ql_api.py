@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['GraphQlApiArgs', 'GraphQlApi']
@@ -30,7 +32,7 @@ class GraphQlApiArgs:
                  owner_contact: Optional[pulumi.Input[str]] = None,
                  query_depth_limit: Optional[pulumi.Input[int]] = None,
                  resolver_count_limit: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQlApiUserPoolConfigArgs']] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
@@ -205,11 +207,11 @@ class GraphQlApiArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -264,7 +266,7 @@ class GraphQlApi(pulumi.CustomResource):
                  owner_contact: Optional[pulumi.Input[str]] = None,
                  query_depth_limit: Optional[pulumi.Input[int]] = None,
                  resolver_count_limit: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiUserPoolConfigArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
@@ -314,7 +316,7 @@ class GraphQlApi(pulumi.CustomResource):
                  owner_contact: Optional[pulumi.Input[str]] = None,
                  query_depth_limit: Optional[pulumi.Input[int]] = None,
                  resolver_count_limit: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiUserPoolConfigArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
@@ -514,7 +516,7 @@ class GraphQlApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQlApiTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupEntityTypeResult struct {
 	// The timestamp when the entity type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Tags associated with this entity type.
-	Tags []EntityTypeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEntityTypeOutput(ctx *pulumi.Context, args LookupEntityTypeOutputArgs, opts ...pulumi.InvokeOption) LookupEntityTypeResultOutput {
@@ -97,8 +98,8 @@ func (o LookupEntityTypeResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 }
 
 // Tags associated with this entity type.
-func (o LookupEntityTypeResultOutput) Tags() EntityTypeTagArrayOutput {
-	return o.ApplyT(func(v LookupEntityTypeResult) []EntityTypeTag { return v.Tags }).(EntityTypeTagArrayOutput)
+func (o LookupEntityTypeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEntityTypeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

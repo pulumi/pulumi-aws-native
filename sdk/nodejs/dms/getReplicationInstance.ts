@@ -35,7 +35,7 @@ export interface GetReplicationInstanceResult {
     readonly replicationInstanceIdentifier?: string;
     readonly replicationInstancePrivateIpAddresses?: string;
     readonly replicationInstancePublicIpAddresses?: string;
-    readonly tags?: outputs.dms.ReplicationInstanceTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcSecurityGroupIds?: string[];
 }
 /**

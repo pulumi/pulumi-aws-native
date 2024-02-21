@@ -43,7 +43,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
     public readonly replicationSubnetGroupDescription!: pulumi.Output<string>;
     public readonly replicationSubnetGroupIdentifier!: pulumi.Output<string | undefined>;
     public readonly subnetIds!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<outputs.dms.ReplicationSubnetGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ReplicationSubnetGroup resource with the given unique name, arguments, and options.
@@ -88,5 +88,5 @@ export interface ReplicationSubnetGroupArgs {
     replicationSubnetGroupDescription: pulumi.Input<string>;
     replicationSubnetGroupIdentifier?: pulumi.Input<string>;
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.dms.ReplicationSubnetGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -49,7 +49,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * Tags for labeling the data source
      */
-    public readonly tags!: pulumi.Output<outputs.kendra.DataSourceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly type!: pulumi.Output<enums.kendra.DataSourceType>;
 
     /**
@@ -115,6 +115,6 @@ export interface DataSourceArgs {
     /**
      * Tags for labeling the data source
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     type: pulumi.Input<enums.kendra.DataSourceType>;
 }

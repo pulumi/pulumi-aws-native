@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,10 +25,10 @@ class ConfiguredTableArgs:
                  analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfiguredTable resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         pulumi.set(__self__, "allowed_columns", allowed_columns)
         pulumi.set(__self__, "analysis_method", analysis_method)
@@ -96,14 +98,14 @@ class ConfiguredTableArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -118,14 +120,14 @@ class ConfiguredTable(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  table_reference: Optional[pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfiguredTableTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Represents a table that can be associated with collaborations
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfiguredTableTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
     @overload
@@ -157,7 +159,7 @@ class ConfiguredTable(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  table_reference: Optional[pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfiguredTableTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -259,7 +261,7 @@ class ConfiguredTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ConfiguredTableTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """

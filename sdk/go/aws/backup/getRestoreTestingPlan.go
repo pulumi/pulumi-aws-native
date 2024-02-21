@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupRestoreTestingPlanResult struct {
 	ScheduleExpression         *string                                                 `pulumi:"scheduleExpression"`
 	ScheduleExpressionTimezone *string                                                 `pulumi:"scheduleExpressionTimezone"`
 	StartWindowHours           *int                                                    `pulumi:"startWindowHours"`
-	Tags                       []RestoreTestingPlanTag                                 `pulumi:"tags"`
+	Tags                       []aws.Tag                                               `pulumi:"tags"`
 }
 
 func LookupRestoreTestingPlanOutput(ctx *pulumi.Context, args LookupRestoreTestingPlanOutputArgs, opts ...pulumi.InvokeOption) LookupRestoreTestingPlanResultOutput {
@@ -92,8 +93,8 @@ func (o LookupRestoreTestingPlanResultOutput) StartWindowHours() pulumi.IntPtrOu
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *int { return v.StartWindowHours }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupRestoreTestingPlanResultOutput) Tags() RestoreTestingPlanTagArrayOutput {
-	return o.ApplyT(func(v LookupRestoreTestingPlanResult) []RestoreTestingPlanTag { return v.Tags }).(RestoreTestingPlanTagArrayOutput)
+func (o LookupRestoreTestingPlanResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRestoreTestingPlanResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

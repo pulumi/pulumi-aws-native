@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Proton
         ///          &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html"&gt;Proton resources and tagging&lt;/a&gt; in the
         ///         &lt;i&gt;Proton User Guide&lt;/i&gt;.&lt;/p&gt;
         /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentAccountConnectionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEnvironmentAccountConnectionResult(
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.Proton
 
             Pulumi.AwsNative.Proton.EnvironmentAccountConnectionStatus? status,
 
-            ImmutableArray<Outputs.EnvironmentAccountConnectionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CodebuildRoleArn = codebuildRoleArn;

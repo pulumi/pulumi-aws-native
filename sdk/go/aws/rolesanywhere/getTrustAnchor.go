@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupTrustAnchorResult struct {
 	Name                 *string                          `pulumi:"name"`
 	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
 	Source               *TrustAnchorSource               `pulumi:"source"`
-	Tags                 []TrustAnchorTag                 `pulumi:"tags"`
+	Tags                 []aws.Tag                        `pulumi:"tags"`
 	TrustAnchorArn       *string                          `pulumi:"trustAnchorArn"`
 	TrustAnchorId        *string                          `pulumi:"trustAnchorId"`
 }
@@ -87,8 +88,8 @@ func (o LookupTrustAnchorResultOutput) Source() TrustAnchorSourcePtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *TrustAnchorSource { return v.Source }).(TrustAnchorSourcePtrOutput)
 }
 
-func (o LookupTrustAnchorResultOutput) Tags() TrustAnchorTagArrayOutput {
-	return o.ApplyT(func(v LookupTrustAnchorResult) []TrustAnchorTag { return v.Tags }).(TrustAnchorTagArrayOutput)
+func (o LookupTrustAnchorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTrustAnchorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupTrustAnchorResultOutput) TrustAnchorArn() pulumi.StringPtrOutput {

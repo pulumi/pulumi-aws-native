@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags for the NAT gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NatGatewayTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetNatGatewayResult(
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<string> secondaryPrivateIpAddresses,
 
-            ImmutableArray<Outputs.NatGatewayTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             NatGatewayId = natGatewayId;
             SecondaryAllocationIds = secondaryAllocationIds;

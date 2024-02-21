@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LocationEfs struct {
 	// A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationEfsTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationEfs registers a new resource with the given unique name, arguments, and options.
@@ -99,7 +100,7 @@ type locationEfsArgs struct {
 	// A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationEfsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationEfs resource.
@@ -116,7 +117,7 @@ type LocationEfsArgs struct {
 	// A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationEfsTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocationEfsArgs) ElementType() reflect.Type {
@@ -196,8 +197,8 @@ func (o LocationEfsOutput) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationEfsOutput) Tags() LocationEfsTagArrayOutput {
-	return o.ApplyT(func(v *LocationEfs) LocationEfsTagArrayOutput { return v.Tags }).(LocationEfsTagArrayOutput)
+func (o LocationEfsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationEfs) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

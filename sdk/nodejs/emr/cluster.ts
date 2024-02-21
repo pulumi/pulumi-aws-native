@@ -69,7 +69,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly serviceRole!: pulumi.Output<string>;
     public readonly stepConcurrencyLevel!: pulumi.Output<number | undefined>;
     public readonly steps!: pulumi.Output<outputs.emr.ClusterStepConfig[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.emr.ClusterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly visibleToAllUsers!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -191,6 +191,6 @@ export interface ClusterArgs {
     serviceRole: pulumi.Input<string>;
     stepConcurrencyLevel?: pulumi.Input<number>;
     steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStepConfigArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.emr.ClusterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     visibleToAllUsers?: pulumi.Input<boolean>;
 }

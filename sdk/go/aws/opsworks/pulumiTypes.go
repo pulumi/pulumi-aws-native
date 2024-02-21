@@ -1976,101 +1976,6 @@ type LayerTag struct {
 	Value string `pulumi:"value"`
 }
 
-// LayerTagInput is an input type that accepts LayerTagArgs and LayerTagOutput values.
-// You can construct a concrete instance of `LayerTagInput` via:
-//
-//	LayerTagArgs{...}
-type LayerTagInput interface {
-	pulumi.Input
-
-	ToLayerTagOutput() LayerTagOutput
-	ToLayerTagOutputWithContext(context.Context) LayerTagOutput
-}
-
-type LayerTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LayerTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LayerTag)(nil)).Elem()
-}
-
-func (i LayerTagArgs) ToLayerTagOutput() LayerTagOutput {
-	return i.ToLayerTagOutputWithContext(context.Background())
-}
-
-func (i LayerTagArgs) ToLayerTagOutputWithContext(ctx context.Context) LayerTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LayerTagOutput)
-}
-
-// LayerTagArrayInput is an input type that accepts LayerTagArray and LayerTagArrayOutput values.
-// You can construct a concrete instance of `LayerTagArrayInput` via:
-//
-//	LayerTagArray{ LayerTagArgs{...} }
-type LayerTagArrayInput interface {
-	pulumi.Input
-
-	ToLayerTagArrayOutput() LayerTagArrayOutput
-	ToLayerTagArrayOutputWithContext(context.Context) LayerTagArrayOutput
-}
-
-type LayerTagArray []LayerTagInput
-
-func (LayerTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LayerTag)(nil)).Elem()
-}
-
-func (i LayerTagArray) ToLayerTagArrayOutput() LayerTagArrayOutput {
-	return i.ToLayerTagArrayOutputWithContext(context.Background())
-}
-
-func (i LayerTagArray) ToLayerTagArrayOutputWithContext(ctx context.Context) LayerTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LayerTagArrayOutput)
-}
-
-type LayerTagOutput struct{ *pulumi.OutputState }
-
-func (LayerTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LayerTag)(nil)).Elem()
-}
-
-func (o LayerTagOutput) ToLayerTagOutput() LayerTagOutput {
-	return o
-}
-
-func (o LayerTagOutput) ToLayerTagOutputWithContext(ctx context.Context) LayerTagOutput {
-	return o
-}
-
-func (o LayerTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LayerTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o LayerTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LayerTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LayerTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LayerTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LayerTag)(nil)).Elem()
-}
-
-func (o LayerTagArrayOutput) ToLayerTagArrayOutput() LayerTagArrayOutput {
-	return o
-}
-
-func (o LayerTagArrayOutput) ToLayerTagArrayOutputWithContext(ctx context.Context) LayerTagArrayOutput {
-	return o
-}
-
-func (o LayerTagArrayOutput) Index(i pulumi.IntInput) LayerTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LayerTag {
-		return vs[0].([]LayerTag)[vs[1].(int)]
-	}).(LayerTagOutput)
-}
-
 type LayerVolumeConfiguration struct {
 	Encrypted     *bool   `pulumi:"encrypted"`
 	Iops          *int    `pulumi:"iops"`
@@ -2916,101 +2821,6 @@ type StackTag struct {
 	Value string `pulumi:"value"`
 }
 
-// StackTagInput is an input type that accepts StackTagArgs and StackTagOutput values.
-// You can construct a concrete instance of `StackTagInput` via:
-//
-//	StackTagArgs{...}
-type StackTagInput interface {
-	pulumi.Input
-
-	ToStackTagOutput() StackTagOutput
-	ToStackTagOutputWithContext(context.Context) StackTagOutput
-}
-
-type StackTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StackTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackTag)(nil)).Elem()
-}
-
-func (i StackTagArgs) ToStackTagOutput() StackTagOutput {
-	return i.ToStackTagOutputWithContext(context.Background())
-}
-
-func (i StackTagArgs) ToStackTagOutputWithContext(ctx context.Context) StackTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackTagOutput)
-}
-
-// StackTagArrayInput is an input type that accepts StackTagArray and StackTagArrayOutput values.
-// You can construct a concrete instance of `StackTagArrayInput` via:
-//
-//	StackTagArray{ StackTagArgs{...} }
-type StackTagArrayInput interface {
-	pulumi.Input
-
-	ToStackTagArrayOutput() StackTagArrayOutput
-	ToStackTagArrayOutputWithContext(context.Context) StackTagArrayOutput
-}
-
-type StackTagArray []StackTagInput
-
-func (StackTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackTag)(nil)).Elem()
-}
-
-func (i StackTagArray) ToStackTagArrayOutput() StackTagArrayOutput {
-	return i.ToStackTagArrayOutputWithContext(context.Background())
-}
-
-func (i StackTagArray) ToStackTagArrayOutputWithContext(ctx context.Context) StackTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackTagArrayOutput)
-}
-
-type StackTagOutput struct{ *pulumi.OutputState }
-
-func (StackTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackTag)(nil)).Elem()
-}
-
-func (o StackTagOutput) ToStackTagOutput() StackTagOutput {
-	return o
-}
-
-func (o StackTagOutput) ToStackTagOutputWithContext(ctx context.Context) StackTagOutput {
-	return o
-}
-
-func (o StackTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StackTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o StackTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StackTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StackTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StackTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackTag)(nil)).Elem()
-}
-
-func (o StackTagArrayOutput) ToStackTagArrayOutput() StackTagArrayOutput {
-	return o
-}
-
-func (o StackTagArrayOutput) ToStackTagArrayOutputWithContext(ctx context.Context) StackTagArrayOutput {
-	return o
-}
-
-func (o StackTagArrayOutput) Index(i pulumi.IntInput) StackTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackTag {
-		return vs[0].([]StackTag)[vs[1].(int)]
-	}).(StackTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppDataSourceInput)(nil)).Elem(), AppDataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppDataSourceArrayInput)(nil)).Elem(), AppDataSourceArray{})
@@ -3036,8 +2846,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerRecipesPtrInput)(nil)).Elem(), LayerRecipesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerShutdownEventConfigurationInput)(nil)).Elem(), LayerShutdownEventConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerShutdownEventConfigurationPtrInput)(nil)).Elem(), LayerShutdownEventConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LayerTagInput)(nil)).Elem(), LayerTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LayerTagArrayInput)(nil)).Elem(), LayerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVolumeConfigurationInput)(nil)).Elem(), LayerVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVolumeConfigurationArrayInput)(nil)).Elem(), LayerVolumeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackChefConfigurationInput)(nil)).Elem(), StackChefConfigurationArgs{})
@@ -3050,8 +2858,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackRdsDbInstanceArrayInput)(nil)).Elem(), StackRdsDbInstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSourceInput)(nil)).Elem(), StackSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSourcePtrInput)(nil)).Elem(), StackSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackTagInput)(nil)).Elem(), StackTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackTagArrayInput)(nil)).Elem(), StackTagArray{})
 	pulumi.RegisterOutputType(AppDataSourceOutput{})
 	pulumi.RegisterOutputType(AppDataSourceArrayOutput{})
 	pulumi.RegisterOutputType(AppEnvironmentVariableOutput{})
@@ -3076,8 +2882,6 @@ func init() {
 	pulumi.RegisterOutputType(LayerRecipesPtrOutput{})
 	pulumi.RegisterOutputType(LayerShutdownEventConfigurationOutput{})
 	pulumi.RegisterOutputType(LayerShutdownEventConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(LayerTagOutput{})
-	pulumi.RegisterOutputType(LayerTagArrayOutput{})
 	pulumi.RegisterOutputType(LayerVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(LayerVolumeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(StackChefConfigurationOutput{})
@@ -3090,6 +2894,4 @@ func init() {
 	pulumi.RegisterOutputType(StackRdsDbInstanceArrayOutput{})
 	pulumi.RegisterOutputType(StackSourceOutput{})
 	pulumi.RegisterOutputType(StackSourcePtrOutput{})
-	pulumi.RegisterOutputType(StackTagOutput{})
-	pulumi.RegisterOutputType(StackTagArrayOutput{})
 }

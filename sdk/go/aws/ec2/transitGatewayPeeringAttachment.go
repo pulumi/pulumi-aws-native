@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type TransitGatewayPeeringAttachment struct {
 	// The status of the transit gateway peering attachment.
 	Status TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput `pulumi:"status"`
 	// The tags for the transit gateway peering attachment.
-	Tags TransitGatewayPeeringAttachmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the transit gateway peering attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the transit gateway.
@@ -102,7 +103,7 @@ type transitGatewayPeeringAttachmentArgs struct {
 	// The ID of the peer transit gateway.
 	PeerTransitGatewayId string `pulumi:"peerTransitGatewayId"`
 	// The tags for the transit gateway peering attachment.
-	Tags []TransitGatewayPeeringAttachmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the transit gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
@@ -116,7 +117,7 @@ type TransitGatewayPeeringAttachmentArgs struct {
 	// The ID of the peer transit gateway.
 	PeerTransitGatewayId pulumi.StringInput
 	// The tags for the transit gateway peering attachment.
-	Tags TransitGatewayPeeringAttachmentTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringInput
 }
@@ -191,8 +192,8 @@ func (o TransitGatewayPeeringAttachmentOutput) Status() TransitGatewayPeeringAtt
 }
 
 // The tags for the transit gateway peering attachment.
-func (o TransitGatewayPeeringAttachmentOutput) Tags() TransitGatewayPeeringAttachmentTagArrayOutput {
-	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) TransitGatewayPeeringAttachmentTagArrayOutput { return v.Tags }).(TransitGatewayPeeringAttachmentTagArrayOutput)
+func (o TransitGatewayPeeringAttachmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the transit gateway peering attachment.

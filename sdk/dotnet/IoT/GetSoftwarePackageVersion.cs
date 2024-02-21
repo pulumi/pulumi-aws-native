@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SoftwarePackageVersionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSoftwarePackageVersionResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.IoT
 
             Pulumi.AwsNative.IoT.SoftwarePackageVersionPackageVersionStatus? status,
 
-            ImmutableArray<Outputs.SoftwarePackageVersionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Attributes = attributes;
             Description = description;

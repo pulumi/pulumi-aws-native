@@ -27,7 +27,7 @@ export interface GetVolumeResult {
     readonly ontapConfiguration?: outputs.fsx.VolumeOntapConfiguration;
     readonly openZfsConfiguration?: outputs.fsx.VolumeOpenZfsConfiguration;
     readonly resourceArn?: string;
-    readonly tags?: outputs.fsx.VolumeTag[];
+    readonly tags?: outputs.Tag[];
     readonly uuid?: string;
     readonly volumeId?: string;
 }

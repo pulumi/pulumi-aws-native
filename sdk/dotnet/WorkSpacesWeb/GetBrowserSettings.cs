@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public readonly ImmutableArray<string> AssociatedPortalArns;
         public readonly string? BrowserPolicy;
         public readonly string? BrowserSettingsArn;
-        public readonly ImmutableArray<Outputs.BrowserSettingsTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetBrowserSettingsResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             string? browserSettingsArn,
 
-            ImmutableArray<Outputs.BrowserSettingsTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AssociatedPortalArns = associatedPortalArns;
             BrowserPolicy = browserPolicy;

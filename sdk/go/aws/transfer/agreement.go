@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type Agreement struct {
 	// Specifies the status of the agreement.
 	Status AgreementStatusPtrOutput `pulumi:"status"`
 	// Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
-	Tags AgreementTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAgreement registers a new resource with the given unique name, arguments, and options.
@@ -112,7 +113,7 @@ type agreementArgs struct {
 	// Specifies the status of the agreement.
 	Status *AgreementStatus `pulumi:"status"`
 	// Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
-	Tags []AgreementTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Agreement resource.
@@ -132,7 +133,7 @@ type AgreementArgs struct {
 	// Specifies the status of the agreement.
 	Status AgreementStatusPtrInput
 	// Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
-	Tags AgreementTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AgreementArgs) ElementType() reflect.Type {
@@ -218,8 +219,8 @@ func (o AgreementOutput) Status() AgreementStatusPtrOutput {
 }
 
 // Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
-func (o AgreementOutput) Tags() AgreementTagArrayOutput {
-	return o.ApplyT(func(v *Agreement) AgreementTagArrayOutput { return v.Tags }).(AgreementTagArrayOutput)
+func (o AgreementOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Agreement) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -78,7 +78,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * The tags for the NAT gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.NatGatewayTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NatGateway resource with the given unique name, arguments, and options.
@@ -164,5 +164,5 @@ export interface NatGatewayArgs {
     /**
      * The tags for the NAT gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.NatGatewayTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

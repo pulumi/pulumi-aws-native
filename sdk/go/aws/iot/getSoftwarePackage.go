@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type LookupSoftwarePackageResult struct {
 	Description *string `pulumi:"description"`
 	PackageArn  *string `pulumi:"packageArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []SoftwarePackageTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSoftwarePackageOutput(ctx *pulumi.Context, args LookupSoftwarePackageOutputArgs, opts ...pulumi.InvokeOption) LookupSoftwarePackageResultOutput {
@@ -77,8 +78,8 @@ func (o LookupSoftwarePackageResultOutput) PackageArn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupSoftwarePackageResultOutput) Tags() SoftwarePackageTagArrayOutput {
-	return o.ApplyT(func(v LookupSoftwarePackageResult) []SoftwarePackageTag { return v.Tags }).(SoftwarePackageTagArrayOutput)
+func (o LookupSoftwarePackageResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSoftwarePackageResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

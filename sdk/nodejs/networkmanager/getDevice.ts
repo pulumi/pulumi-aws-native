@@ -74,7 +74,7 @@ export interface GetDeviceResult {
     /**
      * The tags for the device.
      */
-    readonly tags?: outputs.networkmanager.DeviceTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The device type.
      */

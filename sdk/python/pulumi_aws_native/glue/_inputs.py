@@ -55,9 +55,7 @@ __all__ = [
     'PartitionSerdeInfoArgs',
     'PartitionSkewedInfoArgs',
     'PartitionStorageDescriptorArgs',
-    'RegistryTagArgs',
     'SchemaRegistryArgs',
-    'SchemaTagArgs',
     'SchemaVersionSchemaArgs',
     'SchemaVersionArgs',
     'SecurityConfigurationCloudWatchEncryptionArgs',
@@ -1995,43 +1993,6 @@ class PartitionStorageDescriptorArgs:
 
 
 @pulumi.input_type
-class RegistryTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: A key to identify the tag.
-        :param pulumi.Input[str] value: Corresponding tag value for the key.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A key to identify the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Corresponding tag value for the key.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class SchemaRegistryArgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -2069,43 +2030,6 @@ class SchemaRegistryArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class SchemaTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: A key to identify the tag.
-        :param pulumi.Input[str] value: Corresponding tag value for the key.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A key to identify the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Corresponding tag value for the key.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

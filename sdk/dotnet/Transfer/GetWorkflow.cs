@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WorkflowTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// A unique identifier for the workflow.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Transfer
         private GetWorkflowResult(
             string? arn,
 
-            ImmutableArray<Outputs.WorkflowTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? workflowId)
         {

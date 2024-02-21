@@ -42,7 +42,7 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
 
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly networkServices!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ec2.TrafficMirrorFilterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a TrafficMirrorFilter resource with the given unique name, arguments, and options.
@@ -78,5 +78,5 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
 export interface TrafficMirrorFilterArgs {
     description?: pulumi.Input<string>;
     networkServices?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TrafficMirrorFilterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

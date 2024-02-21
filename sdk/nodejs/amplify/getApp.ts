@@ -37,7 +37,7 @@ export interface GetAppResult {
     readonly name?: string;
     readonly platform?: enums.amplify.AppPlatform;
     readonly repository?: string;
-    readonly tags?: outputs.amplify.AppTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.

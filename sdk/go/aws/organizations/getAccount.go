@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupAccountResult struct {
 	// The status of the account in the organization.
 	Status *AccountStatus `pulumi:"status"`
 	// A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
-	Tags []AccountTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
@@ -125,8 +126,8 @@ func (o LookupAccountResultOutput) Status() AccountStatusPtrOutput {
 }
 
 // A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
-func (o LookupAccountResultOutput) Tags() AccountTagArrayOutput {
-	return o.ApplyT(func(v LookupAccountResult) []AccountTag { return v.Tags }).(AccountTagArrayOutput)
+func (o LookupAccountResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

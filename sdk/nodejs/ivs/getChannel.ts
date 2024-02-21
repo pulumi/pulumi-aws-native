@@ -65,7 +65,7 @@ export interface GetChannelResult {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    readonly tags?: outputs.ivs.ChannelTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
      */

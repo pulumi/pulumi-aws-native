@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.CloudFront
         public readonly Outputs.DistributionConfig? DistributionConfig;
         public readonly string? DomainName;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.DistributionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDistributionResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudFront
 
             string? id,
 
-            ImmutableArray<Outputs.DistributionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DistributionConfig = distributionConfig;
             DomainName = domainName;

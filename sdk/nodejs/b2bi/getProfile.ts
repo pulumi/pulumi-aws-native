@@ -32,7 +32,7 @@ export interface GetProfileResult {
     readonly phone?: string;
     readonly profileArn?: string;
     readonly profileId?: string;
-    readonly tags?: outputs.b2bi.ProfileTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::B2BI::Profile Resource Type

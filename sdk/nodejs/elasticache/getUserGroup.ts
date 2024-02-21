@@ -37,7 +37,7 @@ export interface GetUserGroupResult {
     /**
      * An array of key-value pairs to apply to this user.
      */
-    readonly tags?: outputs.elasticache.UserGroupTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * List of users associated to this user group.
      */

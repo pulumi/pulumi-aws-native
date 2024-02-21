@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type Integration struct {
 	// The mapping between 3rd party event types and ObjectType names
 	ObjectTypeNames IntegrationObjectTypeMappingArrayOutput `pulumi:"objectTypeNames"`
 	// The tags (keys and values) associated with the integration
-	Tags IntegrationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The URI of the S3 bucket or any other type of data source.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 }
@@ -89,7 +90,7 @@ type integrationArgs struct {
 	// The mapping between 3rd party event types and ObjectType names
 	ObjectTypeNames []IntegrationObjectTypeMapping `pulumi:"objectTypeNames"`
 	// The tags (keys and values) associated with the integration
-	Tags []IntegrationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The URI of the S3 bucket or any other type of data source.
 	Uri *string `pulumi:"uri"`
 }
@@ -104,7 +105,7 @@ type IntegrationArgs struct {
 	// The mapping between 3rd party event types and ObjectType names
 	ObjectTypeNames IntegrationObjectTypeMappingArrayInput
 	// The tags (keys and values) associated with the integration
-	Tags IntegrationTagArrayInput
+	Tags aws.TagArrayInput
 	// The URI of the S3 bucket or any other type of data source.
 	Uri pulumi.StringPtrInput
 }
@@ -176,8 +177,8 @@ func (o IntegrationOutput) ObjectTypeNames() IntegrationObjectTypeMappingArrayOu
 }
 
 // The tags (keys and values) associated with the integration
-func (o IntegrationOutput) Tags() IntegrationTagArrayOutput {
-	return o.ApplyT(func(v *Integration) IntegrationTagArrayOutput { return v.Tags }).(IntegrationTagArrayOutput)
+func (o IntegrationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Integration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The URI of the S3 bucket or any other type of data source.

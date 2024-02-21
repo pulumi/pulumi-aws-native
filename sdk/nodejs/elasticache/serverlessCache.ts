@@ -103,7 +103,7 @@ export class ServerlessCache extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this Serverless Cache.
      */
-    public readonly tags!: pulumi.Output<outputs.elasticache.ServerlessCacheTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the user group.
      */
@@ -226,7 +226,7 @@ export interface ServerlessCacheArgs {
     /**
      * An array of key-value pairs to apply to this Serverless Cache.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the user group.
      */

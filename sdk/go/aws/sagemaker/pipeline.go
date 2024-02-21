@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,8 +26,8 @@ type Pipeline struct {
 	// The name of the Pipeline.
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
 	// Role Arn
-	RoleArn pulumi.StringOutput    `pulumi:"roleArn"`
-	Tags    PipelineTagArrayOutput `pulumi:"tags"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	Tags    aws.TagArrayOutput  `pulumi:"tags"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -88,8 +89,8 @@ type pipelineArgs struct {
 	// The name of the Pipeline.
 	PipelineName *string `pulumi:"pipelineName"`
 	// Role Arn
-	RoleArn string        `pulumi:"roleArn"`
-	Tags    []PipelineTag `pulumi:"tags"`
+	RoleArn string    `pulumi:"roleArn"`
+	Tags    []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
@@ -104,7 +105,7 @@ type PipelineArgs struct {
 	PipelineName pulumi.StringPtrInput
 	// Role Arn
 	RoleArn pulumi.StringInput
-	Tags    PipelineTagArrayInput
+	Tags    aws.TagArrayInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {
@@ -172,8 +173,8 @@ func (o PipelineOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-func (o PipelineOutput) Tags() PipelineTagArrayOutput {
-	return o.ApplyT(func(v *Pipeline) PipelineTagArrayOutput { return v.Tags }).(PipelineTagArrayOutput)
+func (o PipelineOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Pipeline) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

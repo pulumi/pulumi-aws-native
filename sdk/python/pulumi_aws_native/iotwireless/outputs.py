@@ -12,60 +12,29 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'DestinationTag',
     'DeviceProfileLoRaWanDeviceProfile',
-    'DeviceProfileTag',
     'FuotaTaskLoRaWan',
-    'FuotaTaskTag',
     'MulticastGroupLoRaWan',
-    'MulticastGroupTag',
     'NetworkAnalyzerConfigurationTag',
     'PartnerAccountSidewalkAccountInfo',
     'PartnerAccountSidewalkAccountInfoWithFingerprint',
     'PartnerAccountSidewalkUpdateAccount',
-    'PartnerAccountTag',
     'ServiceProfileLoRaWanServiceProfile',
-    'ServiceProfileTag',
     'SidewalkProperties',
     'TaskDefinitionLoRaWanGatewayVersion',
     'TaskDefinitionLoRaWanUpdateGatewayTaskCreate',
     'TaskDefinitionLoRaWanUpdateGatewayTaskEntry',
-    'TaskDefinitionTag',
     'TaskDefinitionUpdateWirelessGatewayTaskCreate',
     'TraceContentProperties',
     'WirelessDeviceAbpV10x',
     'WirelessDeviceAbpV11',
-    'WirelessDeviceImportTaskTag',
     'WirelessDeviceLoRaWanDevice',
     'WirelessDeviceOtaaV10x',
     'WirelessDeviceOtaaV11',
     'WirelessDeviceSessionKeysAbpV10x',
     'WirelessDeviceSessionKeysAbpV11',
-    'WirelessDeviceTag',
     'WirelessGatewayLoRaWanGateway',
-    'WirelessGatewayTag',
 ]
-
-@pulumi.output_type
-class DestinationTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class DeviceProfileLoRaWanDeviceProfile(dict):
@@ -278,27 +247,6 @@ class DeviceProfileLoRaWanDeviceProfile(dict):
 
 
 @pulumi.output_type
-class DeviceProfileTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class FuotaTaskLoRaWan(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -345,27 +293,6 @@ class FuotaTaskLoRaWan(dict):
         FUOTA task LoRaWAN start time
         """
         return pulumi.get(self, "start_time")
-
-
-@pulumi.output_type
-class FuotaTaskTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -442,27 +369,6 @@ class MulticastGroupLoRaWan(dict):
         Multicast group number of devices requested. Returned after successful read.
         """
         return pulumi.get(self, "number_of_devices_requested")
-
-
-@pulumi.output_type
-class MulticastGroupTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -601,27 +507,6 @@ class PartnerAccountSidewalkUpdateAccount(dict):
     @pulumi.getter(name="appServerPrivateKey")
     def app_server_private_key(self) -> Optional[str]:
         return pulumi.get(self, "app_server_private_key")
-
-
-@pulumi.output_type
-class PartnerAccountTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -835,27 +720,6 @@ class ServiceProfileLoRaWanServiceProfile(dict):
 
 
 @pulumi.output_type
-class ServiceProfileTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class SidewalkProperties(dict):
     """
     sidewalk contain file for created device and role
@@ -1066,27 +930,6 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntry(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class TaskDefinitionUpdateWirelessGatewayTaskCreate(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1256,39 +1099,6 @@ class WirelessDeviceAbpV11(dict):
     @pulumi.getter(name="sessionKeys")
     def session_keys(self) -> 'outputs.WirelessDeviceSessionKeysAbpV11':
         return pulumi.get(self, "session_keys")
-
-
-@pulumi.output_type
-class WirelessDeviceImportTaskTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1561,27 +1371,6 @@ class WirelessDeviceSessionKeysAbpV11(dict):
 
 
 @pulumi.output_type
-class WirelessDeviceTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class WirelessGatewayLoRaWanGateway(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1617,26 +1406,5 @@ class WirelessGatewayLoRaWanGateway(dict):
     @pulumi.getter(name="rfRegion")
     def rf_region(self) -> str:
         return pulumi.get(self, "rf_region")
-
-
-@pulumi.output_type
-class WirelessGatewayTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 

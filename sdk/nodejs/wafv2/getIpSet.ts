@@ -35,7 +35,7 @@ export interface GetIpSetResult {
     readonly description?: string;
     readonly id?: string;
     readonly ipAddressVersion?: enums.wafv2.IpSetIpAddressVersion;
-    readonly tags?: outputs.wafv2.IpSetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually

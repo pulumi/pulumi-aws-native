@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,14 +18,14 @@ import (
 type ResourceShare struct {
 	pulumi.CustomResourceState
 
-	AllowExternalPrincipals pulumi.BoolPtrOutput        `pulumi:"allowExternalPrincipals"`
-	Arn                     pulumi.StringOutput         `pulumi:"arn"`
-	Name                    pulumi.StringOutput         `pulumi:"name"`
-	PermissionArns          pulumi.StringArrayOutput    `pulumi:"permissionArns"`
-	Principals              pulumi.StringArrayOutput    `pulumi:"principals"`
-	ResourceArns            pulumi.StringArrayOutput    `pulumi:"resourceArns"`
-	Sources                 pulumi.StringArrayOutput    `pulumi:"sources"`
-	Tags                    ResourceShareTagArrayOutput `pulumi:"tags"`
+	AllowExternalPrincipals pulumi.BoolPtrOutput     `pulumi:"allowExternalPrincipals"`
+	Arn                     pulumi.StringOutput      `pulumi:"arn"`
+	Name                    pulumi.StringOutput      `pulumi:"name"`
+	PermissionArns          pulumi.StringArrayOutput `pulumi:"permissionArns"`
+	Principals              pulumi.StringArrayOutput `pulumi:"principals"`
+	ResourceArns            pulumi.StringArrayOutput `pulumi:"resourceArns"`
+	Sources                 pulumi.StringArrayOutput `pulumi:"sources"`
+	Tags                    aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewResourceShare registers a new resource with the given unique name, arguments, and options.
@@ -67,13 +68,13 @@ func (ResourceShareState) ElementType() reflect.Type {
 }
 
 type resourceShareArgs struct {
-	AllowExternalPrincipals *bool              `pulumi:"allowExternalPrincipals"`
-	Name                    *string            `pulumi:"name"`
-	PermissionArns          []string           `pulumi:"permissionArns"`
-	Principals              []string           `pulumi:"principals"`
-	ResourceArns            []string           `pulumi:"resourceArns"`
-	Sources                 []string           `pulumi:"sources"`
-	Tags                    []ResourceShareTag `pulumi:"tags"`
+	AllowExternalPrincipals *bool     `pulumi:"allowExternalPrincipals"`
+	Name                    *string   `pulumi:"name"`
+	PermissionArns          []string  `pulumi:"permissionArns"`
+	Principals              []string  `pulumi:"principals"`
+	ResourceArns            []string  `pulumi:"resourceArns"`
+	Sources                 []string  `pulumi:"sources"`
+	Tags                    []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceShare resource.
@@ -84,7 +85,7 @@ type ResourceShareArgs struct {
 	Principals              pulumi.StringArrayInput
 	ResourceArns            pulumi.StringArrayInput
 	Sources                 pulumi.StringArrayInput
-	Tags                    ResourceShareTagArrayInput
+	Tags                    aws.TagArrayInput
 }
 
 func (ResourceShareArgs) ElementType() reflect.Type {
@@ -152,8 +153,8 @@ func (o ResourceShareOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringArrayOutput { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
-func (o ResourceShareOutput) Tags() ResourceShareTagArrayOutput {
-	return o.ApplyT(func(v *ResourceShare) ResourceShareTagArrayOutput { return v.Tags }).(ResourceShareTagArrayOutput)
+func (o ResourceShareOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ResourceShare) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

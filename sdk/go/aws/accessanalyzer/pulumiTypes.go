@@ -383,107 +383,6 @@ type AnalyzerTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AnalyzerTagInput is an input type that accepts AnalyzerTagArgs and AnalyzerTagOutput values.
-// You can construct a concrete instance of `AnalyzerTagInput` via:
-//
-//	AnalyzerTagArgs{...}
-type AnalyzerTagInput interface {
-	pulumi.Input
-
-	ToAnalyzerTagOutput() AnalyzerTagOutput
-	ToAnalyzerTagOutputWithContext(context.Context) AnalyzerTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type AnalyzerTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AnalyzerTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyzerTag)(nil)).Elem()
-}
-
-func (i AnalyzerTagArgs) ToAnalyzerTagOutput() AnalyzerTagOutput {
-	return i.ToAnalyzerTagOutputWithContext(context.Background())
-}
-
-func (i AnalyzerTagArgs) ToAnalyzerTagOutputWithContext(ctx context.Context) AnalyzerTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerTagOutput)
-}
-
-// AnalyzerTagArrayInput is an input type that accepts AnalyzerTagArray and AnalyzerTagArrayOutput values.
-// You can construct a concrete instance of `AnalyzerTagArrayInput` via:
-//
-//	AnalyzerTagArray{ AnalyzerTagArgs{...} }
-type AnalyzerTagArrayInput interface {
-	pulumi.Input
-
-	ToAnalyzerTagArrayOutput() AnalyzerTagArrayOutput
-	ToAnalyzerTagArrayOutputWithContext(context.Context) AnalyzerTagArrayOutput
-}
-
-type AnalyzerTagArray []AnalyzerTagInput
-
-func (AnalyzerTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalyzerTag)(nil)).Elem()
-}
-
-func (i AnalyzerTagArray) ToAnalyzerTagArrayOutput() AnalyzerTagArrayOutput {
-	return i.ToAnalyzerTagArrayOutputWithContext(context.Background())
-}
-
-func (i AnalyzerTagArray) ToAnalyzerTagArrayOutputWithContext(ctx context.Context) AnalyzerTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type AnalyzerTagOutput struct{ *pulumi.OutputState }
-
-func (AnalyzerTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyzerTag)(nil)).Elem()
-}
-
-func (o AnalyzerTagOutput) ToAnalyzerTagOutput() AnalyzerTagOutput {
-	return o
-}
-
-func (o AnalyzerTagOutput) ToAnalyzerTagOutputWithContext(ctx context.Context) AnalyzerTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o AnalyzerTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalyzerTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o AnalyzerTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalyzerTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AnalyzerTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AnalyzerTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalyzerTag)(nil)).Elem()
-}
-
-func (o AnalyzerTagArrayOutput) ToAnalyzerTagArrayOutput() AnalyzerTagArrayOutput {
-	return o
-}
-
-func (o AnalyzerTagArrayOutput) ToAnalyzerTagArrayOutputWithContext(ctx context.Context) AnalyzerTagArrayOutput {
-	return o
-}
-
-func (o AnalyzerTagArrayOutput) Index(i pulumi.IntInput) AnalyzerTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyzerTag {
-		return vs[0].([]AnalyzerTag)[vs[1].(int)]
-	}).(AnalyzerTagOutput)
-}
-
 // The Configuration for Unused Access Analyzer
 type AnalyzerUnusedAccessConfiguration struct {
 	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
@@ -631,8 +530,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationPropertiesPtrInput)(nil)).Elem(), AnalyzerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerFilterInput)(nil)).Elem(), AnalyzerFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerFilterArrayInput)(nil)).Elem(), AnalyzerFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagInput)(nil)).Elem(), AnalyzerTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagArrayInput)(nil)).Elem(), AnalyzerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationPtrInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationArgs{})
 	pulumi.RegisterOutputType(AnalyzerArchiveRuleOutput{})
@@ -641,8 +538,6 @@ func init() {
 	pulumi.RegisterOutputType(AnalyzerConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterArrayOutput{})
-	pulumi.RegisterOutputType(AnalyzerTagOutput{})
-	pulumi.RegisterOutputType(AnalyzerTagArrayOutput{})
 	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationPtrOutput{})
 }

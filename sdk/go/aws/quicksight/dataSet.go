@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,7 +49,7 @@ type DataSet struct {
 	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrOutput          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrOutput `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags DataSetTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataSet registers a new resource with the given unique name, arguments, and options.
@@ -117,7 +118,7 @@ type dataSetArgs struct {
 	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags []DataSetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataSet resource.
@@ -143,7 +144,7 @@ type DataSetArgs struct {
 	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrInput
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags DataSetTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DataSetArgs) ElementType() reflect.Type {
@@ -283,8 +284,8 @@ func (o DataSetOutput) RowLevelPermissionTagConfiguration() DataSetRowLevelPermi
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-func (o DataSetOutput) Tags() DataSetTagArrayOutput {
-	return o.ApplyT(func(v *DataSet) DataSetTagArrayOutput { return v.Tags }).(DataSetTagArrayOutput)
+func (o DataSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DataSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

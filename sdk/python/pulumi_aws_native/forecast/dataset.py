@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class DatasetArgs:
                  data_frequency: Optional[pulumi.Input[str]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_config: Optional[pulumi.Input['EncryptionConfigPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
         :param pulumi.Input['DatasetType'] dataset_type: The dataset type
@@ -111,11 +113,11 @@ class DatasetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -130,7 +132,7 @@ class Dataset(pulumi.CustomResource):
                  domain: Optional[pulumi.Input['DatasetDomain']] = None,
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigPropertiesArgs']]] = None,
                  schema: Optional[pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagsItemPropertiesArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::Forecast::Dataset
@@ -172,7 +174,7 @@ class Dataset(pulumi.CustomResource):
                  domain: Optional[pulumi.Input['DatasetDomain']] = None,
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigPropertiesArgs']]] = None,
                  schema: Optional[pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagsItemPropertiesArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,6 +281,6 @@ class Dataset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TagsItemProperties']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

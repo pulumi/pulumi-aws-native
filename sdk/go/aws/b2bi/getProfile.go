@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,16 +28,16 @@ type LookupProfileArgs struct {
 }
 
 type LookupProfileResult struct {
-	BusinessName *string      `pulumi:"businessName"`
-	CreatedAt    *string      `pulumi:"createdAt"`
-	Email        *string      `pulumi:"email"`
-	LogGroupName *string      `pulumi:"logGroupName"`
-	ModifiedAt   *string      `pulumi:"modifiedAt"`
-	Name         *string      `pulumi:"name"`
-	Phone        *string      `pulumi:"phone"`
-	ProfileArn   *string      `pulumi:"profileArn"`
-	ProfileId    *string      `pulumi:"profileId"`
-	Tags         []ProfileTag `pulumi:"tags"`
+	BusinessName *string   `pulumi:"businessName"`
+	CreatedAt    *string   `pulumi:"createdAt"`
+	Email        *string   `pulumi:"email"`
+	LogGroupName *string   `pulumi:"logGroupName"`
+	ModifiedAt   *string   `pulumi:"modifiedAt"`
+	Name         *string   `pulumi:"name"`
+	Phone        *string   `pulumi:"phone"`
+	ProfileArn   *string   `pulumi:"profileArn"`
+	ProfileId    *string   `pulumi:"profileId"`
+	Tags         []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProfileOutput(ctx *pulumi.Context, args LookupProfileOutputArgs, opts ...pulumi.InvokeOption) LookupProfileResultOutput {
@@ -110,8 +111,8 @@ func (o LookupProfileResultOutput) ProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.ProfileId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupProfileResultOutput) Tags() ProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupProfileResult) []ProfileTag { return v.Tags }).(ProfileTagArrayOutput)
+func (o LookupProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

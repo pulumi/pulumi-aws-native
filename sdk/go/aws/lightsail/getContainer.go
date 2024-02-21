@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,7 +45,7 @@ type LookupContainerResult struct {
 	// The scale specification for the container service.
 	Scale *int `pulumi:"scale"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ContainerTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The publicly accessible URL of the container service.
 	Url *string `pulumi:"url"`
 }
@@ -125,8 +126,8 @@ func (o LookupContainerResultOutput) Scale() pulumi.IntPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupContainerResultOutput) Tags() ContainerTagArrayOutput {
-	return o.ApplyT(func(v LookupContainerResult) []ContainerTag { return v.Tags }).(ContainerTagArrayOutput)
+func (o LookupContainerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupContainerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The publicly accessible URL of the container service.

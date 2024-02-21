@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Dms
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataProviderTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDataProviderResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Dms
 
             object? settings,
 
-            ImmutableArray<Outputs.DataProviderTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DataProviderArn = dataProviderArn;
             DataProviderCreationTime = dataProviderCreationTime;

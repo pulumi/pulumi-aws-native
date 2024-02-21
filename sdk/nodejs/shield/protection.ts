@@ -61,7 +61,7 @@ export class Protection extends pulumi.CustomResource {
     /**
      * One or more tag key-value pairs for the Protection object.
      */
-    public readonly tags!: pulumi.Output<outputs.shield.ProtectionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Protection resource with the given unique name, arguments, and options.
@@ -120,5 +120,5 @@ export interface ProtectionArgs {
     /**
      * One or more tag key-value pairs for the Protection object.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.shield.ProtectionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -28,7 +28,7 @@ export interface GetDbClusterParameterGroupResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DocDB::DBClusterParameterGroup` for more information about the expected schema for this property.
      */
     readonly parameters?: any;
-    readonly tags?: outputs.docdb.DbClusterParameterGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::DocDB::DBClusterParameterGroup

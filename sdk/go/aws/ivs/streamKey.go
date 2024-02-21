@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type StreamKey struct {
 	// Channel ARN for the stream.
 	ChannelArn pulumi.StringOutput `pulumi:"channelArn"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags StreamKeyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Stream-key value.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
@@ -76,7 +77,7 @@ type streamKeyArgs struct {
 	// Channel ARN for the stream.
 	ChannelArn string `pulumi:"channelArn"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags []StreamKeyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamKey resource.
@@ -84,7 +85,7 @@ type StreamKeyArgs struct {
 	// Channel ARN for the stream.
 	ChannelArn pulumi.StringInput
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags StreamKeyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (StreamKeyArgs) ElementType() reflect.Type {
@@ -135,8 +136,8 @@ func (o StreamKeyOutput) ChannelArn() pulumi.StringOutput {
 }
 
 // A list of key-value pairs that contain metadata for the asset model.
-func (o StreamKeyOutput) Tags() StreamKeyTagArrayOutput {
-	return o.ApplyT(func(v *StreamKey) StreamKeyTagArrayOutput { return v.Tags }).(StreamKeyTagArrayOutput)
+func (o StreamKeyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *StreamKey) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Stream-key value.

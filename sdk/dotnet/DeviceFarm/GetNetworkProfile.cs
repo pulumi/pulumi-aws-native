@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public readonly int? DownlinkJitterMs;
         public readonly int? DownlinkLossPercent;
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.NetworkProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly int? UplinkBandwidthBits;
         public readonly int? UplinkDelayMs;
         public readonly int? UplinkJitterMs;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.DeviceFarm
 
             string? name,
 
-            ImmutableArray<Outputs.NetworkProfileTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? uplinkBandwidthBits,
 

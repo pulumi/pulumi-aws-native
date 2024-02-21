@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type EvaluationForm struct {
 	// The status of the evaluation form.
 	Status EvaluationFormStatusOutput `pulumi:"status"`
 	// One or more tags.
-	Tags EvaluationFormTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The title of the evaluation form.
 	Title pulumi.StringOutput `pulumi:"title"`
 }
@@ -97,7 +98,7 @@ type evaluationFormArgs struct {
 	// The status of the evaluation form.
 	Status EvaluationFormStatus `pulumi:"status"`
 	// One or more tags.
-	Tags []EvaluationFormTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The title of the evaluation form.
 	Title string `pulumi:"title"`
 }
@@ -115,7 +116,7 @@ type EvaluationFormArgs struct {
 	// The status of the evaluation form.
 	Status EvaluationFormStatusInput
 	// One or more tags.
-	Tags EvaluationFormTagArrayInput
+	Tags aws.TagArrayInput
 	// The title of the evaluation form.
 	Title pulumi.StringInput
 }
@@ -188,8 +189,8 @@ func (o EvaluationFormOutput) Status() EvaluationFormStatusOutput {
 }
 
 // One or more tags.
-func (o EvaluationFormOutput) Tags() EvaluationFormTagArrayOutput {
-	return o.ApplyT(func(v *EvaluationForm) EvaluationFormTagArrayOutput { return v.Tags }).(EvaluationFormTagArrayOutput)
+func (o EvaluationFormOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EvaluationForm) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The title of the evaluation form.

@@ -44,7 +44,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Any tags assigned to the route table.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.RouteTableTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC.
      */
@@ -86,7 +86,7 @@ export interface RouteTableArgs {
     /**
      * Any tags assigned to the route table.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the VPC.
      */

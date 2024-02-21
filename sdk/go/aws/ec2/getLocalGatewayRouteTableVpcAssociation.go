@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupLocalGatewayRouteTableVpcAssociationResult struct {
 	// The state of the association.
 	State *string `pulumi:"state"`
 	// The tags for the association.
-	Tags []LocalGatewayRouteTableVpcAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocalGatewayRouteTableVpcAssociationOutput(ctx *pulumi.Context, args LookupLocalGatewayRouteTableVpcAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGatewayRouteTableVpcAssociationResultOutput {
@@ -92,10 +93,8 @@ func (o LookupLocalGatewayRouteTableVpcAssociationResultOutput) State() pulumi.S
 }
 
 // The tags for the association.
-func (o LookupLocalGatewayRouteTableVpcAssociationResultOutput) Tags() LocalGatewayRouteTableVpcAssociationTagArrayOutput {
-	return o.ApplyT(func(v LookupLocalGatewayRouteTableVpcAssociationResult) []LocalGatewayRouteTableVpcAssociationTag {
-		return v.Tags
-	}).(LocalGatewayRouteTableVpcAssociationTagArrayOutput)
+func (o LookupLocalGatewayRouteTableVpcAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableVpcAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

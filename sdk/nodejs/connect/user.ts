@@ -72,7 +72,7 @@ export class User extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.UserTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the user.
      */
@@ -182,7 +182,7 @@ export interface UserArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.UserTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
      */

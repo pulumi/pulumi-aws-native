@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Configuration
         /// The tags for the stored query.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.StoredQueryTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -95,14 +95,14 @@ namespace Pulumi.AwsNative.Configuration
         public Input<string> QueryName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.StoredQueryTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the stored query.
         /// </summary>
-        public InputList<Inputs.StoredQueryTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.StoredQueryTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

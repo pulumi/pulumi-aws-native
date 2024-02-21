@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.Dms
         public readonly string? ReplicationInstanceIdentifier;
         public readonly string? ReplicationInstancePrivateIpAddresses;
         public readonly string? ReplicationInstancePublicIpAddresses;
-        public readonly ImmutableArray<Outputs.ReplicationInstanceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Dms
 
             string? replicationInstancePublicIpAddresses,
 
-            ImmutableArray<Outputs.ReplicationInstanceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

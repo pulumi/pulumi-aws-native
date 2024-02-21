@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class GetEndpointConfigResult
     {
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.EndpointConfigTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEndpointConfigResult(
             string? id,
 
-            ImmutableArray<Outputs.EndpointConfigTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Tags = tags;

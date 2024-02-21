@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupDataProviderResult struct {
 	// The property identifies the exact type of settings for the data provider.
 	Settings interface{} `pulumi:"settings"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DataProviderTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDataProviderOutput(ctx *pulumi.Context, args LookupDataProviderOutputArgs, opts ...pulumi.InvokeOption) LookupDataProviderResultOutput {
@@ -111,8 +112,8 @@ func (o LookupDataProviderResultOutput) Settings() pulumi.AnyOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupDataProviderResultOutput) Tags() DataProviderTagArrayOutput {
-	return o.ApplyT(func(v LookupDataProviderResult) []DataProviderTag { return v.Tags }).(DataProviderTagArrayOutput)
+func (o LookupDataProviderResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDataProviderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

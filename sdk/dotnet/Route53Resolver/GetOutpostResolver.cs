@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OutpostResolverTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetOutpostResolverResult(
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.Route53Resolver
 
             string? statusMessage,
 
-            ImmutableArray<Outputs.OutpostResolverTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationTime = creationTime;

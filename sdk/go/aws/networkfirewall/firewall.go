@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type Firewall struct {
 	FirewallPolicyChangeProtection pulumi.BoolPtrOutput             `pulumi:"firewallPolicyChangeProtection"`
 	SubnetChangeProtection         pulumi.BoolPtrOutput             `pulumi:"subnetChangeProtection"`
 	SubnetMappings                 FirewallSubnetMappingArrayOutput `pulumi:"subnetMappings"`
-	Tags                           FirewallTagArrayOutput           `pulumi:"tags"`
+	Tags                           aws.TagArrayOutput               `pulumi:"tags"`
 	VpcId                          pulumi.StringOutput              `pulumi:"vpcId"`
 }
 
@@ -91,7 +92,7 @@ type firewallArgs struct {
 	FirewallPolicyChangeProtection *bool                   `pulumi:"firewallPolicyChangeProtection"`
 	SubnetChangeProtection         *bool                   `pulumi:"subnetChangeProtection"`
 	SubnetMappings                 []FirewallSubnetMapping `pulumi:"subnetMappings"`
-	Tags                           []FirewallTag           `pulumi:"tags"`
+	Tags                           []aws.Tag               `pulumi:"tags"`
 	VpcId                          string                  `pulumi:"vpcId"`
 }
 
@@ -104,7 +105,7 @@ type FirewallArgs struct {
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
 	SubnetChangeProtection         pulumi.BoolPtrInput
 	SubnetMappings                 FirewallSubnetMappingArrayInput
-	Tags                           FirewallTagArrayInput
+	Tags                           aws.TagArrayInput
 	VpcId                          pulumi.StringInput
 }
 
@@ -185,8 +186,8 @@ func (o FirewallOutput) SubnetMappings() FirewallSubnetMappingArrayOutput {
 	return o.ApplyT(func(v *Firewall) FirewallSubnetMappingArrayOutput { return v.SubnetMappings }).(FirewallSubnetMappingArrayOutput)
 }
 
-func (o FirewallOutput) Tags() FirewallTagArrayOutput {
-	return o.ApplyT(func(v *Firewall) FirewallTagArrayOutput { return v.Tags }).(FirewallTagArrayOutput)
+func (o FirewallOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Firewall) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o FirewallOutput) VpcId() pulumi.StringOutput {

@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Evidently
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LaunchTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLaunchResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Evidently
 
             ImmutableArray<Outputs.LaunchStepConfig> scheduledSplitsConfig,
 
-            ImmutableArray<Outputs.LaunchTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

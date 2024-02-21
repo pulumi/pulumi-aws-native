@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -56,8 +57,8 @@ type LookupTrailResult struct {
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
-	SnsTopicName *string    `pulumi:"snsTopicName"`
-	Tags         []TrailTag `pulumi:"tags"`
+	SnsTopicName *string   `pulumi:"snsTopicName"`
+	Tags         []aws.Tag `pulumi:"tags"`
 }
 
 func LookupTrailOutput(ctx *pulumi.Context, args LookupTrailOutputArgs, opts ...pulumi.InvokeOption) LookupTrailResultOutput {
@@ -173,8 +174,8 @@ func (o LookupTrailResultOutput) SnsTopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrailResult) *string { return v.SnsTopicName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTrailResultOutput) Tags() TrailTagArrayOutput {
-	return o.ApplyT(func(v LookupTrailResult) []TrailTag { return v.Tags }).(TrailTagArrayOutput)
+func (o LookupTrailResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTrailResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

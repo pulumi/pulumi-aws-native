@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type DbSecurityGroup struct {
 	DbSecurityGroupIngress DbSecurityGroupIngressTypeArrayOutput `pulumi:"dbSecurityGroupIngress"`
 	Ec2VpcId               pulumi.StringPtrOutput                `pulumi:"ec2VpcId"`
 	GroupDescription       pulumi.StringOutput                   `pulumi:"groupDescription"`
-	Tags                   DbSecurityGroupTagArrayOutput         `pulumi:"tags"`
+	Tags                   aws.TagArrayOutput                    `pulumi:"tags"`
 }
 
 // NewDbSecurityGroup registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type dbSecurityGroupArgs struct {
 	DbSecurityGroupIngress []DbSecurityGroupIngressType `pulumi:"dbSecurityGroupIngress"`
 	Ec2VpcId               *string                      `pulumi:"ec2VpcId"`
 	GroupDescription       string                       `pulumi:"groupDescription"`
-	Tags                   []DbSecurityGroupTag         `pulumi:"tags"`
+	Tags                   []aws.Tag                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DbSecurityGroup resource.
@@ -86,7 +87,7 @@ type DbSecurityGroupArgs struct {
 	DbSecurityGroupIngress DbSecurityGroupIngressTypeArrayInput
 	Ec2VpcId               pulumi.StringPtrInput
 	GroupDescription       pulumi.StringInput
-	Tags                   DbSecurityGroupTagArrayInput
+	Tags                   aws.TagArrayInput
 }
 
 func (DbSecurityGroupArgs) ElementType() reflect.Type {
@@ -138,8 +139,8 @@ func (o DbSecurityGroupOutput) GroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbSecurityGroup) pulumi.StringOutput { return v.GroupDescription }).(pulumi.StringOutput)
 }
 
-func (o DbSecurityGroupOutput) Tags() DbSecurityGroupTagArrayOutput {
-	return o.ApplyT(func(v *DbSecurityGroup) DbSecurityGroupTagArrayOutput { return v.Tags }).(DbSecurityGroupTagArrayOutput)
+func (o DbSecurityGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbSecurityGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

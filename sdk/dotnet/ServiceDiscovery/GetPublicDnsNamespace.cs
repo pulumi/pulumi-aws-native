@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public readonly string? HostedZoneId;
         public readonly string? Id;
         public readonly Outputs.PublicDnsNamespaceProperties? Properties;
-        public readonly ImmutableArray<Outputs.PublicDnsNamespaceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPublicDnsNamespaceResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
 
             Outputs.PublicDnsNamespaceProperties? properties,
 
-            ImmutableArray<Outputs.PublicDnsNamespaceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

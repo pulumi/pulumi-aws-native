@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly string? Id;
         public readonly int? PacketLength;
         public readonly int? SessionNumber;
-        public readonly ImmutableArray<Outputs.TrafficMirrorSessionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TrafficMirrorFilterId;
         public readonly string? TrafficMirrorTargetId;
         public readonly int? VirtualNetworkId;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Ec2
 
             int? sessionNumber,
 
-            ImmutableArray<Outputs.TrafficMirrorSessionTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? trafficMirrorFilterId,
 

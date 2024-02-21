@@ -329,101 +329,6 @@ type RepositoryTag struct {
 	Value string `pulumi:"value"`
 }
 
-// RepositoryTagInput is an input type that accepts RepositoryTagArgs and RepositoryTagOutput values.
-// You can construct a concrete instance of `RepositoryTagInput` via:
-//
-//	RepositoryTagArgs{...}
-type RepositoryTagInput interface {
-	pulumi.Input
-
-	ToRepositoryTagOutput() RepositoryTagOutput
-	ToRepositoryTagOutputWithContext(context.Context) RepositoryTagOutput
-}
-
-type RepositoryTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RepositoryTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryTag)(nil)).Elem()
-}
-
-func (i RepositoryTagArgs) ToRepositoryTagOutput() RepositoryTagOutput {
-	return i.ToRepositoryTagOutputWithContext(context.Background())
-}
-
-func (i RepositoryTagArgs) ToRepositoryTagOutputWithContext(ctx context.Context) RepositoryTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagOutput)
-}
-
-// RepositoryTagArrayInput is an input type that accepts RepositoryTagArray and RepositoryTagArrayOutput values.
-// You can construct a concrete instance of `RepositoryTagArrayInput` via:
-//
-//	RepositoryTagArray{ RepositoryTagArgs{...} }
-type RepositoryTagArrayInput interface {
-	pulumi.Input
-
-	ToRepositoryTagArrayOutput() RepositoryTagArrayOutput
-	ToRepositoryTagArrayOutputWithContext(context.Context) RepositoryTagArrayOutput
-}
-
-type RepositoryTagArray []RepositoryTagInput
-
-func (RepositoryTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryTag)(nil)).Elem()
-}
-
-func (i RepositoryTagArray) ToRepositoryTagArrayOutput() RepositoryTagArrayOutput {
-	return i.ToRepositoryTagArrayOutputWithContext(context.Background())
-}
-
-func (i RepositoryTagArray) ToRepositoryTagArrayOutputWithContext(ctx context.Context) RepositoryTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagArrayOutput)
-}
-
-type RepositoryTagOutput struct{ *pulumi.OutputState }
-
-func (RepositoryTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryTag)(nil)).Elem()
-}
-
-func (o RepositoryTagOutput) ToRepositoryTagOutput() RepositoryTagOutput {
-	return o
-}
-
-func (o RepositoryTagOutput) ToRepositoryTagOutputWithContext(ctx context.Context) RepositoryTagOutput {
-	return o
-}
-
-func (o RepositoryTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o RepositoryTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RepositoryTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RepositoryTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryTag)(nil)).Elem()
-}
-
-func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutput() RepositoryTagArrayOutput {
-	return o
-}
-
-func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutputWithContext(ctx context.Context) RepositoryTagArrayOutput {
-	return o
-}
-
-func (o RepositoryTagArrayOutput) Index(i pulumi.IntInput) RepositoryTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryTag {
-		return vs[0].([]RepositoryTag)[vs[1].(int)]
-	}).(RepositoryTagOutput)
-}
-
 type RepositoryTrigger struct {
 	Branches       []string `pulumi:"branches"`
 	CustomData     *string  `pulumi:"customData"`
@@ -547,16 +452,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCodePtrInput)(nil)).Elem(), RepositoryCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryS3Input)(nil)).Elem(), RepositoryS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryS3PtrInput)(nil)).Elem(), RepositoryS3Args{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTagInput)(nil)).Elem(), RepositoryTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTagArrayInput)(nil)).Elem(), RepositoryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTriggerInput)(nil)).Elem(), RepositoryTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTriggerArrayInput)(nil)).Elem(), RepositoryTriggerArray{})
 	pulumi.RegisterOutputType(RepositoryCodeOutput{})
 	pulumi.RegisterOutputType(RepositoryCodePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryS3Output{})
 	pulumi.RegisterOutputType(RepositoryS3PtrOutput{})
-	pulumi.RegisterOutputType(RepositoryTagOutput{})
-	pulumi.RegisterOutputType(RepositoryTagArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryTriggerOutput{})
 	pulumi.RegisterOutputType(RepositoryTriggerArrayOutput{})
 }

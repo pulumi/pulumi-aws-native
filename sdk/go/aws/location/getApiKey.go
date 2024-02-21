@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,8 +35,8 @@ type LookupApiKeyResult struct {
 	KeyArn       *string             `pulumi:"keyArn"`
 	Restrictions *ApiKeyRestrictions `pulumi:"restrictions"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []ApiKeyTag `pulumi:"tags"`
-	UpdateTime *string     `pulumi:"updateTime"`
+	Tags       []aws.Tag `pulumi:"tags"`
+	UpdateTime *string   `pulumi:"updateTime"`
 }
 
 func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts ...pulumi.InvokeOption) LookupApiKeyResultOutput {
@@ -98,8 +99,8 @@ func (o LookupApiKeyResultOutput) Restrictions() ApiKeyRestrictionsPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupApiKeyResultOutput) Tags() ApiKeyTagArrayOutput {
-	return o.ApplyT(func(v LookupApiKeyResult) []ApiKeyTag { return v.Tags }).(ApiKeyTagArrayOutput)
+func (o LookupApiKeyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupApiKeyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupApiKeyResultOutput) UpdateTime() pulumi.StringPtrOutput {

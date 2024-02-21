@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -15,17 +16,17 @@ import (
 type ServiceNetworkVpcAssociation struct {
 	pulumi.CustomResourceState
 
-	Arn                      pulumi.StringOutput                        `pulumi:"arn"`
-	CreatedAt                pulumi.StringOutput                        `pulumi:"createdAt"`
-	SecurityGroupIds         pulumi.StringArrayOutput                   `pulumi:"securityGroupIds"`
-	ServiceNetworkArn        pulumi.StringOutput                        `pulumi:"serviceNetworkArn"`
-	ServiceNetworkId         pulumi.StringOutput                        `pulumi:"serviceNetworkId"`
-	ServiceNetworkIdentifier pulumi.StringPtrOutput                     `pulumi:"serviceNetworkIdentifier"`
-	ServiceNetworkName       pulumi.StringOutput                        `pulumi:"serviceNetworkName"`
-	Status                   ServiceNetworkVpcAssociationStatusOutput   `pulumi:"status"`
-	Tags                     ServiceNetworkVpcAssociationTagArrayOutput `pulumi:"tags"`
-	VpcId                    pulumi.StringOutput                        `pulumi:"vpcId"`
-	VpcIdentifier            pulumi.StringPtrOutput                     `pulumi:"vpcIdentifier"`
+	Arn                      pulumi.StringOutput                      `pulumi:"arn"`
+	CreatedAt                pulumi.StringOutput                      `pulumi:"createdAt"`
+	SecurityGroupIds         pulumi.StringArrayOutput                 `pulumi:"securityGroupIds"`
+	ServiceNetworkArn        pulumi.StringOutput                      `pulumi:"serviceNetworkArn"`
+	ServiceNetworkId         pulumi.StringOutput                      `pulumi:"serviceNetworkId"`
+	ServiceNetworkIdentifier pulumi.StringPtrOutput                   `pulumi:"serviceNetworkIdentifier"`
+	ServiceNetworkName       pulumi.StringOutput                      `pulumi:"serviceNetworkName"`
+	Status                   ServiceNetworkVpcAssociationStatusOutput `pulumi:"status"`
+	Tags                     aws.TagArrayOutput                       `pulumi:"tags"`
+	VpcId                    pulumi.StringOutput                      `pulumi:"vpcId"`
+	VpcIdentifier            pulumi.StringPtrOutput                   `pulumi:"vpcIdentifier"`
 }
 
 // NewServiceNetworkVpcAssociation registers a new resource with the given unique name, arguments, and options.
@@ -73,17 +74,17 @@ func (ServiceNetworkVpcAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkVpcAssociationArgs struct {
-	SecurityGroupIds         []string                          `pulumi:"securityGroupIds"`
-	ServiceNetworkIdentifier *string                           `pulumi:"serviceNetworkIdentifier"`
-	Tags                     []ServiceNetworkVpcAssociationTag `pulumi:"tags"`
-	VpcIdentifier            *string                           `pulumi:"vpcIdentifier"`
+	SecurityGroupIds         []string  `pulumi:"securityGroupIds"`
+	ServiceNetworkIdentifier *string   `pulumi:"serviceNetworkIdentifier"`
+	Tags                     []aws.Tag `pulumi:"tags"`
+	VpcIdentifier            *string   `pulumi:"vpcIdentifier"`
 }
 
 // The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
 type ServiceNetworkVpcAssociationArgs struct {
 	SecurityGroupIds         pulumi.StringArrayInput
 	ServiceNetworkIdentifier pulumi.StringPtrInput
-	Tags                     ServiceNetworkVpcAssociationTagArrayInput
+	Tags                     aws.TagArrayInput
 	VpcIdentifier            pulumi.StringPtrInput
 }
 
@@ -156,8 +157,8 @@ func (o ServiceNetworkVpcAssociationOutput) Status() ServiceNetworkVpcAssociatio
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) ServiceNetworkVpcAssociationStatusOutput { return v.Status }).(ServiceNetworkVpcAssociationStatusOutput)
 }
 
-func (o ServiceNetworkVpcAssociationOutput) Tags() ServiceNetworkVpcAssociationTagArrayOutput {
-	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) ServiceNetworkVpcAssociationTagArrayOutput { return v.Tags }).(ServiceNetworkVpcAssociationTagArrayOutput)
+func (o ServiceNetworkVpcAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ServiceNetworkVpcAssociationOutput) VpcId() pulumi.StringOutput {

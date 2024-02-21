@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupNetworkInsightsAnalysisResult struct {
 	Status                     *NetworkInsightsAnalysisStatus             `pulumi:"status"`
 	StatusMessage              *string                                    `pulumi:"statusMessage"`
 	SuggestedAccounts          []string                                   `pulumi:"suggestedAccounts"`
-	Tags                       []NetworkInsightsAnalysisTag               `pulumi:"tags"`
+	Tags                       []aws.Tag                                  `pulumi:"tags"`
 }
 
 func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetworkInsightsAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAnalysisResultOutput {
@@ -133,8 +134,8 @@ func (o LookupNetworkInsightsAnalysisResultOutput) SuggestedAccounts() pulumi.St
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []string { return v.SuggestedAccounts }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupNetworkInsightsAnalysisResultOutput) Tags() NetworkInsightsAnalysisTagArrayOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []NetworkInsightsAnalysisTag { return v.Tags }).(NetworkInsightsAnalysisTagArrayOutput)
+func (o LookupNetworkInsightsAnalysisResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

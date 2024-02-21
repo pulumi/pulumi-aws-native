@@ -37,7 +37,7 @@ export interface GetRegistryResult {
     /**
      * Tags associated with the resource.
      */
-    readonly tags?: outputs.eventschemas.RegistryTagsEntry[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EventSchemas::Registry

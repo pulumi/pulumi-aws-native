@@ -67,7 +67,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly rdsDbInstances!: pulumi.Output<outputs.opsworks.StackRdsDbInstance[] | undefined>;
     public readonly serviceRoleArn!: pulumi.Output<string>;
     public readonly sourceStackId!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.opsworks.StackTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly useCustomCookbooks!: pulumi.Output<boolean | undefined>;
     public readonly useOpsworksSecurityGroups!: pulumi.Output<boolean | undefined>;
     public readonly vpcId!: pulumi.Output<string | undefined>;
@@ -181,7 +181,7 @@ export interface StackArgs {
     rdsDbInstances?: pulumi.Input<pulumi.Input<inputs.opsworks.StackRdsDbInstanceArgs>[]>;
     serviceRoleArn: pulumi.Input<string>;
     sourceStackId?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.opsworks.StackTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     useCustomCookbooks?: pulumi.Input<boolean>;
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
     vpcId?: pulumi.Input<string>;

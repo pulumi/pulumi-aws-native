@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// The tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TargetGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Target Group
@@ -287,14 +287,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Input<string>? ProtocolVersion { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TargetGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags.
         /// </summary>
-        public InputList<Inputs.TargetGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TargetGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

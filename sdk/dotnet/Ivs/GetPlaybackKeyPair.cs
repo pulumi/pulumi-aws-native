@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Ivs
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PlaybackKeyPairTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPlaybackKeyPairResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Ivs
 
             string? fingerprint,
 
-            ImmutableArray<Outputs.PlaybackKeyPairTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Fingerprint = fingerprint;

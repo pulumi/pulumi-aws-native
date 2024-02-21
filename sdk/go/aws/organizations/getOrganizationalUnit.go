@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupOrganizationalUnitResult struct {
 	// The friendly name of this OU.
 	Name *string `pulumi:"name"`
 	// A list of tags that you want to attach to the newly created OU.
-	Tags []OrganizationalUnitTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupOrganizationalUnitOutput(ctx *pulumi.Context, args LookupOrganizationalUnitOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationalUnitResultOutput {
@@ -90,8 +91,8 @@ func (o LookupOrganizationalUnitResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of tags that you want to attach to the newly created OU.
-func (o LookupOrganizationalUnitResultOutput) Tags() OrganizationalUnitTagArrayOutput {
-	return o.ApplyT(func(v LookupOrganizationalUnitResult) []OrganizationalUnitTag { return v.Tags }).(OrganizationalUnitTagArrayOutput)
+func (o LookupOrganizationalUnitResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupOrganizationalUnitResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -17,8 +17,6 @@ __all__ = [
     'AssociationTarget',
     'DocumentAttachmentsSource',
     'DocumentRequires',
-    'DocumentTag',
-    'MaintenanceWindowTag',
     'MaintenanceWindowTargetTargets',
     'MaintenanceWindowTaskCloudWatchOutputConfig',
     'MaintenanceWindowTaskLoggingInfo',
@@ -34,7 +32,6 @@ __all__ = [
     'PatchBaselinePatchSource',
     'PatchBaselineRule',
     'PatchBaselineRuleGroup',
-    'PatchBaselineTag',
     'ResourceDataSyncAwsOrganizationsSource',
     'ResourceDataSyncS3Destination',
     'ResourceDataSyncSyncSource',
@@ -211,56 +208,6 @@ class DocumentRequires(dict):
         The document version required by the current document.
         """
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class DocumentTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        :param str key: The name of the tag.
-        :param str value: The value of the tag.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        """
-        The name of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value of the tag.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class MaintenanceWindowTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -935,31 +882,6 @@ class PatchBaselineRuleGroup(dict):
     @pulumi.getter(name="patchRules")
     def patch_rules(self) -> Optional[Sequence['outputs.PatchBaselineRule']]:
         return pulumi.get(self, "patch_rules")
-
-
-@pulumi.output_type
-class PatchBaselineTag(dict):
-    """
-    Metadata that you assign to your AWS resources.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Metadata that you assign to your AWS resources.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

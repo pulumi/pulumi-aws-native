@@ -66,7 +66,7 @@ export class CacheCluster extends pulumi.CustomResource {
     public readonly snapshotName!: pulumi.Output<string | undefined>;
     public readonly snapshotRetentionLimit!: pulumi.Output<number | undefined>;
     public readonly snapshotWindow!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.elasticache.CacheClusterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
@@ -189,7 +189,7 @@ export interface CacheClusterArgs {
     snapshotName?: pulumi.Input<string>;
     snapshotRetentionLimit?: pulumi.Input<number>;
     snapshotWindow?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticache.CacheClusterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     transitEncryptionEnabled?: pulumi.Input<boolean>;
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

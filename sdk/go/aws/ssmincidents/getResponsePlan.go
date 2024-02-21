@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupResponsePlanResult struct {
 	// The list of integrations.
 	Integrations []ResponsePlanIntegration `pulumi:"integrations"`
 	// The tags to apply to the response plan.
-	Tags []ResponsePlanTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutputArgs, opts ...pulumi.InvokeOption) LookupResponsePlanResultOutput {
@@ -114,8 +115,8 @@ func (o LookupResponsePlanResultOutput) Integrations() ResponsePlanIntegrationAr
 }
 
 // The tags to apply to the response plan.
-func (o LookupResponsePlanResultOutput) Tags() ResponsePlanTagArrayOutput {
-	return o.ApplyT(func(v LookupResponsePlanResult) []ResponsePlanTag { return v.Tags }).(ResponsePlanTagArrayOutput)
+func (o LookupResponsePlanResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupResponsePlanResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

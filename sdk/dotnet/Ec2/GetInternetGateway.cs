@@ -64,13 +64,13 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// Any tags to assign to the internet gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InternetGatewayTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetInternetGatewayResult(
             string? internetGatewayId,
 
-            ImmutableArray<Outputs.InternetGatewayTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             InternetGatewayId = internetGatewayId;
             Tags = tags;

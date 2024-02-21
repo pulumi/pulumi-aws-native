@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupConnectAttachmentResult struct {
 	// State of the attachment.
 	State *string `pulumi:"state"`
 	// Tags for the attachment.
-	Tags []ConnectAttachmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Last update time of the attachment.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
@@ -143,8 +144,8 @@ func (o LookupConnectAttachmentResultOutput) State() pulumi.StringPtrOutput {
 }
 
 // Tags for the attachment.
-func (o LookupConnectAttachmentResultOutput) Tags() ConnectAttachmentTagArrayOutput {
-	return o.ApplyT(func(v LookupConnectAttachmentResult) []ConnectAttachmentTag { return v.Tags }).(ConnectAttachmentTagArrayOutput)
+func (o LookupConnectAttachmentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConnectAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Last update time of the attachment.

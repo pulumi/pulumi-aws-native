@@ -42,7 +42,7 @@ export class Dataset extends pulumi.CustomResource {
     public readonly datasetName!: pulumi.Output<string | undefined>;
     public readonly lateDataRules!: pulumi.Output<outputs.iotanalytics.DatasetLateDataRule[] | undefined>;
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatasetRetentionPeriod | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iotanalytics.DatasetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly triggers!: pulumi.Output<outputs.iotanalytics.DatasetTrigger[] | undefined>;
     public readonly versioningConfiguration!: pulumi.Output<outputs.iotanalytics.DatasetVersioningConfiguration | undefined>;
 
@@ -94,7 +94,7 @@ export interface DatasetArgs {
     datasetName?: pulumi.Input<string>;
     lateDataRules?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetLateDataRuleArgs>[]>;
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.DatasetRetentionPeriodArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     triggers?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetTriggerArgs>[]>;
     versioningConfiguration?: pulumi.Input<inputs.iotanalytics.DatasetVersioningConfigurationArgs>;
 }

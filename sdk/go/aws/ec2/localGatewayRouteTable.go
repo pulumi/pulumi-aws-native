@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LocalGatewayRouteTable struct {
 	// The state of the local gateway route table.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the local gateway route table.
-	Tags LocalGatewayRouteTableTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocalGatewayRouteTable registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +88,7 @@ type localGatewayRouteTableArgs struct {
 	// The mode of the local gateway route table.
 	Mode *string `pulumi:"mode"`
 	// The tags for the local gateway route table.
-	Tags []LocalGatewayRouteTableTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocalGatewayRouteTable resource.
@@ -97,7 +98,7 @@ type LocalGatewayRouteTableArgs struct {
 	// The mode of the local gateway route table.
 	Mode pulumi.StringPtrInput
 	// The tags for the local gateway route table.
-	Tags LocalGatewayRouteTableTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocalGatewayRouteTableArgs) ElementType() reflect.Type {
@@ -173,8 +174,8 @@ func (o LocalGatewayRouteTableOutput) State() pulumi.StringOutput {
 }
 
 // The tags for the local gateway route table.
-func (o LocalGatewayRouteTableOutput) Tags() LocalGatewayRouteTableTagArrayOutput {
-	return o.ApplyT(func(v *LocalGatewayRouteTable) LocalGatewayRouteTableTagArrayOutput { return v.Tags }).(LocalGatewayRouteTableTagArrayOutput)
+func (o LocalGatewayRouteTableOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocalGatewayRouteTable) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

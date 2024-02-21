@@ -15232,107 +15232,6 @@ type FlowTag struct {
 	Value string `pulumi:"value"`
 }
 
-// FlowTagInput is an input type that accepts FlowTagArgs and FlowTagOutput values.
-// You can construct a concrete instance of `FlowTagInput` via:
-//
-//	FlowTagArgs{...}
-type FlowTagInput interface {
-	pulumi.Input
-
-	ToFlowTagOutput() FlowTagOutput
-	ToFlowTagOutputWithContext(context.Context) FlowTagOutput
-}
-
-// A label for tagging AppFlow resources
-type FlowTagArgs struct {
-	// A string used to identify this tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// A string containing the value for the tag
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FlowTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowTag)(nil)).Elem()
-}
-
-func (i FlowTagArgs) ToFlowTagOutput() FlowTagOutput {
-	return i.ToFlowTagOutputWithContext(context.Background())
-}
-
-func (i FlowTagArgs) ToFlowTagOutputWithContext(ctx context.Context) FlowTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowTagOutput)
-}
-
-// FlowTagArrayInput is an input type that accepts FlowTagArray and FlowTagArrayOutput values.
-// You can construct a concrete instance of `FlowTagArrayInput` via:
-//
-//	FlowTagArray{ FlowTagArgs{...} }
-type FlowTagArrayInput interface {
-	pulumi.Input
-
-	ToFlowTagArrayOutput() FlowTagArrayOutput
-	ToFlowTagArrayOutputWithContext(context.Context) FlowTagArrayOutput
-}
-
-type FlowTagArray []FlowTagInput
-
-func (FlowTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FlowTag)(nil)).Elem()
-}
-
-func (i FlowTagArray) ToFlowTagArrayOutput() FlowTagArrayOutput {
-	return i.ToFlowTagArrayOutputWithContext(context.Background())
-}
-
-func (i FlowTagArray) ToFlowTagArrayOutputWithContext(ctx context.Context) FlowTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowTagArrayOutput)
-}
-
-// A label for tagging AppFlow resources
-type FlowTagOutput struct{ *pulumi.OutputState }
-
-func (FlowTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowTag)(nil)).Elem()
-}
-
-func (o FlowTagOutput) ToFlowTagOutput() FlowTagOutput {
-	return o
-}
-
-func (o FlowTagOutput) ToFlowTagOutputWithContext(ctx context.Context) FlowTagOutput {
-	return o
-}
-
-// A string used to identify this tag
-func (o FlowTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A string containing the value for the tag
-func (o FlowTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FlowTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FlowTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FlowTag)(nil)).Elem()
-}
-
-func (o FlowTagArrayOutput) ToFlowTagArrayOutput() FlowTagArrayOutput {
-	return o
-}
-
-func (o FlowTagArrayOutput) ToFlowTagArrayOutputWithContext(ctx context.Context) FlowTagArrayOutput {
-	return o
-}
-
-func (o FlowTagArrayOutput) Index(i pulumi.IntInput) FlowTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowTag {
-		return vs[0].([]FlowTag)[vs[1].(int)]
-	}).(FlowTagOutput)
-}
-
 type FlowTask struct {
 	// Operation to be performed on provided source fields
 	ConnectorOperator *FlowConnectorOperator `pulumi:"connectorOperator"`
@@ -16823,8 +16722,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigInput)(nil)).Elem(), FlowSourceFlowConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSuccessResponseHandlingConfigInput)(nil)).Elem(), FlowSuccessResponseHandlingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSuccessResponseHandlingConfigPtrInput)(nil)).Elem(), FlowSuccessResponseHandlingConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowTagInput)(nil)).Elem(), FlowTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowTagArrayInput)(nil)).Elem(), FlowTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTaskInput)(nil)).Elem(), FlowTaskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTaskArrayInput)(nil)).Elem(), FlowTaskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTaskPropertiesObjectInput)(nil)).Elem(), FlowTaskPropertiesObjectArgs{})
@@ -17021,8 +16918,6 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceFlowConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowSuccessResponseHandlingConfigOutput{})
 	pulumi.RegisterOutputType(FlowSuccessResponseHandlingConfigPtrOutput{})
-	pulumi.RegisterOutputType(FlowTagOutput{})
-	pulumi.RegisterOutputType(FlowTagArrayOutput{})
 	pulumi.RegisterOutputType(FlowTaskOutput{})
 	pulumi.RegisterOutputType(FlowTaskArrayOutput{})
 	pulumi.RegisterOutputType(FlowTaskPropertiesObjectOutput{})

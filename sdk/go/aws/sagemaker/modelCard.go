@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type ModelCard struct {
 	ModelCardVersion pulumi.IntOutput                 `pulumi:"modelCardVersion"`
 	SecurityConfig   ModelCardSecurityConfigPtrOutput `pulumi:"securityConfig"`
 	// Key-value pairs used to manage metadata for model cards.
-	Tags ModelCardTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewModelCard registers a new resource with the given unique name, arguments, and options.
@@ -102,7 +103,7 @@ type modelCardArgs struct {
 	ModelCardStatus ModelCardStatus          `pulumi:"modelCardStatus"`
 	SecurityConfig  *ModelCardSecurityConfig `pulumi:"securityConfig"`
 	// Key-value pairs used to manage metadata for model cards.
-	Tags []ModelCardTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ModelCard resource.
@@ -118,7 +119,7 @@ type ModelCardArgs struct {
 	ModelCardStatus ModelCardStatusInput
 	SecurityConfig  ModelCardSecurityConfigPtrInput
 	// Key-value pairs used to manage metadata for model cards.
-	Tags ModelCardTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ModelCardArgs) ElementType() reflect.Type {
@@ -212,8 +213,8 @@ func (o ModelCardOutput) SecurityConfig() ModelCardSecurityConfigPtrOutput {
 }
 
 // Key-value pairs used to manage metadata for model cards.
-func (o ModelCardOutput) Tags() ModelCardTagArrayOutput {
-	return o.ApplyT(func(v *ModelCard) ModelCardTagArrayOutput { return v.Tags }).(ModelCardTagArrayOutput)
+func (o ModelCardOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ModelCard) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

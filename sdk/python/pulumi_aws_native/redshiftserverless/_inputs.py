@@ -13,7 +13,6 @@ from ._enums import *
 __all__ = [
     'NamespaceTagArgs',
     'WorkgroupConfigParameterArgs',
-    'WorkgroupTagArgs',
 ]
 
 @pulumi.input_type
@@ -70,32 +69,5 @@ class WorkgroupConfigParameterArgs:
     @parameter_value.setter
     def parameter_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameter_value", value)
-
-
-@pulumi.input_type
-class WorkgroupTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

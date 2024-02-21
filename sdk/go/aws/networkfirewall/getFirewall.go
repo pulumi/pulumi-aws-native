@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LookupFirewallResult struct {
 	FirewallPolicyChangeProtection *bool                   `pulumi:"firewallPolicyChangeProtection"`
 	SubnetChangeProtection         *bool                   `pulumi:"subnetChangeProtection"`
 	SubnetMappings                 []FirewallSubnetMapping `pulumi:"subnetMappings"`
-	Tags                           []FirewallTag           `pulumi:"tags"`
+	Tags                           []aws.Tag               `pulumi:"tags"`
 }
 
 func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallResultOutput {
@@ -110,8 +111,8 @@ func (o LookupFirewallResultOutput) SubnetMappings() FirewallSubnetMappingArrayO
 	return o.ApplyT(func(v LookupFirewallResult) []FirewallSubnetMapping { return v.SubnetMappings }).(FirewallSubnetMappingArrayOutput)
 }
 
-func (o LookupFirewallResultOutput) Tags() FirewallTagArrayOutput {
-	return o.ApplyT(func(v LookupFirewallResult) []FirewallTag { return v.Tags }).(FirewallTagArrayOutput)
+func (o LookupFirewallResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFirewallResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

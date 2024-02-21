@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,11 +17,11 @@ import (
 type Config struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput  `pulumi:"arn"`
-	ConfigData ConfigDataOutput     `pulumi:"configData"`
-	Name       pulumi.StringOutput  `pulumi:"name"`
-	Tags       ConfigTagArrayOutput `pulumi:"tags"`
-	Type       pulumi.StringOutput  `pulumi:"type"`
+	Arn        pulumi.StringOutput `pulumi:"arn"`
+	ConfigData ConfigDataOutput    `pulumi:"configData"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewConfig registers a new resource with the given unique name, arguments, and options.
@@ -66,16 +67,16 @@ func (ConfigState) ElementType() reflect.Type {
 }
 
 type configArgs struct {
-	ConfigData ConfigData  `pulumi:"configData"`
-	Name       *string     `pulumi:"name"`
-	Tags       []ConfigTag `pulumi:"tags"`
+	ConfigData ConfigData `pulumi:"configData"`
+	Name       *string    `pulumi:"name"`
+	Tags       []aws.Tag  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Config resource.
 type ConfigArgs struct {
 	ConfigData ConfigDataInput
 	Name       pulumi.StringPtrInput
-	Tags       ConfigTagArrayInput
+	Tags       aws.TagArrayInput
 }
 
 func (ConfigArgs) ElementType() reflect.Type {
@@ -127,8 +128,8 @@ func (o ConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Config) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ConfigOutput) Tags() ConfigTagArrayOutput {
-	return o.ApplyT(func(v *Config) ConfigTagArrayOutput { return v.Tags }).(ConfigTagArrayOutput)
+func (o ConfigOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Config) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ConfigOutput) Type() pulumi.StringOutput {

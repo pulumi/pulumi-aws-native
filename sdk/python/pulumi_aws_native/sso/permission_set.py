@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['PermissionSetArgs', 'PermissionSet']
@@ -25,7 +27,7 @@ class PermissionSetArgs:
                  permissions_boundary: Optional[pulumi.Input['PermissionSetPermissionsBoundaryArgs']] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PermissionSet resource.
         :param pulumi.Input[str] instance_arn: The sso instance arn that the permission set is owned.
@@ -160,11 +162,11 @@ class PermissionSetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -182,7 +184,7 @@ class PermissionSet(pulumi.CustomResource):
                  permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionSetPermissionsBoundaryArgs']]] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionSetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for SSO PermissionSet
@@ -231,7 +233,7 @@ class PermissionSet(pulumi.CustomResource):
                  permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionSetPermissionsBoundaryArgs']]] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionSetTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -366,6 +368,6 @@ class PermissionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PermissionSetTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

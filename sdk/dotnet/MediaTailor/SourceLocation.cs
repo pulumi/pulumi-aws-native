@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The tags to assign to the source location.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SourceLocationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,14 +119,14 @@ namespace Pulumi.AwsNative.MediaTailor
         public Input<string>? SourceLocationName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.SourceLocationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags to assign to the source location.
         /// </summary>
-        public InputList<Inputs.SourceLocationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SourceLocationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type Vpc struct {
 	Ipv4NetmaskLength pulumi.IntPtrOutput      `pulumi:"ipv4NetmaskLength"`
 	Ipv6CidrBlocks    pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
 	// The tags for the VPC.
-	Tags  VpcTagArrayOutput   `pulumi:"tags"`
+	Tags  aws.TagArrayOutput  `pulumi:"tags"`
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -112,7 +113,7 @@ type vpcArgs struct {
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
 	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
 	// The tags for the VPC.
-	Tags []VpcTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vpc resource.
@@ -137,7 +138,7 @@ type VpcArgs struct {
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
 	Ipv4NetmaskLength pulumi.IntPtrInput
 	// The tags for the VPC.
-	Tags VpcTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (VpcArgs) ElementType() reflect.Type {
@@ -236,8 +237,8 @@ func (o VpcOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 }
 
 // The tags for the VPC.
-func (o VpcOutput) Tags() VpcTagArrayOutput {
-	return o.ApplyT(func(v *Vpc) VpcTagArrayOutput { return v.Tags }).(VpcTagArrayOutput)
+func (o VpcOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Vpc) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o VpcOutput) VpcId() pulumi.StringOutput {

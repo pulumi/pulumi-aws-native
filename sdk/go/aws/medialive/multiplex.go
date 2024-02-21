@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type Multiplex struct {
 	ProgramCount pulumi.IntOutput         `pulumi:"programCount"`
 	State        MultiplexStateEnumOutput `pulumi:"state"`
 	// A collection of key-value pairs.
-	Tags MultiplexTagsArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewMultiplex registers a new resource with the given unique name, arguments, and options.
@@ -94,7 +95,7 @@ type multiplexArgs struct {
 	// Name of multiplex.
 	Name *string `pulumi:"name"`
 	// A collection of key-value pairs.
-	Tags []MultiplexTags `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Multiplex resource.
@@ -108,7 +109,7 @@ type MultiplexArgs struct {
 	// Name of multiplex.
 	Name pulumi.StringPtrInput
 	// A collection of key-value pairs.
-	Tags MultiplexTagsArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (MultiplexArgs) ElementType() reflect.Type {
@@ -188,8 +189,8 @@ func (o MultiplexOutput) State() MultiplexStateEnumOutput {
 }
 
 // A collection of key-value pairs.
-func (o MultiplexOutput) Tags() MultiplexTagsArrayOutput {
-	return o.ApplyT(func(v *Multiplex) MultiplexTagsArrayOutput { return v.Tags }).(MultiplexTagsArrayOutput)
+func (o MultiplexOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Multiplex) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupDatabaseResult struct {
 	// The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DatabaseTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
@@ -81,8 +82,8 @@ func (o LookupDatabaseResultOutput) KmsKeyId() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupDatabaseResultOutput) Tags() DatabaseTagArrayOutput {
-	return o.ApplyT(func(v LookupDatabaseResult) []DatabaseTag { return v.Tags }).(DatabaseTagArrayOutput)
+func (o LookupDatabaseResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

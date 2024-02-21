@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectPeerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetConnectPeerResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? state,
 
-            ImmutableArray<Outputs.ConnectPeerTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Configuration = configuration;
             ConnectPeerId = connectPeerId;

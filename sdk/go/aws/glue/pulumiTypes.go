@@ -6257,105 +6257,6 @@ type RegistryTag struct {
 	Value string `pulumi:"value"`
 }
 
-// RegistryTagInput is an input type that accepts RegistryTagArgs and RegistryTagOutput values.
-// You can construct a concrete instance of `RegistryTagInput` via:
-//
-//	RegistryTagArgs{...}
-type RegistryTagInput interface {
-	pulumi.Input
-
-	ToRegistryTagOutput() RegistryTagOutput
-	ToRegistryTagOutputWithContext(context.Context) RegistryTagOutput
-}
-
-type RegistryTagArgs struct {
-	// A key to identify the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Corresponding tag value for the key.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RegistryTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryTag)(nil)).Elem()
-}
-
-func (i RegistryTagArgs) ToRegistryTagOutput() RegistryTagOutput {
-	return i.ToRegistryTagOutputWithContext(context.Background())
-}
-
-func (i RegistryTagArgs) ToRegistryTagOutputWithContext(ctx context.Context) RegistryTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryTagOutput)
-}
-
-// RegistryTagArrayInput is an input type that accepts RegistryTagArray and RegistryTagArrayOutput values.
-// You can construct a concrete instance of `RegistryTagArrayInput` via:
-//
-//	RegistryTagArray{ RegistryTagArgs{...} }
-type RegistryTagArrayInput interface {
-	pulumi.Input
-
-	ToRegistryTagArrayOutput() RegistryTagArrayOutput
-	ToRegistryTagArrayOutputWithContext(context.Context) RegistryTagArrayOutput
-}
-
-type RegistryTagArray []RegistryTagInput
-
-func (RegistryTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryTag)(nil)).Elem()
-}
-
-func (i RegistryTagArray) ToRegistryTagArrayOutput() RegistryTagArrayOutput {
-	return i.ToRegistryTagArrayOutputWithContext(context.Background())
-}
-
-func (i RegistryTagArray) ToRegistryTagArrayOutputWithContext(ctx context.Context) RegistryTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryTagArrayOutput)
-}
-
-type RegistryTagOutput struct{ *pulumi.OutputState }
-
-func (RegistryTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryTag)(nil)).Elem()
-}
-
-func (o RegistryTagOutput) ToRegistryTagOutput() RegistryTagOutput {
-	return o
-}
-
-func (o RegistryTagOutput) ToRegistryTagOutputWithContext(ctx context.Context) RegistryTagOutput {
-	return o
-}
-
-// A key to identify the tag.
-func (o RegistryTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Corresponding tag value for the key.
-func (o RegistryTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RegistryTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RegistryTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryTag)(nil)).Elem()
-}
-
-func (o RegistryTagArrayOutput) ToRegistryTagArrayOutput() RegistryTagArrayOutput {
-	return o
-}
-
-func (o RegistryTagArrayOutput) ToRegistryTagArrayOutputWithContext(ctx context.Context) RegistryTagArrayOutput {
-	return o
-}
-
-func (o RegistryTagArrayOutput) Index(i pulumi.IntInput) RegistryTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryTag {
-		return vs[0].([]RegistryTag)[vs[1].(int)]
-	}).(RegistryTagOutput)
-}
-
 // Identifier for the registry which the schema is part of.
 type SchemaRegistry struct {
 	// Amazon Resource Name for the Registry.
@@ -6520,105 +6421,6 @@ type SchemaTag struct {
 	Key string `pulumi:"key"`
 	// Corresponding tag value for the key.
 	Value string `pulumi:"value"`
-}
-
-// SchemaTagInput is an input type that accepts SchemaTagArgs and SchemaTagOutput values.
-// You can construct a concrete instance of `SchemaTagInput` via:
-//
-//	SchemaTagArgs{...}
-type SchemaTagInput interface {
-	pulumi.Input
-
-	ToSchemaTagOutput() SchemaTagOutput
-	ToSchemaTagOutputWithContext(context.Context) SchemaTagOutput
-}
-
-type SchemaTagArgs struct {
-	// A key to identify the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Corresponding tag value for the key.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SchemaTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaTag)(nil)).Elem()
-}
-
-func (i SchemaTagArgs) ToSchemaTagOutput() SchemaTagOutput {
-	return i.ToSchemaTagOutputWithContext(context.Background())
-}
-
-func (i SchemaTagArgs) ToSchemaTagOutputWithContext(ctx context.Context) SchemaTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaTagOutput)
-}
-
-// SchemaTagArrayInput is an input type that accepts SchemaTagArray and SchemaTagArrayOutput values.
-// You can construct a concrete instance of `SchemaTagArrayInput` via:
-//
-//	SchemaTagArray{ SchemaTagArgs{...} }
-type SchemaTagArrayInput interface {
-	pulumi.Input
-
-	ToSchemaTagArrayOutput() SchemaTagArrayOutput
-	ToSchemaTagArrayOutputWithContext(context.Context) SchemaTagArrayOutput
-}
-
-type SchemaTagArray []SchemaTagInput
-
-func (SchemaTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaTag)(nil)).Elem()
-}
-
-func (i SchemaTagArray) ToSchemaTagArrayOutput() SchemaTagArrayOutput {
-	return i.ToSchemaTagArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaTagArray) ToSchemaTagArrayOutputWithContext(ctx context.Context) SchemaTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaTagArrayOutput)
-}
-
-type SchemaTagOutput struct{ *pulumi.OutputState }
-
-func (SchemaTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaTag)(nil)).Elem()
-}
-
-func (o SchemaTagOutput) ToSchemaTagOutput() SchemaTagOutput {
-	return o
-}
-
-func (o SchemaTagOutput) ToSchemaTagOutputWithContext(ctx context.Context) SchemaTagOutput {
-	return o
-}
-
-// A key to identify the tag.
-func (o SchemaTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SchemaTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Corresponding tag value for the key.
-func (o SchemaTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SchemaTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type SchemaTagArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaTag)(nil)).Elem()
-}
-
-func (o SchemaTagArrayOutput) ToSchemaTagArrayOutput() SchemaTagArrayOutput {
-	return o
-}
-
-func (o SchemaTagArrayOutput) ToSchemaTagArrayOutputWithContext(ctx context.Context) SchemaTagArrayOutput {
-	return o
-}
-
-func (o SchemaTagArrayOutput) Index(i pulumi.IntInput) SchemaTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaTag {
-		return vs[0].([]SchemaTag)[vs[1].(int)]
-	}).(SchemaTagOutput)
 }
 
 // Specify checkpoint version for update. This is only required to update the Compatibility.
@@ -10214,12 +10016,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSkewedInfoPtrInput)(nil)).Elem(), PartitionSkewedInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorInput)(nil)).Elem(), PartitionStorageDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorPtrInput)(nil)).Elem(), PartitionStorageDescriptorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTagInput)(nil)).Elem(), RegistryTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTagArrayInput)(nil)).Elem(), RegistryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryInput)(nil)).Elem(), SchemaRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryPtrInput)(nil)).Elem(), SchemaRegistryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaTagInput)(nil)).Elem(), SchemaTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaTagArrayInput)(nil)).Elem(), SchemaTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionTypeInput)(nil)).Elem(), SchemaVersionTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionTypePtrInput)(nil)).Elem(), SchemaVersionTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionSchemaInput)(nil)).Elem(), SchemaVersionSchemaArgs{})
@@ -10351,12 +10149,8 @@ func init() {
 	pulumi.RegisterOutputType(PartitionSkewedInfoPtrOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorPtrOutput{})
-	pulumi.RegisterOutputType(RegistryTagOutput{})
-	pulumi.RegisterOutputType(RegistryTagArrayOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryPtrOutput{})
-	pulumi.RegisterOutputType(SchemaTagOutput{})
-	pulumi.RegisterOutputType(SchemaTagArrayOutput{})
 	pulumi.RegisterOutputType(SchemaVersionTypeOutput{})
 	pulumi.RegisterOutputType(SchemaVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(SchemaVersionSchemaOutput{})

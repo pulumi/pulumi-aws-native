@@ -81,7 +81,7 @@ export interface GetVpcAttachmentResult {
     /**
      * Tags for the attachment.
      */
-    readonly tags?: outputs.networkmanager.VpcAttachmentTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Last update time of the attachment.
      */

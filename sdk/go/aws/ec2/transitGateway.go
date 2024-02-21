@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -15,19 +16,19 @@ import (
 type TransitGateway struct {
 	pulumi.CustomResourceState
 
-	AmazonSideAsn                  pulumi.IntPtrOutput          `pulumi:"amazonSideAsn"`
-	AssociationDefaultRouteTableId pulumi.StringPtrOutput       `pulumi:"associationDefaultRouteTableId"`
-	AutoAcceptSharedAttachments    pulumi.StringPtrOutput       `pulumi:"autoAcceptSharedAttachments"`
-	DefaultRouteTableAssociation   pulumi.StringPtrOutput       `pulumi:"defaultRouteTableAssociation"`
-	DefaultRouteTablePropagation   pulumi.StringPtrOutput       `pulumi:"defaultRouteTablePropagation"`
-	Description                    pulumi.StringPtrOutput       `pulumi:"description"`
-	DnsSupport                     pulumi.StringPtrOutput       `pulumi:"dnsSupport"`
-	MulticastSupport               pulumi.StringPtrOutput       `pulumi:"multicastSupport"`
-	PropagationDefaultRouteTableId pulumi.StringPtrOutput       `pulumi:"propagationDefaultRouteTableId"`
-	Tags                           TransitGatewayTagArrayOutput `pulumi:"tags"`
-	TransitGatewayArn              pulumi.StringOutput          `pulumi:"transitGatewayArn"`
-	TransitGatewayCidrBlocks       pulumi.StringArrayOutput     `pulumi:"transitGatewayCidrBlocks"`
-	VpnEcmpSupport                 pulumi.StringPtrOutput       `pulumi:"vpnEcmpSupport"`
+	AmazonSideAsn                  pulumi.IntPtrOutput      `pulumi:"amazonSideAsn"`
+	AssociationDefaultRouteTableId pulumi.StringPtrOutput   `pulumi:"associationDefaultRouteTableId"`
+	AutoAcceptSharedAttachments    pulumi.StringPtrOutput   `pulumi:"autoAcceptSharedAttachments"`
+	DefaultRouteTableAssociation   pulumi.StringPtrOutput   `pulumi:"defaultRouteTableAssociation"`
+	DefaultRouteTablePropagation   pulumi.StringPtrOutput   `pulumi:"defaultRouteTablePropagation"`
+	Description                    pulumi.StringPtrOutput   `pulumi:"description"`
+	DnsSupport                     pulumi.StringPtrOutput   `pulumi:"dnsSupport"`
+	MulticastSupport               pulumi.StringPtrOutput   `pulumi:"multicastSupport"`
+	PropagationDefaultRouteTableId pulumi.StringPtrOutput   `pulumi:"propagationDefaultRouteTableId"`
+	Tags                           aws.TagArrayOutput       `pulumi:"tags"`
+	TransitGatewayArn              pulumi.StringOutput      `pulumi:"transitGatewayArn"`
+	TransitGatewayCidrBlocks       pulumi.StringArrayOutput `pulumi:"transitGatewayCidrBlocks"`
+	VpnEcmpSupport                 pulumi.StringPtrOutput   `pulumi:"vpnEcmpSupport"`
 }
 
 // NewTransitGateway registers a new resource with the given unique name, arguments, and options.
@@ -75,18 +76,18 @@ func (TransitGatewayState) ElementType() reflect.Type {
 }
 
 type transitGatewayArgs struct {
-	AmazonSideAsn                  *int                `pulumi:"amazonSideAsn"`
-	AssociationDefaultRouteTableId *string             `pulumi:"associationDefaultRouteTableId"`
-	AutoAcceptSharedAttachments    *string             `pulumi:"autoAcceptSharedAttachments"`
-	DefaultRouteTableAssociation   *string             `pulumi:"defaultRouteTableAssociation"`
-	DefaultRouteTablePropagation   *string             `pulumi:"defaultRouteTablePropagation"`
-	Description                    *string             `pulumi:"description"`
-	DnsSupport                     *string             `pulumi:"dnsSupport"`
-	MulticastSupport               *string             `pulumi:"multicastSupport"`
-	PropagationDefaultRouteTableId *string             `pulumi:"propagationDefaultRouteTableId"`
-	Tags                           []TransitGatewayTag `pulumi:"tags"`
-	TransitGatewayCidrBlocks       []string            `pulumi:"transitGatewayCidrBlocks"`
-	VpnEcmpSupport                 *string             `pulumi:"vpnEcmpSupport"`
+	AmazonSideAsn                  *int      `pulumi:"amazonSideAsn"`
+	AssociationDefaultRouteTableId *string   `pulumi:"associationDefaultRouteTableId"`
+	AutoAcceptSharedAttachments    *string   `pulumi:"autoAcceptSharedAttachments"`
+	DefaultRouteTableAssociation   *string   `pulumi:"defaultRouteTableAssociation"`
+	DefaultRouteTablePropagation   *string   `pulumi:"defaultRouteTablePropagation"`
+	Description                    *string   `pulumi:"description"`
+	DnsSupport                     *string   `pulumi:"dnsSupport"`
+	MulticastSupport               *string   `pulumi:"multicastSupport"`
+	PropagationDefaultRouteTableId *string   `pulumi:"propagationDefaultRouteTableId"`
+	Tags                           []aws.Tag `pulumi:"tags"`
+	TransitGatewayCidrBlocks       []string  `pulumi:"transitGatewayCidrBlocks"`
+	VpnEcmpSupport                 *string   `pulumi:"vpnEcmpSupport"`
 }
 
 // The set of arguments for constructing a TransitGateway resource.
@@ -100,7 +101,7 @@ type TransitGatewayArgs struct {
 	DnsSupport                     pulumi.StringPtrInput
 	MulticastSupport               pulumi.StringPtrInput
 	PropagationDefaultRouteTableId pulumi.StringPtrInput
-	Tags                           TransitGatewayTagArrayInput
+	Tags                           aws.TagArrayInput
 	TransitGatewayCidrBlocks       pulumi.StringArrayInput
 	VpnEcmpSupport                 pulumi.StringPtrInput
 }
@@ -178,8 +179,8 @@ func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringPtrO
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
-func (o TransitGatewayOutput) Tags() TransitGatewayTagArrayOutput {
-	return o.ApplyT(func(v *TransitGateway) TransitGatewayTagArrayOutput { return v.Tags }).(TransitGatewayTagArrayOutput)
+func (o TransitGatewayOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TransitGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TransitGatewayOutput) TransitGatewayArn() pulumi.StringOutput {

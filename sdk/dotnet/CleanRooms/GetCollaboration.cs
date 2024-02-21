@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CollaborationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCollaborationResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.CleanRooms
 
             string? name,
 
-            ImmutableArray<Outputs.CollaborationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CollaborationIdentifier = collaborationIdentifier;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Mesh struct {
 	MeshOwner     pulumi.StringOutput    `pulumi:"meshOwner"`
 	ResourceOwner pulumi.StringOutput    `pulumi:"resourceOwner"`
 	Spec          MeshSpecPtrOutput      `pulumi:"spec"`
-	Tags          MeshTagArrayOutput     `pulumi:"tags"`
+	Tags          aws.TagArrayOutput     `pulumi:"tags"`
 	Uid           pulumi.StringOutput    `pulumi:"uid"`
 }
 
@@ -72,14 +73,14 @@ func (MeshState) ElementType() reflect.Type {
 type meshArgs struct {
 	MeshName *string   `pulumi:"meshName"`
 	Spec     *MeshSpec `pulumi:"spec"`
-	Tags     []MeshTag `pulumi:"tags"`
+	Tags     []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Mesh resource.
 type MeshArgs struct {
 	MeshName pulumi.StringPtrInput
 	Spec     MeshSpecPtrInput
-	Tags     MeshTagArrayInput
+	Tags     aws.TagArrayInput
 }
 
 func (MeshArgs) ElementType() reflect.Type {
@@ -139,8 +140,8 @@ func (o MeshOutput) Spec() MeshSpecPtrOutput {
 	return o.ApplyT(func(v *Mesh) MeshSpecPtrOutput { return v.Spec }).(MeshSpecPtrOutput)
 }
 
-func (o MeshOutput) Tags() MeshTagArrayOutput {
-	return o.ApplyT(func(v *Mesh) MeshTagArrayOutput { return v.Tags }).(MeshTagArrayOutput)
+func (o MeshOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Mesh) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o MeshOutput) Uid() pulumi.StringOutput {

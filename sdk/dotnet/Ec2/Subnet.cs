@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> SubnetId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SubnetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -211,10 +211,10 @@ namespace Pulumi.AwsNative.Ec2
         public Input<Inputs.PrivateDnsNameOptionsOnLaunchPropertiesArgs>? PrivateDnsNameOptionsOnLaunch { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.SubnetTagArgs>? _tags;
-        public InputList<Inputs.SubnetTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SubnetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type ReportPlan struct {
 	// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
 	ReportPlanName pulumi.StringPtrOutput `pulumi:"reportPlanName"`
 	// Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
-	ReportPlanTags ReportPlanTagArrayOutput `pulumi:"reportPlanTags"`
+	ReportPlanTags aws.TagArrayOutput `pulumi:"reportPlanTags"`
 	// Identifies the report template for the report. Reports are built using a report template.
 	ReportSetting ReportSettingPropertiesOutput `pulumi:"reportSetting"`
 }
@@ -87,7 +88,7 @@ type reportPlanArgs struct {
 	// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
 	ReportPlanName *string `pulumi:"reportPlanName"`
 	// Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
-	ReportPlanTags []ReportPlanTag `pulumi:"reportPlanTags"`
+	ReportPlanTags []aws.Tag `pulumi:"reportPlanTags"`
 	// Identifies the report template for the report. Reports are built using a report template.
 	ReportSetting ReportSettingProperties `pulumi:"reportSetting"`
 }
@@ -101,7 +102,7 @@ type ReportPlanArgs struct {
 	// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
 	ReportPlanName pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
-	ReportPlanTags ReportPlanTagArrayInput
+	ReportPlanTags aws.TagArrayInput
 	// Identifies the report template for the report. Reports are built using a report template.
 	ReportSetting ReportSettingPropertiesInput
 }
@@ -164,8 +165,8 @@ func (o ReportPlanOutput) ReportPlanName() pulumi.StringPtrOutput {
 }
 
 // Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
-func (o ReportPlanOutput) ReportPlanTags() ReportPlanTagArrayOutput {
-	return o.ApplyT(func(v *ReportPlan) ReportPlanTagArrayOutput { return v.ReportPlanTags }).(ReportPlanTagArrayOutput)
+func (o ReportPlanOutput) ReportPlanTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ReportPlan) aws.TagArrayOutput { return v.ReportPlanTags }).(aws.TagArrayOutput)
 }
 
 // Identifies the report template for the report. Reports are built using a report template.

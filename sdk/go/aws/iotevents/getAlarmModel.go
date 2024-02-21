@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type LookupAlarmModelResult struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags []AlarmModelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAlarmModelOutput(ctx *pulumi.Context, args LookupAlarmModelOutputArgs, opts ...pulumi.InvokeOption) LookupAlarmModelResultOutput {
@@ -111,8 +112,8 @@ func (o LookupAlarmModelResultOutput) Severity() pulumi.IntPtrOutput {
 // An array of key-value pairs to apply to this resource.
 //
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-func (o LookupAlarmModelResultOutput) Tags() AlarmModelTagArrayOutput {
-	return o.ApplyT(func(v LookupAlarmModelResult) []AlarmModelTag { return v.Tags }).(AlarmModelTagArrayOutput)
+func (o LookupAlarmModelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAlarmModelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

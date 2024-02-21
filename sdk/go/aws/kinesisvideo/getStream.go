@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupStreamResult struct {
 	// The media type of the stream. Consumers of the stream can use this information when processing the stream.
 	MediaType *string `pulumi:"mediaType"`
 	// An array of key-value pairs associated with the Kinesis Video Stream.
-	Tags []StreamTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts ...pulumi.InvokeOption) LookupStreamResultOutput {
@@ -104,8 +105,8 @@ func (o LookupStreamResultOutput) MediaType() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs associated with the Kinesis Video Stream.
-func (o LookupStreamResultOutput) Tags() StreamTagArrayOutput {
-	return o.ApplyT(func(v LookupStreamResult) []StreamTag { return v.Tags }).(StreamTagArrayOutput)
+func (o LookupStreamResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStreamResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

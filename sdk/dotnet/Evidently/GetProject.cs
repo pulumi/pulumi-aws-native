@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Evidently
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProjectTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetProjectResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Evidently
 
             string? description,
 
-            ImmutableArray<Outputs.ProjectTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AppConfigResource = appConfigResource;
             Arn = arn;

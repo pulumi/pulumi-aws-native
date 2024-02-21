@@ -44,7 +44,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly reputationOptions!: pulumi.Output<outputs.pinpointemail.ConfigurationSetReputationOptions | undefined>;
     public readonly sendingOptions!: pulumi.Output<outputs.pinpointemail.ConfigurationSetSendingOptions | undefined>;
-    public readonly tags!: pulumi.Output<outputs.pinpointemail.ConfigurationSetTags[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly trackingOptions!: pulumi.Output<outputs.pinpointemail.ConfigurationSetTrackingOptions | undefined>;
 
     /**
@@ -89,6 +89,6 @@ export interface ConfigurationSetArgs {
     name?: pulumi.Input<string>;
     reputationOptions?: pulumi.Input<inputs.pinpointemail.ConfigurationSetReputationOptionsArgs>;
     sendingOptions?: pulumi.Input<inputs.pinpointemail.ConfigurationSetSendingOptionsArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.pinpointemail.ConfigurationSetTagsArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     trackingOptions?: pulumi.Input<inputs.pinpointemail.ConfigurationSetTrackingOptionsArgs>;
 }

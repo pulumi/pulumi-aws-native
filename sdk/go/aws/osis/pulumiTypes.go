@@ -598,107 +598,6 @@ type PipelineTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PipelineTagInput is an input type that accepts PipelineTagArgs and PipelineTagOutput values.
-// You can construct a concrete instance of `PipelineTagInput` via:
-//
-//	PipelineTagArgs{...}
-type PipelineTagInput interface {
-	pulumi.Input
-
-	ToPipelineTagOutput() PipelineTagOutput
-	ToPipelineTagOutputWithContext(context.Context) PipelineTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type PipelineTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PipelineTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineTag)(nil)).Elem()
-}
-
-func (i PipelineTagArgs) ToPipelineTagOutput() PipelineTagOutput {
-	return i.ToPipelineTagOutputWithContext(context.Background())
-}
-
-func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagOutput)
-}
-
-// PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
-// You can construct a concrete instance of `PipelineTagArrayInput` via:
-//
-//	PipelineTagArray{ PipelineTagArgs{...} }
-type PipelineTagArrayInput interface {
-	pulumi.Input
-
-	ToPipelineTagArrayOutput() PipelineTagArrayOutput
-	ToPipelineTagArrayOutputWithContext(context.Context) PipelineTagArrayOutput
-}
-
-type PipelineTagArray []PipelineTagInput
-
-func (PipelineTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PipelineTag)(nil)).Elem()
-}
-
-func (i PipelineTagArray) ToPipelineTagArrayOutput() PipelineTagArrayOutput {
-	return i.ToPipelineTagArrayOutputWithContext(context.Background())
-}
-
-func (i PipelineTagArray) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type PipelineTagOutput struct{ *pulumi.OutputState }
-
-func (PipelineTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineTag)(nil)).Elem()
-}
-
-func (o PipelineTagOutput) ToPipelineTagOutput() PipelineTagOutput {
-	return o
-}
-
-func (o PipelineTagOutput) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o PipelineTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o PipelineTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PipelineTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PipelineTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PipelineTag)(nil)).Elem()
-}
-
-func (o PipelineTagArrayOutput) ToPipelineTagArrayOutput() PipelineTagArrayOutput {
-	return o
-}
-
-func (o PipelineTagArrayOutput) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
-	return o
-}
-
-func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineTag {
-		return vs[0].([]PipelineTag)[vs[1].(int)]
-	}).(PipelineTagOutput)
-}
-
 // An OpenSearch Ingestion Service-managed VPC endpoint that will access one or more pipelines.
 type PipelineVpcEndpoint struct {
 	// The unique identifier of the endpoint.
@@ -925,8 +824,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsPtrInput)(nil)).Elem(), PipelineLogPublishingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesInput)(nil)).Elem(), PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrInput)(nil)).Elem(), PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagInput)(nil)).Elem(), PipelineTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagArrayInput)(nil)).Elem(), PipelineTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsInput)(nil)).Elem(), PipelineVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsPtrInput)(nil)).Elem(), PipelineVpcOptionsArgs{})
 	pulumi.RegisterOutputType(PipelineBufferOptionsOutput{})
@@ -937,8 +834,6 @@ func init() {
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(PipelineTagOutput{})
-	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
 	pulumi.RegisterOutputType(PipelineVpcEndpointOutput{})
 	pulumi.RegisterOutputType(PipelineVpcEndpointArrayOutput{})
 	pulumi.RegisterOutputType(PipelineVpcOptionsOutput{})

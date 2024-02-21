@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type StorageVirtualMachine struct {
 	RootVolumeSecurityStyle      pulumi.StringPtrOutput                                     `pulumi:"rootVolumeSecurityStyle"`
 	StorageVirtualMachineId      pulumi.StringOutput                                        `pulumi:"storageVirtualMachineId"`
 	SvmAdminPassword             pulumi.StringPtrOutput                                     `pulumi:"svmAdminPassword"`
-	Tags                         StorageVirtualMachineTagArrayOutput                        `pulumi:"tags"`
+	Tags                         aws.TagArrayOutput                                         `pulumi:"tags"`
 	Uuid                         pulumi.StringOutput                                        `pulumi:"uuid"`
 }
 
@@ -83,7 +84,7 @@ type storageVirtualMachineArgs struct {
 	Name                         *string                                            `pulumi:"name"`
 	RootVolumeSecurityStyle      *string                                            `pulumi:"rootVolumeSecurityStyle"`
 	SvmAdminPassword             *string                                            `pulumi:"svmAdminPassword"`
-	Tags                         []StorageVirtualMachineTag                         `pulumi:"tags"`
+	Tags                         []aws.Tag                                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageVirtualMachine resource.
@@ -93,7 +94,7 @@ type StorageVirtualMachineArgs struct {
 	Name                         pulumi.StringPtrInput
 	RootVolumeSecurityStyle      pulumi.StringPtrInput
 	SvmAdminPassword             pulumi.StringPtrInput
-	Tags                         StorageVirtualMachineTagArrayInput
+	Tags                         aws.TagArrayInput
 }
 
 func (StorageVirtualMachineArgs) ElementType() reflect.Type {
@@ -163,8 +164,8 @@ func (o StorageVirtualMachineOutput) SvmAdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringPtrOutput { return v.SvmAdminPassword }).(pulumi.StringPtrOutput)
 }
 
-func (o StorageVirtualMachineOutput) Tags() StorageVirtualMachineTagArrayOutput {
-	return o.ApplyT(func(v *StorageVirtualMachine) StorageVirtualMachineTagArrayOutput { return v.Tags }).(StorageVirtualMachineTagArrayOutput)
+func (o StorageVirtualMachineOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o StorageVirtualMachineOutput) Uuid() pulumi.StringOutput {

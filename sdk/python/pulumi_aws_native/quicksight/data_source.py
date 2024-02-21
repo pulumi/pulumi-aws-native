@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,7 @@ class DataSourceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]] = None,
                  ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  type: Optional[pulumi.Input['DataSourceType']] = None,
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
@@ -42,7 +44,7 @@ class DataSourceArgs:
                            are automatically allowed.</p>
         :param pulumi.Input[str] name: <p>A display name for the data source.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the data source.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """
         if alternate_data_source_parameters is not None:
             pulumi.set(__self__, "alternate_data_source_parameters", alternate_data_source_parameters)
@@ -169,14 +171,14 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -212,7 +214,7 @@ class DataSource(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['DataSourceType']] = None,
                  vpc_connection_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']]] = None,
                  __props__=None):
@@ -232,7 +234,7 @@ class DataSource(pulumi.CustomResource):
                            are automatically allowed.</p>
         :param pulumi.Input[str] name: <p>A display name for the data source.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]] permissions: <p>A list of resource permissions on the data source.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """
         ...
     @overload
@@ -267,7 +269,7 @@ class DataSource(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input['DataSourceType']] = None,
                  vpc_connection_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']]] = None,
                  __props__=None):
@@ -430,7 +432,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DataSourceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """

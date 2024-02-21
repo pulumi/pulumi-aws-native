@@ -4518,101 +4518,6 @@ type LoadBalancerTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// LoadBalancerTagInput is an input type that accepts LoadBalancerTagArgs and LoadBalancerTagOutput values.
-// You can construct a concrete instance of `LoadBalancerTagInput` via:
-//
-//	LoadBalancerTagArgs{...}
-type LoadBalancerTagInput interface {
-	pulumi.Input
-
-	ToLoadBalancerTagOutput() LoadBalancerTagOutput
-	ToLoadBalancerTagOutputWithContext(context.Context) LoadBalancerTagOutput
-}
-
-type LoadBalancerTagArgs struct {
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (LoadBalancerTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerTag)(nil)).Elem()
-}
-
-func (i LoadBalancerTagArgs) ToLoadBalancerTagOutput() LoadBalancerTagOutput {
-	return i.ToLoadBalancerTagOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerTagArgs) ToLoadBalancerTagOutputWithContext(ctx context.Context) LoadBalancerTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTagOutput)
-}
-
-// LoadBalancerTagArrayInput is an input type that accepts LoadBalancerTagArray and LoadBalancerTagArrayOutput values.
-// You can construct a concrete instance of `LoadBalancerTagArrayInput` via:
-//
-//	LoadBalancerTagArray{ LoadBalancerTagArgs{...} }
-type LoadBalancerTagArrayInput interface {
-	pulumi.Input
-
-	ToLoadBalancerTagArrayOutput() LoadBalancerTagArrayOutput
-	ToLoadBalancerTagArrayOutputWithContext(context.Context) LoadBalancerTagArrayOutput
-}
-
-type LoadBalancerTagArray []LoadBalancerTagInput
-
-func (LoadBalancerTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerTag)(nil)).Elem()
-}
-
-func (i LoadBalancerTagArray) ToLoadBalancerTagArrayOutput() LoadBalancerTagArrayOutput {
-	return i.ToLoadBalancerTagArrayOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerTagArray) ToLoadBalancerTagArrayOutputWithContext(ctx context.Context) LoadBalancerTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTagArrayOutput)
-}
-
-type LoadBalancerTagOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerTag)(nil)).Elem()
-}
-
-func (o LoadBalancerTagOutput) ToLoadBalancerTagOutput() LoadBalancerTagOutput {
-	return o
-}
-
-func (o LoadBalancerTagOutput) ToLoadBalancerTagOutputWithContext(ctx context.Context) LoadBalancerTagOutput {
-	return o
-}
-
-func (o LoadBalancerTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LoadBalancerTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o LoadBalancerTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type LoadBalancerTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerTag)(nil)).Elem()
-}
-
-func (o LoadBalancerTagArrayOutput) ToLoadBalancerTagArrayOutput() LoadBalancerTagArrayOutput {
-	return o
-}
-
-func (o LoadBalancerTagArrayOutput) ToLoadBalancerTagArrayOutputWithContext(ctx context.Context) LoadBalancerTagArrayOutput {
-	return o
-}
-
-func (o LoadBalancerTagArrayOutput) Index(i pulumi.IntInput) LoadBalancerTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerTag {
-		return vs[0].([]LoadBalancerTag)[vs[1].(int)]
-	}).(LoadBalancerTagOutput)
-}
-
 type TargetGroupAttribute struct {
 	// The value of the attribute.
 	Key *string `pulumi:"key"`
@@ -4880,105 +4785,6 @@ type TargetGroupTag struct {
 	Key string `pulumi:"key"`
 	// The key name of the tag.
 	Value string `pulumi:"value"`
-}
-
-// TargetGroupTagInput is an input type that accepts TargetGroupTagArgs and TargetGroupTagOutput values.
-// You can construct a concrete instance of `TargetGroupTagInput` via:
-//
-//	TargetGroupTagArgs{...}
-type TargetGroupTagInput interface {
-	pulumi.Input
-
-	ToTargetGroupTagOutput() TargetGroupTagOutput
-	ToTargetGroupTagOutputWithContext(context.Context) TargetGroupTagOutput
-}
-
-type TargetGroupTagArgs struct {
-	// The value for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The key name of the tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TargetGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroupTag)(nil)).Elem()
-}
-
-func (i TargetGroupTagArgs) ToTargetGroupTagOutput() TargetGroupTagOutput {
-	return i.ToTargetGroupTagOutputWithContext(context.Background())
-}
-
-func (i TargetGroupTagArgs) ToTargetGroupTagOutputWithContext(ctx context.Context) TargetGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTagOutput)
-}
-
-// TargetGroupTagArrayInput is an input type that accepts TargetGroupTagArray and TargetGroupTagArrayOutput values.
-// You can construct a concrete instance of `TargetGroupTagArrayInput` via:
-//
-//	TargetGroupTagArray{ TargetGroupTagArgs{...} }
-type TargetGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToTargetGroupTagArrayOutput() TargetGroupTagArrayOutput
-	ToTargetGroupTagArrayOutputWithContext(context.Context) TargetGroupTagArrayOutput
-}
-
-type TargetGroupTagArray []TargetGroupTagInput
-
-func (TargetGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetGroupTag)(nil)).Elem()
-}
-
-func (i TargetGroupTagArray) ToTargetGroupTagArrayOutput() TargetGroupTagArrayOutput {
-	return i.ToTargetGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i TargetGroupTagArray) ToTargetGroupTagArrayOutputWithContext(ctx context.Context) TargetGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTagArrayOutput)
-}
-
-type TargetGroupTagOutput struct{ *pulumi.OutputState }
-
-func (TargetGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroupTag)(nil)).Elem()
-}
-
-func (o TargetGroupTagOutput) ToTargetGroupTagOutput() TargetGroupTagOutput {
-	return o
-}
-
-func (o TargetGroupTagOutput) ToTargetGroupTagOutputWithContext(ctx context.Context) TargetGroupTagOutput {
-	return o
-}
-
-// The value for the tag.
-func (o TargetGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TargetGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The key name of the tag.
-func (o TargetGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TargetGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TargetGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TargetGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetGroupTag)(nil)).Elem()
-}
-
-func (o TargetGroupTagArrayOutput) ToTargetGroupTagArrayOutput() TargetGroupTagArrayOutput {
-	return o
-}
-
-func (o TargetGroupTagArrayOutput) ToTargetGroupTagArrayOutputWithContext(ctx context.Context) TargetGroupTagArrayOutput {
-	return o
-}
-
-func (o TargetGroupTagArrayOutput) Index(i pulumi.IntInput) TargetGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetGroupTag {
-		return vs[0].([]TargetGroupTag)[vs[1].(int)]
-	}).(TargetGroupTagOutput)
 }
 
 type TargetGroupTargetDescription struct {
@@ -5270,101 +5076,6 @@ type TrustStoreTag struct {
 	Value string `pulumi:"value"`
 }
 
-// TrustStoreTagInput is an input type that accepts TrustStoreTagArgs and TrustStoreTagOutput values.
-// You can construct a concrete instance of `TrustStoreTagInput` via:
-//
-//	TrustStoreTagArgs{...}
-type TrustStoreTagInput interface {
-	pulumi.Input
-
-	ToTrustStoreTagOutput() TrustStoreTagOutput
-	ToTrustStoreTagOutputWithContext(context.Context) TrustStoreTagOutput
-}
-
-type TrustStoreTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TrustStoreTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrustStoreTag)(nil)).Elem()
-}
-
-func (i TrustStoreTagArgs) ToTrustStoreTagOutput() TrustStoreTagOutput {
-	return i.ToTrustStoreTagOutputWithContext(context.Background())
-}
-
-func (i TrustStoreTagArgs) ToTrustStoreTagOutputWithContext(ctx context.Context) TrustStoreTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreTagOutput)
-}
-
-// TrustStoreTagArrayInput is an input type that accepts TrustStoreTagArray and TrustStoreTagArrayOutput values.
-// You can construct a concrete instance of `TrustStoreTagArrayInput` via:
-//
-//	TrustStoreTagArray{ TrustStoreTagArgs{...} }
-type TrustStoreTagArrayInput interface {
-	pulumi.Input
-
-	ToTrustStoreTagArrayOutput() TrustStoreTagArrayOutput
-	ToTrustStoreTagArrayOutputWithContext(context.Context) TrustStoreTagArrayOutput
-}
-
-type TrustStoreTagArray []TrustStoreTagInput
-
-func (TrustStoreTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrustStoreTag)(nil)).Elem()
-}
-
-func (i TrustStoreTagArray) ToTrustStoreTagArrayOutput() TrustStoreTagArrayOutput {
-	return i.ToTrustStoreTagArrayOutputWithContext(context.Background())
-}
-
-func (i TrustStoreTagArray) ToTrustStoreTagArrayOutputWithContext(ctx context.Context) TrustStoreTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreTagArrayOutput)
-}
-
-type TrustStoreTagOutput struct{ *pulumi.OutputState }
-
-func (TrustStoreTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrustStoreTag)(nil)).Elem()
-}
-
-func (o TrustStoreTagOutput) ToTrustStoreTagOutput() TrustStoreTagOutput {
-	return o
-}
-
-func (o TrustStoreTagOutput) ToTrustStoreTagOutputWithContext(ctx context.Context) TrustStoreTagOutput {
-	return o
-}
-
-func (o TrustStoreTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TrustStoreTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o TrustStoreTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TrustStoreTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TrustStoreTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TrustStoreTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrustStoreTag)(nil)).Elem()
-}
-
-func (o TrustStoreTagArrayOutput) ToTrustStoreTagArrayOutput() TrustStoreTagArrayOutput {
-	return o
-}
-
-func (o TrustStoreTagArrayOutput) ToTrustStoreTagArrayOutputWithContext(ctx context.Context) TrustStoreTagArrayOutput {
-	return o
-}
-
-func (o TrustStoreTagArrayOutput) Index(i pulumi.IntInput) TrustStoreTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrustStoreTag {
-		return vs[0].([]TrustStoreTag)[vs[1].(int)]
-	}).(TrustStoreTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerActionInput)(nil)).Elem(), ListenerActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerActionArrayInput)(nil)).Elem(), ListenerActionArray{})
@@ -5424,20 +5135,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAttributeArrayInput)(nil)).Elem(), LoadBalancerAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingInput)(nil)).Elem(), LoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingArrayInput)(nil)).Elem(), LoadBalancerSubnetMappingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTagInput)(nil)).Elem(), LoadBalancerTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTagArrayInput)(nil)).Elem(), LoadBalancerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupAttributeInput)(nil)).Elem(), TargetGroupAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupAttributeArrayInput)(nil)).Elem(), TargetGroupAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupMatcherInput)(nil)).Elem(), TargetGroupMatcherArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupMatcherPtrInput)(nil)).Elem(), TargetGroupMatcherArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTagInput)(nil)).Elem(), TargetGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTagArrayInput)(nil)).Elem(), TargetGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetDescriptionInput)(nil)).Elem(), TargetGroupTargetDescriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetDescriptionArrayInput)(nil)).Elem(), TargetGroupTargetDescriptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreRevocationRevocationContentInput)(nil)).Elem(), TrustStoreRevocationRevocationContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreRevocationRevocationContentArrayInput)(nil)).Elem(), TrustStoreRevocationRevocationContentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreTagInput)(nil)).Elem(), TrustStoreTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreTagArrayInput)(nil)).Elem(), TrustStoreTagArray{})
 	pulumi.RegisterOutputType(ListenerActionOutput{})
 	pulumi.RegisterOutputType(ListenerActionArrayOutput{})
 	pulumi.RegisterOutputType(ListenerAuthenticateCognitoConfigOutput{})
@@ -5496,20 +5201,14 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerAttributeArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingArrayOutput{})
-	pulumi.RegisterOutputType(LoadBalancerTagOutput{})
-	pulumi.RegisterOutputType(LoadBalancerTagArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupAttributeOutput{})
 	pulumi.RegisterOutputType(TargetGroupAttributeArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupMatcherOutput{})
 	pulumi.RegisterOutputType(TargetGroupMatcherPtrOutput{})
-	pulumi.RegisterOutputType(TargetGroupTagOutput{})
-	pulumi.RegisterOutputType(TargetGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetDescriptionOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(TrustStoreRevocationTypeOutput{})
 	pulumi.RegisterOutputType(TrustStoreRevocationTypeArrayOutput{})
 	pulumi.RegisterOutputType(TrustStoreRevocationRevocationContentOutput{})
 	pulumi.RegisterOutputType(TrustStoreRevocationRevocationContentArrayOutput{})
-	pulumi.RegisterOutputType(TrustStoreTagOutput{})
-	pulumi.RegisterOutputType(TrustStoreTagArrayOutput{})
 }

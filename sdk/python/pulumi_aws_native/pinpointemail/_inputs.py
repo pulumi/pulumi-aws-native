@@ -19,11 +19,8 @@ __all__ = [
     'ConfigurationSetEventDestinationSnsDestinationArgs',
     'ConfigurationSetReputationOptionsArgs',
     'ConfigurationSetSendingOptionsArgs',
-    'ConfigurationSetTagsArgs',
     'ConfigurationSetTrackingOptionsArgs',
-    'DedicatedIpPoolTagsArgs',
     'IdentityMailFromAttributesArgs',
-    'IdentityTagsArgs',
 ]
 
 @pulumi.input_type
@@ -269,35 +266,6 @@ class ConfigurationSetSendingOptionsArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetTagsArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
                  custom_redirect_domain: Optional[pulumi.Input[str]] = None):
@@ -312,35 +280,6 @@ class ConfigurationSetTrackingOptionsArgs:
     @custom_redirect_domain.setter
     def custom_redirect_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_redirect_domain", value)
-
-
-@pulumi.input_type
-class DedicatedIpPoolTagsArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -370,34 +309,5 @@ class IdentityMailFromAttributesArgs:
     @mail_from_domain.setter
     def mail_from_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mail_from_domain", value)
-
-
-@pulumi.input_type
-class IdentityTagsArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 

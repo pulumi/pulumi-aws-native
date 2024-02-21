@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags for the local gateway route table.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.LocalGatewayRouteTableTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,14 +126,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? Mode { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.LocalGatewayRouteTableTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the local gateway route table.
         /// </summary>
-        public InputList<Inputs.LocalGatewayRouteTableTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.LocalGatewayRouteTableTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

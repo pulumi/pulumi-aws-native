@@ -12,14 +12,8 @@ from ._enums import *
 
 __all__ = [
     'DevicePoolRule',
-    'DevicePoolTag',
-    'InstanceProfileTag',
-    'NetworkProfileTag',
-    'ProjectTag',
     'ProjectVpcConfig',
-    'TestGridProjectTag',
     'TestGridProjectVpcConfig',
-    'VpceConfigurationTag',
 ]
 
 @pulumi.output_type
@@ -66,82 +60,6 @@ class DevicePoolRule(dict):
         """
         The rule's value.
         """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class DevicePoolTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class InstanceProfileTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class NetworkProfileTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ProjectTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
         return pulumi.get(self, "value")
 
 
@@ -211,25 +129,6 @@ class ProjectVpcConfig(dict):
 
 
 @pulumi.output_type
-class TestGridProjectTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class TestGridProjectVpcConfig(dict):
     """
     The VPC security groups and subnets that are attached to a TestGrid project.
@@ -288,24 +187,5 @@ class TestGridProjectVpcConfig(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         return pulumi.get(self, "vpc_id")
-
-
-@pulumi.output_type
-class VpceConfigurationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

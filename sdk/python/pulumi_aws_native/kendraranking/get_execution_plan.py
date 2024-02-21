@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetExecutionPlanResult',
@@ -72,7 +73,7 @@ class GetExecutionPlanResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ExecutionPlanTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Tags for labeling the execution plan
         """

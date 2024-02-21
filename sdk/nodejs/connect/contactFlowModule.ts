@@ -68,7 +68,7 @@ export class ContactFlowModule extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.ContactFlowModuleTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ContactFlowModule resource with the given unique name, arguments, and options.
@@ -137,5 +137,5 @@ export interface ContactFlowModuleArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.ContactFlowModuleTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

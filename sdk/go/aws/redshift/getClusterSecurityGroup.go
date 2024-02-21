@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,8 +28,8 @@ type LookupClusterSecurityGroupArgs struct {
 }
 
 type LookupClusterSecurityGroupResult struct {
-	Id   *string                   `pulumi:"id"`
-	Tags []ClusterSecurityGroupTag `pulumi:"tags"`
+	Id   *string   `pulumi:"id"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupClusterSecurityGroupOutput(ctx *pulumi.Context, args LookupClusterSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterSecurityGroupResultOutput {
@@ -70,8 +71,8 @@ func (o LookupClusterSecurityGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterSecurityGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterSecurityGroupResultOutput) Tags() ClusterSecurityGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupClusterSecurityGroupResult) []ClusterSecurityGroupTag { return v.Tags }).(ClusterSecurityGroupTagArrayOutput)
+func (o LookupClusterSecurityGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupClusterSecurityGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

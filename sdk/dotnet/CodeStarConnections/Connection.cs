@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// Specifies the tags applied to a connection.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ConnectionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -127,14 +127,14 @@ namespace Pulumi.AwsNative.CodeStarConnections
         public Input<string>? ProviderType { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ConnectionTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Specifies the tags applied to a connection.
         /// </summary>
-        public InputList<Inputs.ConnectionTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ConnectionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

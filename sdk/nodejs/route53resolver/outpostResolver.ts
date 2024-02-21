@@ -80,7 +80,7 @@ export class OutpostResolver extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.route53resolver.OutpostResolverTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a OutpostResolver resource with the given unique name, arguments, and options.
@@ -153,5 +153,5 @@ export interface OutpostResolverArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.OutpostResolverTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -37,7 +37,7 @@ export interface GetSourceLocationResult {
     /**
      * The tags to assign to the source location.
      */
-    readonly tags?: outputs.mediatailor.SourceLocationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::MediaTailor::SourceLocation Resource Type

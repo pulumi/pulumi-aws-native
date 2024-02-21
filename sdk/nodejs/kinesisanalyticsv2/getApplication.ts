@@ -45,7 +45,7 @@ export interface GetApplicationResult {
     /**
      * A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
      */
-    readonly tags?: outputs.kinesisanalyticsv2.ApplicationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -19,12 +21,12 @@ class VodSourceArgs:
     def __init__(__self__, *,
                  http_package_configurations: pulumi.Input[Sequence[pulumi.Input['VodSourceHttpPackageConfigurationArgs']]],
                  source_location_name: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VodSourceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vod_source_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VodSource resource.
         :param pulumi.Input[Sequence[pulumi.Input['VodSourceHttpPackageConfigurationArgs']]] http_package_configurations: <p>A list of HTTP package configuration parameters for this VOD source.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['VodSourceTagArgs']]] tags: The tags to assign to the VOD source.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the VOD source.
         """
         pulumi.set(__self__, "http_package_configurations", http_package_configurations)
         pulumi.set(__self__, "source_location_name", source_location_name)
@@ -56,14 +58,14 @@ class VodSourceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VodSourceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to assign to the VOD source.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VodSourceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -83,7 +85,7 @@ class VodSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  http_package_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VodSourceHttpPackageConfigurationArgs']]]]] = None,
                  source_location_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VodSourceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vod_source_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -92,7 +94,7 @@ class VodSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VodSourceHttpPackageConfigurationArgs']]]] http_package_configurations: <p>A list of HTTP package configuration parameters for this VOD source.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VodSourceTagArgs']]]] tags: The tags to assign to the VOD source.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the VOD source.
         """
         ...
     @overload
@@ -120,7 +122,7 @@ class VodSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  http_package_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VodSourceHttpPackageConfigurationArgs']]]]] = None,
                  source_location_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VodSourceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vod_source_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -194,7 +196,7 @@ class VodSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VodSourceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags to assign to the VOD source.
         """

@@ -43,7 +43,7 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
     public readonly scheduleExpression!: pulumi.Output<string>;
     public readonly scheduleExpressionTimezone!: pulumi.Output<string | undefined>;
     public readonly startWindowHours!: pulumi.Output<number | undefined>;
-    public readonly tags!: pulumi.Output<outputs.backup.RestoreTestingPlanTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RestoreTestingPlan resource with the given unique name, arguments, and options.
@@ -94,5 +94,5 @@ export interface RestoreTestingPlanArgs {
     scheduleExpression: pulumi.Input<string>;
     scheduleExpressionTimezone?: pulumi.Input<string>;
     startWindowHours?: pulumi.Input<number>;
-    tags?: pulumi.Input<pulumi.Input<inputs.backup.RestoreTestingPlanTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

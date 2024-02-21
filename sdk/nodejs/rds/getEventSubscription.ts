@@ -45,7 +45,7 @@ export interface GetEventSubscriptionResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.rds.EventSubscriptionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::RDS::EventSubscription resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see Using Amazon RDS Event Notification in the Amazon RDS User Guide.

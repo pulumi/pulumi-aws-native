@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Timestream
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TableTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetTableResult(
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.Timestream
 
             Outputs.SchemaProperties? schema,
 
-            ImmutableArray<Outputs.TableTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             MagneticStoreWriteProperties = magneticStoreWriteProperties;

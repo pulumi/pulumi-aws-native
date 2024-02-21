@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupDiscovererResult struct {
 	// Defines the current state of the discoverer.
 	State *string `pulumi:"state"`
 	// Tags associated with the resource.
-	Tags []DiscovererTagsEntry `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDiscovererOutput(ctx *pulumi.Context, args LookupDiscovererOutputArgs, opts ...pulumi.InvokeOption) LookupDiscovererResultOutput {
@@ -104,8 +105,8 @@ func (o LookupDiscovererResultOutput) State() pulumi.StringPtrOutput {
 }
 
 // Tags associated with the resource.
-func (o LookupDiscovererResultOutput) Tags() DiscovererTagsEntryArrayOutput {
-	return o.ApplyT(func(v LookupDiscovererResult) []DiscovererTagsEntry { return v.Tags }).(DiscovererTagsEntryArrayOutput)
+func (o LookupDiscovererResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDiscovererResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

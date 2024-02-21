@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type CloudFormationProduct struct {
 	SupportDescription             pulumi.StringPtrOutput                                         `pulumi:"supportDescription"`
 	SupportEmail                   pulumi.StringPtrOutput                                         `pulumi:"supportEmail"`
 	SupportUrl                     pulumi.StringPtrOutput                                         `pulumi:"supportUrl"`
-	Tags                           CloudFormationProductTagArrayOutput                            `pulumi:"tags"`
+	Tags                           aws.TagArrayOutput                                             `pulumi:"tags"`
 }
 
 // NewCloudFormationProduct registers a new resource with the given unique name, arguments, and options.
@@ -91,7 +92,7 @@ type cloudFormationProductArgs struct {
 	SupportDescription             *string                                               `pulumi:"supportDescription"`
 	SupportEmail                   *string                                               `pulumi:"supportEmail"`
 	SupportUrl                     *string                                               `pulumi:"supportUrl"`
-	Tags                           []CloudFormationProductTag                            `pulumi:"tags"`
+	Tags                           []aws.Tag                                             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CloudFormationProduct resource.
@@ -108,7 +109,7 @@ type CloudFormationProductArgs struct {
 	SupportDescription             pulumi.StringPtrInput
 	SupportEmail                   pulumi.StringPtrInput
 	SupportUrl                     pulumi.StringPtrInput
-	Tags                           CloudFormationProductTagArrayInput
+	Tags                           aws.TagArrayInput
 }
 
 func (CloudFormationProductArgs) ElementType() reflect.Type {
@@ -212,8 +213,8 @@ func (o CloudFormationProductOutput) SupportUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringPtrOutput { return v.SupportUrl }).(pulumi.StringPtrOutput)
 }
 
-func (o CloudFormationProductOutput) Tags() CloudFormationProductTagArrayOutput {
-	return o.ApplyT(func(v *CloudFormationProduct) CloudFormationProductTagArrayOutput { return v.Tags }).(CloudFormationProductTagArrayOutput)
+func (o CloudFormationProductOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

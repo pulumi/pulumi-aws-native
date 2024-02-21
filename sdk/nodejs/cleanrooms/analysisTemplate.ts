@@ -55,7 +55,7 @@ export class AnalysisTemplate extends pulumi.CustomResource {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
      */
-    public readonly tags!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AnalysisTemplate resource with the given unique name, arguments, and options.
@@ -128,5 +128,5 @@ export interface AnalysisTemplateArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.cleanrooms.AnalysisTemplateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

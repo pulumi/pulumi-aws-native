@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public readonly bool? RequireInstanceProperties;
         public readonly ImmutableArray<string> RoleArns;
         public readonly string? SessionPolicy;
-        public readonly ImmutableArray<Outputs.ProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetProfileResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
             string? sessionPolicy,
 
-            ImmutableArray<Outputs.ProfileTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DurationSeconds = durationSeconds;
             Enabled = enabled;

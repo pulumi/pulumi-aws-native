@@ -73,7 +73,7 @@ export interface GetVerifiedAccessEndpointResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ec2.VerifiedAccessEndpointTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ID of the AWS Verified Access endpoint.
      */

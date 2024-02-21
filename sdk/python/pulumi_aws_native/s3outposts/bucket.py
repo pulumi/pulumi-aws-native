@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -20,13 +22,13 @@ class BucketArgs:
                  outpost_id: pulumi.Input[str],
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  lifecycle_configuration: Optional[pulumi.Input['BucketLifecycleConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
         :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
         :param pulumi.Input[str] bucket_name: A name for the bucket.
         :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: Rules that define how Amazon S3Outposts manages objects during their lifetime.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """
         pulumi.set(__self__, "outpost_id", outpost_id)
         if bucket_name is not None:
@@ -74,14 +76,14 @@ class BucketArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,7 +95,7 @@ class Bucket(pulumi.CustomResource):
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  lifecycle_configuration: Optional[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::S3Outposts::Bucket
@@ -103,7 +105,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[str] bucket_name: A name for the bucket.
         :param pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']] lifecycle_configuration: Rules that define how Amazon S3Outposts manages objects during their lifetime.
         :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """
         ...
     @overload
@@ -132,7 +134,7 @@ class Bucket(pulumi.CustomResource):
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  lifecycle_configuration: Optional[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,7 +216,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.BucketTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """

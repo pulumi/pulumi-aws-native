@@ -23,7 +23,6 @@ __all__ = [
     'ConfigFrequencyArgs',
     'ConfigS3RecordingConfigArgs',
     'ConfigSpectrumConfigArgs',
-    'ConfigTagArgs',
     'ConfigTrackingConfigArgs',
     'ConfigUplinkEchoConfigArgs',
     'ConfigUplinkSpectrumConfigArgs',
@@ -36,10 +35,8 @@ __all__ = [
     'DataflowEndpointGroupRangedSocketAddressArgs',
     'DataflowEndpointGroupSecurityDetailsArgs',
     'DataflowEndpointGroupSocketAddressArgs',
-    'DataflowEndpointGroupTagArgs',
     'MissionProfileDataflowEdgeArgs',
     'MissionProfileStreamsKmsKeyArgs',
-    'MissionProfileTagArgs',
 ]
 
 @pulumi.input_type
@@ -460,35 +457,6 @@ class ConfigSpectrumConfigArgs:
     @polarization.setter
     def polarization(self, value: Optional[pulumi.Input['ConfigPolarization']]):
         pulumi.set(self, "polarization", value)
-
-
-@pulumi.input_type
-class ConfigTagArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -939,33 +907,6 @@ class DataflowEndpointGroupSocketAddressArgs:
 
 
 @pulumi.input_type
-class DataflowEndpointGroupTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class MissionProfileDataflowEdgeArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input[str]] = None,
@@ -1021,32 +962,5 @@ class MissionProfileStreamsKmsKeyArgs:
     @kms_key_arn.setter
     def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_arn", value)
-
-
-@pulumi.input_type
-class MissionProfileTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

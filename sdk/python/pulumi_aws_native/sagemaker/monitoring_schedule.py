@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,13 +25,13 @@ class MonitoringScheduleArgs:
                  last_monitoring_execution_summary: Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']] = None,
                  monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
                  monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MonitoringSchedule resource.
         :param pulumi.Input[str] failure_reason: Contains the reason a monitoring job failed, if it failed.
         :param pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs'] last_monitoring_execution_summary: Describes metadata on the last execution to run, if there was one.
         :param pulumi.Input['MonitoringScheduleStatus'] monitoring_schedule_status: The status of a schedule job.
-        :param pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "monitoring_schedule_config", monitoring_schedule_config)
         if endpoint_name is not None:
@@ -110,14 +112,14 @@ class MonitoringScheduleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -132,7 +134,7 @@ class MonitoringSchedule(pulumi.CustomResource):
                  monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleConfigArgs']]] = None,
                  monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
                  monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitoringScheduleTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::MonitoringSchedule
@@ -142,7 +144,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] failure_reason: Contains the reason a monitoring job failed, if it failed.
         :param pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringExecutionSummaryArgs']] last_monitoring_execution_summary: Describes metadata on the last execution to run, if there was one.
         :param pulumi.Input['MonitoringScheduleStatus'] monitoring_schedule_status: The status of a schedule job.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitoringScheduleTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -174,7 +176,7 @@ class MonitoringSchedule(pulumi.CustomResource):
                  monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleConfigArgs']]] = None,
                  monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
                  monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitoringScheduleTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -297,7 +299,7 @@ class MonitoringSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MonitoringScheduleTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

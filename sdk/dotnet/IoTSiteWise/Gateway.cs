@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// A list of key-value pairs that contain metadata for the gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.GatewayTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,14 +119,14 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Input<Inputs.GatewayPlatformArgs> GatewayPlatform { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.GatewayTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the gateway.
         /// </summary>
-        public InputList<Inputs.GatewayTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.GatewayTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

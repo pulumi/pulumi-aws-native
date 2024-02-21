@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Key-value pairs used to manage metadata for model cards.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ModelCardTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetModelCardResult(
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             int? modelCardVersion,
 
-            ImmutableArray<Outputs.ModelCardTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Content = content;
             CreatedBy = createdBy;

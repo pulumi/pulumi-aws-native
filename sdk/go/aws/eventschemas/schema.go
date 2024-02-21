@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type Schema struct {
 	// The version number of the schema.
 	SchemaVersion pulumi.StringOutput `pulumi:"schemaVersion"`
 	// Tags associated with the resource.
-	Tags SchemaTagsEntryArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The date the schema version was created.
@@ -101,7 +102,7 @@ type schemaArgs struct {
 	// The name of the schema.
 	SchemaName *string `pulumi:"schemaName"`
 	// Tags associated with the resource.
-	Tags []SchemaTagsEntry `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
 	Type string `pulumi:"type"`
 }
@@ -117,7 +118,7 @@ type SchemaArgs struct {
 	// The name of the schema.
 	SchemaName pulumi.StringPtrInput
 	// Tags associated with the resource.
-	Tags SchemaTagsEntryArrayInput
+	Tags aws.TagArrayInput
 	// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
 	Type pulumi.StringInput
 }
@@ -195,8 +196,8 @@ func (o SchemaOutput) SchemaVersion() pulumi.StringOutput {
 }
 
 // Tags associated with the resource.
-func (o SchemaOutput) Tags() SchemaTagsEntryArrayOutput {
-	return o.ApplyT(func(v *Schema) SchemaTagsEntryArrayOutput { return v.Tags }).(SchemaTagsEntryArrayOutput)
+func (o SchemaOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Schema) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.

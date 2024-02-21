@@ -29,7 +29,7 @@ export interface GetEndpointResult {
     readonly id?: string;
     readonly retainAllVariantProperties?: boolean;
     readonly retainDeploymentConfig?: boolean;
-    readonly tags?: outputs.sagemaker.EndpointTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::Endpoint

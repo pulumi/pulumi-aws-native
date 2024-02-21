@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupCustomDataIdentifierResult struct {
 	// Custom data identifier ID.
 	Id *string `pulumi:"id"`
 	// A collection of tags associated with a resource
-	Tags []CustomDataIdentifierTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCustomDataIdentifierOutput(ctx *pulumi.Context, args LookupCustomDataIdentifierOutputArgs, opts ...pulumi.InvokeOption) LookupCustomDataIdentifierResultOutput {
@@ -83,8 +84,8 @@ func (o LookupCustomDataIdentifierResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // A collection of tags associated with a resource
-func (o LookupCustomDataIdentifierResultOutput) Tags() CustomDataIdentifierTagArrayOutput {
-	return o.ApplyT(func(v LookupCustomDataIdentifierResult) []CustomDataIdentifierTag { return v.Tags }).(CustomDataIdentifierTagArrayOutput)
+func (o LookupCustomDataIdentifierResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCustomDataIdentifierResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

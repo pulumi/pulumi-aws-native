@@ -57,7 +57,7 @@ export interface GetUserResult {
     /**
      * A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
      */
-    readonly tags?: outputs.iam.UserTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::IAM::User

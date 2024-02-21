@@ -592,214 +592,12 @@ type ProtectionGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ProtectionGroupTagInput is an input type that accepts ProtectionGroupTagArgs and ProtectionGroupTagOutput values.
-// You can construct a concrete instance of `ProtectionGroupTagInput` via:
-//
-//	ProtectionGroupTagArgs{...}
-type ProtectionGroupTagInput interface {
-	pulumi.Input
-
-	ToProtectionGroupTagOutput() ProtectionGroupTagOutput
-	ToProtectionGroupTagOutputWithContext(context.Context) ProtectionGroupTagOutput
-}
-
-// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
-type ProtectionGroupTagArgs struct {
-	// Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ProtectionGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionGroupTag)(nil)).Elem()
-}
-
-func (i ProtectionGroupTagArgs) ToProtectionGroupTagOutput() ProtectionGroupTagOutput {
-	return i.ToProtectionGroupTagOutputWithContext(context.Background())
-}
-
-func (i ProtectionGroupTagArgs) ToProtectionGroupTagOutputWithContext(ctx context.Context) ProtectionGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupTagOutput)
-}
-
-// ProtectionGroupTagArrayInput is an input type that accepts ProtectionGroupTagArray and ProtectionGroupTagArrayOutput values.
-// You can construct a concrete instance of `ProtectionGroupTagArrayInput` via:
-//
-//	ProtectionGroupTagArray{ ProtectionGroupTagArgs{...} }
-type ProtectionGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToProtectionGroupTagArrayOutput() ProtectionGroupTagArrayOutput
-	ToProtectionGroupTagArrayOutputWithContext(context.Context) ProtectionGroupTagArrayOutput
-}
-
-type ProtectionGroupTagArray []ProtectionGroupTagInput
-
-func (ProtectionGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProtectionGroupTag)(nil)).Elem()
-}
-
-func (i ProtectionGroupTagArray) ToProtectionGroupTagArrayOutput() ProtectionGroupTagArrayOutput {
-	return i.ToProtectionGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i ProtectionGroupTagArray) ToProtectionGroupTagArrayOutputWithContext(ctx context.Context) ProtectionGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupTagArrayOutput)
-}
-
-// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
-type ProtectionGroupTagOutput struct{ *pulumi.OutputState }
-
-func (ProtectionGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionGroupTag)(nil)).Elem()
-}
-
-func (o ProtectionGroupTagOutput) ToProtectionGroupTagOutput() ProtectionGroupTagOutput {
-	return o
-}
-
-func (o ProtectionGroupTagOutput) ToProtectionGroupTagOutputWithContext(ctx context.Context) ProtectionGroupTagOutput {
-	return o
-}
-
-// Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
-func (o ProtectionGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectionGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
-func (o ProtectionGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectionGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ProtectionGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ProtectionGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProtectionGroupTag)(nil)).Elem()
-}
-
-func (o ProtectionGroupTagArrayOutput) ToProtectionGroupTagArrayOutput() ProtectionGroupTagArrayOutput {
-	return o
-}
-
-func (o ProtectionGroupTagArrayOutput) ToProtectionGroupTagArrayOutputWithContext(ctx context.Context) ProtectionGroupTagArrayOutput {
-	return o
-}
-
-func (o ProtectionGroupTagArrayOutput) Index(i pulumi.IntInput) ProtectionGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProtectionGroupTag {
-		return vs[0].([]ProtectionGroupTag)[vs[1].(int)]
-	}).(ProtectionGroupTagOutput)
-}
-
 // A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
 type ProtectionTag struct {
 	// Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
 	Key string `pulumi:"key"`
 	// Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
 	Value string `pulumi:"value"`
-}
-
-// ProtectionTagInput is an input type that accepts ProtectionTagArgs and ProtectionTagOutput values.
-// You can construct a concrete instance of `ProtectionTagInput` via:
-//
-//	ProtectionTagArgs{...}
-type ProtectionTagInput interface {
-	pulumi.Input
-
-	ToProtectionTagOutput() ProtectionTagOutput
-	ToProtectionTagOutputWithContext(context.Context) ProtectionTagOutput
-}
-
-// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
-type ProtectionTagArgs struct {
-	// Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ProtectionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionTag)(nil)).Elem()
-}
-
-func (i ProtectionTagArgs) ToProtectionTagOutput() ProtectionTagOutput {
-	return i.ToProtectionTagOutputWithContext(context.Background())
-}
-
-func (i ProtectionTagArgs) ToProtectionTagOutputWithContext(ctx context.Context) ProtectionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionTagOutput)
-}
-
-// ProtectionTagArrayInput is an input type that accepts ProtectionTagArray and ProtectionTagArrayOutput values.
-// You can construct a concrete instance of `ProtectionTagArrayInput` via:
-//
-//	ProtectionTagArray{ ProtectionTagArgs{...} }
-type ProtectionTagArrayInput interface {
-	pulumi.Input
-
-	ToProtectionTagArrayOutput() ProtectionTagArrayOutput
-	ToProtectionTagArrayOutputWithContext(context.Context) ProtectionTagArrayOutput
-}
-
-type ProtectionTagArray []ProtectionTagInput
-
-func (ProtectionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProtectionTag)(nil)).Elem()
-}
-
-func (i ProtectionTagArray) ToProtectionTagArrayOutput() ProtectionTagArrayOutput {
-	return i.ToProtectionTagArrayOutputWithContext(context.Background())
-}
-
-func (i ProtectionTagArray) ToProtectionTagArrayOutputWithContext(ctx context.Context) ProtectionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionTagArrayOutput)
-}
-
-// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
-type ProtectionTagOutput struct{ *pulumi.OutputState }
-
-func (ProtectionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionTag)(nil)).Elem()
-}
-
-func (o ProtectionTagOutput) ToProtectionTagOutput() ProtectionTagOutput {
-	return o
-}
-
-func (o ProtectionTagOutput) ToProtectionTagOutputWithContext(ctx context.Context) ProtectionTagOutput {
-	return o
-}
-
-// Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
-func (o ProtectionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
-func (o ProtectionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ProtectionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ProtectionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProtectionTag)(nil)).Elem()
-}
-
-func (o ProtectionTagArrayOutput) ToProtectionTagArrayOutput() ProtectionTagArrayOutput {
-	return o
-}
-
-func (o ProtectionTagArrayOutput) ToProtectionTagArrayOutputWithContext(ctx context.Context) ProtectionTagArrayOutput {
-	return o
-}
-
-func (o ProtectionTagArrayOutput) Index(i pulumi.IntInput) ProtectionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProtectionTag {
-		return vs[0].([]ProtectionTag)[vs[1].(int)]
-	}).(ProtectionTagOutput)
 }
 
 func init() {
@@ -811,10 +609,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesPtrInput)(nil)).Elem(), ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesInput)(nil)).Elem(), ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesPtrInput)(nil)).Elem(), ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionGroupTagInput)(nil)).Elem(), ProtectionGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionGroupTagArrayInput)(nil)).Elem(), ProtectionGroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionTagInput)(nil)).Elem(), ProtectionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionTagArrayInput)(nil)).Elem(), ProtectionTagArray{})
 	pulumi.RegisterOutputType(ProactiveEngagementEmergencyContactOutput{})
 	pulumi.RegisterOutputType(ProactiveEngagementEmergencyContactArrayOutput{})
 	pulumi.RegisterOutputType(ProtectionApplicationLayerAutomaticResponseConfigurationOutput{})
@@ -823,8 +617,4 @@ func init() {
 	pulumi.RegisterOutputType(ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesOutput{})
 	pulumi.RegisterOutputType(ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ProtectionGroupTagOutput{})
-	pulumi.RegisterOutputType(ProtectionGroupTagArrayOutput{})
-	pulumi.RegisterOutputType(ProtectionTagOutput{})
-	pulumi.RegisterOutputType(ProtectionTagArrayOutput{})
 }

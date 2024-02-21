@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupEvaluationFormResult struct {
 	// The status of the evaluation form.
 	Status *EvaluationFormStatus `pulumi:"status"`
 	// One or more tags.
-	Tags []EvaluationFormTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The title of the evaluation form.
 	Title *string `pulumi:"title"`
 }
@@ -113,8 +114,8 @@ func (o LookupEvaluationFormResultOutput) Status() EvaluationFormStatusPtrOutput
 }
 
 // One or more tags.
-func (o LookupEvaluationFormResultOutput) Tags() EvaluationFormTagArrayOutput {
-	return o.ApplyT(func(v LookupEvaluationFormResult) []EvaluationFormTag { return v.Tags }).(EvaluationFormTagArrayOutput)
+func (o LookupEvaluationFormResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEvaluationFormResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The title of the evaluation form.

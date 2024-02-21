@@ -40,7 +40,7 @@ export interface GetServiceResult {
     readonly propagateTags?: enums.ecs.ServicePropagateTags;
     readonly serviceArn?: string;
     readonly serviceRegistries?: outputs.ecs.ServiceRegistry[];
-    readonly tags?: outputs.ecs.ServiceTag[];
+    readonly tags?: outputs.Tag[];
     readonly taskDefinition?: string;
 }
 /**

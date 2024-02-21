@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type RestoreTestingPlan struct {
 	ScheduleExpression         pulumi.StringOutput                                          `pulumi:"scheduleExpression"`
 	ScheduleExpressionTimezone pulumi.StringPtrOutput                                       `pulumi:"scheduleExpressionTimezone"`
 	StartWindowHours           pulumi.IntPtrOutput                                          `pulumi:"startWindowHours"`
-	Tags                       RestoreTestingPlanTagArrayOutput                             `pulumi:"tags"`
+	Tags                       aws.TagArrayOutput                                           `pulumi:"tags"`
 }
 
 // NewRestoreTestingPlan registers a new resource with the given unique name, arguments, and options.
@@ -80,7 +81,7 @@ type restoreTestingPlanArgs struct {
 	ScheduleExpression         string                                                 `pulumi:"scheduleExpression"`
 	ScheduleExpressionTimezone *string                                                `pulumi:"scheduleExpressionTimezone"`
 	StartWindowHours           *int                                                   `pulumi:"startWindowHours"`
-	Tags                       []RestoreTestingPlanTag                                `pulumi:"tags"`
+	Tags                       []aws.Tag                                              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RestoreTestingPlan resource.
@@ -90,7 +91,7 @@ type RestoreTestingPlanArgs struct {
 	ScheduleExpression         pulumi.StringInput
 	ScheduleExpressionTimezone pulumi.StringPtrInput
 	StartWindowHours           pulumi.IntPtrInput
-	Tags                       RestoreTestingPlanTagArrayInput
+	Tags                       aws.TagArrayInput
 }
 
 func (RestoreTestingPlanArgs) ElementType() reflect.Type {
@@ -156,8 +157,8 @@ func (o RestoreTestingPlanOutput) StartWindowHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.IntPtrOutput { return v.StartWindowHours }).(pulumi.IntPtrOutput)
 }
 
-func (o RestoreTestingPlanOutput) Tags() RestoreTestingPlanTagArrayOutput {
-	return o.ApplyT(func(v *RestoreTestingPlan) RestoreTestingPlanTagArrayOutput { return v.Tags }).(RestoreTestingPlanTagArrayOutput)
+func (o RestoreTestingPlanOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingPlan) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

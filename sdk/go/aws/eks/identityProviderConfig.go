@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type IdentityProviderConfig struct {
 	IdentityProviderConfigName pulumi.StringPtrOutput                                    `pulumi:"identityProviderConfigName"`
 	Oidc                       IdentityProviderConfigOidcIdentityProviderConfigPtrOutput `pulumi:"oidc"`
 	// An array of key-value pairs to apply to this resource.
-	Tags IdentityProviderConfigTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of the identity provider configuration.
 	Type IdentityProviderConfigTypeOutput `pulumi:"type"`
 }
@@ -88,7 +89,7 @@ type identityProviderConfigArgs struct {
 	IdentityProviderConfigName *string                                           `pulumi:"identityProviderConfigName"`
 	Oidc                       *IdentityProviderConfigOidcIdentityProviderConfig `pulumi:"oidc"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IdentityProviderConfigTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the identity provider configuration.
 	Type IdentityProviderConfigType `pulumi:"type"`
 }
@@ -101,7 +102,7 @@ type IdentityProviderConfigArgs struct {
 	IdentityProviderConfigName pulumi.StringPtrInput
 	Oidc                       IdentityProviderConfigOidcIdentityProviderConfigPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags IdentityProviderConfigTagArrayInput
+	Tags aws.TagArrayInput
 	// The type of the identity provider configuration.
 	Type IdentityProviderConfigTypeInput
 }
@@ -165,8 +166,8 @@ func (o IdentityProviderConfigOutput) Oidc() IdentityProviderConfigOidcIdentityP
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o IdentityProviderConfigOutput) Tags() IdentityProviderConfigTagArrayOutput {
-	return o.ApplyT(func(v *IdentityProviderConfig) IdentityProviderConfigTagArrayOutput { return v.Tags }).(IdentityProviderConfigTagArrayOutput)
+func (o IdentityProviderConfigOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of the identity provider configuration.

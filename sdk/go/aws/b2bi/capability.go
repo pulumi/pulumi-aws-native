@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type Capability struct {
 	InstructionsDocuments CapabilityS3LocationArrayOutput         `pulumi:"instructionsDocuments"`
 	ModifiedAt            pulumi.StringOutput                     `pulumi:"modifiedAt"`
 	Name                  pulumi.StringOutput                     `pulumi:"name"`
-	Tags                  CapabilityTagArrayOutput                `pulumi:"tags"`
+	Tags                  aws.TagArrayOutput                      `pulumi:"tags"`
 	Type                  CapabilityTypeOutput                    `pulumi:"type"`
 }
 
@@ -80,7 +81,7 @@ type capabilityArgs struct {
 	Configuration         CapabilityConfigurationProperties `pulumi:"configuration"`
 	InstructionsDocuments []CapabilityS3Location            `pulumi:"instructionsDocuments"`
 	Name                  *string                           `pulumi:"name"`
-	Tags                  []CapabilityTag                   `pulumi:"tags"`
+	Tags                  []aws.Tag                         `pulumi:"tags"`
 	Type                  CapabilityType                    `pulumi:"type"`
 }
 
@@ -89,7 +90,7 @@ type CapabilityArgs struct {
 	Configuration         CapabilityConfigurationPropertiesInput
 	InstructionsDocuments CapabilityS3LocationArrayInput
 	Name                  pulumi.StringPtrInput
-	Tags                  CapabilityTagArrayInput
+	Tags                  aws.TagArrayInput
 	Type                  CapabilityTypeInput
 }
 
@@ -158,8 +159,8 @@ func (o CapabilityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o CapabilityOutput) Tags() CapabilityTagArrayOutput {
-	return o.ApplyT(func(v *Capability) CapabilityTagArrayOutput { return v.Tags }).(CapabilityTagArrayOutput)
+func (o CapabilityOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Capability) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o CapabilityOutput) Type() CapabilityTypeOutput {

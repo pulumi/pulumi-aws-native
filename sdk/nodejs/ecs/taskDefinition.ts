@@ -51,7 +51,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     public readonly proxyConfiguration!: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
     public readonly requiresCompatibilities!: pulumi.Output<string[] | undefined>;
     public readonly runtimePlatform!: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ecs.TaskDefinitionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon ECS task definition
      */
@@ -133,7 +133,7 @@ export interface TaskDefinitionArgs {
     proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfigurationArgs>;
     requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
     runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatformArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     taskRoleArn?: pulumi.Input<string>;
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolumeArgs>[]>;
 }

@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoadBalancerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The name of the TLS policy to apply to the load balancer.
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Lightsail
 
             string? sessionStickinessLbCookieDurationSeconds,
 
-            ImmutableArray<Outputs.LoadBalancerTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? tlsPolicyName)
         {

@@ -55,7 +55,7 @@ export class FileSystem extends pulumi.CustomResource {
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
     public readonly storageType!: pulumi.Output<string | undefined>;
     public readonly subnetIds!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<outputs.fsx.FileSystemTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly windowsConfiguration!: pulumi.Output<outputs.fsx.FileSystemWindowsConfiguration | undefined>;
 
     /**
@@ -135,6 +135,6 @@ export interface FileSystemArgs {
     storageCapacity?: pulumi.Input<number>;
     storageType?: pulumi.Input<string>;
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.fsx.FileSystemTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     windowsConfiguration?: pulumi.Input<inputs.fsx.FileSystemWindowsConfigurationArgs>;
 }

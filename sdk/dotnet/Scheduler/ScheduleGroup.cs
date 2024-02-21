@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Scheduler
         /// The list of tags to associate with the schedule group.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ScheduleGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -98,14 +98,14 @@ namespace Pulumi.AwsNative.Scheduler
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ScheduleGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The list of tags to associate with the schedule group.
         /// </summary>
-        public InputList<Inputs.ScheduleGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ScheduleGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

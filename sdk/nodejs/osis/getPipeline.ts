@@ -52,7 +52,7 @@ export interface GetPipelineResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.osis.PipelineTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The VPC interface endpoints that have access to the pipeline.
      */

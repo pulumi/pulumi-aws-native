@@ -28,7 +28,7 @@ export interface GetServerCertificateResult {
      */
     readonly arn?: string;
     readonly path?: string;
-    readonly tags?: outputs.iam.ServerCertificateTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::IAM::ServerCertificate

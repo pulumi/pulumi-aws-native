@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['VirtualServiceArgs', 'VirtualService']
@@ -19,7 +21,7 @@ class VirtualServiceArgs:
                  mesh_name: pulumi.Input[str],
                  spec: pulumi.Input['VirtualServiceSpecArgs'],
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualServiceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  virtual_service_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualService resource.
@@ -62,11 +64,11 @@ class VirtualServiceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualServiceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualServiceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -92,7 +94,7 @@ class VirtualService(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  spec: Optional[pulumi.Input[pulumi.InputType['VirtualServiceSpecArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualServiceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  virtual_service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -128,7 +130,7 @@ class VirtualService(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  spec: Optional[pulumi.Input[pulumi.InputType['VirtualServiceSpecArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualServiceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  virtual_service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""VirtualService is deprecated: VirtualService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -213,7 +215,7 @@ class VirtualService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualServiceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

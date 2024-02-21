@@ -12,7 +12,6 @@ from . import outputs
 
 __all__ = [
     'AppBlockBuilderAccessEndpoint',
-    'AppBlockBuilderTag',
     'AppBlockBuilderVpcConfig',
     'AppBlockS3Location',
     'AppBlockScriptDetails',
@@ -27,17 +26,14 @@ __all__ = [
     'FleetComputeCapacity',
     'FleetDomainJoinInfo',
     'FleetS3Location',
-    'FleetTag',
     'FleetVpcConfig',
     'ImageBuilderAccessEndpoint',
     'ImageBuilderDomainJoinInfo',
-    'ImageBuilderTag',
     'ImageBuilderVpcConfig',
     'StackAccessEndpoint',
     'StackApplicationSettings',
     'StackStorageConnector',
     'StackStreamingExperienceSettings',
-    'StackTag',
     'StackUserSetting',
 ]
 
@@ -77,25 +73,6 @@ class AppBlockBuilderAccessEndpoint(dict):
     @pulumi.getter(name="vpceId")
     def vpce_id(self) -> str:
         return pulumi.get(self, "vpce_id")
-
-
-@pulumi.output_type
-class AppBlockBuilderTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -600,25 +577,6 @@ class FleetS3Location(dict):
 
 
 @pulumi.output_type
-class FleetTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class FleetVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -734,25 +692,6 @@ class ImageBuilderDomainJoinInfo(dict):
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[str]:
         return pulumi.get(self, "organizational_unit_distinguished_name")
-
-
-@pulumi.output_type
-class ImageBuilderTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -945,25 +884,6 @@ class StackStreamingExperienceSettings(dict):
     @pulumi.getter(name="preferredProtocol")
     def preferred_protocol(self) -> Optional[str]:
         return pulumi.get(self, "preferred_protocol")
-
-
-@pulumi.output_type
-class StackTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

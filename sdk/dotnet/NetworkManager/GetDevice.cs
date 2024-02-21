@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The tags for the device.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeviceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The device type.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? state,
 
-            ImmutableArray<Outputs.DeviceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? type,
 

@@ -459,101 +459,6 @@ type CapabilityTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CapabilityTagInput is an input type that accepts CapabilityTagArgs and CapabilityTagOutput values.
-// You can construct a concrete instance of `CapabilityTagInput` via:
-//
-//	CapabilityTagArgs{...}
-type CapabilityTagInput interface {
-	pulumi.Input
-
-	ToCapabilityTagOutput() CapabilityTagOutput
-	ToCapabilityTagOutputWithContext(context.Context) CapabilityTagOutput
-}
-
-type CapabilityTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CapabilityTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapabilityTag)(nil)).Elem()
-}
-
-func (i CapabilityTagArgs) ToCapabilityTagOutput() CapabilityTagOutput {
-	return i.ToCapabilityTagOutputWithContext(context.Background())
-}
-
-func (i CapabilityTagArgs) ToCapabilityTagOutputWithContext(ctx context.Context) CapabilityTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapabilityTagOutput)
-}
-
-// CapabilityTagArrayInput is an input type that accepts CapabilityTagArray and CapabilityTagArrayOutput values.
-// You can construct a concrete instance of `CapabilityTagArrayInput` via:
-//
-//	CapabilityTagArray{ CapabilityTagArgs{...} }
-type CapabilityTagArrayInput interface {
-	pulumi.Input
-
-	ToCapabilityTagArrayOutput() CapabilityTagArrayOutput
-	ToCapabilityTagArrayOutputWithContext(context.Context) CapabilityTagArrayOutput
-}
-
-type CapabilityTagArray []CapabilityTagInput
-
-func (CapabilityTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CapabilityTag)(nil)).Elem()
-}
-
-func (i CapabilityTagArray) ToCapabilityTagArrayOutput() CapabilityTagArrayOutput {
-	return i.ToCapabilityTagArrayOutputWithContext(context.Background())
-}
-
-func (i CapabilityTagArray) ToCapabilityTagArrayOutputWithContext(ctx context.Context) CapabilityTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapabilityTagArrayOutput)
-}
-
-type CapabilityTagOutput struct{ *pulumi.OutputState }
-
-func (CapabilityTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapabilityTag)(nil)).Elem()
-}
-
-func (o CapabilityTagOutput) ToCapabilityTagOutput() CapabilityTagOutput {
-	return o
-}
-
-func (o CapabilityTagOutput) ToCapabilityTagOutputWithContext(ctx context.Context) CapabilityTagOutput {
-	return o
-}
-
-func (o CapabilityTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CapabilityTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CapabilityTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CapabilityTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CapabilityTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CapabilityTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CapabilityTag)(nil)).Elem()
-}
-
-func (o CapabilityTagArrayOutput) ToCapabilityTagArrayOutput() CapabilityTagArrayOutput {
-	return o
-}
-
-func (o CapabilityTagArrayOutput) ToCapabilityTagArrayOutputWithContext(ctx context.Context) CapabilityTagArrayOutput {
-	return o
-}
-
-func (o CapabilityTagArrayOutput) Index(i pulumi.IntInput) CapabilityTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapabilityTag {
-		return vs[0].([]CapabilityTag)[vs[1].(int)]
-	}).(CapabilityTagOutput)
-}
-
 type CapabilityX12Details struct {
 	TransactionSet *CapabilityX12TransactionSet `pulumi:"transactionSet"`
 	Version        *CapabilityX12Version        `pulumi:"version"`
@@ -656,199 +561,9 @@ type PartnershipTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PartnershipTagInput is an input type that accepts PartnershipTagArgs and PartnershipTagOutput values.
-// You can construct a concrete instance of `PartnershipTagInput` via:
-//
-//	PartnershipTagArgs{...}
-type PartnershipTagInput interface {
-	pulumi.Input
-
-	ToPartnershipTagOutput() PartnershipTagOutput
-	ToPartnershipTagOutputWithContext(context.Context) PartnershipTagOutput
-}
-
-type PartnershipTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PartnershipTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnershipTag)(nil)).Elem()
-}
-
-func (i PartnershipTagArgs) ToPartnershipTagOutput() PartnershipTagOutput {
-	return i.ToPartnershipTagOutputWithContext(context.Background())
-}
-
-func (i PartnershipTagArgs) ToPartnershipTagOutputWithContext(ctx context.Context) PartnershipTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartnershipTagOutput)
-}
-
-// PartnershipTagArrayInput is an input type that accepts PartnershipTagArray and PartnershipTagArrayOutput values.
-// You can construct a concrete instance of `PartnershipTagArrayInput` via:
-//
-//	PartnershipTagArray{ PartnershipTagArgs{...} }
-type PartnershipTagArrayInput interface {
-	pulumi.Input
-
-	ToPartnershipTagArrayOutput() PartnershipTagArrayOutput
-	ToPartnershipTagArrayOutputWithContext(context.Context) PartnershipTagArrayOutput
-}
-
-type PartnershipTagArray []PartnershipTagInput
-
-func (PartnershipTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PartnershipTag)(nil)).Elem()
-}
-
-func (i PartnershipTagArray) ToPartnershipTagArrayOutput() PartnershipTagArrayOutput {
-	return i.ToPartnershipTagArrayOutputWithContext(context.Background())
-}
-
-func (i PartnershipTagArray) ToPartnershipTagArrayOutputWithContext(ctx context.Context) PartnershipTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartnershipTagArrayOutput)
-}
-
-type PartnershipTagOutput struct{ *pulumi.OutputState }
-
-func (PartnershipTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnershipTag)(nil)).Elem()
-}
-
-func (o PartnershipTagOutput) ToPartnershipTagOutput() PartnershipTagOutput {
-	return o
-}
-
-func (o PartnershipTagOutput) ToPartnershipTagOutputWithContext(ctx context.Context) PartnershipTagOutput {
-	return o
-}
-
-func (o PartnershipTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PartnershipTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PartnershipTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PartnershipTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PartnershipTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PartnershipTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PartnershipTag)(nil)).Elem()
-}
-
-func (o PartnershipTagArrayOutput) ToPartnershipTagArrayOutput() PartnershipTagArrayOutput {
-	return o
-}
-
-func (o PartnershipTagArrayOutput) ToPartnershipTagArrayOutputWithContext(ctx context.Context) PartnershipTagArrayOutput {
-	return o
-}
-
-func (o PartnershipTagArrayOutput) Index(i pulumi.IntInput) PartnershipTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartnershipTag {
-		return vs[0].([]PartnershipTag)[vs[1].(int)]
-	}).(PartnershipTagOutput)
-}
-
 type ProfileTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// ProfileTagInput is an input type that accepts ProfileTagArgs and ProfileTagOutput values.
-// You can construct a concrete instance of `ProfileTagInput` via:
-//
-//	ProfileTagArgs{...}
-type ProfileTagInput interface {
-	pulumi.Input
-
-	ToProfileTagOutput() ProfileTagOutput
-	ToProfileTagOutputWithContext(context.Context) ProfileTagOutput
-}
-
-type ProfileTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ProfileTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileTag)(nil)).Elem()
-}
-
-func (i ProfileTagArgs) ToProfileTagOutput() ProfileTagOutput {
-	return i.ToProfileTagOutputWithContext(context.Background())
-}
-
-func (i ProfileTagArgs) ToProfileTagOutputWithContext(ctx context.Context) ProfileTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagOutput)
-}
-
-// ProfileTagArrayInput is an input type that accepts ProfileTagArray and ProfileTagArrayOutput values.
-// You can construct a concrete instance of `ProfileTagArrayInput` via:
-//
-//	ProfileTagArray{ ProfileTagArgs{...} }
-type ProfileTagArrayInput interface {
-	pulumi.Input
-
-	ToProfileTagArrayOutput() ProfileTagArrayOutput
-	ToProfileTagArrayOutputWithContext(context.Context) ProfileTagArrayOutput
-}
-
-type ProfileTagArray []ProfileTagInput
-
-func (ProfileTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileTag)(nil)).Elem()
-}
-
-func (i ProfileTagArray) ToProfileTagArrayOutput() ProfileTagArrayOutput {
-	return i.ToProfileTagArrayOutputWithContext(context.Background())
-}
-
-func (i ProfileTagArray) ToProfileTagArrayOutputWithContext(ctx context.Context) ProfileTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagArrayOutput)
-}
-
-type ProfileTagOutput struct{ *pulumi.OutputState }
-
-func (ProfileTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileTag)(nil)).Elem()
-}
-
-func (o ProfileTagOutput) ToProfileTagOutput() ProfileTagOutput {
-	return o
-}
-
-func (o ProfileTagOutput) ToProfileTagOutputWithContext(ctx context.Context) ProfileTagOutput {
-	return o
-}
-
-func (o ProfileTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ProfileTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ProfileTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ProfileTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileTag)(nil)).Elem()
-}
-
-func (o ProfileTagArrayOutput) ToProfileTagArrayOutput() ProfileTagArrayOutput {
-	return o
-}
-
-func (o ProfileTagArrayOutput) ToProfileTagArrayOutputWithContext(ctx context.Context) ProfileTagArrayOutput {
-	return o
-}
-
-func (o ProfileTagArrayOutput) Index(i pulumi.IntInput) ProfileTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileTag {
-		return vs[0].([]ProfileTag)[vs[1].(int)]
-	}).(ProfileTagOutput)
 }
 
 type TransformerEdiType0Properties struct {
@@ -940,101 +655,6 @@ func (o TransformerEdiTypePropertiesPtrOutput) X12Details() TransformerX12Detail
 type TransformerTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// TransformerTagInput is an input type that accepts TransformerTagArgs and TransformerTagOutput values.
-// You can construct a concrete instance of `TransformerTagInput` via:
-//
-//	TransformerTagArgs{...}
-type TransformerTagInput interface {
-	pulumi.Input
-
-	ToTransformerTagOutput() TransformerTagOutput
-	ToTransformerTagOutputWithContext(context.Context) TransformerTagOutput
-}
-
-type TransformerTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TransformerTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransformerTag)(nil)).Elem()
-}
-
-func (i TransformerTagArgs) ToTransformerTagOutput() TransformerTagOutput {
-	return i.ToTransformerTagOutputWithContext(context.Background())
-}
-
-func (i TransformerTagArgs) ToTransformerTagOutputWithContext(ctx context.Context) TransformerTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransformerTagOutput)
-}
-
-// TransformerTagArrayInput is an input type that accepts TransformerTagArray and TransformerTagArrayOutput values.
-// You can construct a concrete instance of `TransformerTagArrayInput` via:
-//
-//	TransformerTagArray{ TransformerTagArgs{...} }
-type TransformerTagArrayInput interface {
-	pulumi.Input
-
-	ToTransformerTagArrayOutput() TransformerTagArrayOutput
-	ToTransformerTagArrayOutputWithContext(context.Context) TransformerTagArrayOutput
-}
-
-type TransformerTagArray []TransformerTagInput
-
-func (TransformerTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransformerTag)(nil)).Elem()
-}
-
-func (i TransformerTagArray) ToTransformerTagArrayOutput() TransformerTagArrayOutput {
-	return i.ToTransformerTagArrayOutputWithContext(context.Background())
-}
-
-func (i TransformerTagArray) ToTransformerTagArrayOutputWithContext(ctx context.Context) TransformerTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransformerTagArrayOutput)
-}
-
-type TransformerTagOutput struct{ *pulumi.OutputState }
-
-func (TransformerTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransformerTag)(nil)).Elem()
-}
-
-func (o TransformerTagOutput) ToTransformerTagOutput() TransformerTagOutput {
-	return o
-}
-
-func (o TransformerTagOutput) ToTransformerTagOutputWithContext(ctx context.Context) TransformerTagOutput {
-	return o
-}
-
-func (o TransformerTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TransformerTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o TransformerTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TransformerTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TransformerTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TransformerTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransformerTag)(nil)).Elem()
-}
-
-func (o TransformerTagArrayOutput) ToTransformerTagArrayOutput() TransformerTagArrayOutput {
-	return o
-}
-
-func (o TransformerTagArrayOutput) ToTransformerTagArrayOutputWithContext(ctx context.Context) TransformerTagArrayOutput {
-	return o
-}
-
-func (o TransformerTagArrayOutput) Index(i pulumi.IntInput) TransformerTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformerTag {
-		return vs[0].([]TransformerTag)[vs[1].(int)]
-	}).(TransformerTagOutput)
 }
 
 type TransformerX12Details struct {
@@ -1140,16 +760,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityEdiTypePropertiesInput)(nil)).Elem(), CapabilityEdiTypePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityS3LocationInput)(nil)).Elem(), CapabilityS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityS3LocationArrayInput)(nil)).Elem(), CapabilityS3LocationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityTagInput)(nil)).Elem(), CapabilityTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityTagArrayInput)(nil)).Elem(), CapabilityTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12DetailsInput)(nil)).Elem(), CapabilityX12DetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipTagInput)(nil)).Elem(), PartnershipTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipTagArrayInput)(nil)).Elem(), PartnershipTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagInput)(nil)).Elem(), ProfileTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagArrayInput)(nil)).Elem(), ProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerEdiTypePropertiesInput)(nil)).Elem(), TransformerEdiTypePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransformerTagInput)(nil)).Elem(), TransformerTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransformerTagArrayInput)(nil)).Elem(), TransformerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12DetailsInput)(nil)).Elem(), TransformerX12DetailsArgs{})
 	pulumi.RegisterOutputType(CapabilityConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(CapabilityConfigurationPropertiesPtrOutput{})
@@ -1160,18 +772,10 @@ func init() {
 	pulumi.RegisterOutputType(CapabilityS3LocationOutput{})
 	pulumi.RegisterOutputType(CapabilityS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(CapabilityS3LocationArrayOutput{})
-	pulumi.RegisterOutputType(CapabilityTagOutput{})
-	pulumi.RegisterOutputType(CapabilityTagArrayOutput{})
 	pulumi.RegisterOutputType(CapabilityX12DetailsOutput{})
 	pulumi.RegisterOutputType(CapabilityX12DetailsPtrOutput{})
-	pulumi.RegisterOutputType(PartnershipTagOutput{})
-	pulumi.RegisterOutputType(PartnershipTagArrayOutput{})
-	pulumi.RegisterOutputType(ProfileTagOutput{})
-	pulumi.RegisterOutputType(ProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(TransformerEdiTypePropertiesOutput{})
 	pulumi.RegisterOutputType(TransformerEdiTypePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(TransformerTagOutput{})
-	pulumi.RegisterOutputType(TransformerTagArrayOutput{})
 	pulumi.RegisterOutputType(TransformerX12DetailsOutput{})
 	pulumi.RegisterOutputType(TransformerX12DetailsPtrOutput{})
 }

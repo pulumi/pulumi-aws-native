@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Container struct {
 	LifecyclePolicy      pulumi.StringPtrOutput         `pulumi:"lifecyclePolicy"`
 	MetricPolicy         ContainerMetricPolicyPtrOutput `pulumi:"metricPolicy"`
 	Policy               pulumi.StringPtrOutput         `pulumi:"policy"`
-	Tags                 ContainerTagArrayOutput        `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput             `pulumi:"tags"`
 }
 
 // NewContainer registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +78,7 @@ type containerArgs struct {
 	LifecyclePolicy      *string                `pulumi:"lifecyclePolicy"`
 	MetricPolicy         *ContainerMetricPolicy `pulumi:"metricPolicy"`
 	Policy               *string                `pulumi:"policy"`
-	Tags                 []ContainerTag         `pulumi:"tags"`
+	Tags                 []aws.Tag              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Container resource.
@@ -88,7 +89,7 @@ type ContainerArgs struct {
 	LifecyclePolicy      pulumi.StringPtrInput
 	MetricPolicy         ContainerMetricPolicyPtrInput
 	Policy               pulumi.StringPtrInput
-	Tags                 ContainerTagArrayInput
+	Tags                 aws.TagArrayInput
 }
 
 func (ContainerArgs) ElementType() reflect.Type {
@@ -156,8 +157,8 @@ func (o ContainerOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
-func (o ContainerOutput) Tags() ContainerTagArrayOutput {
-	return o.ApplyT(func(v *Container) ContainerTagArrayOutput { return v.Tags }).(ContainerTagArrayOutput)
+func (o ContainerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Container) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

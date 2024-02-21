@@ -26,7 +26,6 @@ __all__ = [
     'EndpointRoutingConfig',
     'EndpointSecondary',
     'EventBusPolicyCondition',
-    'EventBusTag',
     'RuleAppSyncParameters',
     'RuleAwsVpcConfiguration',
     'RuleBatchArrayProperties',
@@ -514,25 +513,6 @@ class EventBusPolicyCondition(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class EventBusTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
         return pulumi.get(self, "value")
 
 

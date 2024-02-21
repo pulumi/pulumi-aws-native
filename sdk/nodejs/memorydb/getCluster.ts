@@ -103,7 +103,7 @@ export interface GetClusterResult {
     /**
      * An array of key-value pairs to apply to this cluster.
      */
-    readonly tags?: outputs.memorydb.ClusterTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.

@@ -48,7 +48,7 @@ export interface GetGraphQlApiResult {
     readonly realtimeDns?: string;
     readonly realtimeUrl?: string;
     readonly resolverCountLimit?: number;
-    readonly tags?: outputs.appsync.GraphQlApiTag[];
+    readonly tags?: outputs.Tag[];
     readonly userPoolConfig?: outputs.appsync.GraphQlApiUserPoolConfig;
     readonly visibility?: string;
     readonly xrayEnabled?: boolean;

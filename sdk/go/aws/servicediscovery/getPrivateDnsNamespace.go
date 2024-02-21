@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupPrivateDnsNamespaceResult struct {
 	HostedZoneId *string                        `pulumi:"hostedZoneId"`
 	Id           *string                        `pulumi:"id"`
 	Properties   *PrivateDnsNamespaceProperties `pulumi:"properties"`
-	Tags         []PrivateDnsNamespaceTag       `pulumi:"tags"`
+	Tags         []aws.Tag                      `pulumi:"tags"`
 }
 
 func LookupPrivateDnsNamespaceOutput(ctx *pulumi.Context, args LookupPrivateDnsNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateDnsNamespaceResultOutput {
@@ -90,8 +91,8 @@ func (o LookupPrivateDnsNamespaceResultOutput) Properties() PrivateDnsNamespaceP
 	return o.ApplyT(func(v LookupPrivateDnsNamespaceResult) *PrivateDnsNamespaceProperties { return v.Properties }).(PrivateDnsNamespacePropertiesPtrOutput)
 }
 
-func (o LookupPrivateDnsNamespaceResultOutput) Tags() PrivateDnsNamespaceTagArrayOutput {
-	return o.ApplyT(func(v LookupPrivateDnsNamespaceResult) []PrivateDnsNamespaceTag { return v.Tags }).(PrivateDnsNamespaceTagArrayOutput)
+func (o LookupPrivateDnsNamespaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPrivateDnsNamespaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

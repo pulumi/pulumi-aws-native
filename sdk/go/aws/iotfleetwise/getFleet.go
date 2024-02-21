@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,11 +28,11 @@ type LookupFleetArgs struct {
 }
 
 type LookupFleetResult struct {
-	Arn                  *string    `pulumi:"arn"`
-	CreationTime         *string    `pulumi:"creationTime"`
-	Description          *string    `pulumi:"description"`
-	LastModificationTime *string    `pulumi:"lastModificationTime"`
-	Tags                 []FleetTag `pulumi:"tags"`
+	Arn                  *string   `pulumi:"arn"`
+	CreationTime         *string   `pulumi:"creationTime"`
+	Description          *string   `pulumi:"description"`
+	LastModificationTime *string   `pulumi:"lastModificationTime"`
+	Tags                 []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
@@ -85,8 +86,8 @@ func (o LookupFleetResultOutput) LastModificationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.LastModificationTime }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupFleetResultOutput) Tags() FleetTagArrayOutput {
-	return o.ApplyT(func(v LookupFleetResult) []FleetTag { return v.Tags }).(FleetTagArrayOutput)
+func (o LookupFleetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFleetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

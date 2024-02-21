@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.WaFv2
         public Output<Pulumi.AwsNative.WaFv2.IpSetScope> Scope { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.IpSetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,10 +114,10 @@ namespace Pulumi.AwsNative.WaFv2
         public Input<Pulumi.AwsNative.WaFv2.IpSetScope> Scope { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.IpSetTagArgs>? _tags;
-        public InputList<Inputs.IpSetTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.IpSetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Athena
         /// A list of comma separated tags to add to the data catalog that is created. 
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DataCatalogTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
@@ -119,14 +119,14 @@ namespace Pulumi.AwsNative.Athena
         }
 
         [Input("tags")]
-        private InputList<Inputs.DataCatalogTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of comma separated tags to add to the data catalog that is created. 
         /// </summary>
-        public InputList<Inputs.DataCatalogTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DataCatalogTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

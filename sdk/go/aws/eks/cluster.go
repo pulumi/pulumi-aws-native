@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type Cluster struct {
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ClusterTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
@@ -110,7 +111,7 @@ type clusterArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version *string `pulumi:"version"`
 }
@@ -128,7 +129,7 @@ type ClusterArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ClusterTagArrayInput
+	Tags aws.TagArrayInput
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 	Version pulumi.StringPtrInput
 }
@@ -235,8 +236,8 @@ func (o ClusterOutput) RoleArn() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ClusterOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+func (o ClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Cluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.

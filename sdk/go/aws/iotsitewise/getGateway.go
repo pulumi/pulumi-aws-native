@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupGatewayResult struct {
 	// A unique, friendly name for the gateway.
 	GatewayName *string `pulumi:"gatewayName"`
 	// A list of key-value pairs that contain metadata for the gateway.
-	Tags []GatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
@@ -90,8 +91,8 @@ func (o LookupGatewayResultOutput) GatewayName() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the gateway.
-func (o LookupGatewayResultOutput) Tags() GatewayTagArrayOutput {
-	return o.ApplyT(func(v LookupGatewayResult) []GatewayTag { return v.Tags }).(GatewayTagArrayOutput)
+func (o LookupGatewayResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,7 +18,7 @@ type NetworkAcl struct {
 	pulumi.CustomResourceState
 
 	// The tags to assign to the network ACL.
-	Tags NetworkAclTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -70,7 +71,7 @@ func (NetworkAclState) ElementType() reflect.Type {
 
 type networkAclArgs struct {
 	// The tags to assign to the network ACL.
-	Tags []NetworkAclTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -78,7 +79,7 @@ type networkAclArgs struct {
 // The set of arguments for constructing a NetworkAcl resource.
 type NetworkAclArgs struct {
 	// The tags to assign to the network ACL.
-	Tags NetworkAclTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the VPC.
 	VpcId pulumi.StringInput
 }
@@ -121,8 +122,8 @@ func (o NetworkAclOutput) ToNetworkAclOutputWithContext(ctx context.Context) Net
 }
 
 // The tags to assign to the network ACL.
-func (o NetworkAclOutput) Tags() NetworkAclTagArrayOutput {
-	return o.ApplyT(func(v *NetworkAcl) NetworkAclTagArrayOutput { return v.Tags }).(NetworkAclTagArrayOutput)
+func (o NetworkAclOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *NetworkAcl) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the VPC.

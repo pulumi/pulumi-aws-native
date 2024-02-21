@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags for the carrier gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CarrierGatewayTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCarrierGatewayResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? state,
 
-            ImmutableArray<Outputs.CarrierGatewayTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CarrierGatewayId = carrierGatewayId;
             OwnerId = ownerId;

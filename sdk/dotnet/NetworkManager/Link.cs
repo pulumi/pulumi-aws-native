@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The tags for the link.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.LinkTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the link.
@@ -162,14 +162,14 @@ namespace Pulumi.AwsNative.NetworkManager
         public Input<string> SiteId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.LinkTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the link.
         /// </summary>
-        public InputList<Inputs.LinkTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.LinkTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

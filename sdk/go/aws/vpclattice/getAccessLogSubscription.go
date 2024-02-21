@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,12 +28,12 @@ type LookupAccessLogSubscriptionArgs struct {
 }
 
 type LookupAccessLogSubscriptionResult struct {
-	Arn            *string                    `pulumi:"arn"`
-	DestinationArn *string                    `pulumi:"destinationArn"`
-	Id             *string                    `pulumi:"id"`
-	ResourceArn    *string                    `pulumi:"resourceArn"`
-	ResourceId     *string                    `pulumi:"resourceId"`
-	Tags           []AccessLogSubscriptionTag `pulumi:"tags"`
+	Arn            *string   `pulumi:"arn"`
+	DestinationArn *string   `pulumi:"destinationArn"`
+	Id             *string   `pulumi:"id"`
+	ResourceArn    *string   `pulumi:"resourceArn"`
+	ResourceId     *string   `pulumi:"resourceId"`
+	Tags           []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAccessLogSubscriptionOutput(ctx *pulumi.Context, args LookupAccessLogSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupAccessLogSubscriptionResultOutput {
@@ -90,8 +91,8 @@ func (o LookupAccessLogSubscriptionResultOutput) ResourceId() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAccessLogSubscriptionResultOutput) Tags() AccessLogSubscriptionTagArrayOutput {
-	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) []AccessLogSubscriptionTag { return v.Tags }).(AccessLogSubscriptionTagArrayOutput)
+func (o LookupAccessLogSubscriptionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

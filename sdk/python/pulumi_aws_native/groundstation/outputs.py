@@ -24,7 +24,6 @@ __all__ = [
     'ConfigFrequencyBandwidth',
     'ConfigS3RecordingConfig',
     'ConfigSpectrumConfig',
-    'ConfigTag',
     'ConfigTrackingConfig',
     'ConfigUplinkEchoConfig',
     'ConfigUplinkSpectrumConfig',
@@ -37,10 +36,8 @@ __all__ = [
     'DataflowEndpointGroupRangedSocketAddress',
     'DataflowEndpointGroupSecurityDetails',
     'DataflowEndpointGroupSocketAddress',
-    'DataflowEndpointGroupTag',
     'MissionProfileDataflowEdge',
     'MissionProfileStreamsKmsKey',
-    'MissionProfileTag',
 ]
 
 @pulumi.output_type
@@ -518,27 +515,6 @@ class ConfigSpectrumConfig(dict):
     @pulumi.getter
     def polarization(self) -> Optional['ConfigPolarization']:
         return pulumi.get(self, "polarization")
-
-
-@pulumi.output_type
-class ConfigTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1036,25 +1012,6 @@ class DataflowEndpointGroupSocketAddress(dict):
 
 
 @pulumi.output_type
-class DataflowEndpointGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class MissionProfileDataflowEdge(dict):
     def __init__(__self__, *,
                  destination: Optional[str] = None,
@@ -1113,24 +1070,5 @@ class MissionProfileStreamsKmsKey(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_arn")
-
-
-@pulumi.output_type
-class MissionProfileTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

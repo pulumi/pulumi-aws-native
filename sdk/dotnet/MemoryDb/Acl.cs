@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.MemoryDb
         /// An array of key-value pairs to apply to this cluster.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AclTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// List of users associated to this acl.
@@ -101,14 +101,14 @@ namespace Pulumi.AwsNative.MemoryDb
         public Input<string>? AclName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AclTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this cluster.
         /// </summary>
-        public InputList<Inputs.AclTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AclTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

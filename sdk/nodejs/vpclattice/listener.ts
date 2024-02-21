@@ -45,7 +45,7 @@ export class Listener extends pulumi.CustomResource {
     public /*out*/ readonly serviceArn!: pulumi.Output<string>;
     public /*out*/ readonly serviceId!: pulumi.Output<string>;
     public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.vpclattice.ListenerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -100,5 +100,5 @@ export interface ListenerArgs {
     port?: pulumi.Input<number>;
     protocol: pulumi.Input<enums.vpclattice.ListenerProtocol>;
     serviceIdentifier?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.vpclattice.ListenerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

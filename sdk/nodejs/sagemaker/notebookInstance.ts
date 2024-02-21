@@ -54,7 +54,7 @@ export class NotebookInstance extends pulumi.CustomResource {
     public readonly rootAccess!: pulumi.Output<string | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly subnetId!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.sagemaker.NotebookInstanceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly volumeSizeInGb!: pulumi.Output<number | undefined>;
 
     /**
@@ -135,6 +135,6 @@ export interface NotebookInstanceArgs {
     rootAccess?: pulumi.Input<string>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetId?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.NotebookInstanceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     volumeSizeInGb?: pulumi.Input<number>;
 }

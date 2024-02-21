@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// A list of tags to apply to the space.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SpaceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -137,14 +137,14 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.SpaceSharingSettingsArgs>? SpaceSharingSettings { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.SpaceTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of tags to apply to the space.
         /// </summary>
-        public InputList<Inputs.SpaceTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SpaceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

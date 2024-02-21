@@ -73,7 +73,7 @@ export interface GetApplicationResult {
     /**
      * A list of key-value pairs that contain metadata for the application.
      */
-    readonly tags?: outputs.iotfleethub.ApplicationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::IoTFleetHub::Application

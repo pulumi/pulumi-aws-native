@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Route struct {
 	RouteType             RouteTypeOutput                 `pulumi:"routeType"`
 	ServiceIdentifier     pulumi.StringOutput             `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags         RouteTagArrayOutput             `pulumi:"tags"`
+	Tags         aws.TagArrayOutput              `pulumi:"tags"`
 	UriPathRoute RouteUriPathRouteInputPtrOutput `pulumi:"uriPathRoute"`
 }
 
@@ -98,7 +99,7 @@ type routeArgs struct {
 	RouteType             RouteType               `pulumi:"routeType"`
 	ServiceIdentifier     string                  `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags         []RouteTag              `pulumi:"tags"`
+	Tags         []aws.Tag               `pulumi:"tags"`
 	UriPathRoute *RouteUriPathRouteInput `pulumi:"uriPathRoute"`
 }
 
@@ -110,7 +111,7 @@ type RouteArgs struct {
 	RouteType             RouteTypeInput
 	ServiceIdentifier     pulumi.StringInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags         RouteTagArrayInput
+	Tags         aws.TagArrayInput
 	UriPathRoute RouteUriPathRouteInputPtrInput
 }
 
@@ -184,8 +185,8 @@ func (o RouteOutput) ServiceIdentifier() pulumi.StringOutput {
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-func (o RouteOutput) Tags() RouteTagArrayOutput {
-	return o.ApplyT(func(v *Route) RouteTagArrayOutput { return v.Tags }).(RouteTagArrayOutput)
+func (o RouteOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Route) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o RouteOutput) UriPathRoute() RouteUriPathRouteInputPtrOutput {

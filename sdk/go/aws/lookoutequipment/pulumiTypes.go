@@ -609,107 +609,6 @@ type InferenceSchedulerTag struct {
 	Value string `pulumi:"value"`
 }
 
-// InferenceSchedulerTagInput is an input type that accepts InferenceSchedulerTagArgs and InferenceSchedulerTagOutput values.
-// You can construct a concrete instance of `InferenceSchedulerTagInput` via:
-//
-//	InferenceSchedulerTagArgs{...}
-type InferenceSchedulerTagInput interface {
-	pulumi.Input
-
-	ToInferenceSchedulerTagOutput() InferenceSchedulerTagOutput
-	ToInferenceSchedulerTagOutputWithContext(context.Context) InferenceSchedulerTagOutput
-}
-
-// A tag is a key-value pair that can be added to a resource as metadata.
-type InferenceSchedulerTagArgs struct {
-	// The key for the specified tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the specified tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (InferenceSchedulerTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InferenceSchedulerTag)(nil)).Elem()
-}
-
-func (i InferenceSchedulerTagArgs) ToInferenceSchedulerTagOutput() InferenceSchedulerTagOutput {
-	return i.ToInferenceSchedulerTagOutputWithContext(context.Background())
-}
-
-func (i InferenceSchedulerTagArgs) ToInferenceSchedulerTagOutputWithContext(ctx context.Context) InferenceSchedulerTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InferenceSchedulerTagOutput)
-}
-
-// InferenceSchedulerTagArrayInput is an input type that accepts InferenceSchedulerTagArray and InferenceSchedulerTagArrayOutput values.
-// You can construct a concrete instance of `InferenceSchedulerTagArrayInput` via:
-//
-//	InferenceSchedulerTagArray{ InferenceSchedulerTagArgs{...} }
-type InferenceSchedulerTagArrayInput interface {
-	pulumi.Input
-
-	ToInferenceSchedulerTagArrayOutput() InferenceSchedulerTagArrayOutput
-	ToInferenceSchedulerTagArrayOutputWithContext(context.Context) InferenceSchedulerTagArrayOutput
-}
-
-type InferenceSchedulerTagArray []InferenceSchedulerTagInput
-
-func (InferenceSchedulerTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InferenceSchedulerTag)(nil)).Elem()
-}
-
-func (i InferenceSchedulerTagArray) ToInferenceSchedulerTagArrayOutput() InferenceSchedulerTagArrayOutput {
-	return i.ToInferenceSchedulerTagArrayOutputWithContext(context.Background())
-}
-
-func (i InferenceSchedulerTagArray) ToInferenceSchedulerTagArrayOutputWithContext(ctx context.Context) InferenceSchedulerTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InferenceSchedulerTagArrayOutput)
-}
-
-// A tag is a key-value pair that can be added to a resource as metadata.
-type InferenceSchedulerTagOutput struct{ *pulumi.OutputState }
-
-func (InferenceSchedulerTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InferenceSchedulerTag)(nil)).Elem()
-}
-
-func (o InferenceSchedulerTagOutput) ToInferenceSchedulerTagOutput() InferenceSchedulerTagOutput {
-	return o
-}
-
-func (o InferenceSchedulerTagOutput) ToInferenceSchedulerTagOutputWithContext(ctx context.Context) InferenceSchedulerTagOutput {
-	return o
-}
-
-// The key for the specified tag.
-func (o InferenceSchedulerTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v InferenceSchedulerTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the specified tag.
-func (o InferenceSchedulerTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v InferenceSchedulerTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type InferenceSchedulerTagArrayOutput struct{ *pulumi.OutputState }
-
-func (InferenceSchedulerTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InferenceSchedulerTag)(nil)).Elem()
-}
-
-func (o InferenceSchedulerTagArrayOutput) ToInferenceSchedulerTagArrayOutput() InferenceSchedulerTagArrayOutput {
-	return o
-}
-
-func (o InferenceSchedulerTagArrayOutput) ToInferenceSchedulerTagArrayOutputWithContext(ctx context.Context) InferenceSchedulerTagArrayOutput {
-	return o
-}
-
-func (o InferenceSchedulerTagArrayOutput) Index(i pulumi.IntInput) InferenceSchedulerTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceSchedulerTag {
-		return vs[0].([]InferenceSchedulerTag)[vs[1].(int)]
-	}).(InferenceSchedulerTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataInputConfigurationPropertiesInput)(nil)).Elem(), DataInputConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataOutputConfigurationPropertiesInput)(nil)).Elem(), DataOutputConfigurationPropertiesArgs{})
@@ -717,8 +616,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerInputNameConfigurationPtrInput)(nil)).Elem(), InferenceSchedulerInputNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerS3InputConfigurationInput)(nil)).Elem(), InferenceSchedulerS3InputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerS3OutputConfigurationInput)(nil)).Elem(), InferenceSchedulerS3OutputConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerTagInput)(nil)).Elem(), InferenceSchedulerTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerTagArrayInput)(nil)).Elem(), InferenceSchedulerTagArray{})
 	pulumi.RegisterOutputType(DataInputConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(DataInputConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataOutputConfigurationPropertiesOutput{})
@@ -729,6 +626,4 @@ func init() {
 	pulumi.RegisterOutputType(InferenceSchedulerS3InputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InferenceSchedulerS3OutputConfigurationOutput{})
 	pulumi.RegisterOutputType(InferenceSchedulerS3OutputConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(InferenceSchedulerTagOutput{})
-	pulumi.RegisterOutputType(InferenceSchedulerTagArrayOutput{})
 }

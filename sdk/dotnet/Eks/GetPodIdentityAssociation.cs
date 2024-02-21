@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Eks
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PodIdentityAssociationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPodIdentityAssociationResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Eks
 
             string? roleArn,
 
-            ImmutableArray<Outputs.PodIdentityAssociationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AssociationArn = associationArn;
             AssociationId = associationId;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,12 +28,12 @@ type LookupCrlArgs struct {
 }
 
 type LookupCrlResult struct {
-	CrlData        *string  `pulumi:"crlData"`
-	CrlId          *string  `pulumi:"crlId"`
-	Enabled        *bool    `pulumi:"enabled"`
-	Name           *string  `pulumi:"name"`
-	Tags           []CrlTag `pulumi:"tags"`
-	TrustAnchorArn *string  `pulumi:"trustAnchorArn"`
+	CrlData        *string   `pulumi:"crlData"`
+	CrlId          *string   `pulumi:"crlId"`
+	Enabled        *bool     `pulumi:"enabled"`
+	Name           *string   `pulumi:"name"`
+	Tags           []aws.Tag `pulumi:"tags"`
+	TrustAnchorArn *string   `pulumi:"trustAnchorArn"`
 }
 
 func LookupCrlOutput(ctx *pulumi.Context, args LookupCrlOutputArgs, opts ...pulumi.InvokeOption) LookupCrlResultOutput {
@@ -86,8 +87,8 @@ func (o LookupCrlResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCrlResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCrlResultOutput) Tags() CrlTagArrayOutput {
-	return o.ApplyT(func(v LookupCrlResult) []CrlTag { return v.Tags }).(CrlTagArrayOutput)
+func (o LookupCrlResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCrlResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupCrlResultOutput) TrustAnchorArn() pulumi.StringPtrOutput {

@@ -49,7 +49,7 @@ export interface GetRegexPatternSetResult {
      */
     readonly id?: string;
     readonly regularExpressionList?: string[];
-    readonly tags?: outputs.wafv2.RegexPatternSetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .

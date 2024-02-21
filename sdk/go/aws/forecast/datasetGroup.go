@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type DatasetGroup struct {
 	// The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
 	Domain DatasetGroupDomainOutput `pulumi:"domain"`
 	// The tags of Application Insights application.
-	Tags DatasetGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDatasetGroup registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +83,7 @@ type datasetGroupArgs struct {
 	// The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
 	Domain DatasetGroupDomain `pulumi:"domain"`
 	// The tags of Application Insights application.
-	Tags []DatasetGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DatasetGroup resource.
@@ -94,7 +95,7 @@ type DatasetGroupArgs struct {
 	// The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
 	Domain DatasetGroupDomainInput
 	// The tags of Application Insights application.
-	Tags DatasetGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DatasetGroupArgs) ElementType() reflect.Type {
@@ -155,8 +156,8 @@ func (o DatasetGroupOutput) Domain() DatasetGroupDomainOutput {
 }
 
 // The tags of Application Insights application.
-func (o DatasetGroupOutput) Tags() DatasetGroupTagArrayOutput {
-	return o.ApplyT(func(v *DatasetGroup) DatasetGroupTagArrayOutput { return v.Tags }).(DatasetGroupTagArrayOutput)
+func (o DatasetGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DatasetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

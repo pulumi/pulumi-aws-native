@@ -69,7 +69,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
      * Structure that contains X.500 distinguished name information for your CA.
      */
     public readonly subject!: pulumi.Output<outputs.acmpca.CertificateAuthoritySubject>;
-    public readonly tags!: pulumi.Output<outputs.acmpca.CertificateAuthorityTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the certificate authority.
      */
@@ -161,7 +161,7 @@ export interface CertificateAuthorityArgs {
      * Structure that contains X.500 distinguished name information for your CA.
      */
     subject: pulumi.Input<inputs.acmpca.CertificateAuthoritySubjectArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateAuthorityTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of the certificate authority.
      */

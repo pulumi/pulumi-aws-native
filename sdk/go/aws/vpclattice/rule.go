@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type Rule struct {
 	Name               pulumi.StringPtrOutput `pulumi:"name"`
 	Priority           pulumi.IntOutput       `pulumi:"priority"`
 	ServiceIdentifier  pulumi.StringPtrOutput `pulumi:"serviceIdentifier"`
-	Tags               RuleTagArrayOutput     `pulumi:"tags"`
+	Tags               aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +88,7 @@ type ruleArgs struct {
 	Name               *string    `pulumi:"name"`
 	Priority           int        `pulumi:"priority"`
 	ServiceIdentifier  *string    `pulumi:"serviceIdentifier"`
-	Tags               []RuleTag  `pulumi:"tags"`
+	Tags               []aws.Tag  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -98,7 +99,7 @@ type RuleArgs struct {
 	Name               pulumi.StringPtrInput
 	Priority           pulumi.IntInput
 	ServiceIdentifier  pulumi.StringPtrInput
-	Tags               RuleTagArrayInput
+	Tags               aws.TagArrayInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {
@@ -166,8 +167,8 @@ func (o RuleOutput) ServiceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o RuleOutput) Tags() RuleTagArrayOutput {
-	return o.ApplyT(func(v *Rule) RuleTagArrayOutput { return v.Tags }).(RuleTagArrayOutput)
+func (o RuleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Rule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

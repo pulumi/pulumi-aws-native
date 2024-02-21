@@ -14,7 +14,6 @@ __all__ = [
     'VirtualClusterContainerInfo',
     'VirtualClusterContainerProvider',
     'VirtualClusterEksInfo',
-    'VirtualClusterTag',
 ]
 
 @pulumi.output_type
@@ -92,38 +91,5 @@ class VirtualClusterEksInfo(dict):
     @pulumi.getter
     def namespace(self) -> str:
         return pulumi.get(self, "namespace")
-
-
-@pulumi.output_type
-class VirtualClusterTag(dict):
-    """
-    An arbitrary set of tags (key-value pairs) for this virtual cluster.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        An arbitrary set of tags (key-value pairs) for this virtual cluster.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
 
 

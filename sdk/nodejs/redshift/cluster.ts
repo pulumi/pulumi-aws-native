@@ -259,7 +259,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The list of tags for the cluster parameter group.
      */
-    public readonly tags!: pulumi.Output<outputs.redshift.ClusterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */
@@ -621,7 +621,7 @@ export interface ClusterArgs {
     /**
      * The list of tags for the cluster parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */

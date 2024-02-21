@@ -64,13 +64,13 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags to apply to the flow logs.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FlowLogTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFlowLogResult(
             string? id,
 
-            ImmutableArray<Outputs.FlowLogTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Tags = tags;

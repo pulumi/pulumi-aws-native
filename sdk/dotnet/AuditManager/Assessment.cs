@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.AuditManager
         /// The tags associated with the assessment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AssessmentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -159,14 +159,14 @@ namespace Pulumi.AwsNative.AuditManager
         public Input<Pulumi.AwsNative.AuditManager.AssessmentStatus>? Status { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AssessmentTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags associated with the assessment.
         /// </summary>
-        public InputList<Inputs.AssessmentTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AssessmentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

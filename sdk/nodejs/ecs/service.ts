@@ -59,7 +59,7 @@ export class Service extends pulumi.CustomResource {
     public readonly serviceConnectConfiguration!: pulumi.Output<outputs.ecs.ServiceConnectConfiguration | undefined>;
     public readonly serviceName!: pulumi.Output<string | undefined>;
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceRegistry[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ecs.ServiceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
     public readonly volumeConfigurations!: pulumi.Output<outputs.ecs.ServiceVolumeConfiguration[] | undefined>;
 
@@ -157,7 +157,7 @@ export interface ServiceArgs {
     serviceConnectConfiguration?: pulumi.Input<inputs.ecs.ServiceConnectConfigurationArgs>;
     serviceName?: pulumi.Input<string>;
     serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceRegistryArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     taskDefinition?: pulumi.Input<string>;
     volumeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVolumeConfigurationArgs>[]>;
 }

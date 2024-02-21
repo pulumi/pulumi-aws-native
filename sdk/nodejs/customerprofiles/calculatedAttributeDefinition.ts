@@ -52,7 +52,7 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
     public readonly statistic!: pulumi.Output<enums.customerprofiles.CalculatedAttributeDefinitionStatistic>;
-    public readonly tags!: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CalculatedAttributeDefinition resource with the given unique name, arguments, and options.
@@ -117,5 +117,5 @@ export interface CalculatedAttributeDefinitionArgs {
     displayName?: pulumi.Input<string>;
     domainName: pulumi.Input<string>;
     statistic: pulumi.Input<enums.customerprofiles.CalculatedAttributeDefinitionStatistic>;
-    tags?: pulumi.Input<pulumi.Input<inputs.customerprofiles.CalculatedAttributeDefinitionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

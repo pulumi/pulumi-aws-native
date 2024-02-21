@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.Proton
         ///         &lt;i&gt;Proton User Guide&lt;/i&gt;.&lt;/p&gt;
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.EnvironmentAccountConnectionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -153,16 +153,16 @@ namespace Pulumi.AwsNative.Proton
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.EnvironmentAccountConnectionTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// &lt;p&gt;An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.&lt;/p&gt;
         ///          &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html"&gt;Proton resources and tagging&lt;/a&gt; in the
         ///         &lt;i&gt;Proton User Guide&lt;/i&gt;.&lt;/p&gt;
         /// </summary>
-        public InputList<Inputs.EnvironmentAccountConnectionTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.EnvironmentAccountConnectionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

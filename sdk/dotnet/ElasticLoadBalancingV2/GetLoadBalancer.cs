@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// <summary>
         /// The tags to assign to the load balancer.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoadBalancerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLoadBalancerResult(
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             ImmutableArray<string> subnets,
 
-            ImmutableArray<Outputs.LoadBalancerTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CanonicalHostedZoneId = canonicalHostedZoneId;
             DnsName = dnsName;

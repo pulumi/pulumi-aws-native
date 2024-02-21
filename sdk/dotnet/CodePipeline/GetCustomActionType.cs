@@ -85,13 +85,13 @@ namespace Pulumi.AwsNative.CodePipeline
         /// <summary>
         /// Any tags assigned to the custom action.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomActionTypeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCustomActionTypeResult(
             string? id,
 
-            ImmutableArray<Outputs.CustomActionTypeTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Tags = tags;

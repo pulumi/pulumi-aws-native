@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Dms
         public readonly string? ServerName;
         public readonly string? SslMode;
         public readonly Outputs.EndpointSybaseSettings? SybaseSettings;
-        public readonly ImmutableArray<Outputs.EndpointTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? Username;
 
         [OutputConstructor]
@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.Dms
 
             Outputs.EndpointSybaseSettings? sybaseSettings,
 
-            ImmutableArray<Outputs.EndpointTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? username)
         {

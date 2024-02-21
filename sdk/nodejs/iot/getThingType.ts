@@ -29,7 +29,7 @@ export interface GetThingTypeResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.iot.ThingTypeTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::IoT::ThingType

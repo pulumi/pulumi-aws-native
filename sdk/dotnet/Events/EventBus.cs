@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.Events
         /// Any tags assigned to the event bus.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.EventBusTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -117,14 +117,14 @@ namespace Pulumi.AwsNative.Events
         public Input<object>? Policy { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.EventBusTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Any tags assigned to the event bus.
         /// </summary>
-        public InputList<Inputs.EventBusTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.EventBusTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

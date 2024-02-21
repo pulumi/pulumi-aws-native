@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.DocDbElastic
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ClusterTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -139,10 +139,10 @@ namespace Pulumi.AwsNative.DocDbElastic
         }
 
         [Input("tags")]
-        private InputList<Inputs.ClusterTagArgs>? _tags;
-        public InputList<Inputs.ClusterTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ClusterTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

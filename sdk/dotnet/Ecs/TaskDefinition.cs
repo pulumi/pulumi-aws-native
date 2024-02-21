@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Ecs
         public Output<Outputs.TaskDefinitionRuntimePlatform?> RuntimePlatform { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TaskDefinitionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon ECS task definition
@@ -199,10 +199,10 @@ namespace Pulumi.AwsNative.Ecs
         public Input<Inputs.TaskDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TaskDefinitionTagArgs>? _tags;
-        public InputList<Inputs.TaskDefinitionTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TaskDefinitionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

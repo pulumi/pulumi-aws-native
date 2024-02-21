@@ -908,101 +908,6 @@ type BrokerTagsEntry struct {
 	Value string `pulumi:"value"`
 }
 
-// BrokerTagsEntryInput is an input type that accepts BrokerTagsEntryArgs and BrokerTagsEntryOutput values.
-// You can construct a concrete instance of `BrokerTagsEntryInput` via:
-//
-//	BrokerTagsEntryArgs{...}
-type BrokerTagsEntryInput interface {
-	pulumi.Input
-
-	ToBrokerTagsEntryOutput() BrokerTagsEntryOutput
-	ToBrokerTagsEntryOutputWithContext(context.Context) BrokerTagsEntryOutput
-}
-
-type BrokerTagsEntryArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (BrokerTagsEntryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BrokerTagsEntry)(nil)).Elem()
-}
-
-func (i BrokerTagsEntryArgs) ToBrokerTagsEntryOutput() BrokerTagsEntryOutput {
-	return i.ToBrokerTagsEntryOutputWithContext(context.Background())
-}
-
-func (i BrokerTagsEntryArgs) ToBrokerTagsEntryOutputWithContext(ctx context.Context) BrokerTagsEntryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BrokerTagsEntryOutput)
-}
-
-// BrokerTagsEntryArrayInput is an input type that accepts BrokerTagsEntryArray and BrokerTagsEntryArrayOutput values.
-// You can construct a concrete instance of `BrokerTagsEntryArrayInput` via:
-//
-//	BrokerTagsEntryArray{ BrokerTagsEntryArgs{...} }
-type BrokerTagsEntryArrayInput interface {
-	pulumi.Input
-
-	ToBrokerTagsEntryArrayOutput() BrokerTagsEntryArrayOutput
-	ToBrokerTagsEntryArrayOutputWithContext(context.Context) BrokerTagsEntryArrayOutput
-}
-
-type BrokerTagsEntryArray []BrokerTagsEntryInput
-
-func (BrokerTagsEntryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BrokerTagsEntry)(nil)).Elem()
-}
-
-func (i BrokerTagsEntryArray) ToBrokerTagsEntryArrayOutput() BrokerTagsEntryArrayOutput {
-	return i.ToBrokerTagsEntryArrayOutputWithContext(context.Background())
-}
-
-func (i BrokerTagsEntryArray) ToBrokerTagsEntryArrayOutputWithContext(ctx context.Context) BrokerTagsEntryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BrokerTagsEntryArrayOutput)
-}
-
-type BrokerTagsEntryOutput struct{ *pulumi.OutputState }
-
-func (BrokerTagsEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BrokerTagsEntry)(nil)).Elem()
-}
-
-func (o BrokerTagsEntryOutput) ToBrokerTagsEntryOutput() BrokerTagsEntryOutput {
-	return o
-}
-
-func (o BrokerTagsEntryOutput) ToBrokerTagsEntryOutputWithContext(ctx context.Context) BrokerTagsEntryOutput {
-	return o
-}
-
-func (o BrokerTagsEntryOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BrokerTagsEntry) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o BrokerTagsEntryOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v BrokerTagsEntry) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type BrokerTagsEntryArrayOutput struct{ *pulumi.OutputState }
-
-func (BrokerTagsEntryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BrokerTagsEntry)(nil)).Elem()
-}
-
-func (o BrokerTagsEntryArrayOutput) ToBrokerTagsEntryArrayOutput() BrokerTagsEntryArrayOutput {
-	return o
-}
-
-func (o BrokerTagsEntryArrayOutput) ToBrokerTagsEntryArrayOutputWithContext(ctx context.Context) BrokerTagsEntryArrayOutput {
-	return o
-}
-
-func (o BrokerTagsEntryArrayOutput) Index(i pulumi.IntInput) BrokerTagsEntryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BrokerTagsEntry {
-		return vs[0].([]BrokerTagsEntry)[vs[1].(int)]
-	}).(BrokerTagsEntryOutput)
-}
-
 type BrokerUser struct {
 	ConsoleAccess   *bool    `pulumi:"consoleAccess"`
 	Groups          []string `pulumi:"groups"`
@@ -1223,101 +1128,6 @@ type ConfigurationTagsEntry struct {
 	Value string `pulumi:"value"`
 }
 
-// ConfigurationTagsEntryInput is an input type that accepts ConfigurationTagsEntryArgs and ConfigurationTagsEntryOutput values.
-// You can construct a concrete instance of `ConfigurationTagsEntryInput` via:
-//
-//	ConfigurationTagsEntryArgs{...}
-type ConfigurationTagsEntryInput interface {
-	pulumi.Input
-
-	ToConfigurationTagsEntryOutput() ConfigurationTagsEntryOutput
-	ToConfigurationTagsEntryOutputWithContext(context.Context) ConfigurationTagsEntryOutput
-}
-
-type ConfigurationTagsEntryArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ConfigurationTagsEntryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationTagsEntry)(nil)).Elem()
-}
-
-func (i ConfigurationTagsEntryArgs) ToConfigurationTagsEntryOutput() ConfigurationTagsEntryOutput {
-	return i.ToConfigurationTagsEntryOutputWithContext(context.Background())
-}
-
-func (i ConfigurationTagsEntryArgs) ToConfigurationTagsEntryOutputWithContext(ctx context.Context) ConfigurationTagsEntryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTagsEntryOutput)
-}
-
-// ConfigurationTagsEntryArrayInput is an input type that accepts ConfigurationTagsEntryArray and ConfigurationTagsEntryArrayOutput values.
-// You can construct a concrete instance of `ConfigurationTagsEntryArrayInput` via:
-//
-//	ConfigurationTagsEntryArray{ ConfigurationTagsEntryArgs{...} }
-type ConfigurationTagsEntryArrayInput interface {
-	pulumi.Input
-
-	ToConfigurationTagsEntryArrayOutput() ConfigurationTagsEntryArrayOutput
-	ToConfigurationTagsEntryArrayOutputWithContext(context.Context) ConfigurationTagsEntryArrayOutput
-}
-
-type ConfigurationTagsEntryArray []ConfigurationTagsEntryInput
-
-func (ConfigurationTagsEntryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationTagsEntry)(nil)).Elem()
-}
-
-func (i ConfigurationTagsEntryArray) ToConfigurationTagsEntryArrayOutput() ConfigurationTagsEntryArrayOutput {
-	return i.ToConfigurationTagsEntryArrayOutputWithContext(context.Background())
-}
-
-func (i ConfigurationTagsEntryArray) ToConfigurationTagsEntryArrayOutputWithContext(ctx context.Context) ConfigurationTagsEntryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTagsEntryArrayOutput)
-}
-
-type ConfigurationTagsEntryOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationTagsEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationTagsEntry)(nil)).Elem()
-}
-
-func (o ConfigurationTagsEntryOutput) ToConfigurationTagsEntryOutput() ConfigurationTagsEntryOutput {
-	return o
-}
-
-func (o ConfigurationTagsEntryOutput) ToConfigurationTagsEntryOutputWithContext(ctx context.Context) ConfigurationTagsEntryOutput {
-	return o
-}
-
-func (o ConfigurationTagsEntryOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationTagsEntry) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ConfigurationTagsEntryOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationTagsEntry) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ConfigurationTagsEntryArrayOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationTagsEntryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationTagsEntry)(nil)).Elem()
-}
-
-func (o ConfigurationTagsEntryArrayOutput) ToConfigurationTagsEntryArrayOutput() ConfigurationTagsEntryArrayOutput {
-	return o
-}
-
-func (o ConfigurationTagsEntryArrayOutput) ToConfigurationTagsEntryArrayOutputWithContext(ctx context.Context) ConfigurationTagsEntryArrayOutput {
-	return o
-}
-
-func (o ConfigurationTagsEntryArrayOutput) Index(i pulumi.IntInput) ConfigurationTagsEntryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationTagsEntry {
-		return vs[0].([]ConfigurationTagsEntry)[vs[1].(int)]
-	}).(ConfigurationTagsEntryOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerConfigurationIdInput)(nil)).Elem(), BrokerConfigurationIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerConfigurationIdPtrInput)(nil)).Elem(), BrokerConfigurationIdArgs{})
@@ -1329,13 +1139,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerLogListPtrInput)(nil)).Elem(), BrokerLogListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerMaintenanceWindowInput)(nil)).Elem(), BrokerMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerMaintenanceWindowPtrInput)(nil)).Elem(), BrokerMaintenanceWindowArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BrokerTagsEntryInput)(nil)).Elem(), BrokerTagsEntryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BrokerTagsEntryArrayInput)(nil)).Elem(), BrokerTagsEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerUserInput)(nil)).Elem(), BrokerUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerUserArrayInput)(nil)).Elem(), BrokerUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAssociationConfigurationIdInput)(nil)).Elem(), ConfigurationAssociationConfigurationIdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTagsEntryInput)(nil)).Elem(), ConfigurationTagsEntryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTagsEntryArrayInput)(nil)).Elem(), ConfigurationTagsEntryArray{})
 	pulumi.RegisterOutputType(BrokerConfigurationIdOutput{})
 	pulumi.RegisterOutputType(BrokerConfigurationIdPtrOutput{})
 	pulumi.RegisterOutputType(BrokerEncryptionOptionsOutput{})
@@ -1346,12 +1152,8 @@ func init() {
 	pulumi.RegisterOutputType(BrokerLogListPtrOutput{})
 	pulumi.RegisterOutputType(BrokerMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(BrokerMaintenanceWindowPtrOutput{})
-	pulumi.RegisterOutputType(BrokerTagsEntryOutput{})
-	pulumi.RegisterOutputType(BrokerTagsEntryArrayOutput{})
 	pulumi.RegisterOutputType(BrokerUserOutput{})
 	pulumi.RegisterOutputType(BrokerUserArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAssociationConfigurationIdOutput{})
 	pulumi.RegisterOutputType(ConfigurationAssociationConfigurationIdPtrOutput{})
-	pulumi.RegisterOutputType(ConfigurationTagsEntryOutput{})
-	pulumi.RegisterOutputType(ConfigurationTagsEntryArrayOutput{})
 }

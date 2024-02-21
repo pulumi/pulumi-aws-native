@@ -33,7 +33,7 @@ export interface GetOptionGroupResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.rds.OptionGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.

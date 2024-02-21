@@ -28,7 +28,7 @@ export interface GetFhirDatastoreResult {
     readonly datastoreEndpoint?: string;
     readonly datastoreId?: string;
     readonly datastoreStatus?: enums.healthlake.FhirDatastoreDatastoreStatus;
-    readonly tags?: outputs.healthlake.FhirDatastoreTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * HealthLake FHIR Datastore

@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public readonly Pulumi.AwsNative.CodeBuild.FleetComputeType? ComputeType;
         public readonly Pulumi.AwsNative.CodeBuild.FleetEnvironmentType? EnvironmentType;
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.FleetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFleetResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.CodeBuild
 
             string? name,
 
-            ImmutableArray<Outputs.FleetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             BaseCapacity = baseCapacity;

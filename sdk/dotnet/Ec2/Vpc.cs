@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags for the VPC.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VpcTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -176,14 +176,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<int>? Ipv4NetmaskLength { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.VpcTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the VPC.
         /// </summary>
-        public InputList<Inputs.VpcTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VpcTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

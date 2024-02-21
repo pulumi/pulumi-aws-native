@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupResourcePolicyResult struct {
 	// The unique identifier (ID) associated with this resource policy.
 	Id *string `pulumi:"id"`
 	// A list of tags that you want to attach to the resource policy
-	Tags []ResourcePolicyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResourcePolicyResultOutput {
@@ -94,8 +95,8 @@ func (o LookupResourcePolicyResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // A list of tags that you want to attach to the resource policy
-func (o LookupResourcePolicyResultOutput) Tags() ResourcePolicyTagArrayOutput {
-	return o.ApplyT(func(v LookupResourcePolicyResult) []ResourcePolicyTag { return v.Tags }).(ResourcePolicyTagArrayOutput)
+func (o LookupResourcePolicyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupResourcePolicyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

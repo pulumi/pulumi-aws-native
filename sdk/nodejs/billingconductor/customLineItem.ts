@@ -70,7 +70,7 @@ export class CustomLineItem extends pulumi.CustomResource {
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<number>;
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly productCode!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.billingconductor.CustomLineItemTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CustomLineItem resource with the given unique name, arguments, and options.
@@ -139,5 +139,5 @@ export interface CustomLineItemArgs {
     customLineItemChargeDetails?: pulumi.Input<inputs.billingconductor.CustomLineItemChargeDetailsArgs>;
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.billingconductor.CustomLineItemTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }
