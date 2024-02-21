@@ -34,7 +34,7 @@
   "taggable" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "robomaker:CreateRobotApplicationVersion", "s3:GetObject" ]
+      "permissions" : [ "robomaker:CreateRobotApplicationVersion", "s3:GetObject", "ecr:BatchGetImage", "ecr:GetAuthorizationToken", "ecr:BatchCheckLayerAvailability", "ecr-public:GetAuthorizationToken", "sts:GetServiceBearerToken" ]
     },
     "delete" : {
       "permissions" : [ "robomaker:DeleteRobotApplication", "robomaker:DescribeRobotApplication" ]

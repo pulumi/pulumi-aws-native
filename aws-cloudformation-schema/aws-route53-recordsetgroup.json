@@ -53,6 +53,37 @@
       },
       "required" : [ "CollectionId", "LocationName" ]
     },
+    "GeoProximityLocation" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AWSRegion" : {
+          "type" : "string"
+        },
+        "LocalZoneGroup" : {
+          "type" : "string"
+        },
+        "Bias" : {
+          "type" : "integer"
+        },
+        "Coordinates" : {
+          "$ref" : "#/definitions/Coordinates"
+        }
+      }
+    },
+    "Coordinates" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Longitude" : {
+          "type" : "string"
+        },
+        "Latitude" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Latitude", "Longitude" ]
+    },
     "RecordSet" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -96,6 +127,9 @@
         },
         "Failover" : {
           "type" : "string"
+        },
+        "GeoProximityLocation" : {
+          "$ref" : "#/definitions/GeoProximityLocation"
         },
         "Region" : {
           "type" : "string"

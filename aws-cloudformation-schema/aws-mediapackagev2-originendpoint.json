@@ -386,7 +386,7 @@
       }
     }
   },
-  "required" : [ "ContainerType" ],
+  "required" : [ "ChannelGroupName", "ChannelName", "OriginEndpointName" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/ModifiedAt", "/properties/LowLatencyHlsManifests/*/Url", "/properties/HlsManifests/*/Url" ],
   "createOnlyProperties" : [ "/properties/ChannelGroupName", "/properties/ChannelName", "/properties/OriginEndpointName" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

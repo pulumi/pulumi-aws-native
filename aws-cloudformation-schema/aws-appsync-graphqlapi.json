@@ -9,6 +9,9 @@
     "MergedApiExecutionRoleArn" : {
       "type" : "string"
     },
+    "EnhancedMetricsConfig" : {
+      "$ref" : "#/definitions/EnhancedMetricsConfig"
+    },
     "RealtimeDns" : {
       "type" : "string"
     },
@@ -105,6 +108,22 @@
           "type" : "number"
         }
       }
+    },
+    "EnhancedMetricsConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "OperationLevelMetricsConfig" : {
+          "type" : "string"
+        },
+        "ResolverLevelMetricsBehavior" : {
+          "type" : "string"
+        },
+        "DataSourceLevelMetricsBehavior" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "OperationLevelMetricsConfig", "ResolverLevelMetricsBehavior", "DataSourceLevelMetricsBehavior" ]
     },
     "CognitoUserPoolConfig" : {
       "type" : "object",

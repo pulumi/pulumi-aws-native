@@ -33,7 +33,8 @@
         "RoleArn" : {
           "type" : "string"
         }
-      }
+      },
+      "required" : [ "Enabled", "RoleArn" ]
     }
   },
   "required" : [ "TableName", "Type", "DatabaseName", "TableOptimizerConfiguration", "CatalogId" ],
