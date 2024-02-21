@@ -21,7 +21,8 @@ type FunctionDefinition struct {
 	InitialVersion   FunctionDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                    `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                    `pulumi:"name"`
-	Tags             pulumi.AnyOutput                       `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::FunctionDefinition` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewFunctionDefinition registers a new resource with the given unique name, arguments, and options.
@@ -70,14 +71,16 @@ func (FunctionDefinitionState) ElementType() reflect.Type {
 type functionDefinitionArgs struct {
 	InitialVersion *FunctionDefinitionVersionType `pulumi:"initialVersion"`
 	Name           *string                        `pulumi:"name"`
-	Tags           interface{}                    `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::FunctionDefinition` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FunctionDefinition resource.
 type FunctionDefinitionArgs struct {
 	InitialVersion FunctionDefinitionVersionTypePtrInput
 	Name           pulumi.StringPtrInput
-	Tags           pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::FunctionDefinition` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (FunctionDefinitionArgs) ElementType() reflect.Type {
@@ -133,6 +136,7 @@ func (o FunctionDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::FunctionDefinition` for more information about the expected schema for this property.
 func (o FunctionDefinitionOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FunctionDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

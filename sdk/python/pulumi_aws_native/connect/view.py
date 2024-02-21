@@ -27,6 +27,8 @@ class ViewArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: The actions of the view in an array.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the instance.
         :param Any template: The template of the view as JSON.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: The description of the view.
         :param pulumi.Input[str] name: The name of the view.
         :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: One or more tags.
@@ -70,6 +72,8 @@ class ViewArgs:
     def template(self) -> Any:
         """
         The template of the view as JSON.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "template")
 
@@ -137,6 +141,8 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the view.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]] tags: One or more tags.
         :param Any template: The template of the view as JSON.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -270,6 +276,8 @@ class View(pulumi.CustomResource):
     def template(self) -> pulumi.Output[Any]:
         """
         The template of the view as JSON.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "template")
 

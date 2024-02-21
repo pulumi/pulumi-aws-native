@@ -20,6 +20,9 @@ export interface GetPlacementArgs {
 }
 
 export interface GetPlacementResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+     */
     readonly attributes?: any;
     readonly id?: string;
 }

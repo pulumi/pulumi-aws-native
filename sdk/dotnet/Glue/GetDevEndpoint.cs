@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.Glue
     [OutputType]
     public sealed class GetDevEndpointResult
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Arguments;
         public readonly string? ExtraJarsS3Path;
         public readonly string? ExtraPythonLibsS3Path;
@@ -64,6 +67,9 @@ namespace Pulumi.AwsNative.Glue
         public readonly string? SecurityConfiguration;
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly string? SubnetId;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
         public readonly string? WorkerType;
 

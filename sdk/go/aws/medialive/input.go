@@ -25,9 +25,10 @@ type Input struct {
 	Name                pulumi.StringPtrOutput                  `pulumi:"name"`
 	RoleArn             pulumi.StringPtrOutput                  `pulumi:"roleArn"`
 	Sources             InputSourceRequestArrayOutput           `pulumi:"sources"`
-	Tags                pulumi.AnyOutput                        `pulumi:"tags"`
-	Type                pulumi.StringPtrOutput                  `pulumi:"type"`
-	Vpc                 InputVpcRequestPtrOutput                `pulumi:"vpc"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput         `pulumi:"tags"`
+	Type pulumi.StringPtrOutput   `pulumi:"type"`
+	Vpc  InputVpcRequestPtrOutput `pulumi:"vpc"`
 }
 
 // NewInput registers a new resource with the given unique name, arguments, and options.
@@ -82,9 +83,10 @@ type inputArgs struct {
 	Name                *string                        `pulumi:"name"`
 	RoleArn             *string                        `pulumi:"roleArn"`
 	Sources             []InputSourceRequest           `pulumi:"sources"`
-	Tags                interface{}                    `pulumi:"tags"`
-	Type                *string                        `pulumi:"type"`
-	Vpc                 *InputVpcRequest               `pulumi:"vpc"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
+	Tags interface{}      `pulumi:"tags"`
+	Type *string          `pulumi:"type"`
+	Vpc  *InputVpcRequest `pulumi:"vpc"`
 }
 
 // The set of arguments for constructing a Input resource.
@@ -96,9 +98,10 @@ type InputArgs struct {
 	Name                pulumi.StringPtrInput
 	RoleArn             pulumi.StringPtrInput
 	Sources             InputSourceRequestArrayInput
-	Tags                pulumi.Input
-	Type                pulumi.StringPtrInput
-	Vpc                 InputVpcRequestPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
+	Tags pulumi.Input
+	Type pulumi.StringPtrInput
+	Vpc  InputVpcRequestPtrInput
 }
 
 func (InputArgs) ElementType() reflect.Type {
@@ -170,6 +173,7 @@ func (o InputOutput) Sources() InputSourceRequestArrayOutput {
 	return o.ApplyT(func(v *Input) InputSourceRequestArrayOutput { return v.Sources }).(InputSourceRequestArrayOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
 func (o InputOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Input) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

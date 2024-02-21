@@ -35,6 +35,9 @@ class GetUserPoolIdentityProviderResult:
     @property
     @pulumi.getter(name="attributeMapping")
     def attribute_mapping(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attribute_mapping")
 
     @property
@@ -50,6 +53,9 @@ class GetUserPoolIdentityProviderResult:
     @property
     @pulumi.getter(name="providerDetails")
     def provider_details(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "provider_details")
 
 

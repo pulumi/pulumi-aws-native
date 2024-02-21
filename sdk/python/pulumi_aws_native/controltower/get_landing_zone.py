@@ -69,6 +69,9 @@ class GetLandingZoneResult:
     @property
     @pulumi.getter
     def manifest(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "manifest")
 
     @property

@@ -20,6 +20,9 @@ export interface GetResourcePolicyArgs {
 }
 
 export interface GetResourcePolicyResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
+     */
     readonly policy?: any;
 }
 /**

@@ -39,7 +39,8 @@ type LookupMaintenanceWindowTaskResult struct {
 	Targets                  []MaintenanceWindowTaskTarget                  `pulumi:"targets"`
 	TaskArn                  *string                                        `pulumi:"taskArn"`
 	TaskInvocationParameters *MaintenanceWindowTaskTaskInvocationParameters `pulumi:"taskInvocationParameters"`
-	TaskParameters           interface{}                                    `pulumi:"taskParameters"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+	TaskParameters interface{} `pulumi:"taskParameters"`
 }
 
 func LookupMaintenanceWindowTaskOutput(ctx *pulumi.Context, args LookupMaintenanceWindowTaskOutputArgs, opts ...pulumi.InvokeOption) LookupMaintenanceWindowTaskResultOutput {
@@ -127,6 +128,7 @@ func (o LookupMaintenanceWindowTaskResultOutput) TaskInvocationParameters() Main
 	}).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
 func (o LookupMaintenanceWindowTaskResultOutput) TaskParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupMaintenanceWindowTaskResult) interface{} { return v.TaskParameters }).(pulumi.AnyOutput)
 }

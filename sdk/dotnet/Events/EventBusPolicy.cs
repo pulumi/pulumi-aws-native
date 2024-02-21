@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Events
         [Output("principal")]
         public Output<string?> Principal { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Output("statement")]
         public Output<object?> Statement { get; private set; } = null!;
 
@@ -96,6 +99,9 @@ namespace Pulumi.AwsNative.Events
         [Input("principal")]
         public Input<string>? Principal { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Input("statement")]
         public Input<object>? Statement { get; set; }
 

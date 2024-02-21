@@ -24,6 +24,8 @@ type LogGroup struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 30720
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	DataProtectionPolicy pulumi.AnyOutput `pulumi:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
@@ -88,6 +90,8 @@ type logGroupArgs struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 30720
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -110,6 +114,8 @@ type LogGroupArgs struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 30720
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	DataProtectionPolicy pulumi.Input
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId pulumi.StringPtrInput
@@ -172,6 +178,8 @@ func (o LogGroupOutput) Arn() pulumi.StringOutput {
 // The policy must be in JSON string format.
 //
 // Length Constraints: Maximum length of 30720
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 func (o LogGroupOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.AnyOutput { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }

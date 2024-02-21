@@ -17,11 +17,13 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
 	DefaultRunProperties pulumi.AnyOutput       `pulumi:"defaultRunProperties"`
 	Description          pulumi.StringPtrOutput `pulumi:"description"`
 	MaxConcurrentRuns    pulumi.IntPtrOutput    `pulumi:"maxConcurrentRuns"`
 	Name                 pulumi.StringPtrOutput `pulumi:"name"`
-	Tags                 pulumi.AnyOutput       `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -68,20 +70,24 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
 	DefaultRunProperties interface{} `pulumi:"defaultRunProperties"`
 	Description          *string     `pulumi:"description"`
 	MaxConcurrentRuns    *int        `pulumi:"maxConcurrentRuns"`
 	Name                 *string     `pulumi:"name"`
-	Tags                 interface{} `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
 	DefaultRunProperties pulumi.Input
 	Description          pulumi.StringPtrInput
 	MaxConcurrentRuns    pulumi.IntPtrInput
 	Name                 pulumi.StringPtrInput
-	Tags                 pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -121,6 +127,7 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
 func (o WorkflowOutput) DefaultRunProperties() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.AnyOutput { return v.DefaultRunProperties }).(pulumi.AnyOutput)
 }
@@ -137,6 +144,7 @@ func (o WorkflowOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
 func (o WorkflowOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

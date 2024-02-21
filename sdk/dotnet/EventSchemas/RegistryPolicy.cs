@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.EventSchemas
     [AwsNativeResourceType("aws-native:eventschemas:RegistryPolicy")]
     public partial class RegistryPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Output("policy")]
         public Output<object> Policy { get; private set; } = null!;
 
@@ -69,6 +72,9 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class RegistryPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<object> Policy { get; set; } = null!;
 

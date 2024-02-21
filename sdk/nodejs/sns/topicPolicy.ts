@@ -36,6 +36,8 @@ export class TopicPolicy extends pulumi.CustomResource {
 
     /**
      * A policy document that contains permissions to add to the specified SNS topics.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
      */
     public readonly policyDocument!: pulumi.Output<any>;
     /**
@@ -77,6 +79,8 @@ export class TopicPolicy extends pulumi.CustomResource {
 export interface TopicPolicyArgs {
     /**
      * A policy document that contains permissions to add to the specified SNS topics.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
      */
     policyDocument: any;
     /**

@@ -40,6 +40,9 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
+     */
     public readonly additionalInfo!: pulumi.Output<any | undefined>;
     public readonly applications!: pulumi.Output<outputs.emr.ClusterApplication[] | undefined>;
     public readonly autoScalingRole!: pulumi.Output<string | undefined>;
@@ -160,6 +163,9 @@ export class Cluster extends pulumi.CustomResource {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
+     */
     additionalInfo?: any;
     applications?: pulumi.Input<pulumi.Input<inputs.emr.ClusterApplicationArgs>[]>;
     autoScalingRole?: pulumi.Input<string>;

@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetAuthPolicyResult
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Policy;
         public readonly Pulumi.AwsNative.VpcLattice.AuthPolicyState? State;
 

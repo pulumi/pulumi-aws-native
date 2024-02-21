@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.ControlTower
         public readonly Pulumi.AwsNative.ControlTower.LandingZoneDriftStatus? DriftStatus;
         public readonly string? LandingZoneIdentifier;
         public readonly string? LatestAvailableVersion;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Manifest;
         public readonly Pulumi.AwsNative.ControlTower.LandingZoneStatus? Status;
         public readonly ImmutableArray<Outputs.LandingZoneTag> Tags;

@@ -27,11 +27,12 @@ type LookupDataQualityRulesetArgs struct {
 }
 
 type LookupDataQualityRulesetResult struct {
-	ClientToken *string                                   `pulumi:"clientToken"`
-	Description *string                                   `pulumi:"description"`
-	Id          *string                                   `pulumi:"id"`
-	Name        *string                                   `pulumi:"name"`
-	Ruleset     *string                                   `pulumi:"ruleset"`
+	ClientToken *string `pulumi:"clientToken"`
+	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
+	Name        *string `pulumi:"name"`
+	Ruleset     *string `pulumi:"ruleset"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DataQualityRuleset` for more information about the expected schema for this property.
 	Tags        interface{}                               `pulumi:"tags"`
 	TargetTable *DataQualityRulesetDataQualityTargetTable `pulumi:"targetTable"`
 }
@@ -91,6 +92,7 @@ func (o LookupDataQualityRulesetResultOutput) Ruleset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataQualityRulesetResult) *string { return v.Ruleset }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DataQualityRuleset` for more information about the expected schema for this property.
 func (o LookupDataQualityRulesetResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDataQualityRulesetResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

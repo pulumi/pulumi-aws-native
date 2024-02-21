@@ -32,6 +32,8 @@ class GetDbParameterGroupResult:
     def parameters(self) -> Optional[Any]:
         """
         An array of parameter names and values for the parameter update.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 

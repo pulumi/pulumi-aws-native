@@ -30,6 +30,8 @@ export interface GetRolePolicyArgs {
 export interface GetRolePolicyResult {
     /**
      * The policy document.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
      */
     readonly policyDocument?: any;
 }

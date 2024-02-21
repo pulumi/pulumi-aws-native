@@ -19,6 +19,8 @@ type BucketPolicy struct {
 	// The Amazon Resource Name (ARN) of the specified bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// A policy document containing permissions to add to the specified bucket.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::BucketPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 }
 
@@ -75,6 +77,8 @@ type bucketPolicyArgs struct {
 	// The Amazon Resource Name (ARN) of the specified bucket.
 	Bucket string `pulumi:"bucket"`
 	// A policy document containing permissions to add to the specified bucket.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::BucketPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
@@ -83,6 +87,8 @@ type BucketPolicyArgs struct {
 	// The Amazon Resource Name (ARN) of the specified bucket.
 	Bucket pulumi.StringInput
 	// A policy document containing permissions to add to the specified bucket.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::BucketPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 }
 
@@ -129,6 +135,8 @@ func (o BucketPolicyOutput) Bucket() pulumi.StringOutput {
 }
 
 // A policy document containing permissions to add to the specified bucket.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::BucketPolicy` for more information about the expected schema for this property.
 func (o BucketPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *BucketPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

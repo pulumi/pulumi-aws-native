@@ -93,6 +93,8 @@ class GetViewResult:
     def template(self) -> Optional[Any]:
         """
         The template of the view as JSON.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "template")
 

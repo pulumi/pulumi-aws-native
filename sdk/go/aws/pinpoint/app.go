@@ -19,7 +19,8 @@ type App struct {
 
 	Arn  pulumi.StringOutput `pulumi:"arn"`
 	Name pulumi.StringOutput `pulumi:"name"`
-	Tags pulumi.AnyOutput    `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::App` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewApp registers a new resource with the given unique name, arguments, and options.
@@ -66,13 +67,15 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	Name *string     `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::App` for more information about the expected schema for this property.
 	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
 	Name pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::App` for more information about the expected schema for this property.
 	Tags pulumi.Input
 }
 
@@ -121,6 +124,7 @@ func (o AppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::App` for more information about the expected schema for this property.
 func (o AppOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *App) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

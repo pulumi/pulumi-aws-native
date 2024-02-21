@@ -21,12 +21,18 @@ namespace Pulumi.AwsNative.Pinpoint
         [Output("content")]
         public Output<ImmutableArray<Outputs.InAppTemplateInAppMessageContent>> Content { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        /// </summary>
         [Output("customConfig")]
         public Output<object?> CustomConfig { get; private set; } = null!;
 
         [Output("layout")]
         public Output<Pulumi.AwsNative.Pinpoint.InAppTemplateLayout?> Layout { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -93,12 +99,18 @@ namespace Pulumi.AwsNative.Pinpoint
             set => _content = value;
         }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        /// </summary>
         [Input("customConfig")]
         public Input<object>? CustomConfig { get; set; }
 
         [Input("layout")]
         public Input<Pulumi.AwsNative.Pinpoint.InAppTemplateLayout>? Layout { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

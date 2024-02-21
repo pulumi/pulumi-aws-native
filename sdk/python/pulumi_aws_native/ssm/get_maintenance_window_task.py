@@ -123,6 +123,9 @@ class GetMaintenanceWindowTaskResult:
     @property
     @pulumi.getter(name="taskParameters")
     def task_parameters(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "task_parameters")
 
 

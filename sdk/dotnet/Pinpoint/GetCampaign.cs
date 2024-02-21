@@ -66,6 +66,9 @@ namespace Pulumi.AwsNative.Pinpoint
         public readonly Outputs.CampaignSchedule? Schedule;
         public readonly string? SegmentId;
         public readonly int? SegmentVersion;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
         public readonly Outputs.CampaignTemplateConfiguration? TemplateConfiguration;
         public readonly string? TreatmentDescription;

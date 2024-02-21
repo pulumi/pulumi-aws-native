@@ -27,27 +27,29 @@ type LookupStackArgs struct {
 }
 
 type LookupStackResult struct {
-	AgentVersion              *string                    `pulumi:"agentVersion"`
-	Attributes                interface{}                `pulumi:"attributes"`
-	ChefConfiguration         *StackChefConfiguration    `pulumi:"chefConfiguration"`
-	ConfigurationManager      *StackConfigurationManager `pulumi:"configurationManager"`
-	CustomCookbooksSource     *StackSource               `pulumi:"customCookbooksSource"`
-	CustomJson                interface{}                `pulumi:"customJson"`
-	DefaultAvailabilityZone   *string                    `pulumi:"defaultAvailabilityZone"`
-	DefaultInstanceProfileArn *string                    `pulumi:"defaultInstanceProfileArn"`
-	DefaultOs                 *string                    `pulumi:"defaultOs"`
-	DefaultRootDeviceType     *string                    `pulumi:"defaultRootDeviceType"`
-	DefaultSshKeyName         *string                    `pulumi:"defaultSshKeyName"`
-	DefaultSubnetId           *string                    `pulumi:"defaultSubnetId"`
-	EcsClusterArn             *string                    `pulumi:"ecsClusterArn"`
-	ElasticIps                []StackElasticIp           `pulumi:"elasticIps"`
-	HostnameTheme             *string                    `pulumi:"hostnameTheme"`
-	Id                        *string                    `pulumi:"id"`
-	Name                      *string                    `pulumi:"name"`
-	RdsDbInstances            []StackRdsDbInstance       `pulumi:"rdsDbInstances"`
-	Tags                      []StackTag                 `pulumi:"tags"`
-	UseCustomCookbooks        *bool                      `pulumi:"useCustomCookbooks"`
-	UseOpsworksSecurityGroups *bool                      `pulumi:"useOpsworksSecurityGroups"`
+	AgentVersion *string `pulumi:"agentVersion"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+	Attributes            interface{}                `pulumi:"attributes"`
+	ChefConfiguration     *StackChefConfiguration    `pulumi:"chefConfiguration"`
+	ConfigurationManager  *StackConfigurationManager `pulumi:"configurationManager"`
+	CustomCookbooksSource *StackSource               `pulumi:"customCookbooksSource"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+	CustomJson                interface{}          `pulumi:"customJson"`
+	DefaultAvailabilityZone   *string              `pulumi:"defaultAvailabilityZone"`
+	DefaultInstanceProfileArn *string              `pulumi:"defaultInstanceProfileArn"`
+	DefaultOs                 *string              `pulumi:"defaultOs"`
+	DefaultRootDeviceType     *string              `pulumi:"defaultRootDeviceType"`
+	DefaultSshKeyName         *string              `pulumi:"defaultSshKeyName"`
+	DefaultSubnetId           *string              `pulumi:"defaultSubnetId"`
+	EcsClusterArn             *string              `pulumi:"ecsClusterArn"`
+	ElasticIps                []StackElasticIp     `pulumi:"elasticIps"`
+	HostnameTheme             *string              `pulumi:"hostnameTheme"`
+	Id                        *string              `pulumi:"id"`
+	Name                      *string              `pulumi:"name"`
+	RdsDbInstances            []StackRdsDbInstance `pulumi:"rdsDbInstances"`
+	Tags                      []StackTag           `pulumi:"tags"`
+	UseCustomCookbooks        *bool                `pulumi:"useCustomCookbooks"`
+	UseOpsworksSecurityGroups *bool                `pulumi:"useOpsworksSecurityGroups"`
 }
 
 func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...pulumi.InvokeOption) LookupStackResultOutput {
@@ -89,6 +91,7 @@ func (o LookupStackResultOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStackResult) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
 func (o LookupStackResultOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupStackResult) interface{} { return v.Attributes }).(pulumi.AnyOutput)
 }
@@ -105,6 +108,7 @@ func (o LookupStackResultOutput) CustomCookbooksSource() StackSourcePtrOutput {
 	return o.ApplyT(func(v LookupStackResult) *StackSource { return v.CustomCookbooksSource }).(StackSourcePtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
 func (o LookupStackResultOutput) CustomJson() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupStackResult) interface{} { return v.CustomJson }).(pulumi.AnyOutput)
 }

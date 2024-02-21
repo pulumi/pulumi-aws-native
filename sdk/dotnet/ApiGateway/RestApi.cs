@@ -30,6 +30,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
         /// <summary>
         /// An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
         /// </summary>
         [Output("body")]
         public Output<object?> Body { get; private set; } = null!;
@@ -101,6 +103,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
         /// <summary>
         /// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
         public Output<object?> Policy { get; private set; } = null!;
@@ -182,6 +186,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
         /// <summary>
         /// An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
         /// </summary>
         [Input("body")]
         public Input<object>? Body { get; set; }
@@ -259,6 +265,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
         /// <summary>
         /// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy")]
         public Input<object>? Policy { get; set; }

@@ -44,10 +44,14 @@ export class Sink extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The policy of this ObservabilityAccessManager Sink.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any | undefined>;
     /**
      * Tags to apply to the sink
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
      */
     public readonly tags!: pulumi.Output<any | undefined>;
 
@@ -89,10 +93,14 @@ export interface SinkArgs {
     name?: pulumi.Input<string>;
     /**
      * The policy of this ObservabilityAccessManager Sink.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
      */
     policy?: any;
     /**
      * Tags to apply to the sink
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
      */
     tags?: any;
 }

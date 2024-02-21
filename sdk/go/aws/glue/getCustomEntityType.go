@@ -27,11 +27,12 @@ type LookupCustomEntityTypeArgs struct {
 }
 
 type LookupCustomEntityTypeResult struct {
-	ContextWords []string    `pulumi:"contextWords"`
-	Id           *string     `pulumi:"id"`
-	Name         *string     `pulumi:"name"`
-	RegexString  *string     `pulumi:"regexString"`
-	Tags         interface{} `pulumi:"tags"`
+	ContextWords []string `pulumi:"contextWords"`
+	Id           *string  `pulumi:"id"`
+	Name         *string  `pulumi:"name"`
+	RegexString  *string  `pulumi:"regexString"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::CustomEntityType` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupCustomEntityTypeOutput(ctx *pulumi.Context, args LookupCustomEntityTypeOutputArgs, opts ...pulumi.InvokeOption) LookupCustomEntityTypeResultOutput {
@@ -85,6 +86,7 @@ func (o LookupCustomEntityTypeResultOutput) RegexString() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupCustomEntityTypeResult) *string { return v.RegexString }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::CustomEntityType` for more information about the expected schema for this property.
 func (o LookupCustomEntityTypeResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupCustomEntityTypeResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

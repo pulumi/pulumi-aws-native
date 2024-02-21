@@ -24,6 +24,9 @@ export interface GetConnectorDefinitionResult {
     readonly id?: string;
     readonly latestVersionArn?: string;
     readonly name?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::ConnectorDefinition` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

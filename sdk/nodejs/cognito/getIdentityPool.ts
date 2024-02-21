@@ -32,6 +32,9 @@ export interface GetIdentityPoolResult {
     readonly name?: string;
     readonly openIdConnectProviderArns?: string[];
     readonly samlProviderArns?: string[];
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+     */
     readonly supportedLoginProviders?: any;
 }
 /**

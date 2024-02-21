@@ -25,6 +25,9 @@ export interface GetInputSecurityGroupArgs {
 export interface GetInputSecurityGroupResult {
     readonly arn?: string;
     readonly id?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly whitelistRules?: outputs.medialive.InputSecurityGroupInputWhitelistRuleCidr[];
 }

@@ -28,6 +28,8 @@ class RoleArgs:
         """
         The set of arguments for constructing a Role resource.
         :param Any assume_role_policy_document: The trust policy that is associated with this role.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: A description of the role that you provide.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
         :param pulumi.Input[int] max_session_duration: The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. 
@@ -60,6 +62,8 @@ class RoleArgs:
     def assume_role_policy_document(self) -> Any:
         """
         The trust policy that is associated with this role.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "assume_role_policy_document")
 
@@ -185,6 +189,8 @@ class Role(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any assume_role_policy_document: The trust policy that is associated with this role.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: A description of the role that you provide.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
         :param pulumi.Input[int] max_session_duration: The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. 
@@ -299,6 +305,8 @@ class Role(pulumi.CustomResource):
     def assume_role_policy_document(self) -> pulumi.Output[Any]:
         """
         The trust policy that is associated with this role.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "assume_role_policy_document")
 

@@ -43,6 +43,9 @@ class GetWaitConditionResult:
     @property
     @pulumi.getter
     def data(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::WaitCondition` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "data")
 
     @property

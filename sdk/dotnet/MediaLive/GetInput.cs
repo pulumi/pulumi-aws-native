@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.MediaLive
         public readonly string? Name;
         public readonly string? RoleArn;
         public readonly ImmutableArray<Outputs.InputSourceRequest> Sources;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
 
         [OutputConstructor]

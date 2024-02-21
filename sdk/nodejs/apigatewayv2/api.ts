@@ -49,6 +49,8 @@ export class Api extends pulumi.CustomResource {
     public readonly basePath!: pulumi.Output<string | undefined>;
     /**
      * The OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a ``Body`` or ``BodyS3Location``. If you specify a ``Body`` or ``BodyS3Location``, don't specify CloudFormation resources such as ``AWS::ApiGatewayV2::Authorizer`` or ``AWS::ApiGatewayV2::Route``. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Api` for more information about the expected schema for this property.
      */
     public readonly body!: pulumi.Output<any | undefined>;
     /**
@@ -180,6 +182,8 @@ export interface ApiArgs {
     basePath?: pulumi.Input<string>;
     /**
      * The OpenAPI definition. Supported only for HTTP APIs. To import an HTTP API, you must specify a ``Body`` or ``BodyS3Location``. If you specify a ``Body`` or ``BodyS3Location``, don't specify CloudFormation resources such as ``AWS::ApiGatewayV2::Authorizer`` or ``AWS::ApiGatewayV2::Route``. API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Api` for more information about the expected schema for this property.
      */
     body?: any;
     /**

@@ -27,8 +27,9 @@ type LookupParameterGroupArgs struct {
 }
 
 type LookupParameterGroupResult struct {
-	Description         *string     `pulumi:"description"`
-	Id                  *string     `pulumi:"id"`
+	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
 	ParameterNameValues interface{} `pulumi:"parameterNameValues"`
 }
 
@@ -75,6 +76,7 @@ func (o LookupParameterGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
 func (o LookupParameterGroupResultOutput) ParameterNameValues() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) interface{} { return v.ParameterNameValues }).(pulumi.AnyOutput)
 }

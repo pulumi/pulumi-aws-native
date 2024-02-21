@@ -36,6 +36,8 @@ export class UserPolicy extends pulumi.CustomResource {
 
     /**
      * The policy document.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
      */
     public readonly policyDocument!: pulumi.Output<any | undefined>;
     /**
@@ -85,6 +87,8 @@ export class UserPolicy extends pulumi.CustomResource {
 export interface UserPolicyArgs {
     /**
      * The policy document.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
      */
     policyDocument?: any;
     /**

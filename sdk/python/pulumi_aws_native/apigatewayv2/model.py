@@ -23,6 +23,8 @@ class ModelArgs:
         The set of arguments for constructing a Model resource.
         :param pulumi.Input[str] api_id: The API identifier.
         :param Any schema: The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
         :param pulumi.Input[str] content_type: The content-type for the model, for example, "application/json".
         :param pulumi.Input[str] description: The description of the model.
         :param pulumi.Input[str] name: The name of the model.
@@ -53,6 +55,8 @@ class ModelArgs:
     def schema(self) -> Any:
         """
         The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "schema")
 
@@ -118,6 +122,8 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the model.
         :param pulumi.Input[str] name: The name of the model.
         :param Any schema: The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -241,6 +247,8 @@ class Model(pulumi.CustomResource):
     def schema(self) -> pulumi.Output[Any]:
         """
         The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "schema")
 

@@ -20,6 +20,8 @@ class ResourcePolicyArgs:
         The set of arguments for constructing a ResourcePolicy resource.
         :param pulumi.Input[str] resource_arn: The ARN of the AWS CloudTrail resource to which the policy applies.
         :param Any resource_policy: A policy document containing permissions to add to the specified resource. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudTrail::ResourcePolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "resource_policy", resource_policy)
@@ -41,6 +43,8 @@ class ResourcePolicyArgs:
     def resource_policy(self) -> Any:
         """
         A policy document containing permissions to add to the specified resource. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudTrail::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "resource_policy")
 
@@ -64,6 +68,8 @@ class ResourcePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_arn: The ARN of the AWS CloudTrail resource to which the policy applies.
         :param Any resource_policy: A policy document containing permissions to add to the specified resource. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudTrail::ResourcePolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -147,6 +153,8 @@ class ResourcePolicy(pulumi.CustomResource):
     def resource_policy(self) -> pulumi.Output[Any]:
         """
         A policy document containing permissions to add to the specified resource. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudTrail::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "resource_policy")
 

@@ -26,10 +26,13 @@ type Stage struct {
 	DefaultRouteSettings StageRouteSettingsPtrOutput     `pulumi:"defaultRouteSettings"`
 	DeploymentId         pulumi.StringPtrOutput          `pulumi:"deploymentId"`
 	Description          pulumi.StringPtrOutput          `pulumi:"description"`
-	RouteSettings        pulumi.AnyOutput                `pulumi:"routeSettings"`
-	StageName            pulumi.StringOutput             `pulumi:"stageName"`
-	StageVariables       pulumi.AnyOutput                `pulumi:"stageVariables"`
-	Tags                 pulumi.AnyOutput                `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	RouteSettings pulumi.AnyOutput    `pulumi:"routeSettings"`
+	StageName     pulumi.StringOutput `pulumi:"stageName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	StageVariables pulumi.AnyOutput `pulumi:"stageVariables"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewStage registers a new resource with the given unique name, arguments, and options.
@@ -88,10 +91,13 @@ type stageArgs struct {
 	DefaultRouteSettings *StageRouteSettings     `pulumi:"defaultRouteSettings"`
 	DeploymentId         *string                 `pulumi:"deploymentId"`
 	Description          *string                 `pulumi:"description"`
-	RouteSettings        interface{}             `pulumi:"routeSettings"`
-	StageName            *string                 `pulumi:"stageName"`
-	StageVariables       interface{}             `pulumi:"stageVariables"`
-	Tags                 interface{}             `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	RouteSettings interface{} `pulumi:"routeSettings"`
+	StageName     *string     `pulumi:"stageName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	StageVariables interface{} `pulumi:"stageVariables"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stage resource.
@@ -104,10 +110,13 @@ type StageArgs struct {
 	DefaultRouteSettings StageRouteSettingsPtrInput
 	DeploymentId         pulumi.StringPtrInput
 	Description          pulumi.StringPtrInput
-	RouteSettings        pulumi.Input
-	StageName            pulumi.StringPtrInput
-	StageVariables       pulumi.Input
-	Tags                 pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	RouteSettings pulumi.Input
+	StageName     pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	StageVariables pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (StageArgs) ElementType() reflect.Type {
@@ -179,6 +188,7 @@ func (o StageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 func (o StageOutput) RouteSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Stage) pulumi.AnyOutput { return v.RouteSettings }).(pulumi.AnyOutput)
 }
@@ -187,10 +197,12 @@ func (o StageOutput) StageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.StageName }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 func (o StageOutput) StageVariables() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Stage) pulumi.AnyOutput { return v.StageVariables }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 func (o StageOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Stage) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

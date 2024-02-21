@@ -36,6 +36,8 @@ type LookupKeyResult struct {
 	Enabled *bool   `pulumi:"enabled"`
 	KeyId   *string `pulumi:"keyId"`
 	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
 	KeyPolicy interface{} `pulumi:"keyPolicy"`
 	// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
 	KeySpec *KeySpec `pulumi:"keySpec"`
@@ -108,6 +110,8 @@ func (o LookupKeyResultOutput) KeyId() pulumi.StringPtrOutput {
 }
 
 // The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
 func (o LookupKeyResultOutput) KeyPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupKeyResult) interface{} { return v.KeyPolicy }).(pulumi.AnyOutput)
 }

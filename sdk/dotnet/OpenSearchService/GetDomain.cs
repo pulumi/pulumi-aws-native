@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.OpenSearchService
     [OutputType]
     public sealed class GetDomainResult
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? AccessPolicies;
         public readonly ImmutableDictionary<string, string>? AdvancedOptions;
         public readonly Outputs.DomainAdvancedSecurityOptionsInput? AdvancedSecurityOptions;

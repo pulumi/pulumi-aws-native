@@ -27,17 +27,18 @@ type LookupJobDefinitionArgs struct {
 }
 
 type LookupJobDefinitionResult struct {
-	ContainerProperties  *JobDefinitionContainerProperties `pulumi:"containerProperties"`
-	EksProperties        *JobDefinitionEksProperties       `pulumi:"eksProperties"`
-	Id                   *string                           `pulumi:"id"`
-	NodeProperties       *JobDefinitionNodeProperties      `pulumi:"nodeProperties"`
-	Parameters           interface{}                       `pulumi:"parameters"`
-	PlatformCapabilities []string                          `pulumi:"platformCapabilities"`
-	PropagateTags        *bool                             `pulumi:"propagateTags"`
-	RetryStrategy        *JobDefinitionRetryStrategy       `pulumi:"retryStrategy"`
-	SchedulingPriority   *int                              `pulumi:"schedulingPriority"`
-	Timeout              *JobDefinitionTimeout             `pulumi:"timeout"`
-	Type                 *string                           `pulumi:"type"`
+	ContainerProperties *JobDefinitionContainerProperties `pulumi:"containerProperties"`
+	EksProperties       *JobDefinitionEksProperties       `pulumi:"eksProperties"`
+	Id                  *string                           `pulumi:"id"`
+	NodeProperties      *JobDefinitionNodeProperties      `pulumi:"nodeProperties"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+	Parameters           interface{}                 `pulumi:"parameters"`
+	PlatformCapabilities []string                    `pulumi:"platformCapabilities"`
+	PropagateTags        *bool                       `pulumi:"propagateTags"`
+	RetryStrategy        *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
+	SchedulingPriority   *int                        `pulumi:"schedulingPriority"`
+	Timeout              *JobDefinitionTimeout       `pulumi:"timeout"`
+	Type                 *string                     `pulumi:"type"`
 }
 
 func LookupJobDefinitionOutput(ctx *pulumi.Context, args LookupJobDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupJobDefinitionResultOutput {
@@ -91,6 +92,7 @@ func (o LookupJobDefinitionResultOutput) NodeProperties() JobDefinitionNodePrope
 	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionNodeProperties { return v.NodeProperties }).(JobDefinitionNodePropertiesPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
 func (o LookupJobDefinitionResultOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }

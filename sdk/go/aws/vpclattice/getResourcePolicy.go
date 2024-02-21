@@ -27,6 +27,7 @@ type LookupResourcePolicyArgs struct {
 }
 
 type LookupResourcePolicyResult struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -65,6 +66,7 @@ func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutputWith
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
 func (o LookupResourcePolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

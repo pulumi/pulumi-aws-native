@@ -19,6 +19,8 @@ type Role struct {
 	// The Amazon Resource Name (ARN) for the role.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The trust policy that is associated with this role.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
 	AssumeRolePolicyDocument pulumi.AnyOutput `pulumi:"assumeRolePolicyDocument"`
 	// A description of the role that you provide.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -89,6 +91,8 @@ func (RoleState) ElementType() reflect.Type {
 
 type roleArgs struct {
 	// The trust policy that is associated with this role.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
 	AssumeRolePolicyDocument interface{} `pulumi:"assumeRolePolicyDocument"`
 	// A description of the role that you provide.
 	Description *string `pulumi:"description"`
@@ -111,6 +115,8 @@ type roleArgs struct {
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
 	// The trust policy that is associated with this role.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
 	AssumeRolePolicyDocument pulumi.Input
 	// A description of the role that you provide.
 	Description pulumi.StringPtrInput
@@ -173,6 +179,8 @@ func (o RoleOutput) Arn() pulumi.StringOutput {
 }
 
 // The trust policy that is associated with this role.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
 func (o RoleOutput) AssumeRolePolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Role) pulumi.AnyOutput { return v.AssumeRolePolicyDocument }).(pulumi.AnyOutput)
 }

@@ -70,6 +70,9 @@ class GetFileSystemResult:
     @property
     @pulumi.getter(name="fileSystemPolicy")
     def file_system_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "file_system_policy")
 
     @property

@@ -34,6 +34,9 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
+     */
     public readonly policy!: pulumi.Output<any>;
     public readonly resourceArn!: pulumi.Output<string>;
 
@@ -71,6 +74,9 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
+     */
     policy: any;
     resourceArn: pulumi.Input<string>;
 }

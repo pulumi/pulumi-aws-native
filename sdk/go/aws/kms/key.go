@@ -26,6 +26,8 @@ type Key struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	KeyId   pulumi.StringOutput  `pulumi:"keyId"`
 	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
 	KeyPolicy pulumi.AnyOutput `pulumi:"keyPolicy"`
 	// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
 	KeySpec KeySpecPtrOutput `pulumi:"keySpec"`
@@ -90,6 +92,8 @@ type keyArgs struct {
 	// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
 	Enabled *bool `pulumi:"enabled"`
 	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
 	KeyPolicy interface{} `pulumi:"keyPolicy"`
 	// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
 	KeySpec *KeySpec `pulumi:"keySpec"`
@@ -116,6 +120,8 @@ type KeyArgs struct {
 	// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
 	Enabled pulumi.BoolPtrInput
 	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
 	KeyPolicy pulumi.Input
 	// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
 	KeySpec KeySpecPtrInput
@@ -197,6 +203,8 @@ func (o KeyOutput) KeyId() pulumi.StringOutput {
 }
 
 // The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
 func (o KeyOutput) KeyPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Key) pulumi.AnyOutput { return v.KeyPolicy }).(pulumi.AnyOutput)
 }

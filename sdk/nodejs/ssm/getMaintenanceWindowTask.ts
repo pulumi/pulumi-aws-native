@@ -35,6 +35,9 @@ export interface GetMaintenanceWindowTaskResult {
     readonly targets?: outputs.ssm.MaintenanceWindowTaskTarget[];
     readonly taskArn?: string;
     readonly taskInvocationParameters?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParameters;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+     */
     readonly taskParameters?: any;
 }
 /**

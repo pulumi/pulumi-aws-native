@@ -53,6 +53,8 @@ namespace Pulumi.AwsNative.CodeArtifact
 
         /// <summary>
         /// The access control resource policy on the provided repository.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
         /// </summary>
         [Output("permissionsPolicyDocument")]
         public Output<object?> PermissionsPolicyDocument { get; private set; } = null!;
@@ -158,6 +160,8 @@ namespace Pulumi.AwsNative.CodeArtifact
 
         /// <summary>
         /// The access control resource policy on the provided repository.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
         /// </summary>
         [Input("permissionsPolicyDocument")]
         public Input<object>? PermissionsPolicyDocument { get; set; }

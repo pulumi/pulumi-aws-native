@@ -22,7 +22,8 @@ type Queue struct {
 	Name        pulumi.StringPtrOutput `pulumi:"name"`
 	PricingPlan pulumi.StringPtrOutput `pulumi:"pricingPlan"`
 	Status      pulumi.StringPtrOutput `pulumi:"status"`
-	Tags        pulumi.AnyOutput       `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Queue` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
@@ -69,11 +70,12 @@ func (QueueState) ElementType() reflect.Type {
 }
 
 type queueArgs struct {
-	Description *string     `pulumi:"description"`
-	Name        *string     `pulumi:"name"`
-	PricingPlan *string     `pulumi:"pricingPlan"`
-	Status      *string     `pulumi:"status"`
-	Tags        interface{} `pulumi:"tags"`
+	Description *string `pulumi:"description"`
+	Name        *string `pulumi:"name"`
+	PricingPlan *string `pulumi:"pricingPlan"`
+	Status      *string `pulumi:"status"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Queue` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Queue resource.
@@ -82,7 +84,8 @@ type QueueArgs struct {
 	Name        pulumi.StringPtrInput
 	PricingPlan pulumi.StringPtrInput
 	Status      pulumi.StringPtrInput
-	Tags        pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Queue` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (QueueArgs) ElementType() reflect.Type {
@@ -142,6 +145,7 @@ func (o QueueOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Queue` for more information about the expected schema for this property.
 func (o QueueOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Queue) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

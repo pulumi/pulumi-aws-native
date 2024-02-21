@@ -37,7 +37,11 @@ class RouteArgs:
         :param pulumi.Input[str] model_selection_expression: The model selection expression for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] operation_name: The operation name for the route.
         :param Any request_models: The request models for the route. Supported only for WebSocket APIs.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         :param Any request_parameters: The request parameters for the route. Supported only for WebSocket APIs.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         :param pulumi.Input[str] route_response_selection_expression: The route response selection expression for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] target: The target for the route.
         """
@@ -165,6 +169,8 @@ class RouteArgs:
     def request_models(self) -> Optional[Any]:
         """
         The request models for the route. Supported only for WebSocket APIs.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "request_models")
 
@@ -177,6 +183,8 @@ class RouteArgs:
     def request_parameters(self) -> Optional[Any]:
         """
         The request parameters for the route. Supported only for WebSocket APIs.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "request_parameters")
 
@@ -240,7 +248,11 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] model_selection_expression: The model selection expression for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] operation_name: The operation name for the route.
         :param Any request_models: The request models for the route. Supported only for WebSocket APIs.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         :param Any request_parameters: The request parameters for the route. Supported only for WebSocket APIs.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         :param pulumi.Input[str] route_key: The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
         :param pulumi.Input[str] route_response_selection_expression: The route response selection expression for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] target: The target for the route.
@@ -407,6 +419,8 @@ class Route(pulumi.CustomResource):
     def request_models(self) -> pulumi.Output[Optional[Any]]:
         """
         The request models for the route. Supported only for WebSocket APIs.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "request_models")
 
@@ -415,6 +429,8 @@ class Route(pulumi.CustomResource):
     def request_parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         The request parameters for the route. Supported only for WebSocket APIs.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "request_parameters")
 

@@ -22,7 +22,7 @@ const packageName = "aws-native"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema,
-	genAll bool, semanticsDocument *SemanticsSpecDocument) (*pschema.PackageSpec, *CloudAPIMetadata, error) {
+	genAll bool, semanticsDocument *SemanticsSpecDocument) (*pschema.PackageSpec, *CloudAPIMetadata, *Reports, error) {
 	p := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
@@ -430,6 +430,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		Functions: map[string]CloudAPIFunction{},
 	}
 
+	reports := &Reports{
+		UnexpectedTagsShapes: map[string]interface{}{},
+	}
+
 	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
 
 	var resourceCount int
@@ -451,14 +455,15 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				visitedTypes:  codegen.NewStringSet(),
 				isSupported:   isSupported,
 				semantics:     semanticsDocument,
+				reports:       reports,
 			}
 			err := ctx.gatherResourceType()
 			if err != nil {
-				return nil, nil, err
+				return nil, nil, nil, err
 			}
 			err = ctx.gatherInvoke()
 			if err != nil {
-				return nil, nil, err
+				return nil, nil, nil, err
 			}
 			csharpNamespaces[mod] = fullMod
 			resourceCount++
@@ -595,7 +600,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		},
 	}
 
-	return &p, &metadata, nil
+	return &p, &metadata, reports, nil
 }
 
 // context holds shared information for a single CF JSON schema.
@@ -610,6 +615,7 @@ type context struct {
 	visitedTypes  codegen.StringSet
 	isSupported   bool
 	semantics     *SemanticsSpecDocument
+	reports       *Reports
 }
 
 func (ctx *context) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
@@ -933,6 +939,25 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 			"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
 				Name: propName + "Value",
 			}),
+		}
+	}
+
+	if propertySpec.Ref == "pulumi.json#/Any" {
+		if propertySpec.Description != "" {
+			propertySpec.Description += "\n\n"
+		}
+		propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", ctx.cfTypeName)
+	}
+
+	if tagsProp, hasCustomTagsProp := GetTagsProperty(spec); propName == "Tags" || (hasCustomTagsProp && propName == tagsProp) {
+		switch ctx.GetTagsStyle(typeSpec, spec) {
+		case TagsStyleUntyped:
+		case TagsStyleStringMap:
+			// Nothing to do
+		case TagsStyleKeyValueArray:
+			// Swap referenced type to shared definition and remove custom type.
+		default: // Unknown
+			ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
 		}
 	}
 

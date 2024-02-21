@@ -36,6 +36,9 @@ export interface GetChannelResult {
     readonly maintenance?: outputs.medialive.ChannelMaintenanceCreateSettings;
     readonly name?: string;
     readonly roleArn?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Channel` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

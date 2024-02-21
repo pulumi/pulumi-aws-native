@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
+        /// </summary>
         [Output("properties")]
         public Output<object?> Properties { get; private set; } = null!;
 
@@ -83,6 +86,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
+        /// </summary>
         [Input("properties")]
         public Input<object>? Properties { get; set; }
 

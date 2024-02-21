@@ -63,10 +63,14 @@ namespace Pulumi.AwsNative.Oam
         public readonly string? Arn;
         /// <summary>
         /// The policy of this ObservabilityAccessManager Sink.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;
         /// <summary>
         /// Tags to apply to the sink
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Tags;
 

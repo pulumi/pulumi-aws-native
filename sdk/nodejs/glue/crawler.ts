@@ -51,6 +51,9 @@ export class Crawler extends pulumi.CustomResource {
     public readonly schedule!: pulumi.Output<outputs.glue.CrawlerSchedule | undefined>;
     public readonly schemaChangePolicy!: pulumi.Output<outputs.glue.CrawlerSchemaChangePolicy | undefined>;
     public readonly tablePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly targets!: pulumi.Output<outputs.glue.CrawlerTargets>;
 
@@ -123,6 +126,9 @@ export interface CrawlerArgs {
     schedule?: pulumi.Input<inputs.glue.CrawlerScheduleArgs>;
     schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicyArgs>;
     tablePrefix?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
+     */
     tags?: any;
     targets: pulumi.Input<inputs.glue.CrawlerTargetsArgs>;
 }

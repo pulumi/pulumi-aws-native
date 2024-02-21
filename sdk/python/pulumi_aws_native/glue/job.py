@@ -38,6 +38,9 @@ class JobArgs:
                  worker_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Job resource.
+        :param Any default_arguments: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        :param Any non_overridable_arguments: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "role", role)
@@ -117,6 +120,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="defaultArguments")
     def default_arguments(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "default_arguments")
 
     @default_arguments.setter
@@ -198,6 +204,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="nonOverridableArguments")
     def non_overridable_arguments(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "non_overridable_arguments")
 
     @non_overridable_arguments.setter
@@ -234,6 +243,9 @@ class JobArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -295,6 +307,9 @@ class Job(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any default_arguments: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        :param Any non_overridable_arguments: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -438,6 +453,9 @@ class Job(pulumi.CustomResource):
     @property
     @pulumi.getter(name="defaultArguments")
     def default_arguments(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "default_arguments")
 
     @property
@@ -483,6 +501,9 @@ class Job(pulumi.CustomResource):
     @property
     @pulumi.getter(name="nonOverridableArguments")
     def non_overridable_arguments(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "non_overridable_arguments")
 
     @property
@@ -508,6 +529,9 @@ class Job(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @property

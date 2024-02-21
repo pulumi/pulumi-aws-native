@@ -62,6 +62,9 @@ namespace Pulumi.AwsNative.Dax
         public readonly string? PreferredMaintenanceWindow;
         public readonly int? ReplicationFactor;
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
 
         [OutputConstructor]

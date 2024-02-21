@@ -48,8 +48,14 @@ export class JobTemplate extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly priority!: pulumi.Output<number | undefined>;
     public readonly queue!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+     */
     public readonly settingsJson!: pulumi.Output<any>;
     public readonly statusUpdateInterval!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -110,7 +116,13 @@ export interface JobTemplateArgs {
     name?: pulumi.Input<string>;
     priority?: pulumi.Input<number>;
     queue?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+     */
     settingsJson: any;
     statusUpdateInterval?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+     */
     tags?: any;
 }

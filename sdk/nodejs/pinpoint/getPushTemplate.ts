@@ -31,6 +31,9 @@ export interface GetPushTemplateResult {
     readonly defaultSubstitutions?: string;
     readonly gcm?: outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate;
     readonly id?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::PushTemplate` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly templateDescription?: string;
 }

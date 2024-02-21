@@ -59,6 +59,8 @@ class GetPolicyResult:
     def policy_document(self) -> Optional[Any]:
         """
         The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

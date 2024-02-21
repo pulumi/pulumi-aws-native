@@ -25,6 +25,9 @@ export interface GetQueueResult {
     readonly id?: string;
     readonly pricingPlan?: string;
     readonly status?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Queue` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

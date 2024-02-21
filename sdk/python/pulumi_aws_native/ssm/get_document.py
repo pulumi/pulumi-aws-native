@@ -45,6 +45,8 @@ class GetDocumentResult:
     def content(self) -> Optional[Any]:
         """
         The content for the Systems Manager document in JSON, YAML or String format.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "content")
 

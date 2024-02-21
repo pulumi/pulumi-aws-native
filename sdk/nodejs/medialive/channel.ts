@@ -52,6 +52,9 @@ export class Channel extends pulumi.CustomResource {
     public readonly maintenance!: pulumi.Output<outputs.medialive.ChannelMaintenanceCreateSettings | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Channel` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly vpc!: pulumi.Output<outputs.medialive.ChannelVpcOutputSettings | undefined>;
 
@@ -119,6 +122,9 @@ export interface ChannelArgs {
     maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenanceCreateSettingsArgs>;
     name?: pulumi.Input<string>;
     roleArn?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Channel` for more information about the expected schema for this property.
+     */
     tags?: any;
     vpc?: pulumi.Input<inputs.medialive.ChannelVpcOutputSettingsArgs>;
 }

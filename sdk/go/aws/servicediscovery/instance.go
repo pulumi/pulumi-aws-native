@@ -18,6 +18,7 @@ import (
 type Instance struct {
 	pulumi.CustomResourceState
 
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
 	InstanceAttributes pulumi.AnyOutput    `pulumi:"instanceAttributes"`
 	InstanceId         pulumi.StringOutput `pulumi:"instanceId"`
 	ServiceId          pulumi.StringOutput `pulumi:"serviceId"`
@@ -74,6 +75,7 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
 	InstanceAttributes interface{} `pulumi:"instanceAttributes"`
 	InstanceId         *string     `pulumi:"instanceId"`
 	ServiceId          string      `pulumi:"serviceId"`
@@ -81,6 +83,7 @@ type instanceArgs struct {
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
 	InstanceAttributes pulumi.Input
 	InstanceId         pulumi.StringPtrInput
 	ServiceId          pulumi.StringInput
@@ -123,6 +126,7 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
 func (o InstanceOutput) InstanceAttributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Instance) pulumi.AnyOutput { return v.InstanceAttributes }).(pulumi.AnyOutput)
 }

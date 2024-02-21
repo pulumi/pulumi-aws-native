@@ -54,6 +54,8 @@ namespace Pulumi.AwsNative.Sqs
         public readonly string? Id;
         /// <summary>
         /// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueuePolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? PolicyDocument;
         /// <summary>

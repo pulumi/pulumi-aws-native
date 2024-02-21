@@ -37,6 +37,8 @@ type LookupRepositoryResult struct {
 	// The name of the repository. This is used for GetAtt
 	Name *string `pulumi:"name"`
 	// The access control resource policy on the provided repository.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []RepositoryTag `pulumi:"tags"`
@@ -101,6 +103,8 @@ func (o LookupRepositoryResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The access control resource policy on the provided repository.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
 func (o LookupRepositoryResultOutput) PermissionsPolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) interface{} { return v.PermissionsPolicyDocument }).(pulumi.AnyOutput)
 }

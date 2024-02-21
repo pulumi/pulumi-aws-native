@@ -47,6 +47,8 @@ export class Environment extends pulumi.CustomResource {
      *     Would be represented as
      *
      *     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
      */
     public readonly airflowConfigurationOptions!: pulumi.Output<any | undefined>;
     public readonly airflowVersion!: pulumi.Output<string | undefined>;
@@ -73,6 +75,8 @@ export class Environment extends pulumi.CustomResource {
     public readonly startupScriptS3Path!: pulumi.Output<string | undefined>;
     /**
      * A map of tags for the environment.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
      */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly webserverAccessMode!: pulumi.Output<enums.mwaa.EnvironmentWebserverAccessMode | undefined>;
@@ -170,6 +174,8 @@ export interface EnvironmentArgs {
      *     Would be represented as
      *
      *     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
      */
     airflowConfigurationOptions?: any;
     airflowVersion?: pulumi.Input<string>;
@@ -193,6 +199,8 @@ export interface EnvironmentArgs {
     startupScriptS3Path?: pulumi.Input<string>;
     /**
      * A map of tags for the environment.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
      */
     tags?: any;
     webserverAccessMode?: pulumi.Input<enums.mwaa.EnvironmentWebserverAccessMode>;

@@ -18,12 +18,14 @@ import (
 type Preset struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
-	Category     pulumi.StringPtrOutput `pulumi:"category"`
-	Description  pulumi.StringPtrOutput `pulumi:"description"`
-	Name         pulumi.StringPtrOutput `pulumi:"name"`
-	SettingsJson pulumi.AnyOutput       `pulumi:"settingsJson"`
-	Tags         pulumi.AnyOutput       `pulumi:"tags"`
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Category    pulumi.StringPtrOutput `pulumi:"category"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Name        pulumi.StringPtrOutput `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+	SettingsJson pulumi.AnyOutput `pulumi:"settingsJson"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewPreset registers a new resource with the given unique name, arguments, and options.
@@ -73,20 +75,24 @@ func (PresetState) ElementType() reflect.Type {
 }
 
 type presetArgs struct {
-	Category     *string     `pulumi:"category"`
-	Description  *string     `pulumi:"description"`
-	Name         *string     `pulumi:"name"`
+	Category    *string `pulumi:"category"`
+	Description *string `pulumi:"description"`
+	Name        *string `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 	SettingsJson interface{} `pulumi:"settingsJson"`
-	Tags         interface{} `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Preset resource.
 type PresetArgs struct {
-	Category     pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
+	Category    pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 	SettingsJson pulumi.Input
-	Tags         pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (PresetArgs) ElementType() reflect.Type {
@@ -142,10 +148,12 @@ func (o PresetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 func (o PresetOutput) SettingsJson() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Preset) pulumi.AnyOutput { return v.SettingsJson }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 func (o PresetOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Preset) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

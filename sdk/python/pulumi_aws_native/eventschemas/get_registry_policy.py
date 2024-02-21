@@ -40,6 +40,9 @@ class GetRegistryPolicyResult:
     @property
     @pulumi.getter
     def policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy")
 
     @property

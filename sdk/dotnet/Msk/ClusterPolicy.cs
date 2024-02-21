@@ -29,6 +29,8 @@ namespace Pulumi.AwsNative.Msk
 
         /// <summary>
         /// A policy document containing permissions to add to the specified cluster.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
         public Output<object> Policy { get; private set; } = null!;
@@ -90,6 +92,8 @@ namespace Pulumi.AwsNative.Msk
 
         /// <summary>
         /// A policy document containing permissions to add to the specified cluster.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy", required: true)]
         public Input<object> Policy { get; set; } = null!;

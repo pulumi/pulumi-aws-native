@@ -29,12 +29,16 @@ namespace Pulumi.AwsNative.Oam
 
         /// <summary>
         /// The policy of this ObservabilityAccessManager Sink.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
         public Output<object?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the sink
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
@@ -96,12 +100,16 @@ namespace Pulumi.AwsNative.Oam
 
         /// <summary>
         /// The policy of this ObservabilityAccessManager Sink.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy")]
         public Input<object>? Policy { get; set; }
 
         /// <summary>
         /// Tags to apply to the sink
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }

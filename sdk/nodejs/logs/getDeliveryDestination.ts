@@ -38,6 +38,8 @@ export interface GetDeliveryDestinationResult {
      * The policy must be in JSON string format.
      *
      * Length Constraints: Maximum length of 51200
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
      */
     readonly deliveryDestinationPolicy?: any;
     /**

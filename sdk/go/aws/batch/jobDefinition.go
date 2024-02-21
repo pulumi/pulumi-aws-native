@@ -16,18 +16,20 @@ import (
 type JobDefinition struct {
 	pulumi.CustomResourceState
 
-	ContainerProperties  JobDefinitionContainerPropertiesPtrOutput `pulumi:"containerProperties"`
-	EksProperties        JobDefinitionEksPropertiesPtrOutput       `pulumi:"eksProperties"`
-	JobDefinitionName    pulumi.StringPtrOutput                    `pulumi:"jobDefinitionName"`
-	NodeProperties       JobDefinitionNodePropertiesPtrOutput      `pulumi:"nodeProperties"`
-	Parameters           pulumi.AnyOutput                          `pulumi:"parameters"`
-	PlatformCapabilities pulumi.StringArrayOutput                  `pulumi:"platformCapabilities"`
-	PropagateTags        pulumi.BoolPtrOutput                      `pulumi:"propagateTags"`
-	RetryStrategy        JobDefinitionRetryStrategyPtrOutput       `pulumi:"retryStrategy"`
-	SchedulingPriority   pulumi.IntPtrOutput                       `pulumi:"schedulingPriority"`
-	Tags                 pulumi.AnyOutput                          `pulumi:"tags"`
-	Timeout              JobDefinitionTimeoutPtrOutput             `pulumi:"timeout"`
-	Type                 pulumi.StringOutput                       `pulumi:"type"`
+	ContainerProperties JobDefinitionContainerPropertiesPtrOutput `pulumi:"containerProperties"`
+	EksProperties       JobDefinitionEksPropertiesPtrOutput       `pulumi:"eksProperties"`
+	JobDefinitionName   pulumi.StringPtrOutput                    `pulumi:"jobDefinitionName"`
+	NodeProperties      JobDefinitionNodePropertiesPtrOutput      `pulumi:"nodeProperties"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+	Parameters           pulumi.AnyOutput                    `pulumi:"parameters"`
+	PlatformCapabilities pulumi.StringArrayOutput            `pulumi:"platformCapabilities"`
+	PropagateTags        pulumi.BoolPtrOutput                `pulumi:"propagateTags"`
+	RetryStrategy        JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
+	SchedulingPriority   pulumi.IntPtrOutput                 `pulumi:"schedulingPriority"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+	Tags    pulumi.AnyOutput              `pulumi:"tags"`
+	Timeout JobDefinitionTimeoutPtrOutput `pulumi:"timeout"`
+	Type    pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewJobDefinition registers a new resource with the given unique name, arguments, and options.
@@ -78,34 +80,38 @@ func (JobDefinitionState) ElementType() reflect.Type {
 }
 
 type jobDefinitionArgs struct {
-	ContainerProperties  *JobDefinitionContainerProperties `pulumi:"containerProperties"`
-	EksProperties        *JobDefinitionEksProperties       `pulumi:"eksProperties"`
-	JobDefinitionName    *string                           `pulumi:"jobDefinitionName"`
-	NodeProperties       *JobDefinitionNodeProperties      `pulumi:"nodeProperties"`
-	Parameters           interface{}                       `pulumi:"parameters"`
-	PlatformCapabilities []string                          `pulumi:"platformCapabilities"`
-	PropagateTags        *bool                             `pulumi:"propagateTags"`
-	RetryStrategy        *JobDefinitionRetryStrategy       `pulumi:"retryStrategy"`
-	SchedulingPriority   *int                              `pulumi:"schedulingPriority"`
-	Tags                 interface{}                       `pulumi:"tags"`
-	Timeout              *JobDefinitionTimeout             `pulumi:"timeout"`
-	Type                 string                            `pulumi:"type"`
+	ContainerProperties *JobDefinitionContainerProperties `pulumi:"containerProperties"`
+	EksProperties       *JobDefinitionEksProperties       `pulumi:"eksProperties"`
+	JobDefinitionName   *string                           `pulumi:"jobDefinitionName"`
+	NodeProperties      *JobDefinitionNodeProperties      `pulumi:"nodeProperties"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+	Parameters           interface{}                 `pulumi:"parameters"`
+	PlatformCapabilities []string                    `pulumi:"platformCapabilities"`
+	PropagateTags        *bool                       `pulumi:"propagateTags"`
+	RetryStrategy        *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
+	SchedulingPriority   *int                        `pulumi:"schedulingPriority"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+	Tags    interface{}           `pulumi:"tags"`
+	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
+	Type    string                `pulumi:"type"`
 }
 
 // The set of arguments for constructing a JobDefinition resource.
 type JobDefinitionArgs struct {
-	ContainerProperties  JobDefinitionContainerPropertiesPtrInput
-	EksProperties        JobDefinitionEksPropertiesPtrInput
-	JobDefinitionName    pulumi.StringPtrInput
-	NodeProperties       JobDefinitionNodePropertiesPtrInput
+	ContainerProperties JobDefinitionContainerPropertiesPtrInput
+	EksProperties       JobDefinitionEksPropertiesPtrInput
+	JobDefinitionName   pulumi.StringPtrInput
+	NodeProperties      JobDefinitionNodePropertiesPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
 	Parameters           pulumi.Input
 	PlatformCapabilities pulumi.StringArrayInput
 	PropagateTags        pulumi.BoolPtrInput
 	RetryStrategy        JobDefinitionRetryStrategyPtrInput
 	SchedulingPriority   pulumi.IntPtrInput
-	Tags                 pulumi.Input
-	Timeout              JobDefinitionTimeoutPtrInput
-	Type                 pulumi.StringInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+	Tags    pulumi.Input
+	Timeout JobDefinitionTimeoutPtrInput
+	Type    pulumi.StringInput
 }
 
 func (JobDefinitionArgs) ElementType() reflect.Type {
@@ -161,6 +167,7 @@ func (o JobDefinitionOutput) NodeProperties() JobDefinitionNodePropertiesPtrOutp
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionNodePropertiesPtrOutput { return v.NodeProperties }).(JobDefinitionNodePropertiesPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
 func (o JobDefinitionOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }
@@ -181,6 +188,7 @@ func (o JobDefinitionOutput) SchedulingPriority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.IntPtrOutput { return v.SchedulingPriority }).(pulumi.IntPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
 func (o JobDefinitionOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

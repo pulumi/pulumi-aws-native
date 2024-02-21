@@ -64,6 +64,9 @@ namespace Pulumi.AwsNative.Dax
         [Output("subnetGroupName")]
         public Output<string?> SubnetGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -170,6 +173,9 @@ namespace Pulumi.AwsNative.Dax
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

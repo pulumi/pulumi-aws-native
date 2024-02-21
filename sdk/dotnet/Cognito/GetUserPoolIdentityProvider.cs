@@ -51,9 +51,15 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetUserPoolIdentityProviderResult
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? AttributeMapping;
         public readonly string? Id;
         public readonly ImmutableArray<string> IdpIdentifiers;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? ProviderDetails;
 
         [OutputConstructor]

@@ -48,6 +48,8 @@ export class RestApi extends pulumi.CustomResource {
     public readonly binaryMediaTypes!: pulumi.Output<string[] | undefined>;
     /**
      * An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
     public readonly body!: pulumi.Output<any | undefined>;
     /**
@@ -97,6 +99,8 @@ export class RestApi extends pulumi.CustomResource {
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any | undefined>;
     public /*out*/ readonly restApiId!: pulumi.Output<string>;
@@ -172,6 +176,8 @@ export interface RestApiArgs {
     binaryMediaTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
     body?: any;
     /**
@@ -221,6 +227,8 @@ export interface RestApiArgs {
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
     policy?: any;
     /**

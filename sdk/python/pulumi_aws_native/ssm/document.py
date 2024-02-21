@@ -30,6 +30,8 @@ class DocumentArgs:
         """
         The set of arguments for constructing a Document resource.
         :param Any content: The content for the Systems Manager document in JSON, YAML or String format.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]] attachments: A list of key and value pairs that describe attachments to a version of a document.
         :param pulumi.Input['DocumentFormat'] document_format: Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         :param pulumi.Input['DocumentType'] document_type: The type of document to create.
@@ -65,6 +67,8 @@ class DocumentArgs:
     def content(self) -> Any:
         """
         The content for the Systems Manager document in JSON, YAML or String format.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "content")
 
@@ -204,6 +208,8 @@ class Document(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]] attachments: A list of key and value pairs that describe attachments to a version of a document.
         :param Any content: The content for the Systems Manager document in JSON, YAML or String format.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
         :param pulumi.Input['DocumentFormat'] document_format: Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         :param pulumi.Input['DocumentType'] document_type: The type of document to create.
         :param pulumi.Input[str] name: A name for the Systems Manager document.
@@ -317,6 +323,8 @@ class Document(pulumi.CustomResource):
     def content(self) -> pulumi.Output[Any]:
         """
         The content for the Systems Manager document in JSON, YAML or String format.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "content")
 

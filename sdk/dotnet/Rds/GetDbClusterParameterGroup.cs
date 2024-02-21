@@ -53,6 +53,8 @@ namespace Pulumi.AwsNative.Rds
     {
         /// <summary>
         /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Parameters;
         /// <summary>

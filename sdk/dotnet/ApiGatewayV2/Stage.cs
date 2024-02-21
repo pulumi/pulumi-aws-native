@@ -40,15 +40,24 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        /// </summary>
         [Output("routeSettings")]
         public Output<object?> RouteSettings { get; private set; } = null!;
 
         [Output("stageName")]
         public Output<string> StageName { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        /// </summary>
         [Output("stageVariables")]
         public Output<object?> StageVariables { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -126,15 +135,24 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        /// </summary>
         [Input("routeSettings")]
         public Input<object>? RouteSettings { get; set; }
 
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        /// </summary>
         [Input("stageVariables")]
         public Input<object>? StageVariables { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

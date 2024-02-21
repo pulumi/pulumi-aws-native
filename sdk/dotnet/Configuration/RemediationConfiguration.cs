@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Configuration
         [Output("maximumAutomaticAttempts")]
         public Output<int?> MaximumAutomaticAttempts { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+        /// </summary>
         [Output("parameters")]
         public Output<object?> Parameters { get; private set; } = null!;
 
@@ -107,6 +110,9 @@ namespace Pulumi.AwsNative.Configuration
         [Input("maximumAutomaticAttempts")]
         public Input<int>? MaximumAutomaticAttempts { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+        /// </summary>
         [Input("parameters")]
         public Input<object>? Parameters { get; set; }
 

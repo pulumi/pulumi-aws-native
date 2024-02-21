@@ -68,6 +68,8 @@ namespace Pulumi.AwsNative.Ssm
 
         /// <summary>
         /// Parameter values that the SSM document uses at runtime.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
         /// </summary>
         [Output("parameters")]
         public Output<object?> Parameters { get; private set; } = null!;
@@ -190,6 +192,8 @@ namespace Pulumi.AwsNative.Ssm
 
         /// <summary>
         /// Parameter values that the SSM document uses at runtime.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
         /// </summary>
         [Input("parameters")]
         public Input<object>? Parameters { get; set; }

@@ -43,6 +43,9 @@ export class Job extends pulumi.CustomResource {
     public readonly allocatedCapacity!: pulumi.Output<number | undefined>;
     public readonly command!: pulumi.Output<outputs.glue.JobCommand>;
     public readonly connections!: pulumi.Output<outputs.glue.JobConnectionsList | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+     */
     public readonly defaultArguments!: pulumi.Output<any | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly executionClass!: pulumi.Output<string | undefined>;
@@ -52,11 +55,17 @@ export class Job extends pulumi.CustomResource {
     public readonly maxCapacity!: pulumi.Output<number | undefined>;
     public readonly maxRetries!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+     */
     public readonly nonOverridableArguments!: pulumi.Output<any | undefined>;
     public readonly notificationProperty!: pulumi.Output<outputs.glue.JobNotificationProperty | undefined>;
     public readonly numberOfWorkers!: pulumi.Output<number | undefined>;
     public readonly role!: pulumi.Output<string>;
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly timeout!: pulumi.Output<number | undefined>;
     public readonly workerType!: pulumi.Output<string | undefined>;
@@ -136,6 +145,9 @@ export interface JobArgs {
     allocatedCapacity?: pulumi.Input<number>;
     command: pulumi.Input<inputs.glue.JobCommandArgs>;
     connections?: pulumi.Input<inputs.glue.JobConnectionsListArgs>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+     */
     defaultArguments?: any;
     description?: pulumi.Input<string>;
     executionClass?: pulumi.Input<string>;
@@ -145,11 +157,17 @@ export interface JobArgs {
     maxCapacity?: pulumi.Input<number>;
     maxRetries?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+     */
     nonOverridableArguments?: any;
     notificationProperty?: pulumi.Input<inputs.glue.JobNotificationPropertyArgs>;
     numberOfWorkers?: pulumi.Input<number>;
     role: pulumi.Input<string>;
     securityConfiguration?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+     */
     tags?: any;
     timeout?: pulumi.Input<number>;
     workerType?: pulumi.Input<string>;

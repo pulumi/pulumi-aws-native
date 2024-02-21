@@ -36,6 +36,7 @@ class DomainArgs:
                  vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
+        :param Any access_policies: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
         """
         if access_policies is not None:
@@ -78,6 +79,9 @@ class DomainArgs:
     @property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
@@ -270,6 +274,7 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any access_policies: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
         """
         ...
@@ -400,6 +405,9 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "access_policies")
 
     @property

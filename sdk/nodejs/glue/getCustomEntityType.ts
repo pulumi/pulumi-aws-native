@@ -24,6 +24,9 @@ export interface GetCustomEntityTypeResult {
     readonly id?: string;
     readonly name?: string;
     readonly regexString?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::CustomEntityType` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

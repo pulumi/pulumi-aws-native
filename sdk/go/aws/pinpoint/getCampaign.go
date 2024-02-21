@@ -42,10 +42,11 @@ type LookupCampaignResult struct {
 	Schedule                    *CampaignSchedule                    `pulumi:"schedule"`
 	SegmentId                   *string                              `pulumi:"segmentId"`
 	SegmentVersion              *int                                 `pulumi:"segmentVersion"`
-	Tags                        interface{}                          `pulumi:"tags"`
-	TemplateConfiguration       *CampaignTemplateConfiguration       `pulumi:"templateConfiguration"`
-	TreatmentDescription        *string                              `pulumi:"treatmentDescription"`
-	TreatmentName               *string                              `pulumi:"treatmentName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
+	Tags                  interface{}                    `pulumi:"tags"`
+	TemplateConfiguration *CampaignTemplateConfiguration `pulumi:"templateConfiguration"`
+	TreatmentDescription  *string                        `pulumi:"treatmentDescription"`
+	TreatmentName         *string                        `pulumi:"treatmentName"`
 }
 
 func LookupCampaignOutput(ctx *pulumi.Context, args LookupCampaignOutputArgs, opts ...pulumi.InvokeOption) LookupCampaignResultOutput {
@@ -145,6 +146,7 @@ func (o LookupCampaignResultOutput) SegmentVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *int { return v.SegmentVersion }).(pulumi.IntPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
 func (o LookupCampaignResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupCampaignResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

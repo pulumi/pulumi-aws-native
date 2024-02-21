@@ -20,13 +20,25 @@ export interface GetSubscriptionArgs {
 }
 
 export interface GetSubscriptionResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     readonly deliveryPolicy?: any;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     readonly filterPolicy?: any;
     readonly filterPolicyScope?: string;
     readonly id?: string;
     readonly rawMessageDelivery?: boolean;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     readonly redrivePolicy?: any;
     readonly region?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     readonly replayPolicy?: any;
     readonly subscriptionRoleArn?: string;
 }

@@ -53,8 +53,14 @@ namespace Pulumi.AwsNative.Pinpoint
     {
         public readonly string? Arn;
         public readonly ImmutableArray<Outputs.InAppTemplateInAppMessageContent> Content;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? CustomConfig;
         public readonly Pulumi.AwsNative.Pinpoint.InAppTemplateLayout? Layout;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
         public readonly string? TemplateDescription;
 

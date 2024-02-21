@@ -62,6 +62,9 @@ namespace Pulumi.AwsNative.Glue
         public readonly Outputs.CrawlerSchedule? Schedule;
         public readonly Outputs.CrawlerSchemaChangePolicy? SchemaChangePolicy;
         public readonly string? TablePrefix;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
         public readonly Outputs.CrawlerTargets? Targets;
 

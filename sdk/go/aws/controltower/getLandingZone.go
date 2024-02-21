@@ -31,10 +31,11 @@ type LookupLandingZoneResult struct {
 	DriftStatus            *LandingZoneDriftStatus `pulumi:"driftStatus"`
 	LandingZoneIdentifier  *string                 `pulumi:"landingZoneIdentifier"`
 	LatestAvailableVersion *string                 `pulumi:"latestAvailableVersion"`
-	Manifest               interface{}             `pulumi:"manifest"`
-	Status                 *LandingZoneStatus      `pulumi:"status"`
-	Tags                   []LandingZoneTag        `pulumi:"tags"`
-	Version                *string                 `pulumi:"version"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+	Manifest interface{}        `pulumi:"manifest"`
+	Status   *LandingZoneStatus `pulumi:"status"`
+	Tags     []LandingZoneTag   `pulumi:"tags"`
+	Version  *string            `pulumi:"version"`
 }
 
 func LookupLandingZoneOutput(ctx *pulumi.Context, args LookupLandingZoneOutputArgs, opts ...pulumi.InvokeOption) LookupLandingZoneResultOutput {
@@ -88,6 +89,7 @@ func (o LookupLandingZoneResultOutput) LatestAvailableVersion() pulumi.StringPtr
 	return o.ApplyT(func(v LookupLandingZoneResult) *string { return v.LatestAvailableVersion }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 func (o LookupLandingZoneResultOutput) Manifest() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) interface{} { return v.Manifest }).(pulumi.AnyOutput)
 }

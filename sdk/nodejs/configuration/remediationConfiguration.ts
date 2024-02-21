@@ -44,6 +44,9 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     public readonly configRuleName!: pulumi.Output<string>;
     public readonly executionControls!: pulumi.Output<outputs.configuration.RemediationConfigurationExecutionControls | undefined>;
     public readonly maximumAutomaticAttempts!: pulumi.Output<number | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+     */
     public readonly parameters!: pulumi.Output<any | undefined>;
     public readonly resourceType!: pulumi.Output<string | undefined>;
     public readonly retryAttemptSeconds!: pulumi.Output<number | undefined>;
@@ -110,6 +113,9 @@ export interface RemediationConfigurationArgs {
     configRuleName: pulumi.Input<string>;
     executionControls?: pulumi.Input<inputs.configuration.RemediationConfigurationExecutionControlsArgs>;
     maximumAutomaticAttempts?: pulumi.Input<number>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+     */
     parameters?: any;
     resourceType?: pulumi.Input<string>;
     retryAttemptSeconds?: pulumi.Input<number>;

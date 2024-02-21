@@ -29,6 +29,8 @@ type Repository struct {
 	// The name of the repository. This is used for GetAtt
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The access control resource policy on the provided repository.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
 	PermissionsPolicyDocument pulumi.AnyOutput `pulumi:"permissionsPolicyDocument"`
 	// The name of the repository.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
@@ -96,6 +98,8 @@ type repositoryArgs struct {
 	// A list of external connections associated with the repository.
 	ExternalConnections []string `pulumi:"externalConnections"`
 	// The access control resource policy on the provided repository.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
 	// The name of the repository.
 	RepositoryName *string `pulumi:"repositoryName"`
@@ -116,6 +120,8 @@ type RepositoryArgs struct {
 	// A list of external connections associated with the repository.
 	ExternalConnections pulumi.StringArrayInput
 	// The access control resource policy on the provided repository.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
 	PermissionsPolicyDocument pulumi.Input
 	// The name of the repository.
 	RepositoryName pulumi.StringPtrInput
@@ -193,6 +199,8 @@ func (o RepositoryOutput) Name() pulumi.StringOutput {
 }
 
 // The access control resource policy on the provided repository.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
 func (o RepositoryOutput) PermissionsPolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Repository) pulumi.AnyOutput { return v.PermissionsPolicyDocument }).(pulumi.AnyOutput)
 }

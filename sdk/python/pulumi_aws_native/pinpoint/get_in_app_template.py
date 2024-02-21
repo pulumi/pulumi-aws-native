@@ -53,6 +53,9 @@ class GetInAppTemplateResult:
     @property
     @pulumi.getter(name="customConfig")
     def custom_config(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "custom_config")
 
     @property
@@ -63,6 +66,9 @@ class GetInAppTemplateResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @property

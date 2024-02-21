@@ -29,6 +29,9 @@ export interface GetGraphQlApiResult {
     readonly arn?: string;
     readonly authenticationType?: string;
     readonly enhancedMetricsConfig?: outputs.appsync.GraphQlApiEnhancedMetricsConfig;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
+     */
     readonly environmentVariables?: any;
     readonly graphQlDns?: string;
     readonly graphQlEndpointArn?: string;

@@ -19,6 +19,8 @@ class SecurityConfigurationArgs:
         """
         The set of arguments for constructing a SecurityConfiguration resource.
         :param Any security_configuration: The security configuration details in JSON format.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
         :param pulumi.Input[str] name: The name of the security configuration.
         """
         pulumi.set(__self__, "security_configuration", security_configuration)
@@ -30,6 +32,8 @@ class SecurityConfigurationArgs:
     def security_configuration(self) -> Any:
         """
         The security configuration details in JSON format.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "security_configuration")
 
@@ -65,6 +69,8 @@ class SecurityConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the security configuration.
         :param Any security_configuration: The security configuration details in JSON format.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -146,6 +152,8 @@ class SecurityConfiguration(pulumi.CustomResource):
     def security_configuration(self) -> pulumi.Output[Any]:
         """
         The security configuration details in JSON format.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "security_configuration")
 

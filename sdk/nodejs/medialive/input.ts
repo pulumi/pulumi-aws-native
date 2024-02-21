@@ -48,6 +48,9 @@ export class Input extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
     public readonly sources!: pulumi.Output<outputs.medialive.InputSourceRequest[] | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly type!: pulumi.Output<string | undefined>;
     public readonly vpc!: pulumi.Output<outputs.medialive.InputVpcRequest | undefined>;
@@ -107,6 +110,9 @@ export interface InputArgs {
     name?: pulumi.Input<string>;
     roleArn?: pulumi.Input<string>;
     sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSourceRequestArgs>[]>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
+     */
     tags?: any;
     type?: pulumi.Input<string>;
     vpc?: pulumi.Input<inputs.medialive.InputVpcRequestArgs>;

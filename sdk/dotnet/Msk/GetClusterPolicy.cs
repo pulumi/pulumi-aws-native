@@ -63,6 +63,8 @@ namespace Pulumi.AwsNative.Msk
         public readonly string? CurrentVersion;
         /// <summary>
         /// A policy document containing permissions to add to the specified cluster.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;
 

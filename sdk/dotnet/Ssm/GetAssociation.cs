@@ -86,6 +86,8 @@ namespace Pulumi.AwsNative.Ssm
         public readonly Outputs.AssociationInstanceAssociationOutputLocation? OutputLocation;
         /// <summary>
         /// Parameter values that the SSM document uses at runtime.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Parameters;
         /// <summary>

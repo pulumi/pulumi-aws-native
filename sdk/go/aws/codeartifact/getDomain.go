@@ -35,6 +35,8 @@ type LookupDomainResult struct {
 	// The 12-digit account ID of the AWS account that owns the domain. This field is used for GetAtt
 	Owner *string `pulumi:"owner"`
 	// The access control resource policy on the provided domain.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []DomainTag `pulumi:"tags"`
@@ -92,6 +94,8 @@ func (o LookupDomainResultOutput) Owner() pulumi.StringPtrOutput {
 }
 
 // The access control resource policy on the provided domain.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
 func (o LookupDomainResultOutput) PermissionsPolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.PermissionsPolicyDocument }).(pulumi.AnyOutput)
 }

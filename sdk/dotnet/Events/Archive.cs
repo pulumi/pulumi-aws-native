@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Events
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+        /// </summary>
         [Output("eventPattern")]
         public Output<object?> EventPattern { get; private set; } = null!;
 
@@ -89,6 +92,9 @@ namespace Pulumi.AwsNative.Events
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+        /// </summary>
         [Input("eventPattern")]
         public Input<object>? EventPattern { get; set; }
 

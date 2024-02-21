@@ -31,6 +31,8 @@ class RepositoryArgs:
         :param pulumi.Input[str] domain_owner: The 12-digit account ID of the AWS account that owns the domain.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_connections: A list of external connections associated with the repository.
         :param Any permissions_policy_document: The access control resource policy on the provided repository.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
         :param pulumi.Input[str] repository_name: The name of the repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] upstreams: A list of upstream repositories associated with the repository.
@@ -104,6 +106,8 @@ class RepositoryArgs:
     def permissions_policy_document(self) -> Optional[Any]:
         """
         The access control resource policy on the provided repository.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "permissions_policy_document")
 
@@ -172,6 +176,8 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] domain_owner: The 12-digit account ID of the AWS account that owns the domain.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_connections: A list of external connections associated with the repository.
         :param Any permissions_policy_document: The access control resource policy on the provided repository.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
         :param pulumi.Input[str] repository_name: The name of the repository.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] upstreams: A list of upstream repositories associated with the repository.
@@ -318,6 +324,8 @@ class Repository(pulumi.CustomResource):
     def permissions_policy_document(self) -> pulumi.Output[Optional[Any]]:
         """
         The access control resource policy on the provided repository.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "permissions_policy_document")
 

@@ -20,6 +20,8 @@ class PlacementArgs:
                  placement_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Placement resource.
+        :param Any associated_devices: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "project_name", project_name)
         if associated_devices is not None:
@@ -41,6 +43,9 @@ class PlacementArgs:
     @property
     @pulumi.getter(name="associatedDevices")
     def associated_devices(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "associated_devices")
 
     @associated_devices.setter
@@ -50,6 +55,9 @@ class PlacementArgs:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -86,6 +94,8 @@ class Placement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any associated_devices: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -164,11 +174,17 @@ class Placement(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associatedDevices")
     def associated_devices(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "associated_devices")
 
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @property

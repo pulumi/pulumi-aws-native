@@ -79,7 +79,7 @@ func main() {
 	if err != nil {
 		panic(fmt.Sprintf("error gathering semantics: %v", err))
 	}
-	fullSpec, _, err := schema.GatherPackage(supportedTypes, jsonSchemas, true, &semanticsDocument)
+	fullSpec, _, _, err := schema.GatherPackage(supportedTypes, jsonSchemas, true, &semanticsDocument)
 	if err != nil {
 		panic(fmt.Sprintf("error generating schema: %v", err))
 	}
@@ -97,7 +97,7 @@ func main() {
 				break
 			}
 
-			supportedSpec, meta, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument)
+			supportedSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument)
 			if err != nil {
 				panic(fmt.Sprintf("error generating schema: %v", err))
 			}
@@ -127,6 +127,8 @@ func main() {
 			if err = writeMetadata(meta, "bin", "main", true); err != nil {
 				break
 			}
+			// Emit the reports for the provider.
+			reports.WriteToDirectory("reports")
 		default:
 			panic(fmt.Sprintf("Unrecognized language '%s'", language))
 		}

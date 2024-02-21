@@ -53,6 +53,9 @@ namespace Pulumi.AwsNative.Events
     {
         public readonly string? Arn;
         public readonly string? Description;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? EventPattern;
         public readonly int? RetentionDays;
 

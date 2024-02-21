@@ -21,6 +21,8 @@ type RouteResponse struct {
 	// The model selection expression for the route response. Supported only for WebSocket APIs.
 	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
 	// The response models for the route response.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
 	ResponseModels pulumi.AnyOutput `pulumi:"responseModels"`
 	// The route response parameters.
 	ResponseParameters RouteResponseRouteParametersPtrOutput `pulumi:"responseParameters"`
@@ -90,6 +92,8 @@ type routeResponseArgs struct {
 	// The model selection expression for the route response. Supported only for WebSocket APIs.
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
 	// The response models for the route response.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
 	ResponseModels interface{} `pulumi:"responseModels"`
 	// The route response parameters.
 	ResponseParameters *RouteResponseRouteParameters `pulumi:"responseParameters"`
@@ -106,6 +110,8 @@ type RouteResponseArgs struct {
 	// The model selection expression for the route response. Supported only for WebSocket APIs.
 	ModelSelectionExpression pulumi.StringPtrInput
 	// The response models for the route response.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
 	ResponseModels pulumi.Input
 	// The route response parameters.
 	ResponseParameters RouteResponseRouteParametersPtrInput
@@ -163,6 +169,8 @@ func (o RouteResponseOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 }
 
 // The response models for the route response.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
 func (o RouteResponseOutput) ResponseModels() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.AnyOutput { return v.ResponseModels }).(pulumi.AnyOutput)
 }

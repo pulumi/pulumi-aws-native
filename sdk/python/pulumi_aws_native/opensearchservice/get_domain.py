@@ -96,6 +96,9 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "access_policies")
 
     @property

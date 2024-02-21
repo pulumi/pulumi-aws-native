@@ -28,6 +28,9 @@ export interface GetModelPackageGroupResult {
      */
     readonly creationTime?: string;
     readonly modelPackageGroupArn?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+     */
     readonly modelPackageGroupPolicy?: any;
     /**
      * The status of a modelpackage group job.

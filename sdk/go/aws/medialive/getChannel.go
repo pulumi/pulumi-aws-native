@@ -40,7 +40,8 @@ type LookupChannelResult struct {
 	Maintenance           *ChannelMaintenanceCreateSettings `pulumi:"maintenance"`
 	Name                  *string                           `pulumi:"name"`
 	RoleArn               *string                           `pulumi:"roleArn"`
-	Tags                  interface{}                       `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Channel` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -130,6 +131,7 @@ func (o LookupChannelResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Channel` for more information about the expected schema for this property.
 func (o LookupChannelResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupChannelResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

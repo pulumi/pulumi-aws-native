@@ -27,9 +27,10 @@ type LookupResourcePolicyArgs struct {
 }
 
 type LookupResourcePolicyResult struct {
-	BlockPublicPolicy *bool       `pulumi:"blockPublicPolicy"`
-	Id                *string     `pulumi:"id"`
-	ResourcePolicy    interface{} `pulumi:"resourcePolicy"`
+	BlockPublicPolicy *bool   `pulumi:"blockPublicPolicy"`
+	Id                *string `pulumi:"id"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+	ResourcePolicy interface{} `pulumi:"resourcePolicy"`
 }
 
 func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResourcePolicyResultOutput {
@@ -75,6 +76,7 @@ func (o LookupResourcePolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
 func (o LookupResourcePolicyResultOutput) ResourcePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) interface{} { return v.ResourcePolicy }).(pulumi.AnyOutput)
 }

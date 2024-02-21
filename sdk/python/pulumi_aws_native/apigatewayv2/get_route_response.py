@@ -49,6 +49,8 @@ class GetRouteResponseResult:
     def response_models(self) -> Optional[Any]:
         """
         The response models for the route response.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "response_models")
 

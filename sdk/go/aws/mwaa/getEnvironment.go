@@ -36,6 +36,8 @@ type LookupEnvironmentResult struct {
 	//     Would be represented as
 	//
 	//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 	AirflowConfigurationOptions  interface{}                      `pulumi:"airflowConfigurationOptions"`
 	AirflowVersion               *string                          `pulumi:"airflowVersion"`
 	Arn                          *string                          `pulumi:"arn"`
@@ -57,6 +59,8 @@ type LookupEnvironmentResult struct {
 	StartupScriptS3ObjectVersion *string                          `pulumi:"startupScriptS3ObjectVersion"`
 	StartupScriptS3Path          *string                          `pulumi:"startupScriptS3Path"`
 	// A map of tags for the environment.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 	Tags                         interface{}                     `pulumi:"tags"`
 	WebserverAccessMode          *EnvironmentWebserverAccessMode `pulumi:"webserverAccessMode"`
 	WebserverUrl                 *string                         `pulumi:"webserverUrl"`
@@ -109,6 +113,8 @@ func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContex
 //	Would be represented as
 //
 //	"core.dags_folder": "{AIRFLOW_HOME}/dags"
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 func (o LookupEnvironmentResultOutput) AirflowConfigurationOptions() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) interface{} { return v.AirflowConfigurationOptions }).(pulumi.AnyOutput)
 }
@@ -190,6 +196,8 @@ func (o LookupEnvironmentResultOutput) StartupScriptS3Path() pulumi.StringPtrOut
 }
 
 // A map of tags for the environment.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 func (o LookupEnvironmentResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

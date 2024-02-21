@@ -24,6 +24,7 @@ class BackupVaultArgs:
                  notifications: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']] = None):
         """
         The set of arguments for constructing a BackupVault resource.
+        :param Any access_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -41,6 +42,9 @@ class BackupVaultArgs:
     @property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
@@ -110,6 +114,7 @@ class BackupVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any access_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -193,6 +198,9 @@ class BackupVault(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "access_policy")
 
     @property

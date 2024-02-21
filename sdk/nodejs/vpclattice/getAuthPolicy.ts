@@ -23,6 +23,9 @@ export interface GetAuthPolicyArgs {
 }
 
 export interface GetAuthPolicyResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
+     */
     readonly policy?: any;
     readonly state?: enums.vpclattice.AuthPolicyState;
 }

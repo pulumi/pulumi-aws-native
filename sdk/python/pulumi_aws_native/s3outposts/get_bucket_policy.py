@@ -28,6 +28,8 @@ class GetBucketPolicyResult:
     def policy_document(self) -> Optional[Any]:
         """
         A policy document containing permissions to add to the specified bucket.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::BucketPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

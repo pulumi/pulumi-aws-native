@@ -20,6 +20,9 @@ export interface GetInstanceArgs {
 }
 
 export interface GetInstanceResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
+     */
     readonly instanceAttributes?: any;
 }
 /**

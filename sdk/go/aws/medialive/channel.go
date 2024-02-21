@@ -29,8 +29,9 @@ type Channel struct {
 	Maintenance           ChannelMaintenanceCreateSettingsPtrOutput `pulumi:"maintenance"`
 	Name                  pulumi.StringPtrOutput                    `pulumi:"name"`
 	RoleArn               pulumi.StringPtrOutput                    `pulumi:"roleArn"`
-	Tags                  pulumi.AnyOutput                          `pulumi:"tags"`
-	Vpc                   ChannelVpcOutputSettingsPtrOutput         `pulumi:"vpc"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Channel` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput                  `pulumi:"tags"`
+	Vpc  ChannelVpcOutputSettingsPtrOutput `pulumi:"vpc"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -87,8 +88,9 @@ type channelArgs struct {
 	Maintenance           *ChannelMaintenanceCreateSettings `pulumi:"maintenance"`
 	Name                  *string                           `pulumi:"name"`
 	RoleArn               *string                           `pulumi:"roleArn"`
-	Tags                  interface{}                       `pulumi:"tags"`
-	Vpc                   *ChannelVpcOutputSettings         `pulumi:"vpc"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Channel` for more information about the expected schema for this property.
+	Tags interface{}               `pulumi:"tags"`
+	Vpc  *ChannelVpcOutputSettings `pulumi:"vpc"`
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -103,8 +105,9 @@ type ChannelArgs struct {
 	Maintenance           ChannelMaintenanceCreateSettingsPtrInput
 	Name                  pulumi.StringPtrInput
 	RoleArn               pulumi.StringPtrInput
-	Tags                  pulumi.Input
-	Vpc                   ChannelVpcOutputSettingsPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Channel` for more information about the expected schema for this property.
+	Tags pulumi.Input
+	Vpc  ChannelVpcOutputSettingsPtrInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -192,6 +195,7 @@ func (o ChannelOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Channel` for more information about the expected schema for this property.
 func (o ChannelOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Channel) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

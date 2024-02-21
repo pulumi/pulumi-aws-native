@@ -68,6 +68,8 @@ namespace Pulumi.AwsNative.Dms
         public readonly string? ReplicationConfigIdentifier;
         /// <summary>
         /// JSON settings for Servereless replications that are provisioned using this replication configuration
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? ReplicationSettings;
         /// <summary>
@@ -80,10 +82,14 @@ namespace Pulumi.AwsNative.Dms
         public readonly string? SourceEndpointArn;
         /// <summary>
         /// JSON settings for specifying supplemental data
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? SupplementalSettings;
         /// <summary>
         /// JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? TableMappings;
         /// <summary>

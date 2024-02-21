@@ -29,6 +29,8 @@ type LookupBucketPolicyArgs struct {
 
 type LookupBucketPolicyResult struct {
 	// A policy document containing permissions to add to the specified bucket.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::BucketPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
@@ -69,6 +71,8 @@ func (o LookupBucketPolicyResultOutput) ToLookupBucketPolicyResultOutputWithCont
 }
 
 // A policy document containing permissions to add to the specified bucket.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::BucketPolicy` for more information about the expected schema for this property.
 func (o LookupBucketPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupBucketPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

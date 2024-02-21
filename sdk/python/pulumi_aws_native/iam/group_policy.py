@@ -22,6 +22,8 @@ class GroupPolicyInitArgs:
         :param pulumi.Input[str] group_name: The name of the group to associate the policy with.
         :param pulumi.Input[str] policy_name: The name of the policy document.
         :param Any policy_document: The policy document.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "policy_name", policy_name)
@@ -57,6 +59,8 @@ class GroupPolicyInitArgs:
     def policy_document(self) -> Optional[Any]:
         """
         The policy document.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 
@@ -81,6 +85,8 @@ class GroupPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_name: The name of the group to associate the policy with.
         :param Any policy_document: The policy document.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
         :param pulumi.Input[str] policy_name: The name of the policy document.
         """
         ...
@@ -168,6 +174,8 @@ class GroupPolicy(pulumi.CustomResource):
     def policy_document(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy document.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

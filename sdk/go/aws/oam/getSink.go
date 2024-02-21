@@ -31,8 +31,12 @@ type LookupSinkResult struct {
 	// The Amazon resource name (ARN) of the ObservabilityAccessManager Sink
 	Arn *string `pulumi:"arn"`
 	// The policy of this ObservabilityAccessManager Sink.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// Tags to apply to the sink
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 	Tags interface{} `pulumi:"tags"`
 }
 
@@ -78,11 +82,15 @@ func (o LookupSinkResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // The policy of this ObservabilityAccessManager Sink.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 func (o LookupSinkResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSinkResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }
 
 // Tags to apply to the sink
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 func (o LookupSinkResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSinkResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

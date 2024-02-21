@@ -35,9 +35,12 @@ type LookupStageResult struct {
 	DeploymentId         *string                 `pulumi:"deploymentId"`
 	Description          *string                 `pulumi:"description"`
 	Id                   *string                 `pulumi:"id"`
-	RouteSettings        interface{}             `pulumi:"routeSettings"`
-	StageVariables       interface{}             `pulumi:"stageVariables"`
-	Tags                 interface{}             `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	RouteSettings interface{} `pulumi:"routeSettings"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	StageVariables interface{} `pulumi:"stageVariables"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupStageOutput(ctx *pulumi.Context, args LookupStageOutputArgs, opts ...pulumi.InvokeOption) LookupStageResultOutput {
@@ -107,14 +110,17 @@ func (o LookupStageResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStageResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 func (o LookupStageResultOutput) RouteSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupStageResult) interface{} { return v.RouteSettings }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 func (o LookupStageResultOutput) StageVariables() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupStageResult) interface{} { return v.StageVariables }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 func (o LookupStageResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupStageResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

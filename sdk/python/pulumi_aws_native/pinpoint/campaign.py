@@ -36,6 +36,7 @@ class CampaignArgs:
                  treatment_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Campaign resource.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "schedule", schedule)
@@ -200,6 +201,9 @@ class CampaignArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -268,6 +272,7 @@ class Campaign(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -476,6 +481,9 @@ class Campaign(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -51,13 +51,25 @@ namespace Pulumi.AwsNative.Sns
     [OutputType]
     public sealed class GetSubscriptionResult
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? DeliveryPolicy;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? FilterPolicy;
         public readonly string? FilterPolicyScope;
         public readonly string? Id;
         public readonly bool? RawMessageDelivery;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? RedrivePolicy;
         public readonly string? Region;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? ReplayPolicy;
         public readonly string? SubscriptionRoleArn;
 

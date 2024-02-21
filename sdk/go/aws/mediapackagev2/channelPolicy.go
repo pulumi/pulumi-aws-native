@@ -18,7 +18,8 @@ type ChannelPolicy struct {
 
 	ChannelGroupName pulumi.StringPtrOutput `pulumi:"channelGroupName"`
 	ChannelName      pulumi.StringPtrOutput `pulumi:"channelName"`
-	Policy           pulumi.AnyOutput       `pulumi:"policy"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
+	Policy pulumi.AnyOutput `pulumi:"policy"`
 }
 
 // NewChannelPolicy registers a new resource with the given unique name, arguments, and options.
@@ -69,16 +70,18 @@ func (ChannelPolicyState) ElementType() reflect.Type {
 }
 
 type channelPolicyArgs struct {
-	ChannelGroupName *string     `pulumi:"channelGroupName"`
-	ChannelName      *string     `pulumi:"channelName"`
-	Policy           interface{} `pulumi:"policy"`
+	ChannelGroupName *string `pulumi:"channelGroupName"`
+	ChannelName      *string `pulumi:"channelName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
+	Policy interface{} `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a ChannelPolicy resource.
 type ChannelPolicyArgs struct {
 	ChannelGroupName pulumi.StringPtrInput
 	ChannelName      pulumi.StringPtrInput
-	Policy           pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
+	Policy pulumi.Input
 }
 
 func (ChannelPolicyArgs) ElementType() reflect.Type {
@@ -126,6 +129,7 @@ func (o ChannelPolicyOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelPolicy) pulumi.StringPtrOutput { return v.ChannelName }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
 func (o ChannelPolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ChannelPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }

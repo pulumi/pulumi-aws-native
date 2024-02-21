@@ -55,6 +55,8 @@ export class ParameterGroup extends pulumi.CustomResource {
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
      * An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
      */
     public readonly parameters!: pulumi.Output<any | undefined>;
     /**
@@ -115,6 +117,8 @@ export interface ParameterGroupArgs {
     parameterGroupName?: pulumi.Input<string>;
     /**
      * An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
      */
     parameters?: any;
     /**

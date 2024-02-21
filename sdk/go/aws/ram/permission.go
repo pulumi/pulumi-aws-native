@@ -23,6 +23,8 @@ type Permission struct {
 	Name           pulumi.StringOutput `pulumi:"name"`
 	PermissionType pulumi.StringOutput `pulumi:"permissionType"`
 	// Policy template for the permission.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
 	PolicyTemplate pulumi.AnyOutput `pulumi:"policyTemplate"`
 	// The resource type this permission can be used with.
 	ResourceType pulumi.StringOutput      `pulumi:"resourceType"`
@@ -86,6 +88,8 @@ type permissionArgs struct {
 	// The name of the permission.
 	Name *string `pulumi:"name"`
 	// Policy template for the permission.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
 	PolicyTemplate interface{} `pulumi:"policyTemplate"`
 	// The resource type this permission can be used with.
 	ResourceType string          `pulumi:"resourceType"`
@@ -97,6 +101,8 @@ type PermissionArgs struct {
 	// The name of the permission.
 	Name pulumi.StringPtrInput
 	// Policy template for the permission.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
 	PolicyTemplate pulumi.Input
 	// The resource type this permission can be used with.
 	ResourceType pulumi.StringInput
@@ -159,6 +165,8 @@ func (o PermissionOutput) PermissionType() pulumi.StringOutput {
 }
 
 // Policy template for the permission.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
 func (o PermissionOutput) PolicyTemplate() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Permission) pulumi.AnyOutput { return v.PolicyTemplate }).(pulumi.AnyOutput)
 }

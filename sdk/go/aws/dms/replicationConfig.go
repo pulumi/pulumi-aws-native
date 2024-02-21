@@ -21,6 +21,8 @@ type ReplicationConfig struct {
 	// A unique identifier of replication configuration
 	ReplicationConfigIdentifier pulumi.StringPtrOutput `pulumi:"replicationConfigIdentifier"`
 	// JSON settings for Servereless replications that are provisioned using this replication configuration
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	ReplicationSettings pulumi.AnyOutput `pulumi:"replicationSettings"`
 	// The type of AWS DMS Serverless replication to provision using this replication configuration
 	ReplicationType ReplicationConfigReplicationTypePtrOutput `pulumi:"replicationType"`
@@ -29,8 +31,12 @@ type ReplicationConfig struct {
 	// The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
 	SourceEndpointArn pulumi.StringPtrOutput `pulumi:"sourceEndpointArn"`
 	// JSON settings for specifying supplemental data
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	SupplementalSettings pulumi.AnyOutput `pulumi:"supplementalSettings"`
 	// JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	TableMappings pulumi.AnyOutput `pulumi:"tableMappings"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags ReplicationConfigTagArrayOutput `pulumi:"tags"`
@@ -88,6 +94,8 @@ type replicationConfigArgs struct {
 	// A unique identifier of replication configuration
 	ReplicationConfigIdentifier *string `pulumi:"replicationConfigIdentifier"`
 	// JSON settings for Servereless replications that are provisioned using this replication configuration
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	ReplicationSettings interface{} `pulumi:"replicationSettings"`
 	// The type of AWS DMS Serverless replication to provision using this replication configuration
 	ReplicationType *ReplicationConfigReplicationType `pulumi:"replicationType"`
@@ -96,8 +104,12 @@ type replicationConfigArgs struct {
 	// The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
 	SourceEndpointArn *string `pulumi:"sourceEndpointArn"`
 	// JSON settings for specifying supplemental data
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	SupplementalSettings interface{} `pulumi:"supplementalSettings"`
 	// JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	TableMappings interface{} `pulumi:"tableMappings"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags []ReplicationConfigTag `pulumi:"tags"`
@@ -113,6 +125,8 @@ type ReplicationConfigArgs struct {
 	// A unique identifier of replication configuration
 	ReplicationConfigIdentifier pulumi.StringPtrInput
 	// JSON settings for Servereless replications that are provisioned using this replication configuration
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	ReplicationSettings pulumi.Input
 	// The type of AWS DMS Serverless replication to provision using this replication configuration
 	ReplicationType ReplicationConfigReplicationTypePtrInput
@@ -121,8 +135,12 @@ type ReplicationConfigArgs struct {
 	// The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
 	SourceEndpointArn pulumi.StringPtrInput
 	// JSON settings for specifying supplemental data
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	SupplementalSettings pulumi.Input
 	// JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	TableMappings pulumi.Input
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags ReplicationConfigTagArrayInput
@@ -182,6 +200,8 @@ func (o ReplicationConfigOutput) ReplicationConfigIdentifier() pulumi.StringPtrO
 }
 
 // JSON settings for Servereless replications that are provisioned using this replication configuration
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 func (o ReplicationConfigOutput) ReplicationSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ReplicationConfig) pulumi.AnyOutput { return v.ReplicationSettings }).(pulumi.AnyOutput)
 }
@@ -202,11 +222,15 @@ func (o ReplicationConfigOutput) SourceEndpointArn() pulumi.StringPtrOutput {
 }
 
 // JSON settings for specifying supplemental data
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 func (o ReplicationConfigOutput) SupplementalSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ReplicationConfig) pulumi.AnyOutput { return v.SupplementalSettings }).(pulumi.AnyOutput)
 }
 
 // JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 func (o ReplicationConfigOutput) TableMappings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ReplicationConfig) pulumi.AnyOutput { return v.TableMappings }).(pulumi.AnyOutput)
 }

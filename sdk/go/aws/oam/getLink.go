@@ -31,6 +31,8 @@ type LookupLinkResult struct {
 	Label         *string            `pulumi:"label"`
 	ResourceTypes []LinkResourceType `pulumi:"resourceTypes"`
 	// Tags to apply to the link
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
 	Tags interface{} `pulumi:"tags"`
 }
 
@@ -82,6 +84,8 @@ func (o LookupLinkResultOutput) ResourceTypes() LinkResourceTypeArrayOutput {
 }
 
 // Tags to apply to the link
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
 func (o LookupLinkResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupLinkResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

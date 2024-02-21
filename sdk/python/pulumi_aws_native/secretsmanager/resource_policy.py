@@ -19,6 +19,7 @@ class ResourcePolicyArgs:
                  block_public_policy: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+        :param Any resource_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "resource_policy", resource_policy)
         pulumi.set(__self__, "secret_id", secret_id)
@@ -28,6 +29,9 @@ class ResourcePolicyArgs:
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> Any:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
@@ -72,6 +76,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any resource_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -154,6 +159,9 @@ class ResourcePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> pulumi.Output[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "resource_policy")
 
     @property

@@ -28,6 +28,8 @@ export interface GetMultiRegionAccessPointPolicyArgs {
 export interface GetMultiRegionAccessPointPolicyResult {
     /**
      * Policy document to apply to a Multi Region Access Point
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
      */
     readonly policy?: any;
     /**

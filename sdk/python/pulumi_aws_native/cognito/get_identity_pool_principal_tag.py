@@ -29,6 +29,9 @@ class GetIdentityPoolPrincipalTagResult:
     @property
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "principal_tags")
 
     @property

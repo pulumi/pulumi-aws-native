@@ -28,6 +28,9 @@ export interface GetSegmentResult {
     readonly name?: string;
     readonly segmentGroups?: outputs.pinpoint.SegmentGroups;
     readonly segmentId?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

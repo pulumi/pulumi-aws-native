@@ -78,6 +78,8 @@ class GetReplicationConfigResult:
     def replication_settings(self) -> Optional[Any]:
         """
         JSON settings for Servereless replications that are provisioned using this replication configuration
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "replication_settings")
 
@@ -102,6 +104,8 @@ class GetReplicationConfigResult:
     def supplemental_settings(self) -> Optional[Any]:
         """
         JSON settings for specifying supplemental data
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "supplemental_settings")
 
@@ -110,6 +114,8 @@ class GetReplicationConfigResult:
     def table_mappings(self) -> Optional[Any]:
         """
         JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "table_mappings")
 

@@ -17,6 +17,8 @@ type RolePolicy struct {
 	pulumi.CustomResourceState
 
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
@@ -76,6 +78,8 @@ func (RolePolicyState) ElementType() reflect.Type {
 
 type rolePolicyArgs struct {
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName string `pulumi:"policyName"`
@@ -86,6 +90,8 @@ type rolePolicyArgs struct {
 // The set of arguments for constructing a RolePolicy resource.
 type RolePolicyArgs struct {
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName pulumi.StringInput
@@ -131,6 +137,8 @@ func (o RolePolicyOutput) ToRolePolicyOutputWithContext(ctx context.Context) Rol
 }
 
 // The policy document.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
 func (o RolePolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RolePolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

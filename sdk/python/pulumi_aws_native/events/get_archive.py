@@ -45,6 +45,9 @@ class GetArchiveResult:
     @property
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "event_pattern")
 
     @property

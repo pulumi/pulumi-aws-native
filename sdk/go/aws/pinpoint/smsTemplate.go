@@ -21,9 +21,10 @@ type SmsTemplate struct {
 	Arn                  pulumi.StringOutput    `pulumi:"arn"`
 	Body                 pulumi.StringOutput    `pulumi:"body"`
 	DefaultSubstitutions pulumi.StringPtrOutput `pulumi:"defaultSubstitutions"`
-	Tags                 pulumi.AnyOutput       `pulumi:"tags"`
-	TemplateDescription  pulumi.StringPtrOutput `pulumi:"templateDescription"`
-	TemplateName         pulumi.StringOutput    `pulumi:"templateName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
+	Tags                pulumi.AnyOutput       `pulumi:"tags"`
+	TemplateDescription pulumi.StringPtrOutput `pulumi:"templateDescription"`
+	TemplateName        pulumi.StringOutput    `pulumi:"templateName"`
 }
 
 // NewSmsTemplate registers a new resource with the given unique name, arguments, and options.
@@ -76,20 +77,22 @@ func (SmsTemplateState) ElementType() reflect.Type {
 }
 
 type smsTemplateArgs struct {
-	Body                 string      `pulumi:"body"`
-	DefaultSubstitutions *string     `pulumi:"defaultSubstitutions"`
-	Tags                 interface{} `pulumi:"tags"`
-	TemplateDescription  *string     `pulumi:"templateDescription"`
-	TemplateName         string      `pulumi:"templateName"`
+	Body                 string  `pulumi:"body"`
+	DefaultSubstitutions *string `pulumi:"defaultSubstitutions"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
+	Tags                interface{} `pulumi:"tags"`
+	TemplateDescription *string     `pulumi:"templateDescription"`
+	TemplateName        string      `pulumi:"templateName"`
 }
 
 // The set of arguments for constructing a SmsTemplate resource.
 type SmsTemplateArgs struct {
 	Body                 pulumi.StringInput
 	DefaultSubstitutions pulumi.StringPtrInput
-	Tags                 pulumi.Input
-	TemplateDescription  pulumi.StringPtrInput
-	TemplateName         pulumi.StringInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
+	Tags                pulumi.Input
+	TemplateDescription pulumi.StringPtrInput
+	TemplateName        pulumi.StringInput
 }
 
 func (SmsTemplateArgs) ElementType() reflect.Type {
@@ -141,6 +144,7 @@ func (o SmsTemplateOutput) DefaultSubstitutions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsTemplate) pulumi.StringPtrOutput { return v.DefaultSubstitutions }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
 func (o SmsTemplateOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *SmsTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

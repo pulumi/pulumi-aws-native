@@ -33,6 +33,9 @@ class DomainArgs:
                  vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
+        :param Any access_policies: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        :param Any advanced_options: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        :param Any log_publishing_options: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
         """
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
@@ -68,6 +71,9 @@ class DomainArgs:
     @property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
@@ -77,6 +83,9 @@ class DomainArgs:
     @property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "advanced_options")
 
     @advanced_options.setter
@@ -158,6 +167,9 @@ class DomainArgs:
     @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "log_publishing_options")
 
     @log_publishing_options.setter
@@ -232,6 +244,9 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any access_policies: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        :param Any advanced_options: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        :param Any log_publishing_options: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -347,11 +362,17 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "access_policies")
 
     @property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "advanced_options")
 
     @property
@@ -412,6 +433,9 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "log_publishing_options")
 
     @property

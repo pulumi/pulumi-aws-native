@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+        /// </summary>
         [Output("defaultRunProperties")]
         public Output<object?> DefaultRunProperties { get; private set; } = null!;
 
@@ -28,6 +31,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -80,6 +86,9 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+        /// </summary>
         [Input("defaultRunProperties")]
         public Input<object>? DefaultRunProperties { get; set; }
 
@@ -92,6 +101,9 @@ namespace Pulumi.AwsNative.Glue
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

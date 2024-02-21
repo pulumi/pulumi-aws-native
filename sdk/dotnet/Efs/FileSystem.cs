@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Efs
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+        /// </summary>
         [Output("fileSystemPolicy")]
         public Output<object?> FileSystemPolicy { get; private set; } = null!;
 
@@ -130,6 +133,9 @@ namespace Pulumi.AwsNative.Efs
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+        /// </summary>
         [Input("fileSystemPolicy")]
         public Input<object>? FileSystemPolicy { get; set; }
 

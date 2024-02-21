@@ -40,6 +40,8 @@ export interface GetDomainResult {
     readonly owner?: string;
     /**
      * The access control resource policy on the provided domain.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
      */
     readonly permissionsPolicyDocument?: any;
     /**

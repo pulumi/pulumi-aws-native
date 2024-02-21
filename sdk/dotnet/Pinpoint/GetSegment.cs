@@ -56,6 +56,9 @@ namespace Pulumi.AwsNative.Pinpoint
         public readonly string? Name;
         public readonly Outputs.SegmentGroups? SegmentGroups;
         public readonly string? SegmentId;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
 
         [OutputConstructor]

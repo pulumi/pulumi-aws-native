@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? Arn;
         public readonly string? AuthenticationType;
         public readonly Outputs.GraphQlApiEnhancedMetricsConfig? EnhancedMetricsConfig;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? EnvironmentVariables;
         public readonly string? GraphQlDns;
         public readonly string? GraphQlEndpointArn;

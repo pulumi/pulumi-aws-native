@@ -63,6 +63,8 @@ namespace Pulumi.AwsNative.Sns
         public readonly string? Id;
         /// <summary>
         /// A policy document that contains permissions to add to the specified SNS topics.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? PolicyDocument;
         /// <summary>

@@ -18,26 +18,29 @@ import (
 type Job struct {
 	pulumi.CustomResourceState
 
-	AllocatedCapacity       pulumi.Float64PtrOutput          `pulumi:"allocatedCapacity"`
-	Command                 JobCommandOutput                 `pulumi:"command"`
-	Connections             JobConnectionsListPtrOutput      `pulumi:"connections"`
-	DefaultArguments        pulumi.AnyOutput                 `pulumi:"defaultArguments"`
-	Description             pulumi.StringPtrOutput           `pulumi:"description"`
-	ExecutionClass          pulumi.StringPtrOutput           `pulumi:"executionClass"`
-	ExecutionProperty       JobExecutionPropertyPtrOutput    `pulumi:"executionProperty"`
-	GlueVersion             pulumi.StringPtrOutput           `pulumi:"glueVersion"`
-	LogUri                  pulumi.StringPtrOutput           `pulumi:"logUri"`
-	MaxCapacity             pulumi.Float64PtrOutput          `pulumi:"maxCapacity"`
-	MaxRetries              pulumi.Float64PtrOutput          `pulumi:"maxRetries"`
-	Name                    pulumi.StringPtrOutput           `pulumi:"name"`
+	AllocatedCapacity pulumi.Float64PtrOutput     `pulumi:"allocatedCapacity"`
+	Command           JobCommandOutput            `pulumi:"command"`
+	Connections       JobConnectionsListPtrOutput `pulumi:"connections"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+	DefaultArguments  pulumi.AnyOutput              `pulumi:"defaultArguments"`
+	Description       pulumi.StringPtrOutput        `pulumi:"description"`
+	ExecutionClass    pulumi.StringPtrOutput        `pulumi:"executionClass"`
+	ExecutionProperty JobExecutionPropertyPtrOutput `pulumi:"executionProperty"`
+	GlueVersion       pulumi.StringPtrOutput        `pulumi:"glueVersion"`
+	LogUri            pulumi.StringPtrOutput        `pulumi:"logUri"`
+	MaxCapacity       pulumi.Float64PtrOutput       `pulumi:"maxCapacity"`
+	MaxRetries        pulumi.Float64PtrOutput       `pulumi:"maxRetries"`
+	Name              pulumi.StringPtrOutput        `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
 	NonOverridableArguments pulumi.AnyOutput                 `pulumi:"nonOverridableArguments"`
 	NotificationProperty    JobNotificationPropertyPtrOutput `pulumi:"notificationProperty"`
 	NumberOfWorkers         pulumi.IntPtrOutput              `pulumi:"numberOfWorkers"`
 	Role                    pulumi.StringOutput              `pulumi:"role"`
 	SecurityConfiguration   pulumi.StringPtrOutput           `pulumi:"securityConfiguration"`
-	Tags                    pulumi.AnyOutput                 `pulumi:"tags"`
-	Timeout                 pulumi.IntPtrOutput              `pulumi:"timeout"`
-	WorkerType              pulumi.StringPtrOutput           `pulumi:"workerType"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+	Tags       pulumi.AnyOutput       `pulumi:"tags"`
+	Timeout    pulumi.IntPtrOutput    `pulumi:"timeout"`
+	WorkerType pulumi.StringPtrOutput `pulumi:"workerType"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -90,50 +93,56 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
-	AllocatedCapacity       *float64                 `pulumi:"allocatedCapacity"`
-	Command                 JobCommand               `pulumi:"command"`
-	Connections             *JobConnectionsList      `pulumi:"connections"`
-	DefaultArguments        interface{}              `pulumi:"defaultArguments"`
-	Description             *string                  `pulumi:"description"`
-	ExecutionClass          *string                  `pulumi:"executionClass"`
-	ExecutionProperty       *JobExecutionProperty    `pulumi:"executionProperty"`
-	GlueVersion             *string                  `pulumi:"glueVersion"`
-	LogUri                  *string                  `pulumi:"logUri"`
-	MaxCapacity             *float64                 `pulumi:"maxCapacity"`
-	MaxRetries              *float64                 `pulumi:"maxRetries"`
-	Name                    *string                  `pulumi:"name"`
+	AllocatedCapacity *float64            `pulumi:"allocatedCapacity"`
+	Command           JobCommand          `pulumi:"command"`
+	Connections       *JobConnectionsList `pulumi:"connections"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+	DefaultArguments  interface{}           `pulumi:"defaultArguments"`
+	Description       *string               `pulumi:"description"`
+	ExecutionClass    *string               `pulumi:"executionClass"`
+	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
+	GlueVersion       *string               `pulumi:"glueVersion"`
+	LogUri            *string               `pulumi:"logUri"`
+	MaxCapacity       *float64              `pulumi:"maxCapacity"`
+	MaxRetries        *float64              `pulumi:"maxRetries"`
+	Name              *string               `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
 	NonOverridableArguments interface{}              `pulumi:"nonOverridableArguments"`
 	NotificationProperty    *JobNotificationProperty `pulumi:"notificationProperty"`
 	NumberOfWorkers         *int                     `pulumi:"numberOfWorkers"`
 	Role                    string                   `pulumi:"role"`
 	SecurityConfiguration   *string                  `pulumi:"securityConfiguration"`
-	Tags                    interface{}              `pulumi:"tags"`
-	Timeout                 *int                     `pulumi:"timeout"`
-	WorkerType              *string                  `pulumi:"workerType"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+	Tags       interface{} `pulumi:"tags"`
+	Timeout    *int        `pulumi:"timeout"`
+	WorkerType *string     `pulumi:"workerType"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	AllocatedCapacity       pulumi.Float64PtrInput
-	Command                 JobCommandInput
-	Connections             JobConnectionsListPtrInput
-	DefaultArguments        pulumi.Input
-	Description             pulumi.StringPtrInput
-	ExecutionClass          pulumi.StringPtrInput
-	ExecutionProperty       JobExecutionPropertyPtrInput
-	GlueVersion             pulumi.StringPtrInput
-	LogUri                  pulumi.StringPtrInput
-	MaxCapacity             pulumi.Float64PtrInput
-	MaxRetries              pulumi.Float64PtrInput
-	Name                    pulumi.StringPtrInput
+	AllocatedCapacity pulumi.Float64PtrInput
+	Command           JobCommandInput
+	Connections       JobConnectionsListPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+	DefaultArguments  pulumi.Input
+	Description       pulumi.StringPtrInput
+	ExecutionClass    pulumi.StringPtrInput
+	ExecutionProperty JobExecutionPropertyPtrInput
+	GlueVersion       pulumi.StringPtrInput
+	LogUri            pulumi.StringPtrInput
+	MaxCapacity       pulumi.Float64PtrInput
+	MaxRetries        pulumi.Float64PtrInput
+	Name              pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
 	NonOverridableArguments pulumi.Input
 	NotificationProperty    JobNotificationPropertyPtrInput
 	NumberOfWorkers         pulumi.IntPtrInput
 	Role                    pulumi.StringInput
 	SecurityConfiguration   pulumi.StringPtrInput
-	Tags                    pulumi.Input
-	Timeout                 pulumi.IntPtrInput
-	WorkerType              pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+	Tags       pulumi.Input
+	Timeout    pulumi.IntPtrInput
+	WorkerType pulumi.StringPtrInput
 }
 
 func (JobArgs) ElementType() reflect.Type {
@@ -185,6 +194,7 @@ func (o JobOutput) Connections() JobConnectionsListPtrOutput {
 	return o.ApplyT(func(v *Job) JobConnectionsListPtrOutput { return v.Connections }).(JobConnectionsListPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
 func (o JobOutput) DefaultArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Job) pulumi.AnyOutput { return v.DefaultArguments }).(pulumi.AnyOutput)
 }
@@ -221,6 +231,7 @@ func (o JobOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
 func (o JobOutput) NonOverridableArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Job) pulumi.AnyOutput { return v.NonOverridableArguments }).(pulumi.AnyOutput)
 }
@@ -241,6 +252,7 @@ func (o JobOutput) SecurityConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
 func (o JobOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Job) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

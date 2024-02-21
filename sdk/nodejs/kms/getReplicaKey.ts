@@ -35,6 +35,8 @@ export interface GetReplicaKeyResult {
     readonly keyId?: string;
     /**
      * The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
      */
     readonly keyPolicy?: any;
     /**

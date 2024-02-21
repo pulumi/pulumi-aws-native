@@ -29,6 +29,8 @@ namespace Pulumi.AwsNative.Logs
         /// The policy must be in JSON string format.
         /// 
         /// Length Constraints: Maximum length of 30720
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         /// </summary>
         [Output("dataProtectionPolicy")]
         public Output<object?> DataProtectionPolicy { get; private set; } = null!;
@@ -120,6 +122,8 @@ namespace Pulumi.AwsNative.Logs
         /// The policy must be in JSON string format.
         /// 
         /// Length Constraints: Maximum length of 30720
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         /// </summary>
         [Input("dataProtectionPolicy")]
         public Input<object>? DataProtectionPolicy { get; set; }

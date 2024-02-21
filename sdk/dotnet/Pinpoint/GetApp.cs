@@ -53,6 +53,9 @@ namespace Pulumi.AwsNative.Pinpoint
     {
         public readonly string? Arn;
         public readonly string? Id;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::App` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
 
         [OutputConstructor]

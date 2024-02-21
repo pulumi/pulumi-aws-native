@@ -95,6 +95,8 @@ type LookupClusterResult struct {
 	// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
 	MultiAz *bool `pulumi:"multiAz"`
 	// The namespace resource policy document that will be attached to a Redshift cluster.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
 	NamespaceResourcePolicy interface{} `pulumi:"namespaceResourcePolicy"`
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType *string `pulumi:"nodeType"`
@@ -318,6 +320,8 @@ func (o LookupClusterResultOutput) MultiAz() pulumi.BoolPtrOutput {
 }
 
 // The namespace resource policy document that will be attached to a Redshift cluster.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
 func (o LookupClusterResultOutput) NamespaceResourcePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupClusterResult) interface{} { return v.NamespaceResourcePolicy }).(pulumi.AnyOutput)
 }

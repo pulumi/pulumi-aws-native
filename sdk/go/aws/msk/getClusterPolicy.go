@@ -31,6 +31,8 @@ type LookupClusterPolicyResult struct {
 	// The current version of the policy attached to the specified cluster
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// A policy document containing permissions to add to the specified cluster.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -76,6 +78,8 @@ func (o LookupClusterPolicyResultOutput) CurrentVersion() pulumi.StringPtrOutput
 }
 
 // A policy document containing permissions to add to the specified cluster.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
 func (o LookupClusterPolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupClusterPolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

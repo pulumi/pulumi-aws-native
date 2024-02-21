@@ -20,10 +20,11 @@ type LandingZone struct {
 	DriftStatus            LandingZoneDriftStatusOutput `pulumi:"driftStatus"`
 	LandingZoneIdentifier  pulumi.StringOutput          `pulumi:"landingZoneIdentifier"`
 	LatestAvailableVersion pulumi.StringOutput          `pulumi:"latestAvailableVersion"`
-	Manifest               pulumi.AnyOutput             `pulumi:"manifest"`
-	Status                 LandingZoneStatusOutput      `pulumi:"status"`
-	Tags                   LandingZoneTagArrayOutput    `pulumi:"tags"`
-	Version                pulumi.StringOutput          `pulumi:"version"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+	Manifest pulumi.AnyOutput          `pulumi:"manifest"`
+	Status   LandingZoneStatusOutput   `pulumi:"status"`
+	Tags     LandingZoneTagArrayOutput `pulumi:"tags"`
+	Version  pulumi.StringOutput       `pulumi:"version"`
 }
 
 // NewLandingZone registers a new resource with the given unique name, arguments, and options.
@@ -72,6 +73,7 @@ func (LandingZoneState) ElementType() reflect.Type {
 }
 
 type landingZoneArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 	Manifest interface{}      `pulumi:"manifest"`
 	Tags     []LandingZoneTag `pulumi:"tags"`
 	Version  string           `pulumi:"version"`
@@ -79,6 +81,7 @@ type landingZoneArgs struct {
 
 // The set of arguments for constructing a LandingZone resource.
 type LandingZoneArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 	Manifest pulumi.Input
 	Tags     LandingZoneTagArrayInput
 	Version  pulumi.StringInput
@@ -137,6 +140,7 @@ func (o LandingZoneOutput) LatestAvailableVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.StringOutput { return v.LatestAvailableVersion }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 func (o LandingZoneOutput) Manifest() pulumi.AnyOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.AnyOutput { return v.Manifest }).(pulumi.AnyOutput)
 }

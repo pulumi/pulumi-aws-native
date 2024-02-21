@@ -50,11 +50,17 @@ class GetSubscriptionResult:
     @property
     @pulumi.getter(name="deliveryPolicy")
     def delivery_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "delivery_policy")
 
     @property
     @pulumi.getter(name="filterPolicy")
     def filter_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "filter_policy")
 
     @property
@@ -75,6 +81,9 @@ class GetSubscriptionResult:
     @property
     @pulumi.getter(name="redrivePolicy")
     def redrive_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "redrive_policy")
 
     @property
@@ -85,6 +94,9 @@ class GetSubscriptionResult:
     @property
     @pulumi.getter(name="replayPolicy")
     def replay_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "replay_policy")
 
     @property

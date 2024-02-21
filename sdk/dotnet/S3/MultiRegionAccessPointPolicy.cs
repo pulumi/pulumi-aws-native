@@ -23,6 +23,8 @@ namespace Pulumi.AwsNative.S3
 
         /// <summary>
         /// Policy document to apply to a Multi Region Access Point
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
         public Output<object> Policy { get; private set; } = null!;
@@ -90,6 +92,8 @@ namespace Pulumi.AwsNative.S3
 
         /// <summary>
         /// Policy document to apply to a Multi Region Access Point
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy", required: true)]
         public Input<object> Policy { get; set; } = null!;

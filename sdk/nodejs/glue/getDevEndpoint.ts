@@ -20,6 +20,9 @@ export interface GetDevEndpointArgs {
 }
 
 export interface GetDevEndpointResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+     */
     readonly arguments?: any;
     readonly extraJarsS3Path?: string;
     readonly extraPythonLibsS3Path?: string;
@@ -33,6 +36,9 @@ export interface GetDevEndpointResult {
     readonly securityConfiguration?: string;
     readonly securityGroupIds?: string[];
     readonly subnetId?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly workerType?: string;
 }

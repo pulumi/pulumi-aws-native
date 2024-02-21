@@ -37,6 +37,9 @@ export class AuthPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AuthPolicy.__pulumiType;
     }
 
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
+     */
     public readonly policy!: pulumi.Output<any>;
     public readonly resourceIdentifier!: pulumi.Output<string>;
     public /*out*/ readonly state!: pulumi.Output<enums.vpclattice.AuthPolicyState>;
@@ -77,6 +80,9 @@ export class AuthPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a AuthPolicy resource.
  */
 export interface AuthPolicyArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
+     */
     policy: any;
     resourceIdentifier: pulumi.Input<string>;
 }

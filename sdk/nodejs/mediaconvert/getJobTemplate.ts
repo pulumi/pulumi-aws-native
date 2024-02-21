@@ -31,8 +31,14 @@ export interface GetJobTemplateResult {
     readonly id?: string;
     readonly priority?: number;
     readonly queue?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+     */
     readonly settingsJson?: any;
     readonly statusUpdateInterval?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

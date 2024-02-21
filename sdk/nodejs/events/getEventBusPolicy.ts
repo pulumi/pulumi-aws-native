@@ -27,6 +27,9 @@ export interface GetEventBusPolicyResult {
     readonly condition?: outputs.events.EventBusPolicyCondition;
     readonly id?: string;
     readonly principal?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+     */
     readonly statement?: any;
 }
 /**

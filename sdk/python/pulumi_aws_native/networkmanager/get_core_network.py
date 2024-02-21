@@ -104,6 +104,8 @@ class GetCoreNetworkResult:
     def policy_document(self) -> Optional[Any]:
         """
         Live policy document for the core network, you must provide PolicyDocument in Json Format
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

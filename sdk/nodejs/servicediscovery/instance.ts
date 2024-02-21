@@ -37,6 +37,9 @@ export class Instance extends pulumi.CustomResource {
         return obj['__pulumiType'] === Instance.__pulumiType;
     }
 
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
+     */
     public readonly instanceAttributes!: pulumi.Output<any>;
     public readonly instanceId!: pulumi.Output<string>;
     public readonly serviceId!: pulumi.Output<string>;
@@ -79,6 +82,9 @@ export class Instance extends pulumi.CustomResource {
  * The set of arguments for constructing a Instance resource.
  */
 export interface InstanceArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
+     */
     instanceAttributes: any;
     instanceId?: pulumi.Input<string>;
     serviceId: pulumi.Input<string>;

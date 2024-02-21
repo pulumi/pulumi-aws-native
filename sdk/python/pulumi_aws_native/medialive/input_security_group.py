@@ -20,6 +20,7 @@ class InputSecurityGroupArgs:
                  whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupInputWhitelistRuleCidrArgs']]]] = None):
         """
         The set of arguments for constructing a InputSecurityGroup resource.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -29,6 +30,9 @@ class InputSecurityGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -63,6 +67,7 @@ class InputSecurityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -138,6 +143,9 @@ class InputSecurityGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @property

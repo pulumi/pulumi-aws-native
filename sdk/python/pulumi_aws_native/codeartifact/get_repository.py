@@ -79,6 +79,8 @@ class GetRepositoryResult:
     def permissions_policy_document(self) -> Optional[Any]:
         """
         The access control resource policy on the provided repository.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "permissions_policy_document")
 

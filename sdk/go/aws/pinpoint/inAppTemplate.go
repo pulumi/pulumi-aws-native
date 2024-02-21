@@ -16,13 +16,15 @@ import (
 type InAppTemplate struct {
 	pulumi.CustomResourceState
 
-	Arn                 pulumi.StringOutput                         `pulumi:"arn"`
-	Content             InAppTemplateInAppMessageContentArrayOutput `pulumi:"content"`
-	CustomConfig        pulumi.AnyOutput                            `pulumi:"customConfig"`
-	Layout              InAppTemplateLayoutPtrOutput                `pulumi:"layout"`
-	Tags                pulumi.AnyOutput                            `pulumi:"tags"`
-	TemplateDescription pulumi.StringPtrOutput                      `pulumi:"templateDescription"`
-	TemplateName        pulumi.StringOutput                         `pulumi:"templateName"`
+	Arn     pulumi.StringOutput                         `pulumi:"arn"`
+	Content InAppTemplateInAppMessageContentArrayOutput `pulumi:"content"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+	CustomConfig pulumi.AnyOutput             `pulumi:"customConfig"`
+	Layout       InAppTemplateLayoutPtrOutput `pulumi:"layout"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+	Tags                pulumi.AnyOutput       `pulumi:"tags"`
+	TemplateDescription pulumi.StringPtrOutput `pulumi:"templateDescription"`
+	TemplateName        pulumi.StringOutput    `pulumi:"templateName"`
 }
 
 // NewInAppTemplate registers a new resource with the given unique name, arguments, and options.
@@ -72,19 +74,23 @@ func (InAppTemplateState) ElementType() reflect.Type {
 }
 
 type inAppTemplateArgs struct {
-	Content             []InAppTemplateInAppMessageContent `pulumi:"content"`
-	CustomConfig        interface{}                        `pulumi:"customConfig"`
-	Layout              *InAppTemplateLayout               `pulumi:"layout"`
-	Tags                interface{}                        `pulumi:"tags"`
-	TemplateDescription *string                            `pulumi:"templateDescription"`
-	TemplateName        string                             `pulumi:"templateName"`
+	Content []InAppTemplateInAppMessageContent `pulumi:"content"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+	CustomConfig interface{}          `pulumi:"customConfig"`
+	Layout       *InAppTemplateLayout `pulumi:"layout"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+	Tags                interface{} `pulumi:"tags"`
+	TemplateDescription *string     `pulumi:"templateDescription"`
+	TemplateName        string      `pulumi:"templateName"`
 }
 
 // The set of arguments for constructing a InAppTemplate resource.
 type InAppTemplateArgs struct {
-	Content             InAppTemplateInAppMessageContentArrayInput
-	CustomConfig        pulumi.Input
-	Layout              InAppTemplateLayoutPtrInput
+	Content InAppTemplateInAppMessageContentArrayInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+	CustomConfig pulumi.Input
+	Layout       InAppTemplateLayoutPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
 	Tags                pulumi.Input
 	TemplateDescription pulumi.StringPtrInput
 	TemplateName        pulumi.StringInput
@@ -135,6 +141,7 @@ func (o InAppTemplateOutput) Content() InAppTemplateInAppMessageContentArrayOutp
 	return o.ApplyT(func(v *InAppTemplate) InAppTemplateInAppMessageContentArrayOutput { return v.Content }).(InAppTemplateInAppMessageContentArrayOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
 func (o InAppTemplateOutput) CustomConfig() pulumi.AnyOutput {
 	return o.ApplyT(func(v *InAppTemplate) pulumi.AnyOutput { return v.CustomConfig }).(pulumi.AnyOutput)
 }
@@ -143,6 +150,7 @@ func (o InAppTemplateOutput) Layout() InAppTemplateLayoutPtrOutput {
 	return o.ApplyT(func(v *InAppTemplate) InAppTemplateLayoutPtrOutput { return v.Layout }).(InAppTemplateLayoutPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
 func (o InAppTemplateOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *InAppTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

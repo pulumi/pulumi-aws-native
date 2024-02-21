@@ -38,8 +38,9 @@ type LookupCrawlerResult struct {
 	Schedule                     *CrawlerSchedule           `pulumi:"schedule"`
 	SchemaChangePolicy           *CrawlerSchemaChangePolicy `pulumi:"schemaChangePolicy"`
 	TablePrefix                  *string                    `pulumi:"tablePrefix"`
-	Tags                         interface{}                `pulumi:"tags"`
-	Targets                      *CrawlerTargets            `pulumi:"targets"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
+	Tags    interface{}     `pulumi:"tags"`
+	Targets *CrawlerTargets `pulumi:"targets"`
 }
 
 func LookupCrawlerOutput(ctx *pulumi.Context, args LookupCrawlerOutputArgs, opts ...pulumi.InvokeOption) LookupCrawlerResultOutput {
@@ -121,6 +122,7 @@ func (o LookupCrawlerResultOutput) TablePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCrawlerResult) *string { return v.TablePrefix }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
 func (o LookupCrawlerResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupCrawlerResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

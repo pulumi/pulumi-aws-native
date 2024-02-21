@@ -25,6 +25,8 @@ namespace Pulumi.AwsNative.Mwaa
         ///     Would be represented as
         /// 
         ///     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
         /// </summary>
         [Output("airflowConfigurationOptions")]
         public Output<object?> AirflowConfigurationOptions { get; private set; } = null!;
@@ -97,6 +99,8 @@ namespace Pulumi.AwsNative.Mwaa
 
         /// <summary>
         /// A map of tags for the environment.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
         /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
@@ -175,6 +179,8 @@ namespace Pulumi.AwsNative.Mwaa
         ///     Would be represented as
         /// 
         ///     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
         /// </summary>
         [Input("airflowConfigurationOptions")]
         public Input<object>? AirflowConfigurationOptions { get; set; }
@@ -238,6 +244,8 @@ namespace Pulumi.AwsNative.Mwaa
 
         /// <summary>
         /// A map of tags for the environment.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
         /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }

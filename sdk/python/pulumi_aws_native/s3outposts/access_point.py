@@ -26,6 +26,8 @@ class AccessPointArgs:
         :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
         :param pulumi.Input[str] name: A name for the AccessPoint.
         :param Any policy: The access point policy associated with this access point.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "vpc_configuration", vpc_configuration)
@@ -75,6 +77,8 @@ class AccessPointArgs:
     def policy(self) -> Optional[Any]:
         """
         The access point policy associated with this access point.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 
@@ -101,6 +105,8 @@ class AccessPoint(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
         :param pulumi.Input[str] name: A name for the AccessPoint.
         :param Any policy: The access point policy associated with this access point.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
         :param pulumi.Input[pulumi.InputType['AccessPointVpcConfigurationArgs']] vpc_configuration: Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
         """
         ...
@@ -209,6 +215,8 @@ class AccessPoint(pulumi.CustomResource):
     def policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The access point policy associated with this access point.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

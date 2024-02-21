@@ -20,8 +20,12 @@ type Sink struct {
 	// The name of the ObservabilityAccessManager Sink.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The policy of this ObservabilityAccessManager Sink.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// Tags to apply to the sink
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
@@ -72,8 +76,12 @@ type sinkArgs struct {
 	// The name of the ObservabilityAccessManager Sink.
 	Name *string `pulumi:"name"`
 	// The policy of this ObservabilityAccessManager Sink.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// Tags to apply to the sink
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 	Tags interface{} `pulumi:"tags"`
 }
 
@@ -82,8 +90,12 @@ type SinkArgs struct {
 	// The name of the ObservabilityAccessManager Sink.
 	Name pulumi.StringPtrInput
 	// The policy of this ObservabilityAccessManager Sink.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 	Policy pulumi.Input
 	// Tags to apply to the sink
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 	Tags pulumi.Input
 }
 
@@ -135,11 +147,15 @@ func (o SinkOutput) Name() pulumi.StringOutput {
 }
 
 // The policy of this ObservabilityAccessManager Sink.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 func (o SinkOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Sink) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }
 
 // Tags to apply to the sink
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 func (o SinkOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Sink) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

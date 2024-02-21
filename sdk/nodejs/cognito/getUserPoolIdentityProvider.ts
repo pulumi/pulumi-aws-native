@@ -20,9 +20,15 @@ export interface GetUserPoolIdentityProviderArgs {
 }
 
 export interface GetUserPoolIdentityProviderResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+     */
     readonly attributeMapping?: any;
     readonly id?: string;
     readonly idpIdentifiers?: string[];
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+     */
     readonly providerDetails?: any;
 }
 /**

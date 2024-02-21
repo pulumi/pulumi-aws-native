@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.CloudFormation
         [Output("stackName")]
         public Output<string> StackName { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        /// </summary>
         [Output("stackPolicyBody")]
         public Output<object?> StackPolicyBody { get; private set; } = null!;
 
@@ -75,6 +78,9 @@ namespace Pulumi.AwsNative.CloudFormation
         [Output("tags")]
         public Output<ImmutableArray<Outputs.StackTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        /// </summary>
         [Output("templateBody")]
         public Output<object?> TemplateBody { get; private set; } = null!;
 
@@ -172,6 +178,9 @@ namespace Pulumi.AwsNative.CloudFormation
         [Input("stackName")]
         public Input<string>? StackName { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        /// </summary>
         [Input("stackPolicyBody")]
         public Input<object>? StackPolicyBody { get; set; }
 
@@ -189,6 +198,9 @@ namespace Pulumi.AwsNative.CloudFormation
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        /// </summary>
         [Input("templateBody")]
         public Input<object>? TemplateBody { get; set; }
 

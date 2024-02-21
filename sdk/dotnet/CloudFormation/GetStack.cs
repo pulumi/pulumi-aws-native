@@ -65,10 +65,16 @@ namespace Pulumi.AwsNative.CloudFormation
         public readonly string? RoleArn;
         public readonly string? RootId;
         public readonly string? StackId;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? StackPolicyBody;
         public readonly Pulumi.AwsNative.CloudFormation.StackStatus? StackStatus;
         public readonly string? StackStatusReason;
         public readonly ImmutableArray<Outputs.StackTag> Tags;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? TemplateBody;
         public readonly int? TimeoutInMinutes;
 

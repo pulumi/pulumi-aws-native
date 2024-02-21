@@ -52,11 +52,17 @@ export class Stack extends pulumi.CustomResource {
     public /*out*/ readonly rootId!: pulumi.Output<string>;
     public /*out*/ readonly stackId!: pulumi.Output<string>;
     public readonly stackName!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+     */
     public readonly stackPolicyBody!: pulumi.Output<any | undefined>;
     public readonly stackPolicyUrl!: pulumi.Output<string | undefined>;
     public /*out*/ readonly stackStatus!: pulumi.Output<enums.cloudformation.StackStatus>;
     public readonly stackStatusReason!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.cloudformation.StackTag[] | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+     */
     public readonly templateBody!: pulumi.Output<any | undefined>;
     public readonly templateUrl!: pulumi.Output<string | undefined>;
     public readonly timeoutInMinutes!: pulumi.Output<number | undefined>;
@@ -139,10 +145,16 @@ export interface StackArgs {
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     roleArn?: pulumi.Input<string>;
     stackName?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+     */
     stackPolicyBody?: any;
     stackPolicyUrl?: pulumi.Input<string>;
     stackStatusReason?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackTagArgs>[]>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+     */
     templateBody?: any;
     templateUrl?: pulumi.Input<string>;
     timeoutInMinutes?: pulumi.Input<number>;

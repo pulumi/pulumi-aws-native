@@ -44,6 +44,9 @@ export class DataQualityRuleset extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly ruleset!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DataQualityRuleset` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly targetTable!: pulumi.Output<outputs.glue.DataQualityRulesetDataQualityTargetTable | undefined>;
 
@@ -87,6 +90,9 @@ export interface DataQualityRulesetArgs {
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     ruleset?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DataQualityRuleset` for more information about the expected schema for this property.
+     */
     tags?: any;
     targetTable?: pulumi.Input<inputs.glue.DataQualityRulesetDataQualityTargetTableArgs>;
 }

@@ -32,6 +32,8 @@ namespace Pulumi.AwsNative.Dms
 
         /// <summary>
         /// JSON settings for Servereless replications that are provisioned using this replication configuration
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
         [Output("replicationSettings")]
         public Output<object?> ReplicationSettings { get; private set; } = null!;
@@ -56,12 +58,16 @@ namespace Pulumi.AwsNative.Dms
 
         /// <summary>
         /// JSON settings for specifying supplemental data
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
         [Output("supplementalSettings")]
         public Output<object?> SupplementalSettings { get; private set; } = null!;
 
         /// <summary>
         /// JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
         [Output("tableMappings")]
         public Output<object?> TableMappings { get; private set; } = null!;
@@ -144,6 +150,8 @@ namespace Pulumi.AwsNative.Dms
 
         /// <summary>
         /// JSON settings for Servereless replications that are provisioned using this replication configuration
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
         [Input("replicationSettings")]
         public Input<object>? ReplicationSettings { get; set; }
@@ -168,12 +176,16 @@ namespace Pulumi.AwsNative.Dms
 
         /// <summary>
         /// JSON settings for specifying supplemental data
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
         [Input("supplementalSettings")]
         public Input<object>? SupplementalSettings { get; set; }
 
         /// <summary>
         /// JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         /// </summary>
         [Input("tableMappings")]
         public Input<object>? TableMappings { get; set; }

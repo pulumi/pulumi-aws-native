@@ -26,6 +26,9 @@ export interface GetGroupResult {
     readonly name?: string;
     readonly roleArn?: string;
     readonly roleAttachedAt?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::Group` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

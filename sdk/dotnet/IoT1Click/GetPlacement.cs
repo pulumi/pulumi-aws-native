@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.IoT1Click
     [OutputType]
     public sealed class GetPlacementResult
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Attributes;
         public readonly string? Id;
 

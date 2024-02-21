@@ -25,9 +25,10 @@ type PushTemplate struct {
 	Default              PushTemplateDefaultPushNotificationTemplatePtrOutput `pulumi:"default"`
 	DefaultSubstitutions pulumi.StringPtrOutput                               `pulumi:"defaultSubstitutions"`
 	Gcm                  PushTemplateAndroidPushNotificationTemplatePtrOutput `pulumi:"gcm"`
-	Tags                 pulumi.AnyOutput                                     `pulumi:"tags"`
-	TemplateDescription  pulumi.StringPtrOutput                               `pulumi:"templateDescription"`
-	TemplateName         pulumi.StringOutput                                  `pulumi:"templateName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::PushTemplate` for more information about the expected schema for this property.
+	Tags                pulumi.AnyOutput       `pulumi:"tags"`
+	TemplateDescription pulumi.StringPtrOutput `pulumi:"templateDescription"`
+	TemplateName        pulumi.StringOutput    `pulumi:"templateName"`
 }
 
 // NewPushTemplate registers a new resource with the given unique name, arguments, and options.
@@ -83,9 +84,10 @@ type pushTemplateArgs struct {
 	Default              *PushTemplateDefaultPushNotificationTemplate `pulumi:"default"`
 	DefaultSubstitutions *string                                      `pulumi:"defaultSubstitutions"`
 	Gcm                  *PushTemplateAndroidPushNotificationTemplate `pulumi:"gcm"`
-	Tags                 interface{}                                  `pulumi:"tags"`
-	TemplateDescription  *string                                      `pulumi:"templateDescription"`
-	TemplateName         string                                       `pulumi:"templateName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::PushTemplate` for more information about the expected schema for this property.
+	Tags                interface{} `pulumi:"tags"`
+	TemplateDescription *string     `pulumi:"templateDescription"`
+	TemplateName        string      `pulumi:"templateName"`
 }
 
 // The set of arguments for constructing a PushTemplate resource.
@@ -96,9 +98,10 @@ type PushTemplateArgs struct {
 	Default              PushTemplateDefaultPushNotificationTemplatePtrInput
 	DefaultSubstitutions pulumi.StringPtrInput
 	Gcm                  PushTemplateAndroidPushNotificationTemplatePtrInput
-	Tags                 pulumi.Input
-	TemplateDescription  pulumi.StringPtrInput
-	TemplateName         pulumi.StringInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::PushTemplate` for more information about the expected schema for this property.
+	Tags                pulumi.Input
+	TemplateDescription pulumi.StringPtrInput
+	TemplateName        pulumi.StringInput
 }
 
 func (PushTemplateArgs) ElementType() reflect.Type {
@@ -166,6 +169,7 @@ func (o PushTemplateOutput) Gcm() PushTemplateAndroidPushNotificationTemplatePtr
 	return o.ApplyT(func(v *PushTemplate) PushTemplateAndroidPushNotificationTemplatePtrOutput { return v.Gcm }).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::PushTemplate` for more information about the expected schema for this property.
 func (o PushTemplateOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *PushTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

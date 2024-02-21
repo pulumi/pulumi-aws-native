@@ -23,6 +23,7 @@ class DbParameterGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbParameterGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a DbParameterGroup resource.
+        :param Any parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "family", family)
@@ -53,6 +54,9 @@ class DbParameterGroupArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Any:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -99,6 +103,7 @@ class DbParameterGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -199,6 +204,9 @@ class DbParameterGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameters")
 
     @property

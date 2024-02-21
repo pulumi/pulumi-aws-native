@@ -27,6 +27,8 @@ class DbParameterGroupArgs:
         :param pulumi.Input[str] family: The DB parameter group family name.
         :param pulumi.Input[str] db_parameter_group_name: Specifies the name of the DB parameter group
         :param Any parameters: An array of parameter names and values for the parameter update.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['DbParameterGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "description", description)
@@ -79,6 +81,8 @@ class DbParameterGroupArgs:
     def parameters(self) -> Optional[Any]:
         """
         An array of parameter names and values for the parameter update.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 
@@ -119,6 +123,8 @@ class DbParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: Provides the customer-specified description for this DB parameter group.
         :param pulumi.Input[str] family: The DB parameter group family name.
         :param Any parameters: An array of parameter names and values for the parameter update.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbParameterGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -228,6 +234,8 @@ class DbParameterGroup(pulumi.CustomResource):
     def parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         An array of parameter names and values for the parameter update.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 

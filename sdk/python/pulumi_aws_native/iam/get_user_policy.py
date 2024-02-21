@@ -28,6 +28,8 @@ class GetUserPolicyResult:
     def policy_document(self) -> Optional[Any]:
         """
         The policy document.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

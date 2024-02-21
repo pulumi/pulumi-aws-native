@@ -52,12 +52,21 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("payloadFormatVersion")]
         public Output<string?> PayloadFormatVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        /// </summary>
         [Output("requestParameters")]
         public Output<object?> RequestParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        /// </summary>
         [Output("requestTemplates")]
         public Output<object?> RequestTemplates { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        /// </summary>
         [Output("responseParameters")]
         public Output<object?> ResponseParameters { get; private set; } = null!;
 
@@ -155,12 +164,21 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("payloadFormatVersion")]
         public Input<string>? PayloadFormatVersion { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        /// </summary>
         [Input("requestParameters")]
         public Input<object>? RequestParameters { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        /// </summary>
         [Input("requestTemplates")]
         public Input<object>? RequestTemplates { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        /// </summary>
         [Input("responseParameters")]
         public Input<object>? ResponseParameters { get; set; }
 

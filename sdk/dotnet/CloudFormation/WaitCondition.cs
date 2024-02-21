@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.CloudFormation
         [Output("count")]
         public Output<int?> Count { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::WaitCondition` for more information about the expected schema for this property.
+        /// </summary>
         [Output("data")]
         public Output<object> Data { get; private set; } = null!;
 

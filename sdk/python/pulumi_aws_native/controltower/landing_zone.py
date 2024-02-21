@@ -22,6 +22,7 @@ class LandingZoneArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneTagArgs']]]] = None):
         """
         The set of arguments for constructing a LandingZone resource.
+        :param Any manifest: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "manifest", manifest)
         pulumi.set(__self__, "version", version)
@@ -31,6 +32,9 @@ class LandingZoneArgs:
     @property
     @pulumi.getter
     def manifest(self) -> Any:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "manifest")
 
     @manifest.setter
@@ -70,6 +74,7 @@ class LandingZone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any manifest: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -174,6 +179,9 @@ class LandingZone(pulumi.CustomResource):
     @property
     @pulumi.getter
     def manifest(self) -> pulumi.Output[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "manifest")
 
     @property

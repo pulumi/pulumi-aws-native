@@ -44,6 +44,8 @@ type LookupRestApiResult struct {
 	// The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
 	Name *string `pulumi:"name"`
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Policy         interface{} `pulumi:"policy"`
 	RestApiId      *string     `pulumi:"restApiId"`
 	RootResourceId *string     `pulumi:"rootResourceId"`
@@ -122,6 +124,8 @@ func (o LookupRestApiResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A policy document that contains the permissions for the “RestApi“ resource. To set the ARN for the policy, use the “!Join“ intrinsic function with “""“ as delimiter and values of “"execute-api:/"“ and “"*"“.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 func (o LookupRestApiResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRestApiResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

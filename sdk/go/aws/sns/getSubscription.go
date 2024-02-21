@@ -27,13 +27,17 @@ type LookupSubscriptionArgs struct {
 }
 
 type LookupSubscriptionResult struct {
-	DeliveryPolicy      interface{} `pulumi:"deliveryPolicy"`
-	FilterPolicy        interface{} `pulumi:"filterPolicy"`
-	FilterPolicyScope   *string     `pulumi:"filterPolicyScope"`
-	Id                  *string     `pulumi:"id"`
-	RawMessageDelivery  *bool       `pulumi:"rawMessageDelivery"`
-	RedrivePolicy       interface{} `pulumi:"redrivePolicy"`
-	Region              *string     `pulumi:"region"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+	DeliveryPolicy interface{} `pulumi:"deliveryPolicy"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+	FilterPolicy       interface{} `pulumi:"filterPolicy"`
+	FilterPolicyScope  *string     `pulumi:"filterPolicyScope"`
+	Id                 *string     `pulumi:"id"`
+	RawMessageDelivery *bool       `pulumi:"rawMessageDelivery"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+	RedrivePolicy interface{} `pulumi:"redrivePolicy"`
+	Region        *string     `pulumi:"region"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
 	ReplayPolicy        interface{} `pulumi:"replayPolicy"`
 	SubscriptionRoleArn *string     `pulumi:"subscriptionRoleArn"`
 }
@@ -73,10 +77,12 @@ func (o LookupSubscriptionResultOutput) ToLookupSubscriptionResultOutputWithCont
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
 func (o LookupSubscriptionResultOutput) DeliveryPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) interface{} { return v.DeliveryPolicy }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
 func (o LookupSubscriptionResultOutput) FilterPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) interface{} { return v.FilterPolicy }).(pulumi.AnyOutput)
 }
@@ -93,6 +99,7 @@ func (o LookupSubscriptionResultOutput) RawMessageDelivery() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v LookupSubscriptionResult) *bool { return v.RawMessageDelivery }).(pulumi.BoolPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
 func (o LookupSubscriptionResultOutput) RedrivePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) interface{} { return v.RedrivePolicy }).(pulumi.AnyOutput)
 }
@@ -101,6 +108,7 @@ func (o LookupSubscriptionResultOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
 func (o LookupSubscriptionResultOutput) ReplayPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) interface{} { return v.ReplayPolicy }).(pulumi.AnyOutput)
 }

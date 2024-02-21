@@ -29,6 +29,8 @@ class IdentityPoolArgs:
                  supported_login_providers: Optional[Any] = None):
         """
         The set of arguments for constructing a IdentityPool resource.
+        :param Any cognito_events: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        :param Any supported_login_providers: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "allow_unauthenticated_identities", allow_unauthenticated_identities)
         if allow_classic_flow is not None:
@@ -73,6 +75,9 @@ class IdentityPoolArgs:
     @property
     @pulumi.getter(name="cognitoEvents")
     def cognito_events(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "cognito_events")
 
     @cognito_events.setter
@@ -145,6 +150,9 @@ class IdentityPoolArgs:
     @property
     @pulumi.getter(name="supportedLoginProviders")
     def supported_login_providers(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "supported_login_providers")
 
     @supported_login_providers.setter
@@ -174,6 +182,8 @@ class IdentityPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any cognito_events: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        :param Any supported_login_providers: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -282,6 +292,9 @@ class IdentityPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cognitoEvents")
     def cognito_events(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "cognito_events")
 
     @property
@@ -327,5 +340,8 @@ class IdentityPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="supportedLoginProviders")
     def supported_login_providers(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "supported_login_providers")
 

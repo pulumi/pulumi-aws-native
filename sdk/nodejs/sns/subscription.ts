@@ -37,14 +37,26 @@ export class Subscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === Subscription.__pulumiType;
     }
 
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     public readonly deliveryPolicy!: pulumi.Output<any | undefined>;
     public readonly endpoint!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     public readonly filterPolicy!: pulumi.Output<any | undefined>;
     public readonly filterPolicyScope!: pulumi.Output<string | undefined>;
     public readonly protocol!: pulumi.Output<string>;
     public readonly rawMessageDelivery!: pulumi.Output<boolean | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     public readonly redrivePolicy!: pulumi.Output<any | undefined>;
     public readonly region!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     public readonly replayPolicy!: pulumi.Output<any | undefined>;
     public readonly subscriptionRoleArn!: pulumi.Output<string | undefined>;
     public readonly topicArn!: pulumi.Output<string>;
@@ -103,14 +115,26 @@ export class Subscription extends pulumi.CustomResource {
  * The set of arguments for constructing a Subscription resource.
  */
 export interface SubscriptionArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     deliveryPolicy?: any;
     endpoint?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     filterPolicy?: any;
     filterPolicyScope?: pulumi.Input<string>;
     protocol: pulumi.Input<string>;
     rawMessageDelivery?: pulumi.Input<boolean>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     redrivePolicy?: any;
     region?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+     */
     replayPolicy?: any;
     subscriptionRoleArn?: pulumi.Input<string>;
     topicArn: pulumi.Input<string>;

@@ -33,6 +33,8 @@ class GetMultiRegionAccessPointPolicyResult:
     def policy(self) -> Optional[Any]:
         """
         Policy document to apply to a Multi Region Access Point
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

@@ -19,6 +19,7 @@ class RegistryPolicyArgs:
                  revision_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RegistryPolicy resource.
+        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "registry_name", registry_name)
@@ -28,6 +29,9 @@ class RegistryPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> Any:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -67,6 +71,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -141,6 +146,9 @@ class RegistryPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy")
 
     @property

@@ -40,6 +40,8 @@ class PlaybackConfigurationArgs:
         :param pulumi.Input['PlaybackConfigurationBumperArgs'] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input['PlaybackConfigurationCdnConfigurationArgs'] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
         :param Any configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
         :param pulumi.Input['PlaybackConfigurationDashConfigurationArgs'] dash_configuration: The configuration for DASH content.
         :param pulumi.Input['PlaybackConfigurationHlsConfigurationArgs'] hls_configuration: The configuration for HLS content.
         :param pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs'] live_pre_roll_configuration: The configuration for pre-roll ad insertion.
@@ -144,6 +146,8 @@ class PlaybackConfigurationArgs:
     def configuration_aliases(self) -> Optional[Any]:
         """
         The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "configuration_aliases")
 
@@ -291,6 +295,8 @@ class PlaybackConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationBumperArgs']] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationCdnConfigurationArgs']] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
         :param Any configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationDashConfigurationArgs']] dash_configuration: The configuration for DASH content.
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationHlsConfigurationArgs']] hls_configuration: The configuration for HLS content.
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationLivePreRollConfigurationArgs']] live_pre_roll_configuration: The configuration for pre-roll ad insertion.
@@ -453,6 +459,8 @@ class PlaybackConfiguration(pulumi.CustomResource):
     def configuration_aliases(self) -> pulumi.Output[Optional[Any]]:
         """
         The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "configuration_aliases")
 

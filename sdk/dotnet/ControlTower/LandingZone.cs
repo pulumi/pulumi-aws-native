@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ControlTower
         [Output("latestAvailableVersion")]
         public Output<string> LatestAvailableVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        /// </summary>
         [Output("manifest")]
         public Output<object> Manifest { get; private set; } = null!;
 
@@ -84,6 +87,9 @@ namespace Pulumi.AwsNative.ControlTower
 
     public sealed class LandingZoneArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        /// </summary>
         [Input("manifest", required: true)]
         public Input<object> Manifest { get; set; } = null!;
 

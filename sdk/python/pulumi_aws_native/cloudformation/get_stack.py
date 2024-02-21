@@ -155,6 +155,9 @@ class GetStackResult:
     @property
     @pulumi.getter(name="stackPolicyBody")
     def stack_policy_body(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "stack_policy_body")
 
     @property
@@ -175,6 +178,9 @@ class GetStackResult:
     @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "template_body")
 
     @property

@@ -27,10 +27,12 @@ type LookupLayerArgs struct {
 }
 
 type LookupLayerResult struct {
-	Attributes                  interface{}                       `pulumi:"attributes"`
-	AutoAssignElasticIps        *bool                             `pulumi:"autoAssignElasticIps"`
-	AutoAssignPublicIps         *bool                             `pulumi:"autoAssignPublicIps"`
-	CustomInstanceProfileArn    *string                           `pulumi:"customInstanceProfileArn"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+	Attributes               interface{} `pulumi:"attributes"`
+	AutoAssignElasticIps     *bool       `pulumi:"autoAssignElasticIps"`
+	AutoAssignPublicIps      *bool       `pulumi:"autoAssignPublicIps"`
+	CustomInstanceProfileArn *string     `pulumi:"customInstanceProfileArn"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
 	CustomJson                  interface{}                       `pulumi:"customJson"`
 	CustomRecipes               *LayerRecipes                     `pulumi:"customRecipes"`
 	CustomSecurityGroupIds      []string                          `pulumi:"customSecurityGroupIds"`
@@ -82,6 +84,7 @@ func (o LookupLayerResultOutput) ToLookupLayerResultOutputWithContext(ctx contex
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
 func (o LookupLayerResultOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupLayerResult) interface{} { return v.Attributes }).(pulumi.AnyOutput)
 }
@@ -98,6 +101,7 @@ func (o LookupLayerResultOutput) CustomInstanceProfileArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupLayerResult) *string { return v.CustomInstanceProfileArn }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
 func (o LookupLayerResultOutput) CustomJson() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupLayerResult) interface{} { return v.CustomJson }).(pulumi.AnyOutput)
 }

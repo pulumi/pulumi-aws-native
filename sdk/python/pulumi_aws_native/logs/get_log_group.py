@@ -59,6 +59,8 @@ class GetLogGroupResult:
         The policy must be in JSON string format.
 
         Length Constraints: Maximum length of 30720
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "data_protection_policy")
 

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.VpcLattice
     [AwsNativeResourceType("aws-native:vpclattice:AuthPolicy")]
     public partial class AuthPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Output("policy")]
         public Output<object> Policy { get; private set; } = null!;
 
@@ -73,6 +76,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class AuthPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<object> Policy { get; set; } = null!;
 

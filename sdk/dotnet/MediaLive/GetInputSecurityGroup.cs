@@ -53,6 +53,9 @@ namespace Pulumi.AwsNative.MediaLive
     {
         public readonly string? Arn;
         public readonly string? Id;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
         public readonly ImmutableArray<Outputs.InputSecurityGroupInputWhitelistRuleCidr> WhitelistRules;
 

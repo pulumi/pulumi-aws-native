@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.Configuration
         public readonly Outputs.RemediationConfigurationExecutionControls? ExecutionControls;
         public readonly string? Id;
         public readonly int? MaximumAutomaticAttempts;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Parameters;
         public readonly string? ResourceType;
         public readonly int? RetryAttemptSeconds;

@@ -103,10 +103,14 @@ namespace Pulumi.AwsNative.Sqs
         public readonly int? ReceiveMessageWaitTimeSeconds;
         /// <summary>
         /// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? RedriveAllowPolicy;
         /// <summary>
         /// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? RedrivePolicy;
         /// <summary>

@@ -31,7 +31,8 @@ type LookupEventBusPolicyResult struct {
 	Condition *EventBusPolicyCondition `pulumi:"condition"`
 	Id        *string                  `pulumi:"id"`
 	Principal *string                  `pulumi:"principal"`
-	Statement interface{}              `pulumi:"statement"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+	Statement interface{} `pulumi:"statement"`
 }
 
 func LookupEventBusPolicyOutput(ctx *pulumi.Context, args LookupEventBusPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusPolicyResultOutput {
@@ -85,6 +86,7 @@ func (o LookupEventBusPolicyResultOutput) Principal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventBusPolicyResult) *string { return v.Principal }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
 func (o LookupEventBusPolicyResultOutput) Statement() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupEventBusPolicyResult) interface{} { return v.Statement }).(pulumi.AnyOutput)
 }

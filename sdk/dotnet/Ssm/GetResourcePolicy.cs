@@ -71,6 +71,8 @@ namespace Pulumi.AwsNative.Ssm
     {
         /// <summary>
         /// Actual policy statement.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;
         /// <summary>

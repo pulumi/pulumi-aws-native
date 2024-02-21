@@ -38,6 +38,9 @@ export class AttributeGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+     */
     public readonly attributes!: pulumi.Output<any>;
     /**
      * The description of the attribute group. 
@@ -84,6 +87,9 @@ export class AttributeGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a AttributeGroup resource.
  */
 export interface AttributeGroupArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+     */
     attributes: any;
     /**
      * The description of the attribute group. 

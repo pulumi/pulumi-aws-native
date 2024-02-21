@@ -37,6 +37,8 @@ type LookupLogGroupResult struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 30720
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -96,6 +98,8 @@ func (o LookupLogGroupResultOutput) Arn() pulumi.StringPtrOutput {
 // The policy must be in JSON string format.
 //
 // Length Constraints: Maximum length of 30720
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 func (o LookupLogGroupResultOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) interface{} { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }

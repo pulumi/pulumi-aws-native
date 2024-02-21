@@ -1,0 +1,4534 @@
+{
+  "aws-native:accessanalyzer:Analyzer": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:acmpca:CertificateAuthority": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:amplify:App": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:amplify:Branch": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:amplifyuibuilder:Component": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:amplifyuibuilder:Form": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:amplifyuibuilder:Theme": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:apigateway:ApiKey": {
+    "description": "The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:apigateway:ClientCertificate": {
+    "description": "The collection of tags. Each tag element is associated with a given resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:apigateway:DomainName": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:apigateway:RestApi": {
+    "description": "The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:apigateway:Stage": {
+    "description": "The collection of tags. Each tag element is associated with a given resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:apigateway:UsagePlan": {
+    "description": "The collection of tags. Each tag element is associated with a given resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:apigateway:VpcLink": {
+    "description": "An array of arbitrary tags (key-value pairs) to associate with the stage.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:appconfig:Application": {
+    "description": "Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tags"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:appconfig:ConfigurationProfile": {
+    "description": "Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tags"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:appconfig:Environment": {
+    "description": "Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:appconfig:Extension": {
+    "description": "An array of key-value tags to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:appconfig:ExtensionAssociation": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:appflow:Flow": {
+    "description": "List of Tags.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:appintegrations:DataIntegration": {
+    "description": "The tags (keys and values) associated with the data integration.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:appintegrations:EventIntegration": {
+    "description": "The tags (keys and values) associated with the event integration.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:applicationinsights:Application": {
+    "description": "The tags of Application Insights application.",
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:apprunner:AutoScalingConfiguration": {
+    "description": "A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:apprunner:ObservabilityConfiguration": {
+    "description": "A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:apprunner:Service": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:apprunner:VpcConnector": {
+    "description": "A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:apprunner:VpcIngressConnection": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:appstream:AppBlock": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:appstream:AppBlockBuilder": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:appstream:Application": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:appstream:ImageBuilder": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:aps:RuleGroupsNamespace": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:aps:Workspace": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:athena:CapacityReservation": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:athena:DataCatalog": {
+    "$ref": "#/definitions/Tags",
+    "description": "A list of comma separated tags to add to the data catalog that is created. "
+  },
+  "aws-native:athena:WorkGroup": {
+    "$ref": "#/definitions/Tags",
+    "description": "One or more tags, separated by commas, that you want to attach to the workgroup as you create it"
+  },
+  "aws-native:auditmanager:Assessment": {
+    "description": "The tags associated with the assessment.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:autoscaling:AutoScalingGroup": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/TagProperty"
+    },
+    "type": "array"
+  },
+  "aws-native:b2bi:Capability": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:b2bi:Partnership": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:b2bi:Profile": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:b2bi:Transformer": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:backup:Framework": {
+    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:backup:ReportPlan": {
+    "description": "Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:backup:RestoreTestingPlan": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:backupgateway:Hypervisor": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:cassandra:Keyspace": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:cassandra:Table": {
+    "description": "An array of key-value pairs to apply to this resource",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:cleanrooms:AnalysisTemplate": {
+    "description": "An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:cleanrooms:Collaboration": {
+    "description": "An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:cleanrooms:ConfiguredTable": {
+    "description": "An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:cleanrooms:ConfiguredTableAssociation": {
+    "description": "An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:cleanrooms:Membership": {
+    "description": "An arbitrary set of tags (key-value pairs) for this cleanrooms membership.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:cloudformation:Stack": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:cloudformation:StackSet": {
+    "description": "The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:cloudfront:Distribution": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:cloudtrail:Channel": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:cloudtrail:EventDataStore": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:cloudtrail:Trail": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:cloudwatch:MetricStream": {
+    "description": "A set of tags to assign to the delivery stream.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:codeartifact:Domain": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:codeartifact:Repository": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:codebuild:Fleet": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:codedeploy:Application": {
+    "description": "The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. ",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:codeguruprofiler:ProfilingGroup": {
+    "description": "The tags associated with a profiling group.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:codegurureviewer:RepositoryAssociation": {
+    "description": "The tags associated with a repository association.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:codepipeline:CustomActionType": {
+    "description": "Any tags assigned to the custom action.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:codestarconnections:Connection": {
+    "description": "Specifies the tags applied to a connection.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:codestarconnections:RepositoryLink": {
+    "description": "Specifies the tags applied to a RepositoryLink.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:comprehend:DocumentClassifier": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:comprehend:Flywheel": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:configuration:AggregationAuthorization": {
+    "description": "The tags for the AggregationAuthorization.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:configuration:ConfigurationAggregator": {
+    "description": "The tags for the configuration aggregator.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:configuration:StoredQuery": {
+    "description": "The tags for the stored query.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:ContactFlow": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:ContactFlowModule": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:EvaluationForm": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:HoursOfOperation": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:Instance": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:PhoneNumber": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:Prompt": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:Queue": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:QuickConnect": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:RoutingProfile": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:Rule": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:SecurityProfile": {
+    "description": "The tags used to organize, track, or control access for this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:TaskTemplate": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:TrafficDistributionGroup": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:User": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:UserHierarchyGroup": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connect:View": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:connectcampaigns:Campaign": {
+    "description": "One or more tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:controltower:LandingZone": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:customerprofiles:CalculatedAttributeDefinition": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:customerprofiles:Domain": {
+    "description": "The tags (keys and values) associated with the domain",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:customerprofiles:EventStream": {
+    "description": "The tags used to organize, track, or control access for this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:customerprofiles:Integration": {
+    "description": "The tags (keys and values) associated with the integration",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:customerprofiles:ObjectType": {
+    "description": "The tags (keys and values) associated with the integration.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:databrew:Dataset": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:databrew:Job": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:databrew:Project": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:databrew:Recipe": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:databrew:Ruleset": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:databrew:Schedule": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:datapipeline:Pipeline": {
+    "description": "A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/PipelineTag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:datasync:Agent": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationAzureBlob": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationEfs": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationFSxLustre": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationFSxOntap": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationFSxOpenZfs": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationFSxWindows": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationHdfs": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationNfs": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationObjectStorage": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationS3": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:LocationSmb": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:StorageSystem": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datasync:Task": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:datazone:Domain": {
+    "description": "The tags specified for the Amazon DataZone domain.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:detective:Graph": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:devicefarm:DevicePool": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:devicefarm:InstanceProfile": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:devicefarm:NetworkProfile": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:devicefarm:Project": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:devicefarm:TestGridProject": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:devicefarm:VpceConfiguration": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:dms:DataProvider": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:dms:InstanceProfile": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:dms:MigrationProject": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:dms:ReplicationConfig": {
+    "description": "\u003cp\u003eContains a map of the key-value pairs for the resource tag or tags assigned to the dataset.\u003c/p\u003e",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:docdbelastic:Cluster": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:dynamodb:Table": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:CarrierGateway": {
+    "$ref": "#/definitions/Tags",
+    "description": "The tags for the carrier gateway."
+  },
+  "aws-native:ec2:CustomerGateway": {
+    "description": "One or more tags for the customer gateway.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:DhcpOptions": {
+    "description": "Any tags assigned to the DHCP options set.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:Eip": {
+    "description": "Any tags assigned to the EIP.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:FlowLog": {
+    "description": "The tags to apply to the flow logs.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:Instance": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:InstanceConnectEndpoint": {
+    "description": "The tags of the instance connect endpoint.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:InternetGateway": {
+    "description": "Any tags to assign to the internet gateway.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:Ipam": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:IpamPool": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:IpamResourceDiscovery": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:IpamResourceDiscoveryAssociation": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:IpamScope": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:KeyPair": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:LocalGatewayRouteTable": {
+    "$ref": "#/definitions/Tags",
+    "description": "The tags for the local gateway route table."
+  },
+  "aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation": {
+    "$ref": "#/definitions/Tags",
+    "description": "The tags for the local gateway route table virtual interface group association."
+  },
+  "aws-native:ec2:LocalGatewayRouteTableVpcAssociation": {
+    "$ref": "#/definitions/Tags",
+    "description": "The tags for the association."
+  },
+  "aws-native:ec2:NatGateway": {
+    "description": "The tags for the NAT gateway.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:NetworkAcl": {
+    "description": "The tags to assign to the network ACL.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:NetworkInsightsAccessScope": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:ec2:NetworkInsightsAccessScopeAnalysis": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:ec2:NetworkInsightsAnalysis": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:NetworkInsightsPath": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:ec2:NetworkInterface": {
+    "description": "An arbitrary set of tags (key-value pairs) for this network interface.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:PlacementGroup": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:PrefixList": {
+    "description": "Tags for Prefix List",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:ec2:RouteTable": {
+    "description": "Any tags assigned to the route table.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:SecurityGroup": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:Subnet": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:TransitGateway": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:TransitGatewayAttachment": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:TransitGatewayConnect": {
+    "description": "The tags for the attachment.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:ec2:TransitGatewayMulticastDomain": {
+    "description": "The tags for the transit gateway multicast domain.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:ec2:TransitGatewayPeeringAttachment": {
+    "description": "The tags for the transit gateway peering attachment.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:ec2:TransitGatewayRouteTable": {
+    "description": "Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:TransitGatewayVpcAttachment": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:VerifiedAccessEndpoint": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:VerifiedAccessGroup": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:VerifiedAccessInstance": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:VerifiedAccessTrustProvider": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ec2:Volume": {
+    "description": "The tags to apply to the volume during creation.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:Vpc": {
+    "description": "The tags for the VPC.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:VpcPeeringConnection": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:VpnConnection": {
+    "description": "Any tags assigned to the VPN connection.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ec2:VpnGateway": {
+    "description": "Any tags assigned to the virtual private gateway.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ecr:Repository": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ecs:CapacityProvider": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:ecs:Cluster": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:ecs:Service": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:ecs:TaskDefinition": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:efs:AccessPoint": {
+    "description": "An array of key-value pairs to apply to this resource.\n For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/AccessPointTag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:efs:FileSystem": {
+    "items": {
+      "$ref": "#/definitions/ElasticFileSystemTag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:eks:AccessEntry": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:eks:Addon": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:eks:Cluster": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:eks:FargateProfile": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:eks:IdentityProviderConfig": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:eks:PodIdentityAssociation": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:elasticache:ServerlessCache": {
+    "description": "An array of key-value pairs to apply to this Serverless Cache.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:elasticache:SubnetGroup": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:elasticache:User": {
+    "description": "An array of key-value pairs to apply to this user.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:elasticache:UserGroup": {
+    "description": "An array of key-value pairs to apply to this user.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:elasticbeanstalk:Environment": {
+    "description": "Specifies the tags applied to resources in the environment.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:elasticloadbalancingv2:LoadBalancer": {
+    "description": "The tags to assign to the load balancer.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:elasticloadbalancingv2:TargetGroup": {
+    "description": "The tags.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:elasticloadbalancingv2:TrustStore": {
+    "description": "The tags to assign to the trust store.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:emr:Studio": {
+    "$ref": "#/definitions/Tags",
+    "description": "A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters."
+  },
+  "aws-native:emr:WalWorkspace": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:emrcontainers:VirtualCluster": {
+    "description": "An array of key-value pairs to apply to this virtual cluster.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:emrserverless:Application": {
+    "description": "Tag map with key and value",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:entityresolution:IdMappingWorkflow": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:entityresolution:MatchingWorkflow": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:entityresolution:SchemaMapping": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:events:EventBus": {
+    "description": "Any tags assigned to the event bus.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:eventschemas:Discoverer": {
+    "description": "Tags associated with the resource.",
+    "items": {
+      "$ref": "#/definitions/TagsEntry"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:eventschemas:Registry": {
+    "description": "Tags associated with the resource.",
+    "items": {
+      "$ref": "#/definitions/TagsEntry"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:eventschemas:Schema": {
+    "description": "Tags associated with the resource.",
+    "items": {
+      "$ref": "#/definitions/TagsEntry"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:evidently:Experiment": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:evidently:Feature": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:evidently:Launch": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:evidently:Project": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:evidently:Segment": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:finspace:Environment": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:fms:Policy": {
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/PolicyTag"
+    },
+    "type": "array"
+  },
+  "aws-native:fms:ResourceSet": {
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:forecast:Dataset": {
+    "insertionOrder": true,
+    "items": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/Key"
+        },
+        "Value": {
+          "$ref": "#/definitions/Value"
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:forecast:DatasetGroup": {
+    "description": "The tags of Application Insights application.",
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:frauddetector:Detector": {
+    "description": "Tags associated with this detector.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:frauddetector:EntityType": {
+    "description": "Tags associated with this entity type.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:frauddetector:EventType": {
+    "description": "Tags associated with this event type.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:frauddetector:Label": {
+    "description": "Tags associated with this label.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:frauddetector:List": {
+    "description": "Tags associated with this list.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:frauddetector:Outcome": {
+    "description": "Tags associated with this outcome.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:frauddetector:Variable": {
+    "description": "Tags associated with this variable.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:fsx:DataRepositoryAssociation": {
+    "description": "An array of key-value pairs to apply to this resource.\n For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:gamelift:GameServerGroup": {
+    "$ref": "#/definitions/Tags",
+    "description": "A list of labels to assign to the new game server group resource."
+  },
+  "aws-native:gamelift:GameSessionQueue": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:gamelift:Location": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:gamelift:MatchmakingConfiguration": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:gamelift:MatchmakingRuleSet": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:gamelift:Script": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:globalaccelerator:Accelerator": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:glue:Registry": {
+    "description": "List of tags to tag the Registry",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 10,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:glue:Schema": {
+    "description": "List of tags to tag the schema",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 10,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:groundstation:Config": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:groundstation:DataflowEndpointGroup": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:groundstation:MissionProfile": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:guardduty:Detector": {
+    "items": {
+      "$ref": "#/definitions/TagItem"
+    },
+    "type": "array"
+  },
+  "aws-native:guardduty:Filter": {
+    "items": {
+      "$ref": "#/definitions/TagItem"
+    },
+    "type": "array"
+  },
+  "aws-native:guardduty:IpSet": {
+    "items": {
+      "$ref": "#/definitions/TagItem"
+    },
+    "type": "array"
+  },
+  "aws-native:guardduty:ThreatIntelSet": {
+    "items": {
+      "$ref": "#/definitions/TagItem"
+    },
+    "type": "array"
+  },
+  "aws-native:healthimaging:Datastore": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:healthlake:FhirDatastore": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:iam:OidcProvider": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iam:Role": {
+    "description": "A list of tags that are attached to the role.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iam:SamlProvider": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iam:ServerCertificate": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iam:User": {
+    "description": "A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iam:VirtualMfaDevice": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:inspectorv2:CisScanConfiguration": {
+    "$ref": "#/definitions/CisTagMap"
+  },
+  "aws-native:internetmonitor:Monitor": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:iot:Authorizer": {
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:iot:BillingGroup": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:CaCertificate": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:iot:CertificateProvider": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:iot:CustomMetric": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:Dimension": {
+    "description": "Metadata that can be used to manage the dimension.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:DomainConfiguration": {
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:iot:FleetMetric": {
+    "description": "An array of key-value pairs to apply to this resource",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:JobTemplate": {
+    "description": "Metadata that can be used to manage the JobTemplate.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:MitigationAction": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:Policy": {
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:iot:ProvisioningTemplate": {
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:iot:RoleAlias": {
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:iot:ScheduledAudit": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:SecurityProfile": {
+    "description": "Metadata that can be used to manage the security profile.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:SoftwarePackage": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:SoftwarePackageVersion": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:ThingGroup": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:ThingType": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iot:TopicRule": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:iotanalytics:Channel": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 1,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotanalytics:Dataset": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 1,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotanalytics:Datastore": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 1,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotanalytics:Pipeline": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 1,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotcoredeviceadvisor:SuiteDefinition": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iotevents:AlarmModel": {
+    "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotevents:DetectorModel": {
+    "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotevents:Input": {
+    "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotfleethub:Application": {
+    "description": "A list of key-value pairs that contain metadata for the application.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iotsitewise:Asset": {
+    "description": "A list of key-value pairs that contain metadata for the asset.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotsitewise:AssetModel": {
+    "description": "A list of key-value pairs that contain metadata for the asset model.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:iotsitewise:Dashboard": {
+    "description": "A list of key-value pairs that contain metadata for the dashboard.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotsitewise:Gateway": {
+    "description": "A list of key-value pairs that contain metadata for the gateway.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotsitewise:Portal": {
+    "description": "A list of key-value pairs that contain metadata for the portal.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotsitewise:Project": {
+    "description": "A list of key-value pairs that contain metadata for the project.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:iotwireless:Destination": {
+    "description": "A list of key-value pairs that contain metadata for the destination.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iotwireless:DeviceProfile": {
+    "description": "A list of key-value pairs that contain metadata for the device profile.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iotwireless:FuotaTask": {
+    "description": "A list of key-value pairs that contain metadata for the FUOTA task.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iotwireless:MulticastGroup": {
+    "description": "A list of key-value pairs that contain metadata for the Multicast group.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iotwireless:NetworkAnalyzerConfiguration": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iotwireless:ServiceProfile": {
+    "description": "A list of key-value pairs that contain metadata for the service profile.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iotwireless:TaskDefinition": {
+    "description": "A list of key-value pairs that contain metadata for the destination.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iotwireless:WirelessDevice": {
+    "description": "A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:iotwireless:WirelessGateway": {
+    "description": "A list of key-value pairs that contain metadata for the gateway.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ivs:Channel": {
+    "description": "A list of key-value pairs that contain metadata for the asset model.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ivs:PlaybackKeyPair": {
+    "description": "A list of key-value pairs that contain metadata for the asset model.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ivs:RecordingConfiguration": {
+    "description": "A list of key-value pairs that contain metadata for the asset model.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ivs:Stage": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ivs:StreamKey": {
+    "description": "A list of key-value pairs that contain metadata for the asset model.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ivschat:LoggingConfiguration": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ivschat:Room": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:kendra:DataSource": {
+    "$ref": "#/definitions/TagList",
+    "description": "Tags for labeling the data source"
+  },
+  "aws-native:kendra:Faq": {
+    "$ref": "#/definitions/TagList",
+    "description": "Tags for labeling the FAQ"
+  },
+  "aws-native:kendra:Index": {
+    "$ref": "#/definitions/TagList",
+    "description": "Tags for labeling the index"
+  },
+  "aws-native:kendraranking:ExecutionPlan": {
+    "$ref": "#/definitions/Tags",
+    "description": "Tags for labeling the execution plan"
+  },
+  "aws-native:kinesis:Stream": {
+    "description": "An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:kinesisanalyticsv2:Application": {
+    "description": "A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 1,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:kinesisfirehose:DeliveryStream": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:kinesisvideo:SignalingChannel": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 1,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:kinesisvideo:Stream": {
+    "description": "An array of key-value pairs associated with the Kinesis Video Stream.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 1,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:kms:Key": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:kms:ReplicaKey": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:lambda:Function": {
+    "description": "A list of tags to apply to the function.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:lightsail:Bucket": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:lightsail:Certificate": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:lightsail:Container": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:lightsail:Database": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:lightsail:Disk": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:lightsail:Instance": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:lightsail:LoadBalancer": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:location:ApiKey": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:location:GeofenceCollection": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:location:Map": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:location:PlaceIndex": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:location:RouteCalculator": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:location:Tracker": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:logs:Delivery": {
+    "description": "The tags that have been assigned to this delivery.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:logs:DeliveryDestination": {
+    "description": "The tags that have been assigned to this delivery destination.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:logs:DeliverySource": {
+    "description": "The tags that have been assigned to this delivery source.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:logs:LogGroup": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:m2:Application": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:m2:Environment": {
+    "$ref": "#/definitions/TagMap",
+    "description": "Tags associated to this environment."
+  },
+  "aws-native:macie:AllowList": {
+    "description": "A collection of tags associated with a resource",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:macie:CustomDataIdentifier": {
+    "description": "A collection of tags associated with a resource",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:macie:FindingsFilter": {
+    "description": "A collection of tags associated with a resource",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:medialive:Multiplex": {
+    "description": "A collection of key-value pairs.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tags"
+    },
+    "type": "array"
+  },
+  "aws-native:mediapackage:Asset": {
+    "description": "A collection of tags associated with a resource",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:mediapackage:Channel": {
+    "description": "A collection of tags associated with a resource",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:mediapackage:OriginEndpoint": {
+    "description": "A collection of tags associated with a resource",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:mediapackage:PackagingConfiguration": {
+    "description": "A collection of tags associated with a resource",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:mediapackage:PackagingGroup": {
+    "description": "A collection of tags associated with a resource",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:mediapackagev2:Channel": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:mediapackagev2:ChannelGroup": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:mediapackagev2:OriginEndpoint": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:mediatailor:Channel": {
+    "description": "The tags to assign to the channel.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:mediatailor:LiveSource": {
+    "description": "The tags to assign to the live source.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:mediatailor:PlaybackConfiguration": {
+    "description": "The tags to assign to the playback configuration.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:mediatailor:SourceLocation": {
+    "description": "The tags to assign to the source location.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:mediatailor:VodSource": {
+    "description": "The tags to assign to the VOD source.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:memorydb:Acl": {
+    "description": "An array of key-value pairs to apply to this cluster.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:memorydb:Cluster": {
+    "description": "An array of key-value pairs to apply to this cluster.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:memorydb:ParameterGroup": {
+    "description": "An array of key-value pairs to apply to this parameter group.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:memorydb:SubnetGroup": {
+    "description": "An array of key-value pairs to apply to this subnet group.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:memorydb:User": {
+    "description": "An array of key-value pairs to apply to this user.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:msk:Replicator": {
+    "description": "A collection of tags associated with a resource",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:msk:VpcConnection": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:neptune:DbCluster": {
+    "description": "The tags assigned to this cluster.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:neptunegraph:Graph": {
+    "description": "The tags associated with this graph.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkfirewall:Firewall": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkfirewall:FirewallPolicy": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkfirewall:RuleGroup": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkfirewall:TlsInspectionConfiguration": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:ConnectAttachment": {
+    "description": "Tags for the attachment.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:ConnectPeer": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:CoreNetwork": {
+    "description": "The tags for the global network.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:Device": {
+    "description": "The tags for the device.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:GlobalNetwork": {
+    "description": "The tags for the global network.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:Link": {
+    "description": "The tags for the link.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:Site": {
+    "description": "The tags for the site.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:SiteToSiteVpnAttachment": {
+    "description": "Tags for the attachment.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:TransitGatewayPeering": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:TransitGatewayRouteTableAttachment": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:networkmanager:VpcAttachment": {
+    "description": "Tags for the attachment.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:nimblestudio:LaunchProfile": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:nimblestudio:StreamingImage": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:nimblestudio:Studio": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:nimblestudio:StudioComponent": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:omics:AnnotationStore": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:omics:ReferenceStore": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:omics:RunGroup": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:omics:SequenceStore": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:omics:VariantStore": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:omics:Workflow": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:opensearchserverless:Collection": {
+    "description": "List of tags to be added to the resource",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:opensearchservice:Domain": {
+    "description": "An arbitrary set of tags (key-value pairs) for this Domain.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:opsworkscm:Server": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:organizations:Account": {
+    "description": "A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:organizations:OrganizationalUnit": {
+    "description": "A list of tags that you want to attach to the newly created OU.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:organizations:Policy": {
+    "description": "A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:organizations:ResourcePolicy": {
+    "description": "A list of tags that you want to attach to the resource policy",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:osis:Pipeline": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:panorama:ApplicationInstance": {
+    "$ref": "#/definitions/TagList"
+  },
+  "aws-native:panorama:Package": {
+    "$ref": "#/definitions/TagList"
+  },
+  "aws-native:pcaconnectorad:Connector": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:pcaconnectorad:DirectoryRegistration": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:pcaconnectorad:Template": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:pipes:Pipe": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:proton:EnvironmentAccountConnection": {
+    "description": "\u003cp\u003eAn optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.\u003c/p\u003e\n         \u003cp\u003eFor more information, see \u003ca href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\"\u003eProton resources and tagging\u003c/a\u003e in the\n        \u003ci\u003eProton User Guide\u003c/i\u003e.\u003c/p\u003e",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:proton:EnvironmentTemplate": {
+    "description": "\u003cp\u003eAn optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.\u003c/p\u003e\n         \u003cp\u003eFor more information, see \u003ca href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\"\u003eProton resources and tagging\u003c/a\u003e in the\n        \u003ci\u003eProton User Guide\u003c/i\u003e.\u003c/p\u003e",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:proton:ServiceTemplate": {
+    "description": "\u003cp\u003eAn optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.\u003c/p\u003e\n         \u003cp\u003eFor more information, see \u003ca href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\"\u003eProton resources and tagging\u003c/a\u003e in the\n        \u003ci\u003eProton User Guide\u003c/i\u003e.\u003c/p\u003e",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:qldb:Stream": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:quicksight:Analysis": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:quicksight:Dashboard": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:quicksight:DataSet": {
+    "description": "\u003cp\u003eContains a map of the key-value pairs for the resource tag or tags assigned to the dataset.\u003c/p\u003e",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:quicksight:DataSource": {
+    "description": "\u003cp\u003eContains a map of the key-value pairs for the resource tag or tags assigned to the data source.\u003c/p\u003e",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:quicksight:Template": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:quicksight:Theme": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:quicksight:VpcConnection": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:ram:Permission": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:rds:CustomDbEngineVersion": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:rds:DbCluster": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:rds:DbClusterParameterGroup": {
+    "description": "The list of tags for the cluster parameter group.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:rds:DbInstance": {
+    "description": "Tags to assign to the DB instance.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:rds:DbParameterGroup": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:rds:DbProxy": {
+    "description": "An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/TagFormat"
+    },
+    "type": "array"
+  },
+  "aws-native:rds:DbProxyEndpoint": {
+    "description": "An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/TagFormat"
+    },
+    "type": "array"
+  },
+  "aws-native:rds:DbSubnetGroup": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:rds:EventSubscription": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:rds:Integration": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:rds:OptionGroup": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:redshift:Cluster": {
+    "description": "The list of tags for the cluster parameter group.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:redshift:ClusterParameterGroup": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:redshift:ClusterSubnetGroup": {
+    "description": "The list of tags for the cluster parameter group.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:redshift:EventSubscription": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:redshiftserverless:Namespace": {
+    "description": "The list of tags for the namespace.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:redshiftserverless:Workgroup": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:refactorspaces:Application": {
+    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:refactorspaces:Environment": {
+    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:refactorspaces:Route": {
+    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:refactorspaces:Service": {
+    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:rekognition:Collection": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:rekognition:StreamProcessor": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:resiliencehub:App": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:resiliencehub:ResiliencyPolicy": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:resourceexplorer2:Index": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:resourceexplorer2:View": {
+    "$ref": "#/definitions/TagMap"
+  },
+  "aws-native:resourcegroups:Group": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:robomaker:Fleet": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:robomaker:Robot": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:robomaker:RobotApplication": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:robomaker:SimulationApplication": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:rolesanywhere:Crl": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:rolesanywhere:Profile": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:rolesanywhere:TrustAnchor": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:route53recoverycontrol:Cluster": {
+    "description": "A collection of tags associated with a resource",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag",
+      "maxItems": 20
+    },
+    "type": "array"
+  },
+  "aws-native:route53recoverycontrol:ControlPanel": {
+    "description": "A collection of tags associated with a resource",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag",
+      "maxItems": 20
+    },
+    "type": "array"
+  },
+  "aws-native:route53recoverycontrol:SafetyRule": {
+    "description": "A collection of tags associated with a resource",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag",
+      "maxItems": 20
+    },
+    "type": "array"
+  },
+  "aws-native:route53recoveryreadiness:Cell": {
+    "description": "A collection of tags associated with a resource",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag",
+      "maxItems": 20
+    },
+    "type": "array"
+  },
+  "aws-native:route53recoveryreadiness:ReadinessCheck": {
+    "description": "A collection of tags associated with a resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag",
+      "maxItems": 20
+    },
+    "type": "array"
+  },
+  "aws-native:route53recoveryreadiness:RecoveryGroup": {
+    "description": "A collection of tags associated with a resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag",
+      "maxItems": 20
+    },
+    "type": "array"
+  },
+  "aws-native:route53recoveryreadiness:ResourceSet": {
+    "description": "A tag to associate with the parameters for a resource set.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag",
+      "maxItems": 20
+    },
+    "type": "array"
+  },
+  "aws-native:route53resolver:FirewallDomainList": {
+    "description": "Tags",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:route53resolver:FirewallRuleGroup": {
+    "description": "Tags",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:route53resolver:FirewallRuleGroupAssociation": {
+    "description": "Tags",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:route53resolver:OutpostResolver": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:route53resolver:ResolverRule": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:rum:AppMonitor": {
+    "$ref": "#/definitions/TagDef"
+  },
+  "aws-native:s3:AccessGrant": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:s3:AccessGrantsInstance": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:s3:AccessGrantsLocation": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:s3:Bucket": {
+    "description": "An arbitrary set of tags (key-value pairs) for this S3 bucket.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:s3:StorageLens": {
+    "description": "A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:s3:StorageLensGroup": {
+    "description": "A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.",
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:s3outposts:Bucket": {
+    "description": "An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:sagemaker:App": {
+    "description": "A list of tags to apply to the app.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:sagemaker:AppImageConfig": {
+    "description": "A list of tags to apply to the AppImageConfig.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:sagemaker:DataQualityJobDefinition": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:sagemaker:Device": {
+    "description": "Associate tags with the resource",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:sagemaker:DeviceFleet": {
+    "description": "Associate tags with the resource",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:sagemaker:Domain": {
+    "description": "A list of tags to apply to the user profile.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:sagemaker:FeatureGroup": {
+    "description": "An array of key-value pair to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:sagemaker:Image": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:sagemaker:InferenceComponent": {
+    "$ref": "#/definitions/TagList"
+  },
+  "aws-native:sagemaker:InferenceExperiment": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:sagemaker:ModelBiasJobDefinition": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:sagemaker:ModelCard": {
+    "description": "Key-value pairs used to manage metadata for model cards.",
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:sagemaker:ModelExplainabilityJobDefinition": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:sagemaker:ModelPackage": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:sagemaker:ModelPackageGroup": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:sagemaker:ModelQualityJobDefinition": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:sagemaker:MonitoringSchedule": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:sagemaker:Pipeline": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:sagemaker:Project": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 40,
+    "type": "array"
+  },
+  "aws-native:sagemaker:Space": {
+    "description": "A list of tags to apply to the space.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:sagemaker:UserProfile": {
+    "description": "A list of tags to apply to the user profile.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:scheduler:ScheduleGroup": {
+    "description": "The list of tags to associate with the schedule group.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:secretsmanager:Secret": {
+    "description": "The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:securityhub:AutomationRule": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:securityhub:Hub": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:servicecatalog:CloudFormationProvisionedProduct": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:servicecatalogappregistry:Application": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:servicecatalogappregistry:AttributeGroup": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:ses:ContactList": {
+    "description": "The tags (keys and values) associated with the contact list.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:shield:Protection": {
+    "description": "One or more tag key-value pairs for the Protection object.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array"
+  },
+  "aws-native:shield:ProtectionGroup": {
+    "description": "One or more tag key-value pairs for the Protection object.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array"
+  },
+  "aws-native:signer:SigningProfile": {
+    "description": "A list of tags associated with the signing profile.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:sns:Topic": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:sqs:Queue": {
+    "description": "The tags that you attach to this queue.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ssm:Document": {
+    "description": "Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 1000,
+    "type": "array"
+  },
+  "aws-native:ssm:PatchBaseline": {
+    "description": "Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.",
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 1000,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ssmcontacts:Rotation": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:ssmincidents:ReplicationSet": {
+    "default": [],
+    "description": "The tags to apply to the replication set.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:ssmincidents:ResponsePlan": {
+    "default": [],
+    "description": "The tags to apply to the response plan.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:sso:PermissionSet": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array"
+  },
+  "aws-native:stepfunctions:Activity": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/TagsEntry"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:stepfunctions:StateMachine": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/TagsEntry"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:synthetics:Canary": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:synthetics:Group": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:systemsmanagersap:Application": {
+    "description": "The tags of a SystemsManagerSAP application.",
+    "insertionOrder": true,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:timestream:Database": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array"
+  },
+  "aws-native:timestream:ScheduledQuery": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:timestream:Table": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "type": "array"
+  },
+  "aws-native:transfer:Agreement": {
+    "description": "Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:transfer:Certificate": {
+    "description": "Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:transfer:Connector": {
+    "description": "Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:transfer:Profile": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:transfer:Workflow": {
+    "description": "Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:voiceid:Domain": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:vpclattice:AccessLogSubscription": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:vpclattice:Listener": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:vpclattice:Rule": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:vpclattice:Service": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:vpclattice:ServiceNetwork": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:vpclattice:ServiceNetworkServiceAssociation": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:vpclattice:ServiceNetworkVpcAssociation": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:vpclattice:TargetGroup": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 0,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:wafv2:IpSet": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:wafv2:RegexPatternSet": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:wafv2:RuleGroup": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:wafv2:WebAcl": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "minItems": 1,
+    "type": "array"
+  },
+  "aws-native:wisdom:Assistant": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:wisdom:AssistantAssociation": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:wisdom:KnowledgeBase": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:workspaces:ConnectionAlias": {
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array",
+    "uniqueItems": false
+  },
+  "aws-native:workspacesthinclient:Environment": {
+    "description": "An array of key-value pairs to apply to this resource.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 20,
+    "type": "array",
+    "uniqueItems": true
+  },
+  "aws-native:workspacesweb:BrowserSettings": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:workspacesweb:IpAccessSettings": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:workspacesweb:NetworkSettings": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:workspacesweb:Portal": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:workspacesweb:TrustStore": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:workspacesweb:UserAccessLoggingSettings": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:workspacesweb:UserSettings": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 200,
+    "minItems": 0,
+    "type": "array"
+  },
+  "aws-native:xray:Group": {
+    "$ref": "#/definitions/Tags"
+  },
+  "aws-native:xray:SamplingRule": {
+    "$ref": "#/definitions/Tags"
+  }
+}

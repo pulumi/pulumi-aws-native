@@ -36,8 +36,9 @@ type LookupDataLakeSettingsResult struct {
 	ExternalDataFilteringAllowList   *DataLakeSettingsExternalDataFilteringAllowList   `pulumi:"externalDataFilteringAllowList"`
 	Id                               *string                                           `pulumi:"id"`
 	MutationType                     *string                                           `pulumi:"mutationType"`
-	Parameters                       interface{}                                       `pulumi:"parameters"`
-	TrustedResourceOwners            []string                                          `pulumi:"trustedResourceOwners"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+	Parameters            interface{} `pulumi:"parameters"`
+	TrustedResourceOwners []string    `pulumi:"trustedResourceOwners"`
 }
 
 func LookupDataLakeSettingsOutput(ctx *pulumi.Context, args LookupDataLakeSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataLakeSettingsResultOutput {
@@ -117,6 +118,7 @@ func (o LookupDataLakeSettingsResultOutput) MutationType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) *string { return v.MutationType }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
 func (o LookupDataLakeSettingsResultOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }

@@ -37,6 +37,8 @@ type LookupModelResult struct {
 	// The name of the model.
 	Name *string `pulumi:"name"`
 	// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
 	Schema interface{} `pulumi:"schema"`
 }
 
@@ -97,6 +99,8 @@ func (o LookupModelResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
 func (o LookupModelResultOutput) Schema() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupModelResult) interface{} { return v.Schema }).(pulumi.AnyOutput)
 }

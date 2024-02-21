@@ -27,6 +27,7 @@ type LookupPlacementArgs struct {
 }
 
 type LookupPlacementResult struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
 	Attributes interface{} `pulumi:"attributes"`
 	Id         *string     `pulumi:"id"`
 }
@@ -66,6 +67,7 @@ func (o LookupPlacementResultOutput) ToLookupPlacementResultOutputWithContext(ct
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
 func (o LookupPlacementResultOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPlacementResult) interface{} { return v.Attributes }).(pulumi.AnyOutput)
 }

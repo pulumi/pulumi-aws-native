@@ -16,9 +16,15 @@ namespace Pulumi.AwsNative.IoT1Click
     [AwsNativeResourceType("aws-native:iot1click:Placement")]
     public partial class Placement : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        /// </summary>
         [Output("associatedDevices")]
         public Output<object?> AssociatedDevices { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        /// </summary>
         [Output("attributes")]
         public Output<object?> Attributes { get; private set; } = null!;
 
@@ -79,9 +85,15 @@ namespace Pulumi.AwsNative.IoT1Click
 
     public sealed class PlacementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        /// </summary>
         [Input("associatedDevices")]
         public Input<object>? AssociatedDevices { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+        /// </summary>
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
 

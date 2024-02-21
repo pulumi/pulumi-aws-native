@@ -46,6 +46,9 @@ class GetParameterGroupResult:
     @property
     @pulumi.getter
     def properties(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "properties")
 
     @property

@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("agentVersion")]
         public Output<string?> AgentVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        /// </summary>
         [Output("attributes")]
         public Output<object?> Attributes { get; private set; } = null!;
 
@@ -37,6 +40,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("customCookbooksSource")]
         public Output<Outputs.StackSource?> CustomCookbooksSource { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        /// </summary>
         [Output("customJson")]
         public Output<object?> CustomJson { get; private set; } = null!;
 
@@ -147,6 +153,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        /// </summary>
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
 
@@ -170,6 +179,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Input("customCookbooksSource")]
         public Input<Inputs.StackSourceArgs>? CustomCookbooksSource { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        /// </summary>
         [Input("customJson")]
         public Input<object>? CustomJson { get; set; }
 

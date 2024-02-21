@@ -27,26 +27,29 @@ type LookupJobArgs struct {
 }
 
 type LookupJobResult struct {
-	AllocatedCapacity       *float64                 `pulumi:"allocatedCapacity"`
-	Command                 *JobCommand              `pulumi:"command"`
-	Connections             *JobConnectionsList      `pulumi:"connections"`
-	DefaultArguments        interface{}              `pulumi:"defaultArguments"`
-	Description             *string                  `pulumi:"description"`
-	ExecutionClass          *string                  `pulumi:"executionClass"`
-	ExecutionProperty       *JobExecutionProperty    `pulumi:"executionProperty"`
-	GlueVersion             *string                  `pulumi:"glueVersion"`
-	Id                      *string                  `pulumi:"id"`
-	LogUri                  *string                  `pulumi:"logUri"`
-	MaxCapacity             *float64                 `pulumi:"maxCapacity"`
-	MaxRetries              *float64                 `pulumi:"maxRetries"`
+	AllocatedCapacity *float64            `pulumi:"allocatedCapacity"`
+	Command           *JobCommand         `pulumi:"command"`
+	Connections       *JobConnectionsList `pulumi:"connections"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+	DefaultArguments  interface{}           `pulumi:"defaultArguments"`
+	Description       *string               `pulumi:"description"`
+	ExecutionClass    *string               `pulumi:"executionClass"`
+	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
+	GlueVersion       *string               `pulumi:"glueVersion"`
+	Id                *string               `pulumi:"id"`
+	LogUri            *string               `pulumi:"logUri"`
+	MaxCapacity       *float64              `pulumi:"maxCapacity"`
+	MaxRetries        *float64              `pulumi:"maxRetries"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
 	NonOverridableArguments interface{}              `pulumi:"nonOverridableArguments"`
 	NotificationProperty    *JobNotificationProperty `pulumi:"notificationProperty"`
 	NumberOfWorkers         *int                     `pulumi:"numberOfWorkers"`
 	Role                    *string                  `pulumi:"role"`
 	SecurityConfiguration   *string                  `pulumi:"securityConfiguration"`
-	Tags                    interface{}              `pulumi:"tags"`
-	Timeout                 *int                     `pulumi:"timeout"`
-	WorkerType              *string                  `pulumi:"workerType"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+	Tags       interface{} `pulumi:"tags"`
+	Timeout    *int        `pulumi:"timeout"`
+	WorkerType *string     `pulumi:"workerType"`
 }
 
 func LookupJobOutput(ctx *pulumi.Context, args LookupJobOutputArgs, opts ...pulumi.InvokeOption) LookupJobResultOutput {
@@ -96,6 +99,7 @@ func (o LookupJobResultOutput) Connections() JobConnectionsListPtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *JobConnectionsList { return v.Connections }).(JobConnectionsListPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
 func (o LookupJobResultOutput) DefaultArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupJobResult) interface{} { return v.DefaultArguments }).(pulumi.AnyOutput)
 }
@@ -132,6 +136,7 @@ func (o LookupJobResultOutput) MaxRetries() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *float64 { return v.MaxRetries }).(pulumi.Float64PtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
 func (o LookupJobResultOutput) NonOverridableArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupJobResult) interface{} { return v.NonOverridableArguments }).(pulumi.AnyOutput)
 }
@@ -152,6 +157,7 @@ func (o LookupJobResultOutput) SecurityConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *string { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
 func (o LookupJobResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupJobResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

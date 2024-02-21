@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.EventSchemas
     public sealed class GetRegistryPolicyResult
     {
         public readonly string? Id;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Policy;
         public readonly string? RegistryName;
         public readonly string? RevisionId;

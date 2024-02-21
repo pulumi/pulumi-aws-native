@@ -22,6 +22,8 @@ class UserPolicyInitArgs:
         :param pulumi.Input[str] policy_name: The name of the policy document.
         :param pulumi.Input[str] user_name: The name of the user to associate the policy with.
         :param Any policy_document: The policy document.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "user_name", user_name)
@@ -57,6 +59,8 @@ class UserPolicyInitArgs:
     def policy_document(self) -> Optional[Any]:
         """
         The policy document.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 
@@ -80,6 +84,8 @@ class UserPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy_document: The policy document.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
         :param pulumi.Input[str] policy_name: The name of the policy document.
         :param pulumi.Input[str] user_name: The name of the user to associate the policy with.
         """
@@ -160,6 +166,8 @@ class UserPolicy(pulumi.CustomResource):
     def policy_document(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy document.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

@@ -24,6 +24,8 @@ type Environment struct {
 	//     Would be represented as
 	//
 	//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 	AirflowConfigurationOptions  pulumi.AnyOutput                         `pulumi:"airflowConfigurationOptions"`
 	AirflowVersion               pulumi.StringPtrOutput                   `pulumi:"airflowVersion"`
 	Arn                          pulumi.StringOutput                      `pulumi:"arn"`
@@ -48,6 +50,8 @@ type Environment struct {
 	StartupScriptS3ObjectVersion pulumi.StringPtrOutput                   `pulumi:"startupScriptS3ObjectVersion"`
 	StartupScriptS3Path          pulumi.StringPtrOutput                   `pulumi:"startupScriptS3Path"`
 	// A map of tags for the environment.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 	Tags                         pulumi.AnyOutput                        `pulumi:"tags"`
 	WebserverAccessMode          EnvironmentWebserverAccessModePtrOutput `pulumi:"webserverAccessMode"`
 	WebserverUrl                 pulumi.StringOutput                     `pulumi:"webserverUrl"`
@@ -111,6 +115,8 @@ type environmentArgs struct {
 	//     Would be represented as
 	//
 	//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 	AirflowConfigurationOptions  interface{}                      `pulumi:"airflowConfigurationOptions"`
 	AirflowVersion               *string                          `pulumi:"airflowVersion"`
 	DagS3Path                    *string                          `pulumi:"dagS3Path"`
@@ -132,6 +138,8 @@ type environmentArgs struct {
 	StartupScriptS3ObjectVersion *string                          `pulumi:"startupScriptS3ObjectVersion"`
 	StartupScriptS3Path          *string                          `pulumi:"startupScriptS3Path"`
 	// A map of tags for the environment.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 	Tags                         interface{}                     `pulumi:"tags"`
 	WebserverAccessMode          *EnvironmentWebserverAccessMode `pulumi:"webserverAccessMode"`
 	WeeklyMaintenanceWindowStart *string                         `pulumi:"weeklyMaintenanceWindowStart"`
@@ -148,6 +156,8 @@ type EnvironmentArgs struct {
 	//     Would be represented as
 	//
 	//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 	AirflowConfigurationOptions  pulumi.Input
 	AirflowVersion               pulumi.StringPtrInput
 	DagS3Path                    pulumi.StringPtrInput
@@ -169,6 +179,8 @@ type EnvironmentArgs struct {
 	StartupScriptS3ObjectVersion pulumi.StringPtrInput
 	StartupScriptS3Path          pulumi.StringPtrInput
 	// A map of tags for the environment.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 	Tags                         pulumi.Input
 	WebserverAccessMode          EnvironmentWebserverAccessModePtrInput
 	WeeklyMaintenanceWindowStart pulumi.StringPtrInput
@@ -221,6 +233,8 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 //	Would be represented as
 //
 //	"core.dags_folder": "{AIRFLOW_HOME}/dags"
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 func (o EnvironmentOutput) AirflowConfigurationOptions() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Environment) pulumi.AnyOutput { return v.AirflowConfigurationOptions }).(pulumi.AnyOutput)
 }
@@ -314,6 +328,8 @@ func (o EnvironmentOutput) StartupScriptS3Path() pulumi.StringPtrOutput {
 }
 
 // A map of tags for the environment.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
 func (o EnvironmentOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Environment) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

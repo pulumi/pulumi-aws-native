@@ -38,6 +38,9 @@ export class Policy extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
+     */
     public readonly policyDocument!: pulumi.Output<any>;
     public readonly policyName!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.iot.PolicyTag[] | undefined>;
@@ -77,6 +80,9 @@ export class Policy extends pulumi.CustomResource {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
+     */
     policyDocument: any;
     policyName?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.iot.PolicyTagArgs>[]>;

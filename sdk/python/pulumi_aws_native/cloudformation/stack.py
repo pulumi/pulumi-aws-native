@@ -34,6 +34,8 @@ class StackArgs:
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Stack resource.
+        :param Any stack_policy_body: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        :param Any template_body: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
         """
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
@@ -141,6 +143,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="stackPolicyBody")
     def stack_policy_body(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "stack_policy_body")
 
     @stack_policy_body.setter
@@ -177,6 +182,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
@@ -228,6 +236,8 @@ class Stack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any stack_policy_body: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        :param Any template_body: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -427,6 +437,9 @@ class Stack(pulumi.CustomResource):
     @property
     @pulumi.getter(name="stackPolicyBody")
     def stack_policy_body(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "stack_policy_body")
 
     @property
@@ -452,6 +465,9 @@ class Stack(pulumi.CustomResource):
     @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "template_body")
 
     @property

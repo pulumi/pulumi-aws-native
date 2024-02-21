@@ -30,6 +30,8 @@ export interface GetGroupPolicyArgs {
 export interface GetGroupPolicyResult {
     /**
      * The policy document.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
      */
     readonly policyDocument?: any;
 }

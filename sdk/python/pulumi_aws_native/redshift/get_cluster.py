@@ -391,6 +391,8 @@ class GetClusterResult:
     def namespace_resource_policy(self) -> Optional[Any]:
         """
         The namespace resource policy document that will be attached to a Redshift cluster.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "namespace_resource_policy")
 

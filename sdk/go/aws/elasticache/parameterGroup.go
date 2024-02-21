@@ -18,10 +18,11 @@ import (
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	CacheParameterGroupFamily pulumi.StringOutput          `pulumi:"cacheParameterGroupFamily"`
-	Description               pulumi.StringOutput          `pulumi:"description"`
-	Properties                pulumi.AnyOutput             `pulumi:"properties"`
-	Tags                      ParameterGroupTagArrayOutput `pulumi:"tags"`
+	CacheParameterGroupFamily pulumi.StringOutput `pulumi:"cacheParameterGroupFamily"`
+	Description               pulumi.StringOutput `pulumi:"description"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
+	Properties pulumi.AnyOutput             `pulumi:"properties"`
+	Tags       ParameterGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -74,18 +75,20 @@ func (ParameterGroupState) ElementType() reflect.Type {
 }
 
 type parameterGroupArgs struct {
-	CacheParameterGroupFamily string              `pulumi:"cacheParameterGroupFamily"`
-	Description               string              `pulumi:"description"`
-	Properties                interface{}         `pulumi:"properties"`
-	Tags                      []ParameterGroupTag `pulumi:"tags"`
+	CacheParameterGroupFamily string `pulumi:"cacheParameterGroupFamily"`
+	Description               string `pulumi:"description"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
+	Properties interface{}         `pulumi:"properties"`
+	Tags       []ParameterGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
 	CacheParameterGroupFamily pulumi.StringInput
 	Description               pulumi.StringInput
-	Properties                pulumi.Input
-	Tags                      ParameterGroupTagArrayInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
+	Properties pulumi.Input
+	Tags       ParameterGroupTagArrayInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {
@@ -133,6 +136,7 @@ func (o ParameterGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
 func (o ParameterGroupOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
 }

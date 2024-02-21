@@ -74,6 +74,9 @@ class GetRemediationConfigurationResult:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameters")
 
     @property

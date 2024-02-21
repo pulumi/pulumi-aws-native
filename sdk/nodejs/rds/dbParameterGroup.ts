@@ -51,6 +51,8 @@ export class DbParameterGroup extends pulumi.CustomResource {
     public readonly family!: pulumi.Output<string>;
     /**
      * An array of parameter names and values for the parameter update.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
      */
     public readonly parameters!: pulumi.Output<any | undefined>;
     /**
@@ -112,6 +114,8 @@ export interface DbParameterGroupArgs {
     family: pulumi.Input<string>;
     /**
      * An array of parameter names and values for the parameter update.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
      */
     parameters?: any;
     /**

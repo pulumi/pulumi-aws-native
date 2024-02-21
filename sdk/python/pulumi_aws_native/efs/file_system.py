@@ -33,6 +33,7 @@ class FileSystemArgs:
         """
         The set of arguments for constructing a FileSystem resource.
         :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
+        :param Any file_system_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
         """
         if availability_zone_name is not None:
             pulumi.set(__self__, "availability_zone_name", availability_zone_name)
@@ -103,6 +104,9 @@ class FileSystemArgs:
     @property
     @pulumi.getter(name="fileSystemPolicy")
     def file_system_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "file_system_policy")
 
     @file_system_policy.setter
@@ -207,6 +211,7 @@ class FileSystem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
+        :param Any file_system_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -346,6 +351,9 @@ class FileSystem(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fileSystemPolicy")
     def file_system_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "file_system_policy")
 
     @property

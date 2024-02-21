@@ -64,10 +64,14 @@ export class Route extends pulumi.CustomResource {
     public readonly operationName!: pulumi.Output<string | undefined>;
     /**
      * The request models for the route. Supported only for WebSocket APIs.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
      */
     public readonly requestModels!: pulumi.Output<any | undefined>;
     /**
      * The request parameters for the route. Supported only for WebSocket APIs.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
      */
     public readonly requestParameters!: pulumi.Output<any | undefined>;
     public /*out*/ readonly routeId!: pulumi.Output<string>;
@@ -170,10 +174,14 @@ export interface RouteArgs {
     operationName?: pulumi.Input<string>;
     /**
      * The request models for the route. Supported only for WebSocket APIs.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
      */
     requestModels?: any;
     /**
      * The request parameters for the route. Supported only for WebSocket APIs.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
      */
     requestParameters?: any;
     /**

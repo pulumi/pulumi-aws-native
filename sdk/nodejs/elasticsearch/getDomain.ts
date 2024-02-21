@@ -23,7 +23,13 @@ export interface GetDomainArgs {
 }
 
 export interface GetDomainResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+     */
     readonly accessPolicies?: any;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+     */
     readonly advancedOptions?: any;
     readonly advancedSecurityOptions?: outputs.elasticsearch.DomainAdvancedSecurityOptionsInput;
     readonly arn?: string;
@@ -36,6 +42,9 @@ export interface GetDomainResult {
     readonly elasticsearchVersion?: string;
     readonly encryptionAtRestOptions?: outputs.elasticsearch.DomainEncryptionAtRestOptions;
     readonly id?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+     */
     readonly logPublishingOptions?: any;
     readonly nodeToNodeEncryptionOptions?: outputs.elasticsearch.DomainNodeToNodeEncryptionOptions;
     readonly snapshotOptions?: outputs.elasticsearch.DomainSnapshotOptions;

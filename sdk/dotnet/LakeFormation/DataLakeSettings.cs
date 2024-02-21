@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.LakeFormation
         [Output("mutationType")]
         public Output<string?> MutationType { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+        /// </summary>
         [Output("parameters")]
         public Output<object?> Parameters { get; private set; } = null!;
 
@@ -120,6 +123,9 @@ namespace Pulumi.AwsNative.LakeFormation
         [Input("mutationType")]
         public Input<string>? MutationType { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+        /// </summary>
         [Input("parameters")]
         public Input<object>? Parameters { get; set; }
 

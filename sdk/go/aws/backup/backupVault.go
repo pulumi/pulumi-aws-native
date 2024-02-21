@@ -15,6 +15,7 @@ import (
 type BackupVault struct {
 	pulumi.CustomResourceState
 
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
 	AccessPolicy      pulumi.AnyOutput                           `pulumi:"accessPolicy"`
 	BackupVaultArn    pulumi.StringOutput                        `pulumi:"backupVaultArn"`
 	BackupVaultName   pulumi.StringOutput                        `pulumi:"backupVaultName"`
@@ -69,6 +70,7 @@ func (BackupVaultState) ElementType() reflect.Type {
 }
 
 type backupVaultArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
 	AccessPolicy      interface{}                        `pulumi:"accessPolicy"`
 	BackupVaultName   *string                            `pulumi:"backupVaultName"`
 	BackupVaultTags   map[string]string                  `pulumi:"backupVaultTags"`
@@ -79,6 +81,7 @@ type backupVaultArgs struct {
 
 // The set of arguments for constructing a BackupVault resource.
 type BackupVaultArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
 	AccessPolicy      pulumi.Input
 	BackupVaultName   pulumi.StringPtrInput
 	BackupVaultTags   pulumi.StringMapInput
@@ -124,6 +127,7 @@ func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) B
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
 func (o BackupVaultOutput) AccessPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.AnyOutput { return v.AccessPolicy }).(pulumi.AnyOutput)
 }

@@ -18,10 +18,12 @@ import (
 type Layer struct {
 	pulumi.CustomResourceState
 
-	Attributes                  pulumi.AnyOutput                          `pulumi:"attributes"`
-	AutoAssignElasticIps        pulumi.BoolOutput                         `pulumi:"autoAssignElasticIps"`
-	AutoAssignPublicIps         pulumi.BoolOutput                         `pulumi:"autoAssignPublicIps"`
-	CustomInstanceProfileArn    pulumi.StringPtrOutput                    `pulumi:"customInstanceProfileArn"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+	Attributes               pulumi.AnyOutput       `pulumi:"attributes"`
+	AutoAssignElasticIps     pulumi.BoolOutput      `pulumi:"autoAssignElasticIps"`
+	AutoAssignPublicIps      pulumi.BoolOutput      `pulumi:"autoAssignPublicIps"`
+	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
 	CustomJson                  pulumi.AnyOutput                          `pulumi:"customJson"`
 	CustomRecipes               LayerRecipesPtrOutput                     `pulumi:"customRecipes"`
 	CustomSecurityGroupIds      pulumi.StringArrayOutput                  `pulumi:"customSecurityGroupIds"`
@@ -102,10 +104,12 @@ func (LayerState) ElementType() reflect.Type {
 }
 
 type layerArgs struct {
-	Attributes                  interface{}                       `pulumi:"attributes"`
-	AutoAssignElasticIps        bool                              `pulumi:"autoAssignElasticIps"`
-	AutoAssignPublicIps         bool                              `pulumi:"autoAssignPublicIps"`
-	CustomInstanceProfileArn    *string                           `pulumi:"customInstanceProfileArn"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+	Attributes               interface{} `pulumi:"attributes"`
+	AutoAssignElasticIps     bool        `pulumi:"autoAssignElasticIps"`
+	AutoAssignPublicIps      bool        `pulumi:"autoAssignPublicIps"`
+	CustomInstanceProfileArn *string     `pulumi:"customInstanceProfileArn"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
 	CustomJson                  interface{}                       `pulumi:"customJson"`
 	CustomRecipes               *LayerRecipes                     `pulumi:"customRecipes"`
 	CustomSecurityGroupIds      []string                          `pulumi:"customSecurityGroupIds"`
@@ -125,10 +129,12 @@ type layerArgs struct {
 
 // The set of arguments for constructing a Layer resource.
 type LayerArgs struct {
-	Attributes                  pulumi.Input
-	AutoAssignElasticIps        pulumi.BoolInput
-	AutoAssignPublicIps         pulumi.BoolInput
-	CustomInstanceProfileArn    pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+	Attributes               pulumi.Input
+	AutoAssignElasticIps     pulumi.BoolInput
+	AutoAssignPublicIps      pulumi.BoolInput
+	CustomInstanceProfileArn pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
 	CustomJson                  pulumi.Input
 	CustomRecipes               LayerRecipesPtrInput
 	CustomSecurityGroupIds      pulumi.StringArrayInput
@@ -183,6 +189,7 @@ func (o LayerOutput) ToLayerOutputWithContext(ctx context.Context) LayerOutput {
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
 func (o LayerOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Layer) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
 }
@@ -199,6 +206,7 @@ func (o LayerOutput) CustomInstanceProfileArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Layer) pulumi.StringPtrOutput { return v.CustomInstanceProfileArn }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
 func (o LayerOutput) CustomJson() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Layer) pulumi.AnyOutput { return v.CustomJson }).(pulumi.AnyOutput)
 }

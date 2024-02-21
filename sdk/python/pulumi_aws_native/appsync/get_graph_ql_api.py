@@ -132,6 +132,9 @@ class GetGraphQlApiResult:
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "environment_variables")
 
     @property

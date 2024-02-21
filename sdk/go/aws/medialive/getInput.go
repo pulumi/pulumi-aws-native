@@ -36,7 +36,8 @@ type LookupInputResult struct {
 	Name                *string                        `pulumi:"name"`
 	RoleArn             *string                        `pulumi:"roleArn"`
 	Sources             []InputSourceRequest           `pulumi:"sources"`
-	Tags                interface{}                    `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupInputOutput(ctx *pulumi.Context, args LookupInputOutputArgs, opts ...pulumi.InvokeOption) LookupInputResultOutput {
@@ -110,6 +111,7 @@ func (o LookupInputResultOutput) Sources() InputSourceRequestArrayOutput {
 	return o.ApplyT(func(v LookupInputResult) []InputSourceRequest { return v.Sources }).(InputSourceRequestArrayOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
 func (o LookupInputResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupInputResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

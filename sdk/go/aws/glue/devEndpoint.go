@@ -18,6 +18,7 @@ import (
 type DevEndpoint struct {
 	pulumi.CustomResourceState
 
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
 	Arguments             pulumi.AnyOutput         `pulumi:"arguments"`
 	EndpointName          pulumi.StringPtrOutput   `pulumi:"endpointName"`
 	ExtraJarsS3Path       pulumi.StringPtrOutput   `pulumi:"extraJarsS3Path"`
@@ -31,8 +32,9 @@ type DevEndpoint struct {
 	SecurityConfiguration pulumi.StringPtrOutput   `pulumi:"securityConfiguration"`
 	SecurityGroupIds      pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	SubnetId              pulumi.StringPtrOutput   `pulumi:"subnetId"`
-	Tags                  pulumi.AnyOutput         `pulumi:"tags"`
-	WorkerType            pulumi.StringPtrOutput   `pulumi:"workerType"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+	Tags       pulumi.AnyOutput       `pulumi:"tags"`
+	WorkerType pulumi.StringPtrOutput `pulumi:"workerType"`
 }
 
 // NewDevEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -82,6 +84,7 @@ func (DevEndpointState) ElementType() reflect.Type {
 }
 
 type devEndpointArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
 	Arguments             interface{} `pulumi:"arguments"`
 	EndpointName          *string     `pulumi:"endpointName"`
 	ExtraJarsS3Path       *string     `pulumi:"extraJarsS3Path"`
@@ -95,12 +98,14 @@ type devEndpointArgs struct {
 	SecurityConfiguration *string     `pulumi:"securityConfiguration"`
 	SecurityGroupIds      []string    `pulumi:"securityGroupIds"`
 	SubnetId              *string     `pulumi:"subnetId"`
-	Tags                  interface{} `pulumi:"tags"`
-	WorkerType            *string     `pulumi:"workerType"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+	Tags       interface{} `pulumi:"tags"`
+	WorkerType *string     `pulumi:"workerType"`
 }
 
 // The set of arguments for constructing a DevEndpoint resource.
 type DevEndpointArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
 	Arguments             pulumi.Input
 	EndpointName          pulumi.StringPtrInput
 	ExtraJarsS3Path       pulumi.StringPtrInput
@@ -114,8 +119,9 @@ type DevEndpointArgs struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	SecurityGroupIds      pulumi.StringArrayInput
 	SubnetId              pulumi.StringPtrInput
-	Tags                  pulumi.Input
-	WorkerType            pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+	Tags       pulumi.Input
+	WorkerType pulumi.StringPtrInput
 }
 
 func (DevEndpointArgs) ElementType() reflect.Type {
@@ -155,6 +161,7 @@ func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
 func (o DevEndpointOutput) Arguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.AnyOutput { return v.Arguments }).(pulumi.AnyOutput)
 }
@@ -207,6 +214,7 @@ func (o DevEndpointOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
 func (o DevEndpointOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

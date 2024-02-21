@@ -32,6 +32,8 @@ class TopicArgs:
         """
         The set of arguments for constructing a Topic resource.
         :param Any archive_policy: The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
                
                When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
@@ -44,6 +46,8 @@ class TopicArgs:
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 30720
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]] delivery_status_logging: Delivery status logging configuration for supported protocols for an Amazon SNS topic.
         :param pulumi.Input[str] display_name: The display name to use for an Amazon SNS topic with SMS subscriptions.
         :param pulumi.Input[bool] fifo_topic: Set to true to create a FIFO topic.
@@ -87,6 +91,8 @@ class TopicArgs:
     def archive_policy(self) -> Optional[Any]:
         """
         The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "archive_policy")
 
@@ -121,6 +127,8 @@ class TopicArgs:
         The policy must be in JSON string format.
 
         Length Constraints: Maximum length of 30720
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "data_protection_policy")
 
@@ -262,6 +270,8 @@ class Topic(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any archive_policy: The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
                
                When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
@@ -274,6 +284,8 @@ class Topic(pulumi.CustomResource):
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 30720
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicLoggingConfigArgs']]]] delivery_status_logging: Delivery status logging configuration for supported protocols for an Amazon SNS topic.
         :param pulumi.Input[str] display_name: The display name to use for an Amazon SNS topic with SMS subscriptions.
         :param pulumi.Input[bool] fifo_topic: Set to true to create a FIFO topic.
@@ -389,6 +401,8 @@ class Topic(pulumi.CustomResource):
     def archive_policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "archive_policy")
 
@@ -415,6 +429,8 @@ class Topic(pulumi.CustomResource):
         The policy must be in JSON string format.
 
         Length Constraints: Maximum length of 30720
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "data_protection_policy")
 

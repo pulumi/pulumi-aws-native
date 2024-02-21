@@ -25,6 +25,8 @@ class InAppTemplateArgs:
                  template_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a InAppTemplate resource.
+        :param Any custom_config: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "template_name", template_name)
         if content is not None:
@@ -59,6 +61,9 @@ class InAppTemplateArgs:
     @property
     @pulumi.getter(name="customConfig")
     def custom_config(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "custom_config")
 
     @custom_config.setter
@@ -77,6 +82,9 @@ class InAppTemplateArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -110,6 +118,8 @@ class InAppTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any custom_config: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -205,6 +215,9 @@ class InAppTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customConfig")
     def custom_config(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "custom_config")
 
     @property
@@ -215,6 +228,9 @@ class InAppTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @property

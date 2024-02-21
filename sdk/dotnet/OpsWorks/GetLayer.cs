@@ -51,10 +51,16 @@ namespace Pulumi.AwsNative.OpsWorks
     [OutputType]
     public sealed class GetLayerResult
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Attributes;
         public readonly bool? AutoAssignElasticIps;
         public readonly bool? AutoAssignPublicIps;
         public readonly string? CustomInstanceProfileArn;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? CustomJson;
         public readonly Outputs.LayerRecipes? CustomRecipes;
         public readonly ImmutableArray<string> CustomSecurityGroupIds;

@@ -31,6 +31,8 @@ class PermissionSetArgs:
         :param pulumi.Input[str] instance_arn: The sso instance arn that the permission set is owned.
         :param pulumi.Input[str] description: The permission set description.
         :param Any inline_policy: The inline policy to put in permission set.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
         :param pulumi.Input[str] name: The name you want to assign to this permission set.
         :param pulumi.Input[str] relay_state_type: The relay state URL that redirect links to any service in the AWS Management Console.
         :param pulumi.Input[str] session_duration: The length of time that a user can be signed in to an AWS account.
@@ -93,6 +95,8 @@ class PermissionSetArgs:
     def inline_policy(self) -> Optional[Any]:
         """
         The inline policy to put in permission set.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "inline_policy")
 
@@ -187,6 +191,8 @@ class PermissionSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The permission set description.
         :param Any inline_policy: The inline policy to put in permission set.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
         :param pulumi.Input[str] instance_arn: The sso instance arn that the permission set is owned.
         :param pulumi.Input[str] name: The name you want to assign to this permission set.
         :param pulumi.Input[str] relay_state_type: The relay state URL that redirect links to any service in the AWS Management Console.
@@ -303,6 +309,8 @@ class PermissionSet(pulumi.CustomResource):
     def inline_policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The inline policy to put in permission set.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "inline_policy")
 

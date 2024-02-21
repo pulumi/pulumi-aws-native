@@ -29,6 +29,8 @@ class AccessPointArgs:
         :param pulumi.Input[str] bucket_account_id: The AWS account ID associated with the S3 bucket associated with this access point.
         :param pulumi.Input[str] name: The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
         :param Any policy: The Access Point Policy you want to apply to this access point.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
         :param pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
         """
@@ -85,6 +87,8 @@ class AccessPointArgs:
     def policy(self) -> Optional[Any]:
         """
         The Access Point Policy you want to apply to this access point.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 
@@ -138,6 +142,8 @@ class AccessPoint(pulumi.CustomResource):
         :param pulumi.Input[str] bucket_account_id: The AWS account ID associated with the S3 bucket associated with this access point.
         :param pulumi.Input[str] name: The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
         :param Any policy: The Access Point Policy you want to apply to this access point.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
         :param pulumi.Input[pulumi.InputType['AccessPointPublicAccessBlockConfigurationArgs']] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         :param pulumi.Input[pulumi.InputType['AccessPointVpcConfigurationArgs']] vpc_configuration: If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
         """
@@ -279,6 +285,8 @@ class AccessPoint(pulumi.CustomResource):
     def policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The Access Point Policy you want to apply to this access point.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

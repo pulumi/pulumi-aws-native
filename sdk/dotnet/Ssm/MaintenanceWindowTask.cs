@@ -49,6 +49,9 @@ namespace Pulumi.AwsNative.Ssm
         [Output("taskInvocationParameters")]
         public Output<Outputs.MaintenanceWindowTaskTaskInvocationParameters?> TaskInvocationParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+        /// </summary>
         [Output("taskParameters")]
         public Output<object?> TaskParameters { get; private set; } = null!;
 
@@ -146,6 +149,9 @@ namespace Pulumi.AwsNative.Ssm
         [Input("taskInvocationParameters")]
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs>? TaskInvocationParameters { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+        /// </summary>
         [Input("taskParameters")]
         public Input<object>? TaskParameters { get; set; }
 

@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.GreengrassV2
         [Output("lambdaFunction")]
         public Output<Outputs.ComponentVersionLambdaFunctionRecipeSource?> LambdaFunction { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -89,6 +92,9 @@ namespace Pulumi.AwsNative.GreengrassV2
         [Input("lambdaFunction")]
         public Input<Inputs.ComponentVersionLambdaFunctionRecipeSourceArgs>? LambdaFunction { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

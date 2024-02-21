@@ -39,6 +39,8 @@ class GetAccessPointResult:
     def policy(self) -> Optional[Any]:
         """
         The access point policy associated with this access point.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

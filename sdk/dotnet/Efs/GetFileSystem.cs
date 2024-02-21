@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.Efs
         public readonly string? Arn;
         public readonly Outputs.FileSystemBackupPolicy? BackupPolicy;
         public readonly string? FileSystemId;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? FileSystemPolicy;
         public readonly Outputs.FileSystemProtection? FileSystemProtection;
         public readonly ImmutableArray<Outputs.FileSystemElasticFileSystemTag> FileSystemTags;

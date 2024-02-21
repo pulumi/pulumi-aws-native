@@ -28,6 +28,8 @@ class GetTopicInlinePolicyResult:
     def policy_document(self) -> Optional[Any]:
         """
         A policy document that contains permissions to add to the specified SNS topics.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicInlinePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

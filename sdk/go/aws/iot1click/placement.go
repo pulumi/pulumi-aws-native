@@ -18,10 +18,12 @@ import (
 type Placement struct {
 	pulumi.CustomResourceState
 
-	AssociatedDevices pulumi.AnyOutput       `pulumi:"associatedDevices"`
-	Attributes        pulumi.AnyOutput       `pulumi:"attributes"`
-	PlacementName     pulumi.StringPtrOutput `pulumi:"placementName"`
-	ProjectName       pulumi.StringOutput    `pulumi:"projectName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+	AssociatedDevices pulumi.AnyOutput `pulumi:"associatedDevices"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+	Attributes    pulumi.AnyOutput       `pulumi:"attributes"`
+	PlacementName pulumi.StringPtrOutput `pulumi:"placementName"`
+	ProjectName   pulumi.StringOutput    `pulumi:"projectName"`
 }
 
 // NewPlacement registers a new resource with the given unique name, arguments, and options.
@@ -73,18 +75,22 @@ func (PlacementState) ElementType() reflect.Type {
 }
 
 type placementArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
 	AssociatedDevices interface{} `pulumi:"associatedDevices"`
-	Attributes        interface{} `pulumi:"attributes"`
-	PlacementName     *string     `pulumi:"placementName"`
-	ProjectName       string      `pulumi:"projectName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+	Attributes    interface{} `pulumi:"attributes"`
+	PlacementName *string     `pulumi:"placementName"`
+	ProjectName   string      `pulumi:"projectName"`
 }
 
 // The set of arguments for constructing a Placement resource.
 type PlacementArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
 	AssociatedDevices pulumi.Input
-	Attributes        pulumi.Input
-	PlacementName     pulumi.StringPtrInput
-	ProjectName       pulumi.StringInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+	Attributes    pulumi.Input
+	PlacementName pulumi.StringPtrInput
+	ProjectName   pulumi.StringInput
 }
 
 func (PlacementArgs) ElementType() reflect.Type {
@@ -124,10 +130,12 @@ func (o PlacementOutput) ToPlacementOutputWithContext(ctx context.Context) Place
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
 func (o PlacementOutput) AssociatedDevices() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Placement) pulumi.AnyOutput { return v.AssociatedDevices }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
 func (o PlacementOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Placement) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
 }

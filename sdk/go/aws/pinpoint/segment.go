@@ -24,7 +24,8 @@ type Segment struct {
 	Name          pulumi.StringOutput        `pulumi:"name"`
 	SegmentGroups SegmentGroupsPtrOutput     `pulumi:"segmentGroups"`
 	SegmentId     pulumi.StringOutput        `pulumi:"segmentId"`
-	Tags          pulumi.AnyOutput           `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewSegment registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,8 @@ type segmentArgs struct {
 	Dimensions    *SegmentDimensions `pulumi:"dimensions"`
 	Name          *string            `pulumi:"name"`
 	SegmentGroups *SegmentGroups     `pulumi:"segmentGroups"`
-	Tags          interface{}        `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Segment resource.
@@ -87,7 +89,8 @@ type SegmentArgs struct {
 	Dimensions    SegmentDimensionsPtrInput
 	Name          pulumi.StringPtrInput
 	SegmentGroups SegmentGroupsPtrInput
-	Tags          pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (SegmentArgs) ElementType() reflect.Type {
@@ -151,6 +154,7 @@ func (o SegmentOutput) SegmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.SegmentId }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
 func (o SegmentOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Segment) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

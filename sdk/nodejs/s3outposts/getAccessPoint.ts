@@ -29,6 +29,8 @@ export interface GetAccessPointResult {
     readonly arn?: string;
     /**
      * The access point policy associated with this access point.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
      */
     readonly policy?: any;
 }

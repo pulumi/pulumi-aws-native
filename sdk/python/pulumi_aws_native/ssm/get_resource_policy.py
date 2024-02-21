@@ -34,6 +34,8 @@ class GetResourcePolicyResult:
     def policy(self) -> Optional[Any]:
         """
         Actual policy statement.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

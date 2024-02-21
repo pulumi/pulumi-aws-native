@@ -59,6 +59,8 @@ export class View extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<outputs.connect.ViewTag[] | undefined>;
     /**
      * The template of the view as JSON.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
      */
     public readonly template!: pulumi.Output<any>;
     /**
@@ -145,6 +147,8 @@ export interface ViewArgs {
     tags?: pulumi.Input<pulumi.Input<inputs.connect.ViewTagArgs>[]>;
     /**
      * The template of the view as JSON.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
      */
     template: any;
 }

@@ -48,6 +48,8 @@ export class ReplicationConfig extends pulumi.CustomResource {
     public readonly replicationConfigIdentifier!: pulumi.Output<string | undefined>;
     /**
      * JSON settings for Servereless replications that are provisioned using this replication configuration
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
     public readonly replicationSettings!: pulumi.Output<any | undefined>;
     /**
@@ -64,10 +66,14 @@ export class ReplicationConfig extends pulumi.CustomResource {
     public readonly sourceEndpointArn!: pulumi.Output<string | undefined>;
     /**
      * JSON settings for specifying supplemental data
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
     public readonly supplementalSettings!: pulumi.Output<any | undefined>;
     /**
      * JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
     public readonly tableMappings!: pulumi.Output<any | undefined>;
     /**
@@ -136,6 +142,8 @@ export interface ReplicationConfigArgs {
     replicationConfigIdentifier?: pulumi.Input<string>;
     /**
      * JSON settings for Servereless replications that are provisioned using this replication configuration
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
     replicationSettings?: any;
     /**
@@ -152,10 +160,14 @@ export interface ReplicationConfigArgs {
     sourceEndpointArn?: pulumi.Input<string>;
     /**
      * JSON settings for specifying supplemental data
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
     supplementalSettings?: any;
     /**
      * JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
     tableMappings?: any;
     /**

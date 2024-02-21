@@ -42,6 +42,9 @@ export class Queue extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly pricingPlan!: pulumi.Output<string | undefined>;
     public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Queue` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -86,5 +89,8 @@ export interface QueueArgs {
     name?: pulumi.Input<string>;
     pricingPlan?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Queue` for more information about the expected schema for this property.
+     */
     tags?: any;
 }

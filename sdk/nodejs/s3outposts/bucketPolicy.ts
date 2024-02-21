@@ -40,6 +40,8 @@ export class BucketPolicy extends pulumi.CustomResource {
     public readonly bucket!: pulumi.Output<string>;
     /**
      * A policy document containing permissions to add to the specified bucket.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::BucketPolicy` for more information about the expected schema for this property.
      */
     public readonly policyDocument!: pulumi.Output<any>;
 
@@ -83,6 +85,8 @@ export interface BucketPolicyArgs {
     bucket: pulumi.Input<string>;
     /**
      * A policy document containing permissions to add to the specified bucket.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::BucketPolicy` for more information about the expected schema for this property.
      */
     policyDocument: any;
 }

@@ -31,6 +31,9 @@ export interface GetMlTransformResult {
     readonly name?: string;
     readonly numberOfWorkers?: number;
     readonly role?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::MLTransform` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly timeout?: number;
     readonly transformEncryption?: outputs.glue.MlTransformTransformEncryption;

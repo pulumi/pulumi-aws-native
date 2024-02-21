@@ -22,6 +22,8 @@ class RolePolicyInitArgs:
         :param pulumi.Input[str] policy_name: The friendly name (not ARN) identifying the policy.
         :param pulumi.Input[str] role_name: The name of the policy document.
         :param Any policy_document: The policy document.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "role_name", role_name)
@@ -57,6 +59,8 @@ class RolePolicyInitArgs:
     def policy_document(self) -> Optional[Any]:
         """
         The policy document.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 
@@ -80,6 +84,8 @@ class RolePolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy_document: The policy document.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
         :param pulumi.Input[str] policy_name: The friendly name (not ARN) identifying the policy.
         :param pulumi.Input[str] role_name: The name of the policy document.
         """
@@ -160,6 +166,8 @@ class RolePolicy(pulumi.CustomResource):
     def policy_document(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy document.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

@@ -20,6 +20,8 @@ namespace Pulumi.AwsNative.MediaTailor
 
         /// <summary>
         /// &lt;p&gt;The IAM policy for the channel. IAM policies are used to control access to your channel.&lt;/p&gt;
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
         public Output<object> Policy { get; private set; } = null!;
@@ -78,6 +80,8 @@ namespace Pulumi.AwsNative.MediaTailor
 
         /// <summary>
         /// &lt;p&gt;The IAM policy for the channel. IAM policies are used to control access to your channel.&lt;/p&gt;
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy", required: true)]
         public Input<object> Policy { get; set; } = null!;

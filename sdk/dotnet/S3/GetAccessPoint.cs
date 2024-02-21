@@ -71,6 +71,8 @@ namespace Pulumi.AwsNative.S3
         public readonly Pulumi.AwsNative.S3.AccessPointNetworkOrigin? NetworkOrigin;
         /// <summary>
         /// The Access Point Policy you want to apply to this access point.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;
         /// <summary>

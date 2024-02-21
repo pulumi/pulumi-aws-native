@@ -34,7 +34,8 @@ type LookupTriggerResult struct {
 	Predicate              *TriggerPredicate              `pulumi:"predicate"`
 	Schedule               *string                        `pulumi:"schedule"`
 	StartOnCreation        *bool                          `pulumi:"startOnCreation"`
-	Tags                   interface{}                    `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupTriggerOutput(ctx *pulumi.Context, args LookupTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupTriggerResultOutput {
@@ -100,6 +101,7 @@ func (o LookupTriggerResultOutput) StartOnCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupTriggerResult) *bool { return v.StartOnCreation }).(pulumi.BoolPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
 func (o LookupTriggerResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupTriggerResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

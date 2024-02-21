@@ -35,6 +35,8 @@ type LookupAccessPointResult struct {
 	// Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
 	NetworkOrigin *AccessPointNetworkOrigin `pulumi:"networkOrigin"`
 	// The Access Point Policy you want to apply to this access point.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
 	PublicAccessBlockConfiguration *AccessPointPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfiguration"`
@@ -92,6 +94,8 @@ func (o LookupAccessPointResultOutput) NetworkOrigin() AccessPointNetworkOriginP
 }
 
 // The Access Point Policy you want to apply to this access point.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
 func (o LookupAccessPointResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

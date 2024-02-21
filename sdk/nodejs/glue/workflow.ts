@@ -37,10 +37,16 @@ export class Workflow extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workflow.__pulumiType;
     }
 
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+     */
     public readonly defaultRunProperties!: pulumi.Output<any | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly maxConcurrentRuns!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -79,9 +85,15 @@ export class Workflow extends pulumi.CustomResource {
  * The set of arguments for constructing a Workflow resource.
  */
 export interface WorkflowArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+     */
     defaultRunProperties?: any;
     description?: pulumi.Input<string>;
     maxConcurrentRuns?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+     */
     tags?: any;
 }

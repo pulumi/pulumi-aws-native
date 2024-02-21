@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.OpsWorks
     [AwsNativeResourceType("aws-native:opsworks:Layer")]
     public partial class Layer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        /// </summary>
         [Output("attributes")]
         public Output<object?> Attributes { get; private set; } = null!;
 
@@ -28,6 +31,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("customInstanceProfileArn")]
         public Output<string?> CustomInstanceProfileArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        /// </summary>
         [Output("customJson")]
         public Output<object?> CustomJson { get; private set; } = null!;
 
@@ -123,6 +129,9 @@ namespace Pulumi.AwsNative.OpsWorks
 
     public sealed class LayerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        /// </summary>
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
 
@@ -135,6 +144,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Input("customInstanceProfileArn")]
         public Input<string>? CustomInstanceProfileArn { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        /// </summary>
         [Input("customJson")]
         public Input<object>? CustomJson { get; set; }
 

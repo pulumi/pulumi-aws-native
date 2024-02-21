@@ -47,6 +47,8 @@ export interface GetRouteResult {
     readonly operationName?: string;
     /**
      * The request models for the route. Supported only for WebSocket APIs.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
      */
     readonly requestModels?: any;
     readonly routeId?: string;

@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.Greengrass
         public readonly string? Id;
         public readonly string? LatestVersionArn;
         public readonly string? Name;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::ResourceDefinition` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
 
         [OutputConstructor]

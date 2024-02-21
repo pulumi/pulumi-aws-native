@@ -39,6 +39,8 @@ export interface GetRouteResponseResult {
     readonly modelSelectionExpression?: string;
     /**
      * The response models for the route response.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
      */
     readonly responseModels?: any;
     /**

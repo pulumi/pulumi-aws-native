@@ -18,7 +18,8 @@ import (
 type App struct {
 	pulumi.CustomResourceState
 
-	AppSource        AppSourcePtrOutput                `pulumi:"appSource"`
+	AppSource AppSourcePtrOutput `pulumi:"appSource"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
 	Attributes       pulumi.AnyOutput                  `pulumi:"attributes"`
 	DataSources      AppDataSourceArrayOutput          `pulumi:"dataSources"`
 	Description      pulumi.StringPtrOutput            `pulumi:"description"`
@@ -83,7 +84,8 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	AppSource        *AppSource               `pulumi:"appSource"`
+	AppSource *AppSource `pulumi:"appSource"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
 	Attributes       interface{}              `pulumi:"attributes"`
 	DataSources      []AppDataSource          `pulumi:"dataSources"`
 	Description      *string                  `pulumi:"description"`
@@ -99,7 +101,8 @@ type appArgs struct {
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
-	AppSource        AppSourcePtrInput
+	AppSource AppSourcePtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
 	Attributes       pulumi.Input
 	DataSources      AppDataSourceArrayInput
 	Description      pulumi.StringPtrInput
@@ -154,6 +157,7 @@ func (o AppOutput) AppSource() AppSourcePtrOutput {
 	return o.ApplyT(func(v *App) AppSourcePtrOutput { return v.AppSource }).(AppSourcePtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
 func (o AppOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v *App) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
 }

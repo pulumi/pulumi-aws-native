@@ -27,6 +27,9 @@ export interface GetJobDefinitionResult {
     readonly eksProperties?: outputs.batch.JobDefinitionEksProperties;
     readonly id?: string;
     readonly nodeProperties?: outputs.batch.JobDefinitionNodeProperties;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+     */
     readonly parameters?: any;
     readonly platformCapabilities?: string[];
     readonly propagateTags?: boolean;

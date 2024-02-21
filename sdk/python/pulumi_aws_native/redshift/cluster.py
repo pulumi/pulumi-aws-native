@@ -115,6 +115,8 @@ class ClusterArgs:
         :param pulumi.Input[str] master_user_password: The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
         :param pulumi.Input[bool] multi_az: A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
         :param Any namespace_resource_policy: The namespace resource policy document that will be attached to a Redshift cluster.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
@@ -676,6 +678,8 @@ class ClusterArgs:
     def namespace_resource_policy(self) -> Optional[Any]:
         """
         The namespace resource policy document that will be attached to a Redshift cluster.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "namespace_resource_policy")
 
@@ -972,6 +976,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_username: The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
         :param pulumi.Input[bool] multi_az: A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
         :param Any namespace_resource_policy: The namespace resource policy document that will be attached to a Redshift cluster.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
@@ -1534,6 +1540,8 @@ class Cluster(pulumi.CustomResource):
     def namespace_resource_policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The namespace resource policy document that will be attached to a Redshift cluster.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "namespace_resource_policy")
 

@@ -27,7 +27,8 @@ type LookupAttributeGroupArgs struct {
 }
 
 type LookupAttributeGroupResult struct {
-	Arn        *string     `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 	Attributes interface{} `pulumi:"attributes"`
 	// The description of the attribute group.
 	Description *string `pulumi:"description"`
@@ -76,6 +77,7 @@ func (o LookupAttributeGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAttributeGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 func (o LookupAttributeGroupResultOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupAttributeGroupResult) interface{} { return v.Attributes }).(pulumi.AnyOutput)
 }

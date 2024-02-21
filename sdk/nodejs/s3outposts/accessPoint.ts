@@ -51,6 +51,8 @@ export class AccessPoint extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The access point policy associated with this access point.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any | undefined>;
     /**
@@ -108,6 +110,8 @@ export interface AccessPointArgs {
     name?: pulumi.Input<string>;
     /**
      * The access point policy associated with this access point.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
      */
     policy?: any;
     /**

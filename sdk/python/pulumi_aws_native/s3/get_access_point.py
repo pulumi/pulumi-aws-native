@@ -66,6 +66,8 @@ class GetAccessPointResult:
     def policy(self) -> Optional[Any]:
         """
         The Access Point Policy you want to apply to this access point.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

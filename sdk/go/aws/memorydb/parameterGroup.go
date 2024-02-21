@@ -25,6 +25,8 @@ type ParameterGroup struct {
 	// The name of the parameter group.
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this parameter group.
 	Tags ParameterGroupTagArrayOutput `pulumi:"tags"`
@@ -86,6 +88,8 @@ type parameterGroupArgs struct {
 	// The name of the parameter group.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{} `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this parameter group.
 	Tags []ParameterGroupTag `pulumi:"tags"`
@@ -100,6 +104,8 @@ type ParameterGroupArgs struct {
 	// The name of the parameter group.
 	ParameterGroupName pulumi.StringPtrInput
 	// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.Input
 	// An array of key-value pairs to apply to this parameter group.
 	Tags ParameterGroupTagArrayInput
@@ -163,6 +169,8 @@ func (o ParameterGroupOutput) ParameterGroupName() pulumi.StringOutput {
 }
 
 // An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
 func (o ParameterGroupOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }

@@ -32,6 +32,8 @@ namespace Pulumi.AwsNative.Oam
 
         /// <summary>
         /// Tags to apply to the link
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
         /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
@@ -102,6 +104,8 @@ namespace Pulumi.AwsNative.Oam
 
         /// <summary>
         /// Tags to apply to the link
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
         /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }

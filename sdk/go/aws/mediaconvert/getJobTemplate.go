@@ -35,9 +35,11 @@ type LookupJobTemplateResult struct {
 	Id                   *string                          `pulumi:"id"`
 	Priority             *int                             `pulumi:"priority"`
 	Queue                *string                          `pulumi:"queue"`
-	SettingsJson         interface{}                      `pulumi:"settingsJson"`
-	StatusUpdateInterval *string                          `pulumi:"statusUpdateInterval"`
-	Tags                 interface{}                      `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+	SettingsJson         interface{} `pulumi:"settingsJson"`
+	StatusUpdateInterval *string     `pulumi:"statusUpdateInterval"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupJobTemplateOutput(ctx *pulumi.Context, args LookupJobTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupJobTemplateResultOutput {
@@ -107,6 +109,7 @@ func (o LookupJobTemplateResultOutput) Queue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobTemplateResult) *string { return v.Queue }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
 func (o LookupJobTemplateResultOutput) SettingsJson() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupJobTemplateResult) interface{} { return v.SettingsJson }).(pulumi.AnyOutput)
 }
@@ -115,6 +118,7 @@ func (o LookupJobTemplateResultOutput) StatusUpdateInterval() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupJobTemplateResult) *string { return v.StatusUpdateInterval }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
 func (o LookupJobTemplateResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupJobTemplateResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

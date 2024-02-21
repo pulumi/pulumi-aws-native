@@ -42,8 +42,12 @@ type Queue struct {
 	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
 	ReceiveMessageWaitTimeSeconds pulumi.IntPtrOutput `pulumi:"receiveMessageWaitTimeSeconds"`
 	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
 	RedriveAllowPolicy pulumi.AnyOutput `pulumi:"redriveAllowPolicy"`
 	// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
 	RedrivePolicy pulumi.AnyOutput `pulumi:"redrivePolicy"`
 	// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
 	SqsManagedSseEnabled pulumi.BoolPtrOutput `pulumi:"sqsManagedSseEnabled"`
@@ -121,8 +125,12 @@ type queueArgs struct {
 	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
 	ReceiveMessageWaitTimeSeconds *int `pulumi:"receiveMessageWaitTimeSeconds"`
 	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
 	RedriveAllowPolicy interface{} `pulumi:"redriveAllowPolicy"`
 	// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
 	RedrivePolicy interface{} `pulumi:"redrivePolicy"`
 	// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
 	SqsManagedSseEnabled *bool `pulumi:"sqsManagedSseEnabled"`
@@ -157,8 +165,12 @@ type QueueArgs struct {
 	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
 	ReceiveMessageWaitTimeSeconds pulumi.IntPtrInput
 	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
 	RedriveAllowPolicy pulumi.Input
 	// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
 	RedrivePolicy pulumi.Input
 	// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
 	SqsManagedSseEnabled pulumi.BoolPtrInput
@@ -271,11 +283,15 @@ func (o QueueOutput) ReceiveMessageWaitTimeSeconds() pulumi.IntPtrOutput {
 }
 
 // The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
 func (o QueueOutput) RedriveAllowPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Queue) pulumi.AnyOutput { return v.RedriveAllowPolicy }).(pulumi.AnyOutput)
 }
 
 // A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
 func (o QueueOutput) RedrivePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Queue) pulumi.AnyOutput { return v.RedrivePolicy }).(pulumi.AnyOutput)
 }

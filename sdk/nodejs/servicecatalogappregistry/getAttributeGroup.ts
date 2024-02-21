@@ -24,6 +24,9 @@ export interface GetAttributeGroupArgs {
 
 export interface GetAttributeGroupResult {
     readonly arn?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+     */
     readonly attributes?: any;
     /**
      * The description of the attribute group. 

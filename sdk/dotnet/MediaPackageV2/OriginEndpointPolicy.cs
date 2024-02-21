@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("originEndpointName")]
         public Output<string?> OriginEndpointName { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Output("policy")]
         public Output<object> Policy { get; private set; } = null!;
 
@@ -87,6 +90,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Input("originEndpointName")]
         public Input<string>? OriginEndpointName { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<object> Policy { get; set; } = null!;
 

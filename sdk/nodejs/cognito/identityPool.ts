@@ -39,6 +39,9 @@ export class IdentityPool extends pulumi.CustomResource {
 
     public readonly allowClassicFlow!: pulumi.Output<boolean | undefined>;
     public readonly allowUnauthenticatedIdentities!: pulumi.Output<boolean>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+     */
     public readonly cognitoEvents!: pulumi.Output<any | undefined>;
     public readonly cognitoIdentityProviders!: pulumi.Output<outputs.cognito.IdentityPoolCognitoIdentityProvider[] | undefined>;
     public readonly cognitoStreams!: pulumi.Output<outputs.cognito.IdentityPoolCognitoStreams | undefined>;
@@ -48,6 +51,9 @@ export class IdentityPool extends pulumi.CustomResource {
     public readonly openIdConnectProviderArns!: pulumi.Output<string[] | undefined>;
     public readonly pushSync!: pulumi.Output<outputs.cognito.IdentityPoolPushSync | undefined>;
     public readonly samlProviderArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+     */
     public readonly supportedLoginProviders!: pulumi.Output<any | undefined>;
 
     /**
@@ -101,6 +107,9 @@ export class IdentityPool extends pulumi.CustomResource {
 export interface IdentityPoolArgs {
     allowClassicFlow?: pulumi.Input<boolean>;
     allowUnauthenticatedIdentities: pulumi.Input<boolean>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+     */
     cognitoEvents?: any;
     cognitoIdentityProviders?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolCognitoIdentityProviderArgs>[]>;
     cognitoStreams?: pulumi.Input<inputs.cognito.IdentityPoolCognitoStreamsArgs>;
@@ -109,5 +118,8 @@ export interface IdentityPoolArgs {
     openIdConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
     pushSync?: pulumi.Input<inputs.cognito.IdentityPoolPushSyncArgs>;
     samlProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+     */
     supportedLoginProviders?: any;
 }

@@ -249,6 +249,8 @@ namespace Pulumi.AwsNative.Redshift
 
         /// <summary>
         /// The namespace resource policy document that will be attached to a Redshift cluster.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
         /// </summary>
         [Output("namespaceResourcePolicy")]
         public Output<object?> NamespaceResourcePolicy { get; private set; } = null!;
@@ -633,6 +635,8 @@ namespace Pulumi.AwsNative.Redshift
 
         /// <summary>
         /// The namespace resource policy document that will be attached to a Redshift cluster.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
         /// </summary>
         [Input("namespaceResourcePolicy")]
         public Input<object>? NamespaceResourcePolicy { get; set; }

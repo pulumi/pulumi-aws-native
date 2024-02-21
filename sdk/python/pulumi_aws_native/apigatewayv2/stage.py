@@ -30,6 +30,9 @@ class StageArgs:
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Stage resource.
+        :param Any route_settings: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        :param Any stage_variables: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "api_id", api_id)
         if access_log_settings is not None:
@@ -130,6 +133,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="routeSettings")
     def route_settings(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "route_settings")
 
     @route_settings.setter
@@ -148,6 +154,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="stageVariables")
     def stage_variables(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "stage_variables")
 
     @stage_variables.setter
@@ -157,6 +166,9 @@ class StageArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -192,6 +204,9 @@ class Stage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any route_settings: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        :param Any stage_variables: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -334,6 +349,9 @@ class Stage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="routeSettings")
     def route_settings(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "route_settings")
 
     @property
@@ -344,10 +362,16 @@ class Stage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="stageVariables")
     def stage_variables(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "stage_variables")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 

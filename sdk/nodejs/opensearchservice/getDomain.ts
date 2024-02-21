@@ -23,6 +23,9 @@ export interface GetDomainArgs {
 }
 
 export interface GetDomainResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
+     */
     readonly accessPolicies?: any;
     readonly advancedOptions?: {[key: string]: string};
     readonly advancedSecurityOptions?: outputs.opensearchservice.DomainAdvancedSecurityOptionsInput;

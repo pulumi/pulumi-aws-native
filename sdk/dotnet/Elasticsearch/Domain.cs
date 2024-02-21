@@ -16,9 +16,15 @@ namespace Pulumi.AwsNative.Elasticsearch
     [AwsNativeResourceType("aws-native:elasticsearch:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        /// </summary>
         [Output("accessPolicies")]
         public Output<object?> AccessPolicies { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        /// </summary>
         [Output("advancedOptions")]
         public Output<object?> AdvancedOptions { get; private set; } = null!;
 
@@ -55,6 +61,9 @@ namespace Pulumi.AwsNative.Elasticsearch
         [Output("encryptionAtRestOptions")]
         public Output<Outputs.DomainEncryptionAtRestOptions?> EncryptionAtRestOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        /// </summary>
         [Output("logPublishingOptions")]
         public Output<object?> LogPublishingOptions { get; private set; } = null!;
 
@@ -119,9 +128,15 @@ namespace Pulumi.AwsNative.Elasticsearch
 
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        /// </summary>
         [Input("accessPolicies")]
         public Input<object>? AccessPolicies { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        /// </summary>
         [Input("advancedOptions")]
         public Input<object>? AdvancedOptions { get; set; }
 
@@ -149,6 +164,9 @@ namespace Pulumi.AwsNative.Elasticsearch
         [Input("encryptionAtRestOptions")]
         public Input<Inputs.DomainEncryptionAtRestOptionsArgs>? EncryptionAtRestOptions { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+        /// </summary>
         [Input("logPublishingOptions")]
         public Input<object>? LogPublishingOptions { get; set; }
 

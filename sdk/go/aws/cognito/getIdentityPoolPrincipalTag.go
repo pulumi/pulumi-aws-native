@@ -28,6 +28,7 @@ type LookupIdentityPoolPrincipalTagArgs struct {
 }
 
 type LookupIdentityPoolPrincipalTagResult struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
 	PrincipalTags interface{} `pulumi:"principalTags"`
 	UseDefaults   *bool       `pulumi:"useDefaults"`
 }
@@ -68,6 +69,7 @@ func (o LookupIdentityPoolPrincipalTagResultOutput) ToLookupIdentityPoolPrincipa
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
 func (o LookupIdentityPoolPrincipalTagResultOutput) PrincipalTags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupIdentityPoolPrincipalTagResult) interface{} { return v.PrincipalTags }).(pulumi.AnyOutput)
 }

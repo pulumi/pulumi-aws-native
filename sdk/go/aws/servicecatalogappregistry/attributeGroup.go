@@ -16,8 +16,9 @@ import (
 type AttributeGroup struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput `pulumi:"arn"`
-	Attributes pulumi.AnyOutput    `pulumi:"attributes"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+	Attributes pulumi.AnyOutput `pulumi:"attributes"`
 	// The description of the attribute group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the attribute group.
@@ -68,6 +69,7 @@ func (AttributeGroupState) ElementType() reflect.Type {
 }
 
 type attributeGroupArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 	Attributes interface{} `pulumi:"attributes"`
 	// The description of the attribute group.
 	Description *string `pulumi:"description"`
@@ -78,6 +80,7 @@ type attributeGroupArgs struct {
 
 // The set of arguments for constructing a AttributeGroup resource.
 type AttributeGroupArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 	Attributes pulumi.Input
 	// The description of the attribute group.
 	Description pulumi.StringPtrInput
@@ -127,6 +130,7 @@ func (o AttributeGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttributeGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 func (o AttributeGroupOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AttributeGroup) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
 }

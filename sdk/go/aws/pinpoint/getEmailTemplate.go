@@ -27,14 +27,15 @@ type LookupEmailTemplateArgs struct {
 }
 
 type LookupEmailTemplateResult struct {
-	Arn                  *string     `pulumi:"arn"`
-	DefaultSubstitutions *string     `pulumi:"defaultSubstitutions"`
-	HtmlPart             *string     `pulumi:"htmlPart"`
-	Id                   *string     `pulumi:"id"`
-	Subject              *string     `pulumi:"subject"`
-	Tags                 interface{} `pulumi:"tags"`
-	TemplateDescription  *string     `pulumi:"templateDescription"`
-	TextPart             *string     `pulumi:"textPart"`
+	Arn                  *string `pulumi:"arn"`
+	DefaultSubstitutions *string `pulumi:"defaultSubstitutions"`
+	HtmlPart             *string `pulumi:"htmlPart"`
+	Id                   *string `pulumi:"id"`
+	Subject              *string `pulumi:"subject"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::EmailTemplate` for more information about the expected schema for this property.
+	Tags                interface{} `pulumi:"tags"`
+	TemplateDescription *string     `pulumi:"templateDescription"`
+	TextPart            *string     `pulumi:"textPart"`
 }
 
 func LookupEmailTemplateOutput(ctx *pulumi.Context, args LookupEmailTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupEmailTemplateResultOutput {
@@ -92,6 +93,7 @@ func (o LookupEmailTemplateResultOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEmailTemplateResult) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::EmailTemplate` for more information about the expected schema for this property.
 func (o LookupEmailTemplateResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupEmailTemplateResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

@@ -63,6 +63,8 @@ namespace Pulumi.AwsNative.Organizations
         public readonly string? Arn;
         /// <summary>
         /// The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Content;
         /// <summary>

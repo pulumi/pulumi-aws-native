@@ -36,6 +36,9 @@ export class IdentityPoolPrincipalTag extends pulumi.CustomResource {
 
     public readonly identityPoolId!: pulumi.Output<string>;
     public readonly identityProviderName!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+     */
     public readonly principalTags!: pulumi.Output<any | undefined>;
     public readonly useDefaults!: pulumi.Output<boolean | undefined>;
 
@@ -79,6 +82,9 @@ export class IdentityPoolPrincipalTag extends pulumi.CustomResource {
 export interface IdentityPoolPrincipalTagArgs {
     identityPoolId: pulumi.Input<string>;
     identityProviderName: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+     */
     principalTags?: any;
     useDefaults?: pulumi.Input<boolean>;
 }

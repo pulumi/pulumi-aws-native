@@ -15,6 +15,7 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
 	AccessPolicies              pulumi.AnyOutput                            `pulumi:"accessPolicies"`
 	AdvancedOptions             pulumi.StringMapOutput                      `pulumi:"advancedOptions"`
 	AdvancedSecurityOptions     DomainAdvancedSecurityOptionsInputPtrOutput `pulumi:"advancedSecurityOptions"`
@@ -86,6 +87,7 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
 	AccessPolicies              interface{}                          `pulumi:"accessPolicies"`
 	AdvancedOptions             map[string]string                    `pulumi:"advancedOptions"`
 	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput  `pulumi:"advancedSecurityOptions"`
@@ -109,6 +111,7 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
 	AccessPolicies              pulumi.Input
 	AdvancedOptions             pulumi.StringMapInput
 	AdvancedSecurityOptions     DomainAdvancedSecurityOptionsInputPtrInput
@@ -167,6 +170,7 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
 func (o DomainOutput) AccessPolicies() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.AccessPolicies }).(pulumi.AnyOutput)
 }

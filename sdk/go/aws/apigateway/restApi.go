@@ -22,6 +22,8 @@ type RestApi struct {
 	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
 	BinaryMediaTypes pulumi.StringArrayOutput `pulumi:"binaryMediaTypes"`
 	// An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Body pulumi.AnyOutput `pulumi:"body"`
 	// The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
 	BodyS3Location RestApiS3LocationPtrOutput `pulumi:"bodyS3Location"`
@@ -49,6 +51,8 @@ type RestApi struct {
 	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Policy         pulumi.AnyOutput    `pulumi:"policy"`
 	RestApiId      pulumi.StringOutput `pulumi:"restApiId"`
 	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
@@ -101,6 +105,8 @@ type restApiArgs struct {
 	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
 	BinaryMediaTypes []string `pulumi:"binaryMediaTypes"`
 	// An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Body interface{} `pulumi:"body"`
 	// The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
 	BodyS3Location *RestApiS3Location `pulumi:"bodyS3Location"`
@@ -128,6 +134,8 @@ type restApiArgs struct {
 	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
 	Parameters map[string]string `pulumi:"parameters"`
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
 	Tags []RestApiTag `pulumi:"tags"`
@@ -140,6 +148,8 @@ type RestApiArgs struct {
 	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
 	BinaryMediaTypes pulumi.StringArrayInput
 	// An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Body pulumi.Input
 	// The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
 	BodyS3Location RestApiS3LocationPtrInput
@@ -167,6 +177,8 @@ type RestApiArgs struct {
 	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
 	Parameters pulumi.StringMapInput
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Policy pulumi.Input
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
 	Tags RestApiTagArrayInput
@@ -220,6 +232,8 @@ func (o RestApiOutput) BinaryMediaTypes() pulumi.StringArrayOutput {
 }
 
 // An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 func (o RestApiOutput) Body() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.AnyOutput { return v.Body }).(pulumi.AnyOutput)
 }
@@ -281,6 +295,8 @@ func (o RestApiOutput) Parameters() pulumi.StringMapOutput {
 }
 
 // A policy document that contains the permissions for the “RestApi“ resource. To set the ARN for the policy, use the “!Join“ intrinsic function with “""“ as delimiter and values of “"execute-api:/"“ and “"*"“.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 func (o RestApiOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }
