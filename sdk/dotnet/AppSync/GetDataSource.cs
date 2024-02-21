@@ -59,6 +59,7 @@ namespace Pulumi.AwsNative.AppSync
         public readonly Outputs.DataSourceHttpConfig? HttpConfig;
         public readonly string? Id;
         public readonly Outputs.DataSourceLambdaConfig? LambdaConfig;
+        public readonly string? MetricsConfig;
         public readonly Outputs.DataSourceOpenSearchServiceConfig? OpenSearchServiceConfig;
         public readonly Outputs.DataSourceRelationalDatabaseConfig? RelationalDatabaseConfig;
         public readonly string? ServiceRoleArn;
@@ -82,6 +83,8 @@ namespace Pulumi.AwsNative.AppSync
 
             Outputs.DataSourceLambdaConfig? lambdaConfig,
 
+            string? metricsConfig,
+
             Outputs.DataSourceOpenSearchServiceConfig? openSearchServiceConfig,
 
             Outputs.DataSourceRelationalDatabaseConfig? relationalDatabaseConfig,
@@ -98,6 +101,7 @@ namespace Pulumi.AwsNative.AppSync
             HttpConfig = httpConfig;
             Id = id;
             LambdaConfig = lambdaConfig;
+            MetricsConfig = metricsConfig;
             OpenSearchServiceConfig = openSearchServiceConfig;
             RelationalDatabaseConfig = relationalDatabaseConfig;
             ServiceRoleArn = serviceRoleArn;

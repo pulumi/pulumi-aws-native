@@ -22,10 +22,14 @@ __all__ = [
     'HostedZoneVpc',
     'RecordSetAliasTarget',
     'RecordSetCidrRoutingConfig',
+    'RecordSetCoordinates',
     'RecordSetGeoLocation',
+    'RecordSetGeoProximityLocation',
     'RecordSetGroupAliasTarget',
     'RecordSetGroupCidrRoutingConfig',
+    'RecordSetGroupCoordinates',
     'RecordSetGroupGeoLocation',
+    'RecordSetGroupGeoProximityLocation',
     'RecordSetGroupRecordSet',
 ]
 
@@ -568,6 +572,25 @@ class RecordSetCidrRoutingConfig(dict):
 
 
 @pulumi.output_type
+class RecordSetCoordinates(dict):
+    def __init__(__self__, *,
+                 latitude: str,
+                 longitude: str):
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> str:
+        return pulumi.get(self, "latitude")
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> str:
+        return pulumi.get(self, "longitude")
+
+
+@pulumi.output_type
 class RecordSetGeoLocation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -615,6 +638,62 @@ class RecordSetGeoLocation(dict):
     @pulumi.getter(name="subdivisionCode")
     def subdivision_code(self) -> Optional[str]:
         return pulumi.get(self, "subdivision_code")
+
+
+@pulumi.output_type
+class RecordSetGeoProximityLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "localZoneGroup":
+            suggest = "local_zone_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetGeoProximityLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetGeoProximityLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetGeoProximityLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: Optional[str] = None,
+                 bias: Optional[int] = None,
+                 coordinates: Optional['outputs.RecordSetCoordinates'] = None,
+                 local_zone_group: Optional[str] = None):
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if coordinates is not None:
+            pulumi.set(__self__, "coordinates", coordinates)
+        if local_zone_group is not None:
+            pulumi.set(__self__, "local_zone_group", local_zone_group)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[str]:
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional[int]:
+        return pulumi.get(self, "bias")
+
+    @property
+    @pulumi.getter
+    def coordinates(self) -> Optional['outputs.RecordSetCoordinates']:
+        return pulumi.get(self, "coordinates")
+
+    @property
+    @pulumi.getter(name="localZoneGroup")
+    def local_zone_group(self) -> Optional[str]:
+        return pulumi.get(self, "local_zone_group")
 
 
 @pulumi.output_type
@@ -704,6 +783,25 @@ class RecordSetGroupCidrRoutingConfig(dict):
 
 
 @pulumi.output_type
+class RecordSetGroupCoordinates(dict):
+    def __init__(__self__, *,
+                 latitude: str,
+                 longitude: str):
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> str:
+        return pulumi.get(self, "latitude")
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> str:
+        return pulumi.get(self, "longitude")
+
+
+@pulumi.output_type
 class RecordSetGroupGeoLocation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -754,6 +852,62 @@ class RecordSetGroupGeoLocation(dict):
 
 
 @pulumi.output_type
+class RecordSetGroupGeoProximityLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "localZoneGroup":
+            suggest = "local_zone_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetGroupGeoProximityLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetGroupGeoProximityLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetGroupGeoProximityLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: Optional[str] = None,
+                 bias: Optional[int] = None,
+                 coordinates: Optional['outputs.RecordSetGroupCoordinates'] = None,
+                 local_zone_group: Optional[str] = None):
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if coordinates is not None:
+            pulumi.set(__self__, "coordinates", coordinates)
+        if local_zone_group is not None:
+            pulumi.set(__self__, "local_zone_group", local_zone_group)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[str]:
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional[int]:
+        return pulumi.get(self, "bias")
+
+    @property
+    @pulumi.getter
+    def coordinates(self) -> Optional['outputs.RecordSetGroupCoordinates']:
+        return pulumi.get(self, "coordinates")
+
+    @property
+    @pulumi.getter(name="localZoneGroup")
+    def local_zone_group(self) -> Optional[str]:
+        return pulumi.get(self, "local_zone_group")
+
+
+@pulumi.output_type
 class RecordSetGroupRecordSet(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -764,6 +918,8 @@ class RecordSetGroupRecordSet(dict):
             suggest = "cidr_routing_config"
         elif key == "geoLocation":
             suggest = "geo_location"
+        elif key == "geoProximityLocation":
+            suggest = "geo_proximity_location"
         elif key == "healthCheckId":
             suggest = "health_check_id"
         elif key == "hostedZoneId":
@@ -795,6 +951,7 @@ class RecordSetGroupRecordSet(dict):
                  cidr_routing_config: Optional['outputs.RecordSetGroupCidrRoutingConfig'] = None,
                  failover: Optional[str] = None,
                  geo_location: Optional['outputs.RecordSetGroupGeoLocation'] = None,
+                 geo_proximity_location: Optional['outputs.RecordSetGroupGeoProximityLocation'] = None,
                  health_check_id: Optional[str] = None,
                  hosted_zone_id: Optional[str] = None,
                  hosted_zone_name: Optional[str] = None,
@@ -814,6 +971,8 @@ class RecordSetGroupRecordSet(dict):
             pulumi.set(__self__, "failover", failover)
         if geo_location is not None:
             pulumi.set(__self__, "geo_location", geo_location)
+        if geo_proximity_location is not None:
+            pulumi.set(__self__, "geo_proximity_location", geo_proximity_location)
         if health_check_id is not None:
             pulumi.set(__self__, "health_check_id", health_check_id)
         if hosted_zone_id is not None:
@@ -862,6 +1021,11 @@ class RecordSetGroupRecordSet(dict):
     @pulumi.getter(name="geoLocation")
     def geo_location(self) -> Optional['outputs.RecordSetGroupGeoLocation']:
         return pulumi.get(self, "geo_location")
+
+    @property
+    @pulumi.getter(name="geoProximityLocation")
+    def geo_proximity_location(self) -> Optional['outputs.RecordSetGroupGeoProximityLocation']:
+        return pulumi.get(self, "geo_proximity_location")
 
     @property
     @pulumi.getter(name="healthCheckId")

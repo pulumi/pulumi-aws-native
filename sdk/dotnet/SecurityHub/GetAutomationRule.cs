@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.SecurityHub
     public static class GetAutomationRule
     {
         /// <summary>
-        /// The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
+        /// The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         /// </summary>
         public static Task<GetAutomationRuleResult> InvokeAsync(GetAutomationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationRuleResult>("aws-native:securityhub:getAutomationRule", args ?? new GetAutomationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
+        /// The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         /// </summary>
         public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("aws-native:securityhub:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());
@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class GetAutomationRuleArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// An Automation Rule Arn is automatically created
-        /// </summary>
         [Input("ruleArn", required: true)]
         public string RuleArn { get; set; } = null!;
 
@@ -41,9 +38,6 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class GetAutomationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// An Automation Rule Arn is automatically created
-        /// </summary>
         [Input("ruleArn", required: true)]
         public Input<string> RuleArn { get; set; } = null!;
 
@@ -58,46 +52,22 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class GetAutomationRuleResult
     {
         public readonly ImmutableArray<Outputs.AutomationRulesAction> Actions;
-        /// <summary>
-        /// The date and time when Automation Rule was created
-        /// </summary>
         public readonly string? CreatedAt;
-        /// <summary>
-        /// The identifier by which created the rule
-        /// </summary>
         public readonly string? CreatedBy;
         /// <summary>
-        /// The rule criteria for evaluating findings
+        /// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         /// </summary>
         public readonly Outputs.AutomationRulesFindingFilters? Criteria;
-        /// <summary>
-        /// Rule description
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// If Rule is a terminal rule
-        /// </summary>
         public readonly bool? IsTerminal;
-        /// <summary>
-        /// An Automation Rule Arn is automatically created
-        /// </summary>
         public readonly string? RuleArn;
-        /// <summary>
-        /// Rule name
-        /// </summary>
         public readonly string? RuleName;
-        /// <summary>
-        /// Rule order value
-        /// </summary>
         public readonly int? RuleOrder;
         /// <summary>
-        /// Status of the Rule upon creation
+        /// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleRuleStatus? RuleStatus;
         public readonly Outputs.AutomationRuleTags? Tags;
-        /// <summary>
-        /// The date and time when Automation Rule was last updated
-        /// </summary>
         public readonly string? UpdatedAt;
 
         [OutputConstructor]

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Route53.Inputs
         [Input("geoLocation")]
         public Input<Inputs.RecordSetGroupGeoLocationArgs>? GeoLocation { get; set; }
 
+        [Input("geoProximityLocation")]
+        public Input<Inputs.RecordSetGroupGeoProximityLocationArgs>? GeoProximityLocation { get; set; }
+
         [Input("healthCheckId")]
         public Input<string>? HealthCheckId { get; set; }
 

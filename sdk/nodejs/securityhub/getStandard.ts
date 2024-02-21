@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::SecurityHub::Standard resource represents the implementation of an individual AWS Security Hub Standard in your account. It requires you have SecurityHub enabled before you can enable the Standard.
+ * The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
+ *  You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
+ *  For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
 
@@ -19,32 +21,26 @@ export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetStandardArgs {
-    /**
-     * The ARN of the StandardsSubscription for the account ID, region, and Standard.
-     */
     standardsSubscriptionArn: string;
 }
 
 export interface GetStandardResult {
     /**
-     * StandardsControls to disable from this Standard.
+     * Specifies which controls are to be disabled in a standard. 
+     *  *Maximum*: ``100``
      */
     readonly disabledStandardsControls?: outputs.securityhub.StandardsControl[];
-    /**
-     * The ARN of the StandardsSubscription for the account ID, region, and Standard.
-     */
     readonly standardsSubscriptionArn?: string;
 }
 /**
- * The AWS::SecurityHub::Standard resource represents the implementation of an individual AWS Security Hub Standard in your account. It requires you have SecurityHub enabled before you can enable the Standard.
+ * The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
+ *  You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
+ *  For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
  */
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
     return pulumi.output(args).apply((a: any) => getStandard(a, opts))
 }
 
 export interface GetStandardOutputArgs {
-    /**
-     * The ARN of the StandardsSubscription for the account ID, region, and Standard.
-     */
     standardsSubscriptionArn: pulumi.Input<string>;
 }

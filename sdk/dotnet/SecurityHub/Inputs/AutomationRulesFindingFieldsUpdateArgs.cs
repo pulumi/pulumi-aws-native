@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
+    /// <summary>
+    /// The rule action will update the ``Note`` field of a finding.
+    /// </summary>
     public sealed class AutomationRulesFindingFieldsUpdateArgs : global::Pulumi.ResourceArgs
     {
         [Input("confidence")]
@@ -19,13 +22,17 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         public Input<int>? Criticality { get; set; }
 
         /// <summary>
-        /// Note added to the finding
+        /// The rule action will update the ``Note`` field of a finding.
         /// </summary>
         [Input("note")]
         public Input<Inputs.AutomationRuleNoteUpdateArgs>? Note { get; set; }
 
         [Input("relatedFindings")]
         private InputList<Inputs.AutomationRuleRelatedFindingArgs>? _relatedFindings;
+
+        /// <summary>
+        /// The rule action will update the ``RelatedFindings`` field of a finding.
+        /// </summary>
         public InputList<Inputs.AutomationRuleRelatedFindingArgs> RelatedFindings
         {
             get => _relatedFindings ?? (_relatedFindings = new InputList<Inputs.AutomationRuleRelatedFindingArgs>());
@@ -33,7 +40,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         }
 
         /// <summary>
-        /// Severity of the finding
+        /// The rule action will update the ``Severity`` field of a finding.
         /// </summary>
         [Input("severity")]
         public Input<Inputs.AutomationRuleSeverityUpdateArgs>? Severity { get; set; }
@@ -53,7 +60,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRulesFindingFieldsUpdateVerificationState>? VerificationState { get; set; }
 
         /// <summary>
-        /// Workflow status set for the finding
+        /// The rule action will update the ``Workflow`` field of a finding.
         /// </summary>
         [Input("workflow")]
         public Input<Inputs.AutomationRuleWorkflowUpdateArgs>? Workflow { get; set; }

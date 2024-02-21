@@ -19,6 +19,7 @@ class GraphQlApiArgs:
                  authentication_type: pulumi.Input[str],
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiAdditionalAuthenticationProviderArgs']]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
+                 enhanced_metrics_config: Optional[pulumi.Input['GraphQlApiEnhancedMetricsConfigArgs']] = None,
                  environment_variables: Optional[Any] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']] = None,
@@ -41,6 +42,8 @@ class GraphQlApiArgs:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
         if api_type is not None:
             pulumi.set(__self__, "api_type", api_type)
+        if enhanced_metrics_config is not None:
+            pulumi.set(__self__, "enhanced_metrics_config", enhanced_metrics_config)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if introspection_config is not None:
@@ -96,6 +99,15 @@ class GraphQlApiArgs:
     @api_type.setter
     def api_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_type", value)
+
+    @property
+    @pulumi.getter(name="enhancedMetricsConfig")
+    def enhanced_metrics_config(self) -> Optional[pulumi.Input['GraphQlApiEnhancedMetricsConfigArgs']]:
+        return pulumi.get(self, "enhanced_metrics_config")
+
+    @enhanced_metrics_config.setter
+    def enhanced_metrics_config(self, value: Optional[pulumi.Input['GraphQlApiEnhancedMetricsConfigArgs']]):
+        pulumi.set(self, "enhanced_metrics_config", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -237,6 +249,7 @@ class GraphQlApi(pulumi.CustomResource):
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 enhanced_metrics_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiEnhancedMetricsConfigArgs']]] = None,
                  environment_variables: Optional[Any] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLambdaAuthorizerConfigArgs']]] = None,
@@ -285,6 +298,7 @@ class GraphQlApi(pulumi.CustomResource):
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 enhanced_metrics_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiEnhancedMetricsConfigArgs']]] = None,
                  environment_variables: Optional[Any] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLambdaAuthorizerConfigArgs']]] = None,
@@ -314,6 +328,7 @@ class GraphQlApi(pulumi.CustomResource):
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
+            __props__.__dict__["enhanced_metrics_config"] = enhanced_metrics_config
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["introspection_config"] = introspection_config
             __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
@@ -362,6 +377,7 @@ class GraphQlApi(pulumi.CustomResource):
         __props__.__dict__["api_type"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["authentication_type"] = None
+        __props__.__dict__["enhanced_metrics_config"] = None
         __props__.__dict__["environment_variables"] = None
         __props__.__dict__["graph_ql_dns"] = None
         __props__.__dict__["graph_ql_endpoint_arn"] = None
@@ -407,6 +423,11 @@ class GraphQlApi(pulumi.CustomResource):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="enhancedMetricsConfig")
+    def enhanced_metrics_config(self) -> pulumi.Output[Optional['outputs.GraphQlApiEnhancedMetricsConfig']]:
+        return pulumi.get(self, "enhanced_metrics_config")
 
     @property
     @pulumi.getter(name="environmentVariables")

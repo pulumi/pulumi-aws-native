@@ -42,6 +42,7 @@ __all__ = [
     'JobDefinitionNodePropertiesArgs',
     'JobDefinitionNodeRangePropertyArgs',
     'JobDefinitionPodPropertiesArgs',
+    'JobDefinitionRepositoryCredentialsArgs',
     'JobDefinitionResourceRequirementArgs',
     'JobDefinitionRetryStrategyArgs',
     'JobDefinitionRuntimePlatformArgs',
@@ -464,6 +465,7 @@ class JobDefinitionContainerPropertiesArgs:
                  network_configuration: Optional[pulumi.Input['JobDefinitionNetworkConfigurationArgs']] = None,
                  privileged: Optional[pulumi.Input[bool]] = None,
                  readonly_root_filesystem: Optional[pulumi.Input[bool]] = None,
+                 repository_credentials: Optional[pulumi.Input['JobDefinitionRepositoryCredentialsArgs']] = None,
                  resource_requirements: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgs']]]] = None,
                  runtime_platform: Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]]] = None,
@@ -500,6 +502,8 @@ class JobDefinitionContainerPropertiesArgs:
             pulumi.set(__self__, "privileged", privileged)
         if readonly_root_filesystem is not None:
             pulumi.set(__self__, "readonly_root_filesystem", readonly_root_filesystem)
+        if repository_credentials is not None:
+            pulumi.set(__self__, "repository_credentials", repository_credentials)
         if resource_requirements is not None:
             pulumi.set(__self__, "resource_requirements", resource_requirements)
         if runtime_platform is not None:
@@ -649,6 +653,15 @@ class JobDefinitionContainerPropertiesArgs:
     @readonly_root_filesystem.setter
     def readonly_root_filesystem(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "readonly_root_filesystem", value)
+
+    @property
+    @pulumi.getter(name="repositoryCredentials")
+    def repository_credentials(self) -> Optional[pulumi.Input['JobDefinitionRepositoryCredentialsArgs']]:
+        return pulumi.get(self, "repository_credentials")
+
+    @repository_credentials.setter
+    def repository_credentials(self, value: Optional[pulumi.Input['JobDefinitionRepositoryCredentialsArgs']]):
+        pulumi.set(self, "repository_credentials", value)
 
     @property
     @pulumi.getter(name="resourceRequirements")
@@ -1684,6 +1697,22 @@ class JobDefinitionPodPropertiesArgs:
     @volumes.setter
     def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
+
+
+@pulumi.input_type
+class JobDefinitionRepositoryCredentialsArgs:
+    def __init__(__self__, *,
+                 credentials_parameter: pulumi.Input[str]):
+        pulumi.set(__self__, "credentials_parameter", credentials_parameter)
+
+    @property
+    @pulumi.getter(name="credentialsParameter")
+    def credentials_parameter(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "credentials_parameter")
+
+    @credentials_parameter.setter
+    def credentials_parameter(self, value: pulumi.Input[str]):
+        pulumi.set(self, "credentials_parameter", value)
 
 
 @pulumi.input_type

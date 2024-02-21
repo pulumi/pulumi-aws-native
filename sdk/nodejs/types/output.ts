@@ -4411,6 +4411,12 @@ export namespace appsync {
         userPoolId?: string;
     }
 
+    export interface GraphQlApiEnhancedMetricsConfig {
+        dataSourceLevelMetricsBehavior: string;
+        operationLevelMetricsConfig: string;
+        resolverLevelMetricsBehavior: string;
+    }
+
     export interface GraphQlApiLambdaAuthorizerConfig {
         authorizerResultTtlInSeconds?: number;
         authorizerUri?: string;
@@ -5529,6 +5535,7 @@ export namespace batch {
         networkConfiguration?: outputs.batch.JobDefinitionNetworkConfiguration;
         privileged?: boolean;
         readonlyRootFilesystem?: boolean;
+        repositoryCredentials?: outputs.batch.JobDefinitionRepositoryCredentials;
         resourceRequirements?: outputs.batch.JobDefinitionResourceRequirement[];
         runtimePlatform?: outputs.batch.JobDefinitionRuntimePlatform;
         secrets?: outputs.batch.JobDefinitionSecret[];
@@ -5680,6 +5687,10 @@ export namespace batch {
         metadata?: outputs.batch.JobDefinitionMetadata;
         serviceAccountName?: string;
         volumes?: outputs.batch.JobDefinitionEksVolume[];
+    }
+
+    export interface JobDefinitionRepositoryCredentials {
+        credentialsParameter: string;
     }
 
     export interface JobDefinitionResourceRequirement {
@@ -7851,12 +7862,31 @@ export namespace codepipeline {
         type: string;
     }
 
+    export interface PipelineGitBranchFilterCriteria {
+        excludes?: string[];
+        includes?: string[];
+    }
+
     export interface PipelineGitConfiguration {
+        pullRequest?: outputs.codepipeline.PipelineGitPullRequestFilter[];
         push?: outputs.codepipeline.PipelineGitPushFilter[];
         sourceActionName: string;
     }
 
+    export interface PipelineGitFilePathFilterCriteria {
+        excludes?: string[];
+        includes?: string[];
+    }
+
+    export interface PipelineGitPullRequestFilter {
+        branches?: outputs.codepipeline.PipelineGitBranchFilterCriteria;
+        events?: string[];
+        filePaths?: outputs.codepipeline.PipelineGitFilePathFilterCriteria;
+    }
+
     export interface PipelineGitPushFilter {
+        branches?: outputs.codepipeline.PipelineGitBranchFilterCriteria;
+        filePaths?: outputs.codepipeline.PipelineGitFilePathFilterCriteria;
         tags?: outputs.codepipeline.PipelineGitTagFilterCriteria;
     }
 
@@ -12565,6 +12595,10 @@ export namespace dynamodb {
         writeCapacityUnits: number;
     }
 
+    export interface TableResourcePolicy {
+        policyDocument: any;
+    }
+
     export interface TableS3BucketSource {
         s3Bucket: string;
         s3BucketOwner?: string;
@@ -12578,6 +12612,7 @@ export namespace dynamodb {
     }
 
     export interface TableStreamSpecification {
+        resourcePolicy?: outputs.dynamodb.TableResourcePolicy;
         streamViewType: string;
     }
 
@@ -13899,8 +13934,17 @@ export namespace ec2 {
         value?: string;
     }
 
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+     */
     export interface NatGatewayTag {
+        /**
+         * The tag key.
+         */
         key: string;
+        /**
+         * The tag value.
+         */
         value: string;
     }
 
@@ -14914,8 +14958,17 @@ export namespace ec2 {
         value: string;
     }
 
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+     */
     export interface VpcTag {
+        /**
+         * The tag key.
+         */
         key: string;
+        /**
+         * The tag value.
+         */
         value: string;
     }
 
@@ -15607,21 +15660,29 @@ export namespace ecs {
 }
 
 export namespace efs {
+    /**
+     * Required if the ``RootDirectory`` > ``Path`` specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory`` > ``Path``. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying ``CreationInfo``, you must include values for all properties. 
+     *  Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.
+     *   If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` does not exist, attempts to mount the file system using the access point will fail.
+     */
     export interface AccessPointCreationInfo {
         /**
-         * Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+         * Specifies the POSIX group ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
          */
         ownerGid: string;
         /**
-         * Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+         * Specifies the POSIX user ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
          */
         ownerUid: string;
         /**
-         * Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+         * Specifies the POSIX permissions to apply to the ``RootDirectory``, in the format of an octal number representing the file's mode bits.
          */
         permissions: string;
     }
 
+    /**
+     * The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
+     */
     export interface AccessPointPosixUser {
         /**
          * The POSIX group ID used for all file system operations using this access point.
@@ -15637,19 +15698,32 @@ export namespace efs {
         uid: string;
     }
 
+    /**
+     * Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's ``RootDirectory`` and its subdirectories.
+     */
     export interface AccessPointRootDirectory {
         /**
-         * (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail. 
+         * (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties. 
+         *   If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
          */
         creationInfo?: outputs.efs.AccessPointCreationInfo;
         /**
-         * Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
+         * Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the ``CreationInfo``.
          */
         path?: string;
     }
 
+    /**
+     * A tag is a key-value pair attached to a file system. Allowed characters in the ``Key`` and ``Value`` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:``+ - = . _ : /``
+     */
     export interface AccessPointTag {
+        /**
+         * The tag key (String). The key can't start with ``aws:``.
+         */
         key?: string;
+        /**
+         * The value of the tag key.
+         */
         value?: string;
     }
 
@@ -19409,6 +19483,7 @@ export namespace glue {
 
     export interface DataCatalogEncryptionSettingsEncryptionAtRest {
         catalogEncryptionMode?: string;
+        catalogEncryptionServiceRole?: string;
         sseAwsKmsKeyId?: string;
     }
 
@@ -19683,8 +19758,8 @@ export namespace glue {
     }
 
     export interface TableOptimizerConfiguration {
-        enabled?: boolean;
-        roleArn?: string;
+        enabled: boolean;
+        roleArn: string;
     }
 
     export interface TableOrder {
@@ -48418,10 +48493,22 @@ export namespace route53 {
         locationName: string;
     }
 
+    export interface RecordSetCoordinates {
+        latitude: string;
+        longitude: string;
+    }
+
     export interface RecordSetGeoLocation {
         continentCode?: string;
         countryCode?: string;
         subdivisionCode?: string;
+    }
+
+    export interface RecordSetGeoProximityLocation {
+        awsRegion?: string;
+        bias?: number;
+        coordinates?: outputs.route53.RecordSetCoordinates;
+        localZoneGroup?: string;
     }
 
     export interface RecordSetGroupAliasTarget {
@@ -48435,10 +48522,22 @@ export namespace route53 {
         locationName: string;
     }
 
+    export interface RecordSetGroupCoordinates {
+        latitude: string;
+        longitude: string;
+    }
+
     export interface RecordSetGroupGeoLocation {
         continentCode?: string;
         countryCode?: string;
         subdivisionCode?: string;
+    }
+
+    export interface RecordSetGroupGeoProximityLocation {
+        awsRegion?: string;
+        bias?: number;
+        coordinates?: outputs.route53.RecordSetGroupCoordinates;
+        localZoneGroup?: string;
     }
 
     export interface RecordSetGroupRecordSet {
@@ -48446,6 +48545,7 @@ export namespace route53 {
         cidrRoutingConfig?: outputs.route53.RecordSetGroupCidrRoutingConfig;
         failover?: string;
         geoLocation?: outputs.route53.RecordSetGroupGeoLocation;
+        geoProximityLocation?: outputs.route53.RecordSetGroupGeoProximityLocation;
         healthCheckId?: string;
         hostedZoneId?: string;
         hostedZoneName?: string;
@@ -54328,8 +54428,14 @@ export namespace securityhub {
         lte?: number;
     }
 
+    /**
+     * Provides details about a list of findings that the current finding relates to.
+     */
     export interface AutomationRuleRelatedFinding {
         id: string;
+        /**
+         * The Amazon Resource Name (ARN) for the product that generated a related finding.
+         */
         productArn: string;
     }
 
@@ -54354,6 +54460,9 @@ export namespace securityhub {
         status: enums.securityhub.AutomationRuleWorkflowUpdateStatus;
     }
 
+    /**
+     * An object of user-defined name and value string pair added to a finding.
+     */
     export interface AutomationRulemap {
     }
 
@@ -54362,23 +54471,29 @@ export namespace securityhub {
         type: enums.securityhub.AutomationRulesActionType;
     }
 
+    /**
+     * The rule action will update the ``Note`` field of a finding.
+     */
     export interface AutomationRulesFindingFieldsUpdate {
         confidence?: number;
         criticality?: number;
         /**
-         * Note added to the finding
+         * The rule action will update the ``Note`` field of a finding.
          */
         note?: outputs.securityhub.AutomationRuleNoteUpdate;
+        /**
+         * The rule action will update the ``RelatedFindings`` field of a finding.
+         */
         relatedFindings?: outputs.securityhub.AutomationRuleRelatedFinding[];
         /**
-         * Severity of the finding
+         * The rule action will update the ``Severity`` field of a finding.
          */
         severity?: outputs.securityhub.AutomationRuleSeverityUpdate;
         types?: string[];
         userDefinedFields?: outputs.securityhub.AutomationRulemap;
         verificationState?: enums.securityhub.AutomationRulesFindingFieldsUpdateVerificationState;
         /**
-         * Workflow status set for the finding
+         * The rule action will update the ``Workflow`` field of a finding.
          */
         workflow?: outputs.securityhub.AutomationRuleWorkflowUpdate;
     }
@@ -54428,15 +54543,15 @@ export namespace securityhub {
     }
 
     /**
-     * An individual StandardsControl within the Standard.
+     * Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
      */
     export interface StandardsControl {
         /**
-         * the reason the standard control is disabled
+         * A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
          */
         reason?: string;
         /**
-         * the Arn for the standard control.
+         * The Amazon Resource Name (ARN) of the control.
          */
         standardsControlArn: string;
     }

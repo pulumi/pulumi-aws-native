@@ -19,6 +19,7 @@ class ApiCacheArgs:
                  ttl: pulumi.Input[float],
                  type: pulumi.Input[str],
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 health_metrics_config: Optional[pulumi.Input[str]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ApiCache resource.
@@ -29,6 +30,8 @@ class ApiCacheArgs:
         pulumi.set(__self__, "type", type)
         if at_rest_encryption_enabled is not None:
             pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
+        if health_metrics_config is not None:
+            pulumi.set(__self__, "health_metrics_config", health_metrics_config)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
@@ -78,6 +81,15 @@ class ApiCacheArgs:
         pulumi.set(self, "at_rest_encryption_enabled", value)
 
     @property
+    @pulumi.getter(name="healthMetricsConfig")
+    def health_metrics_config(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "health_metrics_config")
+
+    @health_metrics_config.setter
+    def health_metrics_config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_metrics_config", value)
+
+    @property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "transit_encryption_enabled")
@@ -100,6 +112,7 @@ class ApiCache(pulumi.CustomResource):
                  api_caching_behavior: Optional[pulumi.Input[str]] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 health_metrics_config: Optional[pulumi.Input[str]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  ttl: Optional[pulumi.Input[float]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -137,6 +150,7 @@ class ApiCache(pulumi.CustomResource):
                  api_caching_behavior: Optional[pulumi.Input[str]] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 health_metrics_config: Optional[pulumi.Input[str]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  ttl: Optional[pulumi.Input[float]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -157,6 +171,7 @@ class ApiCache(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
+            __props__.__dict__["health_metrics_config"] = health_metrics_config
             __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
             if ttl is None and not opts.urn:
                 raise TypeError("Missing required property 'ttl'")
@@ -191,6 +206,7 @@ class ApiCache(pulumi.CustomResource):
         __props__.__dict__["api_caching_behavior"] = None
         __props__.__dict__["api_id"] = None
         __props__.__dict__["at_rest_encryption_enabled"] = None
+        __props__.__dict__["health_metrics_config"] = None
         __props__.__dict__["transit_encryption_enabled"] = None
         __props__.__dict__["ttl"] = None
         __props__.__dict__["type"] = None
@@ -210,6 +226,11 @@ class ApiCache(pulumi.CustomResource):
     @pulumi.getter(name="atRestEncryptionEnabled")
     def at_rest_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "at_rest_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="healthMetricsConfig")
+    def health_metrics_config(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "health_metrics_config")
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")

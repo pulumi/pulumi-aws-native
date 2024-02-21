@@ -14,18 +14,19 @@ export function getUserPoolRiskConfigurationAttachment(args: GetUserPoolRiskConf
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolRiskConfigurationAttachment", {
-        "id": args.id,
+        "clientId": args.clientId,
+        "userPoolId": args.userPoolId,
     }, opts);
 }
 
 export interface GetUserPoolRiskConfigurationAttachmentArgs {
-    id: string;
+    clientId: string;
+    userPoolId: string;
 }
 
 export interface GetUserPoolRiskConfigurationAttachmentResult {
     readonly accountTakeoverRiskConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType;
     readonly compromisedCredentialsRiskConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType;
-    readonly id?: string;
     readonly riskExceptionConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType;
 }
 /**
@@ -36,5 +37,6 @@ export function getUserPoolRiskConfigurationAttachmentOutput(args: GetUserPoolRi
 }
 
 export interface GetUserPoolRiskConfigurationAttachmentOutputArgs {
-    id: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
+    userPoolId: pulumi.Input<string>;
 }

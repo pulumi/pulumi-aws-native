@@ -22,6 +22,7 @@ export interface GetApiCacheArgs {
 export interface GetApiCacheResult {
     readonly apiCachingBehavior?: string;
     readonly atRestEncryptionEnabled?: boolean;
+    readonly healthMetricsConfig?: string;
     readonly id?: string;
     readonly transitEncryptionEnabled?: boolean;
     readonly ttl?: number;

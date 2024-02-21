@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
+ * Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
  */
 export function getSubnetRouteTableAssociation(args: GetSubnetRouteTableAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetRouteTableAssociationResult> {
 
@@ -23,7 +23,7 @@ export interface GetSubnetRouteTableAssociationResult {
     readonly id?: string;
 }
 /**
- * Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
+ * Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
  */
 export function getSubnetRouteTableAssociationOutput(args: GetSubnetRouteTableAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetRouteTableAssociationResult> {
     return pulumi.output(args).apply((a: any) => getSubnetRouteTableAssociation(a, opts))

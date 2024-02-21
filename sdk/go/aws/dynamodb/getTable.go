@@ -38,6 +38,7 @@ type LookupTableResult struct {
 	LocalSecondaryIndexes            []TableLocalSecondaryIndex             `pulumi:"localSecondaryIndexes"`
 	PointInTimeRecoverySpecification *TablePointInTimeRecoverySpecification `pulumi:"pointInTimeRecoverySpecification"`
 	ProvisionedThroughput            *TableProvisionedThroughput            `pulumi:"provisionedThroughput"`
+	ResourcePolicy                   *TableResourcePolicy                   `pulumi:"resourcePolicy"`
 	SseSpecification                 *TableSseSpecification                 `pulumi:"sseSpecification"`
 	StreamArn                        *string                                `pulumi:"streamArn"`
 	StreamSpecification              *TableStreamSpecification              `pulumi:"streamSpecification"`
@@ -127,6 +128,10 @@ func (o LookupTableResultOutput) PointInTimeRecoverySpecification() TablePointIn
 
 func (o LookupTableResultOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableProvisionedThroughput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
+}
+
+func (o LookupTableResultOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
+	return o.ApplyT(func(v LookupTableResult) *TableResourcePolicy { return v.ResourcePolicy }).(TableResourcePolicyPtrOutput)
 }
 
 func (o LookupTableResultOutput) SseSpecification() TableSseSpecificationPtrOutput {

@@ -23,13 +23,13 @@ func LookupUserPoolRiskConfigurationAttachment(ctx *pulumi.Context, args *Lookup
 }
 
 type LookupUserPoolRiskConfigurationAttachmentArgs struct {
-	Id string `pulumi:"id"`
+	ClientId   string `pulumi:"clientId"`
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolRiskConfigurationAttachmentResult struct {
 	AccountTakeoverRiskConfiguration        *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType        `pulumi:"accountTakeoverRiskConfiguration"`
 	CompromisedCredentialsRiskConfiguration *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType `pulumi:"compromisedCredentialsRiskConfiguration"`
-	Id                                      *string                                                                         `pulumi:"id"`
 	RiskExceptionConfiguration              *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType              `pulumi:"riskExceptionConfiguration"`
 }
 
@@ -47,7 +47,8 @@ func LookupUserPoolRiskConfigurationAttachmentOutput(ctx *pulumi.Context, args L
 }
 
 type LookupUserPoolRiskConfigurationAttachmentOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ClientId   pulumi.StringInput `pulumi:"clientId"`
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 func (LookupUserPoolRiskConfigurationAttachmentOutputArgs) ElementType() reflect.Type {
@@ -78,10 +79,6 @@ func (o LookupUserPoolRiskConfigurationAttachmentResultOutput) CompromisedCreden
 	return o.ApplyT(func(v LookupUserPoolRiskConfigurationAttachmentResult) *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType {
 		return v.CompromisedCredentialsRiskConfiguration
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput)
-}
-
-func (o LookupUserPoolRiskConfigurationAttachmentResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolRiskConfigurationAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserPoolRiskConfigurationAttachmentResultOutput) RiskExceptionConfiguration() UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput {

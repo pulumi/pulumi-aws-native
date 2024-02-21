@@ -2681,8 +2681,9 @@ func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) Retu
 }
 
 type DataCatalogEncryptionSettingsEncryptionAtRest struct {
-	CatalogEncryptionMode *string `pulumi:"catalogEncryptionMode"`
-	SseAwsKmsKeyId        *string `pulumi:"sseAwsKmsKeyId"`
+	CatalogEncryptionMode        *string `pulumi:"catalogEncryptionMode"`
+	CatalogEncryptionServiceRole *string `pulumi:"catalogEncryptionServiceRole"`
+	SseAwsKmsKeyId               *string `pulumi:"sseAwsKmsKeyId"`
 }
 
 // DataCatalogEncryptionSettingsEncryptionAtRestInput is an input type that accepts DataCatalogEncryptionSettingsEncryptionAtRestArgs and DataCatalogEncryptionSettingsEncryptionAtRestOutput values.
@@ -2697,8 +2698,9 @@ type DataCatalogEncryptionSettingsEncryptionAtRestInput interface {
 }
 
 type DataCatalogEncryptionSettingsEncryptionAtRestArgs struct {
-	CatalogEncryptionMode pulumi.StringPtrInput `pulumi:"catalogEncryptionMode"`
-	SseAwsKmsKeyId        pulumi.StringPtrInput `pulumi:"sseAwsKmsKeyId"`
+	CatalogEncryptionMode        pulumi.StringPtrInput `pulumi:"catalogEncryptionMode"`
+	CatalogEncryptionServiceRole pulumi.StringPtrInput `pulumi:"catalogEncryptionServiceRole"`
+	SseAwsKmsKeyId               pulumi.StringPtrInput `pulumi:"sseAwsKmsKeyId"`
 }
 
 func (DataCatalogEncryptionSettingsEncryptionAtRestArgs) ElementType() reflect.Type {
@@ -2782,6 +2784,10 @@ func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionMo
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsEncryptionAtRest) *string { return v.CatalogEncryptionMode }).(pulumi.StringPtrOutput)
 }
 
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsEncryptionAtRest) *string { return v.CatalogEncryptionServiceRole }).(pulumi.StringPtrOutput)
+}
+
 func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsEncryptionAtRest) *string { return v.SseAwsKmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -2816,6 +2822,15 @@ func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptio
 			return nil
 		}
 		return v.CatalogEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptionServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogEncryptionServiceRole
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8286,8 +8301,8 @@ func (o TableOpenTableFormatInputPtrOutput) IcebergInput() TableIcebergInputPtrO
 }
 
 type TableOptimizerConfiguration struct {
-	Enabled *bool   `pulumi:"enabled"`
-	RoleArn *string `pulumi:"roleArn"`
+	Enabled bool   `pulumi:"enabled"`
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TableOptimizerConfigurationInput is an input type that accepts TableOptimizerConfigurationArgs and TableOptimizerConfigurationOutput values.
@@ -8302,8 +8317,8 @@ type TableOptimizerConfigurationInput interface {
 }
 
 type TableOptimizerConfigurationArgs struct {
-	Enabled pulumi.BoolPtrInput   `pulumi:"enabled"`
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TableOptimizerConfigurationArgs) ElementType() reflect.Type {
@@ -8332,12 +8347,12 @@ func (o TableOptimizerConfigurationOutput) ToTableOptimizerConfigurationOutputWi
 	return o
 }
 
-func (o TableOptimizerConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TableOptimizerConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o TableOptimizerConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TableOptimizerConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-func (o TableOptimizerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableOptimizerConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+func (o TableOptimizerConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TableOptimizerConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 type TableOptimizerConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -8369,7 +8384,7 @@ func (o TableOptimizerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Enabled
+		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -8378,7 +8393,7 @@ func (o TableOptimizerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.RoleArn
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 

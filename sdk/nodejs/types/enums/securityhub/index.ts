@@ -23,7 +23,7 @@ export const AutomationRuleRuleStatus = {
 } as const;
 
 /**
- * Status of the Rule upon creation
+ * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
  */
 export type AutomationRuleRuleStatus = (typeof AutomationRuleRuleStatus)[keyof typeof AutomationRuleRuleStatus];
 
@@ -46,6 +46,9 @@ export const AutomationRuleStringFilterComparison = {
     NotContains: "NOT_CONTAINS",
 } as const;
 
+/**
+ * The condition to apply to a string value when filtering Security Hub findings.
+ */
 export type AutomationRuleStringFilterComparison = (typeof AutomationRuleStringFilterComparison)[keyof typeof AutomationRuleStringFilterComparison];
 
 export const AutomationRuleWorkflowUpdateStatus = {

@@ -10,25 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
+    /// <summary>
+    /// The rule action will update the ``Note`` field of a finding.
+    /// </summary>
     [OutputType]
     public sealed class AutomationRulesFindingFieldsUpdate
     {
         public readonly int? Confidence;
         public readonly int? Criticality;
         /// <summary>
-        /// Note added to the finding
+        /// The rule action will update the ``Note`` field of a finding.
         /// </summary>
         public readonly Outputs.AutomationRuleNoteUpdate? Note;
+        /// <summary>
+        /// The rule action will update the ``RelatedFindings`` field of a finding.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleRelatedFinding> RelatedFindings;
         /// <summary>
-        /// Severity of the finding
+        /// The rule action will update the ``Severity`` field of a finding.
         /// </summary>
         public readonly Outputs.AutomationRuleSeverityUpdate? Severity;
         public readonly ImmutableArray<string> Types;
         public readonly Outputs.AutomationRulemap? UserDefinedFields;
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRulesFindingFieldsUpdateVerificationState? VerificationState;
         /// <summary>
-        /// Workflow status set for the finding
+        /// The rule action will update the ``Workflow`` field of a finding.
         /// </summary>
         public readonly Outputs.AutomationRuleWorkflowUpdate? Workflow;
 

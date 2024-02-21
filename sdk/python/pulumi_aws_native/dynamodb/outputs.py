@@ -43,6 +43,7 @@ __all__ = [
     'TablePointInTimeRecoverySpecification',
     'TableProjection',
     'TableProvisionedThroughput',
+    'TableResourcePolicy',
     'TableS3BucketSource',
     'TableSseSpecification',
     'TableStreamSpecification',
@@ -1305,6 +1306,35 @@ class TableProvisionedThroughput(dict):
 
 
 @pulumi.output_type
+class TableResourcePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyDocument":
+            suggest = "policy_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableResourcePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableResourcePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableResourcePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_document: Any):
+        pulumi.set(__self__, "policy_document", policy_document)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Any:
+        return pulumi.get(self, "policy_document")
+
+
+@pulumi.output_type
 class TableS3BucketSource(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1409,6 +1439,8 @@ class TableStreamSpecification(dict):
         suggest = None
         if key == "streamViewType":
             suggest = "stream_view_type"
+        elif key == "resourcePolicy":
+            suggest = "resource_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TableStreamSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -1422,13 +1454,21 @@ class TableStreamSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 stream_view_type: str):
+                 stream_view_type: str,
+                 resource_policy: Optional['outputs.TableResourcePolicy'] = None):
         pulumi.set(__self__, "stream_view_type", stream_view_type)
+        if resource_policy is not None:
+            pulumi.set(__self__, "resource_policy", resource_policy)
 
     @property
     @pulumi.getter(name="streamViewType")
     def stream_view_type(self) -> str:
         return pulumi.get(self, "stream_view_type")
+
+    @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional['outputs.TableResourcePolicy']:
+        return pulumi.get(self, "resource_policy")
 
 
 @pulumi.output_type

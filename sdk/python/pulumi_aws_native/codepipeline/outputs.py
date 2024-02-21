@@ -21,7 +21,10 @@ __all__ = [
     'PipelineArtifactStoreMap',
     'PipelineBlockerDeclaration',
     'PipelineEncryptionKey',
+    'PipelineGitBranchFilterCriteria',
     'PipelineGitConfiguration',
+    'PipelineGitFilePathFilterCriteria',
+    'PipelineGitPullRequestFilter',
     'PipelineGitPushFilter',
     'PipelineGitTagFilterCriteria',
     'PipelineInputArtifact',
@@ -531,12 +534,35 @@ class PipelineEncryptionKey(dict):
 
 
 @pulumi.output_type
+class PipelineGitBranchFilterCriteria(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
 class PipelineGitConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "sourceActionName":
             suggest = "source_action_name"
+        elif key == "pullRequest":
+            suggest = "pull_request"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PipelineGitConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -551,8 +577,11 @@ class PipelineGitConfiguration(dict):
 
     def __init__(__self__, *,
                  source_action_name: str,
+                 pull_request: Optional[Sequence['outputs.PipelineGitPullRequestFilter']] = None,
                  push: Optional[Sequence['outputs.PipelineGitPushFilter']] = None):
         pulumi.set(__self__, "source_action_name", source_action_name)
+        if pull_request is not None:
+            pulumi.set(__self__, "pull_request", pull_request)
         if push is not None:
             pulumi.set(__self__, "push", push)
 
@@ -562,17 +591,122 @@ class PipelineGitConfiguration(dict):
         return pulumi.get(self, "source_action_name")
 
     @property
+    @pulumi.getter(name="pullRequest")
+    def pull_request(self) -> Optional[Sequence['outputs.PipelineGitPullRequestFilter']]:
+        return pulumi.get(self, "pull_request")
+
+    @property
     @pulumi.getter
     def push(self) -> Optional[Sequence['outputs.PipelineGitPushFilter']]:
         return pulumi.get(self, "push")
 
 
 @pulumi.output_type
-class PipelineGitPushFilter(dict):
+class PipelineGitFilePathFilterCriteria(dict):
     def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class PipelineGitPullRequestFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePaths":
+            suggest = "file_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineGitPullRequestFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineGitPullRequestFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineGitPullRequestFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branches: Optional['outputs.PipelineGitBranchFilterCriteria'] = None,
+                 events: Optional[Sequence[str]] = None,
+                 file_paths: Optional['outputs.PipelineGitFilePathFilterCriteria'] = None):
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if file_paths is not None:
+            pulumi.set(__self__, "file_paths", file_paths)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional['outputs.PipelineGitBranchFilterCriteria']:
+        return pulumi.get(self, "branches")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter(name="filePaths")
+    def file_paths(self) -> Optional['outputs.PipelineGitFilePathFilterCriteria']:
+        return pulumi.get(self, "file_paths")
+
+
+@pulumi.output_type
+class PipelineGitPushFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePaths":
+            suggest = "file_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineGitPushFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineGitPushFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineGitPushFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branches: Optional['outputs.PipelineGitBranchFilterCriteria'] = None,
+                 file_paths: Optional['outputs.PipelineGitFilePathFilterCriteria'] = None,
                  tags: Optional['outputs.PipelineGitTagFilterCriteria'] = None):
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if file_paths is not None:
+            pulumi.set(__self__, "file_paths", file_paths)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional['outputs.PipelineGitBranchFilterCriteria']:
+        return pulumi.get(self, "branches")
+
+    @property
+    @pulumi.getter(name="filePaths")
+    def file_paths(self) -> Optional['outputs.PipelineGitFilePathFilterCriteria']:
+        return pulumi.get(self, "file_paths")
 
     @property
     @pulumi.getter

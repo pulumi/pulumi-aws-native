@@ -11,7 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::SecurityHub::Standard resource represents the implementation of an individual AWS Security Hub Standard in your account. It requires you have SecurityHub enabled before you can enable the Standard.
+// The “AWS::SecurityHub::Standard“ resource specifies the enablement of a security standard. The standard is identified by the “StandardsArn“ property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
+//
+//	You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
+//	For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
 func LookupStandard(ctx *pulumi.Context, args *LookupStandardArgs, opts ...pulumi.InvokeOption) (*LookupStandardResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStandardResult
@@ -23,15 +26,14 @@ func LookupStandard(ctx *pulumi.Context, args *LookupStandardArgs, opts ...pulum
 }
 
 type LookupStandardArgs struct {
-	// The ARN of the StandardsSubscription for the account ID, region, and Standard.
 	StandardsSubscriptionArn string `pulumi:"standardsSubscriptionArn"`
 }
 
 type LookupStandardResult struct {
-	// StandardsControls to disable from this Standard.
+	// Specifies which controls are to be disabled in a standard.
+	//  *Maximum*: ``100``
 	DisabledStandardsControls []StandardsControl `pulumi:"disabledStandardsControls"`
-	// The ARN of the StandardsSubscription for the account ID, region, and Standard.
-	StandardsSubscriptionArn *string `pulumi:"standardsSubscriptionArn"`
+	StandardsSubscriptionArn  *string            `pulumi:"standardsSubscriptionArn"`
 }
 
 func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, opts ...pulumi.InvokeOption) LookupStandardResultOutput {
@@ -48,7 +50,6 @@ func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, op
 }
 
 type LookupStandardOutputArgs struct {
-	// The ARN of the StandardsSubscription for the account ID, region, and Standard.
 	StandardsSubscriptionArn pulumi.StringInput `pulumi:"standardsSubscriptionArn"`
 }
 
@@ -70,12 +71,13 @@ func (o LookupStandardResultOutput) ToLookupStandardResultOutputWithContext(ctx 
 	return o
 }
 
-// StandardsControls to disable from this Standard.
+// Specifies which controls are to be disabled in a standard.
+//
+//	*Maximum*: ``100``
 func (o LookupStandardResultOutput) DisabledStandardsControls() StandardsControlArrayOutput {
 	return o.ApplyT(func(v LookupStandardResult) []StandardsControl { return v.DisabledStandardsControls }).(StandardsControlArrayOutput)
 }
 
-// The ARN of the StandardsSubscription for the account ID, region, and Standard.
 func (o LookupStandardResultOutput) StandardsSubscriptionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStandardResult) *string { return v.StandardsSubscriptionArn }).(pulumi.StringPtrOutput)
 }

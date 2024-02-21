@@ -48,6 +48,7 @@ export class DataSource extends pulumi.CustomResource {
     public readonly eventBridgeConfig!: pulumi.Output<outputs.appsync.DataSourceEventBridgeConfig | undefined>;
     public readonly httpConfig!: pulumi.Output<outputs.appsync.DataSourceHttpConfig | undefined>;
     public readonly lambdaConfig!: pulumi.Output<outputs.appsync.DataSourceLambdaConfig | undefined>;
+    public readonly metricsConfig!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly openSearchServiceConfig!: pulumi.Output<outputs.appsync.DataSourceOpenSearchServiceConfig | undefined>;
     public readonly relationalDatabaseConfig!: pulumi.Output<outputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
@@ -80,6 +81,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["eventBridgeConfig"] = args ? args.eventBridgeConfig : undefined;
             resourceInputs["httpConfig"] = args ? args.httpConfig : undefined;
             resourceInputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
+            resourceInputs["metricsConfig"] = args ? args.metricsConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["openSearchServiceConfig"] = args ? args.openSearchServiceConfig : undefined;
             resourceInputs["relationalDatabaseConfig"] = args ? args.relationalDatabaseConfig : undefined;
@@ -95,6 +97,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["eventBridgeConfig"] = undefined /*out*/;
             resourceInputs["httpConfig"] = undefined /*out*/;
             resourceInputs["lambdaConfig"] = undefined /*out*/;
+            resourceInputs["metricsConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["openSearchServiceConfig"] = undefined /*out*/;
             resourceInputs["relationalDatabaseConfig"] = undefined /*out*/;
@@ -119,6 +122,7 @@ export interface DataSourceArgs {
     eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfigArgs>;
     httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfigArgs>;
     lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfigArgs>;
+    metricsConfig?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     openSearchServiceConfig?: pulumi.Input<inputs.appsync.DataSourceOpenSearchServiceConfigArgs>;
     relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfigArgs>;

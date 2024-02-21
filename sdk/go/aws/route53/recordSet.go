@@ -18,22 +18,23 @@ import (
 type RecordSet struct {
 	pulumi.CustomResourceState
 
-	AliasTarget       RecordSetAliasTargetPtrOutput       `pulumi:"aliasTarget"`
-	CidrRoutingConfig RecordSetCidrRoutingConfigPtrOutput `pulumi:"cidrRoutingConfig"`
-	Comment           pulumi.StringPtrOutput              `pulumi:"comment"`
-	Failover          pulumi.StringPtrOutput              `pulumi:"failover"`
-	GeoLocation       RecordSetGeoLocationPtrOutput       `pulumi:"geoLocation"`
-	HealthCheckId     pulumi.StringPtrOutput              `pulumi:"healthCheckId"`
-	HostedZoneId      pulumi.StringPtrOutput              `pulumi:"hostedZoneId"`
-	HostedZoneName    pulumi.StringPtrOutput              `pulumi:"hostedZoneName"`
-	MultiValueAnswer  pulumi.BoolPtrOutput                `pulumi:"multiValueAnswer"`
-	Name              pulumi.StringOutput                 `pulumi:"name"`
-	Region            pulumi.StringPtrOutput              `pulumi:"region"`
-	ResourceRecords   pulumi.StringArrayOutput            `pulumi:"resourceRecords"`
-	SetIdentifier     pulumi.StringPtrOutput              `pulumi:"setIdentifier"`
-	Ttl               pulumi.StringPtrOutput              `pulumi:"ttl"`
-	Type              pulumi.StringOutput                 `pulumi:"type"`
-	Weight            pulumi.IntPtrOutput                 `pulumi:"weight"`
+	AliasTarget          RecordSetAliasTargetPtrOutput          `pulumi:"aliasTarget"`
+	CidrRoutingConfig    RecordSetCidrRoutingConfigPtrOutput    `pulumi:"cidrRoutingConfig"`
+	Comment              pulumi.StringPtrOutput                 `pulumi:"comment"`
+	Failover             pulumi.StringPtrOutput                 `pulumi:"failover"`
+	GeoLocation          RecordSetGeoLocationPtrOutput          `pulumi:"geoLocation"`
+	GeoProximityLocation RecordSetGeoProximityLocationPtrOutput `pulumi:"geoProximityLocation"`
+	HealthCheckId        pulumi.StringPtrOutput                 `pulumi:"healthCheckId"`
+	HostedZoneId         pulumi.StringPtrOutput                 `pulumi:"hostedZoneId"`
+	HostedZoneName       pulumi.StringPtrOutput                 `pulumi:"hostedZoneName"`
+	MultiValueAnswer     pulumi.BoolPtrOutput                   `pulumi:"multiValueAnswer"`
+	Name                 pulumi.StringOutput                    `pulumi:"name"`
+	Region               pulumi.StringPtrOutput                 `pulumi:"region"`
+	ResourceRecords      pulumi.StringArrayOutput               `pulumi:"resourceRecords"`
+	SetIdentifier        pulumi.StringPtrOutput                 `pulumi:"setIdentifier"`
+	Ttl                  pulumi.StringPtrOutput                 `pulumi:"ttl"`
+	Type                 pulumi.StringOutput                    `pulumi:"type"`
+	Weight               pulumi.IntPtrOutput                    `pulumi:"weight"`
 }
 
 // NewRecordSet registers a new resource with the given unique name, arguments, and options.
@@ -85,42 +86,44 @@ func (RecordSetState) ElementType() reflect.Type {
 }
 
 type recordSetArgs struct {
-	AliasTarget       *RecordSetAliasTarget       `pulumi:"aliasTarget"`
-	CidrRoutingConfig *RecordSetCidrRoutingConfig `pulumi:"cidrRoutingConfig"`
-	Comment           *string                     `pulumi:"comment"`
-	Failover          *string                     `pulumi:"failover"`
-	GeoLocation       *RecordSetGeoLocation       `pulumi:"geoLocation"`
-	HealthCheckId     *string                     `pulumi:"healthCheckId"`
-	HostedZoneId      *string                     `pulumi:"hostedZoneId"`
-	HostedZoneName    *string                     `pulumi:"hostedZoneName"`
-	MultiValueAnswer  *bool                       `pulumi:"multiValueAnswer"`
-	Name              *string                     `pulumi:"name"`
-	Region            *string                     `pulumi:"region"`
-	ResourceRecords   []string                    `pulumi:"resourceRecords"`
-	SetIdentifier     *string                     `pulumi:"setIdentifier"`
-	Ttl               *string                     `pulumi:"ttl"`
-	Type              string                      `pulumi:"type"`
-	Weight            *int                        `pulumi:"weight"`
+	AliasTarget          *RecordSetAliasTarget          `pulumi:"aliasTarget"`
+	CidrRoutingConfig    *RecordSetCidrRoutingConfig    `pulumi:"cidrRoutingConfig"`
+	Comment              *string                        `pulumi:"comment"`
+	Failover             *string                        `pulumi:"failover"`
+	GeoLocation          *RecordSetGeoLocation          `pulumi:"geoLocation"`
+	GeoProximityLocation *RecordSetGeoProximityLocation `pulumi:"geoProximityLocation"`
+	HealthCheckId        *string                        `pulumi:"healthCheckId"`
+	HostedZoneId         *string                        `pulumi:"hostedZoneId"`
+	HostedZoneName       *string                        `pulumi:"hostedZoneName"`
+	MultiValueAnswer     *bool                          `pulumi:"multiValueAnswer"`
+	Name                 *string                        `pulumi:"name"`
+	Region               *string                        `pulumi:"region"`
+	ResourceRecords      []string                       `pulumi:"resourceRecords"`
+	SetIdentifier        *string                        `pulumi:"setIdentifier"`
+	Ttl                  *string                        `pulumi:"ttl"`
+	Type                 string                         `pulumi:"type"`
+	Weight               *int                           `pulumi:"weight"`
 }
 
 // The set of arguments for constructing a RecordSet resource.
 type RecordSetArgs struct {
-	AliasTarget       RecordSetAliasTargetPtrInput
-	CidrRoutingConfig RecordSetCidrRoutingConfigPtrInput
-	Comment           pulumi.StringPtrInput
-	Failover          pulumi.StringPtrInput
-	GeoLocation       RecordSetGeoLocationPtrInput
-	HealthCheckId     pulumi.StringPtrInput
-	HostedZoneId      pulumi.StringPtrInput
-	HostedZoneName    pulumi.StringPtrInput
-	MultiValueAnswer  pulumi.BoolPtrInput
-	Name              pulumi.StringPtrInput
-	Region            pulumi.StringPtrInput
-	ResourceRecords   pulumi.StringArrayInput
-	SetIdentifier     pulumi.StringPtrInput
-	Ttl               pulumi.StringPtrInput
-	Type              pulumi.StringInput
-	Weight            pulumi.IntPtrInput
+	AliasTarget          RecordSetAliasTargetPtrInput
+	CidrRoutingConfig    RecordSetCidrRoutingConfigPtrInput
+	Comment              pulumi.StringPtrInput
+	Failover             pulumi.StringPtrInput
+	GeoLocation          RecordSetGeoLocationPtrInput
+	GeoProximityLocation RecordSetGeoProximityLocationPtrInput
+	HealthCheckId        pulumi.StringPtrInput
+	HostedZoneId         pulumi.StringPtrInput
+	HostedZoneName       pulumi.StringPtrInput
+	MultiValueAnswer     pulumi.BoolPtrInput
+	Name                 pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	ResourceRecords      pulumi.StringArrayInput
+	SetIdentifier        pulumi.StringPtrInput
+	Ttl                  pulumi.StringPtrInput
+	Type                 pulumi.StringInput
+	Weight               pulumi.IntPtrInput
 }
 
 func (RecordSetArgs) ElementType() reflect.Type {
@@ -178,6 +181,10 @@ func (o RecordSetOutput) Failover() pulumi.StringPtrOutput {
 
 func (o RecordSetOutput) GeoLocation() RecordSetGeoLocationPtrOutput {
 	return o.ApplyT(func(v *RecordSet) RecordSetGeoLocationPtrOutput { return v.GeoLocation }).(RecordSetGeoLocationPtrOutput)
+}
+
+func (o RecordSetOutput) GeoProximityLocation() RecordSetGeoProximityLocationPtrOutput {
+	return o.ApplyT(func(v *RecordSet) RecordSetGeoProximityLocationPtrOutput { return v.GeoProximityLocation }).(RecordSetGeoProximityLocationPtrOutput)
 }
 
 func (o RecordSetOutput) HealthCheckId() pulumi.StringPtrOutput {

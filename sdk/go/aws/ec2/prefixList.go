@@ -23,7 +23,7 @@ type PrefixList struct {
 	// Entries of Prefix List.
 	Entries PrefixListEntryArrayOutput `pulumi:"entries"`
 	// Max Entries of Prefix List.
-	MaxEntries pulumi.IntOutput `pulumi:"maxEntries"`
+	MaxEntries pulumi.IntPtrOutput `pulumi:"maxEntries"`
 	// Owner Id of Prefix List.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Id of Prefix List.
@@ -45,9 +45,6 @@ func NewPrefixList(ctx *pulumi.Context,
 
 	if args.AddressFamily == nil {
 		return nil, errors.New("invalid value for required argument 'AddressFamily'")
-	}
-	if args.MaxEntries == nil {
-		return nil, errors.New("invalid value for required argument 'MaxEntries'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrefixList
@@ -87,7 +84,7 @@ type prefixListArgs struct {
 	// Entries of Prefix List.
 	Entries []PrefixListEntry `pulumi:"entries"`
 	// Max Entries of Prefix List.
-	MaxEntries int `pulumi:"maxEntries"`
+	MaxEntries *int `pulumi:"maxEntries"`
 	// Name of Prefix List.
 	PrefixListName *string `pulumi:"prefixListName"`
 	// Tags for Prefix List
@@ -101,7 +98,7 @@ type PrefixListArgs struct {
 	// Entries of Prefix List.
 	Entries PrefixListEntryArrayInput
 	// Max Entries of Prefix List.
-	MaxEntries pulumi.IntInput
+	MaxEntries pulumi.IntPtrInput
 	// Name of Prefix List.
 	PrefixListName pulumi.StringPtrInput
 	// Tags for Prefix List
@@ -161,8 +158,8 @@ func (o PrefixListOutput) Entries() PrefixListEntryArrayOutput {
 }
 
 // Max Entries of Prefix List.
-func (o PrefixListOutput) MaxEntries() pulumi.IntOutput {
-	return o.ApplyT(func(v *PrefixList) pulumi.IntOutput { return v.MaxEntries }).(pulumi.IntOutput)
+func (o PrefixListOutput) MaxEntries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PrefixList) pulumi.IntPtrOutput { return v.MaxEntries }).(pulumi.IntPtrOutput)
 }
 
 // Owner Id of Prefix List.

@@ -8,7 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::NatGateway
+ * Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
+ *  With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on-premises network using the IP address of the NAT gateway. For more information, see [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide*.
+ *  If you add a default route (``AWS::EC2::Route`` resource) that points to a NAT gateway, specify the NAT gateway ID for the route's ``NatGatewayId`` property.
+ *  When you associate an Elastic IP address or secondary Elastic IP address with a public NAT gateway, the network border group of the Elastic IP address must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. Otherwise, the N
  */
 export class NatGateway extends pulumi.CustomResource {
     /**
@@ -37,15 +40,44 @@ export class NatGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === NatGateway.__pulumiType;
     }
 
+    /**
+     * [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
+     */
     public readonly allocationId!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
+     */
     public readonly connectivityType!: pulumi.Output<string | undefined>;
+    /**
+     * The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
+     */
     public readonly maxDrainDurationSeconds!: pulumi.Output<number | undefined>;
     public /*out*/ readonly natGatewayId!: pulumi.Output<string>;
+    /**
+     * The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+     */
     public readonly privateIpAddress!: pulumi.Output<string | undefined>;
+    /**
+     * Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+     */
     public readonly secondaryAllocationIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+     *  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+     */
     public readonly secondaryPrivateIpAddressCount!: pulumi.Output<number | undefined>;
+    /**
+     * Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+     *  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+     */
     public readonly secondaryPrivateIpAddresses!: pulumi.Output<string[] | undefined>;
+    /**
+     * The ID of the subnet in which the NAT gateway is located.
+     */
     public readonly subnetId!: pulumi.Output<string>;
+    /**
+     * The tags for the NAT gateway.
+     */
     public readonly tags!: pulumi.Output<outputs.ec2.NatGatewayTag[] | undefined>;
 
     /**
@@ -95,13 +127,42 @@ export class NatGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a NatGateway resource.
  */
 export interface NatGatewayArgs {
+    /**
+     * [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
+     */
     allocationId?: pulumi.Input<string>;
+    /**
+     * Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
+     */
     connectivityType?: pulumi.Input<string>;
+    /**
+     * The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
+     */
     maxDrainDurationSeconds?: pulumi.Input<number>;
+    /**
+     * The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+     */
     privateIpAddress?: pulumi.Input<string>;
+    /**
+     * Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+     */
     secondaryAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+     *  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+     */
     secondaryPrivateIpAddressCount?: pulumi.Input<number>;
+    /**
+     * Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+     *  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+     */
     secondaryPrivateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the subnet in which the NAT gateway is located.
+     */
     subnetId: pulumi.Input<string>;
+    /**
+     * The tags for the NAT gateway.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.NatGatewayTagArgs>[]>;
 }

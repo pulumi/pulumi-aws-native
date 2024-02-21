@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
+    /// <summary>
+    /// An object of user-defined name and value string pair added to a finding.
+    /// </summary>
     public sealed class AutomationRulemapArgs : global::Pulumi.ResourceArgs
     {
         public AutomationRulemapArgs()

@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? ApiType;
         public readonly string? Arn;
         public readonly string? AuthenticationType;
+        public readonly Outputs.GraphQlApiEnhancedMetricsConfig? EnhancedMetricsConfig;
         public readonly object? EnvironmentVariables;
         public readonly string? GraphQlDns;
         public readonly string? GraphQlEndpointArn;
@@ -88,6 +89,8 @@ namespace Pulumi.AwsNative.AppSync
             string? arn,
 
             string? authenticationType,
+
+            Outputs.GraphQlApiEnhancedMetricsConfig? enhancedMetricsConfig,
 
             object? environmentVariables,
 
@@ -134,6 +137,7 @@ namespace Pulumi.AwsNative.AppSync
             ApiType = apiType;
             Arn = arn;
             AuthenticationType = authenticationType;
+            EnhancedMetricsConfig = enhancedMetricsConfig;
             EnvironmentVariables = environmentVariables;
             GraphQlDns = graphQlDns;
             GraphQlEndpointArn = graphQlEndpointArn;

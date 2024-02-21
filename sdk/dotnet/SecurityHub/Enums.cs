@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
     /// <summary>
-    /// Status of the Rule upon creation
+    /// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
     /// </summary>
     [EnumType]
     public readonly struct AutomationRuleRuleStatus : IEquatable<AutomationRuleRuleStatus>
@@ -126,6 +126,9 @@ namespace Pulumi.AwsNative.SecurityHub
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The condition to apply to a string value when filtering Security Hub findings.
+    /// </summary>
     [EnumType]
     public readonly struct AutomationRuleStringFilterComparison : IEquatable<AutomationRuleStringFilterComparison>
     {

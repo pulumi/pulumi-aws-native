@@ -35,6 +35,7 @@ type LookupDataSourceResult struct {
 	HttpConfig               *DataSourceHttpConfig               `pulumi:"httpConfig"`
 	Id                       *string                             `pulumi:"id"`
 	LambdaConfig             *DataSourceLambdaConfig             `pulumi:"lambdaConfig"`
+	MetricsConfig            *string                             `pulumi:"metricsConfig"`
 	OpenSearchServiceConfig  *DataSourceOpenSearchServiceConfig  `pulumi:"openSearchServiceConfig"`
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	ServiceRoleArn           *string                             `pulumi:"serviceRoleArn"`
@@ -106,6 +107,10 @@ func (o LookupDataSourceResultOutput) Id() pulumi.StringPtrOutput {
 
 func (o LookupDataSourceResultOutput) LambdaConfig() DataSourceLambdaConfigPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceLambdaConfig { return v.LambdaConfig }).(DataSourceLambdaConfigPtrOutput)
+}
+
+func (o LookupDataSourceResultOutput) MetricsConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.MetricsConfig }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDataSourceResultOutput) OpenSearchServiceConfig() DataSourceOpenSearchServiceConfigPtrOutput {

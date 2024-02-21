@@ -66,72 +66,51 @@ class GetAutomationRuleResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
-        """
-        The date and time when Automation Rule was created
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[str]:
-        """
-        The identifier by which created the rule
-        """
         return pulumi.get(self, "created_by")
 
     @property
     @pulumi.getter
     def criteria(self) -> Optional['outputs.AutomationRulesFindingFilters']:
         """
-        The rule criteria for evaluating findings
+        A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         """
         return pulumi.get(self, "criteria")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
-        """
-        Rule description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> Optional[bool]:
-        """
-        If Rule is a terminal rule
-        """
         return pulumi.get(self, "is_terminal")
 
     @property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> Optional[str]:
-        """
-        An Automation Rule Arn is automatically created
-        """
         return pulumi.get(self, "rule_arn")
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[str]:
-        """
-        Rule name
-        """
         return pulumi.get(self, "rule_name")
 
     @property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> Optional[int]:
-        """
-        Rule order value
-        """
         return pulumi.get(self, "rule_order")
 
     @property
     @pulumi.getter(name="ruleStatus")
     def rule_status(self) -> Optional['AutomationRuleRuleStatus']:
         """
-        Status of the Rule upon creation
+        Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         """
         return pulumi.get(self, "rule_status")
 
@@ -143,9 +122,6 @@ class GetAutomationRuleResult:
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
-        """
-        The date and time when Automation Rule was last updated
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -172,10 +148,7 @@ class AwaitableGetAutomationRuleResult(GetAutomationRuleResult):
 def get_automation_rule(rule_arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationRuleResult:
     """
-    The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
-
-
-    :param str rule_arn: An Automation Rule Arn is automatically created
+    The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
     """
     __args__ = dict()
     __args__['ruleArn'] = rule_arn
@@ -201,9 +174,6 @@ def get_automation_rule(rule_arn: Optional[str] = None,
 def get_automation_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
-    The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
-
-
-    :param str rule_arn: An Automation Rule Arn is automatically created
+    The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
     """
     ...

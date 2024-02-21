@@ -10,20 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Efs
 {
     /// <summary>
-    /// Resource Type definition for AWS::EFS::MountTarget
+    /// The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
     /// </summary>
     [AwsNativeResourceType("aws-native:efs:MountTarget")]
     public partial class MountTarget : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the file system for which to create the mount target.
+        /// </summary>
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 
+        /// <summary>
+        /// Valid IPv4 address within the address range of the specified subnet.
+        /// </summary>
         [Output("ipAddress")]
         public Output<string?> IpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
@@ -78,20 +90,33 @@ namespace Pulumi.AwsNative.Efs
 
     public sealed class MountTargetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the file system for which to create the mount target.
+        /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
+        /// <summary>
+        /// Valid IPv4 address within the address range of the specified subnet.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
             set => _securityGroups = value;
         }
 
+        /// <summary>
+        /// The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 

@@ -54,6 +54,7 @@ namespace Pulumi.AwsNative.CodePipeline
         public readonly Outputs.PipelineArtifactStore? ArtifactStore;
         public readonly ImmutableArray<Outputs.PipelineArtifactStoreMap> ArtifactStores;
         public readonly ImmutableArray<Outputs.PipelineStageTransition> DisableInboundStageTransitions;
+        public readonly string? ExecutionMode;
         public readonly string? Id;
         public readonly string? PipelineType;
         public readonly bool? RestartExecutionOnUpdate;
@@ -71,6 +72,8 @@ namespace Pulumi.AwsNative.CodePipeline
             ImmutableArray<Outputs.PipelineArtifactStoreMap> artifactStores,
 
             ImmutableArray<Outputs.PipelineStageTransition> disableInboundStageTransitions,
+
+            string? executionMode,
 
             string? id,
 
@@ -93,6 +96,7 @@ namespace Pulumi.AwsNative.CodePipeline
             ArtifactStore = artifactStore;
             ArtifactStores = artifactStores;
             DisableInboundStageTransitions = disableInboundStageTransitions;
+            ExecutionMode = executionMode;
             Id = id;
             PipelineType = pipelineType;
             RestartExecutionOnUpdate = restartExecutionOnUpdate;

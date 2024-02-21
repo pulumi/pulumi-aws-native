@@ -29,7 +29,7 @@ class AutomationRuleMapFilterComparison(str, Enum):
 
 class AutomationRuleRuleStatus(str, Enum):
     """
-    Status of the Rule upon creation
+    Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
@@ -44,6 +44,9 @@ class AutomationRuleSeverityUpdateLabel(str, Enum):
 
 
 class AutomationRuleStringFilterComparison(str, Enum):
+    """
+    The condition to apply to a string value when filtering Security Hub findings.
+    """
     EQUALS = "EQUALS"
     PREFIX = "PREFIX"
     NOT_EQUALS = "NOT_EQUALS"

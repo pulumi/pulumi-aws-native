@@ -18,8 +18,6 @@ class TransitGatewayRouteTableAssociationArgs:
                  transit_gateway_route_table_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a TransitGatewayRouteTableAssociation resource.
-        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of transit gateway attachment.
-        :param pulumi.Input[str] transit_gateway_route_table_id: The ID of transit gateway route table.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
@@ -27,9 +25,6 @@ class TransitGatewayRouteTableAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Input[str]:
-        """
-        The ID of transit gateway attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -39,9 +34,6 @@ class TransitGatewayRouteTableAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Input[str]:
-        """
-        The ID of transit gateway route table.
-        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -62,8 +54,6 @@ class TransitGatewayRouteTableAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of transit gateway attachment.
-        :param pulumi.Input[str] transit_gateway_route_table_id: The ID of transit gateway route table.
         """
         ...
     @overload
@@ -137,16 +127,10 @@ class TransitGatewayRouteTableAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
-        """
-        The ID of transit gateway attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Output[str]:
-        """
-        The ID of transit gateway route table.
-        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 

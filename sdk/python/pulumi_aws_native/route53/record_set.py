@@ -22,6 +22,7 @@ class RecordSetArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  failover: Optional[pulumi.Input[str]] = None,
                  geo_location: Optional[pulumi.Input['RecordSetGeoLocationArgs']] = None,
+                 geo_proximity_location: Optional[pulumi.Input['RecordSetGeoProximityLocationArgs']] = None,
                  health_check_id: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  hosted_zone_name: Optional[pulumi.Input[str]] = None,
@@ -46,6 +47,8 @@ class RecordSetArgs:
             pulumi.set(__self__, "failover", failover)
         if geo_location is not None:
             pulumi.set(__self__, "geo_location", geo_location)
+        if geo_proximity_location is not None:
+            pulumi.set(__self__, "geo_proximity_location", geo_proximity_location)
         if health_check_id is not None:
             pulumi.set(__self__, "health_check_id", health_check_id)
         if hosted_zone_id is not None:
@@ -120,6 +123,15 @@ class RecordSetArgs:
     @geo_location.setter
     def geo_location(self, value: Optional[pulumi.Input['RecordSetGeoLocationArgs']]):
         pulumi.set(self, "geo_location", value)
+
+    @property
+    @pulumi.getter(name="geoProximityLocation")
+    def geo_proximity_location(self) -> Optional[pulumi.Input['RecordSetGeoProximityLocationArgs']]:
+        return pulumi.get(self, "geo_proximity_location")
+
+    @geo_proximity_location.setter
+    def geo_proximity_location(self, value: Optional[pulumi.Input['RecordSetGeoProximityLocationArgs']]):
+        pulumi.set(self, "geo_proximity_location", value)
 
     @property
     @pulumi.getter(name="healthCheckId")
@@ -227,6 +239,7 @@ class RecordSet(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  failover: Optional[pulumi.Input[str]] = None,
                  geo_location: Optional[pulumi.Input[pulumi.InputType['RecordSetGeoLocationArgs']]] = None,
+                 geo_proximity_location: Optional[pulumi.Input[pulumi.InputType['RecordSetGeoProximityLocationArgs']]] = None,
                  health_check_id: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  hosted_zone_name: Optional[pulumi.Input[str]] = None,
@@ -274,6 +287,7 @@ class RecordSet(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  failover: Optional[pulumi.Input[str]] = None,
                  geo_location: Optional[pulumi.Input[pulumi.InputType['RecordSetGeoLocationArgs']]] = None,
+                 geo_proximity_location: Optional[pulumi.Input[pulumi.InputType['RecordSetGeoProximityLocationArgs']]] = None,
                  health_check_id: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  hosted_zone_name: Optional[pulumi.Input[str]] = None,
@@ -300,6 +314,7 @@ class RecordSet(pulumi.CustomResource):
             __props__.__dict__["comment"] = comment
             __props__.__dict__["failover"] = failover
             __props__.__dict__["geo_location"] = geo_location
+            __props__.__dict__["geo_proximity_location"] = geo_proximity_location
             __props__.__dict__["health_check_id"] = health_check_id
             __props__.__dict__["hosted_zone_id"] = hosted_zone_id
             __props__.__dict__["hosted_zone_name"] = hosted_zone_name
@@ -342,6 +357,7 @@ class RecordSet(pulumi.CustomResource):
         __props__.__dict__["comment"] = None
         __props__.__dict__["failover"] = None
         __props__.__dict__["geo_location"] = None
+        __props__.__dict__["geo_proximity_location"] = None
         __props__.__dict__["health_check_id"] = None
         __props__.__dict__["hosted_zone_id"] = None
         __props__.__dict__["hosted_zone_name"] = None
@@ -379,6 +395,11 @@ class RecordSet(pulumi.CustomResource):
     @pulumi.getter(name="geoLocation")
     def geo_location(self) -> pulumi.Output[Optional['outputs.RecordSetGeoLocation']]:
         return pulumi.get(self, "geo_location")
+
+    @property
+    @pulumi.getter(name="geoProximityLocation")
+    def geo_proximity_location(self) -> pulumi.Output[Optional['outputs.RecordSetGeoProximityLocation']]:
+        return pulumi.get(self, "geo_proximity_location")
 
     @property
     @pulumi.getter(name="healthCheckId")

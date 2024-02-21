@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGraphQlApiResult:
-    def __init__(__self__, additional_authentication_providers=None, api_id=None, api_type=None, arn=None, authentication_type=None, environment_variables=None, graph_ql_dns=None, graph_ql_endpoint_arn=None, graph_ql_url=None, id=None, introspection_config=None, lambda_authorizer_config=None, log_config=None, merged_api_execution_role_arn=None, name=None, open_id_connect_config=None, owner_contact=None, query_depth_limit=None, realtime_dns=None, realtime_url=None, resolver_count_limit=None, tags=None, user_pool_config=None, visibility=None, xray_enabled=None):
+    def __init__(__self__, additional_authentication_providers=None, api_id=None, api_type=None, arn=None, authentication_type=None, enhanced_metrics_config=None, environment_variables=None, graph_ql_dns=None, graph_ql_endpoint_arn=None, graph_ql_url=None, id=None, introspection_config=None, lambda_authorizer_config=None, log_config=None, merged_api_execution_role_arn=None, name=None, open_id_connect_config=None, owner_contact=None, query_depth_limit=None, realtime_dns=None, realtime_url=None, resolver_count_limit=None, tags=None, user_pool_config=None, visibility=None, xray_enabled=None):
         if additional_authentication_providers and not isinstance(additional_authentication_providers, list):
             raise TypeError("Expected argument 'additional_authentication_providers' to be a list")
         pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
@@ -35,6 +35,9 @@ class GetGraphQlApiResult:
         if authentication_type and not isinstance(authentication_type, str):
             raise TypeError("Expected argument 'authentication_type' to be a str")
         pulumi.set(__self__, "authentication_type", authentication_type)
+        if enhanced_metrics_config and not isinstance(enhanced_metrics_config, dict):
+            raise TypeError("Expected argument 'enhanced_metrics_config' to be a dict")
+        pulumi.set(__self__, "enhanced_metrics_config", enhanced_metrics_config)
         if environment_variables and not isinstance(environment_variables, dict):
             raise TypeError("Expected argument 'environment_variables' to be a dict")
         pulumi.set(__self__, "environment_variables", environment_variables)
@@ -120,6 +123,11 @@ class GetGraphQlApiResult:
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[str]:
         return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="enhancedMetricsConfig")
+    def enhanced_metrics_config(self) -> Optional['outputs.GraphQlApiEnhancedMetricsConfig']:
+        return pulumi.get(self, "enhanced_metrics_config")
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -233,6 +241,7 @@ class AwaitableGetGraphQlApiResult(GetGraphQlApiResult):
             api_type=self.api_type,
             arn=self.arn,
             authentication_type=self.authentication_type,
+            enhanced_metrics_config=self.enhanced_metrics_config,
             environment_variables=self.environment_variables,
             graph_ql_dns=self.graph_ql_dns,
             graph_ql_endpoint_arn=self.graph_ql_endpoint_arn,
@@ -271,6 +280,7 @@ def get_graph_ql_api(id: Optional[str] = None,
         api_type=pulumi.get(__ret__, 'api_type'),
         arn=pulumi.get(__ret__, 'arn'),
         authentication_type=pulumi.get(__ret__, 'authentication_type'),
+        enhanced_metrics_config=pulumi.get(__ret__, 'enhanced_metrics_config'),
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         graph_ql_dns=pulumi.get(__ret__, 'graph_ql_dns'),
         graph_ql_endpoint_arn=pulumi.get(__ret__, 'graph_ql_endpoint_arn'),

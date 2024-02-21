@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
 
     public sealed class PipelineGitPushFilterArgs : global::Pulumi.ResourceArgs
     {
+        [Input("branches")]
+        public Input<Inputs.PipelineGitBranchFilterCriteriaArgs>? Branches { get; set; }
+
+        [Input("filePaths")]
+        public Input<Inputs.PipelineGitFilePathFilterCriteriaArgs>? FilePaths { get; set; }
+
         [Input("tags")]
         public Input<Inputs.PipelineGitTagFilterCriteriaArgs>? Tags { get; set; }
 

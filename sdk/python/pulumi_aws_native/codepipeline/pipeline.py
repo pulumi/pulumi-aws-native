@@ -21,6 +21,7 @@ class PipelineArgs:
                  artifact_store: Optional[pulumi.Input['PipelineArtifactStoreArgs']] = None,
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreMapArgs']]]] = None,
                  disable_inbound_stage_transitions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageTransitionArgs']]]] = None,
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_type: Optional[pulumi.Input[str]] = None,
                  restart_execution_on_update: Optional[pulumi.Input[bool]] = None,
@@ -38,6 +39,8 @@ class PipelineArgs:
             pulumi.set(__self__, "artifact_stores", artifact_stores)
         if disable_inbound_stage_transitions is not None:
             pulumi.set(__self__, "disable_inbound_stage_transitions", disable_inbound_stage_transitions)
+        if execution_mode is not None:
+            pulumi.set(__self__, "execution_mode", execution_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if pipeline_type is not None:
@@ -95,6 +98,15 @@ class PipelineArgs:
     @disable_inbound_stage_transitions.setter
     def disable_inbound_stage_transitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageTransitionArgs']]]]):
         pulumi.set(self, "disable_inbound_stage_transitions", value)
+
+    @property
+    @pulumi.getter(name="executionMode")
+    def execution_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "execution_mode")
+
+    @execution_mode.setter
+    def execution_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_mode", value)
 
     @property
     @pulumi.getter
@@ -164,6 +176,7 @@ class Pipeline(pulumi.CustomResource):
                  artifact_store: Optional[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]] = None,
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreMapArgs']]]]] = None,
                  disable_inbound_stage_transitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageTransitionArgs']]]]] = None,
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_type: Optional[pulumi.Input[str]] = None,
                  restart_execution_on_update: Optional[pulumi.Input[bool]] = None,
@@ -206,6 +219,7 @@ class Pipeline(pulumi.CustomResource):
                  artifact_store: Optional[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]] = None,
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreMapArgs']]]]] = None,
                  disable_inbound_stage_transitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageTransitionArgs']]]]] = None,
+                 execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_type: Optional[pulumi.Input[str]] = None,
                  restart_execution_on_update: Optional[pulumi.Input[bool]] = None,
@@ -227,6 +241,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["artifact_store"] = artifact_store
             __props__.__dict__["artifact_stores"] = artifact_stores
             __props__.__dict__["disable_inbound_stage_transitions"] = disable_inbound_stage_transitions
+            __props__.__dict__["execution_mode"] = execution_mode
             __props__.__dict__["name"] = name
             __props__.__dict__["pipeline_type"] = pipeline_type
             __props__.__dict__["restart_execution_on_update"] = restart_execution_on_update
@@ -267,6 +282,7 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["artifact_store"] = None
         __props__.__dict__["artifact_stores"] = None
         __props__.__dict__["disable_inbound_stage_transitions"] = None
+        __props__.__dict__["execution_mode"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["pipeline_type"] = None
         __props__.__dict__["restart_execution_on_update"] = None
@@ -292,6 +308,11 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="disableInboundStageTransitions")
     def disable_inbound_stage_transitions(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineStageTransition']]]:
         return pulumi.get(self, "disable_inbound_stage_transitions")
+
+    @property
+    @pulumi.getter(name="executionMode")
+    def execution_mode(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "execution_mode")
 
     @property
     @pulumi.getter

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EFS::MountTarget
+ * The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
  */
 export class MountTarget extends pulumi.CustomResource {
     /**
@@ -34,9 +34,21 @@ export class MountTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === MountTarget.__pulumiType;
     }
 
+    /**
+     * The ID of the file system for which to create the mount target.
+     */
     public readonly fileSystemId!: pulumi.Output<string>;
+    /**
+     * Valid IPv4 address within the address range of the specified subnet.
+     */
     public readonly ipAddress!: pulumi.Output<string | undefined>;
+    /**
+     * Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+     */
     public readonly securityGroups!: pulumi.Output<string[]>;
+    /**
+     * The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+     */
     public readonly subnetId!: pulumi.Output<string>;
 
     /**
@@ -80,8 +92,20 @@ export class MountTarget extends pulumi.CustomResource {
  * The set of arguments for constructing a MountTarget resource.
  */
 export interface MountTargetArgs {
+    /**
+     * The ID of the file system for which to create the mount target.
+     */
     fileSystemId: pulumi.Input<string>;
+    /**
+     * Valid IPv4 address within the address range of the specified subnet.
+     */
     ipAddress?: pulumi.Input<string>;
+    /**
+     * Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+     */
     securityGroups: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+     */
     subnetId: pulumi.Input<string>;
 }

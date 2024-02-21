@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.CodePipeline
         [Output("disableInboundStageTransitions")]
         public Output<ImmutableArray<Outputs.PipelineStageTransition>> DisableInboundStageTransitions { get; private set; } = null!;
 
+        [Output("executionMode")]
+        public Output<string?> ExecutionMode { get; private set; } = null!;
+
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -119,6 +122,9 @@ namespace Pulumi.AwsNative.CodePipeline
             get => _disableInboundStageTransitions ?? (_disableInboundStageTransitions = new InputList<Inputs.PipelineStageTransitionArgs>());
             set => _disableInboundStageTransitions = value;
         }
+
+        [Input("executionMode")]
+        public Input<string>? ExecutionMode { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

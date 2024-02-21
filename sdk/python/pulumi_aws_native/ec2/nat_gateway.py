@@ -27,6 +27,17 @@ class NatGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayTagArgs']]]] = None):
         """
         The set of arguments for constructing a NatGateway resource.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet in which the NAT gateway is located.
+        :param pulumi.Input[str] allocation_id: [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
+        :param pulumi.Input[str] connectivity_type: Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
+        :param pulumi.Input[int] max_drain_duration_seconds: The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
+        :param pulumi.Input[str] private_ip_address: The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_allocation_ids: Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        :param pulumi.Input[int] secondary_private_ip_address_count: [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+                ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+                ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        :param pulumi.Input[Sequence[pulumi.Input['NatGatewayTagArgs']]] tags: The tags for the NAT gateway.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if allocation_id is not None:
@@ -49,6 +60,9 @@ class NatGatewayArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subnet in which the NAT gateway is located.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -58,6 +72,9 @@ class NatGatewayArgs:
     @property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
+        """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
@@ -67,6 +84,9 @@ class NatGatewayArgs:
     @property
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
+        """
         return pulumi.get(self, "connectivity_type")
 
     @connectivity_type.setter
@@ -76,6 +96,9 @@ class NatGatewayArgs:
     @property
     @pulumi.getter(name="maxDrainDurationSeconds")
     def max_drain_duration_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
+        """
         return pulumi.get(self, "max_drain_duration_seconds")
 
     @max_drain_duration_seconds.setter
@@ -85,6 +108,9 @@ class NatGatewayArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -94,6 +120,9 @@ class NatGatewayArgs:
     @property
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        """
         return pulumi.get(self, "secondary_allocation_ids")
 
     @secondary_allocation_ids.setter
@@ -103,6 +132,10 @@ class NatGatewayArgs:
     @property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+         ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        """
         return pulumi.get(self, "secondary_private_ip_address_count")
 
     @secondary_private_ip_address_count.setter
@@ -112,6 +145,10 @@ class NatGatewayArgs:
     @property
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+         ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        """
         return pulumi.get(self, "secondary_private_ip_addresses")
 
     @secondary_private_ip_addresses.setter
@@ -121,6 +158,9 @@ class NatGatewayArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayTagArgs']]]]:
+        """
+        The tags for the NAT gateway.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -144,10 +184,24 @@ class NatGateway(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NatGatewayTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::NatGateway
+        Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
+         With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on-premises network using the IP address of the NAT gateway. For more information, see [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide*.
+         If you add a default route (``AWS::EC2::Route`` resource) that points to a NAT gateway, specify the NAT gateway ID for the route's ``NatGatewayId`` property.
+         When you associate an Elastic IP address or secondary Elastic IP address with a public NAT gateway, the network border group of the Elastic IP address must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. Otherwise, the N
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] allocation_id: [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
+        :param pulumi.Input[str] connectivity_type: Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
+        :param pulumi.Input[int] max_drain_duration_seconds: The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
+        :param pulumi.Input[str] private_ip_address: The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_allocation_ids: Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        :param pulumi.Input[int] secondary_private_ip_address_count: [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+                ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+                ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet in which the NAT gateway is located.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NatGatewayTagArgs']]]] tags: The tags for the NAT gateway.
         """
         ...
     @overload
@@ -156,7 +210,10 @@ class NatGateway(pulumi.CustomResource):
                  args: NatGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::NatGateway
+        Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
+         With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on-premises network using the IP address of the NAT gateway. For more information, see [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide*.
+         If you add a default route (``AWS::EC2::Route`` resource) that points to a NAT gateway, specify the NAT gateway ID for the route's ``NatGatewayId`` property.
+         When you associate an Elastic IP address or secondary Elastic IP address with a public NAT gateway, the network border group of the Elastic IP address must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. Otherwise, the N
 
         :param str resource_name: The name of the resource.
         :param NatGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -242,16 +299,25 @@ class NatGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
+        """
         return pulumi.get(self, "allocation_id")
 
     @property
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
+        """
         return pulumi.get(self, "connectivity_type")
 
     @property
     @pulumi.getter(name="maxDrainDurationSeconds")
     def max_drain_duration_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
+        """
         return pulumi.get(self, "max_drain_duration_seconds")
 
     @property
@@ -262,30 +328,50 @@ class NatGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> pulumi.Output[Optional[str]]:
+        """
+        The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        """
         return pulumi.get(self, "secondary_allocation_ids")
 
     @property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+         ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        """
         return pulumi.get(self, "secondary_private_ip_address_count")
 
     @property
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+         ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        """
         return pulumi.get(self, "secondary_private_ip_addresses")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subnet in which the NAT gateway is located.
+        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.NatGatewayTag']]]:
+        """
+        The tags for the NAT gateway.
+        """
         return pulumi.get(self, "tags")
 

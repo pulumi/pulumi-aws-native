@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
+ * The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
  */
 export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationRuleResult> {
 
@@ -19,66 +19,36 @@ export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.Inv
 }
 
 export interface GetAutomationRuleArgs {
-    /**
-     * An Automation Rule Arn is automatically created
-     */
     ruleArn: string;
 }
 
 export interface GetAutomationRuleResult {
     readonly actions?: outputs.securityhub.AutomationRulesAction[];
-    /**
-     * The date and time when Automation Rule was created
-     */
     readonly createdAt?: string;
-    /**
-     * The identifier by which created the rule
-     */
     readonly createdBy?: string;
     /**
-     * The rule criteria for evaluating findings
+     * A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
      */
     readonly criteria?: outputs.securityhub.AutomationRulesFindingFilters;
-    /**
-     * Rule description
-     */
     readonly description?: string;
-    /**
-     * If Rule is a terminal rule
-     */
     readonly isTerminal?: boolean;
-    /**
-     * An Automation Rule Arn is automatically created
-     */
     readonly ruleArn?: string;
-    /**
-     * Rule name
-     */
     readonly ruleName?: string;
-    /**
-     * Rule order value
-     */
     readonly ruleOrder?: number;
     /**
-     * Status of the Rule upon creation
+     * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
     readonly ruleStatus?: enums.securityhub.AutomationRuleRuleStatus;
     readonly tags?: outputs.securityhub.AutomationRuleTags;
-    /**
-     * The date and time when Automation Rule was last updated
-     */
     readonly updatedAt?: string;
 }
 /**
- * The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
+ * The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
  */
 export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationRuleResult> {
     return pulumi.output(args).apply((a: any) => getAutomationRule(a, opts))
 }
 
 export interface GetAutomationRuleOutputArgs {
-    /**
-     * An Automation Rule Arn is automatically created
-     */
     ruleArn: pulumi.Input<string>;
 }

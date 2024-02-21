@@ -10,26 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub
 {
     /// <summary>
-    /// The AWS::SecurityHub::Standard resource represents the implementation of an individual AWS Security Hub Standard in your account. It requires you have SecurityHub enabled before you can enable the Standard.
+    /// The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
+    ///  You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
+    ///  For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:securityhub:Standard")]
     public partial class Standard : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// StandardsControls to disable from this Standard.
+        /// Specifies which controls are to be disabled in a standard. 
+        ///  *Maximum*: ``100``
         /// </summary>
         [Output("disabledStandardsControls")]
         public Output<ImmutableArray<Outputs.StandardsControl>> DisabledStandardsControls { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the Standard being enabled
+        /// The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
         /// </summary>
         [Output("standardsArn")]
         public Output<string> StandardsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the StandardsSubscription for the account ID, region, and Standard.
-        /// </summary>
         [Output("standardsSubscriptionArn")]
         public Output<string> StandardsSubscriptionArn { get; private set; } = null!;
 
@@ -86,7 +86,8 @@ namespace Pulumi.AwsNative.SecurityHub
         private InputList<Inputs.StandardsControlArgs>? _disabledStandardsControls;
 
         /// <summary>
-        /// StandardsControls to disable from this Standard.
+        /// Specifies which controls are to be disabled in a standard. 
+        ///  *Maximum*: ``100``
         /// </summary>
         public InputList<Inputs.StandardsControlArgs> DisabledStandardsControls
         {
@@ -95,7 +96,7 @@ namespace Pulumi.AwsNative.SecurityHub
         }
 
         /// <summary>
-        /// The ARN of the Standard being enabled
+        /// The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
         /// </summary>
         [Input("standardsArn", required: true)]
         public Input<string> StandardsArn { get; set; } = null!;

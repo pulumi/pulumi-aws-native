@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
 
     public sealed class PipelineGitConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("pullRequest")]
+        private InputList<Inputs.PipelineGitPullRequestFilterArgs>? _pullRequest;
+        public InputList<Inputs.PipelineGitPullRequestFilterArgs> PullRequest
+        {
+            get => _pullRequest ?? (_pullRequest = new InputList<Inputs.PipelineGitPullRequestFilterArgs>());
+            set => _pullRequest = value;
+        }
+
         [Input("push")]
         private InputList<Inputs.PipelineGitPushFilterArgs>? _push;
         public InputList<Inputs.PipelineGitPushFilterArgs> Push

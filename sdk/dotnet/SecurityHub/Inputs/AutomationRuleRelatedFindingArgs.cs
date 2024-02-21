@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
+    /// <summary>
+    /// Provides details about a list of findings that the current finding relates to.
+    /// </summary>
     public sealed class AutomationRuleRelatedFindingArgs : global::Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the product that generated a related finding.
+        /// </summary>
         [Input("productArn", required: true)]
         public Input<string> ProductArn { get; set; } = null!;
 

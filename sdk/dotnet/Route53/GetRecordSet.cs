@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.Route53
         public readonly string? Comment;
         public readonly string? Failover;
         public readonly Outputs.RecordSetGeoLocation? GeoLocation;
+        public readonly Outputs.RecordSetGeoProximityLocation? GeoProximityLocation;
         public readonly string? HealthCheckId;
         public readonly string? Id;
         public readonly bool? MultiValueAnswer;
@@ -77,6 +78,8 @@ namespace Pulumi.AwsNative.Route53
             string? failover,
 
             Outputs.RecordSetGeoLocation? geoLocation,
+
+            Outputs.RecordSetGeoProximityLocation? geoProximityLocation,
 
             string? healthCheckId,
 
@@ -101,6 +104,7 @@ namespace Pulumi.AwsNative.Route53
             Comment = comment;
             Failover = failover;
             GeoLocation = geoLocation;
+            GeoProximityLocation = geoProximityLocation;
             HealthCheckId = healthCheckId;
             Id = id;
             MultiValueAnswer = multiValueAnswer;

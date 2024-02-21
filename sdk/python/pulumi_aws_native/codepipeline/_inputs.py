@@ -20,7 +20,10 @@ __all__ = [
     'PipelineArtifactStoreArgs',
     'PipelineBlockerDeclarationArgs',
     'PipelineEncryptionKeyArgs',
+    'PipelineGitBranchFilterCriteriaArgs',
     'PipelineGitConfigurationArgs',
+    'PipelineGitFilePathFilterCriteriaArgs',
+    'PipelineGitPullRequestFilterArgs',
     'PipelineGitPushFilterArgs',
     'PipelineGitTagFilterCriteriaArgs',
     'PipelineInputArtifactArgs',
@@ -568,11 +571,43 @@ class PipelineEncryptionKeyArgs:
 
 
 @pulumi.input_type
+class PipelineGitBranchFilterCriteriaArgs:
+    def __init__(__self__, *,
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excludes", value)
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "includes", value)
+
+
+@pulumi.input_type
 class PipelineGitConfigurationArgs:
     def __init__(__self__, *,
                  source_action_name: pulumi.Input[str],
+                 pull_request: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineGitPullRequestFilterArgs']]]] = None,
                  push: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineGitPushFilterArgs']]]] = None):
         pulumi.set(__self__, "source_action_name", source_action_name)
+        if pull_request is not None:
+            pulumi.set(__self__, "pull_request", pull_request)
         if push is not None:
             pulumi.set(__self__, "push", push)
 
@@ -586,6 +621,15 @@ class PipelineGitConfigurationArgs:
         pulumi.set(self, "source_action_name", value)
 
     @property
+    @pulumi.getter(name="pullRequest")
+    def pull_request(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineGitPullRequestFilterArgs']]]]:
+        return pulumi.get(self, "pull_request")
+
+    @pull_request.setter
+    def pull_request(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineGitPullRequestFilterArgs']]]]):
+        pulumi.set(self, "pull_request", value)
+
+    @property
     @pulumi.getter
     def push(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineGitPushFilterArgs']]]]:
         return pulumi.get(self, "push")
@@ -596,11 +640,105 @@ class PipelineGitConfigurationArgs:
 
 
 @pulumi.input_type
+class PipelineGitFilePathFilterCriteriaArgs:
+    def __init__(__self__, *,
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excludes", value)
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "includes", value)
+
+
+@pulumi.input_type
+class PipelineGitPullRequestFilterArgs:
+    def __init__(__self__, *,
+                 branches: Optional[pulumi.Input['PipelineGitBranchFilterCriteriaArgs']] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 file_paths: Optional[pulumi.Input['PipelineGitFilePathFilterCriteriaArgs']] = None):
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if file_paths is not None:
+            pulumi.set(__self__, "file_paths", file_paths)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional[pulumi.Input['PipelineGitBranchFilterCriteriaArgs']]:
+        return pulumi.get(self, "branches")
+
+    @branches.setter
+    def branches(self, value: Optional[pulumi.Input['PipelineGitBranchFilterCriteriaArgs']]):
+        pulumi.set(self, "branches", value)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter(name="filePaths")
+    def file_paths(self) -> Optional[pulumi.Input['PipelineGitFilePathFilterCriteriaArgs']]:
+        return pulumi.get(self, "file_paths")
+
+    @file_paths.setter
+    def file_paths(self, value: Optional[pulumi.Input['PipelineGitFilePathFilterCriteriaArgs']]):
+        pulumi.set(self, "file_paths", value)
+
+
+@pulumi.input_type
 class PipelineGitPushFilterArgs:
     def __init__(__self__, *,
+                 branches: Optional[pulumi.Input['PipelineGitBranchFilterCriteriaArgs']] = None,
+                 file_paths: Optional[pulumi.Input['PipelineGitFilePathFilterCriteriaArgs']] = None,
                  tags: Optional[pulumi.Input['PipelineGitTagFilterCriteriaArgs']] = None):
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if file_paths is not None:
+            pulumi.set(__self__, "file_paths", file_paths)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional[pulumi.Input['PipelineGitBranchFilterCriteriaArgs']]:
+        return pulumi.get(self, "branches")
+
+    @branches.setter
+    def branches(self, value: Optional[pulumi.Input['PipelineGitBranchFilterCriteriaArgs']]):
+        pulumi.set(self, "branches", value)
+
+    @property
+    @pulumi.getter(name="filePaths")
+    def file_paths(self) -> Optional[pulumi.Input['PipelineGitFilePathFilterCriteriaArgs']]:
+        return pulumi.get(self, "file_paths")
+
+    @file_paths.setter
+    def file_paths(self, value: Optional[pulumi.Input['PipelineGitFilePathFilterCriteriaArgs']]):
+        pulumi.set(self, "file_paths", value)
 
     @property
     @pulumi.getter

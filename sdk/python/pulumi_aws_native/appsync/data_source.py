@@ -24,6 +24,7 @@ class DataSourceArgs:
                  event_bridge_config: Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']] = None,
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
+                 metrics_config: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_search_service_config: Optional[pulumi.Input['DataSourceOpenSearchServiceConfigArgs']] = None,
                  relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
@@ -45,6 +46,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "http_config", http_config)
         if lambda_config is not None:
             pulumi.set(__self__, "lambda_config", lambda_config)
+        if metrics_config is not None:
+            pulumi.set(__self__, "metrics_config", metrics_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if open_search_service_config is not None:
@@ -127,6 +130,15 @@ class DataSourceArgs:
         pulumi.set(self, "lambda_config", value)
 
     @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metrics_config")
+
+    @metrics_config.setter
+    def metrics_config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metrics_config", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
@@ -180,6 +192,7 @@ class DataSource(pulumi.CustomResource):
                  event_bridge_config: Optional[pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']]] = None,
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
+                 metrics_config: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_search_service_config: Optional[pulumi.Input[pulumi.InputType['DataSourceOpenSearchServiceConfigArgs']]] = None,
                  relational_database_config: Optional[pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']]] = None,
@@ -223,6 +236,7 @@ class DataSource(pulumi.CustomResource):
                  event_bridge_config: Optional[pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']]] = None,
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
+                 metrics_config: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_search_service_config: Optional[pulumi.Input[pulumi.InputType['DataSourceOpenSearchServiceConfigArgs']]] = None,
                  relational_database_config: Optional[pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']]] = None,
@@ -247,6 +261,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["event_bridge_config"] = event_bridge_config
             __props__.__dict__["http_config"] = http_config
             __props__.__dict__["lambda_config"] = lambda_config
+            __props__.__dict__["metrics_config"] = metrics_config
             __props__.__dict__["name"] = name
             __props__.__dict__["open_search_service_config"] = open_search_service_config
             __props__.__dict__["relational_database_config"] = relational_database_config
@@ -287,6 +302,7 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["event_bridge_config"] = None
         __props__.__dict__["http_config"] = None
         __props__.__dict__["lambda_config"] = None
+        __props__.__dict__["metrics_config"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["open_search_service_config"] = None
         __props__.__dict__["relational_database_config"] = None
@@ -333,6 +349,11 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> pulumi.Output[Optional['outputs.DataSourceLambdaConfig']]:
         return pulumi.get(self, "lambda_config")
+
+    @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "metrics_config")
 
     @property
     @pulumi.getter

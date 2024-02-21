@@ -26,6 +26,7 @@ export interface GetPipelineResult {
     readonly artifactStore?: outputs.codepipeline.PipelineArtifactStore;
     readonly artifactStores?: outputs.codepipeline.PipelineArtifactStoreMap[];
     readonly disableInboundStageTransitions?: outputs.codepipeline.PipelineStageTransition[];
+    readonly executionMode?: string;
     readonly id?: string;
     readonly pipelineType?: string;
     readonly restartExecutionOnUpdate?: boolean;

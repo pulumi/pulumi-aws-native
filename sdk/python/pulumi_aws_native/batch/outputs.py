@@ -43,6 +43,7 @@ __all__ = [
     'JobDefinitionNodeProperties',
     'JobDefinitionNodeRangeProperty',
     'JobDefinitionPodProperties',
+    'JobDefinitionRepositoryCredentials',
     'JobDefinitionResourceRequirement',
     'JobDefinitionRetryStrategy',
     'JobDefinitionRuntimePlatform',
@@ -492,6 +493,8 @@ class JobDefinitionContainerProperties(dict):
             suggest = "network_configuration"
         elif key == "readonlyRootFilesystem":
             suggest = "readonly_root_filesystem"
+        elif key == "repositoryCredentials":
+            suggest = "repository_credentials"
         elif key == "resourceRequirements":
             suggest = "resource_requirements"
         elif key == "runtimePlatform":
@@ -524,6 +527,7 @@ class JobDefinitionContainerProperties(dict):
                  network_configuration: Optional['outputs.JobDefinitionNetworkConfiguration'] = None,
                  privileged: Optional[bool] = None,
                  readonly_root_filesystem: Optional[bool] = None,
+                 repository_credentials: Optional['outputs.JobDefinitionRepositoryCredentials'] = None,
                  resource_requirements: Optional[Sequence['outputs.JobDefinitionResourceRequirement']] = None,
                  runtime_platform: Optional['outputs.JobDefinitionRuntimePlatform'] = None,
                  secrets: Optional[Sequence['outputs.JobDefinitionSecret']] = None,
@@ -560,6 +564,8 @@ class JobDefinitionContainerProperties(dict):
             pulumi.set(__self__, "privileged", privileged)
         if readonly_root_filesystem is not None:
             pulumi.set(__self__, "readonly_root_filesystem", readonly_root_filesystem)
+        if repository_credentials is not None:
+            pulumi.set(__self__, "repository_credentials", repository_credentials)
         if resource_requirements is not None:
             pulumi.set(__self__, "resource_requirements", resource_requirements)
         if runtime_platform is not None:
@@ -649,6 +655,11 @@ class JobDefinitionContainerProperties(dict):
     @pulumi.getter(name="readonlyRootFilesystem")
     def readonly_root_filesystem(self) -> Optional[bool]:
         return pulumi.get(self, "readonly_root_filesystem")
+
+    @property
+    @pulumi.getter(name="repositoryCredentials")
+    def repository_credentials(self) -> Optional['outputs.JobDefinitionRepositoryCredentials']:
+        return pulumi.get(self, "repository_credentials")
 
     @property
     @pulumi.getter(name="resourceRequirements")
@@ -1737,6 +1748,35 @@ class JobDefinitionPodProperties(dict):
     @pulumi.getter
     def volumes(self) -> Optional[Sequence['outputs.JobDefinitionEksVolume']]:
         return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
+class JobDefinitionRepositoryCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialsParameter":
+            suggest = "credentials_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionRepositoryCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionRepositoryCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionRepositoryCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credentials_parameter: str):
+        pulumi.set(__self__, "credentials_parameter", credentials_parameter)
+
+    @property
+    @pulumi.getter(name="credentialsParameter")
+    def credentials_parameter(self) -> str:
+        return pulumi.get(self, "credentials_parameter")
 
 
 @pulumi.output_type

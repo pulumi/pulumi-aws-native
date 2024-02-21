@@ -31,6 +31,7 @@ export interface GetDataSourceResult {
     readonly httpConfig?: outputs.appsync.DataSourceHttpConfig;
     readonly id?: string;
     readonly lambdaConfig?: outputs.appsync.DataSourceLambdaConfig;
+    readonly metricsConfig?: string;
     readonly openSearchServiceConfig?: outputs.appsync.DataSourceOpenSearchServiceConfig;
     readonly relationalDatabaseConfig?: outputs.appsync.DataSourceRelationalDatabaseConfig;
     readonly serviceRoleArn?: string;

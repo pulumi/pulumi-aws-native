@@ -34,13 +34,7 @@ export class TransitGatewayRouteTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayRouteTableAssociation.__pulumiType;
     }
 
-    /**
-     * The ID of transit gateway attachment.
-     */
     public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
-    /**
-     * The ID of transit gateway route table.
-     */
     public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
 
     /**
@@ -77,12 +71,6 @@ export class TransitGatewayRouteTableAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a TransitGatewayRouteTableAssociation resource.
  */
 export interface TransitGatewayRouteTableAssociationArgs {
-    /**
-     * The ID of transit gateway attachment.
-     */
     transitGatewayAttachmentId: pulumi.Input<string>;
-    /**
-     * The ID of transit gateway route table.
-     */
     transitGatewayRouteTableId: pulumi.Input<string>;
 }

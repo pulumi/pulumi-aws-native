@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class TableStreamSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("resourcePolicy")]
+        public Input<Inputs.TableResourcePolicyArgs>? ResourcePolicy { get; set; }
+
         [Input("streamViewType", required: true)]
         public Input<string> StreamViewType { get; set; } = null!;
 

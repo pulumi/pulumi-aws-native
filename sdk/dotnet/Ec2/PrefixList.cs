@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Ec2
         /// Max Entries of Prefix List.
         /// </summary>
         [Output("maxEntries")]
-        public Output<int> MaxEntries { get; private set; } = null!;
+        public Output<int?> MaxEntries { get; private set; } = null!;
 
         /// <summary>
         /// Owner Id of Prefix List.
@@ -135,8 +135,8 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// Max Entries of Prefix List.
         /// </summary>
-        [Input("maxEntries", required: true)]
-        public Input<int> MaxEntries { get; set; } = null!;
+        [Input("maxEntries")]
+        public Input<int>? MaxEntries { get; set; }
 
         /// <summary>
         /// Name of Prefix List.

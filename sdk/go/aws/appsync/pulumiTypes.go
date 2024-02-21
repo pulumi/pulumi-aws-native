@@ -2474,6 +2474,169 @@ func (o GraphQlApiCognitoUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type GraphQlApiEnhancedMetricsConfig struct {
+	DataSourceLevelMetricsBehavior string `pulumi:"dataSourceLevelMetricsBehavior"`
+	OperationLevelMetricsConfig    string `pulumi:"operationLevelMetricsConfig"`
+	ResolverLevelMetricsBehavior   string `pulumi:"resolverLevelMetricsBehavior"`
+}
+
+// GraphQlApiEnhancedMetricsConfigInput is an input type that accepts GraphQlApiEnhancedMetricsConfigArgs and GraphQlApiEnhancedMetricsConfigOutput values.
+// You can construct a concrete instance of `GraphQlApiEnhancedMetricsConfigInput` via:
+//
+//	GraphQlApiEnhancedMetricsConfigArgs{...}
+type GraphQlApiEnhancedMetricsConfigInput interface {
+	pulumi.Input
+
+	ToGraphQlApiEnhancedMetricsConfigOutput() GraphQlApiEnhancedMetricsConfigOutput
+	ToGraphQlApiEnhancedMetricsConfigOutputWithContext(context.Context) GraphQlApiEnhancedMetricsConfigOutput
+}
+
+type GraphQlApiEnhancedMetricsConfigArgs struct {
+	DataSourceLevelMetricsBehavior pulumi.StringInput `pulumi:"dataSourceLevelMetricsBehavior"`
+	OperationLevelMetricsConfig    pulumi.StringInput `pulumi:"operationLevelMetricsConfig"`
+	ResolverLevelMetricsBehavior   pulumi.StringInput `pulumi:"resolverLevelMetricsBehavior"`
+}
+
+func (GraphQlApiEnhancedMetricsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQlApiEnhancedMetricsConfig)(nil)).Elem()
+}
+
+func (i GraphQlApiEnhancedMetricsConfigArgs) ToGraphQlApiEnhancedMetricsConfigOutput() GraphQlApiEnhancedMetricsConfigOutput {
+	return i.ToGraphQlApiEnhancedMetricsConfigOutputWithContext(context.Background())
+}
+
+func (i GraphQlApiEnhancedMetricsConfigArgs) ToGraphQlApiEnhancedMetricsConfigOutputWithContext(ctx context.Context) GraphQlApiEnhancedMetricsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQlApiEnhancedMetricsConfigOutput)
+}
+
+func (i GraphQlApiEnhancedMetricsConfigArgs) ToGraphQlApiEnhancedMetricsConfigPtrOutput() GraphQlApiEnhancedMetricsConfigPtrOutput {
+	return i.ToGraphQlApiEnhancedMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GraphQlApiEnhancedMetricsConfigArgs) ToGraphQlApiEnhancedMetricsConfigPtrOutputWithContext(ctx context.Context) GraphQlApiEnhancedMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQlApiEnhancedMetricsConfigOutput).ToGraphQlApiEnhancedMetricsConfigPtrOutputWithContext(ctx)
+}
+
+// GraphQlApiEnhancedMetricsConfigPtrInput is an input type that accepts GraphQlApiEnhancedMetricsConfigArgs, GraphQlApiEnhancedMetricsConfigPtr and GraphQlApiEnhancedMetricsConfigPtrOutput values.
+// You can construct a concrete instance of `GraphQlApiEnhancedMetricsConfigPtrInput` via:
+//
+//	        GraphQlApiEnhancedMetricsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GraphQlApiEnhancedMetricsConfigPtrInput interface {
+	pulumi.Input
+
+	ToGraphQlApiEnhancedMetricsConfigPtrOutput() GraphQlApiEnhancedMetricsConfigPtrOutput
+	ToGraphQlApiEnhancedMetricsConfigPtrOutputWithContext(context.Context) GraphQlApiEnhancedMetricsConfigPtrOutput
+}
+
+type graphQlApiEnhancedMetricsConfigPtrType GraphQlApiEnhancedMetricsConfigArgs
+
+func GraphQlApiEnhancedMetricsConfigPtr(v *GraphQlApiEnhancedMetricsConfigArgs) GraphQlApiEnhancedMetricsConfigPtrInput {
+	return (*graphQlApiEnhancedMetricsConfigPtrType)(v)
+}
+
+func (*graphQlApiEnhancedMetricsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphQlApiEnhancedMetricsConfig)(nil)).Elem()
+}
+
+func (i *graphQlApiEnhancedMetricsConfigPtrType) ToGraphQlApiEnhancedMetricsConfigPtrOutput() GraphQlApiEnhancedMetricsConfigPtrOutput {
+	return i.ToGraphQlApiEnhancedMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *graphQlApiEnhancedMetricsConfigPtrType) ToGraphQlApiEnhancedMetricsConfigPtrOutputWithContext(ctx context.Context) GraphQlApiEnhancedMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQlApiEnhancedMetricsConfigPtrOutput)
+}
+
+type GraphQlApiEnhancedMetricsConfigOutput struct{ *pulumi.OutputState }
+
+func (GraphQlApiEnhancedMetricsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQlApiEnhancedMetricsConfig)(nil)).Elem()
+}
+
+func (o GraphQlApiEnhancedMetricsConfigOutput) ToGraphQlApiEnhancedMetricsConfigOutput() GraphQlApiEnhancedMetricsConfigOutput {
+	return o
+}
+
+func (o GraphQlApiEnhancedMetricsConfigOutput) ToGraphQlApiEnhancedMetricsConfigOutputWithContext(ctx context.Context) GraphQlApiEnhancedMetricsConfigOutput {
+	return o
+}
+
+func (o GraphQlApiEnhancedMetricsConfigOutput) ToGraphQlApiEnhancedMetricsConfigPtrOutput() GraphQlApiEnhancedMetricsConfigPtrOutput {
+	return o.ToGraphQlApiEnhancedMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GraphQlApiEnhancedMetricsConfigOutput) ToGraphQlApiEnhancedMetricsConfigPtrOutputWithContext(ctx context.Context) GraphQlApiEnhancedMetricsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQlApiEnhancedMetricsConfig) *GraphQlApiEnhancedMetricsConfig {
+		return &v
+	}).(GraphQlApiEnhancedMetricsConfigPtrOutput)
+}
+
+func (o GraphQlApiEnhancedMetricsConfigOutput) DataSourceLevelMetricsBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQlApiEnhancedMetricsConfig) string { return v.DataSourceLevelMetricsBehavior }).(pulumi.StringOutput)
+}
+
+func (o GraphQlApiEnhancedMetricsConfigOutput) OperationLevelMetricsConfig() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQlApiEnhancedMetricsConfig) string { return v.OperationLevelMetricsConfig }).(pulumi.StringOutput)
+}
+
+func (o GraphQlApiEnhancedMetricsConfigOutput) ResolverLevelMetricsBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQlApiEnhancedMetricsConfig) string { return v.ResolverLevelMetricsBehavior }).(pulumi.StringOutput)
+}
+
+type GraphQlApiEnhancedMetricsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphQlApiEnhancedMetricsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphQlApiEnhancedMetricsConfig)(nil)).Elem()
+}
+
+func (o GraphQlApiEnhancedMetricsConfigPtrOutput) ToGraphQlApiEnhancedMetricsConfigPtrOutput() GraphQlApiEnhancedMetricsConfigPtrOutput {
+	return o
+}
+
+func (o GraphQlApiEnhancedMetricsConfigPtrOutput) ToGraphQlApiEnhancedMetricsConfigPtrOutputWithContext(ctx context.Context) GraphQlApiEnhancedMetricsConfigPtrOutput {
+	return o
+}
+
+func (o GraphQlApiEnhancedMetricsConfigPtrOutput) Elem() GraphQlApiEnhancedMetricsConfigOutput {
+	return o.ApplyT(func(v *GraphQlApiEnhancedMetricsConfig) GraphQlApiEnhancedMetricsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GraphQlApiEnhancedMetricsConfig
+		return ret
+	}).(GraphQlApiEnhancedMetricsConfigOutput)
+}
+
+func (o GraphQlApiEnhancedMetricsConfigPtrOutput) DataSourceLevelMetricsBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQlApiEnhancedMetricsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceLevelMetricsBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GraphQlApiEnhancedMetricsConfigPtrOutput) OperationLevelMetricsConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQlApiEnhancedMetricsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OperationLevelMetricsConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GraphQlApiEnhancedMetricsConfigPtrOutput) ResolverLevelMetricsBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQlApiEnhancedMetricsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResolverLevelMetricsBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
 type GraphQlApiLambdaAuthorizerConfig struct {
 	AuthorizerResultTtlInSeconds *float64 `pulumi:"authorizerResultTtlInSeconds"`
 	AuthorizerUri                *string  `pulumi:"authorizerUri"`
@@ -4246,6 +4409,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiAdditionalAuthenticationProviderArrayInput)(nil)).Elem(), GraphQlApiAdditionalAuthenticationProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiCognitoUserPoolConfigInput)(nil)).Elem(), GraphQlApiCognitoUserPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiCognitoUserPoolConfigPtrInput)(nil)).Elem(), GraphQlApiCognitoUserPoolConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiEnhancedMetricsConfigInput)(nil)).Elem(), GraphQlApiEnhancedMetricsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiEnhancedMetricsConfigPtrInput)(nil)).Elem(), GraphQlApiEnhancedMetricsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiLambdaAuthorizerConfigInput)(nil)).Elem(), GraphQlApiLambdaAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiLambdaAuthorizerConfigPtrInput)(nil)).Elem(), GraphQlApiLambdaAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiLogConfigInput)(nil)).Elem(), GraphQlApiLogConfigArgs{})
@@ -4300,6 +4465,8 @@ func init() {
 	pulumi.RegisterOutputType(GraphQlApiAdditionalAuthenticationProviderArrayOutput{})
 	pulumi.RegisterOutputType(GraphQlApiCognitoUserPoolConfigOutput{})
 	pulumi.RegisterOutputType(GraphQlApiCognitoUserPoolConfigPtrOutput{})
+	pulumi.RegisterOutputType(GraphQlApiEnhancedMetricsConfigOutput{})
+	pulumi.RegisterOutputType(GraphQlApiEnhancedMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQlApiLambdaAuthorizerConfigOutput{})
 	pulumi.RegisterOutputType(GraphQlApiLambdaAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQlApiLogConfigOutput{})

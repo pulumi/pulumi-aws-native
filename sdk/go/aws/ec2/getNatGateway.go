@@ -11,7 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::NatGateway
+// Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
+//
+//	With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on-premises network using the IP address of the NAT gateway. For more information, see [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide*.
+//	If you add a default route (``AWS::EC2::Route`` resource) that points to a NAT gateway, specify the NAT gateway ID for the route's ``NatGatewayId`` property.
+//	When you associate an Elastic IP address or secondary Elastic IP address with a public NAT gateway, the network border group of the Elastic IP address must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. Otherwise, the N
 func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...pulumi.InvokeOption) (*LookupNatGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNatGatewayResult
@@ -27,11 +31,17 @@ type LookupNatGatewayArgs struct {
 }
 
 type LookupNatGatewayResult struct {
-	NatGatewayId                   *string         `pulumi:"natGatewayId"`
-	SecondaryAllocationIds         []string        `pulumi:"secondaryAllocationIds"`
-	SecondaryPrivateIpAddressCount *int            `pulumi:"secondaryPrivateIpAddressCount"`
-	SecondaryPrivateIpAddresses    []string        `pulumi:"secondaryPrivateIpAddresses"`
-	Tags                           []NatGatewayTag `pulumi:"tags"`
+	NatGatewayId *string `pulumi:"natGatewayId"`
+	// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+	SecondaryAllocationIds []string `pulumi:"secondaryAllocationIds"`
+	// [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+	//  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
+	// Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+	//  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+	SecondaryPrivateIpAddresses []string `pulumi:"secondaryPrivateIpAddresses"`
+	// The tags for the NAT gateway.
+	Tags []NatGatewayTag `pulumi:"tags"`
 }
 
 func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupNatGatewayResultOutput {
@@ -73,18 +83,26 @@ func (o LookupNatGatewayResultOutput) NatGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.NatGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
 func (o LookupNatGatewayResultOutput) SecondaryAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.SecondaryAllocationIds }).(pulumi.StringArrayOutput)
 }
 
+// [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+//
+//	``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
 func (o LookupNatGatewayResultOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
 }
 
+// Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+//
+//	``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
 func (o LookupNatGatewayResultOutput) SecondaryPrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.SecondaryPrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
 
+// The tags for the NAT gateway.
 func (o LookupNatGatewayResultOutput) Tags() NatGatewayTagArrayOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) []NatGatewayTag { return v.Tags }).(NatGatewayTagArrayOutput)
 }

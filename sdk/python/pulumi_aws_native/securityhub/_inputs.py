@@ -208,6 +208,10 @@ class AutomationRuleRelatedFindingArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  product_arn: pulumi.Input[str]):
+        """
+        Provides details about a list of findings that the current finding relates to.
+        :param pulumi.Input[str] product_arn: The Amazon Resource Name (ARN) for the product that generated a related finding.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "product_arn", product_arn)
 
@@ -223,6 +227,9 @@ class AutomationRuleRelatedFindingArgs:
     @property
     @pulumi.getter(name="productArn")
     def product_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) for the product that generated a related finding.
+        """
         return pulumi.get(self, "product_arn")
 
     @product_arn.setter
@@ -326,6 +333,9 @@ class AutomationRuleWorkflowUpdateArgs:
 @pulumi.input_type
 class AutomationRulemapArgs:
     def __init__(__self__):
+        """
+        An object of user-defined name and value string pair added to a finding.
+        """
         pass
 
 
@@ -369,9 +379,11 @@ class AutomationRulesFindingFieldsUpdateArgs:
                  verification_state: Optional[pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState']] = None,
                  workflow: Optional[pulumi.Input['AutomationRuleWorkflowUpdateArgs']] = None):
         """
-        :param pulumi.Input['AutomationRuleNoteUpdateArgs'] note: Note added to the finding
-        :param pulumi.Input['AutomationRuleSeverityUpdateArgs'] severity: Severity of the finding
-        :param pulumi.Input['AutomationRuleWorkflowUpdateArgs'] workflow: Workflow status set for the finding
+        The rule action will update the ``Note`` field of a finding.
+        :param pulumi.Input['AutomationRuleNoteUpdateArgs'] note: The rule action will update the ``Note`` field of a finding.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleRelatedFindingArgs']]] related_findings: The rule action will update the ``RelatedFindings`` field of a finding.
+        :param pulumi.Input['AutomationRuleSeverityUpdateArgs'] severity: The rule action will update the ``Severity`` field of a finding.
+        :param pulumi.Input['AutomationRuleWorkflowUpdateArgs'] workflow: The rule action will update the ``Workflow`` field of a finding.
         """
         if confidence is not None:
             pulumi.set(__self__, "confidence", confidence)
@@ -414,7 +426,7 @@ class AutomationRulesFindingFieldsUpdateArgs:
     @pulumi.getter
     def note(self) -> Optional[pulumi.Input['AutomationRuleNoteUpdateArgs']]:
         """
-        Note added to the finding
+        The rule action will update the ``Note`` field of a finding.
         """
         return pulumi.get(self, "note")
 
@@ -425,6 +437,9 @@ class AutomationRulesFindingFieldsUpdateArgs:
     @property
     @pulumi.getter(name="relatedFindings")
     def related_findings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleRelatedFindingArgs']]]]:
+        """
+        The rule action will update the ``RelatedFindings`` field of a finding.
+        """
         return pulumi.get(self, "related_findings")
 
     @related_findings.setter
@@ -435,7 +450,7 @@ class AutomationRulesFindingFieldsUpdateArgs:
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input['AutomationRuleSeverityUpdateArgs']]:
         """
-        Severity of the finding
+        The rule action will update the ``Severity`` field of a finding.
         """
         return pulumi.get(self, "severity")
 
@@ -474,7 +489,7 @@ class AutomationRulesFindingFieldsUpdateArgs:
     @pulumi.getter
     def workflow(self) -> Optional[pulumi.Input['AutomationRuleWorkflowUpdateArgs']]:
         """
-        Workflow status set for the finding
+        The rule action will update the ``Workflow`` field of a finding.
         """
         return pulumi.get(self, "workflow")
 
@@ -923,9 +938,9 @@ class StandardsControlArgs:
                  standards_control_arn: pulumi.Input[str],
                  reason: Optional[pulumi.Input[str]] = None):
         """
-        An individual StandardsControl within the Standard.
-        :param pulumi.Input[str] standards_control_arn: the Arn for the standard control.
-        :param pulumi.Input[str] reason: the reason the standard control is disabled
+        Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
+        :param pulumi.Input[str] standards_control_arn: The Amazon Resource Name (ARN) of the control.
+        :param pulumi.Input[str] reason: A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
         """
         pulumi.set(__self__, "standards_control_arn", standards_control_arn)
         if reason is not None:
@@ -935,7 +950,7 @@ class StandardsControlArgs:
     @pulumi.getter(name="standardsControlArn")
     def standards_control_arn(self) -> pulumi.Input[str]:
         """
-        the Arn for the standard control.
+        The Amazon Resource Name (ARN) of the control.
         """
         return pulumi.get(self, "standards_control_arn")
 
@@ -947,7 +962,7 @@ class StandardsControlArgs:
     @pulumi.getter
     def reason(self) -> Optional[pulumi.Input[str]]:
         """
-        the reason the standard control is disabled
+        A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
         """
         return pulumi.get(self, "reason")
 

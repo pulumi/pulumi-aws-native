@@ -12,12 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
+// Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
 type SubnetRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
+	// The ID of the route table.
+	//  The physical ID changes when the route table ID is changed.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
-	SubnetId     pulumi.StringOutput `pulumi:"subnetId"`
+	// The ID of the subnet.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
 // NewSubnetRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
@@ -71,14 +74,20 @@ func (SubnetRouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type subnetRouteTableAssociationArgs struct {
+	// The ID of the route table.
+	//  The physical ID changes when the route table ID is changed.
 	RouteTableId string `pulumi:"routeTableId"`
-	SubnetId     string `pulumi:"subnetId"`
+	// The ID of the subnet.
+	SubnetId string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a SubnetRouteTableAssociation resource.
 type SubnetRouteTableAssociationArgs struct {
+	// The ID of the route table.
+	//  The physical ID changes when the route table ID is changed.
 	RouteTableId pulumi.StringInput
-	SubnetId     pulumi.StringInput
+	// The ID of the subnet.
+	SubnetId pulumi.StringInput
 }
 
 func (SubnetRouteTableAssociationArgs) ElementType() reflect.Type {
@@ -118,10 +127,14 @@ func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutputWi
 	return o
 }
 
+// The ID of the route table.
+//
+//	The physical ID changes when the route table ID is changed.
 func (o SubnetRouteTableAssociationOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetRouteTableAssociation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
+// The ID of the subnet.
 func (o SubnetRouteTableAssociationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetRouteTableAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Glue.Inputs
         [Input("catalogEncryptionMode")]
         public Input<string>? CatalogEncryptionMode { get; set; }
 
+        [Input("catalogEncryptionServiceRole")]
+        public Input<string>? CatalogEncryptionServiceRole { get; set; }
+
         [Input("sseAwsKmsKeyId")]
         public Input<string>? SseAwsKmsKeyId { get; set; }
 

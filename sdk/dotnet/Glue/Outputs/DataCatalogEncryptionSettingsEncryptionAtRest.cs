@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.Glue.Outputs
     public sealed class DataCatalogEncryptionSettingsEncryptionAtRest
     {
         public readonly string? CatalogEncryptionMode;
+        public readonly string? CatalogEncryptionServiceRole;
         public readonly string? SseAwsKmsKeyId;
 
         [OutputConstructor]
         private DataCatalogEncryptionSettingsEncryptionAtRest(
             string? catalogEncryptionMode,
 
+            string? catalogEncryptionServiceRole,
+
             string? sseAwsKmsKeyId)
         {
             CatalogEncryptionMode = catalogEncryptionMode;
+            CatalogEncryptionServiceRole = catalogEncryptionServiceRole;
             SseAwsKmsKeyId = sseAwsKmsKeyId;
         }
     }

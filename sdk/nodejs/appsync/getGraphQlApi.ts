@@ -28,6 +28,7 @@ export interface GetGraphQlApiResult {
     readonly apiType?: string;
     readonly arn?: string;
     readonly authenticationType?: string;
+    readonly enhancedMetricsConfig?: outputs.appsync.GraphQlApiEnhancedMetricsConfig;
     readonly environmentVariables?: any;
     readonly graphQlDns?: string;
     readonly graphQlEndpointArn?: string;

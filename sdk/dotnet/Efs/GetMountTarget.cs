@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Efs
     public static class GetMountTarget
     {
         /// <summary>
-        /// Resource Type definition for AWS::EFS::MountTarget
+        /// The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
         /// </summary>
         public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws-native:efs:getMountTarget", args ?? new GetMountTargetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EFS::MountTarget
+        /// The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
         /// </summary>
         public static Output<GetMountTargetResult> Invoke(GetMountTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMountTargetResult>("aws-native:efs:getMountTarget", args ?? new GetMountTargetInvokeArgs(), options.WithDefaults());
@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.Efs
     public sealed class GetMountTargetResult
     {
         public readonly string? Id;
+        /// <summary>
+        /// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
 
         [OutputConstructor]

@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Route53
         [Output("geoLocation")]
         public Output<Outputs.RecordSetGeoLocation?> GeoLocation { get; private set; } = null!;
 
+        [Output("geoProximityLocation")]
+        public Output<Outputs.RecordSetGeoProximityLocation?> GeoProximityLocation { get; private set; } = null!;
+
         [Output("healthCheckId")]
         public Output<string?> HealthCheckId { get; private set; } = null!;
 
@@ -129,6 +132,9 @@ namespace Pulumi.AwsNative.Route53
 
         [Input("geoLocation")]
         public Input<Inputs.RecordSetGeoLocationArgs>? GeoLocation { get; set; }
+
+        [Input("geoProximityLocation")]
+        public Input<Inputs.RecordSetGeoProximityLocationArgs>? GeoProximityLocation { get; set; }
 
         [Input("healthCheckId")]
         public Input<string>? HealthCheckId { get; set; }

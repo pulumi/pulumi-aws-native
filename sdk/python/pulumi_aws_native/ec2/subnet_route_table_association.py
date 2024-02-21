@@ -18,6 +18,9 @@ class SubnetRouteTableAssociationArgs:
                  subnet_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a SubnetRouteTableAssociation resource.
+        :param pulumi.Input[str] route_table_id: The ID of the route table.
+                The physical ID changes when the route table ID is changed.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet.
         """
         pulumi.set(__self__, "route_table_id", route_table_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -25,6 +28,10 @@ class SubnetRouteTableAssociationArgs:
     @property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the route table.
+         The physical ID changes when the route table ID is changed.
+        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -34,6 +41,9 @@ class SubnetRouteTableAssociationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subnet.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -50,10 +60,13 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
+        Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] route_table_id: The ID of the route table.
+                The physical ID changes when the route table ID is changed.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet.
         """
         ...
     @overload
@@ -62,7 +75,7 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
                  args: SubnetRouteTableAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
+        Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
 
         :param str resource_name: The name of the resource.
         :param SubnetRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -127,10 +140,17 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the route table.
+         The physical ID changes when the route table ID is changed.
+        """
         return pulumi.get(self, "route_table_id")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subnet.
+        """
         return pulumi.get(self, "subnet_id")
 

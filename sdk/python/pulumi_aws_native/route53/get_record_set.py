@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRecordSetResult:
-    def __init__(__self__, alias_target=None, cidr_routing_config=None, comment=None, failover=None, geo_location=None, health_check_id=None, id=None, multi_value_answer=None, region=None, resource_records=None, set_identifier=None, ttl=None, type=None, weight=None):
+    def __init__(__self__, alias_target=None, cidr_routing_config=None, comment=None, failover=None, geo_location=None, geo_proximity_location=None, health_check_id=None, id=None, multi_value_answer=None, region=None, resource_records=None, set_identifier=None, ttl=None, type=None, weight=None):
         if alias_target and not isinstance(alias_target, dict):
             raise TypeError("Expected argument 'alias_target' to be a dict")
         pulumi.set(__self__, "alias_target", alias_target)
@@ -35,6 +35,9 @@ class GetRecordSetResult:
         if geo_location and not isinstance(geo_location, dict):
             raise TypeError("Expected argument 'geo_location' to be a dict")
         pulumi.set(__self__, "geo_location", geo_location)
+        if geo_proximity_location and not isinstance(geo_proximity_location, dict):
+            raise TypeError("Expected argument 'geo_proximity_location' to be a dict")
+        pulumi.set(__self__, "geo_proximity_location", geo_proximity_location)
         if health_check_id and not isinstance(health_check_id, str):
             raise TypeError("Expected argument 'health_check_id' to be a str")
         pulumi.set(__self__, "health_check_id", health_check_id)
@@ -87,6 +90,11 @@ class GetRecordSetResult:
     @pulumi.getter(name="geoLocation")
     def geo_location(self) -> Optional['outputs.RecordSetGeoLocation']:
         return pulumi.get(self, "geo_location")
+
+    @property
+    @pulumi.getter(name="geoProximityLocation")
+    def geo_proximity_location(self) -> Optional['outputs.RecordSetGeoProximityLocation']:
+        return pulumi.get(self, "geo_proximity_location")
 
     @property
     @pulumi.getter(name="healthCheckId")
@@ -145,6 +153,7 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             comment=self.comment,
             failover=self.failover,
             geo_location=self.geo_location,
+            geo_proximity_location=self.geo_proximity_location,
             health_check_id=self.health_check_id,
             id=self.id,
             multi_value_answer=self.multi_value_answer,
@@ -172,6 +181,7 @@ def get_record_set(id: Optional[str] = None,
         comment=pulumi.get(__ret__, 'comment'),
         failover=pulumi.get(__ret__, 'failover'),
         geo_location=pulumi.get(__ret__, 'geo_location'),
+        geo_proximity_location=pulumi.get(__ret__, 'geo_proximity_location'),
         health_check_id=pulumi.get(__ret__, 'health_check_id'),
         id=pulumi.get(__ret__, 'id'),
         multi_value_answer=pulumi.get(__ret__, 'multi_value_answer'),

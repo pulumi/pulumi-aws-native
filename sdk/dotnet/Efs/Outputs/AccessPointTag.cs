@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Efs.Outputs
 {
 
+    /// <summary>
+    /// A tag is a key-value pair attached to a file system. Allowed characters in the ``Key`` and ``Value`` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:``+ - = . _ : /``
+    /// </summary>
     [OutputType]
     public sealed class AccessPointTag
     {
+        /// <summary>
+        /// The tag key (String). The key can't start with ``aws:``.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// The value of the tag key.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

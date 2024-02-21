@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineGitConfiguration
     {
+        public readonly ImmutableArray<Outputs.PipelineGitPullRequestFilter> PullRequest;
         public readonly ImmutableArray<Outputs.PipelineGitPushFilter> Push;
         public readonly string SourceActionName;
 
         [OutputConstructor]
         private PipelineGitConfiguration(
+            ImmutableArray<Outputs.PipelineGitPullRequestFilter> pullRequest,
+
             ImmutableArray<Outputs.PipelineGitPushFilter> push,
 
             string sourceActionName)
         {
+            PullRequest = pullRequest;
             Push = push;
             SourceActionName = sourceActionName;
         }

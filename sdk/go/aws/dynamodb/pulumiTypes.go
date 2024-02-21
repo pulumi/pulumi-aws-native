@@ -3981,6 +3981,139 @@ func (o TableProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+type TableResourcePolicy struct {
+	PolicyDocument interface{} `pulumi:"policyDocument"`
+}
+
+// TableResourcePolicyInput is an input type that accepts TableResourcePolicyArgs and TableResourcePolicyOutput values.
+// You can construct a concrete instance of `TableResourcePolicyInput` via:
+//
+//	TableResourcePolicyArgs{...}
+type TableResourcePolicyInput interface {
+	pulumi.Input
+
+	ToTableResourcePolicyOutput() TableResourcePolicyOutput
+	ToTableResourcePolicyOutputWithContext(context.Context) TableResourcePolicyOutput
+}
+
+type TableResourcePolicyArgs struct {
+	PolicyDocument pulumi.Input `pulumi:"policyDocument"`
+}
+
+func (TableResourcePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableResourcePolicy)(nil)).Elem()
+}
+
+func (i TableResourcePolicyArgs) ToTableResourcePolicyOutput() TableResourcePolicyOutput {
+	return i.ToTableResourcePolicyOutputWithContext(context.Background())
+}
+
+func (i TableResourcePolicyArgs) ToTableResourcePolicyOutputWithContext(ctx context.Context) TableResourcePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableResourcePolicyOutput)
+}
+
+func (i TableResourcePolicyArgs) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
+	return i.ToTableResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i TableResourcePolicyArgs) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableResourcePolicyOutput).ToTableResourcePolicyPtrOutputWithContext(ctx)
+}
+
+// TableResourcePolicyPtrInput is an input type that accepts TableResourcePolicyArgs, TableResourcePolicyPtr and TableResourcePolicyPtrOutput values.
+// You can construct a concrete instance of `TableResourcePolicyPtrInput` via:
+//
+//	        TableResourcePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableResourcePolicyPtrInput interface {
+	pulumi.Input
+
+	ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput
+	ToTableResourcePolicyPtrOutputWithContext(context.Context) TableResourcePolicyPtrOutput
+}
+
+type tableResourcePolicyPtrType TableResourcePolicyArgs
+
+func TableResourcePolicyPtr(v *TableResourcePolicyArgs) TableResourcePolicyPtrInput {
+	return (*tableResourcePolicyPtrType)(v)
+}
+
+func (*tableResourcePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableResourcePolicy)(nil)).Elem()
+}
+
+func (i *tableResourcePolicyPtrType) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
+	return i.ToTableResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *tableResourcePolicyPtrType) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableResourcePolicyPtrOutput)
+}
+
+type TableResourcePolicyOutput struct{ *pulumi.OutputState }
+
+func (TableResourcePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableResourcePolicy)(nil)).Elem()
+}
+
+func (o TableResourcePolicyOutput) ToTableResourcePolicyOutput() TableResourcePolicyOutput {
+	return o
+}
+
+func (o TableResourcePolicyOutput) ToTableResourcePolicyOutputWithContext(ctx context.Context) TableResourcePolicyOutput {
+	return o
+}
+
+func (o TableResourcePolicyOutput) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
+	return o.ToTableResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o TableResourcePolicyOutput) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableResourcePolicy) *TableResourcePolicy {
+		return &v
+	}).(TableResourcePolicyPtrOutput)
+}
+
+func (o TableResourcePolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableResourcePolicy) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+type TableResourcePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (TableResourcePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableResourcePolicy)(nil)).Elem()
+}
+
+func (o TableResourcePolicyPtrOutput) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
+	return o
+}
+
+func (o TableResourcePolicyPtrOutput) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
+	return o
+}
+
+func (o TableResourcePolicyPtrOutput) Elem() TableResourcePolicyOutput {
+	return o.ApplyT(func(v *TableResourcePolicy) TableResourcePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret TableResourcePolicy
+		return ret
+	}).(TableResourcePolicyOutput)
+}
+
+func (o TableResourcePolicyPtrOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableResourcePolicy) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyDocument
+	}).(pulumi.AnyOutput)
+}
+
 type TableS3BucketSource struct {
 	S3Bucket      string  `pulumi:"s3Bucket"`
 	S3BucketOwner *string `pulumi:"s3BucketOwner"`
@@ -4308,7 +4441,8 @@ func (o TableSseSpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
 }
 
 type TableStreamSpecification struct {
-	StreamViewType string `pulumi:"streamViewType"`
+	ResourcePolicy *TableResourcePolicy `pulumi:"resourcePolicy"`
+	StreamViewType string               `pulumi:"streamViewType"`
 }
 
 // TableStreamSpecificationInput is an input type that accepts TableStreamSpecificationArgs and TableStreamSpecificationOutput values.
@@ -4323,7 +4457,8 @@ type TableStreamSpecificationInput interface {
 }
 
 type TableStreamSpecificationArgs struct {
-	StreamViewType pulumi.StringInput `pulumi:"streamViewType"`
+	ResourcePolicy TableResourcePolicyPtrInput `pulumi:"resourcePolicy"`
+	StreamViewType pulumi.StringInput          `pulumi:"streamViewType"`
 }
 
 func (TableStreamSpecificationArgs) ElementType() reflect.Type {
@@ -4403,6 +4538,10 @@ func (o TableStreamSpecificationOutput) ToTableStreamSpecificationPtrOutputWithC
 	}).(TableStreamSpecificationPtrOutput)
 }
 
+func (o TableStreamSpecificationOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
+	return o.ApplyT(func(v TableStreamSpecification) *TableResourcePolicy { return v.ResourcePolicy }).(TableResourcePolicyPtrOutput)
+}
+
 func (o TableStreamSpecificationOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableStreamSpecification) string { return v.StreamViewType }).(pulumi.StringOutput)
 }
@@ -4429,6 +4568,15 @@ func (o TableStreamSpecificationPtrOutput) Elem() TableStreamSpecificationOutput
 		var ret TableStreamSpecification
 		return ret
 	}).(TableStreamSpecificationOutput)
+}
+
+func (o TableStreamSpecificationPtrOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
+	return o.ApplyT(func(v *TableStreamSpecification) *TableResourcePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcePolicy
+	}).(TableResourcePolicyPtrOutput)
 }
 
 func (o TableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringPtrOutput {
@@ -4749,6 +4897,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProjectionInput)(nil)).Elem(), TableProjectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputPtrInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableResourcePolicyInput)(nil)).Elem(), TableResourcePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableResourcePolicyPtrInput)(nil)).Elem(), TableResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourceInput)(nil)).Elem(), TableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourcePtrInput)(nil)).Elem(), TableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSseSpecificationInput)(nil)).Elem(), TableSseSpecificationArgs{})
@@ -4819,6 +4969,8 @@ func init() {
 	pulumi.RegisterOutputType(TableProjectionOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputPtrOutput{})
+	pulumi.RegisterOutputType(TableResourcePolicyOutput{})
+	pulumi.RegisterOutputType(TableResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableS3BucketSourceOutput{})
 	pulumi.RegisterOutputType(TableS3BucketSourcePtrOutput{})
 	pulumi.RegisterOutputType(TableSseSpecificationOutput{})

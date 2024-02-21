@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetSubnetRouteTableAssociation
     {
         /// <summary>
-        /// Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
+        /// Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
         /// </summary>
         public static Task<GetSubnetRouteTableAssociationResult> InvokeAsync(GetSubnetRouteTableAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetRouteTableAssociationResult>("aws-native:ec2:getSubnetRouteTableAssociation", args ?? new GetSubnetRouteTableAssociationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
+        /// Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
         /// </summary>
         public static Output<GetSubnetRouteTableAssociationResult> Invoke(GetSubnetRouteTableAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetRouteTableAssociationResult>("aws-native:ec2:getSubnetRouteTableAssociation", args ?? new GetSubnetRouteTableAssociationInvokeArgs(), options.WithDefaults());

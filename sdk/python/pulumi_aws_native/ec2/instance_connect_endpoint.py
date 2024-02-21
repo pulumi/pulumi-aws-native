@@ -25,7 +25,7 @@ class InstanceConnectEndpointArgs:
         The set of arguments for constructing a InstanceConnectEndpoint resource.
         :param pulumi.Input[str] subnet_id: The subnet id of the instance connect endpoint
         :param pulumi.Input[str] client_token: The client token of the instance connect endpoint.
-        :param pulumi.Input[bool] preserve_client_ip: If true, the address of the loki client is preserved when connecting to the end resource
+        :param pulumi.Input[bool] preserve_client_ip: If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the instance connect endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceConnectEndpointTagArgs']]] tags: The tags of the instance connect endpoint.
         """
@@ -67,7 +67,7 @@ class InstanceConnectEndpointArgs:
     @pulumi.getter(name="preserveClientIp")
     def preserve_client_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, the address of the loki client is preserved when connecting to the end resource
+        If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
         """
         return pulumi.get(self, "preserve_client_ip")
 
@@ -117,7 +117,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_token: The client token of the instance connect endpoint.
-        :param pulumi.Input[bool] preserve_client_ip: If true, the address of the loki client is preserved when connecting to the end resource
+        :param pulumi.Input[bool] preserve_client_ip: If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the instance connect endpoint.
         :param pulumi.Input[str] subnet_id: The subnet id of the instance connect endpoint
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTagArgs']]]] tags: The tags of the instance connect endpoint.
@@ -210,7 +210,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="preserveClientIp")
     def preserve_client_ip(self) -> pulumi.Output[Optional[bool]]:
         """
-        If true, the address of the loki client is preserved when connecting to the end resource
+        If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
         """
         return pulumi.get(self, "preserve_client_ip")
 

@@ -28,6 +28,7 @@ export interface GetRecordSetResult {
     readonly comment?: string;
     readonly failover?: string;
     readonly geoLocation?: outputs.route53.RecordSetGeoLocation;
+    readonly geoProximityLocation?: outputs.route53.RecordSetGeoProximityLocation;
     readonly healthCheckId?: string;
     readonly id?: string;
     readonly multiValueAnswer?: boolean;

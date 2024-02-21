@@ -32,6 +32,7 @@ type LookupGraphQlApiResult struct {
 	ApiType                           *string                                      `pulumi:"apiType"`
 	Arn                               *string                                      `pulumi:"arn"`
 	AuthenticationType                *string                                      `pulumi:"authenticationType"`
+	EnhancedMetricsConfig             *GraphQlApiEnhancedMetricsConfig             `pulumi:"enhancedMetricsConfig"`
 	EnvironmentVariables              interface{}                                  `pulumi:"environmentVariables"`
 	GraphQlDns                        *string                                      `pulumi:"graphQlDns"`
 	GraphQlEndpointArn                *string                                      `pulumi:"graphQlEndpointArn"`
@@ -109,6 +110,10 @@ func (o LookupGraphQlApiResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupGraphQlApiResultOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGraphQlApiResultOutput) EnhancedMetricsConfig() GraphQlApiEnhancedMetricsConfigPtrOutput {
+	return o.ApplyT(func(v LookupGraphQlApiResult) *GraphQlApiEnhancedMetricsConfig { return v.EnhancedMetricsConfig }).(GraphQlApiEnhancedMetricsConfigPtrOutput)
 }
 
 func (o LookupGraphQlApiResultOutput) EnvironmentVariables() pulumi.AnyOutput {

@@ -30,6 +30,7 @@ type LookupPipelineResult struct {
 	ArtifactStore                  *PipelineArtifactStore        `pulumi:"artifactStore"`
 	ArtifactStores                 []PipelineArtifactStoreMap    `pulumi:"artifactStores"`
 	DisableInboundStageTransitions []PipelineStageTransition     `pulumi:"disableInboundStageTransitions"`
+	ExecutionMode                  *string                       `pulumi:"executionMode"`
 	Id                             *string                       `pulumi:"id"`
 	PipelineType                   *string                       `pulumi:"pipelineType"`
 	RestartExecutionOnUpdate       *bool                         `pulumi:"restartExecutionOnUpdate"`
@@ -86,6 +87,10 @@ func (o LookupPipelineResultOutput) ArtifactStores() PipelineArtifactStoreMapArr
 
 func (o LookupPipelineResultOutput) DisableInboundStageTransitions() PipelineStageTransitionArrayOutput {
 	return o.ApplyT(func(v LookupPipelineResult) []PipelineStageTransition { return v.DisableInboundStageTransitions }).(PipelineStageTransitionArrayOutput)
+}
+
+func (o LookupPipelineResultOutput) ExecutionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *string { return v.ExecutionMode }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupPipelineResultOutput) Id() pulumi.StringPtrOutput {

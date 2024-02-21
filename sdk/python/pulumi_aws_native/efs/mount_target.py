@@ -20,6 +20,10 @@ class MountTargetArgs:
                  ip_address: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MountTarget resource.
+        :param pulumi.Input[str] file_system_id: The ID of the file system for which to create the mount target.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+        :param pulumi.Input[str] ip_address: Valid IPv4 address within the address range of the specified subnet.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "security_groups", security_groups)
@@ -30,6 +34,9 @@ class MountTargetArgs:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the file system for which to create the mount target.
+        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -39,6 +46,9 @@ class MountTargetArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -48,6 +58,9 @@ class MountTargetArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -57,6 +70,9 @@ class MountTargetArgs:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid IPv4 address within the address range of the specified subnet.
+        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -75,10 +91,14 @@ class MountTarget(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EFS::MountTarget
+        The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] file_system_id: The ID of the file system for which to create the mount target.
+        :param pulumi.Input[str] ip_address: Valid IPv4 address within the address range of the specified subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
         """
         ...
     @overload
@@ -87,7 +107,7 @@ class MountTarget(pulumi.CustomResource):
                  args: MountTargetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EFS::MountTarget
+        The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
 
         :param str resource_name: The name of the resource.
         :param MountTargetArgs args: The arguments to use to populate this resource's properties.
@@ -160,20 +180,32 @@ class MountTarget(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the file system for which to create the mount target.
+        """
         return pulumi.get(self, "file_system_id")
 
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[Optional[str]]:
+        """
+        Valid IPv4 address within the address range of the specified subnet.
+        """
         return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+        """
         return pulumi.get(self, "subnet_id")
 

@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::SecurityHub::Standard resource represents the implementation of an individual AWS Security Hub Standard in your account. It requires you have SecurityHub enabled before you can enable the Standard.
+ * The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
+ *  You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
+ *  For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
  */
 export class Standard extends pulumi.CustomResource {
     /**
@@ -38,16 +40,14 @@ export class Standard extends pulumi.CustomResource {
     }
 
     /**
-     * StandardsControls to disable from this Standard.
+     * Specifies which controls are to be disabled in a standard. 
+     *  *Maximum*: ``100``
      */
     public readonly disabledStandardsControls!: pulumi.Output<outputs.securityhub.StandardsControl[] | undefined>;
     /**
-     * The ARN of the Standard being enabled
+     * The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
      */
     public readonly standardsArn!: pulumi.Output<string>;
-    /**
-     * The ARN of the StandardsSubscription for the account ID, region, and Standard.
-     */
     public /*out*/ readonly standardsSubscriptionArn!: pulumi.Output<string>;
 
     /**
@@ -84,11 +84,12 @@ export class Standard extends pulumi.CustomResource {
  */
 export interface StandardArgs {
     /**
-     * StandardsControls to disable from this Standard.
+     * Specifies which controls are to be disabled in a standard. 
+     *  *Maximum*: ``100``
      */
     disabledStandardsControls?: pulumi.Input<pulumi.Input<inputs.securityhub.StandardsControlArgs>[]>;
     /**
-     * The ARN of the Standard being enabled
+     * The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
      */
     standardsArn: pulumi.Input<string>;
 }

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
+// The “AWS::SecurityHub::AutomationRule“ resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 func LookupAutomationRule(ctx *pulumi.Context, args *LookupAutomationRuleArgs, opts ...pulumi.InvokeOption) (*LookupAutomationRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAutomationRuleResult
@@ -23,33 +23,24 @@ func LookupAutomationRule(ctx *pulumi.Context, args *LookupAutomationRuleArgs, o
 }
 
 type LookupAutomationRuleArgs struct {
-	// An Automation Rule Arn is automatically created
 	RuleArn string `pulumi:"ruleArn"`
 }
 
 type LookupAutomationRuleResult struct {
-	Actions []AutomationRulesAction `pulumi:"actions"`
-	// The date and time when Automation Rule was created
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identifier by which created the rule
-	CreatedBy *string `pulumi:"createdBy"`
-	// The rule criteria for evaluating findings
-	Criteria *AutomationRulesFindingFilters `pulumi:"criteria"`
-	// Rule description
-	Description *string `pulumi:"description"`
-	// If Rule is a terminal rule
-	IsTerminal *bool `pulumi:"isTerminal"`
-	// An Automation Rule Arn is automatically created
-	RuleArn *string `pulumi:"ruleArn"`
-	// Rule name
-	RuleName *string `pulumi:"ruleName"`
-	// Rule order value
-	RuleOrder *int `pulumi:"ruleOrder"`
-	// Status of the Rule upon creation
+	Actions   []AutomationRulesAction `pulumi:"actions"`
+	CreatedAt *string                 `pulumi:"createdAt"`
+	CreatedBy *string                 `pulumi:"createdBy"`
+	// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
+	Criteria    *AutomationRulesFindingFilters `pulumi:"criteria"`
+	Description *string                        `pulumi:"description"`
+	IsTerminal  *bool                          `pulumi:"isTerminal"`
+	RuleArn     *string                        `pulumi:"ruleArn"`
+	RuleName    *string                        `pulumi:"ruleName"`
+	RuleOrder   *int                           `pulumi:"ruleOrder"`
+	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus *AutomationRuleRuleStatus `pulumi:"ruleStatus"`
 	Tags       *AutomationRuleTags       `pulumi:"tags"`
-	// The date and time when Automation Rule was last updated
-	UpdatedAt *string `pulumi:"updatedAt"`
+	UpdatedAt  *string                   `pulumi:"updatedAt"`
 }
 
 func LookupAutomationRuleOutput(ctx *pulumi.Context, args LookupAutomationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupAutomationRuleResultOutput {
@@ -66,7 +57,6 @@ func LookupAutomationRuleOutput(ctx *pulumi.Context, args LookupAutomationRuleOu
 }
 
 type LookupAutomationRuleOutputArgs struct {
-	// An Automation Rule Arn is automatically created
 	RuleArn pulumi.StringInput `pulumi:"ruleArn"`
 }
 
@@ -92,47 +82,40 @@ func (o LookupAutomationRuleResultOutput) Actions() AutomationRulesActionArrayOu
 	return o.ApplyT(func(v LookupAutomationRuleResult) []AutomationRulesAction { return v.Actions }).(AutomationRulesActionArrayOutput)
 }
 
-// The date and time when Automation Rule was created
 func (o LookupAutomationRuleResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identifier by which created the rule
 func (o LookupAutomationRuleResultOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The rule criteria for evaluating findings
+// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
 func (o LookupAutomationRuleResultOutput) Criteria() AutomationRulesFindingFiltersPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *AutomationRulesFindingFilters { return v.Criteria }).(AutomationRulesFindingFiltersPtrOutput)
 }
 
-// Rule description
 func (o LookupAutomationRuleResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// If Rule is a terminal rule
 func (o LookupAutomationRuleResultOutput) IsTerminal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *bool { return v.IsTerminal }).(pulumi.BoolPtrOutput)
 }
 
-// An Automation Rule Arn is automatically created
 func (o LookupAutomationRuleResultOutput) RuleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
 }
 
-// Rule name
 func (o LookupAutomationRuleResultOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// Rule order value
 func (o LookupAutomationRuleResultOutput) RuleOrder() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *int { return v.RuleOrder }).(pulumi.IntPtrOutput)
 }
 
-// Status of the Rule upon creation
+// Whether the rule is active after it is created. If this parameter is equal to “ENABLED“, ASH applies the rule to findings and finding updates after the rule is created.
 func (o LookupAutomationRuleResultOutput) RuleStatus() AutomationRuleRuleStatusPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *AutomationRuleRuleStatus { return v.RuleStatus }).(AutomationRuleRuleStatusPtrOutput)
 }
@@ -141,7 +124,6 @@ func (o LookupAutomationRuleResultOutput) Tags() AutomationRuleTagsPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *AutomationRuleTags { return v.Tags }).(AutomationRuleTagsPtrOutput)
 }
 
-// The date and time when Automation Rule was last updated
 func (o LookupAutomationRuleResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

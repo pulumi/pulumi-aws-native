@@ -12,14 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EFS::MountTarget
+// The “AWS::EFS::MountTarget“ resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
 type MountTarget struct {
 	pulumi.CustomResourceState
 
-	FileSystemId   pulumi.StringOutput      `pulumi:"fileSystemId"`
-	IpAddress      pulumi.StringPtrOutput   `pulumi:"ipAddress"`
+	// The ID of the file system for which to create the mount target.
+	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
+	// Valid IPv4 address within the address range of the specified subnet.
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
+	// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	SubnetId       pulumi.StringOutput      `pulumi:"subnetId"`
+	// The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
 // NewMountTarget registers a new resource with the given unique name, arguments, and options.
@@ -77,18 +81,26 @@ func (MountTargetState) ElementType() reflect.Type {
 }
 
 type mountTargetArgs struct {
-	FileSystemId   string   `pulumi:"fileSystemId"`
-	IpAddress      *string  `pulumi:"ipAddress"`
+	// The ID of the file system for which to create the mount target.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// Valid IPv4 address within the address range of the specified subnet.
+	IpAddress *string `pulumi:"ipAddress"`
+	// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	SubnetId       string   `pulumi:"subnetId"`
+	// The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+	SubnetId string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a MountTarget resource.
 type MountTargetArgs struct {
-	FileSystemId   pulumi.StringInput
-	IpAddress      pulumi.StringPtrInput
+	// The ID of the file system for which to create the mount target.
+	FileSystemId pulumi.StringInput
+	// Valid IPv4 address within the address range of the specified subnet.
+	IpAddress pulumi.StringPtrInput
+	// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
 	SecurityGroups pulumi.StringArrayInput
-	SubnetId       pulumi.StringInput
+	// The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+	SubnetId pulumi.StringInput
 }
 
 func (MountTargetArgs) ElementType() reflect.Type {
@@ -128,18 +140,22 @@ func (o MountTargetOutput) ToMountTargetOutputWithContext(ctx context.Context) M
 	return o
 }
 
+// The ID of the file system for which to create the mount target.
 func (o MountTargetOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MountTarget) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
+// Valid IPv4 address within the address range of the specified subnet.
 func (o MountTargetOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MountTarget) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
+// Up to five VPC security group IDs, of the form “sg-xxxxxxxx“. These must be for the same VPC as subnet specified.
 func (o MountTargetOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MountTarget) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
 func (o MountTargetOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MountTarget) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

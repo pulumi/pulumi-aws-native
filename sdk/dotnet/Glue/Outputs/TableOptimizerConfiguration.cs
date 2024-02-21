@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.Glue.Outputs
     [OutputType]
     public sealed class TableOptimizerConfiguration
     {
-        public readonly bool? Enabled;
-        public readonly string? RoleArn;
+        public readonly bool Enabled;
+        public readonly string RoleArn;
 
         [OutputConstructor]
         private TableOptimizerConfiguration(
-            bool? enabled,
+            bool enabled,
 
-            string? roleArn)
+            string roleArn)
         {
             Enabled = enabled;
             RoleArn = roleArn;

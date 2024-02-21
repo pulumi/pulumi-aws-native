@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
+ * The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
  */
 export class AutomationRule extends pulumi.CustomResource {
     /**
@@ -38,46 +38,22 @@ export class AutomationRule extends pulumi.CustomResource {
     }
 
     public readonly actions!: pulumi.Output<outputs.securityhub.AutomationRulesAction[] | undefined>;
-    /**
-     * The date and time when Automation Rule was created
-     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * The identifier by which created the rule
-     */
     public /*out*/ readonly createdBy!: pulumi.Output<string>;
     /**
-     * The rule criteria for evaluating findings
+     * A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
      */
     public readonly criteria!: pulumi.Output<outputs.securityhub.AutomationRulesFindingFilters | undefined>;
-    /**
-     * Rule description
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * If Rule is a terminal rule
-     */
     public readonly isTerminal!: pulumi.Output<boolean | undefined>;
-    /**
-     * An Automation Rule Arn is automatically created
-     */
     public /*out*/ readonly ruleArn!: pulumi.Output<string>;
-    /**
-     * Rule name
-     */
     public readonly ruleName!: pulumi.Output<string | undefined>;
-    /**
-     * Rule order value
-     */
     public readonly ruleOrder!: pulumi.Output<number | undefined>;
     /**
-     * Status of the Rule upon creation
+     * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
     public readonly ruleStatus!: pulumi.Output<enums.securityhub.AutomationRuleRuleStatus | undefined>;
     public readonly tags!: pulumi.Output<outputs.securityhub.AutomationRuleTags | undefined>;
-    /**
-     * The date and time when Automation Rule was last updated
-     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -128,27 +104,15 @@ export class AutomationRule extends pulumi.CustomResource {
 export interface AutomationRuleArgs {
     actions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRulesActionArgs>[]>;
     /**
-     * The rule criteria for evaluating findings
+     * A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
      */
     criteria?: pulumi.Input<inputs.securityhub.AutomationRulesFindingFiltersArgs>;
-    /**
-     * Rule description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * If Rule is a terminal rule
-     */
     isTerminal?: pulumi.Input<boolean>;
-    /**
-     * Rule name
-     */
     ruleName?: pulumi.Input<string>;
-    /**
-     * Rule order value
-     */
     ruleOrder?: pulumi.Input<number>;
     /**
-     * Status of the Rule upon creation
+     * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
     ruleStatus?: pulumi.Input<enums.securityhub.AutomationRuleRuleStatus>;
     tags?: pulumi.Input<inputs.securityhub.AutomationRuleTagsArgs>;

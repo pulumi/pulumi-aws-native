@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolRiskConfigurationAttachmentArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("clientId", required: true)]
+        public string ClientId { get; set; } = null!;
+
+        [Input("userPoolId", required: true)]
+        public string UserPoolId { get; set; } = null!;
 
         public GetUserPoolRiskConfigurationAttachmentArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolRiskConfigurationAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("clientId", required: true)]
+        public Input<string> ClientId { get; set; } = null!;
+
+        [Input("userPoolId", required: true)]
+        public Input<string> UserPoolId { get; set; } = null!;
 
         public GetUserPoolRiskConfigurationAttachmentInvokeArgs()
         {
@@ -53,7 +59,6 @@ namespace Pulumi.AwsNative.Cognito
     {
         public readonly Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType? AccountTakeoverRiskConfiguration;
         public readonly Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType? CompromisedCredentialsRiskConfiguration;
-        public readonly string? Id;
         public readonly Outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType? RiskExceptionConfiguration;
 
         [OutputConstructor]
@@ -62,13 +67,10 @@ namespace Pulumi.AwsNative.Cognito
 
             Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType? compromisedCredentialsRiskConfiguration,
 
-            string? id,
-
             Outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType? riskExceptionConfiguration)
         {
             AccountTakeoverRiskConfiguration = accountTakeoverRiskConfiguration;
             CompromisedCredentialsRiskConfiguration = compromisedCredentialsRiskConfiguration;
-            Id = id;
             RiskExceptionConfiguration = riskExceptionConfiguration;
         }
     }

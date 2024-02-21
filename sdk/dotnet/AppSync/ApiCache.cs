@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("atRestEncryptionEnabled")]
         public Output<bool?> AtRestEncryptionEnabled { get; private set; } = null!;
 
+        [Output("healthMetricsConfig")]
+        public Output<string?> HealthMetricsConfig { get; private set; } = null!;
+
         [Output("transitEncryptionEnabled")]
         public Output<bool?> TransitEncryptionEnabled { get; private set; } = null!;
 
@@ -91,6 +94,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("atRestEncryptionEnabled")]
         public Input<bool>? AtRestEncryptionEnabled { get; set; }
+
+        [Input("healthMetricsConfig")]
+        public Input<string>? HealthMetricsConfig { get; set; }
 
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }

@@ -72,6 +72,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("readonlyRootFilesystem")]
         public Input<bool>? ReadonlyRootFilesystem { get; set; }
 
+        [Input("repositoryCredentials")]
+        public Input<Inputs.JobDefinitionRepositoryCredentialsArgs>? RepositoryCredentials { get; set; }
+
         [Input("resourceRequirements")]
         private InputList<Inputs.JobDefinitionResourceRequirementArgs>? _resourceRequirements;
         public InputList<Inputs.JobDefinitionResourceRequirementArgs> ResourceRequirements

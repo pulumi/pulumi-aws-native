@@ -4483,6 +4483,12 @@ export namespace appsync {
         userPoolId?: pulumi.Input<string>;
     }
 
+    export interface GraphQlApiEnhancedMetricsConfigArgs {
+        dataSourceLevelMetricsBehavior: pulumi.Input<string>;
+        operationLevelMetricsConfig: pulumi.Input<string>;
+        resolverLevelMetricsBehavior: pulumi.Input<string>;
+    }
+
     export interface GraphQlApiLambdaAuthorizerConfigArgs {
         authorizerResultTtlInSeconds?: pulumi.Input<number>;
         authorizerUri?: pulumi.Input<string>;
@@ -5590,6 +5596,7 @@ export namespace batch {
         networkConfiguration?: pulumi.Input<inputs.batch.JobDefinitionNetworkConfigurationArgs>;
         privileged?: pulumi.Input<boolean>;
         readonlyRootFilesystem?: pulumi.Input<boolean>;
+        repositoryCredentials?: pulumi.Input<inputs.batch.JobDefinitionRepositoryCredentialsArgs>;
         resourceRequirements?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionResourceRequirementArgs>[]>;
         runtimePlatform?: pulumi.Input<inputs.batch.JobDefinitionRuntimePlatformArgs>;
         secrets?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionSecretArgs>[]>;
@@ -5741,6 +5748,10 @@ export namespace batch {
         metadata?: pulumi.Input<inputs.batch.JobDefinitionMetadataArgs>;
         serviceAccountName?: pulumi.Input<string>;
         volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksVolumeArgs>[]>;
+    }
+
+    export interface JobDefinitionRepositoryCredentialsArgs {
+        credentialsParameter: pulumi.Input<string>;
     }
 
     export interface JobDefinitionResourceRequirementArgs {
@@ -7883,12 +7894,31 @@ export namespace codepipeline {
         type: pulumi.Input<string>;
     }
 
+    export interface PipelineGitBranchFilterCriteriaArgs {
+        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        includes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface PipelineGitConfigurationArgs {
+        pullRequest?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineGitPullRequestFilterArgs>[]>;
         push?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineGitPushFilterArgs>[]>;
         sourceActionName: pulumi.Input<string>;
     }
 
+    export interface PipelineGitFilePathFilterCriteriaArgs {
+        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        includes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PipelineGitPullRequestFilterArgs {
+        branches?: pulumi.Input<inputs.codepipeline.PipelineGitBranchFilterCriteriaArgs>;
+        events?: pulumi.Input<pulumi.Input<string>[]>;
+        filePaths?: pulumi.Input<inputs.codepipeline.PipelineGitFilePathFilterCriteriaArgs>;
+    }
+
     export interface PipelineGitPushFilterArgs {
+        branches?: pulumi.Input<inputs.codepipeline.PipelineGitBranchFilterCriteriaArgs>;
+        filePaths?: pulumi.Input<inputs.codepipeline.PipelineGitFilePathFilterCriteriaArgs>;
         tags?: pulumi.Input<inputs.codepipeline.PipelineGitTagFilterCriteriaArgs>;
     }
 
@@ -12455,6 +12485,10 @@ export namespace dynamodb {
         writeCapacityUnits: pulumi.Input<number>;
     }
 
+    export interface TableResourcePolicyArgs {
+        policyDocument: any;
+    }
+
     export interface TableS3BucketSourceArgs {
         s3Bucket: pulumi.Input<string>;
         s3BucketOwner?: pulumi.Input<string>;
@@ -12468,6 +12502,7 @@ export namespace dynamodb {
     }
 
     export interface TableStreamSpecificationArgs {
+        resourcePolicy?: pulumi.Input<inputs.dynamodb.TableResourcePolicyArgs>;
         streamViewType: pulumi.Input<string>;
     }
 
@@ -13788,8 +13823,17 @@ export namespace ec2 {
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+     */
     export interface NatGatewayTagArgs {
+        /**
+         * The tag key.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The tag value.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -14634,8 +14678,17 @@ export namespace ec2 {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+     */
     export interface VpcTagArgs {
+        /**
+         * The tag key.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The tag value.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -15324,21 +15377,29 @@ export namespace ecs {
 }
 
 export namespace efs {
+    /**
+     * Required if the ``RootDirectory`` > ``Path`` specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory`` > ``Path``. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying ``CreationInfo``, you must include values for all properties. 
+     *  Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.
+     *   If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` does not exist, attempts to mount the file system using the access point will fail.
+     */
     export interface AccessPointCreationInfoArgs {
         /**
-         * Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+         * Specifies the POSIX group ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
          */
         ownerGid: pulumi.Input<string>;
         /**
-         * Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+         * Specifies the POSIX user ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
          */
         ownerUid: pulumi.Input<string>;
         /**
-         * Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+         * Specifies the POSIX permissions to apply to the ``RootDirectory``, in the format of an octal number representing the file's mode bits.
          */
         permissions: pulumi.Input<string>;
     }
 
+    /**
+     * The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
+     */
     export interface AccessPointPosixUserArgs {
         /**
          * The POSIX group ID used for all file system operations using this access point.
@@ -15354,19 +15415,32 @@ export namespace efs {
         uid: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's ``RootDirectory`` and its subdirectories.
+     */
     export interface AccessPointRootDirectoryArgs {
         /**
-         * (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail. 
+         * (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties. 
+         *   If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
          */
         creationInfo?: pulumi.Input<inputs.efs.AccessPointCreationInfoArgs>;
         /**
-         * Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
+         * Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the ``CreationInfo``.
          */
         path?: pulumi.Input<string>;
     }
 
+    /**
+     * A tag is a key-value pair attached to a file system. Allowed characters in the ``Key`` and ``Value`` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:``+ - = . _ : /``
+     */
     export interface AccessPointTagArgs {
+        /**
+         * The tag key (String). The key can't start with ``aws:``.
+         */
         key?: pulumi.Input<string>;
+        /**
+         * The value of the tag key.
+         */
         value?: pulumi.Input<string>;
     }
 
@@ -19097,6 +19171,7 @@ export namespace glue {
 
     export interface DataCatalogEncryptionSettingsEncryptionAtRestArgs {
         catalogEncryptionMode?: pulumi.Input<string>;
+        catalogEncryptionServiceRole?: pulumi.Input<string>;
         sseAwsKmsKeyId?: pulumi.Input<string>;
     }
 
@@ -19371,8 +19446,8 @@ export namespace glue {
     }
 
     export interface TableOptimizerConfigurationArgs {
-        enabled?: pulumi.Input<boolean>;
-        roleArn?: pulumi.Input<string>;
+        enabled: pulumi.Input<boolean>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface TableOrderArgs {
@@ -47660,10 +47735,22 @@ export namespace route53 {
         locationName: pulumi.Input<string>;
     }
 
+    export interface RecordSetCoordinatesArgs {
+        latitude: pulumi.Input<string>;
+        longitude: pulumi.Input<string>;
+    }
+
     export interface RecordSetGeoLocationArgs {
         continentCode?: pulumi.Input<string>;
         countryCode?: pulumi.Input<string>;
         subdivisionCode?: pulumi.Input<string>;
+    }
+
+    export interface RecordSetGeoProximityLocationArgs {
+        awsRegion?: pulumi.Input<string>;
+        bias?: pulumi.Input<number>;
+        coordinates?: pulumi.Input<inputs.route53.RecordSetCoordinatesArgs>;
+        localZoneGroup?: pulumi.Input<string>;
     }
 
     export interface RecordSetGroupAliasTargetArgs {
@@ -47677,10 +47764,22 @@ export namespace route53 {
         locationName: pulumi.Input<string>;
     }
 
+    export interface RecordSetGroupCoordinatesArgs {
+        latitude: pulumi.Input<string>;
+        longitude: pulumi.Input<string>;
+    }
+
     export interface RecordSetGroupGeoLocationArgs {
         continentCode?: pulumi.Input<string>;
         countryCode?: pulumi.Input<string>;
         subdivisionCode?: pulumi.Input<string>;
+    }
+
+    export interface RecordSetGroupGeoProximityLocationArgs {
+        awsRegion?: pulumi.Input<string>;
+        bias?: pulumi.Input<number>;
+        coordinates?: pulumi.Input<inputs.route53.RecordSetGroupCoordinatesArgs>;
+        localZoneGroup?: pulumi.Input<string>;
     }
 
     export interface RecordSetGroupRecordSetArgs {
@@ -47688,6 +47787,7 @@ export namespace route53 {
         cidrRoutingConfig?: pulumi.Input<inputs.route53.RecordSetGroupCidrRoutingConfigArgs>;
         failover?: pulumi.Input<string>;
         geoLocation?: pulumi.Input<inputs.route53.RecordSetGroupGeoLocationArgs>;
+        geoProximityLocation?: pulumi.Input<inputs.route53.RecordSetGroupGeoProximityLocationArgs>;
         healthCheckId?: pulumi.Input<string>;
         hostedZoneId?: pulumi.Input<string>;
         hostedZoneName?: pulumi.Input<string>;
@@ -53478,8 +53578,14 @@ export namespace securityhub {
         lte?: pulumi.Input<number>;
     }
 
+    /**
+     * Provides details about a list of findings that the current finding relates to.
+     */
     export interface AutomationRuleRelatedFindingArgs {
         id: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) for the product that generated a related finding.
+         */
         productArn: pulumi.Input<string>;
     }
 
@@ -53504,6 +53610,9 @@ export namespace securityhub {
         status: pulumi.Input<enums.securityhub.AutomationRuleWorkflowUpdateStatus>;
     }
 
+    /**
+     * An object of user-defined name and value string pair added to a finding.
+     */
     export interface AutomationRulemapArgs {
     }
 
@@ -53512,23 +53621,29 @@ export namespace securityhub {
         type: pulumi.Input<enums.securityhub.AutomationRulesActionType>;
     }
 
+    /**
+     * The rule action will update the ``Note`` field of a finding.
+     */
     export interface AutomationRulesFindingFieldsUpdateArgs {
         confidence?: pulumi.Input<number>;
         criticality?: pulumi.Input<number>;
         /**
-         * Note added to the finding
+         * The rule action will update the ``Note`` field of a finding.
          */
         note?: pulumi.Input<inputs.securityhub.AutomationRuleNoteUpdateArgs>;
+        /**
+         * The rule action will update the ``RelatedFindings`` field of a finding.
+         */
         relatedFindings?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleRelatedFindingArgs>[]>;
         /**
-         * Severity of the finding
+         * The rule action will update the ``Severity`` field of a finding.
          */
         severity?: pulumi.Input<inputs.securityhub.AutomationRuleSeverityUpdateArgs>;
         types?: pulumi.Input<pulumi.Input<string>[]>;
         userDefinedFields?: pulumi.Input<inputs.securityhub.AutomationRulemapArgs>;
         verificationState?: pulumi.Input<enums.securityhub.AutomationRulesFindingFieldsUpdateVerificationState>;
         /**
-         * Workflow status set for the finding
+         * The rule action will update the ``Workflow`` field of a finding.
          */
         workflow?: pulumi.Input<inputs.securityhub.AutomationRuleWorkflowUpdateArgs>;
     }
@@ -53578,15 +53693,15 @@ export namespace securityhub {
     }
 
     /**
-     * An individual StandardsControl within the Standard.
+     * Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
      */
     export interface StandardsControlArgs {
         /**
-         * the reason the standard control is disabled
+         * A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
          */
         reason?: pulumi.Input<string>;
         /**
-         * the Arn for the standard control.
+         * The Amazon Resource Name (ARN) of the control.
          */
         standardsControlArn: pulumi.Input<string>;
     }

@@ -49,6 +49,7 @@ export class Table extends pulumi.CustomResource {
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
     public readonly pointInTimeRecoverySpecification!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecoverySpecification | undefined>;
     public readonly provisionedThroughput!: pulumi.Output<outputs.dynamodb.TableProvisionedThroughput | undefined>;
+    public readonly resourcePolicy!: pulumi.Output<outputs.dynamodb.TableResourcePolicy | undefined>;
     public readonly sseSpecification!: pulumi.Output<outputs.dynamodb.TableSseSpecification | undefined>;
     public /*out*/ readonly streamArn!: pulumi.Output<string>;
     public readonly streamSpecification!: pulumi.Output<outputs.dynamodb.TableStreamSpecification | undefined>;
@@ -82,6 +83,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
             resourceInputs["pointInTimeRecoverySpecification"] = args ? args.pointInTimeRecoverySpecification : undefined;
             resourceInputs["provisionedThroughput"] = args ? args.provisionedThroughput : undefined;
+            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
             resourceInputs["tableClass"] = args ? args.tableClass : undefined;
@@ -103,6 +105,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
             resourceInputs["pointInTimeRecoverySpecification"] = undefined /*out*/;
             resourceInputs["provisionedThroughput"] = undefined /*out*/;
+            resourceInputs["resourcePolicy"] = undefined /*out*/;
             resourceInputs["sseSpecification"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
             resourceInputs["streamSpecification"] = undefined /*out*/;
@@ -133,6 +136,7 @@ export interface TableArgs {
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndexArgs>[]>;
     pointInTimeRecoverySpecification?: pulumi.Input<inputs.dynamodb.TablePointInTimeRecoverySpecificationArgs>;
     provisionedThroughput?: pulumi.Input<inputs.dynamodb.TableProvisionedThroughputArgs>;
+    resourcePolicy?: pulumi.Input<inputs.dynamodb.TableResourcePolicyArgs>;
     sseSpecification?: pulumi.Input<inputs.dynamodb.TableSseSpecificationArgs>;
     streamSpecification?: pulumi.Input<inputs.dynamodb.TableStreamSpecificationArgs>;
     tableClass?: pulumi.Input<string>;

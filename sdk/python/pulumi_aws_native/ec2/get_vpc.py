@@ -51,32 +51,24 @@ class GetVpcResult:
     @property
     @pulumi.getter(name="cidrBlockAssociations")
     def cidr_block_associations(self) -> Optional[Sequence[str]]:
-        """
-        A list of IPv4 CIDR block association IDs for the VPC.
-        """
         return pulumi.get(self, "cidr_block_associations")
 
     @property
     @pulumi.getter(name="defaultNetworkAcl")
     def default_network_acl(self) -> Optional[str]:
-        """
-        The default network ACL ID that is associated with the VPC.
-        """
         return pulumi.get(self, "default_network_acl")
 
     @property
     @pulumi.getter(name="defaultSecurityGroup")
     def default_security_group(self) -> Optional[str]:
-        """
-        The default security group ID that is associated with the VPC.
-        """
         return pulumi.get(self, "default_security_group")
 
     @property
     @pulumi.getter(name="enableDnsHostnames")
     def enable_dns_hostnames(self) -> Optional[bool]:
         """
-        Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+        Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
+         You can only enable DNS hostnames if you've enabled DNS support.
         """
         return pulumi.get(self, "enable_dns_hostnames")
 
@@ -84,7 +76,7 @@ class GetVpcResult:
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> Optional[bool]:
         """
-        Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+        Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
         """
         return pulumi.get(self, "enable_dns_support")
 
@@ -93,21 +85,16 @@ class GetVpcResult:
     def instance_tenancy(self) -> Optional[str]:
         """
         The allowed tenancy of instances launched into the VPC.
-
-        "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
-
-        "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
-
-        Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+          +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+          +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.
+          
+         Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.
         """
         return pulumi.get(self, "instance_tenancy")
 
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Optional[Sequence[str]]:
-        """
-        A list of IPv6 CIDR blocks that are associated with the VPC.
-        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @property
@@ -121,9 +108,6 @@ class GetVpcResult:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
-        """
-        The Id for the model.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -147,10 +131,9 @@ class AwaitableGetVpcResult(GetVpcResult):
 def get_vpc(vpc_id: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcResult:
     """
-    Resource Type definition for AWS::EC2::VPC
-
-
-    :param str vpc_id: The Id for the model.
+    Specifies a virtual private cloud (VPC).
+     You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).
+     For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.
     """
     __args__ = dict()
     __args__['vpcId'] = vpc_id
@@ -173,9 +156,8 @@ def get_vpc(vpc_id: Optional[str] = None,
 def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcResult]:
     """
-    Resource Type definition for AWS::EC2::VPC
-
-
-    :param str vpc_id: The Id for the model.
+    Specifies a virtual private cloud (VPC).
+     You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).
+     For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.
     """
     ...

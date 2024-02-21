@@ -18,13 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetApiCacheResult:
-    def __init__(__self__, api_caching_behavior=None, at_rest_encryption_enabled=None, id=None, transit_encryption_enabled=None, ttl=None, type=None):
+    def __init__(__self__, api_caching_behavior=None, at_rest_encryption_enabled=None, health_metrics_config=None, id=None, transit_encryption_enabled=None, ttl=None, type=None):
         if api_caching_behavior and not isinstance(api_caching_behavior, str):
             raise TypeError("Expected argument 'api_caching_behavior' to be a str")
         pulumi.set(__self__, "api_caching_behavior", api_caching_behavior)
         if at_rest_encryption_enabled and not isinstance(at_rest_encryption_enabled, bool):
             raise TypeError("Expected argument 'at_rest_encryption_enabled' to be a bool")
         pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
+        if health_metrics_config and not isinstance(health_metrics_config, str):
+            raise TypeError("Expected argument 'health_metrics_config' to be a str")
+        pulumi.set(__self__, "health_metrics_config", health_metrics_config)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,6 +50,11 @@ class GetApiCacheResult:
     @pulumi.getter(name="atRestEncryptionEnabled")
     def at_rest_encryption_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "at_rest_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="healthMetricsConfig")
+    def health_metrics_config(self) -> Optional[str]:
+        return pulumi.get(self, "health_metrics_config")
 
     @property
     @pulumi.getter
@@ -77,6 +85,7 @@ class AwaitableGetApiCacheResult(GetApiCacheResult):
         return GetApiCacheResult(
             api_caching_behavior=self.api_caching_behavior,
             at_rest_encryption_enabled=self.at_rest_encryption_enabled,
+            health_metrics_config=self.health_metrics_config,
             id=self.id,
             transit_encryption_enabled=self.transit_encryption_enabled,
             ttl=self.ttl,
@@ -96,6 +105,7 @@ def get_api_cache(id: Optional[str] = None,
     return AwaitableGetApiCacheResult(
         api_caching_behavior=pulumi.get(__ret__, 'api_caching_behavior'),
         at_rest_encryption_enabled=pulumi.get(__ret__, 'at_rest_encryption_enabled'),
+        health_metrics_config=pulumi.get(__ret__, 'health_metrics_config'),
         id=pulumi.get(__ret__, 'id'),
         transit_encryption_enabled=pulumi.get(__ret__, 'transit_encryption_enabled'),
         ttl=pulumi.get(__ret__, 'ttl'),

@@ -45,6 +45,7 @@ export class RecordSet extends pulumi.CustomResource {
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly failover!: pulumi.Output<string | undefined>;
     public readonly geoLocation!: pulumi.Output<outputs.route53.RecordSetGeoLocation | undefined>;
+    public readonly geoProximityLocation!: pulumi.Output<outputs.route53.RecordSetGeoProximityLocation | undefined>;
     public readonly healthCheckId!: pulumi.Output<string | undefined>;
     public readonly hostedZoneId!: pulumi.Output<string | undefined>;
     public readonly hostedZoneName!: pulumi.Output<string | undefined>;
@@ -78,6 +79,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["failover"] = args ? args.failover : undefined;
             resourceInputs["geoLocation"] = args ? args.geoLocation : undefined;
+            resourceInputs["geoProximityLocation"] = args ? args.geoProximityLocation : undefined;
             resourceInputs["healthCheckId"] = args ? args.healthCheckId : undefined;
             resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
             resourceInputs["hostedZoneName"] = args ? args.hostedZoneName : undefined;
@@ -95,6 +97,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["comment"] = undefined /*out*/;
             resourceInputs["failover"] = undefined /*out*/;
             resourceInputs["geoLocation"] = undefined /*out*/;
+            resourceInputs["geoProximityLocation"] = undefined /*out*/;
             resourceInputs["healthCheckId"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["hostedZoneName"] = undefined /*out*/;
@@ -123,6 +126,7 @@ export interface RecordSetArgs {
     comment?: pulumi.Input<string>;
     failover?: pulumi.Input<string>;
     geoLocation?: pulumi.Input<inputs.route53.RecordSetGeoLocationArgs>;
+    geoProximityLocation?: pulumi.Input<inputs.route53.RecordSetGeoProximityLocationArgs>;
     healthCheckId?: pulumi.Input<string>;
     hostedZoneId?: pulumi.Input<string>;
     hostedZoneName?: pulumi.Input<string>;

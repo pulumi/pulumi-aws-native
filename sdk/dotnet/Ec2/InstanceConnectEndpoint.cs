@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> ClientToken { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the address of the loki client is preserved when connecting to the end resource
+        /// If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
         /// </summary>
         [Output("preserveClientIp")]
         public Output<bool?> PreserveClientIp { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? ClientToken { get; set; }
 
         /// <summary>
-        /// If true, the address of the loki client is preserved when connecting to the end resource
+        /// If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
         /// </summary>
         [Input("preserveClientIp")]
         public Input<bool>? PreserveClientIp { get; set; }

@@ -1083,6 +1083,8 @@ class DataCatalogEncryptionSettingsEncryptionAtRest(dict):
         suggest = None
         if key == "catalogEncryptionMode":
             suggest = "catalog_encryption_mode"
+        elif key == "catalogEncryptionServiceRole":
+            suggest = "catalog_encryption_service_role"
         elif key == "sseAwsKmsKeyId":
             suggest = "sse_aws_kms_key_id"
 
@@ -1099,9 +1101,12 @@ class DataCatalogEncryptionSettingsEncryptionAtRest(dict):
 
     def __init__(__self__, *,
                  catalog_encryption_mode: Optional[str] = None,
+                 catalog_encryption_service_role: Optional[str] = None,
                  sse_aws_kms_key_id: Optional[str] = None):
         if catalog_encryption_mode is not None:
             pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
+        if catalog_encryption_service_role is not None:
+            pulumi.set(__self__, "catalog_encryption_service_role", catalog_encryption_service_role)
         if sse_aws_kms_key_id is not None:
             pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
 
@@ -1109,6 +1114,11 @@ class DataCatalogEncryptionSettingsEncryptionAtRest(dict):
     @pulumi.getter(name="catalogEncryptionMode")
     def catalog_encryption_mode(self) -> Optional[str]:
         return pulumi.get(self, "catalog_encryption_mode")
+
+    @property
+    @pulumi.getter(name="catalogEncryptionServiceRole")
+    def catalog_encryption_service_role(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_encryption_service_role")
 
     @property
     @pulumi.getter(name="sseAwsKmsKeyId")
@@ -2868,21 +2878,19 @@ class TableOptimizerConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
-                 role_arn: Optional[str] = None):
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+                 enabled: bool,
+                 role_arn: str):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> bool:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[str]:
+    def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
 

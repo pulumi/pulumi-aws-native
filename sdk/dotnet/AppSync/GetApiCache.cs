@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.AppSync
     {
         public readonly string? ApiCachingBehavior;
         public readonly bool? AtRestEncryptionEnabled;
+        public readonly string? HealthMetricsConfig;
         public readonly string? Id;
         public readonly bool? TransitEncryptionEnabled;
         public readonly double? Ttl;
@@ -64,6 +65,8 @@ namespace Pulumi.AwsNative.AppSync
 
             bool? atRestEncryptionEnabled,
 
+            string? healthMetricsConfig,
+
             string? id,
 
             bool? transitEncryptionEnabled,
@@ -74,6 +77,7 @@ namespace Pulumi.AwsNative.AppSync
         {
             ApiCachingBehavior = apiCachingBehavior;
             AtRestEncryptionEnabled = atRestEncryptionEnabled;
+            HealthMetricsConfig = healthMetricsConfig;
             Id = id;
             TransitEncryptionEnabled = transitEncryptionEnabled;
             Ttl = ttl;

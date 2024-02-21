@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub
 {
     /// <summary>
-    /// The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
+    /// The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:securityhub:AutomationRule")]
     public partial class AutomationRule : global::Pulumi.CustomResource
@@ -18,56 +18,35 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("actions")]
         public Output<ImmutableArray<Outputs.AutomationRulesAction>> Actions { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time when Automation Rule was created
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier by which created the rule
-        /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// The rule criteria for evaluating findings
+        /// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         /// </summary>
         [Output("criteria")]
         public Output<Outputs.AutomationRulesFindingFilters?> Criteria { get; private set; } = null!;
 
-        /// <summary>
-        /// Rule description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// If Rule is a terminal rule
-        /// </summary>
         [Output("isTerminal")]
         public Output<bool?> IsTerminal { get; private set; } = null!;
 
-        /// <summary>
-        /// An Automation Rule Arn is automatically created
-        /// </summary>
         [Output("ruleArn")]
         public Output<string> RuleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Rule name
-        /// </summary>
         [Output("ruleName")]
         public Output<string?> RuleName { get; private set; } = null!;
 
-        /// <summary>
-        /// Rule order value
-        /// </summary>
         [Output("ruleOrder")]
         public Output<int?> RuleOrder { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the Rule upon creation
+        /// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         /// </summary>
         [Output("ruleStatus")]
         public Output<Pulumi.AwsNative.SecurityHub.AutomationRuleRuleStatus?> RuleStatus { get; private set; } = null!;
@@ -75,9 +54,6 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("tags")]
         public Output<Outputs.AutomationRuleTags?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time when Automation Rule was last updated
-        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -135,37 +111,25 @@ namespace Pulumi.AwsNative.SecurityHub
         }
 
         /// <summary>
-        /// The rule criteria for evaluating findings
+        /// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         /// </summary>
         [Input("criteria")]
         public Input<Inputs.AutomationRulesFindingFiltersArgs>? Criteria { get; set; }
 
-        /// <summary>
-        /// Rule description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// If Rule is a terminal rule
-        /// </summary>
         [Input("isTerminal")]
         public Input<bool>? IsTerminal { get; set; }
 
-        /// <summary>
-        /// Rule name
-        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
-        /// <summary>
-        /// Rule order value
-        /// </summary>
         [Input("ruleOrder")]
         public Input<int>? RuleOrder { get; set; }
 
         /// <summary>
-        /// Status of the Rule upon creation
+        /// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         /// </summary>
         [Input("ruleStatus")]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRuleRuleStatus>? RuleStatus { get; set; }

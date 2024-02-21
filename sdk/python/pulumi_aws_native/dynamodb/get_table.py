@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, deletion_protection_enabled=None, global_secondary_indexes=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, point_in_time_recovery_specification=None, provisioned_throughput=None, sse_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, deletion_protection_enabled=None, global_secondary_indexes=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, point_in_time_recovery_specification=None, provisioned_throughput=None, resource_policy=None, sse_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetTableResult:
         if provisioned_throughput and not isinstance(provisioned_throughput, dict):
             raise TypeError("Expected argument 'provisioned_throughput' to be a dict")
         pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
+        if resource_policy and not isinstance(resource_policy, dict):
+            raise TypeError("Expected argument 'resource_policy' to be a dict")
+        pulumi.set(__self__, "resource_policy", resource_policy)
         if sse_specification and not isinstance(sse_specification, dict):
             raise TypeError("Expected argument 'sse_specification' to be a dict")
         pulumi.set(__self__, "sse_specification", sse_specification)
@@ -129,6 +132,11 @@ class GetTableResult:
         return pulumi.get(self, "provisioned_throughput")
 
     @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional['outputs.TableResourcePolicy']:
+        return pulumi.get(self, "resource_policy")
+
+    @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional['outputs.TableSseSpecification']:
         return pulumi.get(self, "sse_specification")
@@ -176,6 +184,7 @@ class AwaitableGetTableResult(GetTableResult):
             local_secondary_indexes=self.local_secondary_indexes,
             point_in_time_recovery_specification=self.point_in_time_recovery_specification,
             provisioned_throughput=self.provisioned_throughput,
+            resource_policy=self.resource_policy,
             sse_specification=self.sse_specification,
             stream_arn=self.stream_arn,
             stream_specification=self.stream_specification,
@@ -206,6 +215,7 @@ def get_table(table_name: Optional[str] = None,
         local_secondary_indexes=pulumi.get(__ret__, 'local_secondary_indexes'),
         point_in_time_recovery_specification=pulumi.get(__ret__, 'point_in_time_recovery_specification'),
         provisioned_throughput=pulumi.get(__ret__, 'provisioned_throughput'),
+        resource_policy=pulumi.get(__ret__, 'resource_policy'),
         sse_specification=pulumi.get(__ret__, 'sse_specification'),
         stream_arn=pulumi.get(__ret__, 'stream_arn'),
         stream_specification=pulumi.get(__ret__, 'stream_specification'),

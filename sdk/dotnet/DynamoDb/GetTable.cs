@@ -62,6 +62,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public readonly ImmutableArray<Outputs.TableLocalSecondaryIndex> LocalSecondaryIndexes;
         public readonly Outputs.TablePointInTimeRecoverySpecification? PointInTimeRecoverySpecification;
         public readonly Outputs.TableProvisionedThroughput? ProvisionedThroughput;
+        public readonly Outputs.TableResourcePolicy? ResourcePolicy;
         public readonly Outputs.TableSseSpecification? SseSpecification;
         public readonly string? StreamArn;
         public readonly Outputs.TableStreamSpecification? StreamSpecification;
@@ -93,6 +94,8 @@ namespace Pulumi.AwsNative.DynamoDb
 
             Outputs.TableProvisionedThroughput? provisionedThroughput,
 
+            Outputs.TableResourcePolicy? resourcePolicy,
+
             Outputs.TableSseSpecification? sseSpecification,
 
             string? streamArn,
@@ -116,6 +119,7 @@ namespace Pulumi.AwsNative.DynamoDb
             LocalSecondaryIndexes = localSecondaryIndexes;
             PointInTimeRecoverySpecification = pointInTimeRecoverySpecification;
             ProvisionedThroughput = provisionedThroughput;
+            ResourcePolicy = resourcePolicy;
             SseSpecification = sseSpecification;
             StreamArn = streamArn;
             StreamSpecification = streamSpecification;

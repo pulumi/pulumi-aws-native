@@ -11,39 +11,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::VPC
+// Specifies a virtual private cloud (VPC).
+//
+//	You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).
+//	For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.
 type Vpc struct {
 	pulumi.CustomResourceState
 
-	// The primary IPv4 CIDR block for the VPC.
-	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
-	// A list of IPv4 CIDR block association IDs for the VPC.
+	// The IPv4 network range for the VPC, in CIDR notation. For example, ``10.0.0.0/16``. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
+	//  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
+	CidrBlock             pulumi.StringPtrOutput   `pulumi:"cidrBlock"`
 	CidrBlockAssociations pulumi.StringArrayOutput `pulumi:"cidrBlockAssociations"`
-	// The default network ACL ID that is associated with the VPC.
-	DefaultNetworkAcl pulumi.StringOutput `pulumi:"defaultNetworkAcl"`
-	// The default security group ID that is associated with the VPC.
-	DefaultSecurityGroup pulumi.StringOutput `pulumi:"defaultSecurityGroup"`
-	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+	DefaultNetworkAcl     pulumi.StringOutput      `pulumi:"defaultNetworkAcl"`
+	DefaultSecurityGroup  pulumi.StringOutput      `pulumi:"defaultSecurityGroup"`
+	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
+	//  You can only enable DNS hostnames if you've enabled DNS support.
 	EnableDnsHostnames pulumi.BoolPtrOutput `pulumi:"enableDnsHostnames"`
-	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
 	EnableDnsSupport pulumi.BoolPtrOutput `pulumi:"enableDnsSupport"`
 	// The allowed tenancy of instances launched into the VPC.
+	//   +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+	//   +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.
 	//
-	// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
-	//
-	// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
-	//
-	// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+	//  Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.
 	InstanceTenancy pulumi.StringPtrOutput `pulumi:"instanceTenancy"`
-	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
+	//  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
 	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
-	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
-	Ipv4NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv4NetmaskLength"`
-	// A list of IPv6 CIDR blocks that are associated with the VPC.
-	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
+	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
+	Ipv4NetmaskLength pulumi.IntPtrOutput      `pulumi:"ipv4NetmaskLength"`
+	Ipv6CidrBlocks    pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
 	// The tags for the VPC.
-	Tags VpcTagArrayOutput `pulumi:"tags"`
-	// The Id for the model.
+	Tags  VpcTagArrayOutput   `pulumi:"tags"`
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -93,23 +92,24 @@ func (VpcState) ElementType() reflect.Type {
 }
 
 type vpcArgs struct {
-	// The primary IPv4 CIDR block for the VPC.
+	// The IPv4 network range for the VPC, in CIDR notation. For example, ``10.0.0.0/16``. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
+	//  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
 	CidrBlock *string `pulumi:"cidrBlock"`
-	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
+	//  You can only enable DNS hostnames if you've enabled DNS support.
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
-	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
 	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
 	// The allowed tenancy of instances launched into the VPC.
+	//   +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+	//   +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.
 	//
-	// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
-	//
-	// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
-	//
-	// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+	//  Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.
 	InstanceTenancy *string `pulumi:"instanceTenancy"`
-	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
+	//  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
 	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
-	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
 	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
 	// The tags for the VPC.
 	Tags []VpcTag `pulumi:"tags"`
@@ -117,23 +117,24 @@ type vpcArgs struct {
 
 // The set of arguments for constructing a Vpc resource.
 type VpcArgs struct {
-	// The primary IPv4 CIDR block for the VPC.
+	// The IPv4 network range for the VPC, in CIDR notation. For example, ``10.0.0.0/16``. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
+	//  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
 	CidrBlock pulumi.StringPtrInput
-	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
+	//  You can only enable DNS hostnames if you've enabled DNS support.
 	EnableDnsHostnames pulumi.BoolPtrInput
-	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
 	EnableDnsSupport pulumi.BoolPtrInput
 	// The allowed tenancy of instances launched into the VPC.
+	//   +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+	//   +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.
 	//
-	// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
-	//
-	// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
-	//
-	// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+	//  Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.
 	InstanceTenancy pulumi.StringPtrInput
-	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
+	//  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
 	Ipv4IpamPoolId pulumi.StringPtrInput
-	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
 	Ipv4NetmaskLength pulumi.IntPtrInput
 	// The tags for the VPC.
 	Tags VpcTagArrayInput
@@ -176,58 +177,60 @@ func (o VpcOutput) ToVpcOutputWithContext(ctx context.Context) VpcOutput {
 	return o
 }
 
-// The primary IPv4 CIDR block for the VPC.
+// The IPv4 network range for the VPC, in CIDR notation. For example, “10.0.0.0/16“. We modify the specified CIDR block to its canonical form; for example, if you specify “100.68.0.18/18“, we modify it to “100.68.0.0/18“.
+//
+//	You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
 func (o VpcOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// A list of IPv4 CIDR block association IDs for the VPC.
 func (o VpcOutput) CidrBlockAssociations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringArrayOutput { return v.CidrBlockAssociations }).(pulumi.StringArrayOutput)
 }
 
-// The default network ACL ID that is associated with the VPC.
 func (o VpcOutput) DefaultNetworkAcl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringOutput { return v.DefaultNetworkAcl }).(pulumi.StringOutput)
 }
 
-// The default security group ID that is associated with the VPC.
 func (o VpcOutput) DefaultSecurityGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringOutput { return v.DefaultSecurityGroup }).(pulumi.StringOutput)
 }
 
-// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
+//
+//	You can only enable DNS hostnames if you've enabled DNS support.
 func (o VpcOutput) EnableDnsHostnames() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.BoolPtrOutput { return v.EnableDnsHostnames }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
 func (o VpcOutput) EnableDnsSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.BoolPtrOutput { return v.EnableDnsSupport }).(pulumi.BoolPtrOutput)
 }
 
 // The allowed tenancy of instances launched into the VPC.
 //
-// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+//   - “default“: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
 //
-// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+//   - “dedicated“: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of “host“ during instance launch. You cannot specify a tenancy of “default“ during instance launch.
 //
-// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+//     Updating “InstanceTenancy“ requires no replacement only if you are updating its value from “dedicated“ to “default“. Updating “InstanceTenancy“ from “default“ to “dedicated“ requires replacement.
 func (o VpcOutput) InstanceTenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringPtrOutput { return v.InstanceTenancy }).(pulumi.StringPtrOutput)
 }
 
-// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
+//
+//	You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
 func (o VpcOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringPtrOutput { return v.Ipv4IpamPoolId }).(pulumi.StringPtrOutput)
 }
 
-// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
 func (o VpcOutput) Ipv4NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.IntPtrOutput { return v.Ipv4NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
-// A list of IPv6 CIDR blocks that are associated with the VPC.
 func (o VpcOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringArrayOutput { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
@@ -237,7 +240,6 @@ func (o VpcOutput) Tags() VpcTagArrayOutput {
 	return o.ApplyT(func(v *Vpc) VpcTagArrayOutput { return v.Tags }).(VpcTagArrayOutput)
 }
 
-// The Id for the model.
 func (o VpcOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

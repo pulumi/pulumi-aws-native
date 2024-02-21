@@ -26,6 +26,11 @@ __all__ = [
 
 @pulumi.output_type
 class AccessPointCreationInfo(dict):
+    """
+    Required if the ``RootDirectory`` > ``Path`` specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory`` > ``Path``. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying ``CreationInfo``, you must include values for all properties. 
+     Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.
+      If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` does not exist, attempts to mount the file system using the access point will fail.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -50,9 +55,12 @@ class AccessPointCreationInfo(dict):
                  owner_uid: str,
                  permissions: str):
         """
-        :param str owner_gid: Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
-        :param str owner_uid: Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
-        :param str permissions: Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+        Required if the ``RootDirectory`` > ``Path`` specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory`` > ``Path``. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying ``CreationInfo``, you must include values for all properties. 
+         Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.
+          If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` does not exist, attempts to mount the file system using the access point will fail.
+        :param str owner_gid: Specifies the POSIX group ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
+        :param str owner_uid: Specifies the POSIX user ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
+        :param str permissions: Specifies the POSIX permissions to apply to the ``RootDirectory``, in the format of an octal number representing the file's mode bits.
         """
         pulumi.set(__self__, "owner_gid", owner_gid)
         pulumi.set(__self__, "owner_uid", owner_uid)
@@ -62,7 +70,7 @@ class AccessPointCreationInfo(dict):
     @pulumi.getter(name="ownerGid")
     def owner_gid(self) -> str:
         """
-        Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+        Specifies the POSIX group ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
         """
         return pulumi.get(self, "owner_gid")
 
@@ -70,7 +78,7 @@ class AccessPointCreationInfo(dict):
     @pulumi.getter(name="ownerUid")
     def owner_uid(self) -> str:
         """
-        Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+        Specifies the POSIX user ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
         """
         return pulumi.get(self, "owner_uid")
 
@@ -78,13 +86,16 @@ class AccessPointCreationInfo(dict):
     @pulumi.getter
     def permissions(self) -> str:
         """
-        Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+        Specifies the POSIX permissions to apply to the ``RootDirectory``, in the format of an octal number representing the file's mode bits.
         """
         return pulumi.get(self, "permissions")
 
 
 @pulumi.output_type
 class AccessPointPosixUser(dict):
+    """
+    The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -107,6 +118,7 @@ class AccessPointPosixUser(dict):
                  uid: str,
                  secondary_gids: Optional[Sequence[str]] = None):
         """
+        The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
         :param str gid: The POSIX group ID used for all file system operations using this access point.
         :param str uid: The POSIX user ID used for all file system operations using this access point.
         :param Sequence[str] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
@@ -143,6 +155,9 @@ class AccessPointPosixUser(dict):
 
 @pulumi.output_type
 class AccessPointRootDirectory(dict):
+    """
+    Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's ``RootDirectory`` and its subdirectories.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -164,8 +179,10 @@ class AccessPointRootDirectory(dict):
                  creation_info: Optional['outputs.AccessPointCreationInfo'] = None,
                  path: Optional[str] = None):
         """
-        :param 'AccessPointCreationInfo' creation_info: (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail. 
-        :param str path: Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
+        Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's ``RootDirectory`` and its subdirectories.
+        :param 'AccessPointCreationInfo' creation_info: (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties. 
+                 If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
+        :param str path: Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the ``CreationInfo``.
         """
         if creation_info is not None:
             pulumi.set(__self__, "creation_info", creation_info)
@@ -176,7 +193,8 @@ class AccessPointRootDirectory(dict):
     @pulumi.getter(name="creationInfo")
     def creation_info(self) -> Optional['outputs.AccessPointCreationInfo']:
         """
-        (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail. 
+        (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties. 
+          If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
         """
         return pulumi.get(self, "creation_info")
 
@@ -184,16 +202,24 @@ class AccessPointRootDirectory(dict):
     @pulumi.getter
     def path(self) -> Optional[str]:
         """
-        Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
+        Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the ``CreationInfo``.
         """
         return pulumi.get(self, "path")
 
 
 @pulumi.output_type
 class AccessPointTag(dict):
+    """
+    A tag is a key-value pair attached to a file system. Allowed characters in the ``Key`` and ``Value`` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:``+ - = . _ : /``
+    """
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        A tag is a key-value pair attached to a file system. Allowed characters in the ``Key`` and ``Value`` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:``+ - = . _ : /``
+        :param str key: The tag key (String). The key can't start with ``aws:``.
+        :param str value: The value of the tag key.
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -202,11 +228,17 @@ class AccessPointTag(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        The tag key (String). The key can't start with ``aws:``.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The value of the tag key.
+        """
         return pulumi.get(self, "value")
 
 

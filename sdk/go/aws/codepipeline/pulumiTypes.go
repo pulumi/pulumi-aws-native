@@ -1248,9 +1248,158 @@ func (o PipelineEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PipelineGitBranchFilterCriteria struct {
+	Excludes []string `pulumi:"excludes"`
+	Includes []string `pulumi:"includes"`
+}
+
+// PipelineGitBranchFilterCriteriaInput is an input type that accepts PipelineGitBranchFilterCriteriaArgs and PipelineGitBranchFilterCriteriaOutput values.
+// You can construct a concrete instance of `PipelineGitBranchFilterCriteriaInput` via:
+//
+//	PipelineGitBranchFilterCriteriaArgs{...}
+type PipelineGitBranchFilterCriteriaInput interface {
+	pulumi.Input
+
+	ToPipelineGitBranchFilterCriteriaOutput() PipelineGitBranchFilterCriteriaOutput
+	ToPipelineGitBranchFilterCriteriaOutputWithContext(context.Context) PipelineGitBranchFilterCriteriaOutput
+}
+
+type PipelineGitBranchFilterCriteriaArgs struct {
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (PipelineGitBranchFilterCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitBranchFilterCriteria)(nil)).Elem()
+}
+
+func (i PipelineGitBranchFilterCriteriaArgs) ToPipelineGitBranchFilterCriteriaOutput() PipelineGitBranchFilterCriteriaOutput {
+	return i.ToPipelineGitBranchFilterCriteriaOutputWithContext(context.Background())
+}
+
+func (i PipelineGitBranchFilterCriteriaArgs) ToPipelineGitBranchFilterCriteriaOutputWithContext(ctx context.Context) PipelineGitBranchFilterCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitBranchFilterCriteriaOutput)
+}
+
+func (i PipelineGitBranchFilterCriteriaArgs) ToPipelineGitBranchFilterCriteriaPtrOutput() PipelineGitBranchFilterCriteriaPtrOutput {
+	return i.ToPipelineGitBranchFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineGitBranchFilterCriteriaArgs) ToPipelineGitBranchFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitBranchFilterCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitBranchFilterCriteriaOutput).ToPipelineGitBranchFilterCriteriaPtrOutputWithContext(ctx)
+}
+
+// PipelineGitBranchFilterCriteriaPtrInput is an input type that accepts PipelineGitBranchFilterCriteriaArgs, PipelineGitBranchFilterCriteriaPtr and PipelineGitBranchFilterCriteriaPtrOutput values.
+// You can construct a concrete instance of `PipelineGitBranchFilterCriteriaPtrInput` via:
+//
+//	        PipelineGitBranchFilterCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineGitBranchFilterCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToPipelineGitBranchFilterCriteriaPtrOutput() PipelineGitBranchFilterCriteriaPtrOutput
+	ToPipelineGitBranchFilterCriteriaPtrOutputWithContext(context.Context) PipelineGitBranchFilterCriteriaPtrOutput
+}
+
+type pipelineGitBranchFilterCriteriaPtrType PipelineGitBranchFilterCriteriaArgs
+
+func PipelineGitBranchFilterCriteriaPtr(v *PipelineGitBranchFilterCriteriaArgs) PipelineGitBranchFilterCriteriaPtrInput {
+	return (*pipelineGitBranchFilterCriteriaPtrType)(v)
+}
+
+func (*pipelineGitBranchFilterCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineGitBranchFilterCriteria)(nil)).Elem()
+}
+
+func (i *pipelineGitBranchFilterCriteriaPtrType) ToPipelineGitBranchFilterCriteriaPtrOutput() PipelineGitBranchFilterCriteriaPtrOutput {
+	return i.ToPipelineGitBranchFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineGitBranchFilterCriteriaPtrType) ToPipelineGitBranchFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitBranchFilterCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitBranchFilterCriteriaPtrOutput)
+}
+
+type PipelineGitBranchFilterCriteriaOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitBranchFilterCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitBranchFilterCriteria)(nil)).Elem()
+}
+
+func (o PipelineGitBranchFilterCriteriaOutput) ToPipelineGitBranchFilterCriteriaOutput() PipelineGitBranchFilterCriteriaOutput {
+	return o
+}
+
+func (o PipelineGitBranchFilterCriteriaOutput) ToPipelineGitBranchFilterCriteriaOutputWithContext(ctx context.Context) PipelineGitBranchFilterCriteriaOutput {
+	return o
+}
+
+func (o PipelineGitBranchFilterCriteriaOutput) ToPipelineGitBranchFilterCriteriaPtrOutput() PipelineGitBranchFilterCriteriaPtrOutput {
+	return o.ToPipelineGitBranchFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineGitBranchFilterCriteriaOutput) ToPipelineGitBranchFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitBranchFilterCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineGitBranchFilterCriteria) *PipelineGitBranchFilterCriteria {
+		return &v
+	}).(PipelineGitBranchFilterCriteriaPtrOutput)
+}
+
+func (o PipelineGitBranchFilterCriteriaOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineGitBranchFilterCriteria) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+func (o PipelineGitBranchFilterCriteriaOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineGitBranchFilterCriteria) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type PipelineGitBranchFilterCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitBranchFilterCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineGitBranchFilterCriteria)(nil)).Elem()
+}
+
+func (o PipelineGitBranchFilterCriteriaPtrOutput) ToPipelineGitBranchFilterCriteriaPtrOutput() PipelineGitBranchFilterCriteriaPtrOutput {
+	return o
+}
+
+func (o PipelineGitBranchFilterCriteriaPtrOutput) ToPipelineGitBranchFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitBranchFilterCriteriaPtrOutput {
+	return o
+}
+
+func (o PipelineGitBranchFilterCriteriaPtrOutput) Elem() PipelineGitBranchFilterCriteriaOutput {
+	return o.ApplyT(func(v *PipelineGitBranchFilterCriteria) PipelineGitBranchFilterCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineGitBranchFilterCriteria
+		return ret
+	}).(PipelineGitBranchFilterCriteriaOutput)
+}
+
+func (o PipelineGitBranchFilterCriteriaPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineGitBranchFilterCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PipelineGitBranchFilterCriteriaPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineGitBranchFilterCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
 type PipelineGitConfiguration struct {
-	Push             []PipelineGitPushFilter `pulumi:"push"`
-	SourceActionName string                  `pulumi:"sourceActionName"`
+	PullRequest      []PipelineGitPullRequestFilter `pulumi:"pullRequest"`
+	Push             []PipelineGitPushFilter        `pulumi:"push"`
+	SourceActionName string                         `pulumi:"sourceActionName"`
 }
 
 // PipelineGitConfigurationInput is an input type that accepts PipelineGitConfigurationArgs and PipelineGitConfigurationOutput values.
@@ -1265,8 +1414,9 @@ type PipelineGitConfigurationInput interface {
 }
 
 type PipelineGitConfigurationArgs struct {
-	Push             PipelineGitPushFilterArrayInput `pulumi:"push"`
-	SourceActionName pulumi.StringInput              `pulumi:"sourceActionName"`
+	PullRequest      PipelineGitPullRequestFilterArrayInput `pulumi:"pullRequest"`
+	Push             PipelineGitPushFilterArrayInput        `pulumi:"push"`
+	SourceActionName pulumi.StringInput                     `pulumi:"sourceActionName"`
 }
 
 func (PipelineGitConfigurationArgs) ElementType() reflect.Type {
@@ -1346,6 +1496,10 @@ func (o PipelineGitConfigurationOutput) ToPipelineGitConfigurationPtrOutputWithC
 	}).(PipelineGitConfigurationPtrOutput)
 }
 
+func (o PipelineGitConfigurationOutput) PullRequest() PipelineGitPullRequestFilterArrayOutput {
+	return o.ApplyT(func(v PipelineGitConfiguration) []PipelineGitPullRequestFilter { return v.PullRequest }).(PipelineGitPullRequestFilterArrayOutput)
+}
+
 func (o PipelineGitConfigurationOutput) Push() PipelineGitPushFilterArrayOutput {
 	return o.ApplyT(func(v PipelineGitConfiguration) []PipelineGitPushFilter { return v.Push }).(PipelineGitPushFilterArrayOutput)
 }
@@ -1378,6 +1532,15 @@ func (o PipelineGitConfigurationPtrOutput) Elem() PipelineGitConfigurationOutput
 	}).(PipelineGitConfigurationOutput)
 }
 
+func (o PipelineGitConfigurationPtrOutput) PullRequest() PipelineGitPullRequestFilterArrayOutput {
+	return o.ApplyT(func(v *PipelineGitConfiguration) []PipelineGitPullRequestFilter {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequest
+	}).(PipelineGitPullRequestFilterArrayOutput)
+}
+
 func (o PipelineGitConfigurationPtrOutput) Push() PipelineGitPushFilterArrayOutput {
 	return o.ApplyT(func(v *PipelineGitConfiguration) []PipelineGitPushFilter {
 		if v == nil {
@@ -1396,8 +1559,264 @@ func (o PipelineGitConfigurationPtrOutput) SourceActionName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type PipelineGitFilePathFilterCriteria struct {
+	Excludes []string `pulumi:"excludes"`
+	Includes []string `pulumi:"includes"`
+}
+
+// PipelineGitFilePathFilterCriteriaInput is an input type that accepts PipelineGitFilePathFilterCriteriaArgs and PipelineGitFilePathFilterCriteriaOutput values.
+// You can construct a concrete instance of `PipelineGitFilePathFilterCriteriaInput` via:
+//
+//	PipelineGitFilePathFilterCriteriaArgs{...}
+type PipelineGitFilePathFilterCriteriaInput interface {
+	pulumi.Input
+
+	ToPipelineGitFilePathFilterCriteriaOutput() PipelineGitFilePathFilterCriteriaOutput
+	ToPipelineGitFilePathFilterCriteriaOutputWithContext(context.Context) PipelineGitFilePathFilterCriteriaOutput
+}
+
+type PipelineGitFilePathFilterCriteriaArgs struct {
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (PipelineGitFilePathFilterCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitFilePathFilterCriteria)(nil)).Elem()
+}
+
+func (i PipelineGitFilePathFilterCriteriaArgs) ToPipelineGitFilePathFilterCriteriaOutput() PipelineGitFilePathFilterCriteriaOutput {
+	return i.ToPipelineGitFilePathFilterCriteriaOutputWithContext(context.Background())
+}
+
+func (i PipelineGitFilePathFilterCriteriaArgs) ToPipelineGitFilePathFilterCriteriaOutputWithContext(ctx context.Context) PipelineGitFilePathFilterCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitFilePathFilterCriteriaOutput)
+}
+
+func (i PipelineGitFilePathFilterCriteriaArgs) ToPipelineGitFilePathFilterCriteriaPtrOutput() PipelineGitFilePathFilterCriteriaPtrOutput {
+	return i.ToPipelineGitFilePathFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineGitFilePathFilterCriteriaArgs) ToPipelineGitFilePathFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitFilePathFilterCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitFilePathFilterCriteriaOutput).ToPipelineGitFilePathFilterCriteriaPtrOutputWithContext(ctx)
+}
+
+// PipelineGitFilePathFilterCriteriaPtrInput is an input type that accepts PipelineGitFilePathFilterCriteriaArgs, PipelineGitFilePathFilterCriteriaPtr and PipelineGitFilePathFilterCriteriaPtrOutput values.
+// You can construct a concrete instance of `PipelineGitFilePathFilterCriteriaPtrInput` via:
+//
+//	        PipelineGitFilePathFilterCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineGitFilePathFilterCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToPipelineGitFilePathFilterCriteriaPtrOutput() PipelineGitFilePathFilterCriteriaPtrOutput
+	ToPipelineGitFilePathFilterCriteriaPtrOutputWithContext(context.Context) PipelineGitFilePathFilterCriteriaPtrOutput
+}
+
+type pipelineGitFilePathFilterCriteriaPtrType PipelineGitFilePathFilterCriteriaArgs
+
+func PipelineGitFilePathFilterCriteriaPtr(v *PipelineGitFilePathFilterCriteriaArgs) PipelineGitFilePathFilterCriteriaPtrInput {
+	return (*pipelineGitFilePathFilterCriteriaPtrType)(v)
+}
+
+func (*pipelineGitFilePathFilterCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineGitFilePathFilterCriteria)(nil)).Elem()
+}
+
+func (i *pipelineGitFilePathFilterCriteriaPtrType) ToPipelineGitFilePathFilterCriteriaPtrOutput() PipelineGitFilePathFilterCriteriaPtrOutput {
+	return i.ToPipelineGitFilePathFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineGitFilePathFilterCriteriaPtrType) ToPipelineGitFilePathFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitFilePathFilterCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitFilePathFilterCriteriaPtrOutput)
+}
+
+type PipelineGitFilePathFilterCriteriaOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitFilePathFilterCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitFilePathFilterCriteria)(nil)).Elem()
+}
+
+func (o PipelineGitFilePathFilterCriteriaOutput) ToPipelineGitFilePathFilterCriteriaOutput() PipelineGitFilePathFilterCriteriaOutput {
+	return o
+}
+
+func (o PipelineGitFilePathFilterCriteriaOutput) ToPipelineGitFilePathFilterCriteriaOutputWithContext(ctx context.Context) PipelineGitFilePathFilterCriteriaOutput {
+	return o
+}
+
+func (o PipelineGitFilePathFilterCriteriaOutput) ToPipelineGitFilePathFilterCriteriaPtrOutput() PipelineGitFilePathFilterCriteriaPtrOutput {
+	return o.ToPipelineGitFilePathFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineGitFilePathFilterCriteriaOutput) ToPipelineGitFilePathFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitFilePathFilterCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineGitFilePathFilterCriteria) *PipelineGitFilePathFilterCriteria {
+		return &v
+	}).(PipelineGitFilePathFilterCriteriaPtrOutput)
+}
+
+func (o PipelineGitFilePathFilterCriteriaOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineGitFilePathFilterCriteria) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+func (o PipelineGitFilePathFilterCriteriaOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineGitFilePathFilterCriteria) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type PipelineGitFilePathFilterCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitFilePathFilterCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineGitFilePathFilterCriteria)(nil)).Elem()
+}
+
+func (o PipelineGitFilePathFilterCriteriaPtrOutput) ToPipelineGitFilePathFilterCriteriaPtrOutput() PipelineGitFilePathFilterCriteriaPtrOutput {
+	return o
+}
+
+func (o PipelineGitFilePathFilterCriteriaPtrOutput) ToPipelineGitFilePathFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitFilePathFilterCriteriaPtrOutput {
+	return o
+}
+
+func (o PipelineGitFilePathFilterCriteriaPtrOutput) Elem() PipelineGitFilePathFilterCriteriaOutput {
+	return o.ApplyT(func(v *PipelineGitFilePathFilterCriteria) PipelineGitFilePathFilterCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineGitFilePathFilterCriteria
+		return ret
+	}).(PipelineGitFilePathFilterCriteriaOutput)
+}
+
+func (o PipelineGitFilePathFilterCriteriaPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineGitFilePathFilterCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PipelineGitFilePathFilterCriteriaPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineGitFilePathFilterCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type PipelineGitPullRequestFilter struct {
+	Branches  *PipelineGitBranchFilterCriteria   `pulumi:"branches"`
+	Events    []string                           `pulumi:"events"`
+	FilePaths *PipelineGitFilePathFilterCriteria `pulumi:"filePaths"`
+}
+
+// PipelineGitPullRequestFilterInput is an input type that accepts PipelineGitPullRequestFilterArgs and PipelineGitPullRequestFilterOutput values.
+// You can construct a concrete instance of `PipelineGitPullRequestFilterInput` via:
+//
+//	PipelineGitPullRequestFilterArgs{...}
+type PipelineGitPullRequestFilterInput interface {
+	pulumi.Input
+
+	ToPipelineGitPullRequestFilterOutput() PipelineGitPullRequestFilterOutput
+	ToPipelineGitPullRequestFilterOutputWithContext(context.Context) PipelineGitPullRequestFilterOutput
+}
+
+type PipelineGitPullRequestFilterArgs struct {
+	Branches  PipelineGitBranchFilterCriteriaPtrInput   `pulumi:"branches"`
+	Events    pulumi.StringArrayInput                   `pulumi:"events"`
+	FilePaths PipelineGitFilePathFilterCriteriaPtrInput `pulumi:"filePaths"`
+}
+
+func (PipelineGitPullRequestFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitPullRequestFilter)(nil)).Elem()
+}
+
+func (i PipelineGitPullRequestFilterArgs) ToPipelineGitPullRequestFilterOutput() PipelineGitPullRequestFilterOutput {
+	return i.ToPipelineGitPullRequestFilterOutputWithContext(context.Background())
+}
+
+func (i PipelineGitPullRequestFilterArgs) ToPipelineGitPullRequestFilterOutputWithContext(ctx context.Context) PipelineGitPullRequestFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitPullRequestFilterOutput)
+}
+
+// PipelineGitPullRequestFilterArrayInput is an input type that accepts PipelineGitPullRequestFilterArray and PipelineGitPullRequestFilterArrayOutput values.
+// You can construct a concrete instance of `PipelineGitPullRequestFilterArrayInput` via:
+//
+//	PipelineGitPullRequestFilterArray{ PipelineGitPullRequestFilterArgs{...} }
+type PipelineGitPullRequestFilterArrayInput interface {
+	pulumi.Input
+
+	ToPipelineGitPullRequestFilterArrayOutput() PipelineGitPullRequestFilterArrayOutput
+	ToPipelineGitPullRequestFilterArrayOutputWithContext(context.Context) PipelineGitPullRequestFilterArrayOutput
+}
+
+type PipelineGitPullRequestFilterArray []PipelineGitPullRequestFilterInput
+
+func (PipelineGitPullRequestFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineGitPullRequestFilter)(nil)).Elem()
+}
+
+func (i PipelineGitPullRequestFilterArray) ToPipelineGitPullRequestFilterArrayOutput() PipelineGitPullRequestFilterArrayOutput {
+	return i.ToPipelineGitPullRequestFilterArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineGitPullRequestFilterArray) ToPipelineGitPullRequestFilterArrayOutputWithContext(ctx context.Context) PipelineGitPullRequestFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitPullRequestFilterArrayOutput)
+}
+
+type PipelineGitPullRequestFilterOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitPullRequestFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitPullRequestFilter)(nil)).Elem()
+}
+
+func (o PipelineGitPullRequestFilterOutput) ToPipelineGitPullRequestFilterOutput() PipelineGitPullRequestFilterOutput {
+	return o
+}
+
+func (o PipelineGitPullRequestFilterOutput) ToPipelineGitPullRequestFilterOutputWithContext(ctx context.Context) PipelineGitPullRequestFilterOutput {
+	return o
+}
+
+func (o PipelineGitPullRequestFilterOutput) Branches() PipelineGitBranchFilterCriteriaPtrOutput {
+	return o.ApplyT(func(v PipelineGitPullRequestFilter) *PipelineGitBranchFilterCriteria { return v.Branches }).(PipelineGitBranchFilterCriteriaPtrOutput)
+}
+
+func (o PipelineGitPullRequestFilterOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineGitPullRequestFilter) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+func (o PipelineGitPullRequestFilterOutput) FilePaths() PipelineGitFilePathFilterCriteriaPtrOutput {
+	return o.ApplyT(func(v PipelineGitPullRequestFilter) *PipelineGitFilePathFilterCriteria { return v.FilePaths }).(PipelineGitFilePathFilterCriteriaPtrOutput)
+}
+
+type PipelineGitPullRequestFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitPullRequestFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineGitPullRequestFilter)(nil)).Elem()
+}
+
+func (o PipelineGitPullRequestFilterArrayOutput) ToPipelineGitPullRequestFilterArrayOutput() PipelineGitPullRequestFilterArrayOutput {
+	return o
+}
+
+func (o PipelineGitPullRequestFilterArrayOutput) ToPipelineGitPullRequestFilterArrayOutputWithContext(ctx context.Context) PipelineGitPullRequestFilterArrayOutput {
+	return o
+}
+
+func (o PipelineGitPullRequestFilterArrayOutput) Index(i pulumi.IntInput) PipelineGitPullRequestFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineGitPullRequestFilter {
+		return vs[0].([]PipelineGitPullRequestFilter)[vs[1].(int)]
+	}).(PipelineGitPullRequestFilterOutput)
+}
+
 type PipelineGitPushFilter struct {
-	Tags *PipelineGitTagFilterCriteria `pulumi:"tags"`
+	Branches  *PipelineGitBranchFilterCriteria   `pulumi:"branches"`
+	FilePaths *PipelineGitFilePathFilterCriteria `pulumi:"filePaths"`
+	Tags      *PipelineGitTagFilterCriteria      `pulumi:"tags"`
 }
 
 // PipelineGitPushFilterInput is an input type that accepts PipelineGitPushFilterArgs and PipelineGitPushFilterOutput values.
@@ -1412,7 +1831,9 @@ type PipelineGitPushFilterInput interface {
 }
 
 type PipelineGitPushFilterArgs struct {
-	Tags PipelineGitTagFilterCriteriaPtrInput `pulumi:"tags"`
+	Branches  PipelineGitBranchFilterCriteriaPtrInput   `pulumi:"branches"`
+	FilePaths PipelineGitFilePathFilterCriteriaPtrInput `pulumi:"filePaths"`
+	Tags      PipelineGitTagFilterCriteriaPtrInput      `pulumi:"tags"`
 }
 
 func (PipelineGitPushFilterArgs) ElementType() reflect.Type {
@@ -1464,6 +1885,14 @@ func (o PipelineGitPushFilterOutput) ToPipelineGitPushFilterOutput() PipelineGit
 
 func (o PipelineGitPushFilterOutput) ToPipelineGitPushFilterOutputWithContext(ctx context.Context) PipelineGitPushFilterOutput {
 	return o
+}
+
+func (o PipelineGitPushFilterOutput) Branches() PipelineGitBranchFilterCriteriaPtrOutput {
+	return o.ApplyT(func(v PipelineGitPushFilter) *PipelineGitBranchFilterCriteria { return v.Branches }).(PipelineGitBranchFilterCriteriaPtrOutput)
+}
+
+func (o PipelineGitPushFilterOutput) FilePaths() PipelineGitFilePathFilterCriteriaPtrOutput {
+	return o.ApplyT(func(v PipelineGitPushFilter) *PipelineGitFilePathFilterCriteria { return v.FilePaths }).(PipelineGitFilePathFilterCriteriaPtrOutput)
 }
 
 func (o PipelineGitPushFilterOutput) Tags() PipelineGitTagFilterCriteriaPtrOutput {
@@ -2554,8 +2983,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineBlockerDeclarationArrayInput)(nil)).Elem(), PipelineBlockerDeclarationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionKeyInput)(nil)).Elem(), PipelineEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionKeyPtrInput)(nil)).Elem(), PipelineEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitBranchFilterCriteriaInput)(nil)).Elem(), PipelineGitBranchFilterCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitBranchFilterCriteriaPtrInput)(nil)).Elem(), PipelineGitBranchFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitConfigurationInput)(nil)).Elem(), PipelineGitConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitConfigurationPtrInput)(nil)).Elem(), PipelineGitConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitFilePathFilterCriteriaInput)(nil)).Elem(), PipelineGitFilePathFilterCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitFilePathFilterCriteriaPtrInput)(nil)).Elem(), PipelineGitFilePathFilterCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitPullRequestFilterInput)(nil)).Elem(), PipelineGitPullRequestFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitPullRequestFilterArrayInput)(nil)).Elem(), PipelineGitPullRequestFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitPushFilterInput)(nil)).Elem(), PipelineGitPushFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitPushFilterArrayInput)(nil)).Elem(), PipelineGitPushFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitTagFilterCriteriaInput)(nil)).Elem(), PipelineGitTagFilterCriteriaArgs{})
@@ -2595,8 +3030,14 @@ func init() {
 	pulumi.RegisterOutputType(PipelineBlockerDeclarationArrayOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionKeyOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionKeyPtrOutput{})
+	pulumi.RegisterOutputType(PipelineGitBranchFilterCriteriaOutput{})
+	pulumi.RegisterOutputType(PipelineGitBranchFilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(PipelineGitConfigurationOutput{})
 	pulumi.RegisterOutputType(PipelineGitConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PipelineGitFilePathFilterCriteriaOutput{})
+	pulumi.RegisterOutputType(PipelineGitFilePathFilterCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(PipelineGitPullRequestFilterOutput{})
+	pulumi.RegisterOutputType(PipelineGitPullRequestFilterArrayOutput{})
 	pulumi.RegisterOutputType(PipelineGitPushFilterOutput{})
 	pulumi.RegisterOutputType(PipelineGitPushFilterArrayOutput{})
 	pulumi.RegisterOutputType(PipelineGitTagFilterCriteriaOutput{})

@@ -16938,8 +16938,11 @@ func (o LocalGatewayRouteTableVpcAssociationTagArrayOutput) Index(i pulumi.IntIn
 	}).(LocalGatewayRouteTableVpcAssociationTagOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type NatGatewayTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -16954,8 +16957,11 @@ type NatGatewayTagInput interface {
 	ToNatGatewayTagOutputWithContext(context.Context) NatGatewayTagOutput
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type NatGatewayTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -16996,6 +17002,7 @@ func (i NatGatewayTagArray) ToNatGatewayTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayTagArrayOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type NatGatewayTagOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayTagOutput) ElementType() reflect.Type {
@@ -17010,10 +17017,12 @@ func (o NatGatewayTagOutput) ToNatGatewayTagOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The tag key.
 func (o NatGatewayTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v NatGatewayTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The tag value.
 func (o NatGatewayTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v NatGatewayTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -31764,8 +31773,11 @@ func (o VpcPeeringConnectionTagArrayOutput) Index(i pulumi.IntInput) VpcPeeringC
 	}).(VpcPeeringConnectionTagOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type VpcTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -31780,8 +31792,11 @@ type VpcTagInput interface {
 	ToVpcTagOutputWithContext(context.Context) VpcTagOutput
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type VpcTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -31822,6 +31837,7 @@ func (i VpcTagArray) ToVpcTagArrayOutputWithContext(ctx context.Context) VpcTagA
 	return pulumi.ToOutputWithContext(ctx, i).(VpcTagArrayOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type VpcTagOutput struct{ *pulumi.OutputState }
 
 func (VpcTagOutput) ElementType() reflect.Type {
@@ -31836,10 +31852,12 @@ func (o VpcTagOutput) ToVpcTagOutputWithContext(ctx context.Context) VpcTagOutpu
 	return o
 }
 
+// The tag key.
 func (o VpcTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The tag value.
 func (o VpcTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcTag) string { return v.Value }).(pulumi.StringOutput)
 }

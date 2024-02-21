@@ -40,6 +40,7 @@ export class ApiCache extends pulumi.CustomResource {
     public readonly apiCachingBehavior!: pulumi.Output<string>;
     public readonly apiId!: pulumi.Output<string>;
     public readonly atRestEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly healthMetricsConfig!: pulumi.Output<string | undefined>;
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     public readonly ttl!: pulumi.Output<number>;
     public readonly type!: pulumi.Output<string>;
@@ -72,6 +73,7 @@ export class ApiCache extends pulumi.CustomResource {
             resourceInputs["apiCachingBehavior"] = args ? args.apiCachingBehavior : undefined;
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
+            resourceInputs["healthMetricsConfig"] = args ? args.healthMetricsConfig : undefined;
             resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -79,6 +81,7 @@ export class ApiCache extends pulumi.CustomResource {
             resourceInputs["apiCachingBehavior"] = undefined /*out*/;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
+            resourceInputs["healthMetricsConfig"] = undefined /*out*/;
             resourceInputs["transitEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["ttl"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -97,6 +100,7 @@ export interface ApiCacheArgs {
     apiCachingBehavior: pulumi.Input<string>;
     apiId: pulumi.Input<string>;
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
+    healthMetricsConfig?: pulumi.Input<string>;
     transitEncryptionEnabled?: pulumi.Input<boolean>;
     ttl: pulumi.Input<number>;
     type: pulumi.Input<string>;

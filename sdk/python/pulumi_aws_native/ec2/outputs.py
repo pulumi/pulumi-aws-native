@@ -6118,20 +6118,34 @@ class LocalGatewayRouteTableVpcAssociationTag(dict):
 
 @pulumi.output_type
 class NatGatewayTag(dict):
+    """
+    Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+    """
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+        :param str key: The tag key.
+        :param str value: The tag value.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The tag key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The tag value.
+        """
         return pulumi.get(self, "value")
 
 
@@ -11806,20 +11820,34 @@ class VpcPeeringConnectionTag(dict):
 
 @pulumi.output_type
 class VpcTag(dict):
+    """
+    Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+    """
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+        :param str key: The tag key.
+        :param str value: The tag value.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The tag key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The tag value.
+        """
         return pulumi.get(self, "value")
 
 

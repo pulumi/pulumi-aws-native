@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("provisionedThroughput")]
         public Output<Outputs.TableProvisionedThroughput?> ProvisionedThroughput { get; private set; } = null!;
 
+        [Output("resourcePolicy")]
+        public Output<Outputs.TableResourcePolicy?> ResourcePolicy { get; private set; } = null!;
+
         [Output("sseSpecification")]
         public Output<Outputs.TableSseSpecification?> SseSpecification { get; private set; } = null!;
 
@@ -169,6 +172,9 @@ namespace Pulumi.AwsNative.DynamoDb
 
         [Input("provisionedThroughput")]
         public Input<Inputs.TableProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }
+
+        [Input("resourcePolicy")]
+        public Input<Inputs.TableResourcePolicyArgs>? ResourcePolicy { get; set; }
 
         [Input("sseSpecification")]
         public Input<Inputs.TableSseSpecificationArgs>? SseSpecification { get; set; }

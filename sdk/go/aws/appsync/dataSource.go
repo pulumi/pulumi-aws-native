@@ -26,6 +26,7 @@ type DataSource struct {
 	EventBridgeConfig        DataSourceEventBridgeConfigPtrOutput        `pulumi:"eventBridgeConfig"`
 	HttpConfig               DataSourceHttpConfigPtrOutput               `pulumi:"httpConfig"`
 	LambdaConfig             DataSourceLambdaConfigPtrOutput             `pulumi:"lambdaConfig"`
+	MetricsConfig            pulumi.StringPtrOutput                      `pulumi:"metricsConfig"`
 	Name                     pulumi.StringOutput                         `pulumi:"name"`
 	OpenSearchServiceConfig  DataSourceOpenSearchServiceConfigPtrOutput  `pulumi:"openSearchServiceConfig"`
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
@@ -91,6 +92,7 @@ type dataSourceArgs struct {
 	EventBridgeConfig        *DataSourceEventBridgeConfig        `pulumi:"eventBridgeConfig"`
 	HttpConfig               *DataSourceHttpConfig               `pulumi:"httpConfig"`
 	LambdaConfig             *DataSourceLambdaConfig             `pulumi:"lambdaConfig"`
+	MetricsConfig            *string                             `pulumi:"metricsConfig"`
 	Name                     *string                             `pulumi:"name"`
 	OpenSearchServiceConfig  *DataSourceOpenSearchServiceConfig  `pulumi:"openSearchServiceConfig"`
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
@@ -107,6 +109,7 @@ type DataSourceArgs struct {
 	EventBridgeConfig        DataSourceEventBridgeConfigPtrInput
 	HttpConfig               DataSourceHttpConfigPtrInput
 	LambdaConfig             DataSourceLambdaConfigPtrInput
+	MetricsConfig            pulumi.StringPtrInput
 	Name                     pulumi.StringPtrInput
 	OpenSearchServiceConfig  DataSourceOpenSearchServiceConfigPtrInput
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
@@ -181,6 +184,10 @@ func (o DataSourceOutput) HttpConfig() DataSourceHttpConfigPtrOutput {
 
 func (o DataSourceOutput) LambdaConfig() DataSourceLambdaConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceLambdaConfigPtrOutput { return v.LambdaConfig }).(DataSourceLambdaConfigPtrOutput)
+}
+
+func (o DataSourceOutput) MetricsConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.MetricsConfig }).(pulumi.StringPtrOutput)
 }
 
 func (o DataSourceOutput) Name() pulumi.StringOutput {

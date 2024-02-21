@@ -13,12 +13,16 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Required if the “RootDirectory“ > “Path“ specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's “RootDirectory“ > “Path“. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying “CreationInfo“, you must include values for all properties.
+//
+//	Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.
+//	 If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` does not exist, attempts to mount the file system using the access point will fail.
 type AccessPointCreationInfo struct {
-	// Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+	// Specifies the POSIX group ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
 	OwnerGid string `pulumi:"ownerGid"`
-	// Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+	// Specifies the POSIX user ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
 	OwnerUid string `pulumi:"ownerUid"`
-	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+	// Specifies the POSIX permissions to apply to the ``RootDirectory``, in the format of an octal number representing the file's mode bits.
 	Permissions string `pulumi:"permissions"`
 }
 
@@ -33,12 +37,16 @@ type AccessPointCreationInfoInput interface {
 	ToAccessPointCreationInfoOutputWithContext(context.Context) AccessPointCreationInfoOutput
 }
 
+// Required if the “RootDirectory“ > “Path“ specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's “RootDirectory“ > “Path“. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying “CreationInfo“, you must include values for all properties.
+//
+//	Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.
+//	 If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` does not exist, attempts to mount the file system using the access point will fail.
 type AccessPointCreationInfoArgs struct {
-	// Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+	// Specifies the POSIX group ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
 	OwnerGid pulumi.StringInput `pulumi:"ownerGid"`
-	// Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+	// Specifies the POSIX user ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
 	OwnerUid pulumi.StringInput `pulumi:"ownerUid"`
-	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+	// Specifies the POSIX permissions to apply to the ``RootDirectory``, in the format of an octal number representing the file's mode bits.
 	Permissions pulumi.StringInput `pulumi:"permissions"`
 }
 
@@ -95,6 +103,10 @@ func (i *accessPointCreationInfoPtrType) ToAccessPointCreationInfoPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointCreationInfoPtrOutput)
 }
 
+// Required if the “RootDirectory“ > “Path“ specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's “RootDirectory“ > “Path“. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying “CreationInfo“, you must include values for all properties.
+//
+//	Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.
+//	 If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` does not exist, attempts to mount the file system using the access point will fail.
 type AccessPointCreationInfoOutput struct{ *pulumi.OutputState }
 
 func (AccessPointCreationInfoOutput) ElementType() reflect.Type {
@@ -119,17 +131,17 @@ func (o AccessPointCreationInfoOutput) ToAccessPointCreationInfoPtrOutputWithCon
 	}).(AccessPointCreationInfoPtrOutput)
 }
 
-// Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+// Specifies the POSIX group ID to apply to the “RootDirectory“. Accepts values from 0 to 2^32 (4294967295).
 func (o AccessPointCreationInfoOutput) OwnerGid() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointCreationInfo) string { return v.OwnerGid }).(pulumi.StringOutput)
 }
 
-// Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+// Specifies the POSIX user ID to apply to the “RootDirectory“. Accepts values from 0 to 2^32 (4294967295).
 func (o AccessPointCreationInfoOutput) OwnerUid() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointCreationInfo) string { return v.OwnerUid }).(pulumi.StringOutput)
 }
 
-// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+// Specifies the POSIX permissions to apply to the “RootDirectory“, in the format of an octal number representing the file's mode bits.
 func (o AccessPointCreationInfoOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointCreationInfo) string { return v.Permissions }).(pulumi.StringOutput)
 }
@@ -158,7 +170,7 @@ func (o AccessPointCreationInfoPtrOutput) Elem() AccessPointCreationInfoOutput {
 	}).(AccessPointCreationInfoOutput)
 }
 
-// Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+// Specifies the POSIX group ID to apply to the “RootDirectory“. Accepts values from 0 to 2^32 (4294967295).
 func (o AccessPointCreationInfoPtrOutput) OwnerGid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointCreationInfo) *string {
 		if v == nil {
@@ -168,7 +180,7 @@ func (o AccessPointCreationInfoPtrOutput) OwnerGid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+// Specifies the POSIX user ID to apply to the “RootDirectory“. Accepts values from 0 to 2^32 (4294967295).
 func (o AccessPointCreationInfoPtrOutput) OwnerUid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointCreationInfo) *string {
 		if v == nil {
@@ -178,7 +190,7 @@ func (o AccessPointCreationInfoPtrOutput) OwnerUid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+// Specifies the POSIX permissions to apply to the “RootDirectory“, in the format of an octal number representing the file's mode bits.
 func (o AccessPointCreationInfoPtrOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointCreationInfo) *string {
 		if v == nil {
@@ -188,6 +200,7 @@ func (o AccessPointCreationInfoPtrOutput) Permissions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 type AccessPointPosixUser struct {
 	// The POSIX group ID used for all file system operations using this access point.
 	Gid string `pulumi:"gid"`
@@ -208,6 +221,7 @@ type AccessPointPosixUserInput interface {
 	ToAccessPointPosixUserOutputWithContext(context.Context) AccessPointPosixUserOutput
 }
 
+// The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 type AccessPointPosixUserArgs struct {
 	// The POSIX group ID used for all file system operations using this access point.
 	Gid pulumi.StringInput `pulumi:"gid"`
@@ -270,6 +284,7 @@ func (i *accessPointPosixUserPtrType) ToAccessPointPosixUserPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPosixUserPtrOutput)
 }
 
+// The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 type AccessPointPosixUserOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPosixUserOutput) ElementType() reflect.Type {
@@ -363,10 +378,12 @@ func (o AccessPointPosixUserPtrOutput) Uid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's “RootDirectory“ and its subdirectories.
 type AccessPointRootDirectory struct {
-	// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail.
+	// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties.
+	//   If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
 	CreationInfo *AccessPointCreationInfo `pulumi:"creationInfo"`
-	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
+	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the ``CreationInfo``.
 	Path *string `pulumi:"path"`
 }
 
@@ -381,10 +398,12 @@ type AccessPointRootDirectoryInput interface {
 	ToAccessPointRootDirectoryOutputWithContext(context.Context) AccessPointRootDirectoryOutput
 }
 
+// Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's “RootDirectory“ and its subdirectories.
 type AccessPointRootDirectoryArgs struct {
-	// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail.
+	// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties.
+	//   If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
 	CreationInfo AccessPointCreationInfoPtrInput `pulumi:"creationInfo"`
-	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
+	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the ``CreationInfo``.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -441,6 +460,7 @@ func (i *accessPointRootDirectoryPtrType) ToAccessPointRootDirectoryPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryPtrOutput)
 }
 
+// Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's “RootDirectory“ and its subdirectories.
 type AccessPointRootDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AccessPointRootDirectoryOutput) ElementType() reflect.Type {
@@ -465,12 +485,14 @@ func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryPtrOutputWithC
 	}).(AccessPointRootDirectoryPtrOutput)
 }
 
-// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail.
+// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's “RootDirectory“. If the “RootDirectory“ > “Path“ specified does not exist, EFS creates the root directory using the “CreationInfo“ settings when a client connects to an access point. When specifying the “CreationInfo“, you must provide values for all properties.
+//
+//	If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
 func (o AccessPointRootDirectoryOutput) CreationInfo() AccessPointCreationInfoPtrOutput {
 	return o.ApplyT(func(v AccessPointRootDirectory) *AccessPointCreationInfo { return v.CreationInfo }).(AccessPointCreationInfoPtrOutput)
 }
 
-// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
+// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the “CreationInfo“.
 func (o AccessPointRootDirectoryOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointRootDirectory) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -499,7 +521,9 @@ func (o AccessPointRootDirectoryPtrOutput) Elem() AccessPointRootDirectoryOutput
 	}).(AccessPointRootDirectoryOutput)
 }
 
-// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail.
+// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's “RootDirectory“. If the “RootDirectory“ > “Path“ specified does not exist, EFS creates the root directory using the “CreationInfo“ settings when a client connects to an access point. When specifying the “CreationInfo“, you must provide values for all properties.
+//
+//	If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
 func (o AccessPointRootDirectoryPtrOutput) CreationInfo() AccessPointCreationInfoPtrOutput {
 	return o.ApplyT(func(v *AccessPointRootDirectory) *AccessPointCreationInfo {
 		if v == nil {
@@ -509,7 +533,7 @@ func (o AccessPointRootDirectoryPtrOutput) CreationInfo() AccessPointCreationInf
 	}).(AccessPointCreationInfoPtrOutput)
 }
 
-// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
+// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the “CreationInfo“.
 func (o AccessPointRootDirectoryPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointRootDirectory) *string {
 		if v == nil {
@@ -519,8 +543,11 @@ func (o AccessPointRootDirectoryPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A tag is a key-value pair attached to a file system. Allowed characters in the “Key“ and “Value“ properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:“+ - = . _ : /“
 type AccessPointTag struct {
-	Key   *string `pulumi:"key"`
+	// The tag key (String). The key can't start with ``aws:``.
+	Key *string `pulumi:"key"`
+	// The value of the tag key.
 	Value *string `pulumi:"value"`
 }
 
@@ -535,8 +562,11 @@ type AccessPointTagInput interface {
 	ToAccessPointTagOutputWithContext(context.Context) AccessPointTagOutput
 }
 
+// A tag is a key-value pair attached to a file system. Allowed characters in the “Key“ and “Value“ properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:“+ - = . _ : /“
 type AccessPointTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// The tag key (String). The key can't start with ``aws:``.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value of the tag key.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -577,6 +607,7 @@ func (i AccessPointTagArray) ToAccessPointTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTagArrayOutput)
 }
 
+// A tag is a key-value pair attached to a file system. Allowed characters in the “Key“ and “Value“ properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:“+ - = . _ : /“
 type AccessPointTagOutput struct{ *pulumi.OutputState }
 
 func (AccessPointTagOutput) ElementType() reflect.Type {
@@ -591,10 +622,12 @@ func (o AccessPointTagOutput) ToAccessPointTagOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The tag key (String). The key can't start with “aws:“.
 func (o AccessPointTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The value of the tag key.
 func (o AccessPointTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

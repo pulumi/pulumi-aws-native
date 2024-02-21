@@ -29,6 +29,7 @@ type LookupApiCacheArgs struct {
 type LookupApiCacheResult struct {
 	ApiCachingBehavior       *string  `pulumi:"apiCachingBehavior"`
 	AtRestEncryptionEnabled  *bool    `pulumi:"atRestEncryptionEnabled"`
+	HealthMetricsConfig      *string  `pulumi:"healthMetricsConfig"`
 	Id                       *string  `pulumi:"id"`
 	TransitEncryptionEnabled *bool    `pulumi:"transitEncryptionEnabled"`
 	Ttl                      *float64 `pulumi:"ttl"`
@@ -76,6 +77,10 @@ func (o LookupApiCacheResultOutput) ApiCachingBehavior() pulumi.StringPtrOutput 
 
 func (o LookupApiCacheResultOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupApiCacheResult) *bool { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupApiCacheResultOutput) HealthMetricsConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiCacheResult) *string { return v.HealthMetricsConfig }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupApiCacheResultOutput) Id() pulumi.StringPtrOutput {

@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Cognito
     /// <summary>
     /// Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
     /// </summary>
-    [Obsolete(@"UserPoolRiskConfigurationAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolRiskConfigurationAttachment")]
     public partial class UserPoolRiskConfigurationAttachment : global::Pulumi.CustomResource
     {

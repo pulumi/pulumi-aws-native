@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class TableStreamSpecification
     {
+        public readonly Outputs.TableResourcePolicy? ResourcePolicy;
         public readonly string StreamViewType;
 
         [OutputConstructor]
-        private TableStreamSpecification(string streamViewType)
+        private TableStreamSpecification(
+            Outputs.TableResourcePolicy? resourcePolicy,
+
+            string streamViewType)
         {
+            ResourcePolicy = resourcePolicy;
             StreamViewType = streamViewType;
         }
     }

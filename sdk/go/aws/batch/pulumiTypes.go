@@ -1138,6 +1138,7 @@ type JobDefinitionContainerProperties struct {
 	NetworkConfiguration         *JobDefinitionNetworkConfiguration         `pulumi:"networkConfiguration"`
 	Privileged                   *bool                                      `pulumi:"privileged"`
 	ReadonlyRootFilesystem       *bool                                      `pulumi:"readonlyRootFilesystem"`
+	RepositoryCredentials        *JobDefinitionRepositoryCredentials        `pulumi:"repositoryCredentials"`
 	ResourceRequirements         []JobDefinitionResourceRequirement         `pulumi:"resourceRequirements"`
 	RuntimePlatform              *JobDefinitionRuntimePlatform              `pulumi:"runtimePlatform"`
 	Secrets                      []JobDefinitionSecret                      `pulumi:"secrets"`
@@ -1174,6 +1175,7 @@ type JobDefinitionContainerPropertiesArgs struct {
 	NetworkConfiguration         JobDefinitionNetworkConfigurationPtrInput         `pulumi:"networkConfiguration"`
 	Privileged                   pulumi.BoolPtrInput                               `pulumi:"privileged"`
 	ReadonlyRootFilesystem       pulumi.BoolPtrInput                               `pulumi:"readonlyRootFilesystem"`
+	RepositoryCredentials        JobDefinitionRepositoryCredentialsPtrInput        `pulumi:"repositoryCredentials"`
 	ResourceRequirements         JobDefinitionResourceRequirementArrayInput        `pulumi:"resourceRequirements"`
 	RuntimePlatform              JobDefinitionRuntimePlatformPtrInput              `pulumi:"runtimePlatform"`
 	Secrets                      JobDefinitionSecretArrayInput                     `pulumi:"secrets"`
@@ -1322,6 +1324,12 @@ func (o JobDefinitionContainerPropertiesOutput) Privileged() pulumi.BoolPtrOutpu
 
 func (o JobDefinitionContainerPropertiesOutput) ReadonlyRootFilesystem() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionContainerProperties) *bool { return v.ReadonlyRootFilesystem }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionContainerPropertiesOutput) RepositoryCredentials() JobDefinitionRepositoryCredentialsPtrOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) *JobDefinitionRepositoryCredentials {
+		return v.RepositoryCredentials
+	}).(JobDefinitionRepositoryCredentialsPtrOutput)
 }
 
 func (o JobDefinitionContainerPropertiesOutput) ResourceRequirements() JobDefinitionResourceRequirementArrayOutput {
@@ -1511,6 +1519,15 @@ func (o JobDefinitionContainerPropertiesPtrOutput) ReadonlyRootFilesystem() pulu
 		}
 		return v.ReadonlyRootFilesystem
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionContainerPropertiesPtrOutput) RepositoryCredentials() JobDefinitionRepositoryCredentialsPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) *JobDefinitionRepositoryCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryCredentials
+	}).(JobDefinitionRepositoryCredentialsPtrOutput)
 }
 
 func (o JobDefinitionContainerPropertiesPtrOutput) ResourceRequirements() JobDefinitionResourceRequirementArrayOutput {
@@ -4932,6 +4949,139 @@ func (o JobDefinitionPodPropertiesPtrOutput) Volumes() JobDefinitionEksVolumeArr
 	}).(JobDefinitionEksVolumeArrayOutput)
 }
 
+type JobDefinitionRepositoryCredentials struct {
+	CredentialsParameter string `pulumi:"credentialsParameter"`
+}
+
+// JobDefinitionRepositoryCredentialsInput is an input type that accepts JobDefinitionRepositoryCredentialsArgs and JobDefinitionRepositoryCredentialsOutput values.
+// You can construct a concrete instance of `JobDefinitionRepositoryCredentialsInput` via:
+//
+//	JobDefinitionRepositoryCredentialsArgs{...}
+type JobDefinitionRepositoryCredentialsInput interface {
+	pulumi.Input
+
+	ToJobDefinitionRepositoryCredentialsOutput() JobDefinitionRepositoryCredentialsOutput
+	ToJobDefinitionRepositoryCredentialsOutputWithContext(context.Context) JobDefinitionRepositoryCredentialsOutput
+}
+
+type JobDefinitionRepositoryCredentialsArgs struct {
+	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
+}
+
+func (JobDefinitionRepositoryCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionRepositoryCredentials)(nil)).Elem()
+}
+
+func (i JobDefinitionRepositoryCredentialsArgs) ToJobDefinitionRepositoryCredentialsOutput() JobDefinitionRepositoryCredentialsOutput {
+	return i.ToJobDefinitionRepositoryCredentialsOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionRepositoryCredentialsArgs) ToJobDefinitionRepositoryCredentialsOutputWithContext(ctx context.Context) JobDefinitionRepositoryCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRepositoryCredentialsOutput)
+}
+
+func (i JobDefinitionRepositoryCredentialsArgs) ToJobDefinitionRepositoryCredentialsPtrOutput() JobDefinitionRepositoryCredentialsPtrOutput {
+	return i.ToJobDefinitionRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionRepositoryCredentialsArgs) ToJobDefinitionRepositoryCredentialsPtrOutputWithContext(ctx context.Context) JobDefinitionRepositoryCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRepositoryCredentialsOutput).ToJobDefinitionRepositoryCredentialsPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionRepositoryCredentialsPtrInput is an input type that accepts JobDefinitionRepositoryCredentialsArgs, JobDefinitionRepositoryCredentialsPtr and JobDefinitionRepositoryCredentialsPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionRepositoryCredentialsPtrInput` via:
+//
+//	        JobDefinitionRepositoryCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionRepositoryCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionRepositoryCredentialsPtrOutput() JobDefinitionRepositoryCredentialsPtrOutput
+	ToJobDefinitionRepositoryCredentialsPtrOutputWithContext(context.Context) JobDefinitionRepositoryCredentialsPtrOutput
+}
+
+type jobDefinitionRepositoryCredentialsPtrType JobDefinitionRepositoryCredentialsArgs
+
+func JobDefinitionRepositoryCredentialsPtr(v *JobDefinitionRepositoryCredentialsArgs) JobDefinitionRepositoryCredentialsPtrInput {
+	return (*jobDefinitionRepositoryCredentialsPtrType)(v)
+}
+
+func (*jobDefinitionRepositoryCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionRepositoryCredentials)(nil)).Elem()
+}
+
+func (i *jobDefinitionRepositoryCredentialsPtrType) ToJobDefinitionRepositoryCredentialsPtrOutput() JobDefinitionRepositoryCredentialsPtrOutput {
+	return i.ToJobDefinitionRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionRepositoryCredentialsPtrType) ToJobDefinitionRepositoryCredentialsPtrOutputWithContext(ctx context.Context) JobDefinitionRepositoryCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRepositoryCredentialsPtrOutput)
+}
+
+type JobDefinitionRepositoryCredentialsOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionRepositoryCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionRepositoryCredentials)(nil)).Elem()
+}
+
+func (o JobDefinitionRepositoryCredentialsOutput) ToJobDefinitionRepositoryCredentialsOutput() JobDefinitionRepositoryCredentialsOutput {
+	return o
+}
+
+func (o JobDefinitionRepositoryCredentialsOutput) ToJobDefinitionRepositoryCredentialsOutputWithContext(ctx context.Context) JobDefinitionRepositoryCredentialsOutput {
+	return o
+}
+
+func (o JobDefinitionRepositoryCredentialsOutput) ToJobDefinitionRepositoryCredentialsPtrOutput() JobDefinitionRepositoryCredentialsPtrOutput {
+	return o.ToJobDefinitionRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionRepositoryCredentialsOutput) ToJobDefinitionRepositoryCredentialsPtrOutputWithContext(ctx context.Context) JobDefinitionRepositoryCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionRepositoryCredentials) *JobDefinitionRepositoryCredentials {
+		return &v
+	}).(JobDefinitionRepositoryCredentialsPtrOutput)
+}
+
+func (o JobDefinitionRepositoryCredentialsOutput) CredentialsParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionRepositoryCredentials) string { return v.CredentialsParameter }).(pulumi.StringOutput)
+}
+
+type JobDefinitionRepositoryCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionRepositoryCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionRepositoryCredentials)(nil)).Elem()
+}
+
+func (o JobDefinitionRepositoryCredentialsPtrOutput) ToJobDefinitionRepositoryCredentialsPtrOutput() JobDefinitionRepositoryCredentialsPtrOutput {
+	return o
+}
+
+func (o JobDefinitionRepositoryCredentialsPtrOutput) ToJobDefinitionRepositoryCredentialsPtrOutputWithContext(ctx context.Context) JobDefinitionRepositoryCredentialsPtrOutput {
+	return o
+}
+
+func (o JobDefinitionRepositoryCredentialsPtrOutput) Elem() JobDefinitionRepositoryCredentialsOutput {
+	return o.ApplyT(func(v *JobDefinitionRepositoryCredentials) JobDefinitionRepositoryCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionRepositoryCredentials
+		return ret
+	}).(JobDefinitionRepositoryCredentialsOutput)
+}
+
+func (o JobDefinitionRepositoryCredentialsPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionRepositoryCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsParameter
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobDefinitionResourceRequirement struct {
 	Type  *string `pulumi:"type"`
 	Value *string `pulumi:"value"`
@@ -6445,6 +6595,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionNodeRangePropertyArrayInput)(nil)).Elem(), JobDefinitionNodeRangePropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionPodPropertiesInput)(nil)).Elem(), JobDefinitionPodPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionPodPropertiesPtrInput)(nil)).Elem(), JobDefinitionPodPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRepositoryCredentialsInput)(nil)).Elem(), JobDefinitionRepositoryCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRepositoryCredentialsPtrInput)(nil)).Elem(), JobDefinitionRepositoryCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourceRequirementInput)(nil)).Elem(), JobDefinitionResourceRequirementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourceRequirementArrayInput)(nil)).Elem(), JobDefinitionResourceRequirementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
@@ -6531,6 +6683,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionNodeRangePropertyArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionPodPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionPodPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionRepositoryCredentialsOutput{})
+	pulumi.RegisterOutputType(JobDefinitionRepositoryCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionResourceRequirementOutput{})
 	pulumi.RegisterOutputType(JobDefinitionResourceRequirementArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyOutput{})

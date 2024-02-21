@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Route53.Outputs
         public readonly Outputs.RecordSetGroupCidrRoutingConfig? CidrRoutingConfig;
         public readonly string? Failover;
         public readonly Outputs.RecordSetGroupGeoLocation? GeoLocation;
+        public readonly Outputs.RecordSetGroupGeoProximityLocation? GeoProximityLocation;
         public readonly string? HealthCheckId;
         public readonly string? HostedZoneId;
         public readonly string? HostedZoneName;
@@ -38,6 +39,8 @@ namespace Pulumi.AwsNative.Route53.Outputs
             string? failover,
 
             Outputs.RecordSetGroupGeoLocation? geoLocation,
+
+            Outputs.RecordSetGroupGeoProximityLocation? geoProximityLocation,
 
             string? healthCheckId,
 
@@ -65,6 +68,7 @@ namespace Pulumi.AwsNative.Route53.Outputs
             CidrRoutingConfig = cidrRoutingConfig;
             Failover = failover;
             GeoLocation = geoLocation;
+            GeoProximityLocation = geoProximityLocation;
             HealthCheckId = healthCheckId;
             HostedZoneId = hostedZoneId;
             HostedZoneName = hostedZoneName;

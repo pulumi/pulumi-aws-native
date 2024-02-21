@@ -627,8 +627,10 @@ func (o AutomationRuleNumberFilterArrayOutput) Index(i pulumi.IntInput) Automati
 	}).(AutomationRuleNumberFilterOutput)
 }
 
+// Provides details about a list of findings that the current finding relates to.
 type AutomationRuleRelatedFinding struct {
-	Id         string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The Amazon Resource Name (ARN) for the product that generated a related finding.
 	ProductArn string `pulumi:"productArn"`
 }
 
@@ -643,8 +645,10 @@ type AutomationRuleRelatedFindingInput interface {
 	ToAutomationRuleRelatedFindingOutputWithContext(context.Context) AutomationRuleRelatedFindingOutput
 }
 
+// Provides details about a list of findings that the current finding relates to.
 type AutomationRuleRelatedFindingArgs struct {
-	Id         pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Amazon Resource Name (ARN) for the product that generated a related finding.
 	ProductArn pulumi.StringInput `pulumi:"productArn"`
 }
 
@@ -685,6 +689,7 @@ func (i AutomationRuleRelatedFindingArray) ToAutomationRuleRelatedFindingArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleRelatedFindingArrayOutput)
 }
 
+// Provides details about a list of findings that the current finding relates to.
 type AutomationRuleRelatedFindingOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleRelatedFindingOutput) ElementType() reflect.Type {
@@ -703,6 +708,7 @@ func (o AutomationRuleRelatedFindingOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleRelatedFinding) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) for the product that generated a related finding.
 func (o AutomationRuleRelatedFindingOutput) ProductArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleRelatedFinding) string { return v.ProductArn }).(pulumi.StringOutput)
 }
@@ -1244,6 +1250,7 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) Status() AutomationRuleWorkflowUp
 	}).(AutomationRuleWorkflowUpdateStatusPtrOutput)
 }
 
+// An object of user-defined name and value string pair added to a finding.
 type AutomationRulemap struct {
 }
 
@@ -1258,6 +1265,7 @@ type AutomationRulemapInput interface {
 	ToAutomationRulemapOutputWithContext(context.Context) AutomationRulemapOutput
 }
 
+// An object of user-defined name and value string pair added to a finding.
 type AutomationRulemapArgs struct {
 }
 
@@ -1314,6 +1322,7 @@ func (i *automationRulemapPtrType) ToAutomationRulemapPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulemapPtrOutput)
 }
 
+// An object of user-defined name and value string pair added to a finding.
 type AutomationRulemapOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulemapOutput) ElementType() reflect.Type {
@@ -1462,18 +1471,20 @@ func (o AutomationRulesActionArrayOutput) Index(i pulumi.IntInput) AutomationRul
 	}).(AutomationRulesActionOutput)
 }
 
+// The rule action will update the “Note“ field of a finding.
 type AutomationRulesFindingFieldsUpdate struct {
 	Confidence  *int `pulumi:"confidence"`
 	Criticality *int `pulumi:"criticality"`
-	// Note added to the finding
-	Note            *AutomationRuleNoteUpdate      `pulumi:"note"`
+	// The rule action will update the ``Note`` field of a finding.
+	Note *AutomationRuleNoteUpdate `pulumi:"note"`
+	// The rule action will update the ``RelatedFindings`` field of a finding.
 	RelatedFindings []AutomationRuleRelatedFinding `pulumi:"relatedFindings"`
-	// Severity of the finding
+	// The rule action will update the ``Severity`` field of a finding.
 	Severity          *AutomationRuleSeverityUpdate                        `pulumi:"severity"`
 	Types             []string                                             `pulumi:"types"`
 	UserDefinedFields *AutomationRulemap                                   `pulumi:"userDefinedFields"`
 	VerificationState *AutomationRulesFindingFieldsUpdateVerificationState `pulumi:"verificationState"`
-	// Workflow status set for the finding
+	// The rule action will update the ``Workflow`` field of a finding.
 	Workflow *AutomationRuleWorkflowUpdate `pulumi:"workflow"`
 }
 
@@ -1488,18 +1499,20 @@ type AutomationRulesFindingFieldsUpdateInput interface {
 	ToAutomationRulesFindingFieldsUpdateOutputWithContext(context.Context) AutomationRulesFindingFieldsUpdateOutput
 }
 
+// The rule action will update the “Note“ field of a finding.
 type AutomationRulesFindingFieldsUpdateArgs struct {
 	Confidence  pulumi.IntPtrInput `pulumi:"confidence"`
 	Criticality pulumi.IntPtrInput `pulumi:"criticality"`
-	// Note added to the finding
-	Note            AutomationRuleNoteUpdatePtrInput       `pulumi:"note"`
+	// The rule action will update the ``Note`` field of a finding.
+	Note AutomationRuleNoteUpdatePtrInput `pulumi:"note"`
+	// The rule action will update the ``RelatedFindings`` field of a finding.
 	RelatedFindings AutomationRuleRelatedFindingArrayInput `pulumi:"relatedFindings"`
-	// Severity of the finding
+	// The rule action will update the ``Severity`` field of a finding.
 	Severity          AutomationRuleSeverityUpdatePtrInput                        `pulumi:"severity"`
 	Types             pulumi.StringArrayInput                                     `pulumi:"types"`
 	UserDefinedFields AutomationRulemapPtrInput                                   `pulumi:"userDefinedFields"`
 	VerificationState AutomationRulesFindingFieldsUpdateVerificationStatePtrInput `pulumi:"verificationState"`
-	// Workflow status set for the finding
+	// The rule action will update the ``Workflow`` field of a finding.
 	Workflow AutomationRuleWorkflowUpdatePtrInput `pulumi:"workflow"`
 }
 
@@ -1515,6 +1528,7 @@ func (i AutomationRulesFindingFieldsUpdateArgs) ToAutomationRulesFindingFieldsUp
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesFindingFieldsUpdateOutput)
 }
 
+// The rule action will update the “Note“ field of a finding.
 type AutomationRulesFindingFieldsUpdateOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulesFindingFieldsUpdateOutput) ElementType() reflect.Type {
@@ -1537,16 +1551,17 @@ func (o AutomationRulesFindingFieldsUpdateOutput) Criticality() pulumi.IntPtrOut
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) *int { return v.Criticality }).(pulumi.IntPtrOutput)
 }
 
-// Note added to the finding
+// The rule action will update the “Note“ field of a finding.
 func (o AutomationRulesFindingFieldsUpdateOutput) Note() AutomationRuleNoteUpdatePtrOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) *AutomationRuleNoteUpdate { return v.Note }).(AutomationRuleNoteUpdatePtrOutput)
 }
 
+// The rule action will update the “RelatedFindings“ field of a finding.
 func (o AutomationRulesFindingFieldsUpdateOutput) RelatedFindings() AutomationRuleRelatedFindingArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) []AutomationRuleRelatedFinding { return v.RelatedFindings }).(AutomationRuleRelatedFindingArrayOutput)
 }
 
-// Severity of the finding
+// The rule action will update the “Severity“ field of a finding.
 func (o AutomationRulesFindingFieldsUpdateOutput) Severity() AutomationRuleSeverityUpdatePtrOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) *AutomationRuleSeverityUpdate { return v.Severity }).(AutomationRuleSeverityUpdatePtrOutput)
 }
@@ -1565,7 +1580,7 @@ func (o AutomationRulesFindingFieldsUpdateOutput) VerificationState() Automation
 	}).(AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput)
 }
 
-// Workflow status set for the finding
+// The rule action will update the “Workflow“ field of a finding.
 func (o AutomationRulesFindingFieldsUpdateOutput) Workflow() AutomationRuleWorkflowUpdatePtrOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) *AutomationRuleWorkflowUpdate { return v.Workflow }).(AutomationRuleWorkflowUpdatePtrOutput)
 }
@@ -2338,11 +2353,11 @@ func (o HubTagsPtrOutput) Elem() HubTagsOutput {
 	}).(HubTagsOutput)
 }
 
-// An individual StandardsControl within the Standard.
+// Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
 type StandardsControl struct {
-	// the reason the standard control is disabled
+	// A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
 	Reason *string `pulumi:"reason"`
-	// the Arn for the standard control.
+	// The Amazon Resource Name (ARN) of the control.
 	StandardsControlArn string `pulumi:"standardsControlArn"`
 }
 
@@ -2357,11 +2372,11 @@ type StandardsControlInput interface {
 	ToStandardsControlOutputWithContext(context.Context) StandardsControlOutput
 }
 
-// An individual StandardsControl within the Standard.
+// Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
 type StandardsControlArgs struct {
-	// the reason the standard control is disabled
+	// A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
 	Reason pulumi.StringPtrInput `pulumi:"reason"`
-	// the Arn for the standard control.
+	// The Amazon Resource Name (ARN) of the control.
 	StandardsControlArn pulumi.StringInput `pulumi:"standardsControlArn"`
 }
 
@@ -2402,7 +2417,7 @@ func (i StandardsControlArray) ToStandardsControlArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlArrayOutput)
 }
 
-// An individual StandardsControl within the Standard.
+// Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
 type StandardsControlOutput struct{ *pulumi.OutputState }
 
 func (StandardsControlOutput) ElementType() reflect.Type {
@@ -2417,12 +2432,12 @@ func (o StandardsControlOutput) ToStandardsControlOutputWithContext(ctx context.
 	return o
 }
 
-// the reason the standard control is disabled
+// A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
 func (o StandardsControlOutput) Reason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardsControl) *string { return v.Reason }).(pulumi.StringPtrOutput)
 }
 
-// the Arn for the standard control.
+// The Amazon Resource Name (ARN) of the control.
 func (o StandardsControlOutput) StandardsControlArn() pulumi.StringOutput {
 	return o.ApplyT(func(v StandardsControl) string { return v.StandardsControlArn }).(pulumi.StringOutput)
 }

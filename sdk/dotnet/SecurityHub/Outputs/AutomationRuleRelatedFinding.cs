@@ -10,10 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
+    /// <summary>
+    /// Provides details about a list of findings that the current finding relates to.
+    /// </summary>
     [OutputType]
     public sealed class AutomationRuleRelatedFinding
     {
         public readonly string Id;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the product that generated a related finding.
+        /// </summary>
         public readonly string ProductArn;
 
         [OutputConstructor]

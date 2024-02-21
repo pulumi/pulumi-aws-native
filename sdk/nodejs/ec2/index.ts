@@ -435,6 +435,11 @@ export const getTransitGatewayRouteTable: typeof import("./getTransitGatewayRout
 export const getTransitGatewayRouteTableOutput: typeof import("./getTransitGatewayRouteTable").getTransitGatewayRouteTableOutput = null as any;
 utilities.lazyLoad(exports, ["getTransitGatewayRouteTable","getTransitGatewayRouteTableOutput"], () => require("./getTransitGatewayRouteTable"));
 
+export { GetTransitGatewayRouteTableAssociationArgs, GetTransitGatewayRouteTableAssociationResult, GetTransitGatewayRouteTableAssociationOutputArgs } from "./getTransitGatewayRouteTableAssociation";
+export const getTransitGatewayRouteTableAssociation: typeof import("./getTransitGatewayRouteTableAssociation").getTransitGatewayRouteTableAssociation = null as any;
+export const getTransitGatewayRouteTableAssociationOutput: typeof import("./getTransitGatewayRouteTableAssociation").getTransitGatewayRouteTableAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitGatewayRouteTableAssociation","getTransitGatewayRouteTableAssociationOutput"], () => require("./getTransitGatewayRouteTableAssociation"));
+
 export { GetTransitGatewayRouteTablePropagationArgs, GetTransitGatewayRouteTablePropagationResult, GetTransitGatewayRouteTablePropagationOutputArgs } from "./getTransitGatewayRouteTablePropagation";
 export const getTransitGatewayRouteTablePropagation: typeof import("./getTransitGatewayRouteTablePropagation").getTransitGatewayRouteTablePropagation = null as any;
 export const getTransitGatewayRouteTablePropagationOutput: typeof import("./getTransitGatewayRouteTablePropagation").getTransitGatewayRouteTablePropagationOutput = null as any;

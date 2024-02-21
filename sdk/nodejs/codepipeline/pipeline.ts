@@ -43,6 +43,7 @@ export class Pipeline extends pulumi.CustomResource {
     public readonly artifactStore!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore | undefined>;
     public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStoreMap[] | undefined>;
     public readonly disableInboundStageTransitions!: pulumi.Output<outputs.codepipeline.PipelineStageTransition[] | undefined>;
+    public readonly executionMode!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly pipelineType!: pulumi.Output<string | undefined>;
     public readonly restartExecutionOnUpdate!: pulumi.Output<boolean | undefined>;
@@ -75,6 +76,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["artifactStore"] = args ? args.artifactStore : undefined;
             resourceInputs["artifactStores"] = args ? args.artifactStores : undefined;
             resourceInputs["disableInboundStageTransitions"] = args ? args.disableInboundStageTransitions : undefined;
+            resourceInputs["executionMode"] = args ? args.executionMode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pipelineType"] = args ? args.pipelineType : undefined;
             resourceInputs["restartExecutionOnUpdate"] = args ? args.restartExecutionOnUpdate : undefined;
@@ -88,6 +90,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["artifactStore"] = undefined /*out*/;
             resourceInputs["artifactStores"] = undefined /*out*/;
             resourceInputs["disableInboundStageTransitions"] = undefined /*out*/;
+            resourceInputs["executionMode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["pipelineType"] = undefined /*out*/;
             resourceInputs["restartExecutionOnUpdate"] = undefined /*out*/;
@@ -112,6 +115,7 @@ export interface PipelineArgs {
     artifactStore?: pulumi.Input<inputs.codepipeline.PipelineArtifactStoreArgs>;
     artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStoreMapArgs>[]>;
     disableInboundStageTransitions?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStageTransitionArgs>[]>;
+    executionMode?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     pipelineType?: pulumi.Input<string>;
     restartExecutionOnUpdate?: pulumi.Input<boolean>;

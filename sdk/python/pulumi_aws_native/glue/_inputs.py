@@ -952,9 +952,12 @@ class DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs:
 class DataCatalogEncryptionSettingsEncryptionAtRestArgs:
     def __init__(__self__, *,
                  catalog_encryption_mode: Optional[pulumi.Input[str]] = None,
+                 catalog_encryption_service_role: Optional[pulumi.Input[str]] = None,
                  sse_aws_kms_key_id: Optional[pulumi.Input[str]] = None):
         if catalog_encryption_mode is not None:
             pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
+        if catalog_encryption_service_role is not None:
+            pulumi.set(__self__, "catalog_encryption_service_role", catalog_encryption_service_role)
         if sse_aws_kms_key_id is not None:
             pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
 
@@ -966,6 +969,15 @@ class DataCatalogEncryptionSettingsEncryptionAtRestArgs:
     @catalog_encryption_mode.setter
     def catalog_encryption_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "catalog_encryption_mode", value)
+
+    @property
+    @pulumi.getter(name="catalogEncryptionServiceRole")
+    def catalog_encryption_service_role(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "catalog_encryption_service_role")
+
+    @catalog_encryption_service_role.setter
+    def catalog_encryption_service_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_encryption_service_role", value)
 
     @property
     @pulumi.getter(name="sseAwsKmsKeyId")
@@ -2582,29 +2594,27 @@ class TableOpenTableFormatInputArgs:
 @pulumi.input_type
 class TableOptimizerConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 role_arn: Optional[pulumi.Input[str]] = None):
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+                 enabled: pulumi.Input[bool],
+                 role_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
+    def enabled(self) -> pulumi.Input[bool]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
+    def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[str]]:
+    def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[str]]):
+    def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
 
 

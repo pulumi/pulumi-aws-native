@@ -10,74 +10,65 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::VPC
+    /// Specifies a virtual private cloud (VPC).
+    ///  You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).
+    ///  For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:Vpc")]
     public partial class Vpc : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The primary IPv4 CIDR block for the VPC.
+        /// The IPv4 network range for the VPC, in CIDR notation. For example, ``10.0.0.0/16``. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
+        ///  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
         /// </summary>
         [Output("cidrBlock")]
         public Output<string?> CidrBlock { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of IPv4 CIDR block association IDs for the VPC.
-        /// </summary>
         [Output("cidrBlockAssociations")]
         public Output<ImmutableArray<string>> CidrBlockAssociations { get; private set; } = null!;
 
-        /// <summary>
-        /// The default network ACL ID that is associated with the VPC.
-        /// </summary>
         [Output("defaultNetworkAcl")]
         public Output<string> DefaultNetworkAcl { get; private set; } = null!;
 
-        /// <summary>
-        /// The default security group ID that is associated with the VPC.
-        /// </summary>
         [Output("defaultSecurityGroup")]
         public Output<string> DefaultSecurityGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+        /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
+        ///  You can only enable DNS hostnames if you've enabled DNS support.
         /// </summary>
         [Output("enableDnsHostnames")]
         public Output<bool?> EnableDnsHostnames { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+        /// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
         /// </summary>
         [Output("enableDnsSupport")]
         public Output<bool?> EnableDnsSupport { get; private set; } = null!;
 
         /// <summary>
         /// The allowed tenancy of instances launched into the VPC.
-        /// 
-        /// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
-        /// 
-        /// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
-        /// 
-        /// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        ///   +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+        ///   +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.
+        ///   
+        ///  Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.
         /// </summary>
         [Output("instanceTenancy")]
         public Output<string?> InstanceTenancy { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
+        ///  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
         /// </summary>
         [Output("ipv4IpamPoolId")]
         public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
         /// </summary>
         [Output("ipv4NetmaskLength")]
         public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of IPv6 CIDR blocks that are associated with the VPC.
-        /// </summary>
         [Output("ipv6CidrBlocks")]
         public Output<ImmutableArray<string>> Ipv6CidrBlocks { get; private set; } = null!;
 
@@ -87,9 +78,6 @@ namespace Pulumi.AwsNative.Ec2
         [Output("tags")]
         public Output<ImmutableArray<Outputs.VpcTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The Id for the model.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -145,43 +133,44 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class VpcArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The primary IPv4 CIDR block for the VPC.
+        /// The IPv4 network range for the VPC, in CIDR notation. For example, ``10.0.0.0/16``. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
+        ///  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
-        /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+        /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
+        ///  You can only enable DNS hostnames if you've enabled DNS support.
         /// </summary>
         [Input("enableDnsHostnames")]
         public Input<bool>? EnableDnsHostnames { get; set; }
 
         /// <summary>
-        /// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+        /// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
         /// </summary>
         [Input("enableDnsSupport")]
         public Input<bool>? EnableDnsSupport { get; set; }
 
         /// <summary>
         /// The allowed tenancy of instances launched into the VPC.
-        /// 
-        /// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
-        /// 
-        /// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
-        /// 
-        /// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        ///   +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+        ///   +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.
+        ///   
+        ///  Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.
         /// </summary>
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }
 
         /// <summary>
-        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR
+        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
+        ///  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
         /// </summary>
         [Input("ipv4IpamPoolId")]
         public Input<string>? Ipv4IpamPoolId { get; set; }
 
         /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
+        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
         /// </summary>
         [Input("ipv4NetmaskLength")]
         public Input<int>? Ipv4NetmaskLength { get; set; }

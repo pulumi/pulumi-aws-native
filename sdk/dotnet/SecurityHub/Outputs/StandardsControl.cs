@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
     /// <summary>
-    /// An individual StandardsControl within the Standard.
+    /// Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
     /// </summary>
     [OutputType]
     public sealed class StandardsControl
     {
         /// <summary>
-        /// the reason the standard control is disabled
+        /// A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
         /// </summary>
         public readonly string? Reason;
         /// <summary>
-        /// the Arn for the standard control.
+        /// The Amazon Resource Name (ARN) of the control.
         /// </summary>
         public readonly string StandardsControlArn;
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
+ * Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
  */
 export class SubnetRouteTableAssociation extends pulumi.CustomResource {
     /**
@@ -34,7 +34,14 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetRouteTableAssociation.__pulumiType;
     }
 
+    /**
+     * The ID of the route table.
+     *  The physical ID changes when the route table ID is changed.
+     */
     public readonly routeTableId!: pulumi.Output<string>;
+    /**
+     * The ID of the subnet.
+     */
     public readonly subnetId!: pulumi.Output<string>;
 
     /**
@@ -71,6 +78,13 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a SubnetRouteTableAssociation resource.
  */
 export interface SubnetRouteTableAssociationArgs {
+    /**
+     * The ID of the route table.
+     *  The physical ID changes when the route table ID is changed.
+     */
     routeTableId: pulumi.Input<string>;
+    /**
+     * The ID of the subnet.
+     */
     subnetId: pulumi.Input<string>;
 }

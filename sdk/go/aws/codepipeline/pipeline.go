@@ -21,6 +21,7 @@ type Pipeline struct {
 	ArtifactStore                  PipelineArtifactStorePtrOutput         `pulumi:"artifactStore"`
 	ArtifactStores                 PipelineArtifactStoreMapArrayOutput    `pulumi:"artifactStores"`
 	DisableInboundStageTransitions PipelineStageTransitionArrayOutput     `pulumi:"disableInboundStageTransitions"`
+	ExecutionMode                  pulumi.StringPtrOutput                 `pulumi:"executionMode"`
 	Name                           pulumi.StringPtrOutput                 `pulumi:"name"`
 	PipelineType                   pulumi.StringPtrOutput                 `pulumi:"pipelineType"`
 	RestartExecutionOnUpdate       pulumi.BoolPtrOutput                   `pulumi:"restartExecutionOnUpdate"`
@@ -85,6 +86,7 @@ type pipelineArgs struct {
 	ArtifactStore                  *PipelineArtifactStore        `pulumi:"artifactStore"`
 	ArtifactStores                 []PipelineArtifactStoreMap    `pulumi:"artifactStores"`
 	DisableInboundStageTransitions []PipelineStageTransition     `pulumi:"disableInboundStageTransitions"`
+	ExecutionMode                  *string                       `pulumi:"executionMode"`
 	Name                           *string                       `pulumi:"name"`
 	PipelineType                   *string                       `pulumi:"pipelineType"`
 	RestartExecutionOnUpdate       *bool                         `pulumi:"restartExecutionOnUpdate"`
@@ -100,6 +102,7 @@ type PipelineArgs struct {
 	ArtifactStore                  PipelineArtifactStorePtrInput
 	ArtifactStores                 PipelineArtifactStoreMapArrayInput
 	DisableInboundStageTransitions PipelineStageTransitionArrayInput
+	ExecutionMode                  pulumi.StringPtrInput
 	Name                           pulumi.StringPtrInput
 	PipelineType                   pulumi.StringPtrInput
 	RestartExecutionOnUpdate       pulumi.BoolPtrInput
@@ -157,6 +160,10 @@ func (o PipelineOutput) ArtifactStores() PipelineArtifactStoreMapArrayOutput {
 
 func (o PipelineOutput) DisableInboundStageTransitions() PipelineStageTransitionArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineStageTransitionArrayOutput { return v.DisableInboundStageTransitions }).(PipelineStageTransitionArrayOutput)
+}
+
+func (o PipelineOutput) ExecutionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.ExecutionMode }).(pulumi.StringPtrOutput)
 }
 
 func (o PipelineOutput) Name() pulumi.StringPtrOutput {

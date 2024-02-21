@@ -12,13 +12,17 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetVpc
     {
         /// <summary>
-        /// Resource Type definition for AWS::EC2::VPC
+        /// Specifies a virtual private cloud (VPC).
+        ///  You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).
+        ///  For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.
         /// </summary>
         public static Task<GetVpcResult> InvokeAsync(GetVpcArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcResult>("aws-native:ec2:getVpc", args ?? new GetVpcArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::VPC
+        /// Specifies a virtual private cloud (VPC).
+        ///  You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).
+        ///  For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.
         /// </summary>
         public static Output<GetVpcResult> Invoke(GetVpcInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcResult>("aws-native:ec2:getVpc", args ?? new GetVpcInvokeArgs(), options.WithDefaults());
@@ -27,9 +31,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Id for the model.
-        /// </summary>
         [Input("vpcId", required: true)]
         public string VpcId { get; set; } = null!;
 
@@ -41,9 +42,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Id for the model.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -57,47 +55,31 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetVpcResult
     {
-        /// <summary>
-        /// A list of IPv4 CIDR block association IDs for the VPC.
-        /// </summary>
         public readonly ImmutableArray<string> CidrBlockAssociations;
-        /// <summary>
-        /// The default network ACL ID that is associated with the VPC.
-        /// </summary>
         public readonly string? DefaultNetworkAcl;
-        /// <summary>
-        /// The default security group ID that is associated with the VPC.
-        /// </summary>
         public readonly string? DefaultSecurityGroup;
         /// <summary>
-        /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+        /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
+        ///  You can only enable DNS hostnames if you've enabled DNS support.
         /// </summary>
         public readonly bool? EnableDnsHostnames;
         /// <summary>
-        /// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+        /// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
         /// </summary>
         public readonly bool? EnableDnsSupport;
         /// <summary>
         /// The allowed tenancy of instances launched into the VPC.
-        /// 
-        /// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
-        /// 
-        /// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
-        /// 
-        /// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        ///   +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+        ///   +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.
+        ///   
+        ///  Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.
         /// </summary>
         public readonly string? InstanceTenancy;
-        /// <summary>
-        /// A list of IPv6 CIDR blocks that are associated with the VPC.
-        /// </summary>
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
         /// <summary>
         /// The tags for the VPC.
         /// </summary>
         public readonly ImmutableArray<Outputs.VpcTag> Tags;
-        /// <summary>
-        /// The Id for the model.
-        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

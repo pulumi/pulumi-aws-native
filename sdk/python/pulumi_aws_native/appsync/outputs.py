@@ -28,6 +28,7 @@ __all__ = [
     'FunctionConfigurationSyncConfig',
     'GraphQlApiAdditionalAuthenticationProvider',
     'GraphQlApiCognitoUserPoolConfig',
+    'GraphQlApiEnhancedMetricsConfig',
     'GraphQlApiLambdaAuthorizerConfig',
     'GraphQlApiLogConfig',
     'GraphQlApiOpenIdConnectConfig',
@@ -764,6 +765,53 @@ class GraphQlApiCognitoUserPoolConfig(dict):
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[str]:
         return pulumi.get(self, "user_pool_id")
+
+
+@pulumi.output_type
+class GraphQlApiEnhancedMetricsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceLevelMetricsBehavior":
+            suggest = "data_source_level_metrics_behavior"
+        elif key == "operationLevelMetricsConfig":
+            suggest = "operation_level_metrics_config"
+        elif key == "resolverLevelMetricsBehavior":
+            suggest = "resolver_level_metrics_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQlApiEnhancedMetricsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQlApiEnhancedMetricsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQlApiEnhancedMetricsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_level_metrics_behavior: str,
+                 operation_level_metrics_config: str,
+                 resolver_level_metrics_behavior: str):
+        pulumi.set(__self__, "data_source_level_metrics_behavior", data_source_level_metrics_behavior)
+        pulumi.set(__self__, "operation_level_metrics_config", operation_level_metrics_config)
+        pulumi.set(__self__, "resolver_level_metrics_behavior", resolver_level_metrics_behavior)
+
+    @property
+    @pulumi.getter(name="dataSourceLevelMetricsBehavior")
+    def data_source_level_metrics_behavior(self) -> str:
+        return pulumi.get(self, "data_source_level_metrics_behavior")
+
+    @property
+    @pulumi.getter(name="operationLevelMetricsConfig")
+    def operation_level_metrics_config(self) -> str:
+        return pulumi.get(self, "operation_level_metrics_config")
+
+    @property
+    @pulumi.getter(name="resolverLevelMetricsBehavior")
+    def resolver_level_metrics_behavior(self) -> str:
+        return pulumi.get(self, "resolver_level_metrics_behavior")
 
 
 @pulumi.output_type

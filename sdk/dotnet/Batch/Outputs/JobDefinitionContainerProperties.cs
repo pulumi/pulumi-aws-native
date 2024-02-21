@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         public readonly Outputs.JobDefinitionNetworkConfiguration? NetworkConfiguration;
         public readonly bool? Privileged;
         public readonly bool? ReadonlyRootFilesystem;
+        public readonly Outputs.JobDefinitionRepositoryCredentials? RepositoryCredentials;
         public readonly ImmutableArray<Outputs.JobDefinitionResourceRequirement> ResourceRequirements;
         public readonly Outputs.JobDefinitionRuntimePlatform? RuntimePlatform;
         public readonly ImmutableArray<Outputs.JobDefinitionSecret> Secrets;
@@ -68,6 +69,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             bool? readonlyRootFilesystem,
 
+            Outputs.JobDefinitionRepositoryCredentials? repositoryCredentials,
+
             ImmutableArray<Outputs.JobDefinitionResourceRequirement> resourceRequirements,
 
             Outputs.JobDefinitionRuntimePlatform? runtimePlatform,
@@ -97,6 +100,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
             NetworkConfiguration = networkConfiguration;
             Privileged = privileged;
             ReadonlyRootFilesystem = readonlyRootFilesystem;
+            RepositoryCredentials = repositoryCredentials;
             ResourceRequirements = resourceRequirements;
             RuntimePlatform = runtimePlatform;
             Secrets = secrets;

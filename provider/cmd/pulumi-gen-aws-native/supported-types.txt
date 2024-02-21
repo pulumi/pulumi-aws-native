@@ -168,6 +168,7 @@ AWS::Cognito::UserPoolDomain
 AWS::Cognito::UserPoolGroup
 AWS::Cognito::UserPoolIdentityProvider
 AWS::Cognito::UserPoolResourceServer
+AWS::Cognito::UserPoolRiskConfigurationAttachment
 AWS::Cognito::UserPoolUICustomizationAttachment
 AWS::Cognito::UserPoolUser
 AWS::Cognito::UserPoolUserToGroupAttachment

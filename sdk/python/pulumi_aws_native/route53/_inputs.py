@@ -21,10 +21,14 @@ __all__ = [
     'HostedZoneVpcArgs',
     'RecordSetAliasTargetArgs',
     'RecordSetCidrRoutingConfigArgs',
+    'RecordSetCoordinatesArgs',
     'RecordSetGeoLocationArgs',
+    'RecordSetGeoProximityLocationArgs',
     'RecordSetGroupAliasTargetArgs',
     'RecordSetGroupCidrRoutingConfigArgs',
+    'RecordSetGroupCoordinatesArgs',
     'RecordSetGroupGeoLocationArgs',
+    'RecordSetGroupGeoProximityLocationArgs',
     'RecordSetGroupRecordSetArgs',
 ]
 
@@ -544,6 +548,33 @@ class RecordSetCidrRoutingConfigArgs:
 
 
 @pulumi.input_type
+class RecordSetCoordinatesArgs:
+    def __init__(__self__, *,
+                 latitude: pulumi.Input[str],
+                 longitude: pulumi.Input[str]):
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "latitude")
+
+    @latitude.setter
+    def latitude(self, value: pulumi.Input[str]):
+        pulumi.set(self, "latitude", value)
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "longitude")
+
+    @longitude.setter
+    def longitude(self, value: pulumi.Input[str]):
+        pulumi.set(self, "longitude", value)
+
+
+@pulumi.input_type
 class RecordSetGeoLocationArgs:
     def __init__(__self__, *,
                  continent_code: Optional[pulumi.Input[str]] = None,
@@ -582,6 +613,59 @@ class RecordSetGeoLocationArgs:
     @subdivision_code.setter
     def subdivision_code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subdivision_code", value)
+
+
+@pulumi.input_type
+class RecordSetGeoProximityLocationArgs:
+    def __init__(__self__, *,
+                 aws_region: Optional[pulumi.Input[str]] = None,
+                 bias: Optional[pulumi.Input[int]] = None,
+                 coordinates: Optional[pulumi.Input['RecordSetCoordinatesArgs']] = None,
+                 local_zone_group: Optional[pulumi.Input[str]] = None):
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if coordinates is not None:
+            pulumi.set(__self__, "coordinates", coordinates)
+        if local_zone_group is not None:
+            pulumi.set(__self__, "local_zone_group", local_zone_group)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "bias")
+
+    @bias.setter
+    def bias(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bias", value)
+
+    @property
+    @pulumi.getter
+    def coordinates(self) -> Optional[pulumi.Input['RecordSetCoordinatesArgs']]:
+        return pulumi.get(self, "coordinates")
+
+    @coordinates.setter
+    def coordinates(self, value: Optional[pulumi.Input['RecordSetCoordinatesArgs']]):
+        pulumi.set(self, "coordinates", value)
+
+    @property
+    @pulumi.getter(name="localZoneGroup")
+    def local_zone_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "local_zone_group")
+
+    @local_zone_group.setter
+    def local_zone_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_zone_group", value)
 
 
 @pulumi.input_type
@@ -651,6 +735,33 @@ class RecordSetGroupCidrRoutingConfigArgs:
 
 
 @pulumi.input_type
+class RecordSetGroupCoordinatesArgs:
+    def __init__(__self__, *,
+                 latitude: pulumi.Input[str],
+                 longitude: pulumi.Input[str]):
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "latitude")
+
+    @latitude.setter
+    def latitude(self, value: pulumi.Input[str]):
+        pulumi.set(self, "latitude", value)
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "longitude")
+
+    @longitude.setter
+    def longitude(self, value: pulumi.Input[str]):
+        pulumi.set(self, "longitude", value)
+
+
+@pulumi.input_type
 class RecordSetGroupGeoLocationArgs:
     def __init__(__self__, *,
                  continent_code: Optional[pulumi.Input[str]] = None,
@@ -692,6 +803,59 @@ class RecordSetGroupGeoLocationArgs:
 
 
 @pulumi.input_type
+class RecordSetGroupGeoProximityLocationArgs:
+    def __init__(__self__, *,
+                 aws_region: Optional[pulumi.Input[str]] = None,
+                 bias: Optional[pulumi.Input[int]] = None,
+                 coordinates: Optional[pulumi.Input['RecordSetGroupCoordinatesArgs']] = None,
+                 local_zone_group: Optional[pulumi.Input[str]] = None):
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if coordinates is not None:
+            pulumi.set(__self__, "coordinates", coordinates)
+        if local_zone_group is not None:
+            pulumi.set(__self__, "local_zone_group", local_zone_group)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "bias")
+
+    @bias.setter
+    def bias(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bias", value)
+
+    @property
+    @pulumi.getter
+    def coordinates(self) -> Optional[pulumi.Input['RecordSetGroupCoordinatesArgs']]:
+        return pulumi.get(self, "coordinates")
+
+    @coordinates.setter
+    def coordinates(self, value: Optional[pulumi.Input['RecordSetGroupCoordinatesArgs']]):
+        pulumi.set(self, "coordinates", value)
+
+    @property
+    @pulumi.getter(name="localZoneGroup")
+    def local_zone_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "local_zone_group")
+
+    @local_zone_group.setter
+    def local_zone_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_zone_group", value)
+
+
+@pulumi.input_type
 class RecordSetGroupRecordSetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -700,6 +864,7 @@ class RecordSetGroupRecordSetArgs:
                  cidr_routing_config: Optional[pulumi.Input['RecordSetGroupCidrRoutingConfigArgs']] = None,
                  failover: Optional[pulumi.Input[str]] = None,
                  geo_location: Optional[pulumi.Input['RecordSetGroupGeoLocationArgs']] = None,
+                 geo_proximity_location: Optional[pulumi.Input['RecordSetGroupGeoProximityLocationArgs']] = None,
                  health_check_id: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  hosted_zone_name: Optional[pulumi.Input[str]] = None,
@@ -719,6 +884,8 @@ class RecordSetGroupRecordSetArgs:
             pulumi.set(__self__, "failover", failover)
         if geo_location is not None:
             pulumi.set(__self__, "geo_location", geo_location)
+        if geo_proximity_location is not None:
+            pulumi.set(__self__, "geo_proximity_location", geo_proximity_location)
         if health_check_id is not None:
             pulumi.set(__self__, "health_check_id", health_check_id)
         if hosted_zone_id is not None:
@@ -791,6 +958,15 @@ class RecordSetGroupRecordSetArgs:
     @geo_location.setter
     def geo_location(self, value: Optional[pulumi.Input['RecordSetGroupGeoLocationArgs']]):
         pulumi.set(self, "geo_location", value)
+
+    @property
+    @pulumi.getter(name="geoProximityLocation")
+    def geo_proximity_location(self) -> Optional[pulumi.Input['RecordSetGroupGeoProximityLocationArgs']]:
+        return pulumi.get(self, "geo_proximity_location")
+
+    @geo_proximity_location.setter
+    def geo_proximity_location(self, value: Optional[pulumi.Input['RecordSetGroupGeoProximityLocationArgs']]):
+        pulumi.set(self, "geo_proximity_location", value)
 
     @property
     @pulumi.getter(name="healthCheckId")

@@ -42,6 +42,7 @@ __all__ = [
     'TablePointInTimeRecoverySpecificationArgs',
     'TableProjectionArgs',
     'TableProvisionedThroughputArgs',
+    'TableResourcePolicyArgs',
     'TableS3BucketSourceArgs',
     'TableSseSpecificationArgs',
     'TableStreamSpecificationArgs',
@@ -1077,6 +1078,22 @@ class TableProvisionedThroughputArgs:
 
 
 @pulumi.input_type
+class TableResourcePolicyArgs:
+    def __init__(__self__, *,
+                 policy_document: Any):
+        pulumi.set(__self__, "policy_document", policy_document)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Any:
+        return pulumi.get(self, "policy_document")
+
+    @policy_document.setter
+    def policy_document(self, value: Any):
+        pulumi.set(self, "policy_document", value)
+
+
+@pulumi.input_type
 class TableS3BucketSourceArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[str],
@@ -1159,8 +1176,11 @@ class TableSseSpecificationArgs:
 @pulumi.input_type
 class TableStreamSpecificationArgs:
     def __init__(__self__, *,
-                 stream_view_type: pulumi.Input[str]):
+                 stream_view_type: pulumi.Input[str],
+                 resource_policy: Optional[pulumi.Input['TableResourcePolicyArgs']] = None):
         pulumi.set(__self__, "stream_view_type", stream_view_type)
+        if resource_policy is not None:
+            pulumi.set(__self__, "resource_policy", resource_policy)
 
     @property
     @pulumi.getter(name="streamViewType")
@@ -1170,6 +1190,15 @@ class TableStreamSpecificationArgs:
     @stream_view_type.setter
     def stream_view_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_view_type", value)
+
+    @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional[pulumi.Input['TableResourcePolicyArgs']]:
+        return pulumi.get(self, "resource_policy")
+
+    @resource_policy.setter
+    def resource_policy(self, value: Optional[pulumi.Input['TableResourcePolicyArgs']]):
+        pulumi.set(self, "resource_policy", value)
 
 
 @pulumi.input_type

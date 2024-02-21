@@ -1529,6 +1529,154 @@ func (o RecordSetCidrRoutingConfigPtrOutput) LocationName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type RecordSetCoordinates struct {
+	Latitude  string `pulumi:"latitude"`
+	Longitude string `pulumi:"longitude"`
+}
+
+// RecordSetCoordinatesInput is an input type that accepts RecordSetCoordinatesArgs and RecordSetCoordinatesOutput values.
+// You can construct a concrete instance of `RecordSetCoordinatesInput` via:
+//
+//	RecordSetCoordinatesArgs{...}
+type RecordSetCoordinatesInput interface {
+	pulumi.Input
+
+	ToRecordSetCoordinatesOutput() RecordSetCoordinatesOutput
+	ToRecordSetCoordinatesOutputWithContext(context.Context) RecordSetCoordinatesOutput
+}
+
+type RecordSetCoordinatesArgs struct {
+	Latitude  pulumi.StringInput `pulumi:"latitude"`
+	Longitude pulumi.StringInput `pulumi:"longitude"`
+}
+
+func (RecordSetCoordinatesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetCoordinates)(nil)).Elem()
+}
+
+func (i RecordSetCoordinatesArgs) ToRecordSetCoordinatesOutput() RecordSetCoordinatesOutput {
+	return i.ToRecordSetCoordinatesOutputWithContext(context.Background())
+}
+
+func (i RecordSetCoordinatesArgs) ToRecordSetCoordinatesOutputWithContext(ctx context.Context) RecordSetCoordinatesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCoordinatesOutput)
+}
+
+func (i RecordSetCoordinatesArgs) ToRecordSetCoordinatesPtrOutput() RecordSetCoordinatesPtrOutput {
+	return i.ToRecordSetCoordinatesPtrOutputWithContext(context.Background())
+}
+
+func (i RecordSetCoordinatesArgs) ToRecordSetCoordinatesPtrOutputWithContext(ctx context.Context) RecordSetCoordinatesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCoordinatesOutput).ToRecordSetCoordinatesPtrOutputWithContext(ctx)
+}
+
+// RecordSetCoordinatesPtrInput is an input type that accepts RecordSetCoordinatesArgs, RecordSetCoordinatesPtr and RecordSetCoordinatesPtrOutput values.
+// You can construct a concrete instance of `RecordSetCoordinatesPtrInput` via:
+//
+//	        RecordSetCoordinatesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordSetCoordinatesPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetCoordinatesPtrOutput() RecordSetCoordinatesPtrOutput
+	ToRecordSetCoordinatesPtrOutputWithContext(context.Context) RecordSetCoordinatesPtrOutput
+}
+
+type recordSetCoordinatesPtrType RecordSetCoordinatesArgs
+
+func RecordSetCoordinatesPtr(v *RecordSetCoordinatesArgs) RecordSetCoordinatesPtrInput {
+	return (*recordSetCoordinatesPtrType)(v)
+}
+
+func (*recordSetCoordinatesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetCoordinates)(nil)).Elem()
+}
+
+func (i *recordSetCoordinatesPtrType) ToRecordSetCoordinatesPtrOutput() RecordSetCoordinatesPtrOutput {
+	return i.ToRecordSetCoordinatesPtrOutputWithContext(context.Background())
+}
+
+func (i *recordSetCoordinatesPtrType) ToRecordSetCoordinatesPtrOutputWithContext(ctx context.Context) RecordSetCoordinatesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCoordinatesPtrOutput)
+}
+
+type RecordSetCoordinatesOutput struct{ *pulumi.OutputState }
+
+func (RecordSetCoordinatesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetCoordinates)(nil)).Elem()
+}
+
+func (o RecordSetCoordinatesOutput) ToRecordSetCoordinatesOutput() RecordSetCoordinatesOutput {
+	return o
+}
+
+func (o RecordSetCoordinatesOutput) ToRecordSetCoordinatesOutputWithContext(ctx context.Context) RecordSetCoordinatesOutput {
+	return o
+}
+
+func (o RecordSetCoordinatesOutput) ToRecordSetCoordinatesPtrOutput() RecordSetCoordinatesPtrOutput {
+	return o.ToRecordSetCoordinatesPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetCoordinatesOutput) ToRecordSetCoordinatesPtrOutputWithContext(ctx context.Context) RecordSetCoordinatesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetCoordinates) *RecordSetCoordinates {
+		return &v
+	}).(RecordSetCoordinatesPtrOutput)
+}
+
+func (o RecordSetCoordinatesOutput) Latitude() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetCoordinates) string { return v.Latitude }).(pulumi.StringOutput)
+}
+
+func (o RecordSetCoordinatesOutput) Longitude() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetCoordinates) string { return v.Longitude }).(pulumi.StringOutput)
+}
+
+type RecordSetCoordinatesPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetCoordinatesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetCoordinates)(nil)).Elem()
+}
+
+func (o RecordSetCoordinatesPtrOutput) ToRecordSetCoordinatesPtrOutput() RecordSetCoordinatesPtrOutput {
+	return o
+}
+
+func (o RecordSetCoordinatesPtrOutput) ToRecordSetCoordinatesPtrOutputWithContext(ctx context.Context) RecordSetCoordinatesPtrOutput {
+	return o
+}
+
+func (o RecordSetCoordinatesPtrOutput) Elem() RecordSetCoordinatesOutput {
+	return o.ApplyT(func(v *RecordSetCoordinates) RecordSetCoordinates {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetCoordinates
+		return ret
+	}).(RecordSetCoordinatesOutput)
+}
+
+func (o RecordSetCoordinatesPtrOutput) Latitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetCoordinates) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Latitude
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetCoordinatesPtrOutput) Longitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetCoordinates) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Longitude
+	}).(pulumi.StringPtrOutput)
+}
+
 type RecordSetGeoLocation struct {
 	ContinentCode   *string `pulumi:"continentCode"`
 	CountryCode     *string `pulumi:"countryCode"`
@@ -1689,6 +1837,184 @@ func (o RecordSetGeoLocationPtrOutput) SubdivisionCode() pulumi.StringPtrOutput 
 			return nil
 		}
 		return v.SubdivisionCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordSetGeoProximityLocation struct {
+	AwsRegion      *string               `pulumi:"awsRegion"`
+	Bias           *int                  `pulumi:"bias"`
+	Coordinates    *RecordSetCoordinates `pulumi:"coordinates"`
+	LocalZoneGroup *string               `pulumi:"localZoneGroup"`
+}
+
+// RecordSetGeoProximityLocationInput is an input type that accepts RecordSetGeoProximityLocationArgs and RecordSetGeoProximityLocationOutput values.
+// You can construct a concrete instance of `RecordSetGeoProximityLocationInput` via:
+//
+//	RecordSetGeoProximityLocationArgs{...}
+type RecordSetGeoProximityLocationInput interface {
+	pulumi.Input
+
+	ToRecordSetGeoProximityLocationOutput() RecordSetGeoProximityLocationOutput
+	ToRecordSetGeoProximityLocationOutputWithContext(context.Context) RecordSetGeoProximityLocationOutput
+}
+
+type RecordSetGeoProximityLocationArgs struct {
+	AwsRegion      pulumi.StringPtrInput        `pulumi:"awsRegion"`
+	Bias           pulumi.IntPtrInput           `pulumi:"bias"`
+	Coordinates    RecordSetCoordinatesPtrInput `pulumi:"coordinates"`
+	LocalZoneGroup pulumi.StringPtrInput        `pulumi:"localZoneGroup"`
+}
+
+func (RecordSetGeoProximityLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGeoProximityLocation)(nil)).Elem()
+}
+
+func (i RecordSetGeoProximityLocationArgs) ToRecordSetGeoProximityLocationOutput() RecordSetGeoProximityLocationOutput {
+	return i.ToRecordSetGeoProximityLocationOutputWithContext(context.Background())
+}
+
+func (i RecordSetGeoProximityLocationArgs) ToRecordSetGeoProximityLocationOutputWithContext(ctx context.Context) RecordSetGeoProximityLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGeoProximityLocationOutput)
+}
+
+func (i RecordSetGeoProximityLocationArgs) ToRecordSetGeoProximityLocationPtrOutput() RecordSetGeoProximityLocationPtrOutput {
+	return i.ToRecordSetGeoProximityLocationPtrOutputWithContext(context.Background())
+}
+
+func (i RecordSetGeoProximityLocationArgs) ToRecordSetGeoProximityLocationPtrOutputWithContext(ctx context.Context) RecordSetGeoProximityLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGeoProximityLocationOutput).ToRecordSetGeoProximityLocationPtrOutputWithContext(ctx)
+}
+
+// RecordSetGeoProximityLocationPtrInput is an input type that accepts RecordSetGeoProximityLocationArgs, RecordSetGeoProximityLocationPtr and RecordSetGeoProximityLocationPtrOutput values.
+// You can construct a concrete instance of `RecordSetGeoProximityLocationPtrInput` via:
+//
+//	        RecordSetGeoProximityLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordSetGeoProximityLocationPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetGeoProximityLocationPtrOutput() RecordSetGeoProximityLocationPtrOutput
+	ToRecordSetGeoProximityLocationPtrOutputWithContext(context.Context) RecordSetGeoProximityLocationPtrOutput
+}
+
+type recordSetGeoProximityLocationPtrType RecordSetGeoProximityLocationArgs
+
+func RecordSetGeoProximityLocationPtr(v *RecordSetGeoProximityLocationArgs) RecordSetGeoProximityLocationPtrInput {
+	return (*recordSetGeoProximityLocationPtrType)(v)
+}
+
+func (*recordSetGeoProximityLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetGeoProximityLocation)(nil)).Elem()
+}
+
+func (i *recordSetGeoProximityLocationPtrType) ToRecordSetGeoProximityLocationPtrOutput() RecordSetGeoProximityLocationPtrOutput {
+	return i.ToRecordSetGeoProximityLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *recordSetGeoProximityLocationPtrType) ToRecordSetGeoProximityLocationPtrOutputWithContext(ctx context.Context) RecordSetGeoProximityLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGeoProximityLocationPtrOutput)
+}
+
+type RecordSetGeoProximityLocationOutput struct{ *pulumi.OutputState }
+
+func (RecordSetGeoProximityLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGeoProximityLocation)(nil)).Elem()
+}
+
+func (o RecordSetGeoProximityLocationOutput) ToRecordSetGeoProximityLocationOutput() RecordSetGeoProximityLocationOutput {
+	return o
+}
+
+func (o RecordSetGeoProximityLocationOutput) ToRecordSetGeoProximityLocationOutputWithContext(ctx context.Context) RecordSetGeoProximityLocationOutput {
+	return o
+}
+
+func (o RecordSetGeoProximityLocationOutput) ToRecordSetGeoProximityLocationPtrOutput() RecordSetGeoProximityLocationPtrOutput {
+	return o.ToRecordSetGeoProximityLocationPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetGeoProximityLocationOutput) ToRecordSetGeoProximityLocationPtrOutputWithContext(ctx context.Context) RecordSetGeoProximityLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetGeoProximityLocation) *RecordSetGeoProximityLocation {
+		return &v
+	}).(RecordSetGeoProximityLocationPtrOutput)
+}
+
+func (o RecordSetGeoProximityLocationOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordSetGeoProximityLocation) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetGeoProximityLocationOutput) Bias() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecordSetGeoProximityLocation) *int { return v.Bias }).(pulumi.IntPtrOutput)
+}
+
+func (o RecordSetGeoProximityLocationOutput) Coordinates() RecordSetCoordinatesPtrOutput {
+	return o.ApplyT(func(v RecordSetGeoProximityLocation) *RecordSetCoordinates { return v.Coordinates }).(RecordSetCoordinatesPtrOutput)
+}
+
+func (o RecordSetGeoProximityLocationOutput) LocalZoneGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordSetGeoProximityLocation) *string { return v.LocalZoneGroup }).(pulumi.StringPtrOutput)
+}
+
+type RecordSetGeoProximityLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetGeoProximityLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetGeoProximityLocation)(nil)).Elem()
+}
+
+func (o RecordSetGeoProximityLocationPtrOutput) ToRecordSetGeoProximityLocationPtrOutput() RecordSetGeoProximityLocationPtrOutput {
+	return o
+}
+
+func (o RecordSetGeoProximityLocationPtrOutput) ToRecordSetGeoProximityLocationPtrOutputWithContext(ctx context.Context) RecordSetGeoProximityLocationPtrOutput {
+	return o
+}
+
+func (o RecordSetGeoProximityLocationPtrOutput) Elem() RecordSetGeoProximityLocationOutput {
+	return o.ApplyT(func(v *RecordSetGeoProximityLocation) RecordSetGeoProximityLocation {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetGeoProximityLocation
+		return ret
+	}).(RecordSetGeoProximityLocationOutput)
+}
+
+func (o RecordSetGeoProximityLocationPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGeoProximityLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetGeoProximityLocationPtrOutput) Bias() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecordSetGeoProximityLocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Bias
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o RecordSetGeoProximityLocationPtrOutput) Coordinates() RecordSetCoordinatesPtrOutput {
+	return o.ApplyT(func(v *RecordSetGeoProximityLocation) *RecordSetCoordinates {
+		if v == nil {
+			return nil
+		}
+		return v.Coordinates
+	}).(RecordSetCoordinatesPtrOutput)
+}
+
+func (o RecordSetGeoProximityLocationPtrOutput) LocalZoneGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGeoProximityLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalZoneGroup
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2003,6 +2329,154 @@ func (o RecordSetGroupCidrRoutingConfigPtrOutput) LocationName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type RecordSetGroupCoordinates struct {
+	Latitude  string `pulumi:"latitude"`
+	Longitude string `pulumi:"longitude"`
+}
+
+// RecordSetGroupCoordinatesInput is an input type that accepts RecordSetGroupCoordinatesArgs and RecordSetGroupCoordinatesOutput values.
+// You can construct a concrete instance of `RecordSetGroupCoordinatesInput` via:
+//
+//	RecordSetGroupCoordinatesArgs{...}
+type RecordSetGroupCoordinatesInput interface {
+	pulumi.Input
+
+	ToRecordSetGroupCoordinatesOutput() RecordSetGroupCoordinatesOutput
+	ToRecordSetGroupCoordinatesOutputWithContext(context.Context) RecordSetGroupCoordinatesOutput
+}
+
+type RecordSetGroupCoordinatesArgs struct {
+	Latitude  pulumi.StringInput `pulumi:"latitude"`
+	Longitude pulumi.StringInput `pulumi:"longitude"`
+}
+
+func (RecordSetGroupCoordinatesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGroupCoordinates)(nil)).Elem()
+}
+
+func (i RecordSetGroupCoordinatesArgs) ToRecordSetGroupCoordinatesOutput() RecordSetGroupCoordinatesOutput {
+	return i.ToRecordSetGroupCoordinatesOutputWithContext(context.Background())
+}
+
+func (i RecordSetGroupCoordinatesArgs) ToRecordSetGroupCoordinatesOutputWithContext(ctx context.Context) RecordSetGroupCoordinatesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupCoordinatesOutput)
+}
+
+func (i RecordSetGroupCoordinatesArgs) ToRecordSetGroupCoordinatesPtrOutput() RecordSetGroupCoordinatesPtrOutput {
+	return i.ToRecordSetGroupCoordinatesPtrOutputWithContext(context.Background())
+}
+
+func (i RecordSetGroupCoordinatesArgs) ToRecordSetGroupCoordinatesPtrOutputWithContext(ctx context.Context) RecordSetGroupCoordinatesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupCoordinatesOutput).ToRecordSetGroupCoordinatesPtrOutputWithContext(ctx)
+}
+
+// RecordSetGroupCoordinatesPtrInput is an input type that accepts RecordSetGroupCoordinatesArgs, RecordSetGroupCoordinatesPtr and RecordSetGroupCoordinatesPtrOutput values.
+// You can construct a concrete instance of `RecordSetGroupCoordinatesPtrInput` via:
+//
+//	        RecordSetGroupCoordinatesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordSetGroupCoordinatesPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetGroupCoordinatesPtrOutput() RecordSetGroupCoordinatesPtrOutput
+	ToRecordSetGroupCoordinatesPtrOutputWithContext(context.Context) RecordSetGroupCoordinatesPtrOutput
+}
+
+type recordSetGroupCoordinatesPtrType RecordSetGroupCoordinatesArgs
+
+func RecordSetGroupCoordinatesPtr(v *RecordSetGroupCoordinatesArgs) RecordSetGroupCoordinatesPtrInput {
+	return (*recordSetGroupCoordinatesPtrType)(v)
+}
+
+func (*recordSetGroupCoordinatesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetGroupCoordinates)(nil)).Elem()
+}
+
+func (i *recordSetGroupCoordinatesPtrType) ToRecordSetGroupCoordinatesPtrOutput() RecordSetGroupCoordinatesPtrOutput {
+	return i.ToRecordSetGroupCoordinatesPtrOutputWithContext(context.Background())
+}
+
+func (i *recordSetGroupCoordinatesPtrType) ToRecordSetGroupCoordinatesPtrOutputWithContext(ctx context.Context) RecordSetGroupCoordinatesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupCoordinatesPtrOutput)
+}
+
+type RecordSetGroupCoordinatesOutput struct{ *pulumi.OutputState }
+
+func (RecordSetGroupCoordinatesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGroupCoordinates)(nil)).Elem()
+}
+
+func (o RecordSetGroupCoordinatesOutput) ToRecordSetGroupCoordinatesOutput() RecordSetGroupCoordinatesOutput {
+	return o
+}
+
+func (o RecordSetGroupCoordinatesOutput) ToRecordSetGroupCoordinatesOutputWithContext(ctx context.Context) RecordSetGroupCoordinatesOutput {
+	return o
+}
+
+func (o RecordSetGroupCoordinatesOutput) ToRecordSetGroupCoordinatesPtrOutput() RecordSetGroupCoordinatesPtrOutput {
+	return o.ToRecordSetGroupCoordinatesPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetGroupCoordinatesOutput) ToRecordSetGroupCoordinatesPtrOutputWithContext(ctx context.Context) RecordSetGroupCoordinatesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetGroupCoordinates) *RecordSetGroupCoordinates {
+		return &v
+	}).(RecordSetGroupCoordinatesPtrOutput)
+}
+
+func (o RecordSetGroupCoordinatesOutput) Latitude() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetGroupCoordinates) string { return v.Latitude }).(pulumi.StringOutput)
+}
+
+func (o RecordSetGroupCoordinatesOutput) Longitude() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetGroupCoordinates) string { return v.Longitude }).(pulumi.StringOutput)
+}
+
+type RecordSetGroupCoordinatesPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetGroupCoordinatesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetGroupCoordinates)(nil)).Elem()
+}
+
+func (o RecordSetGroupCoordinatesPtrOutput) ToRecordSetGroupCoordinatesPtrOutput() RecordSetGroupCoordinatesPtrOutput {
+	return o
+}
+
+func (o RecordSetGroupCoordinatesPtrOutput) ToRecordSetGroupCoordinatesPtrOutputWithContext(ctx context.Context) RecordSetGroupCoordinatesPtrOutput {
+	return o
+}
+
+func (o RecordSetGroupCoordinatesPtrOutput) Elem() RecordSetGroupCoordinatesOutput {
+	return o.ApplyT(func(v *RecordSetGroupCoordinates) RecordSetGroupCoordinates {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetGroupCoordinates
+		return ret
+	}).(RecordSetGroupCoordinatesOutput)
+}
+
+func (o RecordSetGroupCoordinatesPtrOutput) Latitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroupCoordinates) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Latitude
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetGroupCoordinatesPtrOutput) Longitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroupCoordinates) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Longitude
+	}).(pulumi.StringPtrOutput)
+}
+
 type RecordSetGroupGeoLocation struct {
 	ContinentCode   *string `pulumi:"continentCode"`
 	CountryCode     *string `pulumi:"countryCode"`
@@ -2166,22 +2640,201 @@ func (o RecordSetGroupGeoLocationPtrOutput) SubdivisionCode() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type RecordSetGroupGeoProximityLocation struct {
+	AwsRegion      *string                    `pulumi:"awsRegion"`
+	Bias           *int                       `pulumi:"bias"`
+	Coordinates    *RecordSetGroupCoordinates `pulumi:"coordinates"`
+	LocalZoneGroup *string                    `pulumi:"localZoneGroup"`
+}
+
+// RecordSetGroupGeoProximityLocationInput is an input type that accepts RecordSetGroupGeoProximityLocationArgs and RecordSetGroupGeoProximityLocationOutput values.
+// You can construct a concrete instance of `RecordSetGroupGeoProximityLocationInput` via:
+//
+//	RecordSetGroupGeoProximityLocationArgs{...}
+type RecordSetGroupGeoProximityLocationInput interface {
+	pulumi.Input
+
+	ToRecordSetGroupGeoProximityLocationOutput() RecordSetGroupGeoProximityLocationOutput
+	ToRecordSetGroupGeoProximityLocationOutputWithContext(context.Context) RecordSetGroupGeoProximityLocationOutput
+}
+
+type RecordSetGroupGeoProximityLocationArgs struct {
+	AwsRegion      pulumi.StringPtrInput             `pulumi:"awsRegion"`
+	Bias           pulumi.IntPtrInput                `pulumi:"bias"`
+	Coordinates    RecordSetGroupCoordinatesPtrInput `pulumi:"coordinates"`
+	LocalZoneGroup pulumi.StringPtrInput             `pulumi:"localZoneGroup"`
+}
+
+func (RecordSetGroupGeoProximityLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGroupGeoProximityLocation)(nil)).Elem()
+}
+
+func (i RecordSetGroupGeoProximityLocationArgs) ToRecordSetGroupGeoProximityLocationOutput() RecordSetGroupGeoProximityLocationOutput {
+	return i.ToRecordSetGroupGeoProximityLocationOutputWithContext(context.Background())
+}
+
+func (i RecordSetGroupGeoProximityLocationArgs) ToRecordSetGroupGeoProximityLocationOutputWithContext(ctx context.Context) RecordSetGroupGeoProximityLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupGeoProximityLocationOutput)
+}
+
+func (i RecordSetGroupGeoProximityLocationArgs) ToRecordSetGroupGeoProximityLocationPtrOutput() RecordSetGroupGeoProximityLocationPtrOutput {
+	return i.ToRecordSetGroupGeoProximityLocationPtrOutputWithContext(context.Background())
+}
+
+func (i RecordSetGroupGeoProximityLocationArgs) ToRecordSetGroupGeoProximityLocationPtrOutputWithContext(ctx context.Context) RecordSetGroupGeoProximityLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupGeoProximityLocationOutput).ToRecordSetGroupGeoProximityLocationPtrOutputWithContext(ctx)
+}
+
+// RecordSetGroupGeoProximityLocationPtrInput is an input type that accepts RecordSetGroupGeoProximityLocationArgs, RecordSetGroupGeoProximityLocationPtr and RecordSetGroupGeoProximityLocationPtrOutput values.
+// You can construct a concrete instance of `RecordSetGroupGeoProximityLocationPtrInput` via:
+//
+//	        RecordSetGroupGeoProximityLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordSetGroupGeoProximityLocationPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetGroupGeoProximityLocationPtrOutput() RecordSetGroupGeoProximityLocationPtrOutput
+	ToRecordSetGroupGeoProximityLocationPtrOutputWithContext(context.Context) RecordSetGroupGeoProximityLocationPtrOutput
+}
+
+type recordSetGroupGeoProximityLocationPtrType RecordSetGroupGeoProximityLocationArgs
+
+func RecordSetGroupGeoProximityLocationPtr(v *RecordSetGroupGeoProximityLocationArgs) RecordSetGroupGeoProximityLocationPtrInput {
+	return (*recordSetGroupGeoProximityLocationPtrType)(v)
+}
+
+func (*recordSetGroupGeoProximityLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetGroupGeoProximityLocation)(nil)).Elem()
+}
+
+func (i *recordSetGroupGeoProximityLocationPtrType) ToRecordSetGroupGeoProximityLocationPtrOutput() RecordSetGroupGeoProximityLocationPtrOutput {
+	return i.ToRecordSetGroupGeoProximityLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *recordSetGroupGeoProximityLocationPtrType) ToRecordSetGroupGeoProximityLocationPtrOutputWithContext(ctx context.Context) RecordSetGroupGeoProximityLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGroupGeoProximityLocationPtrOutput)
+}
+
+type RecordSetGroupGeoProximityLocationOutput struct{ *pulumi.OutputState }
+
+func (RecordSetGroupGeoProximityLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGroupGeoProximityLocation)(nil)).Elem()
+}
+
+func (o RecordSetGroupGeoProximityLocationOutput) ToRecordSetGroupGeoProximityLocationOutput() RecordSetGroupGeoProximityLocationOutput {
+	return o
+}
+
+func (o RecordSetGroupGeoProximityLocationOutput) ToRecordSetGroupGeoProximityLocationOutputWithContext(ctx context.Context) RecordSetGroupGeoProximityLocationOutput {
+	return o
+}
+
+func (o RecordSetGroupGeoProximityLocationOutput) ToRecordSetGroupGeoProximityLocationPtrOutput() RecordSetGroupGeoProximityLocationPtrOutput {
+	return o.ToRecordSetGroupGeoProximityLocationPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetGroupGeoProximityLocationOutput) ToRecordSetGroupGeoProximityLocationPtrOutputWithContext(ctx context.Context) RecordSetGroupGeoProximityLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetGroupGeoProximityLocation) *RecordSetGroupGeoProximityLocation {
+		return &v
+	}).(RecordSetGroupGeoProximityLocationPtrOutput)
+}
+
+func (o RecordSetGroupGeoProximityLocationOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordSetGroupGeoProximityLocation) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetGroupGeoProximityLocationOutput) Bias() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecordSetGroupGeoProximityLocation) *int { return v.Bias }).(pulumi.IntPtrOutput)
+}
+
+func (o RecordSetGroupGeoProximityLocationOutput) Coordinates() RecordSetGroupCoordinatesPtrOutput {
+	return o.ApplyT(func(v RecordSetGroupGeoProximityLocation) *RecordSetGroupCoordinates { return v.Coordinates }).(RecordSetGroupCoordinatesPtrOutput)
+}
+
+func (o RecordSetGroupGeoProximityLocationOutput) LocalZoneGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordSetGroupGeoProximityLocation) *string { return v.LocalZoneGroup }).(pulumi.StringPtrOutput)
+}
+
+type RecordSetGroupGeoProximityLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetGroupGeoProximityLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetGroupGeoProximityLocation)(nil)).Elem()
+}
+
+func (o RecordSetGroupGeoProximityLocationPtrOutput) ToRecordSetGroupGeoProximityLocationPtrOutput() RecordSetGroupGeoProximityLocationPtrOutput {
+	return o
+}
+
+func (o RecordSetGroupGeoProximityLocationPtrOutput) ToRecordSetGroupGeoProximityLocationPtrOutputWithContext(ctx context.Context) RecordSetGroupGeoProximityLocationPtrOutput {
+	return o
+}
+
+func (o RecordSetGroupGeoProximityLocationPtrOutput) Elem() RecordSetGroupGeoProximityLocationOutput {
+	return o.ApplyT(func(v *RecordSetGroupGeoProximityLocation) RecordSetGroupGeoProximityLocation {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetGroupGeoProximityLocation
+		return ret
+	}).(RecordSetGroupGeoProximityLocationOutput)
+}
+
+func (o RecordSetGroupGeoProximityLocationPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroupGeoProximityLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecordSetGroupGeoProximityLocationPtrOutput) Bias() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroupGeoProximityLocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Bias
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o RecordSetGroupGeoProximityLocationPtrOutput) Coordinates() RecordSetGroupCoordinatesPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroupGeoProximityLocation) *RecordSetGroupCoordinates {
+		if v == nil {
+			return nil
+		}
+		return v.Coordinates
+	}).(RecordSetGroupCoordinatesPtrOutput)
+}
+
+func (o RecordSetGroupGeoProximityLocationPtrOutput) LocalZoneGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGroupGeoProximityLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalZoneGroup
+	}).(pulumi.StringPtrOutput)
+}
+
 type RecordSetGroupRecordSet struct {
-	AliasTarget       *RecordSetGroupAliasTarget       `pulumi:"aliasTarget"`
-	CidrRoutingConfig *RecordSetGroupCidrRoutingConfig `pulumi:"cidrRoutingConfig"`
-	Failover          *string                          `pulumi:"failover"`
-	GeoLocation       *RecordSetGroupGeoLocation       `pulumi:"geoLocation"`
-	HealthCheckId     *string                          `pulumi:"healthCheckId"`
-	HostedZoneId      *string                          `pulumi:"hostedZoneId"`
-	HostedZoneName    *string                          `pulumi:"hostedZoneName"`
-	MultiValueAnswer  *bool                            `pulumi:"multiValueAnswer"`
-	Name              string                           `pulumi:"name"`
-	Region            *string                          `pulumi:"region"`
-	ResourceRecords   []string                         `pulumi:"resourceRecords"`
-	SetIdentifier     *string                          `pulumi:"setIdentifier"`
-	Ttl               *string                          `pulumi:"ttl"`
-	Type              string                           `pulumi:"type"`
-	Weight            *int                             `pulumi:"weight"`
+	AliasTarget          *RecordSetGroupAliasTarget          `pulumi:"aliasTarget"`
+	CidrRoutingConfig    *RecordSetGroupCidrRoutingConfig    `pulumi:"cidrRoutingConfig"`
+	Failover             *string                             `pulumi:"failover"`
+	GeoLocation          *RecordSetGroupGeoLocation          `pulumi:"geoLocation"`
+	GeoProximityLocation *RecordSetGroupGeoProximityLocation `pulumi:"geoProximityLocation"`
+	HealthCheckId        *string                             `pulumi:"healthCheckId"`
+	HostedZoneId         *string                             `pulumi:"hostedZoneId"`
+	HostedZoneName       *string                             `pulumi:"hostedZoneName"`
+	MultiValueAnswer     *bool                               `pulumi:"multiValueAnswer"`
+	Name                 string                              `pulumi:"name"`
+	Region               *string                             `pulumi:"region"`
+	ResourceRecords      []string                            `pulumi:"resourceRecords"`
+	SetIdentifier        *string                             `pulumi:"setIdentifier"`
+	Ttl                  *string                             `pulumi:"ttl"`
+	Type                 string                              `pulumi:"type"`
+	Weight               *int                                `pulumi:"weight"`
 }
 
 // RecordSetGroupRecordSetInput is an input type that accepts RecordSetGroupRecordSetArgs and RecordSetGroupRecordSetOutput values.
@@ -2196,21 +2849,22 @@ type RecordSetGroupRecordSetInput interface {
 }
 
 type RecordSetGroupRecordSetArgs struct {
-	AliasTarget       RecordSetGroupAliasTargetPtrInput       `pulumi:"aliasTarget"`
-	CidrRoutingConfig RecordSetGroupCidrRoutingConfigPtrInput `pulumi:"cidrRoutingConfig"`
-	Failover          pulumi.StringPtrInput                   `pulumi:"failover"`
-	GeoLocation       RecordSetGroupGeoLocationPtrInput       `pulumi:"geoLocation"`
-	HealthCheckId     pulumi.StringPtrInput                   `pulumi:"healthCheckId"`
-	HostedZoneId      pulumi.StringPtrInput                   `pulumi:"hostedZoneId"`
-	HostedZoneName    pulumi.StringPtrInput                   `pulumi:"hostedZoneName"`
-	MultiValueAnswer  pulumi.BoolPtrInput                     `pulumi:"multiValueAnswer"`
-	Name              pulumi.StringInput                      `pulumi:"name"`
-	Region            pulumi.StringPtrInput                   `pulumi:"region"`
-	ResourceRecords   pulumi.StringArrayInput                 `pulumi:"resourceRecords"`
-	SetIdentifier     pulumi.StringPtrInput                   `pulumi:"setIdentifier"`
-	Ttl               pulumi.StringPtrInput                   `pulumi:"ttl"`
-	Type              pulumi.StringInput                      `pulumi:"type"`
-	Weight            pulumi.IntPtrInput                      `pulumi:"weight"`
+	AliasTarget          RecordSetGroupAliasTargetPtrInput          `pulumi:"aliasTarget"`
+	CidrRoutingConfig    RecordSetGroupCidrRoutingConfigPtrInput    `pulumi:"cidrRoutingConfig"`
+	Failover             pulumi.StringPtrInput                      `pulumi:"failover"`
+	GeoLocation          RecordSetGroupGeoLocationPtrInput          `pulumi:"geoLocation"`
+	GeoProximityLocation RecordSetGroupGeoProximityLocationPtrInput `pulumi:"geoProximityLocation"`
+	HealthCheckId        pulumi.StringPtrInput                      `pulumi:"healthCheckId"`
+	HostedZoneId         pulumi.StringPtrInput                      `pulumi:"hostedZoneId"`
+	HostedZoneName       pulumi.StringPtrInput                      `pulumi:"hostedZoneName"`
+	MultiValueAnswer     pulumi.BoolPtrInput                        `pulumi:"multiValueAnswer"`
+	Name                 pulumi.StringInput                         `pulumi:"name"`
+	Region               pulumi.StringPtrInput                      `pulumi:"region"`
+	ResourceRecords      pulumi.StringArrayInput                    `pulumi:"resourceRecords"`
+	SetIdentifier        pulumi.StringPtrInput                      `pulumi:"setIdentifier"`
+	Ttl                  pulumi.StringPtrInput                      `pulumi:"ttl"`
+	Type                 pulumi.StringInput                         `pulumi:"type"`
+	Weight               pulumi.IntPtrInput                         `pulumi:"weight"`
 }
 
 func (RecordSetGroupRecordSetArgs) ElementType() reflect.Type {
@@ -2278,6 +2932,10 @@ func (o RecordSetGroupRecordSetOutput) Failover() pulumi.StringPtrOutput {
 
 func (o RecordSetGroupRecordSetOutput) GeoLocation() RecordSetGroupGeoLocationPtrOutput {
 	return o.ApplyT(func(v RecordSetGroupRecordSet) *RecordSetGroupGeoLocation { return v.GeoLocation }).(RecordSetGroupGeoLocationPtrOutput)
+}
+
+func (o RecordSetGroupRecordSetOutput) GeoProximityLocation() RecordSetGroupGeoProximityLocationPtrOutput {
+	return o.ApplyT(func(v RecordSetGroupRecordSet) *RecordSetGroupGeoProximityLocation { return v.GeoProximityLocation }).(RecordSetGroupGeoProximityLocationPtrOutput)
 }
 
 func (o RecordSetGroupRecordSetOutput) HealthCheckId() pulumi.StringPtrOutput {
@@ -2364,14 +3022,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAliasTargetPtrInput)(nil)).Elem(), RecordSetAliasTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCidrRoutingConfigInput)(nil)).Elem(), RecordSetCidrRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCidrRoutingConfigPtrInput)(nil)).Elem(), RecordSetCidrRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCoordinatesInput)(nil)).Elem(), RecordSetCoordinatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCoordinatesPtrInput)(nil)).Elem(), RecordSetCoordinatesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGeoLocationInput)(nil)).Elem(), RecordSetGeoLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGeoLocationPtrInput)(nil)).Elem(), RecordSetGeoLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGeoProximityLocationInput)(nil)).Elem(), RecordSetGeoProximityLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGeoProximityLocationPtrInput)(nil)).Elem(), RecordSetGeoProximityLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupAliasTargetInput)(nil)).Elem(), RecordSetGroupAliasTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupAliasTargetPtrInput)(nil)).Elem(), RecordSetGroupAliasTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupCidrRoutingConfigInput)(nil)).Elem(), RecordSetGroupCidrRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupCidrRoutingConfigPtrInput)(nil)).Elem(), RecordSetGroupCidrRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupCoordinatesInput)(nil)).Elem(), RecordSetGroupCoordinatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupCoordinatesPtrInput)(nil)).Elem(), RecordSetGroupCoordinatesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupGeoLocationInput)(nil)).Elem(), RecordSetGroupGeoLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupGeoLocationPtrInput)(nil)).Elem(), RecordSetGroupGeoLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupGeoProximityLocationInput)(nil)).Elem(), RecordSetGroupGeoProximityLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupGeoProximityLocationPtrInput)(nil)).Elem(), RecordSetGroupGeoProximityLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupRecordSetInput)(nil)).Elem(), RecordSetGroupRecordSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupRecordSetArrayInput)(nil)).Elem(), RecordSetGroupRecordSetArray{})
 	pulumi.RegisterOutputType(CidrCollectionLocationOutput{})
@@ -2394,14 +3060,22 @@ func init() {
 	pulumi.RegisterOutputType(RecordSetAliasTargetPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetCidrRoutingConfigOutput{})
 	pulumi.RegisterOutputType(RecordSetCidrRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetCoordinatesOutput{})
+	pulumi.RegisterOutputType(RecordSetCoordinatesPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetGeoLocationOutput{})
 	pulumi.RegisterOutputType(RecordSetGeoLocationPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetGeoProximityLocationOutput{})
+	pulumi.RegisterOutputType(RecordSetGeoProximityLocationPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupAliasTargetOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupAliasTargetPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupCidrRoutingConfigOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupCidrRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetGroupCoordinatesOutput{})
+	pulumi.RegisterOutputType(RecordSetGroupCoordinatesPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupGeoLocationOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupGeoLocationPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetGroupGeoProximityLocationOutput{})
+	pulumi.RegisterOutputType(RecordSetGroupGeoProximityLocationPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupRecordSetOutput{})
 	pulumi.RegisterOutputType(RecordSetGroupRecordSetArrayOutput{})
 }

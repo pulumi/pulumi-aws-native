@@ -342,7 +342,7 @@ func (in *automationRuleMapFilterComparisonPtr) ToAutomationRuleMapFilterCompari
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleMapFilterComparisonPtrOutput)
 }
 
-// Status of the Rule upon creation
+// Whether the rule is active after it is created. If this parameter is equal to “ENABLED“, ASH applies the rule to findings and finding updates after the rule is created.
 type AutomationRuleRuleStatus string
 
 const (
@@ -679,6 +679,7 @@ func (in *automationRuleSeverityUpdateLabelPtr) ToAutomationRuleSeverityUpdateLa
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleSeverityUpdateLabelPtrOutput)
 }
 
+// The condition to apply to a string value when filtering Security Hub findings.
 type AutomationRuleStringFilterComparison string
 
 const (

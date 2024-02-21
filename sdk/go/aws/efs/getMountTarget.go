@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EFS::MountTarget
+// The “AWS::EFS::MountTarget“ resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
 func LookupMountTarget(ctx *pulumi.Context, args *LookupMountTargetArgs, opts ...pulumi.InvokeOption) (*LookupMountTargetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMountTargetResult
@@ -27,7 +27,8 @@ type LookupMountTargetArgs struct {
 }
 
 type LookupMountTargetResult struct {
-	Id             *string  `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
 	SecurityGroups []string `pulumi:"securityGroups"`
 }
 
@@ -70,6 +71,7 @@ func (o LookupMountTargetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMountTargetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Up to five VPC security group IDs, of the form “sg-xxxxxxxx“. These must be for the same VPC as subnet specified.
 func (o LookupMountTargetResultOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupMountTargetResult) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }

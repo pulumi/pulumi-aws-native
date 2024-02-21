@@ -13,11 +13,20 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineGitPushFilter
     {
+        public readonly Outputs.PipelineGitBranchFilterCriteria? Branches;
+        public readonly Outputs.PipelineGitFilePathFilterCriteria? FilePaths;
         public readonly Outputs.PipelineGitTagFilterCriteria? Tags;
 
         [OutputConstructor]
-        private PipelineGitPushFilter(Outputs.PipelineGitTagFilterCriteria? tags)
+        private PipelineGitPushFilter(
+            Outputs.PipelineGitBranchFilterCriteria? branches,
+
+            Outputs.PipelineGitFilePathFilterCriteria? filePaths,
+
+            Outputs.PipelineGitTagFilterCriteria? tags)
         {
+            Branches = branches;
+            FilePaths = filePaths;
             Tags = tags;
         }
     }

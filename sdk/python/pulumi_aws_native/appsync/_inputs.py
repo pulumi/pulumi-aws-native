@@ -27,6 +27,7 @@ __all__ = [
     'FunctionConfigurationSyncConfigArgs',
     'GraphQlApiAdditionalAuthenticationProviderArgs',
     'GraphQlApiCognitoUserPoolConfigArgs',
+    'GraphQlApiEnhancedMetricsConfigArgs',
     'GraphQlApiLambdaAuthorizerConfigArgs',
     'GraphQlApiLogConfigArgs',
     'GraphQlApiOpenIdConnectConfigArgs',
@@ -606,6 +607,44 @@ class GraphQlApiCognitoUserPoolConfigArgs:
     @user_pool_id.setter
     def user_pool_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_pool_id", value)
+
+
+@pulumi.input_type
+class GraphQlApiEnhancedMetricsConfigArgs:
+    def __init__(__self__, *,
+                 data_source_level_metrics_behavior: pulumi.Input[str],
+                 operation_level_metrics_config: pulumi.Input[str],
+                 resolver_level_metrics_behavior: pulumi.Input[str]):
+        pulumi.set(__self__, "data_source_level_metrics_behavior", data_source_level_metrics_behavior)
+        pulumi.set(__self__, "operation_level_metrics_config", operation_level_metrics_config)
+        pulumi.set(__self__, "resolver_level_metrics_behavior", resolver_level_metrics_behavior)
+
+    @property
+    @pulumi.getter(name="dataSourceLevelMetricsBehavior")
+    def data_source_level_metrics_behavior(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source_level_metrics_behavior")
+
+    @data_source_level_metrics_behavior.setter
+    def data_source_level_metrics_behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source_level_metrics_behavior", value)
+
+    @property
+    @pulumi.getter(name="operationLevelMetricsConfig")
+    def operation_level_metrics_config(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "operation_level_metrics_config")
+
+    @operation_level_metrics_config.setter
+    def operation_level_metrics_config(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operation_level_metrics_config", value)
+
+    @property
+    @pulumi.getter(name="resolverLevelMetricsBehavior")
+    def resolver_level_metrics_behavior(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resolver_level_metrics_behavior")
+
+    @resolver_level_metrics_behavior.setter
+    def resolver_level_metrics_behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resolver_level_metrics_behavior", value)
 
 
 @pulumi.input_type

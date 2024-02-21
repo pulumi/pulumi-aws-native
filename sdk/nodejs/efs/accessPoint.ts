@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EFS::AccessPoint
+ * The ``AWS::EFS::AccessPoint`` resource creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see [Mounting a file system using EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html).
+ *  This operation requires permissions for the ``elasticfilesystem:CreateAccessPoint`` action.
  */
 export class AccessPoint extends pulumi.CustomResource {
     /**
@@ -38,22 +39,26 @@ export class AccessPoint extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly accessPointId!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+     */
     public readonly accessPointTags!: pulumi.Output<outputs.efs.AccessPointTag[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
+     * The opaque string specified in the request to ensure idempotent creation.
      */
     public readonly clientToken!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the EFS file system that the access point provides access to.
+     * The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
      */
     public readonly fileSystemId!: pulumi.Output<string>;
     /**
-     * The operating system user and group applied to all file system requests made using the access point.
+     * The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
      */
     public readonly posixUser!: pulumi.Output<outputs.efs.AccessPointPosixUser | undefined>;
     /**
-     * Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory>Path specified does not exist, EFS creates it and applies the CreationInfo settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationInfo is optional.
+     * The directory on the EFS file system that the access point exposes as the root directory to NFS clients using the access point.
      */
     public readonly rootDirectory!: pulumi.Output<outputs.efs.AccessPointRootDirectory | undefined>;
 
@@ -98,21 +103,25 @@ export class AccessPoint extends pulumi.CustomResource {
  * The set of arguments for constructing a AccessPoint resource.
  */
 export interface AccessPointArgs {
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+     */
     accessPointTags?: pulumi.Input<pulumi.Input<inputs.efs.AccessPointTagArgs>[]>;
     /**
-     * (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
+     * The opaque string specified in the request to ensure idempotent creation.
      */
     clientToken?: pulumi.Input<string>;
     /**
-     * The ID of the EFS file system that the access point provides access to.
+     * The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
      */
     fileSystemId: pulumi.Input<string>;
     /**
-     * The operating system user and group applied to all file system requests made using the access point.
+     * The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
      */
     posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUserArgs>;
     /**
-     * Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory>Path specified does not exist, EFS creates it and applies the CreationInfo settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationInfo is optional.
+     * The directory on the EFS file system that the access point exposes as the root directory to NFS clients using the access point.
      */
     rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectoryArgs>;
 }

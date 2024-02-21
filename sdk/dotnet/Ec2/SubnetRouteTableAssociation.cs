@@ -10,14 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
+    /// Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:SubnetRouteTableAssociation")]
     public partial class SubnetRouteTableAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the route table.
+        ///  The physical ID changes when the route table ID is changed.
+        /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet.
+        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
@@ -71,9 +78,16 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class SubnetRouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the route table.
+        ///  The physical ID changes when the route table ID is changed.
+        /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 

@@ -27,12 +27,8 @@ class AutomationRuleArgs:
                  tags: Optional[pulumi.Input['AutomationRuleTagsArgs']] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
-        :param pulumi.Input['AutomationRulesFindingFiltersArgs'] criteria: The rule criteria for evaluating findings
-        :param pulumi.Input[str] description: Rule description
-        :param pulumi.Input[bool] is_terminal: If Rule is a terminal rule
-        :param pulumi.Input[str] rule_name: Rule name
-        :param pulumi.Input[int] rule_order: Rule order value
-        :param pulumi.Input['AutomationRuleRuleStatus'] rule_status: Status of the Rule upon creation
+        :param pulumi.Input['AutomationRulesFindingFiltersArgs'] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
+        :param pulumi.Input['AutomationRuleRuleStatus'] rule_status: Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -64,7 +60,7 @@ class AutomationRuleArgs:
     @pulumi.getter
     def criteria(self) -> Optional[pulumi.Input['AutomationRulesFindingFiltersArgs']]:
         """
-        The rule criteria for evaluating findings
+        A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         """
         return pulumi.get(self, "criteria")
 
@@ -75,9 +71,6 @@ class AutomationRuleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Rule description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -87,9 +80,6 @@ class AutomationRuleArgs:
     @property
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If Rule is a terminal rule
-        """
         return pulumi.get(self, "is_terminal")
 
     @is_terminal.setter
@@ -99,9 +89,6 @@ class AutomationRuleArgs:
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Rule name
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -111,9 +98,6 @@ class AutomationRuleArgs:
     @property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> Optional[pulumi.Input[int]]:
-        """
-        Rule order value
-        """
         return pulumi.get(self, "rule_order")
 
     @rule_order.setter
@@ -124,7 +108,7 @@ class AutomationRuleArgs:
     @pulumi.getter(name="ruleStatus")
     def rule_status(self) -> Optional[pulumi.Input['AutomationRuleRuleStatus']]:
         """
-        Status of the Rule upon creation
+        Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         """
         return pulumi.get(self, "rule_status")
 
@@ -157,16 +141,12 @@ class AutomationRule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTagsArgs']]] = None,
                  __props__=None):
         """
-        The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
+        The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AutomationRulesFindingFiltersArgs']] criteria: The rule criteria for evaluating findings
-        :param pulumi.Input[str] description: Rule description
-        :param pulumi.Input[bool] is_terminal: If Rule is a terminal rule
-        :param pulumi.Input[str] rule_name: Rule name
-        :param pulumi.Input[int] rule_order: Rule order value
-        :param pulumi.Input['AutomationRuleRuleStatus'] rule_status: Status of the Rule upon creation
+        :param pulumi.Input[pulumi.InputType['AutomationRulesFindingFiltersArgs']] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
+        :param pulumi.Input['AutomationRuleRuleStatus'] rule_status: Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         """
         ...
     @overload
@@ -175,7 +155,7 @@ class AutomationRule(pulumi.CustomResource):
                  args: Optional[AutomationRuleArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
+        The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -265,72 +245,51 @@ class AutomationRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
-        """
-        The date and time when Automation Rule was created
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[str]:
-        """
-        The identifier by which created the rule
-        """
         return pulumi.get(self, "created_by")
 
     @property
     @pulumi.getter
     def criteria(self) -> pulumi.Output[Optional['outputs.AutomationRulesFindingFilters']]:
         """
-        The rule criteria for evaluating findings
+        A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         """
         return pulumi.get(self, "criteria")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Rule description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If Rule is a terminal rule
-        """
         return pulumi.get(self, "is_terminal")
 
     @property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> pulumi.Output[str]:
-        """
-        An Automation Rule Arn is automatically created
-        """
         return pulumi.get(self, "rule_arn")
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Rule name
-        """
         return pulumi.get(self, "rule_name")
 
     @property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> pulumi.Output[Optional[int]]:
-        """
-        Rule order value
-        """
         return pulumi.get(self, "rule_order")
 
     @property
     @pulumi.getter(name="ruleStatus")
     def rule_status(self) -> pulumi.Output[Optional['AutomationRuleRuleStatus']]:
         """
-        Status of the Rule upon creation
+        Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         """
         return pulumi.get(self, "rule_status")
 
@@ -342,8 +301,5 @@ class AutomationRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
-        """
-        The date and time when Automation Rule was last updated
-        """
         return pulumi.get(self, "updated_at")
 

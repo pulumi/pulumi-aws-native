@@ -34,6 +34,9 @@ class GetMountTargetResult:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
+        """
+        Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+        """
         return pulumi.get(self, "security_groups")
 
 
@@ -50,7 +53,7 @@ class AwaitableGetMountTargetResult(GetMountTargetResult):
 def get_mount_target(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMountTargetResult:
     """
-    Resource Type definition for AWS::EFS::MountTarget
+    The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -66,6 +69,6 @@ def get_mount_target(id: Optional[str] = None,
 def get_mount_target_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMountTargetResult]:
     """
-    Resource Type definition for AWS::EFS::MountTarget
+    The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
     """
     ...

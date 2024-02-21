@@ -27,20 +27,21 @@ type LookupRecordSetArgs struct {
 }
 
 type LookupRecordSetResult struct {
-	AliasTarget       *RecordSetAliasTarget       `pulumi:"aliasTarget"`
-	CidrRoutingConfig *RecordSetCidrRoutingConfig `pulumi:"cidrRoutingConfig"`
-	Comment           *string                     `pulumi:"comment"`
-	Failover          *string                     `pulumi:"failover"`
-	GeoLocation       *RecordSetGeoLocation       `pulumi:"geoLocation"`
-	HealthCheckId     *string                     `pulumi:"healthCheckId"`
-	Id                *string                     `pulumi:"id"`
-	MultiValueAnswer  *bool                       `pulumi:"multiValueAnswer"`
-	Region            *string                     `pulumi:"region"`
-	ResourceRecords   []string                    `pulumi:"resourceRecords"`
-	SetIdentifier     *string                     `pulumi:"setIdentifier"`
-	Ttl               *string                     `pulumi:"ttl"`
-	Type              *string                     `pulumi:"type"`
-	Weight            *int                        `pulumi:"weight"`
+	AliasTarget          *RecordSetAliasTarget          `pulumi:"aliasTarget"`
+	CidrRoutingConfig    *RecordSetCidrRoutingConfig    `pulumi:"cidrRoutingConfig"`
+	Comment              *string                        `pulumi:"comment"`
+	Failover             *string                        `pulumi:"failover"`
+	GeoLocation          *RecordSetGeoLocation          `pulumi:"geoLocation"`
+	GeoProximityLocation *RecordSetGeoProximityLocation `pulumi:"geoProximityLocation"`
+	HealthCheckId        *string                        `pulumi:"healthCheckId"`
+	Id                   *string                        `pulumi:"id"`
+	MultiValueAnswer     *bool                          `pulumi:"multiValueAnswer"`
+	Region               *string                        `pulumi:"region"`
+	ResourceRecords      []string                       `pulumi:"resourceRecords"`
+	SetIdentifier        *string                        `pulumi:"setIdentifier"`
+	Ttl                  *string                        `pulumi:"ttl"`
+	Type                 *string                        `pulumi:"type"`
+	Weight               *int                           `pulumi:"weight"`
 }
 
 func LookupRecordSetOutput(ctx *pulumi.Context, args LookupRecordSetOutputArgs, opts ...pulumi.InvokeOption) LookupRecordSetResultOutput {
@@ -96,6 +97,10 @@ func (o LookupRecordSetResultOutput) Failover() pulumi.StringPtrOutput {
 
 func (o LookupRecordSetResultOutput) GeoLocation() RecordSetGeoLocationPtrOutput {
 	return o.ApplyT(func(v LookupRecordSetResult) *RecordSetGeoLocation { return v.GeoLocation }).(RecordSetGeoLocationPtrOutput)
+}
+
+func (o LookupRecordSetResultOutput) GeoProximityLocation() RecordSetGeoProximityLocationPtrOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) *RecordSetGeoProximityLocation { return v.GeoProximityLocation }).(RecordSetGeoProximityLocationPtrOutput)
 }
 
 func (o LookupRecordSetResultOutput) HealthCheckId() pulumi.StringPtrOutput {

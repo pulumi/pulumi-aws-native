@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.Glue.Inputs
 
     public sealed class TableOptimizerConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
 
-        [Input("roleArn")]
-        public Input<string>? RoleArn { get; set; }
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         public TableOptimizerConfigurationArgs()
         {

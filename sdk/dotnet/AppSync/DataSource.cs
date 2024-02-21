@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("lambdaConfig")]
         public Output<Outputs.DataSourceLambdaConfig?> LambdaConfig { get; private set; } = null!;
 
+        [Output("metricsConfig")]
+        public Output<string?> MetricsConfig { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -125,6 +128,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("lambdaConfig")]
         public Input<Inputs.DataSourceLambdaConfigArgs>? LambdaConfig { get; set; }
+
+        [Input("metricsConfig")]
+        public Input<string>? MetricsConfig { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

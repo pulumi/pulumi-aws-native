@@ -11,32 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
+// The “AWS::SecurityHub::AutomationRule“ resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 type AutomationRule struct {
 	pulumi.CustomResourceState
 
-	Actions AutomationRulesActionArrayOutput `pulumi:"actions"`
-	// The date and time when Automation Rule was created
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The identifier by which created the rule
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// The rule criteria for evaluating findings
-	Criteria AutomationRulesFindingFiltersPtrOutput `pulumi:"criteria"`
-	// Rule description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// If Rule is a terminal rule
-	IsTerminal pulumi.BoolPtrOutput `pulumi:"isTerminal"`
-	// An Automation Rule Arn is automatically created
-	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
-	// Rule name
-	RuleName pulumi.StringPtrOutput `pulumi:"ruleName"`
-	// Rule order value
-	RuleOrder pulumi.IntPtrOutput `pulumi:"ruleOrder"`
-	// Status of the Rule upon creation
+	Actions   AutomationRulesActionArrayOutput `pulumi:"actions"`
+	CreatedAt pulumi.StringOutput              `pulumi:"createdAt"`
+	CreatedBy pulumi.StringOutput              `pulumi:"createdBy"`
+	// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
+	Criteria    AutomationRulesFindingFiltersPtrOutput `pulumi:"criteria"`
+	Description pulumi.StringPtrOutput                 `pulumi:"description"`
+	IsTerminal  pulumi.BoolPtrOutput                   `pulumi:"isTerminal"`
+	RuleArn     pulumi.StringOutput                    `pulumi:"ruleArn"`
+	RuleName    pulumi.StringPtrOutput                 `pulumi:"ruleName"`
+	RuleOrder   pulumi.IntPtrOutput                    `pulumi:"ruleOrder"`
+	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus AutomationRuleRuleStatusPtrOutput `pulumi:"ruleStatus"`
 	Tags       AutomationRuleTagsPtrOutput       `pulumi:"tags"`
-	// The date and time when Automation Rule was last updated
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	UpdatedAt  pulumi.StringOutput               `pulumi:"updatedAt"`
 }
 
 // NewAutomationRule registers a new resource with the given unique name, arguments, and options.
@@ -80,17 +72,13 @@ func (AutomationRuleState) ElementType() reflect.Type {
 
 type automationRuleArgs struct {
 	Actions []AutomationRulesAction `pulumi:"actions"`
-	// The rule criteria for evaluating findings
-	Criteria *AutomationRulesFindingFilters `pulumi:"criteria"`
-	// Rule description
-	Description *string `pulumi:"description"`
-	// If Rule is a terminal rule
-	IsTerminal *bool `pulumi:"isTerminal"`
-	// Rule name
-	RuleName *string `pulumi:"ruleName"`
-	// Rule order value
-	RuleOrder *int `pulumi:"ruleOrder"`
-	// Status of the Rule upon creation
+	// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
+	Criteria    *AutomationRulesFindingFilters `pulumi:"criteria"`
+	Description *string                        `pulumi:"description"`
+	IsTerminal  *bool                          `pulumi:"isTerminal"`
+	RuleName    *string                        `pulumi:"ruleName"`
+	RuleOrder   *int                           `pulumi:"ruleOrder"`
+	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus *AutomationRuleRuleStatus `pulumi:"ruleStatus"`
 	Tags       *AutomationRuleTags       `pulumi:"tags"`
 }
@@ -98,17 +86,13 @@ type automationRuleArgs struct {
 // The set of arguments for constructing a AutomationRule resource.
 type AutomationRuleArgs struct {
 	Actions AutomationRulesActionArrayInput
-	// The rule criteria for evaluating findings
-	Criteria AutomationRulesFindingFiltersPtrInput
-	// Rule description
+	// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
+	Criteria    AutomationRulesFindingFiltersPtrInput
 	Description pulumi.StringPtrInput
-	// If Rule is a terminal rule
-	IsTerminal pulumi.BoolPtrInput
-	// Rule name
-	RuleName pulumi.StringPtrInput
-	// Rule order value
-	RuleOrder pulumi.IntPtrInput
-	// Status of the Rule upon creation
+	IsTerminal  pulumi.BoolPtrInput
+	RuleName    pulumi.StringPtrInput
+	RuleOrder   pulumi.IntPtrInput
+	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus AutomationRuleRuleStatusPtrInput
 	Tags       AutomationRuleTagsPtrInput
 }
@@ -154,47 +138,40 @@ func (o AutomationRuleOutput) Actions() AutomationRulesActionArrayOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRulesActionArrayOutput { return v.Actions }).(AutomationRulesActionArrayOutput)
 }
 
-// The date and time when Automation Rule was created
 func (o AutomationRuleOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The identifier by which created the rule
 func (o AutomationRuleOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// The rule criteria for evaluating findings
+// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
 func (o AutomationRuleOutput) Criteria() AutomationRulesFindingFiltersPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRulesFindingFiltersPtrOutput { return v.Criteria }).(AutomationRulesFindingFiltersPtrOutput)
 }
 
-// Rule description
 func (o AutomationRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// If Rule is a terminal rule
 func (o AutomationRuleOutput) IsTerminal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.BoolPtrOutput { return v.IsTerminal }).(pulumi.BoolPtrOutput)
 }
 
-// An Automation Rule Arn is automatically created
 func (o AutomationRuleOutput) RuleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
 }
 
-// Rule name
 func (o AutomationRuleOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringPtrOutput { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// Rule order value
 func (o AutomationRuleOutput) RuleOrder() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.IntPtrOutput { return v.RuleOrder }).(pulumi.IntPtrOutput)
 }
 
-// Status of the Rule upon creation
+// Whether the rule is active after it is created. If this parameter is equal to “ENABLED“, ASH applies the rule to findings and finding updates after the rule is created.
 func (o AutomationRuleOutput) RuleStatus() AutomationRuleRuleStatusPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRuleRuleStatusPtrOutput { return v.RuleStatus }).(AutomationRuleRuleStatusPtrOutput)
 }
@@ -203,7 +180,6 @@ func (o AutomationRuleOutput) Tags() AutomationRuleTagsPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRuleTagsPtrOutput { return v.Tags }).(AutomationRuleTagsPtrOutput)
 }
 
-// The date and time when Automation Rule was last updated
 func (o AutomationRuleOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

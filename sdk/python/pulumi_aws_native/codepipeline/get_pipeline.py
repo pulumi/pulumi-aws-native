@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPipelineResult:
-    def __init__(__self__, artifact_store=None, artifact_stores=None, disable_inbound_stage_transitions=None, id=None, pipeline_type=None, restart_execution_on_update=None, role_arn=None, stages=None, tags=None, triggers=None, variables=None, version=None):
+    def __init__(__self__, artifact_store=None, artifact_stores=None, disable_inbound_stage_transitions=None, execution_mode=None, id=None, pipeline_type=None, restart_execution_on_update=None, role_arn=None, stages=None, tags=None, triggers=None, variables=None, version=None):
         if artifact_store and not isinstance(artifact_store, dict):
             raise TypeError("Expected argument 'artifact_store' to be a dict")
         pulumi.set(__self__, "artifact_store", artifact_store)
@@ -29,6 +29,9 @@ class GetPipelineResult:
         if disable_inbound_stage_transitions and not isinstance(disable_inbound_stage_transitions, list):
             raise TypeError("Expected argument 'disable_inbound_stage_transitions' to be a list")
         pulumi.set(__self__, "disable_inbound_stage_transitions", disable_inbound_stage_transitions)
+        if execution_mode and not isinstance(execution_mode, str):
+            raise TypeError("Expected argument 'execution_mode' to be a str")
+        pulumi.set(__self__, "execution_mode", execution_mode)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -71,6 +74,11 @@ class GetPipelineResult:
     @pulumi.getter(name="disableInboundStageTransitions")
     def disable_inbound_stage_transitions(self) -> Optional[Sequence['outputs.PipelineStageTransition']]:
         return pulumi.get(self, "disable_inbound_stage_transitions")
+
+    @property
+    @pulumi.getter(name="executionMode")
+    def execution_mode(self) -> Optional[str]:
+        return pulumi.get(self, "execution_mode")
 
     @property
     @pulumi.getter
@@ -127,6 +135,7 @@ class AwaitableGetPipelineResult(GetPipelineResult):
             artifact_store=self.artifact_store,
             artifact_stores=self.artifact_stores,
             disable_inbound_stage_transitions=self.disable_inbound_stage_transitions,
+            execution_mode=self.execution_mode,
             id=self.id,
             pipeline_type=self.pipeline_type,
             restart_execution_on_update=self.restart_execution_on_update,
@@ -152,6 +161,7 @@ def get_pipeline(id: Optional[str] = None,
         artifact_store=pulumi.get(__ret__, 'artifact_store'),
         artifact_stores=pulumi.get(__ret__, 'artifact_stores'),
         disable_inbound_stage_transitions=pulumi.get(__ret__, 'disable_inbound_stage_transitions'),
+        execution_mode=pulumi.get(__ret__, 'execution_mode'),
         id=pulumi.get(__ret__, 'id'),
         pipeline_type=pulumi.get(__ret__, 'pipeline_type'),
         restart_execution_on_update=pulumi.get(__ret__, 'restart_execution_on_update'),

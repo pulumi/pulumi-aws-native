@@ -10,38 +10,70 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::NatGateway
+    /// Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
+    ///  With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on-premises network using the IP address of the NAT gateway. For more information, see [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide*.
+    ///  If you add a default route (``AWS::EC2::Route`` resource) that points to a NAT gateway, specify the NAT gateway ID for the route's ``NatGatewayId`` property.
+    ///  When you associate an Elastic IP address or secondary Elastic IP address with a public NAT gateway, the network border group of the Elastic IP address must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. Otherwise, the N
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NatGateway")]
     public partial class NatGateway : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
+        /// </summary>
         [Output("allocationId")]
         public Output<string?> AllocationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
+        /// </summary>
         [Output("connectivityType")]
         public Output<string?> ConnectivityType { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
+        /// </summary>
         [Output("maxDrainDurationSeconds")]
         public Output<int?> MaxDrainDurationSeconds { get; private set; } = null!;
 
         [Output("natGatewayId")]
         public Output<string> NatGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        /// </summary>
         [Output("privateIpAddress")]
         public Output<string?> PrivateIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        /// </summary>
         [Output("secondaryAllocationIds")]
         public Output<ImmutableArray<string>> SecondaryAllocationIds { get; private set; } = null!;
 
+        /// <summary>
+        /// [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+        ///  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        /// </summary>
         [Output("secondaryPrivateIpAddressCount")]
         public Output<int?> SecondaryPrivateIpAddressCount { get; private set; } = null!;
 
+        /// <summary>
+        /// Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+        ///  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        /// </summary>
         [Output("secondaryPrivateIpAddresses")]
         public Output<ImmutableArray<string>> SecondaryPrivateIpAddresses { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet in which the NAT gateway is located.
+        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the NAT gateway.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.NatGatewayTag>> Tags { get; private set; } = null!;
 
@@ -97,42 +129,74 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class NatGatewayArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
+        /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
+        /// <summary>
+        /// Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
+        /// </summary>
         [Input("connectivityType")]
         public Input<string>? ConnectivityType { get; set; }
 
+        /// <summary>
+        /// The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
+        /// </summary>
         [Input("maxDrainDurationSeconds")]
         public Input<int>? MaxDrainDurationSeconds { get; set; }
 
+        /// <summary>
+        /// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
         [Input("secondaryAllocationIds")]
         private InputList<string>? _secondaryAllocationIds;
+
+        /// <summary>
+        /// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        /// </summary>
         public InputList<string> SecondaryAllocationIds
         {
             get => _secondaryAllocationIds ?? (_secondaryAllocationIds = new InputList<string>());
             set => _secondaryAllocationIds = value;
         }
 
+        /// <summary>
+        /// [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+        ///  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        /// </summary>
         [Input("secondaryPrivateIpAddressCount")]
         public Input<int>? SecondaryPrivateIpAddressCount { get; set; }
 
         [Input("secondaryPrivateIpAddresses")]
         private InputList<string>? _secondaryPrivateIpAddresses;
+
+        /// <summary>
+        /// Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
+        ///  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
+        /// </summary>
         public InputList<string> SecondaryPrivateIpAddresses
         {
             get => _secondaryPrivateIpAddresses ?? (_secondaryPrivateIpAddresses = new InputList<string>());
             set => _secondaryPrivateIpAddresses = value;
         }
 
+        /// <summary>
+        /// The ID of the subnet in which the NAT gateway is located.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.NatGatewayTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the NAT gateway.
+        /// </summary>
         public InputList<Inputs.NatGatewayTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.NatGatewayTagArgs>());

@@ -52,7 +52,7 @@ export class PrefixList extends pulumi.CustomResource {
     /**
      * Max Entries of Prefix List.
      */
-    public readonly maxEntries!: pulumi.Output<number>;
+    public readonly maxEntries!: pulumi.Output<number | undefined>;
     /**
      * Owner Id of Prefix List.
      */
@@ -87,9 +87,6 @@ export class PrefixList extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.addressFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
-            }
-            if ((!args || args.maxEntries === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'maxEntries'");
             }
             resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
             resourceInputs["entries"] = args ? args.entries : undefined;
@@ -131,7 +128,7 @@ export interface PrefixListArgs {
     /**
      * Max Entries of Prefix List.
      */
-    maxEntries: pulumi.Input<number>;
+    maxEntries?: pulumi.Input<number>;
     /**
      * Name of Prefix List.
      */

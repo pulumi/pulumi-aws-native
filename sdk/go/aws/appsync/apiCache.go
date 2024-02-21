@@ -18,12 +18,13 @@ import (
 type ApiCache struct {
 	pulumi.CustomResourceState
 
-	ApiCachingBehavior       pulumi.StringOutput  `pulumi:"apiCachingBehavior"`
-	ApiId                    pulumi.StringOutput  `pulumi:"apiId"`
-	AtRestEncryptionEnabled  pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
-	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
-	Ttl                      pulumi.Float64Output `pulumi:"ttl"`
-	Type                     pulumi.StringOutput  `pulumi:"type"`
+	ApiCachingBehavior       pulumi.StringOutput    `pulumi:"apiCachingBehavior"`
+	ApiId                    pulumi.StringOutput    `pulumi:"apiId"`
+	AtRestEncryptionEnabled  pulumi.BoolPtrOutput   `pulumi:"atRestEncryptionEnabled"`
+	HealthMetricsConfig      pulumi.StringPtrOutput `pulumi:"healthMetricsConfig"`
+	TransitEncryptionEnabled pulumi.BoolPtrOutput   `pulumi:"transitEncryptionEnabled"`
+	Ttl                      pulumi.Float64Output   `pulumi:"ttl"`
+	Type                     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewApiCache registers a new resource with the given unique name, arguments, and options.
@@ -85,6 +86,7 @@ type apiCacheArgs struct {
 	ApiCachingBehavior       string  `pulumi:"apiCachingBehavior"`
 	ApiId                    string  `pulumi:"apiId"`
 	AtRestEncryptionEnabled  *bool   `pulumi:"atRestEncryptionEnabled"`
+	HealthMetricsConfig      *string `pulumi:"healthMetricsConfig"`
 	TransitEncryptionEnabled *bool   `pulumi:"transitEncryptionEnabled"`
 	Ttl                      float64 `pulumi:"ttl"`
 	Type                     string  `pulumi:"type"`
@@ -95,6 +97,7 @@ type ApiCacheArgs struct {
 	ApiCachingBehavior       pulumi.StringInput
 	ApiId                    pulumi.StringInput
 	AtRestEncryptionEnabled  pulumi.BoolPtrInput
+	HealthMetricsConfig      pulumi.StringPtrInput
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 	Ttl                      pulumi.Float64Input
 	Type                     pulumi.StringInput
@@ -147,6 +150,10 @@ func (o ApiCacheOutput) ApiId() pulumi.StringOutput {
 
 func (o ApiCacheOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.BoolPtrOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApiCacheOutput) HealthMetricsConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.StringPtrOutput { return v.HealthMetricsConfig }).(pulumi.StringPtrOutput)
 }
 
 func (o ApiCacheOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {

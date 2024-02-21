@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSourceResult:
-    def __init__(__self__, data_source_arn=None, description=None, dynamo_db_config=None, elasticsearch_config=None, event_bridge_config=None, http_config=None, id=None, lambda_config=None, open_search_service_config=None, relational_database_config=None, service_role_arn=None, type=None):
+    def __init__(__self__, data_source_arn=None, description=None, dynamo_db_config=None, elasticsearch_config=None, event_bridge_config=None, http_config=None, id=None, lambda_config=None, metrics_config=None, open_search_service_config=None, relational_database_config=None, service_role_arn=None, type=None):
         if data_source_arn and not isinstance(data_source_arn, str):
             raise TypeError("Expected argument 'data_source_arn' to be a str")
         pulumi.set(__self__, "data_source_arn", data_source_arn)
@@ -44,6 +44,9 @@ class GetDataSourceResult:
         if lambda_config and not isinstance(lambda_config, dict):
             raise TypeError("Expected argument 'lambda_config' to be a dict")
         pulumi.set(__self__, "lambda_config", lambda_config)
+        if metrics_config and not isinstance(metrics_config, str):
+            raise TypeError("Expected argument 'metrics_config' to be a str")
+        pulumi.set(__self__, "metrics_config", metrics_config)
         if open_search_service_config and not isinstance(open_search_service_config, dict):
             raise TypeError("Expected argument 'open_search_service_config' to be a dict")
         pulumi.set(__self__, "open_search_service_config", open_search_service_config)
@@ -98,6 +101,11 @@ class GetDataSourceResult:
         return pulumi.get(self, "lambda_config")
 
     @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> Optional[str]:
+        return pulumi.get(self, "metrics_config")
+
+    @property
     @pulumi.getter(name="openSearchServiceConfig")
     def open_search_service_config(self) -> Optional['outputs.DataSourceOpenSearchServiceConfig']:
         return pulumi.get(self, "open_search_service_config")
@@ -132,6 +140,7 @@ class AwaitableGetDataSourceResult(GetDataSourceResult):
             http_config=self.http_config,
             id=self.id,
             lambda_config=self.lambda_config,
+            metrics_config=self.metrics_config,
             open_search_service_config=self.open_search_service_config,
             relational_database_config=self.relational_database_config,
             service_role_arn=self.service_role_arn,
@@ -157,6 +166,7 @@ def get_data_source(id: Optional[str] = None,
         http_config=pulumi.get(__ret__, 'http_config'),
         id=pulumi.get(__ret__, 'id'),
         lambda_config=pulumi.get(__ret__, 'lambda_config'),
+        metrics_config=pulumi.get(__ret__, 'metrics_config'),
         open_search_service_config=pulumi.get(__ret__, 'open_search_service_config'),
         relational_database_config=pulumi.get(__ret__, 'relational_database_config'),
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),

@@ -188,6 +188,9 @@ class AutomationRuleNumberFilter(dict):
 
 @pulumi.output_type
 class AutomationRuleRelatedFinding(dict):
+    """
+    Provides details about a list of findings that the current finding relates to.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -208,6 +211,10 @@ class AutomationRuleRelatedFinding(dict):
     def __init__(__self__, *,
                  id: str,
                  product_arn: str):
+        """
+        Provides details about a list of findings that the current finding relates to.
+        :param str product_arn: The Amazon Resource Name (ARN) for the product that generated a related finding.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "product_arn", product_arn)
 
@@ -219,6 +226,9 @@ class AutomationRuleRelatedFinding(dict):
     @property
     @pulumi.getter(name="productArn")
     def product_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for the product that generated a related finding.
+        """
         return pulumi.get(self, "product_arn")
 
 
@@ -296,7 +306,13 @@ class AutomationRuleWorkflowUpdate(dict):
 
 @pulumi.output_type
 class AutomationRulemap(dict):
+    """
+    An object of user-defined name and value string pair added to a finding.
+    """
     def __init__(__self__):
+        """
+        An object of user-defined name and value string pair added to a finding.
+        """
         pass
 
 
@@ -338,6 +354,9 @@ class AutomationRulesAction(dict):
 
 @pulumi.output_type
 class AutomationRulesFindingFieldsUpdate(dict):
+    """
+    The rule action will update the ``Note`` field of a finding.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -370,9 +389,11 @@ class AutomationRulesFindingFieldsUpdate(dict):
                  verification_state: Optional['AutomationRulesFindingFieldsUpdateVerificationState'] = None,
                  workflow: Optional['outputs.AutomationRuleWorkflowUpdate'] = None):
         """
-        :param 'AutomationRuleNoteUpdate' note: Note added to the finding
-        :param 'AutomationRuleSeverityUpdate' severity: Severity of the finding
-        :param 'AutomationRuleWorkflowUpdate' workflow: Workflow status set for the finding
+        The rule action will update the ``Note`` field of a finding.
+        :param 'AutomationRuleNoteUpdate' note: The rule action will update the ``Note`` field of a finding.
+        :param Sequence['AutomationRuleRelatedFinding'] related_findings: The rule action will update the ``RelatedFindings`` field of a finding.
+        :param 'AutomationRuleSeverityUpdate' severity: The rule action will update the ``Severity`` field of a finding.
+        :param 'AutomationRuleWorkflowUpdate' workflow: The rule action will update the ``Workflow`` field of a finding.
         """
         if confidence is not None:
             pulumi.set(__self__, "confidence", confidence)
@@ -407,20 +428,23 @@ class AutomationRulesFindingFieldsUpdate(dict):
     @pulumi.getter
     def note(self) -> Optional['outputs.AutomationRuleNoteUpdate']:
         """
-        Note added to the finding
+        The rule action will update the ``Note`` field of a finding.
         """
         return pulumi.get(self, "note")
 
     @property
     @pulumi.getter(name="relatedFindings")
     def related_findings(self) -> Optional[Sequence['outputs.AutomationRuleRelatedFinding']]:
+        """
+        The rule action will update the ``RelatedFindings`` field of a finding.
+        """
         return pulumi.get(self, "related_findings")
 
     @property
     @pulumi.getter
     def severity(self) -> Optional['outputs.AutomationRuleSeverityUpdate']:
         """
-        Severity of the finding
+        The rule action will update the ``Severity`` field of a finding.
         """
         return pulumi.get(self, "severity")
 
@@ -443,7 +467,7 @@ class AutomationRulesFindingFieldsUpdate(dict):
     @pulumi.getter
     def workflow(self) -> Optional['outputs.AutomationRuleWorkflowUpdate']:
         """
-        Workflow status set for the finding
+        The rule action will update the ``Workflow`` field of a finding.
         """
         return pulumi.get(self, "workflow")
 
@@ -821,7 +845,7 @@ class HubTags(dict):
 @pulumi.output_type
 class StandardsControl(dict):
     """
-    An individual StandardsControl within the Standard.
+    Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -844,9 +868,9 @@ class StandardsControl(dict):
                  standards_control_arn: str,
                  reason: Optional[str] = None):
         """
-        An individual StandardsControl within the Standard.
-        :param str standards_control_arn: the Arn for the standard control.
-        :param str reason: the reason the standard control is disabled
+        Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
+        :param str standards_control_arn: The Amazon Resource Name (ARN) of the control.
+        :param str reason: A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
         """
         pulumi.set(__self__, "standards_control_arn", standards_control_arn)
         if reason is not None:
@@ -856,7 +880,7 @@ class StandardsControl(dict):
     @pulumi.getter(name="standardsControlArn")
     def standards_control_arn(self) -> str:
         """
-        the Arn for the standard control.
+        The Amazon Resource Name (ARN) of the control.
         """
         return pulumi.get(self, "standards_control_arn")
 
@@ -864,7 +888,7 @@ class StandardsControl(dict):
     @pulumi.getter
     def reason(self) -> Optional[str]:
         """
-        the reason the standard control is disabled
+        A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
         """
         return pulumi.get(self, "reason")
 
