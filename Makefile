@@ -7,7 +7,6 @@ PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
 VERSION         := $(shell pulumictl get version)
 
-PROVIDER_PKGS	:= $(shell cd ./provider && go list ./...)
 WORKING_DIR		:= $(shell pwd)
 
 JAVA_GEN		 := pulumi-java-gen
@@ -63,7 +62,7 @@ cf2pulumi::
 	(cd provider && go build -o $(WORKING_DIR)/bin/cf2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/cf2pulumi)
 
 test_provider::
-	(cd provider && go test -v -coverpkg=./... -coverprofile=coverage.txt $(PROVIDER_PKGS))
+	(cd provider && go test -v -coverpkg=./... -coverprofile=coverage.txt ./...)
 
 lint_provider:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
