@@ -9,6 +9,9 @@
     "TransitEncryptionEnabled" : {
       "type" : "boolean"
     },
+    "HealthMetricsConfig" : {
+      "type" : "string"
+    },
     "AtRestEncryptionEnabled" : {
       "type" : "boolean"
     },
