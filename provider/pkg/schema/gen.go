@@ -20,6 +20,7 @@ import (
 
 const packageName = "aws-native"
 const globalTagToken = "aws-native:index:Tag"
+const globalCreateOnlyTagToken = "aws-native:index:CreateOnlyTag"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema,
@@ -30,6 +31,15 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		Properties: map[string]pschema.PropertySpec{
 			"key":   {TypeSpec: primitiveTypeSpec("String"), Description: "The key name of the tag"},
 			"value": {TypeSpec: primitiveTypeSpec("String"), Description: "The value of the tag"},
+		},
+		Required: []string{"key", "value"},
+	}
+	globalCreateOnlyTagType := pschema.ObjectTypeSpec{
+		Type:        "object",
+		Description: "A set of tags to apply to the resource.",
+		Properties: map[string]pschema.PropertySpec{
+			"key":   {TypeSpec: primitiveTypeSpec("String"), Description: "The key name of the tag", ReplaceOnChanges: true},
+			"value": {TypeSpec: primitiveTypeSpec("String"), Description: "The value of the tag", ReplaceOnChanges: true},
 		},
 		Required: []string{"key", "value"},
 	}
@@ -350,6 +360,9 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			globalTagToken: {
 				ObjectTypeSpec: globalTagType,
 			},
+			globalCreateOnlyTagToken: {
+				ObjectTypeSpec: globalCreateOnlyTagType,
+			},
 		},
 		Resources: map[string]pschema.ResourceSpec{
 			ExtensionResourceToken: {
@@ -444,6 +457,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			globalTagToken: {
 				Type:       "object",
 				Properties: globalTagType.Properties,
+			},
+			globalCreateOnlyTagToken: {
+				Type:       "object",
+				Properties: globalCreateOnlyTagType.Properties,
 			},
 		},
 		Functions: map[string]CloudAPIFunction{},
@@ -980,6 +997,11 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 			// Swap referenced type to shared definition and remove custom type.
 			oldRef := propertySpec.TypeSpec.Items.Ref
 			propertySpec.TypeSpec.Items.Ref = "#/types/" + globalTagToken
+			delete(ctx.pkg.Types, oldRef)
+		case TagsStyleKeyValueCreateOnlyArray:
+			// Swap referenced type to shared definition and remove custom type.
+			oldRef := propertySpec.TypeSpec.Items.Ref
+			propertySpec.TypeSpec.Items.Ref = "#/types/" + globalCreateOnlyTagToken
 			delete(ctx.pkg.Types, oldRef)
 		default: // Unknown
 			ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec

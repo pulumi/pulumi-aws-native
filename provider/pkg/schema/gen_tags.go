@@ -18,6 +18,9 @@ const (
 	TagsStyleStringMap TagsStyle = "stringMap"
 	// TagsStyleKeyValueArray is a style where the tags are represented as an array of key-value pairs.
 	TagsStyleKeyValueArray TagsStyle = "keyValueArray"
+	// TagsStyleKeyValueCreateOnlyArray is a style where the tags are represented as an array of key-value pairs, but
+	// the tags are create-only.
+	TagsStyleKeyValueCreateOnlyArray TagsStyle = "keyValueCreateOnlyArray"
 )
 
 func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
@@ -53,14 +56,18 @@ func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) Ta
 		return TagsStyleStringMap
 	}
 
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec) {
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, false /* includeCreateOnly */) {
 		return TagsStyleKeyValueArray
+	}
+
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeCreateOnly */) {
+		return TagsStyleKeyValueCreateOnlyArray
 	}
 
 	return TagsStyleUnknown
 }
 
-func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec) bool {
+func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec, includeCreateOnly bool) bool {
 	if typeSpec == nil || typeSpec.Items == nil || typeSpec.Items.Ref == "" {
 		return false
 	}
@@ -71,7 +78,7 @@ func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.T
 	}
 
 	// We can't include tags which are create-only properties because this has to be added on the tags type but this is a shared type
-	if createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties"); createOnlyProps.Has(ToSdkName(propName)) {
+	if createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties"); createOnlyProps.Has(ToSdkName(propName)) && !includeCreateOnly {
 		return false
 	}
 
