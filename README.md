@@ -27,7 +27,7 @@ To learn how to configure credentials refer to the [AWS configuration options](h
 - NodeJS 10.X.X or later
 - Yarn 1.22 or later
 - Python 3.6 or later
-- .NET Core 3.1
+- .NET 6 or greater
 - Gradel 7
 - Pulumi CLI and language plugins
 - pulumictl
