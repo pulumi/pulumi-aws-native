@@ -1165,7 +1165,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 	}
 
 	var mapType *jsschema.Schema
-	if propSchema.AdditionalProperties != nil {
+	if propSchema.AdditionalProperties != nil && propSchema.AdditionalProperties.Schema != nil {
 		mapType = propSchema.AdditionalProperties.Schema
 	} else if propSchema.PatternProperties != nil && len(propSchema.PatternProperties) == 1 {
 		// TODO: Capture pattern add add to documentation or even provider metadata for early validation feedback.
