@@ -40,7 +40,7 @@ func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
 	return strings.TrimPrefix(tagPropertyString, "/properties/"), true
 }
 
-func (ctx *context) GetTagsStyle(typeSpec *pschema.TypeSpec) TagsStyle {
+func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) TagsStyle {
 	if typeSpec == nil {
 		return TagsStyleUnknown
 	}
@@ -53,14 +53,14 @@ func (ctx *context) GetTagsStyle(typeSpec *pschema.TypeSpec) TagsStyle {
 		return TagsStyleStringMap
 	}
 
-	if ctx.tagStyleIsKeyValueArray(typeSpec) {
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec) {
 		return TagsStyleKeyValueArray
 	}
 
 	return TagsStyleUnknown
 }
 
-func (ctx *context) tagStyleIsKeyValueArray(typeSpec *pschema.TypeSpec) bool {
+func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec) bool {
 	if typeSpec == nil || typeSpec.Items == nil || typeSpec.Items.Ref == "" {
 		return false
 	}
@@ -71,7 +71,7 @@ func (ctx *context) tagStyleIsKeyValueArray(typeSpec *pschema.TypeSpec) bool {
 	}
 
 	// We can't include tags which are create-only properties because this has to be added on the tags type but this is a shared type
-	if createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties"); createOnlyProps.Has("tags") {
+	if createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties"); createOnlyProps.Has(ToSdkName(propName)) {
 		return false
 	}
 

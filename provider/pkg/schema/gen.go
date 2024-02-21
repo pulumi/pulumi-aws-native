@@ -972,7 +972,7 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 	}
 
 	if tagsProp, hasCustomTagsProp := GetTagsProperty(spec); propName == "Tags" || (hasCustomTagsProp && propName == tagsProp) {
-		switch ctx.GetTagsStyle(typeSpec) {
+		switch ctx.GetTagsStyle(propName, typeSpec) {
 		case TagsStyleUntyped:
 		case TagsStyleStringMap:
 			// Nothing to do

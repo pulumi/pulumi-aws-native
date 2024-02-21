@@ -11,14 +11,14 @@ import (
 func TestGetTagsStyle(t *testing.T) {
 	t.Run("defaults to unknown when typeSpec is nil", func(t *testing.T) {
 		ctx := &context{}
-		assert.Equal(t, TagsStyleUnknown, ctx.GetTagsStyle(nil))
+		assert.Equal(t, TagsStyleUnknown, ctx.GetTagsStyle("Tags", nil))
 	})
 	t.Run("untyped style", func(t *testing.T) {
 		ctx := &context{}
 		typeSpec := &schema.TypeSpec{
 			Ref: "pulumi.json#/Any",
 		}
-		assert.Equal(t, TagsStyleUntyped, ctx.GetTagsStyle(typeSpec))
+		assert.Equal(t, TagsStyleUntyped, ctx.GetTagsStyle("Tags", typeSpec))
 	})
 	t.Run("string map style", func(t *testing.T) {
 		ctx := &context{}
@@ -27,7 +27,7 @@ func TestGetTagsStyle(t *testing.T) {
 				Type: "string",
 			},
 		}
-		assert.Equal(t, TagsStyleStringMap, ctx.GetTagsStyle(typeSpec))
+		assert.Equal(t, TagsStyleStringMap, ctx.GetTagsStyle("Tags", typeSpec))
 	})
 	t.Run("key value array style", func(t *testing.T) {
 		ctx := &context{
@@ -49,7 +49,7 @@ func TestGetTagsStyle(t *testing.T) {
 				Ref: "#/types/pulumi:types:input:common:ComponentResourceOptions:TagsEntry",
 			},
 		}
-		assert.Equal(t, TagsStyleKeyValueArray, ctx.GetTagsStyle(typeSpec))
+		assert.Equal(t, TagsStyleKeyValueArray, ctx.GetTagsStyle("Tags", typeSpec))
 	})
 	t.Run("not key value array style with extra field", func(t *testing.T) {
 		ctx := &context{
@@ -72,7 +72,7 @@ func TestGetTagsStyle(t *testing.T) {
 				Ref: "#/types/pulumi:types:input:common:ComponentResourceOptions:TagsEntry",
 			},
 		}
-		assert.NotEqual(t, TagsStyleKeyValueArray, ctx.GetTagsStyle(typeSpec))
+		assert.NotEqual(t, TagsStyleKeyValueArray, ctx.GetTagsStyle("Tags", typeSpec))
 	})
 	t.Run("not key value array style if causes replacement", func(t *testing.T) {
 		ctx := &context{
@@ -99,6 +99,6 @@ func TestGetTagsStyle(t *testing.T) {
 				Ref: "#/types/pulumi:types:input:common:ComponentResourceOptions:TagsEntry",
 			},
 		}
-		assert.NotEqual(t, TagsStyleKeyValueArray, ctx.GetTagsStyle(typeSpec))
+		assert.NotEqual(t, TagsStyleKeyValueArray, ctx.GetTagsStyle("Tags", typeSpec))
 	})
 }
