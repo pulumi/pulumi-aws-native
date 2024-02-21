@@ -1043,6 +1043,27 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		if !ok {
 			return nil, errors.Errorf("definition %s not found in resource %s", schemaName, ctx.cfTypeName)
 		}
+		var mapType *jsschema.Schema
+		if typeSchema.AdditionalProperties != nil && typeSchema.AdditionalProperties.Schema != nil {
+			mapType = typeSchema.AdditionalProperties.Schema
+		} else if typeSchema.PatternProperties != nil && len(typeSchema.PatternProperties) == 1 {
+			// TODO: Capture pattern add add to documentation or even provider metadata for early validation feedback.
+			// https://github.com/pulumi/pulumi-aws-native/issues/1346
+			for _, schema := range typeSchema.PatternProperties {
+				mapType = schema
+			}
+		}
+
+		if mapType != nil {
+			valueType, err := ctx.propertyTypeSpec(parentName+"Value", mapType)
+			if err != nil {
+				return nil, err
+			}
+			return &pschema.TypeSpec{
+				Type:                 "object",
+				AdditionalProperties: valueType,
+			}, nil
+		}
 		baseType := ""
 		if len(typeSchema.Type) > 0 {
 			baseType = typeSchema.Type[0].String()
