@@ -26,6 +26,8 @@ class DbClusterParameterGroupArgs:
         :param pulumi.Input[str] description: A friendly description for this DB cluster parameter group.
         :param pulumi.Input[str] family: The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
         :param Any parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['DbClusterParameterGroupTagArgs']]] tags: The list of tags for the cluster parameter group.
         """
         pulumi.set(__self__, "description", description)
@@ -65,6 +67,8 @@ class DbClusterParameterGroupArgs:
     def parameters(self) -> Any:
         """
         An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 
@@ -113,6 +117,8 @@ class DbClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: A friendly description for this DB cluster parameter group.
         :param pulumi.Input[str] family: The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
         :param Any parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbClusterParameterGroupTagArgs']]]] tags: The list of tags for the cluster parameter group.
         """
         ...
@@ -221,6 +227,8 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     def parameters(self) -> pulumi.Output[Any]:
         """
         An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 

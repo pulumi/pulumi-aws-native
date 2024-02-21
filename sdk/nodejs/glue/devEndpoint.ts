@@ -37,6 +37,9 @@ export class DevEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === DevEndpoint.__pulumiType;
     }
 
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+     */
     public readonly arguments!: pulumi.Output<any | undefined>;
     public readonly endpointName!: pulumi.Output<string | undefined>;
     public readonly extraJarsS3Path!: pulumi.Output<string | undefined>;
@@ -50,6 +53,9 @@ export class DevEndpoint extends pulumi.CustomResource {
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly subnetId!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly workerType!: pulumi.Output<string | undefined>;
 
@@ -112,6 +118,9 @@ export class DevEndpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a DevEndpoint resource.
  */
 export interface DevEndpointArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+     */
     arguments?: any;
     endpointName?: pulumi.Input<string>;
     extraJarsS3Path?: pulumi.Input<string>;
@@ -125,6 +134,9 @@ export interface DevEndpointArgs {
     securityConfiguration?: pulumi.Input<string>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetId?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+     */
     tags?: any;
     workerType?: pulumi.Input<string>;
 }

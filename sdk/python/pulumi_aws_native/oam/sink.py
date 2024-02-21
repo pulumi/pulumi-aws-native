@@ -21,7 +21,11 @@ class SinkArgs:
         The set of arguments for constructing a Sink resource.
         :param pulumi.Input[str] name: The name of the ObservabilityAccessManager Sink.
         :param Any policy: The policy of this ObservabilityAccessManager Sink.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         :param Any tags: Tags to apply to the sink
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -47,6 +51,8 @@ class SinkArgs:
     def policy(self) -> Optional[Any]:
         """
         The policy of this ObservabilityAccessManager Sink.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 
@@ -59,6 +65,8 @@ class SinkArgs:
     def tags(self) -> Optional[Any]:
         """
         Tags to apply to the sink
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
 
@@ -83,7 +91,11 @@ class Sink(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the ObservabilityAccessManager Sink.
         :param Any policy: The policy of this ObservabilityAccessManager Sink.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         :param Any tags: Tags to apply to the sink
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -176,6 +188,8 @@ class Sink(pulumi.CustomResource):
     def policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy of this ObservabilityAccessManager Sink.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 
@@ -184,6 +198,8 @@ class Sink(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Any]]:
         """
         Tags to apply to the sink
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
 

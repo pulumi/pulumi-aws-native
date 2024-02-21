@@ -56,10 +56,14 @@ export class IntegrationResponse extends pulumi.CustomResource {
     public readonly integrationResponseKey!: pulumi.Output<string>;
     /**
      * A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
      */
     public readonly responseParameters!: pulumi.Output<any | undefined>;
     /**
      * The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
      */
     public readonly responseTemplates!: pulumi.Output<any | undefined>;
     /**
@@ -137,10 +141,14 @@ export interface IntegrationResponseArgs {
     integrationResponseKey: pulumi.Input<string>;
     /**
      * A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
      */
     responseParameters?: any;
     /**
      * The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
      */
     responseTemplates?: any;
     /**

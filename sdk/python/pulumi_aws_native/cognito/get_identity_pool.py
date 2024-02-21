@@ -99,6 +99,9 @@ class GetIdentityPoolResult:
     @property
     @pulumi.getter(name="supportedLoginProviders")
     def supported_login_providers(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "supported_login_providers")
 
 

@@ -31,6 +31,8 @@ type LookupGroupPolicyArgs struct {
 
 type LookupGroupPolicyResult struct {
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
@@ -73,6 +75,8 @@ func (o LookupGroupPolicyResultOutput) ToLookupGroupPolicyResultOutputWithContex
 }
 
 // The policy document.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
 func (o LookupGroupPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupGroupPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

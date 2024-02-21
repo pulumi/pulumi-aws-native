@@ -39,6 +39,9 @@ export class ParameterGroup extends pulumi.CustomResource {
 
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly parameterGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
+     */
     public readonly parameterNameValues!: pulumi.Output<any | undefined>;
 
     /**
@@ -75,5 +78,8 @@ export class ParameterGroup extends pulumi.CustomResource {
 export interface ParameterGroupArgs {
     description?: pulumi.Input<string>;
     parameterGroupName?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
+     */
     parameterNameValues?: any;
 }

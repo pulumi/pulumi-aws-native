@@ -22,6 +22,9 @@ export interface GetArchiveArgs {
 export interface GetArchiveResult {
     readonly arn?: string;
     readonly description?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+     */
     readonly eventPattern?: any;
     readonly retentionDays?: number;
 }

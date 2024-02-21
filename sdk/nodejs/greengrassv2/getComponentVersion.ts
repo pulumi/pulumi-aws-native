@@ -23,6 +23,9 @@ export interface GetComponentVersionResult {
     readonly arn?: string;
     readonly componentName?: string;
     readonly componentVersion?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

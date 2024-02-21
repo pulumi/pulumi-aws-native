@@ -59,6 +59,8 @@ namespace Pulumi.AwsNative.NetworkManager
 
         /// <summary>
         /// Live policy document for the core network, you must provide PolicyDocument in Json Format
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
         /// </summary>
         [Output("policyDocument")]
         public Output<object?> PolicyDocument { get; private set; } = null!;
@@ -144,6 +146,8 @@ namespace Pulumi.AwsNative.NetworkManager
 
         /// <summary>
         /// Live policy document for the core network, you must provide PolicyDocument in Json Format
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
         /// </summary>
         [Input("policyDocument")]
         public Input<object>? PolicyDocument { get; set; }

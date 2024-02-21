@@ -28,6 +28,7 @@ class DataLakeSettingsArgs:
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DataLakeSettings resource.
+        :param Any parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
         """
         if admins is not None:
             pulumi.set(__self__, "admins", admins)
@@ -125,6 +126,9 @@ class DataLakeSettingsArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -167,6 +171,7 @@ class DataLakeSettings(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -299,6 +304,9 @@ class DataLakeSettings(pulumi.CustomResource):
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameters")
 
     @property

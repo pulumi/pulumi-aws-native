@@ -26,6 +26,8 @@ type Model struct {
 	// The name of the model.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
 	Schema pulumi.AnyOutput `pulumi:"schema"`
 }
 
@@ -88,6 +90,8 @@ type modelArgs struct {
 	// The name of the model.
 	Name *string `pulumi:"name"`
 	// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
 	Schema interface{} `pulumi:"schema"`
 }
 
@@ -102,6 +106,8 @@ type ModelArgs struct {
 	// The name of the model.
 	Name pulumi.StringPtrInput
 	// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
 	Schema pulumi.Input
 }
 
@@ -167,6 +173,8 @@ func (o ModelOutput) Name() pulumi.StringOutput {
 }
 
 // The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
 func (o ModelOutput) Schema() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Model) pulumi.AnyOutput { return v.Schema }).(pulumi.AnyOutput)
 }

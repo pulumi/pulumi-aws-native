@@ -21,7 +21,8 @@ type DeviceDefinition struct {
 	InitialVersion   DeviceDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                  `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                  `pulumi:"name"`
-	Tags             pulumi.AnyOutput                     `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::DeviceDefinition` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewDeviceDefinition registers a new resource with the given unique name, arguments, and options.
@@ -70,14 +71,16 @@ func (DeviceDefinitionState) ElementType() reflect.Type {
 type deviceDefinitionArgs struct {
 	InitialVersion *DeviceDefinitionVersionType `pulumi:"initialVersion"`
 	Name           *string                      `pulumi:"name"`
-	Tags           interface{}                  `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::DeviceDefinition` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeviceDefinition resource.
 type DeviceDefinitionArgs struct {
 	InitialVersion DeviceDefinitionVersionTypePtrInput
 	Name           pulumi.StringPtrInput
-	Tags           pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::DeviceDefinition` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (DeviceDefinitionArgs) ElementType() reflect.Type {
@@ -133,6 +136,7 @@ func (o DeviceDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::DeviceDefinition` for more information about the expected schema for this property.
 func (o DeviceDefinitionOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DeviceDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

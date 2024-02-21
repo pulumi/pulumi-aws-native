@@ -37,6 +37,8 @@ class LayerArgs:
                  volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LayerVolumeConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Layer resource.
+        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        :param Any custom_json: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "auto_assign_elastic_ips", auto_assign_elastic_ips)
         pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
@@ -128,6 +130,9 @@ class LayerArgs:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -146,6 +151,9 @@ class LayerArgs:
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "custom_json")
 
     @custom_json.setter
@@ -278,6 +286,8 @@ class Layer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        :param Any custom_json: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -411,6 +421,9 @@ class Layer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @property
@@ -431,6 +444,9 @@ class Layer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "custom_json")
 
     @property

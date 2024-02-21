@@ -39,6 +39,8 @@ export class Topic extends pulumi.CustomResource {
 
     /**
      * The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
      */
     public readonly archivePolicy!: pulumi.Output<any | undefined>;
     /**
@@ -57,6 +59,8 @@ export class Topic extends pulumi.CustomResource {
      * The policy must be in JSON string format.
      *
      * Length Constraints: Maximum length of 30720
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
      */
     public readonly dataProtectionPolicy!: pulumi.Output<any | undefined>;
     /**
@@ -150,6 +154,8 @@ export class Topic extends pulumi.CustomResource {
 export interface TopicArgs {
     /**
      * The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
      */
     archivePolicy?: any;
     /**
@@ -168,6 +174,8 @@ export interface TopicArgs {
      * The policy must be in JSON string format.
      *
      * Length Constraints: Maximum length of 30720
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
      */
     dataProtectionPolicy?: any;
     /**

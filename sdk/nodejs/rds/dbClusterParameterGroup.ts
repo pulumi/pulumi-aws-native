@@ -48,6 +48,8 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
     public readonly family!: pulumi.Output<string>;
     /**
      * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
      */
     public readonly parameters!: pulumi.Output<any>;
     /**
@@ -109,6 +111,8 @@ export interface DbClusterParameterGroupArgs {
     family: pulumi.Input<string>;
     /**
      * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
      */
     parameters: any;
     /**

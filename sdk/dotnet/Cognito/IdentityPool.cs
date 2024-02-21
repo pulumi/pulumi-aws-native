@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("allowUnauthenticatedIdentities")]
         public Output<bool> AllowUnauthenticatedIdentities { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        /// </summary>
         [Output("cognitoEvents")]
         public Output<object?> CognitoEvents { get; private set; } = null!;
 
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("samlProviderArns")]
         public Output<ImmutableArray<string>> SamlProviderArns { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        /// </summary>
         [Output("supportedLoginProviders")]
         public Output<object?> SupportedLoginProviders { get; private set; } = null!;
 
@@ -102,6 +108,9 @@ namespace Pulumi.AwsNative.Cognito
         [Input("allowUnauthenticatedIdentities", required: true)]
         public Input<bool> AllowUnauthenticatedIdentities { get; set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        /// </summary>
         [Input("cognitoEvents")]
         public Input<object>? CognitoEvents { get; set; }
 
@@ -141,6 +150,9 @@ namespace Pulumi.AwsNative.Cognito
             set => _samlProviderArns = value;
         }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        /// </summary>
         [Input("supportedLoginProviders")]
         public Input<object>? SupportedLoginProviders { get; set; }
 

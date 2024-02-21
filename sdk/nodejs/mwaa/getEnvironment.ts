@@ -33,6 +33,8 @@ export interface GetEnvironmentResult {
      *     Would be represented as
      *
      *     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
      */
     readonly airflowConfigurationOptions?: any;
     readonly airflowVersion?: string;
@@ -56,6 +58,8 @@ export interface GetEnvironmentResult {
     readonly startupScriptS3Path?: string;
     /**
      * A map of tags for the environment.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
      */
     readonly tags?: any;
     readonly webserverAccessMode?: enums.mwaa.EnvironmentWebserverAccessMode;

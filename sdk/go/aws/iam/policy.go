@@ -21,6 +21,8 @@ type Policy struct {
 	// The name of the group to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The name of the policy document. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
@@ -76,6 +78,8 @@ type policyArgs struct {
 	// The name of the group to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
 	Groups []string `pulumi:"groups"`
 	// The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The name of the policy document. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	PolicyName *string `pulumi:"policyName"`
@@ -90,6 +94,8 @@ type PolicyArgs struct {
 	// The name of the group to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
 	Groups pulumi.StringArrayInput
 	// The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The name of the policy document. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	PolicyName pulumi.StringPtrInput
@@ -142,6 +148,8 @@ func (o PolicyOutput) Groups() pulumi.StringArrayOutput {
 }
 
 // The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
 func (o PolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Policy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

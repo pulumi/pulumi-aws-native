@@ -39,8 +39,14 @@ export class InAppTemplate extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly content!: pulumi.Output<outputs.pinpoint.InAppTemplateInAppMessageContent[] | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+     */
     public readonly customConfig!: pulumi.Output<any | undefined>;
     public readonly layout!: pulumi.Output<enums.pinpoint.InAppTemplateLayout | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly templateDescription!: pulumi.Output<string | undefined>;
     public readonly templateName!: pulumi.Output<string>;
@@ -87,8 +93,14 @@ export class InAppTemplate extends pulumi.CustomResource {
  */
 export interface InAppTemplateArgs {
     content?: pulumi.Input<pulumi.Input<inputs.pinpoint.InAppTemplateInAppMessageContentArgs>[]>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+     */
     customConfig?: any;
     layout?: pulumi.Input<enums.pinpoint.InAppTemplateLayout>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+     */
     tags?: any;
     templateDescription?: pulumi.Input<string>;
     templateName: pulumi.Input<string>;

@@ -27,8 +27,9 @@ type LookupInputSecurityGroupArgs struct {
 }
 
 type LookupInputSecurityGroupResult struct {
-	Arn            *string                                    `pulumi:"arn"`
-	Id             *string                                    `pulumi:"id"`
+	Arn *string `pulumi:"arn"`
+	Id  *string `pulumi:"id"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
 	Tags           interface{}                                `pulumi:"tags"`
 	WhitelistRules []InputSecurityGroupInputWhitelistRuleCidr `pulumi:"whitelistRules"`
 }
@@ -76,6 +77,7 @@ func (o LookupInputSecurityGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInputSecurityGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
 func (o LookupInputSecurityGroupResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupInputSecurityGroupResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

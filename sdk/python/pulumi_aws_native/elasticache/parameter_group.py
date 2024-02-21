@@ -22,6 +22,7 @@ class ParameterGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
+        :param Any properties: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "cache_parameter_group_family", cache_parameter_group_family)
         pulumi.set(__self__, "description", description)
@@ -51,6 +52,9 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def properties(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -87,6 +91,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any properties: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -177,6 +182,9 @@ class ParameterGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def properties(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "properties")
 
     @property

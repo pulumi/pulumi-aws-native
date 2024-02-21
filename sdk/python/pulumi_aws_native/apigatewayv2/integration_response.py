@@ -31,7 +31,11 @@ class IntegrationResponseArgs:
                  ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
                 If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
         :param Any response_parameters: A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
         :param Any response_templates: The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
         :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration response. Supported only for WebSocket APIs.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -102,6 +106,8 @@ class IntegrationResponseArgs:
     def response_parameters(self) -> Optional[Any]:
         """
         A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "response_parameters")
 
@@ -114,6 +120,8 @@ class IntegrationResponseArgs:
     def response_templates(self) -> Optional[Any]:
         """
         The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "response_templates")
 
@@ -160,7 +168,11 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[str] integration_id: The integration ID.
         :param pulumi.Input[str] integration_response_key: The integration response key.
         :param Any response_parameters: A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
         :param Any response_templates: The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
         :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration response. Supported only for WebSocket APIs.
         """
         ...
@@ -296,6 +308,8 @@ class IntegrationResponse(pulumi.CustomResource):
     def response_parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "response_parameters")
 
@@ -304,6 +318,8 @@ class IntegrationResponse(pulumi.CustomResource):
     def response_templates(self) -> pulumi.Output[Optional[Any]]:
         """
         The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "response_templates")
 

@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.DocDb
     public sealed class GetDbClusterParameterGroupResult
     {
         public readonly string? Id;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DocDB::DBClusterParameterGroup` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Parameters;
         public readonly ImmutableArray<Outputs.DbClusterParameterGroupTag> Tags;
 

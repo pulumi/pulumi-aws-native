@@ -78,6 +78,9 @@ class GetLayerResult:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @property
@@ -98,6 +101,9 @@ class GetLayerResult:
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "custom_json")
 
     @property

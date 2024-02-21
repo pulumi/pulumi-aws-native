@@ -27,11 +27,12 @@ type LookupLoggerDefinitionArgs struct {
 }
 
 type LookupLoggerDefinitionResult struct {
-	Arn              *string     `pulumi:"arn"`
-	Id               *string     `pulumi:"id"`
-	LatestVersionArn *string     `pulumi:"latestVersionArn"`
-	Name             *string     `pulumi:"name"`
-	Tags             interface{} `pulumi:"tags"`
+	Arn              *string `pulumi:"arn"`
+	Id               *string `pulumi:"id"`
+	LatestVersionArn *string `pulumi:"latestVersionArn"`
+	Name             *string `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::LoggerDefinition` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupLoggerDefinitionOutput(ctx *pulumi.Context, args LookupLoggerDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupLoggerDefinitionResultOutput {
@@ -85,6 +86,7 @@ func (o LookupLoggerDefinitionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoggerDefinitionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::LoggerDefinition` for more information about the expected schema for this property.
 func (o LookupLoggerDefinitionResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupLoggerDefinitionResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

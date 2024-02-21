@@ -21,6 +21,9 @@ export interface GetWaitConditionArgs {
 
 export interface GetWaitConditionResult {
     readonly count?: number;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::WaitCondition` for more information about the expected schema for this property.
+     */
     readonly data?: any;
     readonly handle?: string;
     readonly id?: string;

@@ -27,7 +27,8 @@ type LookupRegistryPolicyArgs struct {
 }
 
 type LookupRegistryPolicyResult struct {
-	Id           *string     `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
 	Policy       interface{} `pulumi:"policy"`
 	RegistryName *string     `pulumi:"registryName"`
 	RevisionId   *string     `pulumi:"revisionId"`
@@ -72,6 +73,7 @@ func (o LookupRegistryPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
 func (o LookupRegistryPolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRegistryPolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

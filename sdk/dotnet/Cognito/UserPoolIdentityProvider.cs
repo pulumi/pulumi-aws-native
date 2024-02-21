@@ -15,12 +15,18 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolIdentityProvider")]
     public partial class UserPoolIdentityProvider : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        /// </summary>
         [Output("attributeMapping")]
         public Output<object?> AttributeMapping { get; private set; } = null!;
 
         [Output("idpIdentifiers")]
         public Output<ImmutableArray<string>> IdpIdentifiers { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        /// </summary>
         [Output("providerDetails")]
         public Output<object?> ProviderDetails { get; private set; } = null!;
 
@@ -84,6 +90,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class UserPoolIdentityProviderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        /// </summary>
         [Input("attributeMapping")]
         public Input<object>? AttributeMapping { get; set; }
 
@@ -95,6 +104,9 @@ namespace Pulumi.AwsNative.Cognito
             set => _idpIdentifiers = value;
         }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        /// </summary>
         [Input("providerDetails")]
         public Input<object>? ProviderDetails { get; set; }
 

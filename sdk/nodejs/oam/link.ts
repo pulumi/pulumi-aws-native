@@ -44,6 +44,8 @@ export class Link extends pulumi.CustomResource {
     public readonly sinkIdentifier!: pulumi.Output<string>;
     /**
      * Tags to apply to the link
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
      */
     public readonly tags!: pulumi.Output<any | undefined>;
 
@@ -94,6 +96,8 @@ export interface LinkArgs {
     sinkIdentifier: pulumi.Input<string>;
     /**
      * Tags to apply to the link
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
      */
     tags?: any;
 }

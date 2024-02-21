@@ -41,6 +41,8 @@ namespace Pulumi.AwsNative.MemoryDb
 
         /// <summary>
         /// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
         /// </summary>
         [Output("parameters")]
         public Output<object?> Parameters { get; private set; } = null!;
@@ -122,6 +124,8 @@ namespace Pulumi.AwsNative.MemoryDb
 
         /// <summary>
         /// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
         /// </summary>
         [Input("parameters")]
         public Input<object>? Parameters { get; set; }

@@ -27,6 +27,7 @@ type LookupDomainArgs struct {
 }
 
 type LookupDomainResult struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
 	AccessPolicies              interface{}                          `pulumi:"accessPolicies"`
 	AdvancedOptions             map[string]string                    `pulumi:"advancedOptions"`
 	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput  `pulumi:"advancedSecurityOptions"`
@@ -89,6 +90,7 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx cont
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
 func (o LookupDomainResultOutput) AccessPolicies() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.AccessPolicies }).(pulumi.AnyOutput)
 }

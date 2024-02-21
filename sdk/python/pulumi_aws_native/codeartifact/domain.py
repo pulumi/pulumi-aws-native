@@ -25,6 +25,8 @@ class DomainArgs:
         :param pulumi.Input[str] domain_name: The name of the domain.
         :param pulumi.Input[str] encryption_key: The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
         :param Any permissions_policy_document: The access control resource policy on the provided domain.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if domain_name is not None:
@@ -65,6 +67,8 @@ class DomainArgs:
     def permissions_policy_document(self) -> Optional[Any]:
         """
         The access control resource policy on the provided domain.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "permissions_policy_document")
 
@@ -103,6 +107,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] domain_name: The name of the domain.
         :param pulumi.Input[str] encryption_key: The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
         :param Any permissions_policy_document: The access control resource policy on the provided domain.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -227,6 +233,8 @@ class Domain(pulumi.CustomResource):
     def permissions_policy_document(self) -> pulumi.Output[Optional[Any]]:
         """
         The access control resource policy on the provided domain.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "permissions_policy_document")
 

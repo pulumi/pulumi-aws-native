@@ -44,6 +44,8 @@ export interface GetRepositoryResult {
     readonly name?: string;
     /**
      * The access control resource policy on the provided repository.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
      */
     readonly permissionsPolicyDocument?: any;
     /**

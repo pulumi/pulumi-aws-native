@@ -21,6 +21,8 @@ type ClusterPolicy struct {
 	// The current version of the policy attached to the specified cluster
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
 	// A policy document containing permissions to add to the specified cluster.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 }
 
@@ -77,6 +79,8 @@ type clusterPolicyArgs struct {
 	// The arn of the cluster for the resource policy.
 	ClusterArn string `pulumi:"clusterArn"`
 	// A policy document containing permissions to add to the specified cluster.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -85,6 +89,8 @@ type ClusterPolicyArgs struct {
 	// The arn of the cluster for the resource policy.
 	ClusterArn pulumi.StringInput
 	// A policy document containing permissions to add to the specified cluster.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
 	Policy pulumi.Input
 }
 
@@ -136,6 +142,8 @@ func (o ClusterPolicyOutput) CurrentVersion() pulumi.StringOutput {
 }
 
 // A policy document containing permissions to add to the specified cluster.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
 func (o ClusterPolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ClusterPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }

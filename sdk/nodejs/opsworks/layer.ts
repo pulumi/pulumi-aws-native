@@ -40,10 +40,16 @@ export class Layer extends pulumi.CustomResource {
         return obj['__pulumiType'] === Layer.__pulumiType;
     }
 
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+     */
     public readonly attributes!: pulumi.Output<any | undefined>;
     public readonly autoAssignElasticIps!: pulumi.Output<boolean>;
     public readonly autoAssignPublicIps!: pulumi.Output<boolean>;
     public readonly customInstanceProfileArn!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+     */
     public readonly customJson!: pulumi.Output<any | undefined>;
     public readonly customRecipes!: pulumi.Output<outputs.opsworks.LayerRecipes | undefined>;
     public readonly customSecurityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -142,10 +148,16 @@ export class Layer extends pulumi.CustomResource {
  * The set of arguments for constructing a Layer resource.
  */
 export interface LayerArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+     */
     attributes?: any;
     autoAssignElasticIps: pulumi.Input<boolean>;
     autoAssignPublicIps: pulumi.Input<boolean>;
     customInstanceProfileArn?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+     */
     customJson?: any;
     customRecipes?: pulumi.Input<inputs.opsworks.LayerRecipesArgs>;
     customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;

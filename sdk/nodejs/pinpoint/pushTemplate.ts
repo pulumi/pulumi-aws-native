@@ -47,6 +47,9 @@ export class PushTemplate extends pulumi.CustomResource {
     public readonly default!: pulumi.Output<outputs.pinpoint.PushTemplateDefaultPushNotificationTemplate | undefined>;
     public readonly defaultSubstitutions!: pulumi.Output<string | undefined>;
     public readonly gcm!: pulumi.Output<outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::PushTemplate` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly templateDescription!: pulumi.Output<string | undefined>;
     public readonly templateName!: pulumi.Output<string>;
@@ -106,6 +109,9 @@ export interface PushTemplateArgs {
     default?: pulumi.Input<inputs.pinpoint.PushTemplateDefaultPushNotificationTemplateArgs>;
     defaultSubstitutions?: pulumi.Input<string>;
     gcm?: pulumi.Input<inputs.pinpoint.PushTemplateAndroidPushNotificationTemplateArgs>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::PushTemplate` for more information about the expected schema for this property.
+     */
     tags?: any;
     templateDescription?: pulumi.Input<string>;
     templateName: pulumi.Input<string>;

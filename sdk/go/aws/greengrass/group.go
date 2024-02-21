@@ -23,7 +23,8 @@ type Group struct {
 	Name             pulumi.StringOutput       `pulumi:"name"`
 	RoleArn          pulumi.StringPtrOutput    `pulumi:"roleArn"`
 	RoleAttachedAt   pulumi.StringOutput       `pulumi:"roleAttachedAt"`
-	Tags             pulumi.AnyOutput          `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::Group` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +74,8 @@ type groupArgs struct {
 	InitialVersion *GroupVersionType `pulumi:"initialVersion"`
 	Name           *string           `pulumi:"name"`
 	RoleArn        *string           `pulumi:"roleArn"`
-	Tags           interface{}       `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::Group` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -81,7 +83,8 @@ type GroupArgs struct {
 	InitialVersion GroupVersionTypePtrInput
 	Name           pulumi.StringPtrInput
 	RoleArn        pulumi.StringPtrInput
-	Tags           pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::Group` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -145,6 +148,7 @@ func (o GroupOutput) RoleAttachedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.RoleAttachedAt }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::Group` for more information about the expected schema for this property.
 func (o GroupOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Group) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

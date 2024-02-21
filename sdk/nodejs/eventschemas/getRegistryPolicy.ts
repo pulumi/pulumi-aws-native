@@ -21,6 +21,9 @@ export interface GetRegistryPolicyArgs {
 
 export interface GetRegistryPolicyResult {
     readonly id?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+     */
     readonly policy?: any;
     readonly registryName?: string;
     readonly revisionId?: string;

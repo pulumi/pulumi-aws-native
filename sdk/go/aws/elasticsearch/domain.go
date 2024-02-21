@@ -17,24 +17,27 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
-	AccessPolicies              pulumi.AnyOutput                            `pulumi:"accessPolicies"`
-	AdvancedOptions             pulumi.AnyOutput                            `pulumi:"advancedOptions"`
-	AdvancedSecurityOptions     DomainAdvancedSecurityOptionsInputPtrOutput `pulumi:"advancedSecurityOptions"`
-	Arn                         pulumi.StringOutput                         `pulumi:"arn"`
-	CognitoOptions              DomainCognitoOptionsPtrOutput               `pulumi:"cognitoOptions"`
-	DomainArn                   pulumi.StringOutput                         `pulumi:"domainArn"`
-	DomainEndpoint              pulumi.StringOutput                         `pulumi:"domainEndpoint"`
-	DomainEndpointOptions       DomainEndpointOptionsPtrOutput              `pulumi:"domainEndpointOptions"`
-	DomainName                  pulumi.StringPtrOutput                      `pulumi:"domainName"`
-	EbsOptions                  DomainEbsOptionsPtrOutput                   `pulumi:"ebsOptions"`
-	ElasticsearchClusterConfig  DomainElasticsearchClusterConfigPtrOutput   `pulumi:"elasticsearchClusterConfig"`
-	ElasticsearchVersion        pulumi.StringPtrOutput                      `pulumi:"elasticsearchVersion"`
-	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrOutput      `pulumi:"encryptionAtRestOptions"`
-	LogPublishingOptions        pulumi.AnyOutput                            `pulumi:"logPublishingOptions"`
-	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrOutput  `pulumi:"nodeToNodeEncryptionOptions"`
-	SnapshotOptions             DomainSnapshotOptionsPtrOutput              `pulumi:"snapshotOptions"`
-	Tags                        DomainTagArrayOutput                        `pulumi:"tags"`
-	VpcOptions                  DomainVpcOptionsPtrOutput                   `pulumi:"vpcOptions"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+	AccessPolicies pulumi.AnyOutput `pulumi:"accessPolicies"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+	AdvancedOptions            pulumi.AnyOutput                            `pulumi:"advancedOptions"`
+	AdvancedSecurityOptions    DomainAdvancedSecurityOptionsInputPtrOutput `pulumi:"advancedSecurityOptions"`
+	Arn                        pulumi.StringOutput                         `pulumi:"arn"`
+	CognitoOptions             DomainCognitoOptionsPtrOutput               `pulumi:"cognitoOptions"`
+	DomainArn                  pulumi.StringOutput                         `pulumi:"domainArn"`
+	DomainEndpoint             pulumi.StringOutput                         `pulumi:"domainEndpoint"`
+	DomainEndpointOptions      DomainEndpointOptionsPtrOutput              `pulumi:"domainEndpointOptions"`
+	DomainName                 pulumi.StringPtrOutput                      `pulumi:"domainName"`
+	EbsOptions                 DomainEbsOptionsPtrOutput                   `pulumi:"ebsOptions"`
+	ElasticsearchClusterConfig DomainElasticsearchClusterConfigPtrOutput   `pulumi:"elasticsearchClusterConfig"`
+	ElasticsearchVersion       pulumi.StringPtrOutput                      `pulumi:"elasticsearchVersion"`
+	EncryptionAtRestOptions    DomainEncryptionAtRestOptionsPtrOutput      `pulumi:"encryptionAtRestOptions"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+	LogPublishingOptions        pulumi.AnyOutput                           `pulumi:"logPublishingOptions"`
+	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrOutput `pulumi:"nodeToNodeEncryptionOptions"`
+	SnapshotOptions             DomainSnapshotOptionsPtrOutput             `pulumi:"snapshotOptions"`
+	Tags                        DomainTagArrayOutput                       `pulumi:"tags"`
+	VpcOptions                  DomainVpcOptionsPtrOutput                  `pulumi:"vpcOptions"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -81,35 +84,41 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	AccessPolicies              interface{}                         `pulumi:"accessPolicies"`
-	AdvancedOptions             interface{}                         `pulumi:"advancedOptions"`
-	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
-	CognitoOptions              *DomainCognitoOptions               `pulumi:"cognitoOptions"`
-	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
-	DomainName                  *string                             `pulumi:"domainName"`
-	EbsOptions                  *DomainEbsOptions                   `pulumi:"ebsOptions"`
-	ElasticsearchClusterConfig  *DomainElasticsearchClusterConfig   `pulumi:"elasticsearchClusterConfig"`
-	ElasticsearchVersion        *string                             `pulumi:"elasticsearchVersion"`
-	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
-	LogPublishingOptions        interface{}                         `pulumi:"logPublishingOptions"`
-	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
-	SnapshotOptions             *DomainSnapshotOptions              `pulumi:"snapshotOptions"`
-	Tags                        []DomainTag                         `pulumi:"tags"`
-	VpcOptions                  *DomainVpcOptions                   `pulumi:"vpcOptions"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+	AccessPolicies interface{} `pulumi:"accessPolicies"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+	AdvancedOptions            interface{}                         `pulumi:"advancedOptions"`
+	AdvancedSecurityOptions    *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
+	CognitoOptions             *DomainCognitoOptions               `pulumi:"cognitoOptions"`
+	DomainEndpointOptions      *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
+	DomainName                 *string                             `pulumi:"domainName"`
+	EbsOptions                 *DomainEbsOptions                   `pulumi:"ebsOptions"`
+	ElasticsearchClusterConfig *DomainElasticsearchClusterConfig   `pulumi:"elasticsearchClusterConfig"`
+	ElasticsearchVersion       *string                             `pulumi:"elasticsearchVersion"`
+	EncryptionAtRestOptions    *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+	LogPublishingOptions        interface{}                        `pulumi:"logPublishingOptions"`
+	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions `pulumi:"nodeToNodeEncryptionOptions"`
+	SnapshotOptions             *DomainSnapshotOptions             `pulumi:"snapshotOptions"`
+	Tags                        []DomainTag                        `pulumi:"tags"`
+	VpcOptions                  *DomainVpcOptions                  `pulumi:"vpcOptions"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	AccessPolicies              pulumi.Input
-	AdvancedOptions             pulumi.Input
-	AdvancedSecurityOptions     DomainAdvancedSecurityOptionsInputPtrInput
-	CognitoOptions              DomainCognitoOptionsPtrInput
-	DomainEndpointOptions       DomainEndpointOptionsPtrInput
-	DomainName                  pulumi.StringPtrInput
-	EbsOptions                  DomainEbsOptionsPtrInput
-	ElasticsearchClusterConfig  DomainElasticsearchClusterConfigPtrInput
-	ElasticsearchVersion        pulumi.StringPtrInput
-	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+	AccessPolicies pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
+	AdvancedOptions            pulumi.Input
+	AdvancedSecurityOptions    DomainAdvancedSecurityOptionsInputPtrInput
+	CognitoOptions             DomainCognitoOptionsPtrInput
+	DomainEndpointOptions      DomainEndpointOptionsPtrInput
+	DomainName                 pulumi.StringPtrInput
+	EbsOptions                 DomainEbsOptionsPtrInput
+	ElasticsearchClusterConfig DomainElasticsearchClusterConfigPtrInput
+	ElasticsearchVersion       pulumi.StringPtrInput
+	EncryptionAtRestOptions    DomainEncryptionAtRestOptionsPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
 	LogPublishingOptions        pulumi.Input
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrInput
 	SnapshotOptions             DomainSnapshotOptionsPtrInput
@@ -154,10 +163,12 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
 func (o DomainOutput) AccessPolicies() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.AccessPolicies }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
 func (o DomainOutput) AdvancedOptions() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.AdvancedOptions }).(pulumi.AnyOutput)
 }
@@ -206,6 +217,7 @@ func (o DomainOutput) EncryptionAtRestOptions() DomainEncryptionAtRestOptionsPtr
 	return o.ApplyT(func(v *Domain) DomainEncryptionAtRestOptionsPtrOutput { return v.EncryptionAtRestOptions }).(DomainEncryptionAtRestOptionsPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
 func (o DomainOutput) LogPublishingOptions() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.LogPublishingOptions }).(pulumi.AnyOutput)
 }

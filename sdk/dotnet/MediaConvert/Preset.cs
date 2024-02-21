@@ -28,9 +28,15 @@ namespace Pulumi.AwsNative.MediaConvert
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+        /// </summary>
         [Output("settingsJson")]
         public Output<object> SettingsJson { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -92,9 +98,15 @@ namespace Pulumi.AwsNative.MediaConvert
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+        /// </summary>
         [Input("settingsJson", required: true)]
         public Input<object> SettingsJson { get; set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

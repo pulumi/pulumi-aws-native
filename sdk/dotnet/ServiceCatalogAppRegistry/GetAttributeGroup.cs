@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     public sealed class GetAttributeGroupResult
     {
         public readonly string? Arn;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Attributes;
         /// <summary>
         /// The description of the attribute group. 

@@ -18,11 +18,12 @@ import (
 type DbClusterParameterGroup struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringOutput                   `pulumi:"description"`
-	Family      pulumi.StringOutput                   `pulumi:"family"`
-	Name        pulumi.StringPtrOutput                `pulumi:"name"`
-	Parameters  pulumi.AnyOutput                      `pulumi:"parameters"`
-	Tags        DbClusterParameterGroupTagArrayOutput `pulumi:"tags"`
+	Description pulumi.StringOutput    `pulumi:"description"`
+	Family      pulumi.StringOutput    `pulumi:"family"`
+	Name        pulumi.StringPtrOutput `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DocDB::DBClusterParameterGroup` for more information about the expected schema for this property.
+	Parameters pulumi.AnyOutput                      `pulumi:"parameters"`
+	Tags       DbClusterParameterGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDbClusterParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -80,11 +81,12 @@ func (DbClusterParameterGroupState) ElementType() reflect.Type {
 }
 
 type dbClusterParameterGroupArgs struct {
-	Description string                       `pulumi:"description"`
-	Family      string                       `pulumi:"family"`
-	Name        *string                      `pulumi:"name"`
-	Parameters  interface{}                  `pulumi:"parameters"`
-	Tags        []DbClusterParameterGroupTag `pulumi:"tags"`
+	Description string  `pulumi:"description"`
+	Family      string  `pulumi:"family"`
+	Name        *string `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DocDB::DBClusterParameterGroup` for more information about the expected schema for this property.
+	Parameters interface{}                  `pulumi:"parameters"`
+	Tags       []DbClusterParameterGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DbClusterParameterGroup resource.
@@ -92,8 +94,9 @@ type DbClusterParameterGroupArgs struct {
 	Description pulumi.StringInput
 	Family      pulumi.StringInput
 	Name        pulumi.StringPtrInput
-	Parameters  pulumi.Input
-	Tags        DbClusterParameterGroupTagArrayInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DocDB::DBClusterParameterGroup` for more information about the expected schema for this property.
+	Parameters pulumi.Input
+	Tags       DbClusterParameterGroupTagArrayInput
 }
 
 func (DbClusterParameterGroupArgs) ElementType() reflect.Type {
@@ -145,6 +148,7 @@ func (o DbClusterParameterGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbClusterParameterGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DocDB::DBClusterParameterGroup` for more information about the expected schema for this property.
 func (o DbClusterParameterGroupOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DbClusterParameterGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }

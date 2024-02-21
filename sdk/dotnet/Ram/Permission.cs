@@ -35,6 +35,8 @@ namespace Pulumi.AwsNative.Ram
 
         /// <summary>
         /// Policy template for the permission.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
         /// </summary>
         [Output("policyTemplate")]
         public Output<object> PolicyTemplate { get; private set; } = null!;
@@ -113,6 +115,8 @@ namespace Pulumi.AwsNative.Ram
 
         /// <summary>
         /// Policy template for the permission.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
         /// </summary>
         [Input("policyTemplate", required: true)]
         public Input<object> PolicyTemplate { get; set; } = null!;

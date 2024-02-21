@@ -27,11 +27,12 @@ type LookupSubscriptionDefinitionArgs struct {
 }
 
 type LookupSubscriptionDefinitionResult struct {
-	Arn              *string     `pulumi:"arn"`
-	Id               *string     `pulumi:"id"`
-	LatestVersionArn *string     `pulumi:"latestVersionArn"`
-	Name             *string     `pulumi:"name"`
-	Tags             interface{} `pulumi:"tags"`
+	Arn              *string `pulumi:"arn"`
+	Id               *string `pulumi:"id"`
+	LatestVersionArn *string `pulumi:"latestVersionArn"`
+	Name             *string `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::SubscriptionDefinition` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupSubscriptionDefinitionOutput(ctx *pulumi.Context, args LookupSubscriptionDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriptionDefinitionResultOutput {
@@ -85,6 +86,7 @@ func (o LookupSubscriptionDefinitionResultOutput) Name() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupSubscriptionDefinitionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::SubscriptionDefinition` for more information about the expected schema for this property.
 func (o LookupSubscriptionDefinitionResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSubscriptionDefinitionResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

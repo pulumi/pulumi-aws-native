@@ -20,6 +20,8 @@ class ClusterPolicyArgs:
         The set of arguments for constructing a ClusterPolicy resource.
         :param pulumi.Input[str] cluster_arn: The arn of the cluster for the resource policy.
         :param Any policy: A policy document containing permissions to add to the specified cluster.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "policy", policy)
@@ -41,6 +43,8 @@ class ClusterPolicyArgs:
     def policy(self) -> Any:
         """
         A policy document containing permissions to add to the specified cluster.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 
@@ -64,6 +68,8 @@ class ClusterPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_arn: The arn of the cluster for the resource policy.
         :param Any policy: A policy document containing permissions to add to the specified cluster.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -157,6 +163,8 @@ class ClusterPolicy(pulumi.CustomResource):
     def policy(self) -> pulumi.Output[Any]:
         """
         A policy document containing permissions to add to the specified cluster.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

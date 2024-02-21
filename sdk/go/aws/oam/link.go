@@ -22,6 +22,8 @@ type Link struct {
 	ResourceTypes  LinkResourceTypeArrayOutput `pulumi:"resourceTypes"`
 	SinkIdentifier pulumi.StringOutput         `pulumi:"sinkIdentifier"`
 	// Tags to apply to the link
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
@@ -80,6 +82,8 @@ type linkArgs struct {
 	ResourceTypes  []LinkResourceType `pulumi:"resourceTypes"`
 	SinkIdentifier string             `pulumi:"sinkIdentifier"`
 	// Tags to apply to the link
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
 	Tags interface{} `pulumi:"tags"`
 }
 
@@ -89,6 +93,8 @@ type LinkArgs struct {
 	ResourceTypes  LinkResourceTypeArrayInput
 	SinkIdentifier pulumi.StringInput
 	// Tags to apply to the link
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
 	Tags pulumi.Input
 }
 
@@ -150,6 +156,8 @@ func (o LinkOutput) SinkIdentifier() pulumi.StringOutput {
 }
 
 // Tags to apply to the link
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
 func (o LinkOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Link) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

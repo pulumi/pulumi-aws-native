@@ -27,11 +27,12 @@ type LookupCoreDefinitionArgs struct {
 }
 
 type LookupCoreDefinitionResult struct {
-	Arn              *string     `pulumi:"arn"`
-	Id               *string     `pulumi:"id"`
-	LatestVersionArn *string     `pulumi:"latestVersionArn"`
-	Name             *string     `pulumi:"name"`
-	Tags             interface{} `pulumi:"tags"`
+	Arn              *string `pulumi:"arn"`
+	Id               *string `pulumi:"id"`
+	LatestVersionArn *string `pulumi:"latestVersionArn"`
+	Name             *string `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::CoreDefinition` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupCoreDefinitionOutput(ctx *pulumi.Context, args LookupCoreDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupCoreDefinitionResultOutput {
@@ -85,6 +86,7 @@ func (o LookupCoreDefinitionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCoreDefinitionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::CoreDefinition` for more information about the expected schema for this property.
 func (o LookupCoreDefinitionResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupCoreDefinitionResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

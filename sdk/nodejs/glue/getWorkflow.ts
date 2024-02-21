@@ -20,10 +20,16 @@ export interface GetWorkflowArgs {
 }
 
 export interface GetWorkflowResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+     */
     readonly defaultRunProperties?: any;
     readonly description?: string;
     readonly id?: string;
     readonly maxConcurrentRuns?: number;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

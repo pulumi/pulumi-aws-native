@@ -56,6 +56,9 @@ export class Cluster extends pulumi.CustomResource {
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly sseSpecification!: pulumi.Output<outputs.dax.ClusterSseSpecification | undefined>;
     public readonly subnetGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -140,5 +143,8 @@ export interface ClusterArgs {
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     sseSpecification?: pulumi.Input<inputs.dax.ClusterSseSpecificationArgs>;
     subnetGroupName?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
+     */
     tags?: any;
 }

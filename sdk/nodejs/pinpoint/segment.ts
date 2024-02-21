@@ -46,6 +46,9 @@ export class Segment extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly segmentGroups!: pulumi.Output<outputs.pinpoint.SegmentGroups | undefined>;
     public /*out*/ readonly segmentId!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -95,5 +98,8 @@ export interface SegmentArgs {
     dimensions?: pulumi.Input<inputs.pinpoint.SegmentDimensionsArgs>;
     name?: pulumi.Input<string>;
     segmentGroups?: pulumi.Input<inputs.pinpoint.SegmentGroupsArgs>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+     */
     tags?: any;
 }

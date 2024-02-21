@@ -76,6 +76,8 @@ export class ManagedPolicy extends pulumi.CustomResource {
     public /*out*/ readonly policyArn!: pulumi.Output<string>;
     /**
      * The JSON policy document that you want to use as the content for the new policy.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
      */
     public readonly policyDocument!: pulumi.Output<any>;
     /**
@@ -170,6 +172,8 @@ export interface ManagedPolicyArgs {
     path?: pulumi.Input<string>;
     /**
      * The JSON policy document that you want to use as the content for the new policy.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
      */
     policyDocument: any;
     /**

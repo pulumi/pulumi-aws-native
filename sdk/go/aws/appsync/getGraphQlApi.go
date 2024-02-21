@@ -33,26 +33,27 @@ type LookupGraphQlApiResult struct {
 	Arn                               *string                                      `pulumi:"arn"`
 	AuthenticationType                *string                                      `pulumi:"authenticationType"`
 	EnhancedMetricsConfig             *GraphQlApiEnhancedMetricsConfig             `pulumi:"enhancedMetricsConfig"`
-	EnvironmentVariables              interface{}                                  `pulumi:"environmentVariables"`
-	GraphQlDns                        *string                                      `pulumi:"graphQlDns"`
-	GraphQlEndpointArn                *string                                      `pulumi:"graphQlEndpointArn"`
-	GraphQlUrl                        *string                                      `pulumi:"graphQlUrl"`
-	Id                                *string                                      `pulumi:"id"`
-	IntrospectionConfig               *string                                      `pulumi:"introspectionConfig"`
-	LambdaAuthorizerConfig            *GraphQlApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
-	LogConfig                         *GraphQlApiLogConfig                         `pulumi:"logConfig"`
-	MergedApiExecutionRoleArn         *string                                      `pulumi:"mergedApiExecutionRoleArn"`
-	Name                              *string                                      `pulumi:"name"`
-	OpenIdConnectConfig               *GraphQlApiOpenIdConnectConfig               `pulumi:"openIdConnectConfig"`
-	OwnerContact                      *string                                      `pulumi:"ownerContact"`
-	QueryDepthLimit                   *int                                         `pulumi:"queryDepthLimit"`
-	RealtimeDns                       *string                                      `pulumi:"realtimeDns"`
-	RealtimeUrl                       *string                                      `pulumi:"realtimeUrl"`
-	ResolverCountLimit                *int                                         `pulumi:"resolverCountLimit"`
-	Tags                              []GraphQlApiTag                              `pulumi:"tags"`
-	UserPoolConfig                    *GraphQlApiUserPoolConfig                    `pulumi:"userPoolConfig"`
-	Visibility                        *string                                      `pulumi:"visibility"`
-	XrayEnabled                       *bool                                        `pulumi:"xrayEnabled"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
+	EnvironmentVariables      interface{}                       `pulumi:"environmentVariables"`
+	GraphQlDns                *string                           `pulumi:"graphQlDns"`
+	GraphQlEndpointArn        *string                           `pulumi:"graphQlEndpointArn"`
+	GraphQlUrl                *string                           `pulumi:"graphQlUrl"`
+	Id                        *string                           `pulumi:"id"`
+	IntrospectionConfig       *string                           `pulumi:"introspectionConfig"`
+	LambdaAuthorizerConfig    *GraphQlApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
+	LogConfig                 *GraphQlApiLogConfig              `pulumi:"logConfig"`
+	MergedApiExecutionRoleArn *string                           `pulumi:"mergedApiExecutionRoleArn"`
+	Name                      *string                           `pulumi:"name"`
+	OpenIdConnectConfig       *GraphQlApiOpenIdConnectConfig    `pulumi:"openIdConnectConfig"`
+	OwnerContact              *string                           `pulumi:"ownerContact"`
+	QueryDepthLimit           *int                              `pulumi:"queryDepthLimit"`
+	RealtimeDns               *string                           `pulumi:"realtimeDns"`
+	RealtimeUrl               *string                           `pulumi:"realtimeUrl"`
+	ResolverCountLimit        *int                              `pulumi:"resolverCountLimit"`
+	Tags                      []GraphQlApiTag                   `pulumi:"tags"`
+	UserPoolConfig            *GraphQlApiUserPoolConfig         `pulumi:"userPoolConfig"`
+	Visibility                *string                           `pulumi:"visibility"`
+	XrayEnabled               *bool                             `pulumi:"xrayEnabled"`
 }
 
 func LookupGraphQlApiOutput(ctx *pulumi.Context, args LookupGraphQlApiOutputArgs, opts ...pulumi.InvokeOption) LookupGraphQlApiResultOutput {
@@ -116,6 +117,7 @@ func (o LookupGraphQlApiResultOutput) EnhancedMetricsConfig() GraphQlApiEnhanced
 	return o.ApplyT(func(v LookupGraphQlApiResult) *GraphQlApiEnhancedMetricsConfig { return v.EnhancedMetricsConfig }).(GraphQlApiEnhancedMetricsConfigPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
 func (o LookupGraphQlApiResultOutput) EnvironmentVariables() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) interface{} { return v.EnvironmentVariables }).(pulumi.AnyOutput)
 }

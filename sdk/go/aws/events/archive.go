@@ -16,12 +16,13 @@ import (
 type Archive struct {
 	pulumi.CustomResourceState
 
-	ArchiveName   pulumi.StringPtrOutput `pulumi:"archiveName"`
-	Arn           pulumi.StringOutput    `pulumi:"arn"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
-	EventPattern  pulumi.AnyOutput       `pulumi:"eventPattern"`
-	RetentionDays pulumi.IntPtrOutput    `pulumi:"retentionDays"`
-	SourceArn     pulumi.StringOutput    `pulumi:"sourceArn"`
+	ArchiveName pulumi.StringPtrOutput `pulumi:"archiveName"`
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+	EventPattern  pulumi.AnyOutput    `pulumi:"eventPattern"`
+	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
+	SourceArn     pulumi.StringOutput `pulumi:"sourceArn"`
 }
 
 // NewArchive registers a new resource with the given unique name, arguments, and options.
@@ -72,8 +73,9 @@ func (ArchiveState) ElementType() reflect.Type {
 }
 
 type archiveArgs struct {
-	ArchiveName   *string     `pulumi:"archiveName"`
-	Description   *string     `pulumi:"description"`
+	ArchiveName *string `pulumi:"archiveName"`
+	Description *string `pulumi:"description"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
 	EventPattern  interface{} `pulumi:"eventPattern"`
 	RetentionDays *int        `pulumi:"retentionDays"`
 	SourceArn     string      `pulumi:"sourceArn"`
@@ -81,8 +83,9 @@ type archiveArgs struct {
 
 // The set of arguments for constructing a Archive resource.
 type ArchiveArgs struct {
-	ArchiveName   pulumi.StringPtrInput
-	Description   pulumi.StringPtrInput
+	ArchiveName pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
 	EventPattern  pulumi.Input
 	RetentionDays pulumi.IntPtrInput
 	SourceArn     pulumi.StringInput
@@ -137,6 +140,7 @@ func (o ArchiveOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Archive) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
 func (o ArchiveOutput) EventPattern() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Archive) pulumi.AnyOutput { return v.EventPattern }).(pulumi.AnyOutput)
 }

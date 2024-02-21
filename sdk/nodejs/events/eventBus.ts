@@ -51,6 +51,8 @@ export class EventBus extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * A JSON string that describes the permission policy statement for the event bus.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any | undefined>;
     /**
@@ -102,6 +104,8 @@ export interface EventBusArgs {
     name?: pulumi.Input<string>;
     /**
      * A JSON string that describes the permission policy statement for the event bus.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
      */
     policy?: any;
     /**

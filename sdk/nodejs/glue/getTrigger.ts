@@ -30,6 +30,9 @@ export interface GetTriggerResult {
     readonly predicate?: outputs.glue.TriggerPredicate;
     readonly schedule?: string;
     readonly startOnCreation?: boolean;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

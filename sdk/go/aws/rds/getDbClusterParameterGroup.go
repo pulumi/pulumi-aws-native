@@ -28,6 +28,8 @@ type LookupDbClusterParameterGroupArgs struct {
 
 type LookupDbClusterParameterGroupResult struct {
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{} `pulumi:"parameters"`
 	// The list of tags for the cluster parameter group.
 	Tags []DbClusterParameterGroupTag `pulumi:"tags"`
@@ -69,6 +71,8 @@ func (o LookupDbClusterParameterGroupResultOutput) ToLookupDbClusterParameterGro
 }
 
 // An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
 func (o LookupDbClusterParameterGroupResultOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDbClusterParameterGroupResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }

@@ -34,7 +34,8 @@ type Cluster struct {
 	SecurityGroupIds              pulumi.StringArrayOutput         `pulumi:"securityGroupIds"`
 	SseSpecification              ClusterSseSpecificationPtrOutput `pulumi:"sseSpecification"`
 	SubnetGroupName               pulumi.StringPtrOutput           `pulumi:"subnetGroupName"`
-	Tags                          pulumi.AnyOutput                 `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -108,7 +109,8 @@ type clusterArgs struct {
 	SecurityGroupIds              []string                 `pulumi:"securityGroupIds"`
 	SseSpecification              *ClusterSseSpecification `pulumi:"sseSpecification"`
 	SubnetGroupName               *string                  `pulumi:"subnetGroupName"`
-	Tags                          interface{}              `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -126,7 +128,8 @@ type ClusterArgs struct {
 	SecurityGroupIds              pulumi.StringArrayInput
 	SseSpecification              ClusterSseSpecificationPtrInput
 	SubnetGroupName               pulumi.StringPtrInput
-	Tags                          pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -230,6 +233,7 @@ func (o ClusterOutput) SubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
 func (o ClusterOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

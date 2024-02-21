@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.Neptune
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
+        /// </summary>
         [Output("parameters")]
         public Output<object> Parameters { get; private set; } = null!;
 
@@ -91,6 +94,9 @@ namespace Pulumi.AwsNative.Neptune
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
+        /// </summary>
         [Input("parameters", required: true)]
         public Input<object> Parameters { get; set; } = null!;
 

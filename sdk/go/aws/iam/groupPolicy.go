@@ -19,6 +19,8 @@ type GroupPolicy struct {
 	// The name of the group to associate the policy with.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The name of the policy document.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
@@ -78,6 +80,8 @@ type groupPolicyArgs struct {
 	// The name of the group to associate the policy with.
 	GroupName string `pulumi:"groupName"`
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The name of the policy document.
 	PolicyName string `pulumi:"policyName"`
@@ -88,6 +92,8 @@ type GroupPolicyArgs struct {
 	// The name of the group to associate the policy with.
 	GroupName pulumi.StringInput
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The name of the policy document.
 	PolicyName pulumi.StringInput
@@ -136,6 +142,8 @@ func (o GroupPolicyOutput) GroupName() pulumi.StringOutput {
 }
 
 // The policy document.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
 func (o GroupPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *GroupPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

@@ -43,6 +43,8 @@ class StackArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Stack resource.
+        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        :param Any custom_json: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "default_instance_profile_arn", default_instance_profile_arn)
         pulumi.set(__self__, "service_role_arn", service_role_arn)
@@ -123,6 +125,9 @@ class StackArgs:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -177,6 +182,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "custom_json")
 
     @custom_json.setter
@@ -360,6 +368,8 @@ class Stack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        :param Any custom_json: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -508,6 +518,9 @@ class Stack(pulumi.CustomResource):
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @property
@@ -538,6 +551,9 @@ class Stack(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "custom_json")
 
     @property

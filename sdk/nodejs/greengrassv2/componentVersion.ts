@@ -42,6 +42,9 @@ export class ComponentVersion extends pulumi.CustomResource {
     public /*out*/ readonly componentVersion!: pulumi.Output<string>;
     public readonly inlineRecipe!: pulumi.Output<string | undefined>;
     public readonly lambdaFunction!: pulumi.Output<outputs.greengrassv2.ComponentVersionLambdaFunctionRecipeSource | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -82,5 +85,8 @@ export class ComponentVersion extends pulumi.CustomResource {
 export interface ComponentVersionArgs {
     inlineRecipe?: pulumi.Input<string>;
     lambdaFunction?: pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaFunctionRecipeSourceArgs>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
+     */
     tags?: any;
 }

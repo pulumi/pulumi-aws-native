@@ -28,8 +28,9 @@ type LookupModelPackageGroupArgs struct {
 
 type LookupModelPackageGroupResult struct {
 	// The time at which the model package group was created.
-	CreationTime            *string     `pulumi:"creationTime"`
-	ModelPackageGroupArn    *string     `pulumi:"modelPackageGroupArn"`
+	CreationTime         *string `pulumi:"creationTime"`
+	ModelPackageGroupArn *string `pulumi:"modelPackageGroupArn"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
 	ModelPackageGroupPolicy interface{} `pulumi:"modelPackageGroupPolicy"`
 	// The status of a modelpackage group job.
 	ModelPackageGroupStatus *ModelPackageGroupStatus `pulumi:"modelPackageGroupStatus"`
@@ -81,6 +82,7 @@ func (o LookupModelPackageGroupResultOutput) ModelPackageGroupArn() pulumi.Strin
 	return o.ApplyT(func(v LookupModelPackageGroupResult) *string { return v.ModelPackageGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
 func (o LookupModelPackageGroupResultOutput) ModelPackageGroupPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupModelPackageGroupResult) interface{} { return v.ModelPackageGroupPolicy }).(pulumi.AnyOutput)
 }

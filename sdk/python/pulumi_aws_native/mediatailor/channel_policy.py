@@ -19,6 +19,8 @@ class ChannelPolicyArgs:
         """
         The set of arguments for constructing a ChannelPolicy resource.
         :param Any policy: <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "channel_name", channel_name)
         pulumi.set(__self__, "policy", policy)
@@ -37,6 +39,8 @@ class ChannelPolicyArgs:
     def policy(self) -> Any:
         """
         <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 
@@ -59,6 +63,8 @@ class ChannelPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy: <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -139,6 +145,8 @@ class ChannelPolicy(pulumi.CustomResource):
     def policy(self) -> pulumi.Output[Any]:
         """
         <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

@@ -16,12 +16,18 @@ namespace Pulumi.AwsNative.Sns
     [AwsNativeResourceType("aws-native:sns:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         [Output("deliveryPolicy")]
         public Output<object?> DeliveryPolicy { get; private set; } = null!;
 
         [Output("endpoint")]
         public Output<string?> Endpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         [Output("filterPolicy")]
         public Output<object?> FilterPolicy { get; private set; } = null!;
 
@@ -34,12 +40,18 @@ namespace Pulumi.AwsNative.Sns
         [Output("rawMessageDelivery")]
         public Output<bool?> RawMessageDelivery { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         [Output("redrivePolicy")]
         public Output<object?> RedrivePolicy { get; private set; } = null!;
 
         [Output("region")]
         public Output<string?> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         [Output("replayPolicy")]
         public Output<object?> ReplayPolicy { get; private set; } = null!;
 
@@ -100,12 +112,18 @@ namespace Pulumi.AwsNative.Sns
 
     public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         [Input("deliveryPolicy")]
         public Input<object>? DeliveryPolicy { get; set; }
 
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         [Input("filterPolicy")]
         public Input<object>? FilterPolicy { get; set; }
 
@@ -118,12 +136,18 @@ namespace Pulumi.AwsNative.Sns
         [Input("rawMessageDelivery")]
         public Input<bool>? RawMessageDelivery { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         [Input("redrivePolicy")]
         public Input<object>? RedrivePolicy { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
+        /// </summary>
         [Input("replayPolicy")]
         public Input<object>? ReplayPolicy { get; set; }
 

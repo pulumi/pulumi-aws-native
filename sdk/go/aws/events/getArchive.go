@@ -27,8 +27,9 @@ type LookupArchiveArgs struct {
 }
 
 type LookupArchiveResult struct {
-	Arn           *string     `pulumi:"arn"`
-	Description   *string     `pulumi:"description"`
+	Arn         *string `pulumi:"arn"`
+	Description *string `pulumi:"description"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
 	EventPattern  interface{} `pulumi:"eventPattern"`
 	RetentionDays *int        `pulumi:"retentionDays"`
 }
@@ -76,6 +77,7 @@ func (o LookupArchiveResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupArchiveResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
 func (o LookupArchiveResultOutput) EventPattern() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupArchiveResult) interface{} { return v.EventPattern }).(pulumi.AnyOutput)
 }

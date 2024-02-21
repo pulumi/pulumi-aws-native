@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("enhancedMetricsConfig")]
         public Output<Outputs.GraphQlApiEnhancedMetricsConfig?> EnhancedMetricsConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
+        /// </summary>
         [Output("environmentVariables")]
         public Output<object?> EnvironmentVariables { get; private set; } = null!;
 
@@ -153,6 +156,9 @@ namespace Pulumi.AwsNative.AppSync
         [Input("enhancedMetricsConfig")]
         public Input<Inputs.GraphQlApiEnhancedMetricsConfigArgs>? EnhancedMetricsConfig { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
+        /// </summary>
         [Input("environmentVariables")]
         public Input<object>? EnvironmentVariables { get; set; }
 

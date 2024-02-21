@@ -38,6 +38,9 @@ export interface GetCampaignResult {
     readonly schedule?: outputs.pinpoint.CampaignSchedule;
     readonly segmentId?: string;
     readonly segmentVersion?: number;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly templateConfiguration?: outputs.pinpoint.CampaignTemplateConfiguration;
     readonly treatmentDescription?: string;

@@ -53,6 +53,9 @@ class GetModelPackageGroupResult:
     @property
     @pulumi.getter(name="modelPackageGroupPolicy")
     def model_package_group_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "model_package_group_policy")
 
     @property

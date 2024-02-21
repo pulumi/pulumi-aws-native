@@ -34,6 +34,8 @@ type LookupRouteResponseResult struct {
 	// The model selection expression for the route response. Supported only for WebSocket APIs.
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
 	// The response models for the route response.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
 	ResponseModels interface{} `pulumi:"responseModels"`
 	// The route response parameters.
 	ResponseParameters *RouteResponseRouteParameters `pulumi:"responseParameters"`
@@ -87,6 +89,8 @@ func (o LookupRouteResponseResultOutput) ModelSelectionExpression() pulumi.Strin
 }
 
 // The response models for the route response.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
 func (o LookupRouteResponseResultOutput) ResponseModels() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRouteResponseResult) interface{} { return v.ResponseModels }).(pulumi.AnyOutput)
 }

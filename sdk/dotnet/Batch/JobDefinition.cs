@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("nodeProperties")]
         public Output<Outputs.JobDefinitionNodeProperties?> NodeProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        /// </summary>
         [Output("parameters")]
         public Output<object?> Parameters { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("schedulingPriority")]
         public Output<int?> SchedulingPriority { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -113,6 +119,9 @@ namespace Pulumi.AwsNative.Batch
         [Input("nodeProperties")]
         public Input<Inputs.JobDefinitionNodePropertiesArgs>? NodeProperties { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        /// </summary>
         [Input("parameters")]
         public Input<object>? Parameters { get; set; }
 
@@ -133,6 +142,9 @@ namespace Pulumi.AwsNative.Batch
         [Input("schedulingPriority")]
         public Input<int>? SchedulingPriority { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

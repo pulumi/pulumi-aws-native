@@ -27,9 +27,10 @@ type LookupFileSystemArgs struct {
 }
 
 type LookupFileSystemResult struct {
-	Arn                          *string                             `pulumi:"arn"`
-	BackupPolicy                 *FileSystemBackupPolicy             `pulumi:"backupPolicy"`
-	FileSystemId                 *string                             `pulumi:"fileSystemId"`
+	Arn          *string                 `pulumi:"arn"`
+	BackupPolicy *FileSystemBackupPolicy `pulumi:"backupPolicy"`
+	FileSystemId *string                 `pulumi:"fileSystemId"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
 	FileSystemPolicy             interface{}                         `pulumi:"fileSystemPolicy"`
 	FileSystemProtection         *FileSystemProtection               `pulumi:"fileSystemProtection"`
 	FileSystemTags               []FileSystemElasticFileSystemTag    `pulumi:"fileSystemTags"`
@@ -86,6 +87,7 @@ func (o LookupFileSystemResultOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
 func (o LookupFileSystemResultOutput) FileSystemPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) interface{} { return v.FileSystemPolicy }).(pulumi.AnyOutput)
 }

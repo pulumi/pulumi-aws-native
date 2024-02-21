@@ -46,6 +46,9 @@ export class FileSystem extends pulumi.CustomResource {
     public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+     */
     public readonly fileSystemPolicy!: pulumi.Output<any | undefined>;
     public readonly fileSystemProtection!: pulumi.Output<outputs.efs.FileSystemProtection | undefined>;
     public readonly fileSystemTags!: pulumi.Output<outputs.efs.FileSystemElasticFileSystemTag[] | undefined>;
@@ -117,6 +120,9 @@ export interface FileSystemArgs {
      */
     bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
     encrypted?: pulumi.Input<boolean>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+     */
     fileSystemPolicy?: any;
     fileSystemProtection?: pulumi.Input<inputs.efs.FileSystemProtectionArgs>;
     fileSystemTags?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemElasticFileSystemTagArgs>[]>;

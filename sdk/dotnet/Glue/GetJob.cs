@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.Glue
         public readonly double? AllocatedCapacity;
         public readonly Outputs.JobCommand? Command;
         public readonly Outputs.JobConnectionsList? Connections;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? DefaultArguments;
         public readonly string? Description;
         public readonly string? ExecutionClass;
@@ -63,11 +66,17 @@ namespace Pulumi.AwsNative.Glue
         public readonly string? LogUri;
         public readonly double? MaxCapacity;
         public readonly double? MaxRetries;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? NonOverridableArguments;
         public readonly Outputs.JobNotificationProperty? NotificationProperty;
         public readonly int? NumberOfWorkers;
         public readonly string? Role;
         public readonly string? SecurityConfiguration;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
         public readonly int? Timeout;
         public readonly string? WorkerType;

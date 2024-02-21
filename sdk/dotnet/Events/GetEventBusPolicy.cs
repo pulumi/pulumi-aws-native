@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.Events
         public readonly Outputs.EventBusPolicyCondition? Condition;
         public readonly string? Id;
         public readonly string? Principal;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Statement;
 
         [OutputConstructor]

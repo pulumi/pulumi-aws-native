@@ -22,6 +22,9 @@ export interface GetIdentityPoolPrincipalTagArgs {
 }
 
 export interface GetIdentityPoolPrincipalTagResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+     */
     readonly principalTags?: any;
     readonly useDefaults?: boolean;
 }

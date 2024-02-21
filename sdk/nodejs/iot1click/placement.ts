@@ -37,7 +37,13 @@ export class Placement extends pulumi.CustomResource {
         return obj['__pulumiType'] === Placement.__pulumiType;
     }
 
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+     */
     public readonly associatedDevices!: pulumi.Output<any | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+     */
     public readonly attributes!: pulumi.Output<any | undefined>;
     public readonly placementName!: pulumi.Output<string | undefined>;
     public readonly projectName!: pulumi.Output<string>;
@@ -79,7 +85,13 @@ export class Placement extends pulumi.CustomResource {
  * The set of arguments for constructing a Placement resource.
  */
 export interface PlacementArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+     */
     associatedDevices?: any;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
+     */
     attributes?: any;
     placementName?: pulumi.Input<string>;
     projectName: pulumi.Input<string>;

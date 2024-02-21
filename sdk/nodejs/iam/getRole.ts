@@ -32,6 +32,8 @@ export interface GetRoleResult {
     readonly arn?: string;
     /**
      * The trust policy that is associated with this role.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
      */
     readonly assumeRolePolicyDocument?: any;
     /**

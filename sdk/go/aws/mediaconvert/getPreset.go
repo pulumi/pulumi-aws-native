@@ -27,12 +27,14 @@ type LookupPresetArgs struct {
 }
 
 type LookupPresetResult struct {
-	Arn          *string     `pulumi:"arn"`
-	Category     *string     `pulumi:"category"`
-	Description  *string     `pulumi:"description"`
-	Id           *string     `pulumi:"id"`
+	Arn         *string `pulumi:"arn"`
+	Category    *string `pulumi:"category"`
+	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 	SettingsJson interface{} `pulumi:"settingsJson"`
-	Tags         interface{} `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupPresetOutput(ctx *pulumi.Context, args LookupPresetOutputArgs, opts ...pulumi.InvokeOption) LookupPresetResultOutput {
@@ -86,10 +88,12 @@ func (o LookupPresetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPresetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 func (o LookupPresetResultOutput) SettingsJson() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPresetResult) interface{} { return v.SettingsJson }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 func (o LookupPresetResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPresetResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

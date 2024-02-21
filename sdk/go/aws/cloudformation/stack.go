@@ -30,14 +30,16 @@ type Stack struct {
 	RootId                      pulumi.StringOutput              `pulumi:"rootId"`
 	StackId                     pulumi.StringOutput              `pulumi:"stackId"`
 	StackName                   pulumi.StringOutput              `pulumi:"stackName"`
-	StackPolicyBody             pulumi.AnyOutput                 `pulumi:"stackPolicyBody"`
-	StackPolicyUrl              pulumi.StringPtrOutput           `pulumi:"stackPolicyUrl"`
-	StackStatus                 StackStatusOutput                `pulumi:"stackStatus"`
-	StackStatusReason           pulumi.StringPtrOutput           `pulumi:"stackStatusReason"`
-	Tags                        StackTagArrayOutput              `pulumi:"tags"`
-	TemplateBody                pulumi.AnyOutput                 `pulumi:"templateBody"`
-	TemplateUrl                 pulumi.StringPtrOutput           `pulumi:"templateUrl"`
-	TimeoutInMinutes            pulumi.IntPtrOutput              `pulumi:"timeoutInMinutes"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+	StackPolicyBody   pulumi.AnyOutput       `pulumi:"stackPolicyBody"`
+	StackPolicyUrl    pulumi.StringPtrOutput `pulumi:"stackPolicyUrl"`
+	StackStatus       StackStatusOutput      `pulumi:"stackStatus"`
+	StackStatusReason pulumi.StringPtrOutput `pulumi:"stackStatusReason"`
+	Tags              StackTagArrayOutput    `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+	TemplateBody     pulumi.AnyOutput       `pulumi:"templateBody"`
+	TemplateUrl      pulumi.StringPtrOutput `pulumi:"templateUrl"`
+	TimeoutInMinutes pulumi.IntPtrOutput    `pulumi:"timeoutInMinutes"`
 }
 
 // NewStack registers a new resource with the given unique name, arguments, and options.
@@ -92,13 +94,15 @@ type stackArgs struct {
 	Parameters                  map[string]string       `pulumi:"parameters"`
 	RoleArn                     *string                 `pulumi:"roleArn"`
 	StackName                   *string                 `pulumi:"stackName"`
-	StackPolicyBody             interface{}             `pulumi:"stackPolicyBody"`
-	StackPolicyUrl              *string                 `pulumi:"stackPolicyUrl"`
-	StackStatusReason           *string                 `pulumi:"stackStatusReason"`
-	Tags                        []StackTag              `pulumi:"tags"`
-	TemplateBody                interface{}             `pulumi:"templateBody"`
-	TemplateUrl                 *string                 `pulumi:"templateUrl"`
-	TimeoutInMinutes            *int                    `pulumi:"timeoutInMinutes"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+	StackPolicyBody   interface{} `pulumi:"stackPolicyBody"`
+	StackPolicyUrl    *string     `pulumi:"stackPolicyUrl"`
+	StackStatusReason *string     `pulumi:"stackStatusReason"`
+	Tags              []StackTag  `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+	TemplateBody     interface{} `pulumi:"templateBody"`
+	TemplateUrl      *string     `pulumi:"templateUrl"`
+	TimeoutInMinutes *int        `pulumi:"timeoutInMinutes"`
 }
 
 // The set of arguments for constructing a Stack resource.
@@ -111,13 +115,15 @@ type StackArgs struct {
 	Parameters                  pulumi.StringMapInput
 	RoleArn                     pulumi.StringPtrInput
 	StackName                   pulumi.StringPtrInput
-	StackPolicyBody             pulumi.Input
-	StackPolicyUrl              pulumi.StringPtrInput
-	StackStatusReason           pulumi.StringPtrInput
-	Tags                        StackTagArrayInput
-	TemplateBody                pulumi.Input
-	TemplateUrl                 pulumi.StringPtrInput
-	TimeoutInMinutes            pulumi.IntPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+	StackPolicyBody   pulumi.Input
+	StackPolicyUrl    pulumi.StringPtrInput
+	StackStatusReason pulumi.StringPtrInput
+	Tags              StackTagArrayInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+	TemplateBody     pulumi.Input
+	TemplateUrl      pulumi.StringPtrInput
+	TimeoutInMinutes pulumi.IntPtrInput
 }
 
 func (StackArgs) ElementType() reflect.Type {
@@ -217,6 +223,7 @@ func (o StackOutput) StackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
 func (o StackOutput) StackPolicyBody() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Stack) pulumi.AnyOutput { return v.StackPolicyBody }).(pulumi.AnyOutput)
 }
@@ -237,6 +244,7 @@ func (o StackOutput) Tags() StackTagArrayOutput {
 	return o.ApplyT(func(v *Stack) StackTagArrayOutput { return v.Tags }).(StackTagArrayOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
 func (o StackOutput) TemplateBody() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Stack) pulumi.AnyOutput { return v.TemplateBody }).(pulumi.AnyOutput)
 }

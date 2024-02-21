@@ -1261,6 +1261,7 @@
     "description": "The tags for the association."
   },
   "aws-native:ec2:NatGateway": {
+    "description": "The tags for the NAT gateway.",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"
@@ -1522,6 +1523,7 @@
     "type": "array"
   },
   "aws-native:efs:AccessPoint": {
+    "description": "An array of key-value pairs to apply to this resource.\n For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/AccessPointTag"

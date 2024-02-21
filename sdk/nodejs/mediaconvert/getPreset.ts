@@ -24,7 +24,13 @@ export interface GetPresetResult {
     readonly category?: string;
     readonly description?: string;
     readonly id?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+     */
     readonly settingsJson?: any;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

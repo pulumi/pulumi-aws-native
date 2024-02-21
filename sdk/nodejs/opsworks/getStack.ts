@@ -24,10 +24,16 @@ export interface GetStackArgs {
 
 export interface GetStackResult {
     readonly agentVersion?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+     */
     readonly attributes?: any;
     readonly chefConfiguration?: outputs.opsworks.StackChefConfiguration;
     readonly configurationManager?: outputs.opsworks.StackConfigurationManager;
     readonly customCookbooksSource?: outputs.opsworks.StackSource;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+     */
     readonly customJson?: any;
     readonly defaultAvailabilityZone?: string;
     readonly defaultInstanceProfileArn?: string;

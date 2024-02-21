@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+        /// </summary>
         [Output("attributes")]
         public Output<object> Attributes { get; private set; } = null!;
 
@@ -81,6 +84,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class AttributeGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+        /// </summary>
         [Input("attributes", required: true)]
         public Input<object> Attributes { get; set; } = null!;
 

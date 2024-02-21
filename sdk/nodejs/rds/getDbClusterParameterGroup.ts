@@ -25,6 +25,8 @@ export interface GetDbClusterParameterGroupArgs {
 export interface GetDbClusterParameterGroupResult {
     /**
      * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
      */
     readonly parameters?: any;
     /**

@@ -27,18 +27,19 @@ type LookupClusterArgs struct {
 }
 
 type LookupClusterResult struct {
-	Arn                         *string     `pulumi:"arn"`
-	AvailabilityZones           []string    `pulumi:"availabilityZones"`
-	ClusterDiscoveryEndpoint    *string     `pulumi:"clusterDiscoveryEndpoint"`
-	ClusterDiscoveryEndpointUrl *string     `pulumi:"clusterDiscoveryEndpointUrl"`
-	Description                 *string     `pulumi:"description"`
-	Id                          *string     `pulumi:"id"`
-	NotificationTopicArn        *string     `pulumi:"notificationTopicArn"`
-	ParameterGroupName          *string     `pulumi:"parameterGroupName"`
-	PreferredMaintenanceWindow  *string     `pulumi:"preferredMaintenanceWindow"`
-	ReplicationFactor           *int        `pulumi:"replicationFactor"`
-	SecurityGroupIds            []string    `pulumi:"securityGroupIds"`
-	Tags                        interface{} `pulumi:"tags"`
+	Arn                         *string  `pulumi:"arn"`
+	AvailabilityZones           []string `pulumi:"availabilityZones"`
+	ClusterDiscoveryEndpoint    *string  `pulumi:"clusterDiscoveryEndpoint"`
+	ClusterDiscoveryEndpointUrl *string  `pulumi:"clusterDiscoveryEndpointUrl"`
+	Description                 *string  `pulumi:"description"`
+	Id                          *string  `pulumi:"id"`
+	NotificationTopicArn        *string  `pulumi:"notificationTopicArn"`
+	ParameterGroupName          *string  `pulumi:"parameterGroupName"`
+	PreferredMaintenanceWindow  *string  `pulumi:"preferredMaintenanceWindow"`
+	ReplicationFactor           *int     `pulumi:"replicationFactor"`
+	SecurityGroupIds            []string `pulumi:"securityGroupIds"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -120,6 +121,7 @@ func (o LookupClusterResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
 func (o LookupClusterResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupClusterResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

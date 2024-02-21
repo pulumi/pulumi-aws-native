@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.OpsWorks
     public sealed class GetAppResult
     {
         public readonly Outputs.AppSource? AppSource;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Attributes;
         public readonly ImmutableArray<Outputs.AppDataSource> DataSources;
         public readonly string? Description;

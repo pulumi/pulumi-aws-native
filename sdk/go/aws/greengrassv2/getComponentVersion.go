@@ -27,10 +27,11 @@ type LookupComponentVersionArgs struct {
 }
 
 type LookupComponentVersionResult struct {
-	Arn              *string     `pulumi:"arn"`
-	ComponentName    *string     `pulumi:"componentName"`
-	ComponentVersion *string     `pulumi:"componentVersion"`
-	Tags             interface{} `pulumi:"tags"`
+	Arn              *string `pulumi:"arn"`
+	ComponentName    *string `pulumi:"componentName"`
+	ComponentVersion *string `pulumi:"componentVersion"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupComponentVersionOutput(ctx *pulumi.Context, args LookupComponentVersionOutputArgs, opts ...pulumi.InvokeOption) LookupComponentVersionResultOutput {
@@ -80,6 +81,7 @@ func (o LookupComponentVersionResultOutput) ComponentVersion() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupComponentVersionResult) *string { return v.ComponentVersion }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
 func (o LookupComponentVersionResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupComponentVersionResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

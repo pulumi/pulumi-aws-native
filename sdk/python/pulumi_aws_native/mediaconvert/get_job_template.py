@@ -97,6 +97,9 @@ class GetJobTemplateResult:
     @property
     @pulumi.getter(name="settingsJson")
     def settings_json(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "settings_json")
 
     @property
@@ -107,6 +110,9 @@ class GetJobTemplateResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
 

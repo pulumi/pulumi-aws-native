@@ -22,12 +22,13 @@ type RemediationConfiguration struct {
 	ConfigRuleName           pulumi.StringOutput                                `pulumi:"configRuleName"`
 	ExecutionControls        RemediationConfigurationExecutionControlsPtrOutput `pulumi:"executionControls"`
 	MaximumAutomaticAttempts pulumi.IntPtrOutput                                `pulumi:"maximumAutomaticAttempts"`
-	Parameters               pulumi.AnyOutput                                   `pulumi:"parameters"`
-	ResourceType             pulumi.StringPtrOutput                             `pulumi:"resourceType"`
-	RetryAttemptSeconds      pulumi.IntPtrOutput                                `pulumi:"retryAttemptSeconds"`
-	TargetId                 pulumi.StringOutput                                `pulumi:"targetId"`
-	TargetType               pulumi.StringOutput                                `pulumi:"targetType"`
-	TargetVersion            pulumi.StringPtrOutput                             `pulumi:"targetVersion"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+	Parameters          pulumi.AnyOutput       `pulumi:"parameters"`
+	ResourceType        pulumi.StringPtrOutput `pulumi:"resourceType"`
+	RetryAttemptSeconds pulumi.IntPtrOutput    `pulumi:"retryAttemptSeconds"`
+	TargetId            pulumi.StringOutput    `pulumi:"targetId"`
+	TargetType          pulumi.StringOutput    `pulumi:"targetType"`
+	TargetVersion       pulumi.StringPtrOutput `pulumi:"targetVersion"`
 }
 
 // NewRemediationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -87,12 +88,13 @@ type remediationConfigurationArgs struct {
 	ConfigRuleName           string                                     `pulumi:"configRuleName"`
 	ExecutionControls        *RemediationConfigurationExecutionControls `pulumi:"executionControls"`
 	MaximumAutomaticAttempts *int                                       `pulumi:"maximumAutomaticAttempts"`
-	Parameters               interface{}                                `pulumi:"parameters"`
-	ResourceType             *string                                    `pulumi:"resourceType"`
-	RetryAttemptSeconds      *int                                       `pulumi:"retryAttemptSeconds"`
-	TargetId                 string                                     `pulumi:"targetId"`
-	TargetType               string                                     `pulumi:"targetType"`
-	TargetVersion            *string                                    `pulumi:"targetVersion"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+	Parameters          interface{} `pulumi:"parameters"`
+	ResourceType        *string     `pulumi:"resourceType"`
+	RetryAttemptSeconds *int        `pulumi:"retryAttemptSeconds"`
+	TargetId            string      `pulumi:"targetId"`
+	TargetType          string      `pulumi:"targetType"`
+	TargetVersion       *string     `pulumi:"targetVersion"`
 }
 
 // The set of arguments for constructing a RemediationConfiguration resource.
@@ -101,12 +103,13 @@ type RemediationConfigurationArgs struct {
 	ConfigRuleName           pulumi.StringInput
 	ExecutionControls        RemediationConfigurationExecutionControlsPtrInput
 	MaximumAutomaticAttempts pulumi.IntPtrInput
-	Parameters               pulumi.Input
-	ResourceType             pulumi.StringPtrInput
-	RetryAttemptSeconds      pulumi.IntPtrInput
-	TargetId                 pulumi.StringInput
-	TargetType               pulumi.StringInput
-	TargetVersion            pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+	Parameters          pulumi.Input
+	ResourceType        pulumi.StringPtrInput
+	RetryAttemptSeconds pulumi.IntPtrInput
+	TargetId            pulumi.StringInput
+	TargetType          pulumi.StringInput
+	TargetVersion       pulumi.StringPtrInput
 }
 
 func (RemediationConfigurationArgs) ElementType() reflect.Type {
@@ -164,6 +167,7 @@ func (o RemediationConfigurationOutput) MaximumAutomaticAttempts() pulumi.IntPtr
 	return o.ApplyT(func(v *RemediationConfiguration) pulumi.IntPtrOutput { return v.MaximumAutomaticAttempts }).(pulumi.IntPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
 func (o RemediationConfigurationOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RemediationConfiguration) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }

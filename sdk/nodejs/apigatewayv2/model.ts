@@ -53,6 +53,8 @@ export class Model extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
      */
     public readonly schema!: pulumi.Output<any>;
 
@@ -116,6 +118,8 @@ export interface ModelArgs {
     name?: pulumi.Input<string>;
     /**
      * The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
      */
     schema: any;
 }

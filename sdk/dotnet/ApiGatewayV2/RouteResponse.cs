@@ -29,6 +29,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         /// <summary>
         /// The response models for the route response.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
         /// </summary>
         [Output("responseModels")]
         public Output<object?> ResponseModels { get; private set; } = null!;
@@ -118,6 +120,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         /// <summary>
         /// The response models for the route response.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
         /// </summary>
         [Input("responseModels")]
         public Input<object>? ResponseModels { get; set; }

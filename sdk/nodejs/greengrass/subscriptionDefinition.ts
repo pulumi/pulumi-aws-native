@@ -44,6 +44,9 @@ export class SubscriptionDefinition extends pulumi.CustomResource {
     public readonly initialVersion!: pulumi.Output<outputs.greengrass.SubscriptionDefinitionVersion | undefined>;
     public /*out*/ readonly latestVersionArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::SubscriptionDefinition` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -84,5 +87,8 @@ export class SubscriptionDefinition extends pulumi.CustomResource {
 export interface SubscriptionDefinitionArgs {
     initialVersion?: pulumi.Input<inputs.greengrass.SubscriptionDefinitionVersionArgs>;
     name?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::SubscriptionDefinition` for more information about the expected schema for this property.
+     */
     tags?: any;
 }

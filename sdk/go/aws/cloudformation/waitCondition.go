@@ -17,7 +17,8 @@ import (
 type WaitCondition struct {
 	pulumi.CustomResourceState
 
-	Count   pulumi.IntPtrOutput    `pulumi:"count"`
+	Count pulumi.IntPtrOutput `pulumi:"count"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::WaitCondition` for more information about the expected schema for this property.
 	Data    pulumi.AnyOutput       `pulumi:"data"`
 	Handle  pulumi.StringPtrOutput `pulumi:"handle"`
 	Timeout pulumi.StringPtrOutput `pulumi:"timeout"`
@@ -116,6 +117,7 @@ func (o WaitConditionOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WaitCondition) pulumi.IntPtrOutput { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::WaitCondition` for more information about the expected schema for this property.
 func (o WaitConditionOutput) Data() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WaitCondition) pulumi.AnyOutput { return v.Data }).(pulumi.AnyOutput)
 }

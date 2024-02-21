@@ -26,6 +26,8 @@ type Domain struct {
 	// The 12-digit account ID of the AWS account that owns the domain. This field is used for GetAtt
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The access control resource policy on the provided domain.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
 	PermissionsPolicyDocument pulumi.AnyOutput `pulumi:"permissionsPolicyDocument"`
 	// An array of key-value pairs to apply to this resource.
 	Tags DomainTagArrayOutput `pulumi:"tags"`
@@ -81,6 +83,8 @@ type domainArgs struct {
 	// The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// The access control resource policy on the provided domain.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []DomainTag `pulumi:"tags"`
@@ -93,6 +97,8 @@ type DomainArgs struct {
 	// The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
 	EncryptionKey pulumi.StringPtrInput
 	// The access control resource policy on the provided domain.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
 	PermissionsPolicyDocument pulumi.Input
 	// An array of key-value pairs to apply to this resource.
 	Tags DomainTagArrayInput
@@ -161,6 +167,8 @@ func (o DomainOutput) Owner() pulumi.StringOutput {
 }
 
 // The access control resource policy on the provided domain.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
 func (o DomainOutput) PermissionsPolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.PermissionsPolicyDocument }).(pulumi.AnyOutput)
 }

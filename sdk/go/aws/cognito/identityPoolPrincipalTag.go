@@ -16,10 +16,11 @@ import (
 type IdentityPoolPrincipalTag struct {
 	pulumi.CustomResourceState
 
-	IdentityPoolId       pulumi.StringOutput  `pulumi:"identityPoolId"`
-	IdentityProviderName pulumi.StringOutput  `pulumi:"identityProviderName"`
-	PrincipalTags        pulumi.AnyOutput     `pulumi:"principalTags"`
-	UseDefaults          pulumi.BoolPtrOutput `pulumi:"useDefaults"`
+	IdentityPoolId       pulumi.StringOutput `pulumi:"identityPoolId"`
+	IdentityProviderName pulumi.StringOutput `pulumi:"identityProviderName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+	PrincipalTags pulumi.AnyOutput     `pulumi:"principalTags"`
+	UseDefaults   pulumi.BoolPtrOutput `pulumi:"useDefaults"`
 }
 
 // NewIdentityPoolPrincipalTag registers a new resource with the given unique name, arguments, and options.
@@ -73,18 +74,20 @@ func (IdentityPoolPrincipalTagState) ElementType() reflect.Type {
 }
 
 type identityPoolPrincipalTagArgs struct {
-	IdentityPoolId       string      `pulumi:"identityPoolId"`
-	IdentityProviderName string      `pulumi:"identityProviderName"`
-	PrincipalTags        interface{} `pulumi:"principalTags"`
-	UseDefaults          *bool       `pulumi:"useDefaults"`
+	IdentityPoolId       string `pulumi:"identityPoolId"`
+	IdentityProviderName string `pulumi:"identityProviderName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+	PrincipalTags interface{} `pulumi:"principalTags"`
+	UseDefaults   *bool       `pulumi:"useDefaults"`
 }
 
 // The set of arguments for constructing a IdentityPoolPrincipalTag resource.
 type IdentityPoolPrincipalTagArgs struct {
 	IdentityPoolId       pulumi.StringInput
 	IdentityProviderName pulumi.StringInput
-	PrincipalTags        pulumi.Input
-	UseDefaults          pulumi.BoolPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+	PrincipalTags pulumi.Input
+	UseDefaults   pulumi.BoolPtrInput
 }
 
 func (IdentityPoolPrincipalTagArgs) ElementType() reflect.Type {
@@ -132,6 +135,7 @@ func (o IdentityPoolPrincipalTagOutput) IdentityProviderName() pulumi.StringOutp
 	return o.ApplyT(func(v *IdentityPoolPrincipalTag) pulumi.StringOutput { return v.IdentityProviderName }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
 func (o IdentityPoolPrincipalTagOutput) PrincipalTags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *IdentityPoolPrincipalTag) pulumi.AnyOutput { return v.PrincipalTags }).(pulumi.AnyOutput)
 }

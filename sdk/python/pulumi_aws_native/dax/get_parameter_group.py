@@ -42,6 +42,9 @@ class GetParameterGroupResult:
     @property
     @pulumi.getter(name="parameterNameValues")
     def parameter_name_values(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameter_name_values")
 
 

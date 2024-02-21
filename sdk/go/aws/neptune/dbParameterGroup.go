@@ -18,11 +18,12 @@ import (
 type DbParameterGroup struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringOutput            `pulumi:"description"`
-	Family      pulumi.StringOutput            `pulumi:"family"`
-	Name        pulumi.StringPtrOutput         `pulumi:"name"`
-	Parameters  pulumi.AnyOutput               `pulumi:"parameters"`
-	Tags        DbParameterGroupTagArrayOutput `pulumi:"tags"`
+	Description pulumi.StringOutput    `pulumi:"description"`
+	Family      pulumi.StringOutput    `pulumi:"family"`
+	Name        pulumi.StringPtrOutput `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
+	Parameters pulumi.AnyOutput               `pulumi:"parameters"`
+	Tags       DbParameterGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDbParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -80,11 +81,12 @@ func (DbParameterGroupState) ElementType() reflect.Type {
 }
 
 type dbParameterGroupArgs struct {
-	Description string                `pulumi:"description"`
-	Family      string                `pulumi:"family"`
-	Name        *string               `pulumi:"name"`
-	Parameters  interface{}           `pulumi:"parameters"`
-	Tags        []DbParameterGroupTag `pulumi:"tags"`
+	Description string  `pulumi:"description"`
+	Family      string  `pulumi:"family"`
+	Name        *string `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
+	Parameters interface{}           `pulumi:"parameters"`
+	Tags       []DbParameterGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DbParameterGroup resource.
@@ -92,8 +94,9 @@ type DbParameterGroupArgs struct {
 	Description pulumi.StringInput
 	Family      pulumi.StringInput
 	Name        pulumi.StringPtrInput
-	Parameters  pulumi.Input
-	Tags        DbParameterGroupTagArrayInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
+	Parameters pulumi.Input
+	Tags       DbParameterGroupTagArrayInput
 }
 
 func (DbParameterGroupArgs) ElementType() reflect.Type {
@@ -145,6 +148,7 @@ func (o DbParameterGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbParameterGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
 func (o DbParameterGroupOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DbParameterGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }

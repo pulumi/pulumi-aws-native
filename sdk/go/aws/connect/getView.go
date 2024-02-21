@@ -39,6 +39,8 @@ type LookupViewResult struct {
 	// One or more tags.
 	Tags []ViewTag `pulumi:"tags"`
 	// The template of the view as JSON.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
 	Template interface{} `pulumi:"template"`
 	// The Amazon Resource Name (ARN) of the view.
 	ViewArn *string `pulumi:"viewArn"`
@@ -110,6 +112,8 @@ func (o LookupViewResultOutput) Tags() ViewTagArrayOutput {
 }
 
 // The template of the view as JSON.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
 func (o LookupViewResultOutput) Template() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupViewResult) interface{} { return v.Template }).(pulumi.AnyOutput)
 }

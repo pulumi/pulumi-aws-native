@@ -97,16 +97,25 @@ class GetStageResult:
     @property
     @pulumi.getter(name="routeSettings")
     def route_settings(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "route_settings")
 
     @property
     @pulumi.getter(name="stageVariables")
     def stage_variables(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "stage_variables")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
 

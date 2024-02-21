@@ -30,6 +30,8 @@ class JobDefinitionArgs:
                  timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
+        :param Any parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "type", type)
         if container_properties is not None:
@@ -103,6 +105,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -148,6 +153,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -187,6 +195,8 @@ class JobDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -308,6 +318,9 @@ class JobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameters")
 
     @property
@@ -333,6 +346,9 @@ class JobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @property

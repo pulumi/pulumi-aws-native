@@ -27,10 +27,12 @@ type LookupUserPoolIdentityProviderArgs struct {
 }
 
 type LookupUserPoolIdentityProviderResult struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 	AttributeMapping interface{} `pulumi:"attributeMapping"`
 	Id               *string     `pulumi:"id"`
 	IdpIdentifiers   []string    `pulumi:"idpIdentifiers"`
-	ProviderDetails  interface{} `pulumi:"providerDetails"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+	ProviderDetails interface{} `pulumi:"providerDetails"`
 }
 
 func LookupUserPoolIdentityProviderOutput(ctx *pulumi.Context, args LookupUserPoolIdentityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolIdentityProviderResultOutput {
@@ -68,6 +70,7 @@ func (o LookupUserPoolIdentityProviderResultOutput) ToLookupUserPoolIdentityProv
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 func (o LookupUserPoolIdentityProviderResultOutput) AttributeMapping() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) interface{} { return v.AttributeMapping }).(pulumi.AnyOutput)
 }
@@ -80,6 +83,7 @@ func (o LookupUserPoolIdentityProviderResultOutput) IdpIdentifiers() pulumi.Stri
 	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) []string { return v.IdpIdentifiers }).(pulumi.StringArrayOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 func (o LookupUserPoolIdentityProviderResultOutput) ProviderDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) interface{} { return v.ProviderDetails }).(pulumi.AnyOutput)
 }

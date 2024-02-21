@@ -17,10 +17,11 @@ import (
 type DataQualityRuleset struct {
 	pulumi.CustomResourceState
 
-	ClientToken pulumi.StringPtrOutput                            `pulumi:"clientToken"`
-	Description pulumi.StringPtrOutput                            `pulumi:"description"`
-	Name        pulumi.StringPtrOutput                            `pulumi:"name"`
-	Ruleset     pulumi.StringPtrOutput                            `pulumi:"ruleset"`
+	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Name        pulumi.StringPtrOutput `pulumi:"name"`
+	Ruleset     pulumi.StringPtrOutput `pulumi:"ruleset"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DataQualityRuleset` for more information about the expected schema for this property.
 	Tags        pulumi.AnyOutput                                  `pulumi:"tags"`
 	TargetTable DataQualityRulesetDataQualityTargetTablePtrOutput `pulumi:"targetTable"`
 }
@@ -65,10 +66,11 @@ func (DataQualityRulesetState) ElementType() reflect.Type {
 }
 
 type dataQualityRulesetArgs struct {
-	ClientToken *string                                   `pulumi:"clientToken"`
-	Description *string                                   `pulumi:"description"`
-	Name        *string                                   `pulumi:"name"`
-	Ruleset     *string                                   `pulumi:"ruleset"`
+	ClientToken *string `pulumi:"clientToken"`
+	Description *string `pulumi:"description"`
+	Name        *string `pulumi:"name"`
+	Ruleset     *string `pulumi:"ruleset"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DataQualityRuleset` for more information about the expected schema for this property.
 	Tags        interface{}                               `pulumi:"tags"`
 	TargetTable *DataQualityRulesetDataQualityTargetTable `pulumi:"targetTable"`
 }
@@ -79,6 +81,7 @@ type DataQualityRulesetArgs struct {
 	Description pulumi.StringPtrInput
 	Name        pulumi.StringPtrInput
 	Ruleset     pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DataQualityRuleset` for more information about the expected schema for this property.
 	Tags        pulumi.Input
 	TargetTable DataQualityRulesetDataQualityTargetTablePtrInput
 }
@@ -136,6 +139,7 @@ func (o DataQualityRulesetOutput) Ruleset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringPtrOutput { return v.Ruleset }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DataQualityRuleset` for more information about the expected schema for this property.
 func (o DataQualityRulesetOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

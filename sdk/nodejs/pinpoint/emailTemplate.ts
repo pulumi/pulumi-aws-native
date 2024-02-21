@@ -41,6 +41,9 @@ export class EmailTemplate extends pulumi.CustomResource {
     public readonly defaultSubstitutions!: pulumi.Output<string | undefined>;
     public readonly htmlPart!: pulumi.Output<string | undefined>;
     public readonly subject!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::EmailTemplate` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly templateDescription!: pulumi.Output<string | undefined>;
     public readonly templateName!: pulumi.Output<string>;
@@ -97,6 +100,9 @@ export interface EmailTemplateArgs {
     defaultSubstitutions?: pulumi.Input<string>;
     htmlPart?: pulumi.Input<string>;
     subject: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::EmailTemplate` for more information about the expected schema for this property.
+     */
     tags?: any;
     templateDescription?: pulumi.Input<string>;
     templateName: pulumi.Input<string>;

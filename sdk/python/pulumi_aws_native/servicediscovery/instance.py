@@ -19,6 +19,7 @@ class InstanceArgs:
                  instance_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Instance resource.
+        :param Any instance_attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "instance_attributes", instance_attributes)
         pulumi.set(__self__, "service_id", service_id)
@@ -28,6 +29,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="instanceAttributes")
     def instance_attributes(self) -> Any:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "instance_attributes")
 
     @instance_attributes.setter
@@ -72,6 +76,7 @@ class Instance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any instance_attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -149,6 +154,9 @@ class Instance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="instanceAttributes")
     def instance_attributes(self) -> pulumi.Output[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "instance_attributes")
 
     @property

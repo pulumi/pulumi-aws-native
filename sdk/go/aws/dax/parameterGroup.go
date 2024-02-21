@@ -17,9 +17,10 @@ import (
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	Description         pulumi.StringPtrOutput `pulumi:"description"`
-	ParameterGroupName  pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
-	ParameterNameValues pulumi.AnyOutput       `pulumi:"parameterNameValues"`
+	Description        pulumi.StringPtrOutput `pulumi:"description"`
+	ParameterGroupName pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
+	ParameterNameValues pulumi.AnyOutput `pulumi:"parameterNameValues"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -66,15 +67,17 @@ func (ParameterGroupState) ElementType() reflect.Type {
 }
 
 type parameterGroupArgs struct {
-	Description         *string     `pulumi:"description"`
-	ParameterGroupName  *string     `pulumi:"parameterGroupName"`
+	Description        *string `pulumi:"description"`
+	ParameterGroupName *string `pulumi:"parameterGroupName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
 	ParameterNameValues interface{} `pulumi:"parameterNameValues"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
-	Description         pulumi.StringPtrInput
-	ParameterGroupName  pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	ParameterGroupName pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
 	ParameterNameValues pulumi.Input
 }
 
@@ -123,6 +126,7 @@ func (o ParameterGroupOutput) ParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringPtrOutput { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
 func (o ParameterGroupOutput) ParameterNameValues() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.AnyOutput { return v.ParameterNameValues }).(pulumi.AnyOutput)
 }

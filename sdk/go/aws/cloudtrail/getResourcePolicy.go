@@ -29,6 +29,8 @@ type LookupResourcePolicyArgs struct {
 
 type LookupResourcePolicyResult struct {
 	// A policy document containing permissions to add to the specified resource. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudTrail::ResourcePolicy` for more information about the expected schema for this property.
 	ResourcePolicy interface{} `pulumi:"resourcePolicy"`
 }
 
@@ -69,6 +71,8 @@ func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutputWith
 }
 
 // A policy document containing permissions to add to the specified resource. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudTrail::ResourcePolicy` for more information about the expected schema for this property.
 func (o LookupResourcePolicyResultOutput) ResourcePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) interface{} { return v.ResourcePolicy }).(pulumi.AnyOutput)
 }

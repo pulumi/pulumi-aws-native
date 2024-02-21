@@ -27,11 +27,12 @@ type LookupDeviceDefinitionArgs struct {
 }
 
 type LookupDeviceDefinitionResult struct {
-	Arn              *string     `pulumi:"arn"`
-	Id               *string     `pulumi:"id"`
-	LatestVersionArn *string     `pulumi:"latestVersionArn"`
-	Name             *string     `pulumi:"name"`
-	Tags             interface{} `pulumi:"tags"`
+	Arn              *string `pulumi:"arn"`
+	Id               *string `pulumi:"id"`
+	LatestVersionArn *string `pulumi:"latestVersionArn"`
+	Name             *string `pulumi:"name"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::DeviceDefinition` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupDeviceDefinitionOutput(ctx *pulumi.Context, args LookupDeviceDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupDeviceDefinitionResultOutput {
@@ -85,6 +86,7 @@ func (o LookupDeviceDefinitionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeviceDefinitionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::DeviceDefinition` for more information about the expected schema for this property.
 func (o LookupDeviceDefinitionResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDeviceDefinitionResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

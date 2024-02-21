@@ -40,6 +40,9 @@ export class CustomEntityType extends pulumi.CustomResource {
     public readonly contextWords!: pulumi.Output<string[] | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly regexString!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::CustomEntityType` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -77,5 +80,8 @@ export interface CustomEntityTypeArgs {
     contextWords?: pulumi.Input<pulumi.Input<string>[]>;
     name?: pulumi.Input<string>;
     regexString?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::CustomEntityType` for more information about the expected schema for this property.
+     */
     tags?: any;
 }

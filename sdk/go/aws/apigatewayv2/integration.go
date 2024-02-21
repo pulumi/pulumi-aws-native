@@ -18,20 +18,23 @@ import (
 type Integration struct {
 	pulumi.CustomResourceState
 
-	ApiId                       pulumi.StringOutput           `pulumi:"apiId"`
-	ConnectionId                pulumi.StringPtrOutput        `pulumi:"connectionId"`
-	ConnectionType              pulumi.StringPtrOutput        `pulumi:"connectionType"`
-	ContentHandlingStrategy     pulumi.StringPtrOutput        `pulumi:"contentHandlingStrategy"`
-	CredentialsArn              pulumi.StringPtrOutput        `pulumi:"credentialsArn"`
-	Description                 pulumi.StringPtrOutput        `pulumi:"description"`
-	IntegrationMethod           pulumi.StringPtrOutput        `pulumi:"integrationMethod"`
-	IntegrationSubtype          pulumi.StringPtrOutput        `pulumi:"integrationSubtype"`
-	IntegrationType             pulumi.StringOutput           `pulumi:"integrationType"`
-	IntegrationUri              pulumi.StringPtrOutput        `pulumi:"integrationUri"`
-	PassthroughBehavior         pulumi.StringPtrOutput        `pulumi:"passthroughBehavior"`
-	PayloadFormatVersion        pulumi.StringPtrOutput        `pulumi:"payloadFormatVersion"`
-	RequestParameters           pulumi.AnyOutput              `pulumi:"requestParameters"`
-	RequestTemplates            pulumi.AnyOutput              `pulumi:"requestTemplates"`
+	ApiId                   pulumi.StringOutput    `pulumi:"apiId"`
+	ConnectionId            pulumi.StringPtrOutput `pulumi:"connectionId"`
+	ConnectionType          pulumi.StringPtrOutput `pulumi:"connectionType"`
+	ContentHandlingStrategy pulumi.StringPtrOutput `pulumi:"contentHandlingStrategy"`
+	CredentialsArn          pulumi.StringPtrOutput `pulumi:"credentialsArn"`
+	Description             pulumi.StringPtrOutput `pulumi:"description"`
+	IntegrationMethod       pulumi.StringPtrOutput `pulumi:"integrationMethod"`
+	IntegrationSubtype      pulumi.StringPtrOutput `pulumi:"integrationSubtype"`
+	IntegrationType         pulumi.StringOutput    `pulumi:"integrationType"`
+	IntegrationUri          pulumi.StringPtrOutput `pulumi:"integrationUri"`
+	PassthroughBehavior     pulumi.StringPtrOutput `pulumi:"passthroughBehavior"`
+	PayloadFormatVersion    pulumi.StringPtrOutput `pulumi:"payloadFormatVersion"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+	RequestParameters pulumi.AnyOutput `pulumi:"requestParameters"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+	RequestTemplates pulumi.AnyOutput `pulumi:"requestTemplates"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
 	ResponseParameters          pulumi.AnyOutput              `pulumi:"responseParameters"`
 	TemplateSelectionExpression pulumi.StringPtrOutput        `pulumi:"templateSelectionExpression"`
 	TimeoutInMillis             pulumi.IntPtrOutput           `pulumi:"timeoutInMillis"`
@@ -88,20 +91,23 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
-	ApiId                       string                `pulumi:"apiId"`
-	ConnectionId                *string               `pulumi:"connectionId"`
-	ConnectionType              *string               `pulumi:"connectionType"`
-	ContentHandlingStrategy     *string               `pulumi:"contentHandlingStrategy"`
-	CredentialsArn              *string               `pulumi:"credentialsArn"`
-	Description                 *string               `pulumi:"description"`
-	IntegrationMethod           *string               `pulumi:"integrationMethod"`
-	IntegrationSubtype          *string               `pulumi:"integrationSubtype"`
-	IntegrationType             string                `pulumi:"integrationType"`
-	IntegrationUri              *string               `pulumi:"integrationUri"`
-	PassthroughBehavior         *string               `pulumi:"passthroughBehavior"`
-	PayloadFormatVersion        *string               `pulumi:"payloadFormatVersion"`
-	RequestParameters           interface{}           `pulumi:"requestParameters"`
-	RequestTemplates            interface{}           `pulumi:"requestTemplates"`
+	ApiId                   string  `pulumi:"apiId"`
+	ConnectionId            *string `pulumi:"connectionId"`
+	ConnectionType          *string `pulumi:"connectionType"`
+	ContentHandlingStrategy *string `pulumi:"contentHandlingStrategy"`
+	CredentialsArn          *string `pulumi:"credentialsArn"`
+	Description             *string `pulumi:"description"`
+	IntegrationMethod       *string `pulumi:"integrationMethod"`
+	IntegrationSubtype      *string `pulumi:"integrationSubtype"`
+	IntegrationType         string  `pulumi:"integrationType"`
+	IntegrationUri          *string `pulumi:"integrationUri"`
+	PassthroughBehavior     *string `pulumi:"passthroughBehavior"`
+	PayloadFormatVersion    *string `pulumi:"payloadFormatVersion"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+	RequestParameters interface{} `pulumi:"requestParameters"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+	RequestTemplates interface{} `pulumi:"requestTemplates"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
 	ResponseParameters          interface{}           `pulumi:"responseParameters"`
 	TemplateSelectionExpression *string               `pulumi:"templateSelectionExpression"`
 	TimeoutInMillis             *int                  `pulumi:"timeoutInMillis"`
@@ -110,20 +116,23 @@ type integrationArgs struct {
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
-	ApiId                       pulumi.StringInput
-	ConnectionId                pulumi.StringPtrInput
-	ConnectionType              pulumi.StringPtrInput
-	ContentHandlingStrategy     pulumi.StringPtrInput
-	CredentialsArn              pulumi.StringPtrInput
-	Description                 pulumi.StringPtrInput
-	IntegrationMethod           pulumi.StringPtrInput
-	IntegrationSubtype          pulumi.StringPtrInput
-	IntegrationType             pulumi.StringInput
-	IntegrationUri              pulumi.StringPtrInput
-	PassthroughBehavior         pulumi.StringPtrInput
-	PayloadFormatVersion        pulumi.StringPtrInput
-	RequestParameters           pulumi.Input
-	RequestTemplates            pulumi.Input
+	ApiId                   pulumi.StringInput
+	ConnectionId            pulumi.StringPtrInput
+	ConnectionType          pulumi.StringPtrInput
+	ContentHandlingStrategy pulumi.StringPtrInput
+	CredentialsArn          pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
+	IntegrationMethod       pulumi.StringPtrInput
+	IntegrationSubtype      pulumi.StringPtrInput
+	IntegrationType         pulumi.StringInput
+	IntegrationUri          pulumi.StringPtrInput
+	PassthroughBehavior     pulumi.StringPtrInput
+	PayloadFormatVersion    pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+	RequestParameters pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+	RequestTemplates pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
 	ResponseParameters          pulumi.Input
 	TemplateSelectionExpression pulumi.StringPtrInput
 	TimeoutInMillis             pulumi.IntPtrInput
@@ -215,14 +224,17 @@ func (o IntegrationOutput) PayloadFormatVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.PayloadFormatVersion }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
 func (o IntegrationOutput) RequestParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Integration) pulumi.AnyOutput { return v.RequestParameters }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
 func (o IntegrationOutput) RequestTemplates() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Integration) pulumi.AnyOutput { return v.RequestTemplates }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
 func (o IntegrationOutput) ResponseParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Integration) pulumi.AnyOutput { return v.ResponseParameters }).(pulumi.AnyOutput)
 }

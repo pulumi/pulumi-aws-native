@@ -27,6 +27,9 @@ export interface GetLandingZoneResult {
     readonly driftStatus?: enums.controltower.LandingZoneDriftStatus;
     readonly landingZoneIdentifier?: string;
     readonly latestAvailableVersion?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+     */
     readonly manifest?: any;
     readonly status?: enums.controltower.LandingZoneStatus;
     readonly tags?: outputs.controltower.LandingZoneTag[];

@@ -36,6 +36,8 @@ export class RegistryPolicy extends pulumi.CustomResource {
 
     /**
      * The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
      */
     public readonly policyText!: pulumi.Output<any>;
     public /*out*/ readonly registryId!: pulumi.Output<string>;
@@ -71,6 +73,8 @@ export class RegistryPolicy extends pulumi.CustomResource {
 export interface RegistryPolicyArgs {
     /**
      * The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
      */
     policyText: any;
 }

@@ -53,6 +53,8 @@ namespace Pulumi.AwsNative.Sns
     {
         /// <summary>
         /// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? ArchivePolicy;
         /// <summary>
@@ -71,6 +73,8 @@ namespace Pulumi.AwsNative.Sns
         /// The policy must be in JSON string format.
         /// 
         /// Length Constraints: Maximum length of 30720
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? DataProtectionPolicy;
         /// <summary>

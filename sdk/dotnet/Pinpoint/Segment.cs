@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.Pinpoint
         [Output("segmentId")]
         public Output<string> SegmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -98,6 +101,9 @@ namespace Pulumi.AwsNative.Pinpoint
         [Input("segmentGroups")]
         public Input<Inputs.SegmentGroupsArgs>? SegmentGroups { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

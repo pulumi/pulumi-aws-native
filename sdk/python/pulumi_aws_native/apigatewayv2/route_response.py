@@ -29,6 +29,8 @@ class RouteResponseArgs:
         :param pulumi.Input[str] route_response_key: The route response key.
         :param pulumi.Input[str] model_selection_expression: The model selection expression for the route response. Supported only for WebSocket APIs.
         :param Any response_models: The response models for the route response.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
         :param pulumi.Input['RouteResponseRouteParametersArgs'] response_parameters: The route response parameters.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -94,6 +96,8 @@ class RouteResponseArgs:
     def response_models(self) -> Optional[Any]:
         """
         The response models for the route response.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "response_models")
 
@@ -134,6 +138,8 @@ class RouteResponse(pulumi.CustomResource):
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[str] model_selection_expression: The model selection expression for the route response. Supported only for WebSocket APIs.
         :param Any response_models: The response models for the route response.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
         :param pulumi.Input[pulumi.InputType['RouteResponseRouteParametersArgs']] response_parameters: The route response parameters.
         :param pulumi.Input[str] route_id: The route ID.
         :param pulumi.Input[str] route_response_key: The route response key.
@@ -244,6 +250,8 @@ class RouteResponse(pulumi.CustomResource):
     def response_models(self) -> pulumi.Output[Optional[Any]]:
         """
         The response models for the route response.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "response_models")
 

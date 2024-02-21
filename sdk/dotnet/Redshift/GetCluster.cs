@@ -179,6 +179,8 @@ namespace Pulumi.AwsNative.Redshift
         public readonly bool? MultiAz;
         /// <summary>
         /// The namespace resource policy document that will be attached to a Redshift cluster.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? NamespaceResourcePolicy;
         /// <summary>

@@ -16,18 +16,20 @@ import (
 type IdentityPool struct {
 	pulumi.CustomResourceState
 
-	AllowClassicFlow               pulumi.BoolPtrOutput                           `pulumi:"allowClassicFlow"`
-	AllowUnauthenticatedIdentities pulumi.BoolOutput                              `pulumi:"allowUnauthenticatedIdentities"`
-	CognitoEvents                  pulumi.AnyOutput                               `pulumi:"cognitoEvents"`
-	CognitoIdentityProviders       IdentityPoolCognitoIdentityProviderArrayOutput `pulumi:"cognitoIdentityProviders"`
-	CognitoStreams                 IdentityPoolCognitoStreamsPtrOutput            `pulumi:"cognitoStreams"`
-	DeveloperProviderName          pulumi.StringPtrOutput                         `pulumi:"developerProviderName"`
-	IdentityPoolName               pulumi.StringPtrOutput                         `pulumi:"identityPoolName"`
-	Name                           pulumi.StringOutput                            `pulumi:"name"`
-	OpenIdConnectProviderArns      pulumi.StringArrayOutput                       `pulumi:"openIdConnectProviderArns"`
-	PushSync                       IdentityPoolPushSyncPtrOutput                  `pulumi:"pushSync"`
-	SamlProviderArns               pulumi.StringArrayOutput                       `pulumi:"samlProviderArns"`
-	SupportedLoginProviders        pulumi.AnyOutput                               `pulumi:"supportedLoginProviders"`
+	AllowClassicFlow               pulumi.BoolPtrOutput `pulumi:"allowClassicFlow"`
+	AllowUnauthenticatedIdentities pulumi.BoolOutput    `pulumi:"allowUnauthenticatedIdentities"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+	CognitoEvents             pulumi.AnyOutput                               `pulumi:"cognitoEvents"`
+	CognitoIdentityProviders  IdentityPoolCognitoIdentityProviderArrayOutput `pulumi:"cognitoIdentityProviders"`
+	CognitoStreams            IdentityPoolCognitoStreamsPtrOutput            `pulumi:"cognitoStreams"`
+	DeveloperProviderName     pulumi.StringPtrOutput                         `pulumi:"developerProviderName"`
+	IdentityPoolName          pulumi.StringPtrOutput                         `pulumi:"identityPoolName"`
+	Name                      pulumi.StringOutput                            `pulumi:"name"`
+	OpenIdConnectProviderArns pulumi.StringArrayOutput                       `pulumi:"openIdConnectProviderArns"`
+	PushSync                  IdentityPoolPushSyncPtrOutput                  `pulumi:"pushSync"`
+	SamlProviderArns          pulumi.StringArrayOutput                       `pulumi:"samlProviderArns"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+	SupportedLoginProviders pulumi.AnyOutput `pulumi:"supportedLoginProviders"`
 }
 
 // NewIdentityPool registers a new resource with the given unique name, arguments, and options.
@@ -73,32 +75,36 @@ func (IdentityPoolState) ElementType() reflect.Type {
 }
 
 type identityPoolArgs struct {
-	AllowClassicFlow               *bool                                 `pulumi:"allowClassicFlow"`
-	AllowUnauthenticatedIdentities bool                                  `pulumi:"allowUnauthenticatedIdentities"`
-	CognitoEvents                  interface{}                           `pulumi:"cognitoEvents"`
-	CognitoIdentityProviders       []IdentityPoolCognitoIdentityProvider `pulumi:"cognitoIdentityProviders"`
-	CognitoStreams                 *IdentityPoolCognitoStreams           `pulumi:"cognitoStreams"`
-	DeveloperProviderName          *string                               `pulumi:"developerProviderName"`
-	IdentityPoolName               *string                               `pulumi:"identityPoolName"`
-	OpenIdConnectProviderArns      []string                              `pulumi:"openIdConnectProviderArns"`
-	PushSync                       *IdentityPoolPushSync                 `pulumi:"pushSync"`
-	SamlProviderArns               []string                              `pulumi:"samlProviderArns"`
-	SupportedLoginProviders        interface{}                           `pulumi:"supportedLoginProviders"`
+	AllowClassicFlow               *bool `pulumi:"allowClassicFlow"`
+	AllowUnauthenticatedIdentities bool  `pulumi:"allowUnauthenticatedIdentities"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+	CognitoEvents             interface{}                           `pulumi:"cognitoEvents"`
+	CognitoIdentityProviders  []IdentityPoolCognitoIdentityProvider `pulumi:"cognitoIdentityProviders"`
+	CognitoStreams            *IdentityPoolCognitoStreams           `pulumi:"cognitoStreams"`
+	DeveloperProviderName     *string                               `pulumi:"developerProviderName"`
+	IdentityPoolName          *string                               `pulumi:"identityPoolName"`
+	OpenIdConnectProviderArns []string                              `pulumi:"openIdConnectProviderArns"`
+	PushSync                  *IdentityPoolPushSync                 `pulumi:"pushSync"`
+	SamlProviderArns          []string                              `pulumi:"samlProviderArns"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+	SupportedLoginProviders interface{} `pulumi:"supportedLoginProviders"`
 }
 
 // The set of arguments for constructing a IdentityPool resource.
 type IdentityPoolArgs struct {
 	AllowClassicFlow               pulumi.BoolPtrInput
 	AllowUnauthenticatedIdentities pulumi.BoolInput
-	CognitoEvents                  pulumi.Input
-	CognitoIdentityProviders       IdentityPoolCognitoIdentityProviderArrayInput
-	CognitoStreams                 IdentityPoolCognitoStreamsPtrInput
-	DeveloperProviderName          pulumi.StringPtrInput
-	IdentityPoolName               pulumi.StringPtrInput
-	OpenIdConnectProviderArns      pulumi.StringArrayInput
-	PushSync                       IdentityPoolPushSyncPtrInput
-	SamlProviderArns               pulumi.StringArrayInput
-	SupportedLoginProviders        pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+	CognitoEvents             pulumi.Input
+	CognitoIdentityProviders  IdentityPoolCognitoIdentityProviderArrayInput
+	CognitoStreams            IdentityPoolCognitoStreamsPtrInput
+	DeveloperProviderName     pulumi.StringPtrInput
+	IdentityPoolName          pulumi.StringPtrInput
+	OpenIdConnectProviderArns pulumi.StringArrayInput
+	PushSync                  IdentityPoolPushSyncPtrInput
+	SamlProviderArns          pulumi.StringArrayInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+	SupportedLoginProviders pulumi.Input
 }
 
 func (IdentityPoolArgs) ElementType() reflect.Type {
@@ -146,6 +152,7 @@ func (o IdentityPoolOutput) AllowUnauthenticatedIdentities() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.BoolOutput { return v.AllowUnauthenticatedIdentities }).(pulumi.BoolOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
 func (o IdentityPoolOutput) CognitoEvents() pulumi.AnyOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.AnyOutput { return v.CognitoEvents }).(pulumi.AnyOutput)
 }
@@ -184,6 +191,7 @@ func (o IdentityPoolOutput) SamlProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.SamlProviderArns }).(pulumi.StringArrayOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
 func (o IdentityPoolOutput) SupportedLoginProviders() pulumi.AnyOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.AnyOutput { return v.SupportedLoginProviders }).(pulumi.AnyOutput)
 }

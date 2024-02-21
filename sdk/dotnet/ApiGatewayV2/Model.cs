@@ -44,6 +44,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         /// <summary>
         /// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
         /// </summary>
         [Output("schema")]
         public Output<object> Schema { get; private set; } = null!;
@@ -123,6 +125,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         /// <summary>
         /// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
         /// </summary>
         [Input("schema", required: true)]
         public Input<object> Schema { get; set; } = null!;

@@ -25,6 +25,8 @@ export interface GetQueueInlinePolicyArgs {
 export interface GetQueueInlinePolicyResult {
     /**
      * A policy document that contains permissions to add to the specified SQS queue
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
      */
     readonly policyDocument?: any;
 }

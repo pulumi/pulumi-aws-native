@@ -32,6 +32,8 @@ class LogGroupArgs:
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 30720
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         :param pulumi.Input['LogGroupClass'] log_group_class: The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
         :param pulumi.Input[str] log_group_name: The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
@@ -62,6 +64,8 @@ class LogGroupArgs:
         The policy must be in JSON string format.
 
         Length Constraints: Maximum length of 30720
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "data_protection_policy")
 
@@ -154,6 +158,8 @@ class LogGroup(pulumi.CustomResource):
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 30720
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         :param pulumi.Input['LogGroupClass'] log_group_class: The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
         :param pulumi.Input[str] log_group_name: The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
@@ -258,6 +264,8 @@ class LogGroup(pulumi.CustomResource):
         The policy must be in JSON string format.
 
         Length Constraints: Maximum length of 30720
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "data_protection_policy")
 

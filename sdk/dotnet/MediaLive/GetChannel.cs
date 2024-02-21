@@ -64,6 +64,9 @@ namespace Pulumi.AwsNative.MediaLive
         public readonly Outputs.ChannelMaintenanceCreateSettings? Maintenance;
         public readonly string? Name;
         public readonly string? RoleArn;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Channel` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
 
         [OutputConstructor]

@@ -27,6 +27,8 @@ type View struct {
 	// One or more tags.
 	Tags ViewTagArrayOutput `pulumi:"tags"`
 	// The template of the view as JSON.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
 	Template pulumi.AnyOutput `pulumi:"template"`
 	// The Amazon Resource Name (ARN) of the view.
 	ViewArn pulumi.StringOutput `pulumi:"viewArn"`
@@ -96,6 +98,8 @@ type viewArgs struct {
 	// One or more tags.
 	Tags []ViewTag `pulumi:"tags"`
 	// The template of the view as JSON.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
 	Template interface{} `pulumi:"template"`
 }
 
@@ -112,6 +116,8 @@ type ViewArgs struct {
 	// One or more tags.
 	Tags ViewTagArrayInput
 	// The template of the view as JSON.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
 	Template pulumi.Input
 }
 
@@ -178,6 +184,8 @@ func (o ViewOutput) Tags() ViewTagArrayOutput {
 }
 
 // The template of the view as JSON.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
 func (o ViewOutput) Template() pulumi.AnyOutput {
 	return o.ApplyT(func(v *View) pulumi.AnyOutput { return v.Template }).(pulumi.AnyOutput)
 }

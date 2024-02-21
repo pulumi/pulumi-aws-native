@@ -195,6 +195,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly multiAz!: pulumi.Output<boolean | undefined>;
     /**
      * The namespace resource policy document that will be attached to a Redshift cluster.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
      */
     public readonly namespaceResourcePolicy!: pulumi.Output<any | undefined>;
     /**
@@ -555,6 +557,8 @@ export interface ClusterArgs {
     multiAz?: pulumi.Input<boolean>;
     /**
      * The namespace resource policy document that will be attached to a Redshift cluster.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
      */
     namespaceResourcePolicy?: any;
     /**

@@ -17,6 +17,8 @@ type TopicInlinePolicy struct {
 	pulumi.CustomResourceState
 
 	// A policy document that contains permissions to add to the specified SNS topics.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicInlinePolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The Amazon Resource Name (ARN) of the topic to which you want to add the policy.
 	TopicArn pulumi.StringOutput `pulumi:"topicArn"`
@@ -73,6 +75,8 @@ func (TopicInlinePolicyState) ElementType() reflect.Type {
 
 type topicInlinePolicyArgs struct {
 	// A policy document that contains permissions to add to the specified SNS topics.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicInlinePolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The Amazon Resource Name (ARN) of the topic to which you want to add the policy.
 	TopicArn string `pulumi:"topicArn"`
@@ -81,6 +85,8 @@ type topicInlinePolicyArgs struct {
 // The set of arguments for constructing a TopicInlinePolicy resource.
 type TopicInlinePolicyArgs struct {
 	// A policy document that contains permissions to add to the specified SNS topics.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicInlinePolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The Amazon Resource Name (ARN) of the topic to which you want to add the policy.
 	TopicArn pulumi.StringInput
@@ -124,6 +130,8 @@ func (o TopicInlinePolicyOutput) ToTopicInlinePolicyOutputWithContext(ctx contex
 }
 
 // A policy document that contains permissions to add to the specified SNS topics.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicInlinePolicy` for more information about the expected schema for this property.
 func (o TopicInlinePolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *TopicInlinePolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

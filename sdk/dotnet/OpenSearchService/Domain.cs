@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.OpenSearchService
     [AwsNativeResourceType("aws-native:opensearchservice:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
+        /// </summary>
         [Output("accessPolicies")]
         public Output<object?> AccessPolicies { get; private set; } = null!;
 
@@ -139,6 +142,9 @@ namespace Pulumi.AwsNative.OpenSearchService
 
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
+        /// </summary>
         [Input("accessPolicies")]
         public Input<object>? AccessPolicies { get; set; }
 

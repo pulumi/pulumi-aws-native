@@ -35,8 +35,17 @@ export interface GetIntegrationResult {
     readonly integrationUri?: string;
     readonly passthroughBehavior?: string;
     readonly payloadFormatVersion?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+     */
     readonly requestParameters?: any;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+     */
     readonly requestTemplates?: any;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+     */
     readonly responseParameters?: any;
     readonly templateSelectionExpression?: string;
     readonly timeoutInMillis?: number;

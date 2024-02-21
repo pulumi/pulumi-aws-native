@@ -28,6 +28,7 @@ class RemediationConfigurationArgs:
                  target_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RemediationConfiguration resource.
+        :param Any parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "config_rule_name", config_rule_name)
         pulumi.set(__self__, "target_id", target_id)
@@ -104,6 +105,9 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -164,6 +168,7 @@ class RemediationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -284,6 +289,9 @@ class RemediationConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameters")
 
     @property

@@ -17,6 +17,8 @@ type QueueInlinePolicy struct {
 	pulumi.CustomResourceState
 
 	// A policy document that contains permissions to add to the specified SQS queue
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The URL of the SQS queue.
 	Queue pulumi.StringOutput `pulumi:"queue"`
@@ -73,6 +75,8 @@ func (QueueInlinePolicyState) ElementType() reflect.Type {
 
 type queueInlinePolicyArgs struct {
 	// A policy document that contains permissions to add to the specified SQS queue
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The URL of the SQS queue.
 	Queue string `pulumi:"queue"`
@@ -81,6 +85,8 @@ type queueInlinePolicyArgs struct {
 // The set of arguments for constructing a QueueInlinePolicy resource.
 type QueueInlinePolicyArgs struct {
 	// A policy document that contains permissions to add to the specified SQS queue
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The URL of the SQS queue.
 	Queue pulumi.StringInput
@@ -124,6 +130,8 @@ func (o QueueInlinePolicyOutput) ToQueueInlinePolicyOutputWithContext(ctx contex
 }
 
 // A policy document that contains permissions to add to the specified SQS queue
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
 func (o QueueInlinePolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *QueueInlinePolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

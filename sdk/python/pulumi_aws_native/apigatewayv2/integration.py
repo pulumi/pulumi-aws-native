@@ -36,6 +36,9 @@ class IntegrationArgs:
                  tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None):
         """
         The set of arguments for constructing a Integration resource.
+        :param Any request_parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        :param Any request_templates: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        :param Any response_parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "integration_type", integration_type)
@@ -183,6 +186,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
@@ -192,6 +198,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="requestTemplates")
     def request_templates(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "request_templates")
 
     @request_templates.setter
@@ -201,6 +210,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
@@ -269,6 +281,9 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any request_parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        :param Any request_templates: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        :param Any response_parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -451,16 +466,25 @@ class Integration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "request_parameters")
 
     @property
     @pulumi.getter(name="requestTemplates")
     def request_templates(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "request_templates")
 
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "response_parameters")
 
     @property

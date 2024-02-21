@@ -22,6 +22,8 @@ type DbClusterParameterGroup struct {
 	// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
 	Family pulumi.StringOutput `pulumi:"family"`
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// The list of tags for the cluster parameter group.
 	Tags DbClusterParameterGroupTagArrayOutput `pulumi:"tags"`
@@ -88,6 +90,8 @@ type dbClusterParameterGroupArgs struct {
 	// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
 	Family string `pulumi:"family"`
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{} `pulumi:"parameters"`
 	// The list of tags for the cluster parameter group.
 	Tags []DbClusterParameterGroupTag `pulumi:"tags"`
@@ -101,6 +105,8 @@ type DbClusterParameterGroupArgs struct {
 	// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
 	Family pulumi.StringInput
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.Input
 	// The list of tags for the cluster parameter group.
 	Tags DbClusterParameterGroupTagArrayInput
@@ -158,6 +164,8 @@ func (o DbClusterParameterGroupOutput) Family() pulumi.StringOutput {
 }
 
 // An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
 func (o DbClusterParameterGroupOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DbClusterParameterGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }

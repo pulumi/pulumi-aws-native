@@ -36,7 +36,8 @@ type LookupIdentityPoolResult struct {
 	Name                           *string                               `pulumi:"name"`
 	OpenIdConnectProviderArns      []string                              `pulumi:"openIdConnectProviderArns"`
 	SamlProviderArns               []string                              `pulumi:"samlProviderArns"`
-	SupportedLoginProviders        interface{}                           `pulumi:"supportedLoginProviders"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+	SupportedLoginProviders interface{} `pulumi:"supportedLoginProviders"`
 }
 
 func LookupIdentityPoolOutput(ctx *pulumi.Context, args LookupIdentityPoolOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolResultOutput {
@@ -112,6 +113,7 @@ func (o LookupIdentityPoolResultOutput) SamlProviderArns() pulumi.StringArrayOut
 	return o.ApplyT(func(v LookupIdentityPoolResult) []string { return v.SamlProviderArns }).(pulumi.StringArrayOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
 func (o LookupIdentityPoolResultOutput) SupportedLoginProviders() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) interface{} { return v.SupportedLoginProviders }).(pulumi.AnyOutput)
 }

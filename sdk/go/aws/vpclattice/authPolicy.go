@@ -16,6 +16,7 @@ import (
 type AuthPolicy struct {
 	pulumi.CustomResourceState
 
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
 	Policy             pulumi.AnyOutput          `pulumi:"policy"`
 	ResourceIdentifier pulumi.StringOutput       `pulumi:"resourceIdentifier"`
 	State              AuthPolicyStateEnumOutput `pulumi:"state"`
@@ -71,12 +72,14 @@ func (AuthPolicyState) ElementType() reflect.Type {
 }
 
 type authPolicyArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
 	Policy             interface{} `pulumi:"policy"`
 	ResourceIdentifier string      `pulumi:"resourceIdentifier"`
 }
 
 // The set of arguments for constructing a AuthPolicy resource.
 type AuthPolicyArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
 	Policy             pulumi.Input
 	ResourceIdentifier pulumi.StringInput
 }
@@ -118,6 +121,7 @@ func (o AuthPolicyOutput) ToAuthPolicyOutputWithContext(ctx context.Context) Aut
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
 func (o AuthPolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AuthPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }

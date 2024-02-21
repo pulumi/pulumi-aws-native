@@ -22,10 +22,11 @@ type EmailTemplate struct {
 	DefaultSubstitutions pulumi.StringPtrOutput `pulumi:"defaultSubstitutions"`
 	HtmlPart             pulumi.StringPtrOutput `pulumi:"htmlPart"`
 	Subject              pulumi.StringOutput    `pulumi:"subject"`
-	Tags                 pulumi.AnyOutput       `pulumi:"tags"`
-	TemplateDescription  pulumi.StringPtrOutput `pulumi:"templateDescription"`
-	TemplateName         pulumi.StringOutput    `pulumi:"templateName"`
-	TextPart             pulumi.StringPtrOutput `pulumi:"textPart"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::EmailTemplate` for more information about the expected schema for this property.
+	Tags                pulumi.AnyOutput       `pulumi:"tags"`
+	TemplateDescription pulumi.StringPtrOutput `pulumi:"templateDescription"`
+	TemplateName        pulumi.StringOutput    `pulumi:"templateName"`
+	TextPart            pulumi.StringPtrOutput `pulumi:"textPart"`
 }
 
 // NewEmailTemplate registers a new resource with the given unique name, arguments, and options.
@@ -78,13 +79,14 @@ func (EmailTemplateState) ElementType() reflect.Type {
 }
 
 type emailTemplateArgs struct {
-	DefaultSubstitutions *string     `pulumi:"defaultSubstitutions"`
-	HtmlPart             *string     `pulumi:"htmlPart"`
-	Subject              string      `pulumi:"subject"`
-	Tags                 interface{} `pulumi:"tags"`
-	TemplateDescription  *string     `pulumi:"templateDescription"`
-	TemplateName         string      `pulumi:"templateName"`
-	TextPart             *string     `pulumi:"textPart"`
+	DefaultSubstitutions *string `pulumi:"defaultSubstitutions"`
+	HtmlPart             *string `pulumi:"htmlPart"`
+	Subject              string  `pulumi:"subject"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::EmailTemplate` for more information about the expected schema for this property.
+	Tags                interface{} `pulumi:"tags"`
+	TemplateDescription *string     `pulumi:"templateDescription"`
+	TemplateName        string      `pulumi:"templateName"`
+	TextPart            *string     `pulumi:"textPart"`
 }
 
 // The set of arguments for constructing a EmailTemplate resource.
@@ -92,10 +94,11 @@ type EmailTemplateArgs struct {
 	DefaultSubstitutions pulumi.StringPtrInput
 	HtmlPart             pulumi.StringPtrInput
 	Subject              pulumi.StringInput
-	Tags                 pulumi.Input
-	TemplateDescription  pulumi.StringPtrInput
-	TemplateName         pulumi.StringInput
-	TextPart             pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::EmailTemplate` for more information about the expected schema for this property.
+	Tags                pulumi.Input
+	TemplateDescription pulumi.StringPtrInput
+	TemplateName        pulumi.StringInput
+	TextPart            pulumi.StringPtrInput
 }
 
 func (EmailTemplateArgs) ElementType() reflect.Type {
@@ -151,6 +154,7 @@ func (o EmailTemplateOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Subject }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::EmailTemplate` for more information about the expected schema for this property.
 func (o EmailTemplateOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

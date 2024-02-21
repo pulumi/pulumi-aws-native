@@ -67,6 +67,8 @@ export class CoreNetwork extends pulumi.CustomResource {
     public /*out*/ readonly ownerAccount!: pulumi.Output<string>;
     /**
      * Live policy document for the core network, you must provide PolicyDocument in Json Format
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
      */
     public readonly policyDocument!: pulumi.Output<any | undefined>;
     /**
@@ -141,6 +143,8 @@ export interface CoreNetworkArgs {
     globalNetworkId: pulumi.Input<string>;
     /**
      * Live policy document for the core network, you must provide PolicyDocument in Json Format
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
      */
     policyDocument?: any;
     /**

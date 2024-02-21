@@ -34,6 +34,9 @@ export interface GetCrawlerResult {
     readonly schedule?: outputs.glue.CrawlerSchedule;
     readonly schemaChangePolicy?: outputs.glue.CrawlerSchemaChangePolicy;
     readonly tablePrefix?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly targets?: outputs.glue.CrawlerTargets;
 }

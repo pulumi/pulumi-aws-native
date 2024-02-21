@@ -26,6 +26,9 @@ export interface GetJobResult {
     readonly allocatedCapacity?: number;
     readonly command?: outputs.glue.JobCommand;
     readonly connections?: outputs.glue.JobConnectionsList;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+     */
     readonly defaultArguments?: any;
     readonly description?: string;
     readonly executionClass?: string;
@@ -35,11 +38,17 @@ export interface GetJobResult {
     readonly logUri?: string;
     readonly maxCapacity?: number;
     readonly maxRetries?: number;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+     */
     readonly nonOverridableArguments?: any;
     readonly notificationProperty?: outputs.glue.JobNotificationProperty;
     readonly numberOfWorkers?: number;
     readonly role?: string;
     readonly securityConfiguration?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly timeout?: number;
     readonly workerType?: string;

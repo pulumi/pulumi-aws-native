@@ -51,6 +51,9 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     public readonly targets!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTarget[] | undefined>;
     public readonly taskArn!: pulumi.Output<string>;
     public readonly taskInvocationParameters!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTaskInvocationParameters | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+     */
     public readonly taskParameters!: pulumi.Output<any | undefined>;
     public readonly taskType!: pulumi.Output<string>;
     public readonly windowId!: pulumi.Output<string>;
@@ -132,6 +135,9 @@ export interface MaintenanceWindowTaskArgs {
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTargetArgs>[]>;
     taskArn: pulumi.Input<string>;
     taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+     */
     taskParameters?: any;
     taskType: pulumi.Input<string>;
     windowId: pulumi.Input<string>;

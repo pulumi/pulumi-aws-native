@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:DevEndpoint")]
     public partial class DevEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        /// </summary>
         [Output("arguments")]
         public Output<object?> Arguments { get; private set; } = null!;
 
@@ -55,6 +58,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("subnetId")]
         public Output<string?> SubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -110,6 +116,9 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class DevEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        /// </summary>
         [Input("arguments")]
         public Input<object>? Arguments { get; set; }
 
@@ -159,6 +168,9 @@ namespace Pulumi.AwsNative.Glue
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

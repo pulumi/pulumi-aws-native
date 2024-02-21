@@ -23,6 +23,8 @@ type AccessPoint struct {
 	// A name for the AccessPoint.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The access point policy associated with this access point.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
 	VpcConfiguration AccessPointVpcConfigurationOutput `pulumi:"vpcConfiguration"`
@@ -85,6 +87,8 @@ type accessPointArgs struct {
 	// A name for the AccessPoint.
 	Name *string `pulumi:"name"`
 	// The access point policy associated with this access point.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
 	VpcConfiguration AccessPointVpcConfiguration `pulumi:"vpcConfiguration"`
@@ -97,6 +101,8 @@ type AccessPointArgs struct {
 	// A name for the AccessPoint.
 	Name pulumi.StringPtrInput
 	// The access point policy associated with this access point.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
 	Policy pulumi.Input
 	// Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
 	VpcConfiguration AccessPointVpcConfigurationInput
@@ -155,6 +161,8 @@ func (o AccessPointOutput) Name() pulumi.StringOutput {
 }
 
 // The access point policy associated with this access point.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
 func (o AccessPointOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }

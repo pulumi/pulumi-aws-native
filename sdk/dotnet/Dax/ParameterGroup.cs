@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Dax
         [Output("parameterGroupName")]
         public Output<string?> ParameterGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
+        /// </summary>
         [Output("parameterNameValues")]
         public Output<object?> ParameterNameValues { get; private set; } = null!;
 
@@ -80,6 +83,9 @@ namespace Pulumi.AwsNative.Dax
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
+        /// </summary>
         [Input("parameterNameValues")]
         public Input<object>? ParameterNameValues { get; set; }
 

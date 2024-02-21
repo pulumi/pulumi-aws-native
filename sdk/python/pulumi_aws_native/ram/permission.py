@@ -23,6 +23,8 @@ class PermissionArgs:
         """
         The set of arguments for constructing a Permission resource.
         :param Any policy_template: Policy template for the permission.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
         :param pulumi.Input[str] resource_type: The resource type this permission can be used with.
         :param pulumi.Input[str] name: The name of the permission.
         """
@@ -38,6 +40,8 @@ class PermissionArgs:
     def policy_template(self) -> Any:
         """
         Policy template for the permission.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_template")
 
@@ -96,6 +100,8 @@ class Permission(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the permission.
         :param Any policy_template: Policy template for the permission.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
         :param pulumi.Input[str] resource_type: The resource type this permission can be used with.
         """
         ...
@@ -212,6 +218,8 @@ class Permission(pulumi.CustomResource):
     def policy_template(self) -> pulumi.Output[Any]:
         """
         Policy template for the permission.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_template")
 

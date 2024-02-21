@@ -19,6 +19,7 @@ class ChannelPolicyArgs:
                  channel_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ChannelPolicy resource.
+        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "policy", policy)
         if channel_group_name is not None:
@@ -29,6 +30,9 @@ class ChannelPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> Any:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -68,6 +72,7 @@ class ChannelPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -152,5 +157,8 @@ class ChannelPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy")
 

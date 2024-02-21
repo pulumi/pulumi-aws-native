@@ -24,6 +24,8 @@ type DeliveryDestination struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 51200
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
 	DeliveryDestinationPolicy pulumi.AnyOutput `pulumi:"deliveryDestinationPolicy"`
 	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 	DeliveryDestinationType pulumi.StringOutput `pulumi:"deliveryDestinationType"`
@@ -85,6 +87,8 @@ type deliveryDestinationArgs struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 51200
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
 	DeliveryDestinationPolicy interface{} `pulumi:"deliveryDestinationPolicy"`
 	// The ARN of the AWS resource that will receive the logs.
 	DestinationResourceArn *string `pulumi:"destinationResourceArn"`
@@ -101,6 +105,8 @@ type DeliveryDestinationArgs struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 51200
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
 	DeliveryDestinationPolicy pulumi.Input
 	// The ARN of the AWS resource that will receive the logs.
 	DestinationResourceArn pulumi.StringPtrInput
@@ -157,6 +163,8 @@ func (o DeliveryDestinationOutput) Arn() pulumi.StringOutput {
 // The policy must be in JSON string format.
 //
 // Length Constraints: Maximum length of 51200
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
 func (o DeliveryDestinationOutput) DeliveryDestinationPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DeliveryDestination) pulumi.AnyOutput { return v.DeliveryDestinationPolicy }).(pulumi.AnyOutput)
 }

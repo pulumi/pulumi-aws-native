@@ -25,8 +25,14 @@ export interface GetInAppTemplateArgs {
 export interface GetInAppTemplateResult {
     readonly arn?: string;
     readonly content?: outputs.pinpoint.InAppTemplateInAppMessageContent[];
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+     */
     readonly customConfig?: any;
     readonly layout?: enums.pinpoint.InAppTemplateLayout;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly templateDescription?: string;
 }

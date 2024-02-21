@@ -34,8 +34,14 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolIdentityProvider.__pulumiType;
     }
 
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+     */
     public readonly attributeMapping!: pulumi.Output<any | undefined>;
     public readonly idpIdentifiers!: pulumi.Output<string[] | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+     */
     public readonly providerDetails!: pulumi.Output<any | undefined>;
     public readonly providerName!: pulumi.Output<string>;
     public readonly providerType!: pulumi.Output<string>;
@@ -86,8 +92,14 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
  * The set of arguments for constructing a UserPoolIdentityProvider resource.
  */
 export interface UserPoolIdentityProviderArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+     */
     attributeMapping?: any;
     idpIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+     */
     providerDetails?: any;
     providerName: pulumi.Input<string>;
     providerType: pulumi.Input<string>;

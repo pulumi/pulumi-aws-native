@@ -51,10 +51,16 @@ namespace Pulumi.AwsNative.Glue
     [OutputType]
     public sealed class GetWorkflowResult
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? DefaultRunProperties;
         public readonly string? Description;
         public readonly string? Id;
         public readonly int? MaxConcurrentRuns;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
 
         [OutputConstructor]

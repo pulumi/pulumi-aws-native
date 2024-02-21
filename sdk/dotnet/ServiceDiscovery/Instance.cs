@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ServiceDiscovery
     [AwsNativeResourceType("aws-native:servicediscovery:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
+        /// </summary>
         [Output("instanceAttributes")]
         public Output<object> InstanceAttributes { get; private set; } = null!;
 
@@ -75,6 +78,9 @@ namespace Pulumi.AwsNative.ServiceDiscovery
 
     public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
+        /// </summary>
         [Input("instanceAttributes", required: true)]
         public Input<object> InstanceAttributes { get; set; } = null!;
 

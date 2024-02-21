@@ -27,12 +27,13 @@ type LookupQueueArgs struct {
 }
 
 type LookupQueueResult struct {
-	Arn         *string     `pulumi:"arn"`
-	Description *string     `pulumi:"description"`
-	Id          *string     `pulumi:"id"`
-	PricingPlan *string     `pulumi:"pricingPlan"`
-	Status      *string     `pulumi:"status"`
-	Tags        interface{} `pulumi:"tags"`
+	Arn         *string `pulumi:"arn"`
+	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
+	PricingPlan *string `pulumi:"pricingPlan"`
+	Status      *string `pulumi:"status"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Queue` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...pulumi.InvokeOption) LookupQueueResultOutput {
@@ -90,6 +91,7 @@ func (o LookupQueueResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Queue` for more information about the expected schema for this property.
 func (o LookupQueueResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupQueueResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

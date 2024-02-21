@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("connections")]
         public Output<Outputs.JobConnectionsList?> Connections { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        /// </summary>
         [Output("defaultArguments")]
         public Output<object?> DefaultArguments { get; private set; } = null!;
 
@@ -52,6 +55,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        /// </summary>
         [Output("nonOverridableArguments")]
         public Output<object?> NonOverridableArguments { get; private set; } = null!;
 
@@ -67,6 +73,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("securityConfiguration")]
         public Output<string?> SecurityConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -134,6 +143,9 @@ namespace Pulumi.AwsNative.Glue
         [Input("connections")]
         public Input<Inputs.JobConnectionsListArgs>? Connections { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        /// </summary>
         [Input("defaultArguments")]
         public Input<object>? DefaultArguments { get; set; }
 
@@ -161,6 +173,9 @@ namespace Pulumi.AwsNative.Glue
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        /// </summary>
         [Input("nonOverridableArguments")]
         public Input<object>? NonOverridableArguments { get; set; }
 
@@ -176,6 +191,9 @@ namespace Pulumi.AwsNative.Glue
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

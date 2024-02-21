@@ -44,6 +44,8 @@ export class ClusterPolicy extends pulumi.CustomResource {
     public /*out*/ readonly currentVersion!: pulumi.Output<string>;
     /**
      * A policy document containing permissions to add to the specified cluster.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any>;
 
@@ -89,6 +91,8 @@ export interface ClusterPolicyArgs {
     clusterArn: pulumi.Input<string>;
     /**
      * A policy document containing permissions to add to the specified cluster.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
      */
     policy: any;
 }

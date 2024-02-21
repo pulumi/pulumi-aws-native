@@ -31,6 +31,8 @@ class DevEndpointArgs:
                  worker_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DevEndpoint resource.
+        :param Any arguments: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if arguments is not None:
@@ -74,6 +76,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter
     def arguments(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
@@ -182,6 +187,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -229,6 +237,8 @@ class DevEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any arguments: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -340,6 +350,9 @@ class DevEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "arguments")
 
     @property
@@ -405,6 +418,9 @@ class DevEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.SecretsManager
         [Output("blockPublicPolicy")]
         public Output<bool?> BlockPublicPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Output("resourcePolicy")]
         public Output<object> ResourcePolicyValue { get; private set; } = null!;
 
@@ -77,6 +80,9 @@ namespace Pulumi.AwsNative.SecretsManager
         [Input("blockPublicPolicy")]
         public Input<bool>? BlockPublicPolicy { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Input("resourcePolicy", required: true)]
         public Input<object> ResourcePolicyValue { get; set; } = null!;
 

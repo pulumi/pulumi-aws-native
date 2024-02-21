@@ -35,8 +35,9 @@ type LookupPushTemplateResult struct {
 	DefaultSubstitutions *string                                      `pulumi:"defaultSubstitutions"`
 	Gcm                  *PushTemplateAndroidPushNotificationTemplate `pulumi:"gcm"`
 	Id                   *string                                      `pulumi:"id"`
-	Tags                 interface{}                                  `pulumi:"tags"`
-	TemplateDescription  *string                                      `pulumi:"templateDescription"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::PushTemplate` for more information about the expected schema for this property.
+	Tags                interface{} `pulumi:"tags"`
+	TemplateDescription *string     `pulumi:"templateDescription"`
 }
 
 func LookupPushTemplateOutput(ctx *pulumi.Context, args LookupPushTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupPushTemplateResultOutput {
@@ -106,6 +107,7 @@ func (o LookupPushTemplateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPushTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::PushTemplate` for more information about the expected schema for this property.
 func (o LookupPushTemplateResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPushTemplateResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

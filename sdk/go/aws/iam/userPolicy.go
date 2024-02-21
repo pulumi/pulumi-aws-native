@@ -17,6 +17,8 @@ type UserPolicy struct {
 	pulumi.CustomResourceState
 
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The name of the policy document.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
@@ -76,6 +78,8 @@ func (UserPolicyState) ElementType() reflect.Type {
 
 type userPolicyArgs struct {
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The name of the policy document.
 	PolicyName string `pulumi:"policyName"`
@@ -86,6 +90,8 @@ type userPolicyArgs struct {
 // The set of arguments for constructing a UserPolicy resource.
 type UserPolicyArgs struct {
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The name of the policy document.
 	PolicyName pulumi.StringInput
@@ -131,6 +137,8 @@ func (o UserPolicyOutput) ToUserPolicyOutputWithContext(ctx context.Context) Use
 }
 
 // The policy document.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
 func (o UserPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *UserPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

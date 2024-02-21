@@ -26,6 +26,9 @@ export interface GetFileSystemResult {
     readonly arn?: string;
     readonly backupPolicy?: outputs.efs.FileSystemBackupPolicy;
     readonly fileSystemId?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+     */
     readonly fileSystemPolicy?: any;
     readonly fileSystemProtection?: outputs.efs.FileSystemProtection;
     readonly fileSystemTags?: outputs.efs.FileSystemElasticFileSystemTag[];

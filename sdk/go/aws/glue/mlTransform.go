@@ -18,14 +18,15 @@ import (
 type MlTransform struct {
 	pulumi.CustomResourceState
 
-	Description         pulumi.StringPtrOutput                  `pulumi:"description"`
-	GlueVersion         pulumi.StringPtrOutput                  `pulumi:"glueVersion"`
-	InputRecordTables   MlTransformInputRecordTablesOutput      `pulumi:"inputRecordTables"`
-	MaxCapacity         pulumi.Float64PtrOutput                 `pulumi:"maxCapacity"`
-	MaxRetries          pulumi.IntPtrOutput                     `pulumi:"maxRetries"`
-	Name                pulumi.StringPtrOutput                  `pulumi:"name"`
-	NumberOfWorkers     pulumi.IntPtrOutput                     `pulumi:"numberOfWorkers"`
-	Role                pulumi.StringOutput                     `pulumi:"role"`
+	Description       pulumi.StringPtrOutput             `pulumi:"description"`
+	GlueVersion       pulumi.StringPtrOutput             `pulumi:"glueVersion"`
+	InputRecordTables MlTransformInputRecordTablesOutput `pulumi:"inputRecordTables"`
+	MaxCapacity       pulumi.Float64PtrOutput            `pulumi:"maxCapacity"`
+	MaxRetries        pulumi.IntPtrOutput                `pulumi:"maxRetries"`
+	Name              pulumi.StringPtrOutput             `pulumi:"name"`
+	NumberOfWorkers   pulumi.IntPtrOutput                `pulumi:"numberOfWorkers"`
+	Role              pulumi.StringOutput                `pulumi:"role"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::MLTransform` for more information about the expected schema for this property.
 	Tags                pulumi.AnyOutput                        `pulumi:"tags"`
 	Timeout             pulumi.IntPtrOutput                     `pulumi:"timeout"`
 	TransformEncryption MlTransformTransformEncryptionPtrOutput `pulumi:"transformEncryption"`
@@ -86,14 +87,15 @@ func (MlTransformState) ElementType() reflect.Type {
 }
 
 type mlTransformArgs struct {
-	Description         *string                         `pulumi:"description"`
-	GlueVersion         *string                         `pulumi:"glueVersion"`
-	InputRecordTables   MlTransformInputRecordTables    `pulumi:"inputRecordTables"`
-	MaxCapacity         *float64                        `pulumi:"maxCapacity"`
-	MaxRetries          *int                            `pulumi:"maxRetries"`
-	Name                *string                         `pulumi:"name"`
-	NumberOfWorkers     *int                            `pulumi:"numberOfWorkers"`
-	Role                string                          `pulumi:"role"`
+	Description       *string                      `pulumi:"description"`
+	GlueVersion       *string                      `pulumi:"glueVersion"`
+	InputRecordTables MlTransformInputRecordTables `pulumi:"inputRecordTables"`
+	MaxCapacity       *float64                     `pulumi:"maxCapacity"`
+	MaxRetries        *int                         `pulumi:"maxRetries"`
+	Name              *string                      `pulumi:"name"`
+	NumberOfWorkers   *int                         `pulumi:"numberOfWorkers"`
+	Role              string                       `pulumi:"role"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::MLTransform` for more information about the expected schema for this property.
 	Tags                interface{}                     `pulumi:"tags"`
 	Timeout             *int                            `pulumi:"timeout"`
 	TransformEncryption *MlTransformTransformEncryption `pulumi:"transformEncryption"`
@@ -103,14 +105,15 @@ type mlTransformArgs struct {
 
 // The set of arguments for constructing a MlTransform resource.
 type MlTransformArgs struct {
-	Description         pulumi.StringPtrInput
-	GlueVersion         pulumi.StringPtrInput
-	InputRecordTables   MlTransformInputRecordTablesInput
-	MaxCapacity         pulumi.Float64PtrInput
-	MaxRetries          pulumi.IntPtrInput
-	Name                pulumi.StringPtrInput
-	NumberOfWorkers     pulumi.IntPtrInput
-	Role                pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	GlueVersion       pulumi.StringPtrInput
+	InputRecordTables MlTransformInputRecordTablesInput
+	MaxCapacity       pulumi.Float64PtrInput
+	MaxRetries        pulumi.IntPtrInput
+	Name              pulumi.StringPtrInput
+	NumberOfWorkers   pulumi.IntPtrInput
+	Role              pulumi.StringInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::MLTransform` for more information about the expected schema for this property.
 	Tags                pulumi.Input
 	Timeout             pulumi.IntPtrInput
 	TransformEncryption MlTransformTransformEncryptionPtrInput
@@ -187,6 +190,7 @@ func (o MlTransformOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *MlTransform) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::MLTransform` for more information about the expected schema for this property.
 func (o MlTransformOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *MlTransform) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

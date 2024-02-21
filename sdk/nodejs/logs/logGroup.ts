@@ -49,6 +49,8 @@ export class LogGroup extends pulumi.CustomResource {
      * The policy must be in JSON string format.
      *
      * Length Constraints: Maximum length of 30720
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
      */
     public readonly dataProtectionPolicy!: pulumi.Output<any | undefined>;
     /**
@@ -118,6 +120,8 @@ export interface LogGroupArgs {
      * The policy must be in JSON string format.
      *
      * Length Constraints: Maximum length of 30720
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
      */
     dataProtectionPolicy?: any;
     /**

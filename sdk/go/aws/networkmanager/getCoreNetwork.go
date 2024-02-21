@@ -41,6 +41,8 @@ type LookupCoreNetworkResult struct {
 	// Owner of the core network
 	OwnerAccount *string `pulumi:"ownerAccount"`
 	// Live policy document for the core network, you must provide PolicyDocument in Json Format
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The segments within a core network.
 	Segments []CoreNetworkSegment `pulumi:"segments"`
@@ -117,6 +119,8 @@ func (o LookupCoreNetworkResultOutput) OwnerAccount() pulumi.StringPtrOutput {
 }
 
 // Live policy document for the core network, you must provide PolicyDocument in Json Format
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
 func (o LookupCoreNetworkResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupCoreNetworkResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

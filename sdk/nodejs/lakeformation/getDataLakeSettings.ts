@@ -32,6 +32,9 @@ export interface GetDataLakeSettingsResult {
     readonly externalDataFilteringAllowList?: outputs.lakeformation.DataLakeSettingsExternalDataFilteringAllowList;
     readonly id?: string;
     readonly mutationType?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+     */
     readonly parameters?: any;
     readonly trustedResourceOwners?: string[];
 }

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("identityProviderName")]
         public Output<string> IdentityProviderName { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+        /// </summary>
         [Output("principalTags")]
         public Output<object?> PrincipalTags { get; private set; } = null!;
 
@@ -83,6 +86,9 @@ namespace Pulumi.AwsNative.Cognito
         [Input("identityProviderName", required: true)]
         public Input<string> IdentityProviderName { get; set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+        /// </summary>
         [Input("principalTags")]
         public Input<object>? PrincipalTags { get; set; }
 

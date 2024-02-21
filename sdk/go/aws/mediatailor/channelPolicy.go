@@ -18,6 +18,8 @@ type ChannelPolicy struct {
 
 	ChannelName pulumi.StringOutput `pulumi:"channelName"`
 	// <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 }
 
@@ -73,6 +75,8 @@ func (ChannelPolicyState) ElementType() reflect.Type {
 type channelPolicyArgs struct {
 	ChannelName string `pulumi:"channelName"`
 	// <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -80,6 +84,8 @@ type channelPolicyArgs struct {
 type ChannelPolicyArgs struct {
 	ChannelName pulumi.StringInput
 	// <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
 	Policy pulumi.Input
 }
 
@@ -125,6 +131,8 @@ func (o ChannelPolicyOutput) ChannelName() pulumi.StringOutput {
 }
 
 // <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
 func (o ChannelPolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ChannelPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }

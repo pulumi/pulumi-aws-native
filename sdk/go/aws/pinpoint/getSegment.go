@@ -32,7 +32,8 @@ type LookupSegmentResult struct {
 	Name          *string            `pulumi:"name"`
 	SegmentGroups *SegmentGroups     `pulumi:"segmentGroups"`
 	SegmentId     *string            `pulumi:"segmentId"`
-	Tags          interface{}        `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupSegmentOutput(ctx *pulumi.Context, args LookupSegmentOutputArgs, opts ...pulumi.InvokeOption) LookupSegmentResultOutput {
@@ -90,6 +91,7 @@ func (o LookupSegmentResultOutput) SegmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSegmentResult) *string { return v.SegmentId }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
 func (o LookupSegmentResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSegmentResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

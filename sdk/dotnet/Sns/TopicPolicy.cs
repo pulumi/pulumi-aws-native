@@ -17,6 +17,8 @@ namespace Pulumi.AwsNative.Sns
     {
         /// <summary>
         /// A policy document that contains permissions to add to the specified SNS topics.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policyDocument")]
         public Output<object> PolicyDocument { get; private set; } = null!;
@@ -74,6 +76,8 @@ namespace Pulumi.AwsNative.Sns
     {
         /// <summary>
         /// A policy document that contains permissions to add to the specified SNS topics.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;

@@ -43,6 +43,8 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     public readonly mrapName!: pulumi.Output<string>;
     /**
      * Policy document to apply to a Multi Region Access Point
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any>;
     /**
@@ -92,6 +94,8 @@ export interface MultiRegionAccessPointPolicyArgs {
     mrapName: pulumi.Input<string>;
     /**
      * Policy document to apply to a Multi Region Access Point
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
      */
     policy: any;
 }

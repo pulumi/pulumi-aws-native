@@ -41,12 +41,14 @@ type LookupStackResult struct {
 	RoleArn                     *string                 `pulumi:"roleArn"`
 	RootId                      *string                 `pulumi:"rootId"`
 	StackId                     *string                 `pulumi:"stackId"`
-	StackPolicyBody             interface{}             `pulumi:"stackPolicyBody"`
-	StackStatus                 *StackStatus            `pulumi:"stackStatus"`
-	StackStatusReason           *string                 `pulumi:"stackStatusReason"`
-	Tags                        []StackTag              `pulumi:"tags"`
-	TemplateBody                interface{}             `pulumi:"templateBody"`
-	TimeoutInMinutes            *int                    `pulumi:"timeoutInMinutes"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+	StackPolicyBody   interface{}  `pulumi:"stackPolicyBody"`
+	StackStatus       *StackStatus `pulumi:"stackStatus"`
+	StackStatusReason *string      `pulumi:"stackStatusReason"`
+	Tags              []StackTag   `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
+	TemplateBody     interface{} `pulumi:"templateBody"`
+	TimeoutInMinutes *int        `pulumi:"timeoutInMinutes"`
 }
 
 func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...pulumi.InvokeOption) LookupStackResultOutput {
@@ -140,6 +142,7 @@ func (o LookupStackResultOutput) StackId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStackResult) *string { return v.StackId }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
 func (o LookupStackResultOutput) StackPolicyBody() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupStackResult) interface{} { return v.StackPolicyBody }).(pulumi.AnyOutput)
 }
@@ -156,6 +159,7 @@ func (o LookupStackResultOutput) Tags() StackTagArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []StackTag { return v.Tags }).(StackTagArrayOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
 func (o LookupStackResultOutput) TemplateBody() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupStackResult) interface{} { return v.TemplateBody }).(pulumi.AnyOutput)
 }

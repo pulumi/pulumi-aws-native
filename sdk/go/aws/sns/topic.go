@@ -16,6 +16,8 @@ type Topic struct {
 	pulumi.CustomResourceState
 
 	// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	ArchivePolicy pulumi.AnyOutput `pulumi:"archivePolicy"`
 	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
 	//
@@ -30,6 +32,8 @@ type Topic struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 30720
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	DataProtectionPolicy pulumi.AnyOutput `pulumi:"dataProtectionPolicy"`
 	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
 	DeliveryStatusLogging TopicLoggingConfigArrayOutput `pulumi:"deliveryStatusLogging"`
@@ -101,6 +105,8 @@ func (TopicState) ElementType() reflect.Type {
 
 type topicArgs struct {
 	// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	ArchivePolicy interface{} `pulumi:"archivePolicy"`
 	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
 	//
@@ -115,6 +121,8 @@ type topicArgs struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 30720
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
 	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
 	DeliveryStatusLogging []TopicLoggingConfig `pulumi:"deliveryStatusLogging"`
@@ -142,6 +150,8 @@ type topicArgs struct {
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
 	// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	ArchivePolicy pulumi.Input
 	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
 	//
@@ -156,6 +166,8 @@ type TopicArgs struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 30720
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	DataProtectionPolicy pulumi.Input
 	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
 	DeliveryStatusLogging TopicLoggingConfigArrayInput
@@ -218,6 +230,8 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 }
 
 // The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 func (o TopicOutput) ArchivePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Topic) pulumi.AnyOutput { return v.ArchivePolicy }).(pulumi.AnyOutput)
 }
@@ -238,6 +252,8 @@ func (o TopicOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
 // The policy must be in JSON string format.
 //
 // Length Constraints: Maximum length of 30720
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 func (o TopicOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Topic) pulumi.AnyOutput { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }

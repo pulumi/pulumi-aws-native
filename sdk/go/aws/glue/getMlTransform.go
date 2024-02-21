@@ -27,14 +27,15 @@ type LookupMlTransformArgs struct {
 }
 
 type LookupMlTransformResult struct {
-	Description         *string                         `pulumi:"description"`
-	GlueVersion         *string                         `pulumi:"glueVersion"`
-	Id                  *string                         `pulumi:"id"`
-	MaxCapacity         *float64                        `pulumi:"maxCapacity"`
-	MaxRetries          *int                            `pulumi:"maxRetries"`
-	Name                *string                         `pulumi:"name"`
-	NumberOfWorkers     *int                            `pulumi:"numberOfWorkers"`
-	Role                *string                         `pulumi:"role"`
+	Description     *string  `pulumi:"description"`
+	GlueVersion     *string  `pulumi:"glueVersion"`
+	Id              *string  `pulumi:"id"`
+	MaxCapacity     *float64 `pulumi:"maxCapacity"`
+	MaxRetries      *int     `pulumi:"maxRetries"`
+	Name            *string  `pulumi:"name"`
+	NumberOfWorkers *int     `pulumi:"numberOfWorkers"`
+	Role            *string  `pulumi:"role"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::MLTransform` for more information about the expected schema for this property.
 	Tags                interface{}                     `pulumi:"tags"`
 	Timeout             *int                            `pulumi:"timeout"`
 	TransformEncryption *MlTransformTransformEncryption `pulumi:"transformEncryption"`
@@ -109,6 +110,7 @@ func (o LookupMlTransformResultOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMlTransformResult) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::MLTransform` for more information about the expected schema for this property.
 func (o LookupMlTransformResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupMlTransformResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

@@ -19,6 +19,8 @@ type AccessPointPolicy struct {
 	// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
 	ObjectLambdaAccessPoint pulumi.StringOutput `pulumi:"objectLambdaAccessPoint"`
 	// A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3ObjectLambda::AccessPointPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 }
 
@@ -75,6 +77,8 @@ type accessPointPolicyArgs struct {
 	// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
 	ObjectLambdaAccessPoint string `pulumi:"objectLambdaAccessPoint"`
 	// A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3ObjectLambda::AccessPointPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
@@ -83,6 +87,8 @@ type AccessPointPolicyArgs struct {
 	// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
 	ObjectLambdaAccessPoint pulumi.StringInput
 	// A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3ObjectLambda::AccessPointPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 }
 
@@ -129,6 +135,8 @@ func (o AccessPointPolicyOutput) ObjectLambdaAccessPoint() pulumi.StringOutput {
 }
 
 // A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3ObjectLambda::AccessPointPolicy` for more information about the expected schema for this property.
 func (o AccessPointPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AccessPointPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

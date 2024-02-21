@@ -36,6 +36,8 @@ export class QueueInlinePolicy extends pulumi.CustomResource {
 
     /**
      * A policy document that contains permissions to add to the specified SQS queue
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
      */
     public readonly policyDocument!: pulumi.Output<any>;
     /**
@@ -79,6 +81,8 @@ export class QueueInlinePolicy extends pulumi.CustomResource {
 export interface QueueInlinePolicyArgs {
     /**
      * A policy document that contains permissions to add to the specified SQS queue
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
      */
     policyDocument: any;
     /**

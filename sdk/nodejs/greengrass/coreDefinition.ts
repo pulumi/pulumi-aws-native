@@ -44,6 +44,9 @@ export class CoreDefinition extends pulumi.CustomResource {
     public readonly initialVersion!: pulumi.Output<outputs.greengrass.CoreDefinitionVersion | undefined>;
     public /*out*/ readonly latestVersionArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::CoreDefinition` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -84,5 +87,8 @@ export class CoreDefinition extends pulumi.CustomResource {
 export interface CoreDefinitionArgs {
     initialVersion?: pulumi.Input<inputs.greengrass.CoreDefinitionVersionArgs>;
     name?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::CoreDefinition` for more information about the expected schema for this property.
+     */
     tags?: any;
 }

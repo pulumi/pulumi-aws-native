@@ -17,6 +17,8 @@ namespace Pulumi.AwsNative.Iam
     {
         /// <summary>
         /// The policy document.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policyDocument")]
         public Output<object?> PolicyDocument { get; private set; } = null!;
@@ -85,6 +87,8 @@ namespace Pulumi.AwsNative.Iam
     {
         /// <summary>
         /// The policy document.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policyDocument")]
         public Input<object>? PolicyDocument { get; set; }

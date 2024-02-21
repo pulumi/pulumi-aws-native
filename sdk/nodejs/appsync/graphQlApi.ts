@@ -46,6 +46,9 @@ export class GraphQlApi extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authenticationType!: pulumi.Output<string>;
     public readonly enhancedMetricsConfig!: pulumi.Output<outputs.appsync.GraphQlApiEnhancedMetricsConfig | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
+     */
     public readonly environmentVariables!: pulumi.Output<any | undefined>;
     public /*out*/ readonly graphQlDns!: pulumi.Output<string>;
     public /*out*/ readonly graphQlEndpointArn!: pulumi.Output<string>;
@@ -147,6 +150,9 @@ export interface GraphQlApiArgs {
     apiType?: pulumi.Input<string>;
     authenticationType: pulumi.Input<string>;
     enhancedMetricsConfig?: pulumi.Input<inputs.appsync.GraphQlApiEnhancedMetricsConfigArgs>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
+     */
     environmentVariables?: any;
     introspectionConfig?: pulumi.Input<string>;
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQlApiLambdaAuthorizerConfigArgs>;

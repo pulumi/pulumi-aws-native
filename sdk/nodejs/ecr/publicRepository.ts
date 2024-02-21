@@ -51,6 +51,8 @@ export class PublicRepository extends pulumi.CustomResource {
     public readonly repositoryName!: pulumi.Output<string | undefined>;
     /**
      * The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
      */
     public readonly repositoryPolicyText!: pulumi.Output<any | undefined>;
     /**
@@ -104,6 +106,8 @@ export interface PublicRepositoryArgs {
     repositoryName?: pulumi.Input<string>;
     /**
      * The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
      */
     repositoryPolicyText?: any;
     /**

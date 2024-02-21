@@ -47,6 +47,8 @@ export class RouteResponse extends pulumi.CustomResource {
     public readonly modelSelectionExpression!: pulumi.Output<string | undefined>;
     /**
      * The response models for the route response.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
      */
     public readonly responseModels!: pulumi.Output<any | undefined>;
     /**
@@ -120,6 +122,8 @@ export interface RouteResponseArgs {
     modelSelectionExpression?: pulumi.Input<string>;
     /**
      * The response models for the route response.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
      */
     responseModels?: any;
     /**

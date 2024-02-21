@@ -28,6 +28,8 @@ type LookupChannelPolicyArgs struct {
 
 type LookupChannelPolicyResult struct {
 	// <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -67,6 +69,8 @@ func (o LookupChannelPolicyResultOutput) ToLookupChannelPolicyResultOutputWithCo
 }
 
 // <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
 func (o LookupChannelPolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupChannelPolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

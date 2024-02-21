@@ -48,9 +48,18 @@ export class Stage extends pulumi.CustomResource {
     public readonly defaultRouteSettings!: pulumi.Output<outputs.apigatewayv2.StageRouteSettings | undefined>;
     public readonly deploymentId!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+     */
     public readonly routeSettings!: pulumi.Output<any | undefined>;
     public readonly stageName!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+     */
     public readonly stageVariables!: pulumi.Output<any | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -114,8 +123,17 @@ export interface StageArgs {
     defaultRouteSettings?: pulumi.Input<inputs.apigatewayv2.StageRouteSettingsArgs>;
     deploymentId?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+     */
     routeSettings?: any;
     stageName?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+     */
     stageVariables?: any;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
+     */
     tags?: any;
 }

@@ -31,6 +31,8 @@ type LookupAccessPointResult struct {
 	// The Amazon Resource Name (ARN) of the specified AccessPoint.
 	Arn *string `pulumi:"arn"`
 	// The access point policy associated with this access point.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -76,6 +78,8 @@ func (o LookupAccessPointResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // The access point policy associated with this access point.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
 func (o LookupAccessPointResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

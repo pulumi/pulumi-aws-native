@@ -52,8 +52,17 @@ export class Integration extends pulumi.CustomResource {
     public readonly integrationUri!: pulumi.Output<string | undefined>;
     public readonly passthroughBehavior!: pulumi.Output<string | undefined>;
     public readonly payloadFormatVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+     */
     public readonly requestParameters!: pulumi.Output<any | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+     */
     public readonly requestTemplates!: pulumi.Output<any | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+     */
     public readonly responseParameters!: pulumi.Output<any | undefined>;
     public readonly templateSelectionExpression!: pulumi.Output<string | undefined>;
     public readonly timeoutInMillis!: pulumi.Output<number | undefined>;
@@ -139,8 +148,17 @@ export interface IntegrationArgs {
     integrationUri?: pulumi.Input<string>;
     passthroughBehavior?: pulumi.Input<string>;
     payloadFormatVersion?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+     */
     requestParameters?: any;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+     */
     requestTemplates?: any;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+     */
     responseParameters?: any;
     templateSelectionExpression?: pulumi.Input<string>;
     timeoutInMillis?: pulumi.Input<number>;

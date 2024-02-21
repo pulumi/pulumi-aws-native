@@ -19,6 +19,8 @@ type MultiRegionAccessPointPolicy struct {
 	// The name of the Multi Region Access Point to apply policy
 	MrapName pulumi.StringOutput `pulumi:"mrapName"`
 	// Policy document to apply to a Multi Region Access Point
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// The Policy Status associated with this Multi Region Access Point
 	PolicyStatus PolicyStatusPropertiesOutput `pulumi:"policyStatus"`
@@ -77,6 +79,8 @@ type multiRegionAccessPointPolicyArgs struct {
 	// The name of the Multi Region Access Point to apply policy
 	MrapName string `pulumi:"mrapName"`
 	// Policy document to apply to a Multi Region Access Point
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -85,6 +89,8 @@ type MultiRegionAccessPointPolicyArgs struct {
 	// The name of the Multi Region Access Point to apply policy
 	MrapName pulumi.StringInput
 	// Policy document to apply to a Multi Region Access Point
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
 	Policy pulumi.Input
 }
 
@@ -131,6 +137,8 @@ func (o MultiRegionAccessPointPolicyOutput) MrapName() pulumi.StringOutput {
 }
 
 // Policy document to apply to a Multi Region Access Point
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
 func (o MultiRegionAccessPointPolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }

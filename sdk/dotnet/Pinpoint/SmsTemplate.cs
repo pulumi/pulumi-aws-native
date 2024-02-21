@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.Pinpoint
         [Output("defaultSubstitutions")]
         public Output<string?> DefaultSubstitutions { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -89,6 +92,9 @@ namespace Pulumi.AwsNative.Pinpoint
         [Input("defaultSubstitutions")]
         public Input<string>? DefaultSubstitutions { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

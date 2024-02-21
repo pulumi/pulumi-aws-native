@@ -22,8 +22,9 @@ type EventBusPolicy struct {
 	Condition    EventBusPolicyConditionPtrOutput `pulumi:"condition"`
 	EventBusName pulumi.StringPtrOutput           `pulumi:"eventBusName"`
 	Principal    pulumi.StringPtrOutput           `pulumi:"principal"`
-	Statement    pulumi.AnyOutput                 `pulumi:"statement"`
-	StatementId  pulumi.StringOutput              `pulumi:"statementId"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+	Statement   pulumi.AnyOutput    `pulumi:"statement"`
+	StatementId pulumi.StringOutput `pulumi:"statementId"`
 }
 
 // NewEventBusPolicy registers a new resource with the given unique name, arguments, and options.
@@ -78,8 +79,9 @@ type eventBusPolicyArgs struct {
 	Condition    *EventBusPolicyCondition `pulumi:"condition"`
 	EventBusName *string                  `pulumi:"eventBusName"`
 	Principal    *string                  `pulumi:"principal"`
-	Statement    interface{}              `pulumi:"statement"`
-	StatementId  string                   `pulumi:"statementId"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+	Statement   interface{} `pulumi:"statement"`
+	StatementId string      `pulumi:"statementId"`
 }
 
 // The set of arguments for constructing a EventBusPolicy resource.
@@ -88,8 +90,9 @@ type EventBusPolicyArgs struct {
 	Condition    EventBusPolicyConditionPtrInput
 	EventBusName pulumi.StringPtrInput
 	Principal    pulumi.StringPtrInput
-	Statement    pulumi.Input
-	StatementId  pulumi.StringInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+	Statement   pulumi.Input
+	StatementId pulumi.StringInput
 }
 
 func (EventBusPolicyArgs) ElementType() reflect.Type {
@@ -145,6 +148,7 @@ func (o EventBusPolicyOutput) Principal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringPtrOutput { return v.Principal }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
 func (o EventBusPolicyOutput) Statement() pulumi.AnyOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.AnyOutput { return v.Statement }).(pulumi.AnyOutput)
 }

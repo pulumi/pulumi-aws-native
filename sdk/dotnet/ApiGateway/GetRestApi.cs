@@ -83,6 +83,8 @@ namespace Pulumi.AwsNative.ApiGateway
         public readonly string? Name;
         /// <summary>
         /// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;
         public readonly string? RestApiId;

@@ -95,6 +95,8 @@ class GetRouteResult:
     def request_models(self) -> Optional[Any]:
         """
         The request models for the route. Supported only for WebSocket APIs.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "request_models")
 

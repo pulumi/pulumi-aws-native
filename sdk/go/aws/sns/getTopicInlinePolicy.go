@@ -29,6 +29,8 @@ type LookupTopicInlinePolicyArgs struct {
 
 type LookupTopicInlinePolicyResult struct {
 	// A policy document that contains permissions to add to the specified SNS topics.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicInlinePolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
@@ -69,6 +71,8 @@ func (o LookupTopicInlinePolicyResultOutput) ToLookupTopicInlinePolicyResultOutp
 }
 
 // A policy document that contains permissions to add to the specified SNS topics.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicInlinePolicy` for more information about the expected schema for this property.
 func (o LookupTopicInlinePolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupTopicInlinePolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

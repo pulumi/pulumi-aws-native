@@ -22,6 +22,9 @@ export interface GetAppArgs {
 export interface GetAppResult {
     readonly arn?: string;
     readonly id?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::App` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

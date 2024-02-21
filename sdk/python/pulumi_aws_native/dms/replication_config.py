@@ -33,11 +33,17 @@ class ReplicationConfigArgs:
         :param pulumi.Input[str] replication_config_arn: The Amazon Resource Name (ARN) of the Replication Config
         :param pulumi.Input[str] replication_config_identifier: A unique identifier of replication configuration
         :param Any replication_settings: JSON settings for Servereless replications that are provisioned using this replication configuration
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         :param pulumi.Input['ReplicationConfigReplicationType'] replication_type: The type of AWS DMS Serverless replication to provision using this replication configuration
         :param pulumi.Input[str] resource_identifier: A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
         :param Any supplemental_settings: JSON settings for specifying supplemental data
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         :param Any table_mappings: JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
         """
@@ -102,6 +108,8 @@ class ReplicationConfigArgs:
     def replication_settings(self) -> Optional[Any]:
         """
         JSON settings for Servereless replications that are provisioned using this replication configuration
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "replication_settings")
 
@@ -150,6 +158,8 @@ class ReplicationConfigArgs:
     def supplemental_settings(self) -> Optional[Any]:
         """
         JSON settings for specifying supplemental data
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "supplemental_settings")
 
@@ -162,6 +172,8 @@ class ReplicationConfigArgs:
     def table_mappings(self) -> Optional[Any]:
         """
         JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "table_mappings")
 
@@ -219,11 +231,17 @@ class ReplicationConfig(pulumi.CustomResource):
         :param pulumi.Input[str] replication_config_arn: The Amazon Resource Name (ARN) of the Replication Config
         :param pulumi.Input[str] replication_config_identifier: A unique identifier of replication configuration
         :param Any replication_settings: JSON settings for Servereless replications that are provisioned using this replication configuration
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         :param pulumi.Input['ReplicationConfigReplicationType'] replication_type: The type of AWS DMS Serverless replication to provision using this replication configuration
         :param pulumi.Input[str] resource_identifier: A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
         :param Any supplemental_settings: JSON settings for specifying supplemental data
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         :param Any table_mappings: JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
         """
@@ -345,6 +363,8 @@ class ReplicationConfig(pulumi.CustomResource):
     def replication_settings(self) -> pulumi.Output[Optional[Any]]:
         """
         JSON settings for Servereless replications that are provisioned using this replication configuration
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "replication_settings")
 
@@ -377,6 +397,8 @@ class ReplicationConfig(pulumi.CustomResource):
     def supplemental_settings(self) -> pulumi.Output[Optional[Any]]:
         """
         JSON settings for specifying supplemental data
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "supplemental_settings")
 
@@ -385,6 +407,8 @@ class ReplicationConfig(pulumi.CustomResource):
     def table_mappings(self) -> pulumi.Output[Optional[Any]]:
         """
         JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "table_mappings")
 

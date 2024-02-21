@@ -27,12 +27,13 @@ type LookupSmsTemplateArgs struct {
 }
 
 type LookupSmsTemplateResult struct {
-	Arn                  *string     `pulumi:"arn"`
-	Body                 *string     `pulumi:"body"`
-	DefaultSubstitutions *string     `pulumi:"defaultSubstitutions"`
-	Id                   *string     `pulumi:"id"`
-	Tags                 interface{} `pulumi:"tags"`
-	TemplateDescription  *string     `pulumi:"templateDescription"`
+	Arn                  *string `pulumi:"arn"`
+	Body                 *string `pulumi:"body"`
+	DefaultSubstitutions *string `pulumi:"defaultSubstitutions"`
+	Id                   *string `pulumi:"id"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
+	Tags                interface{} `pulumi:"tags"`
+	TemplateDescription *string     `pulumi:"templateDescription"`
 }
 
 func LookupSmsTemplateOutput(ctx *pulumi.Context, args LookupSmsTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupSmsTemplateResultOutput {
@@ -86,6 +87,7 @@ func (o LookupSmsTemplateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSmsTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
 func (o LookupSmsTemplateResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSmsTemplateResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

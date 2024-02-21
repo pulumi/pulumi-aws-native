@@ -37,6 +37,8 @@ export interface GetReplicationConfigResult {
     readonly replicationConfigIdentifier?: string;
     /**
      * JSON settings for Servereless replications that are provisioned using this replication configuration
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
     readonly replicationSettings?: any;
     /**
@@ -49,10 +51,14 @@ export interface GetReplicationConfigResult {
     readonly sourceEndpointArn?: string;
     /**
      * JSON settings for specifying supplemental data
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
     readonly supplementalSettings?: any;
     /**
      * JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
     readonly tableMappings?: any;
     /**

@@ -21,7 +21,8 @@ type SubscriptionDefinition struct {
 	InitialVersion   SubscriptionDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                        `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                        `pulumi:"name"`
-	Tags             pulumi.AnyOutput                           `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::SubscriptionDefinition` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewSubscriptionDefinition registers a new resource with the given unique name, arguments, and options.
@@ -70,14 +71,16 @@ func (SubscriptionDefinitionState) ElementType() reflect.Type {
 type subscriptionDefinitionArgs struct {
 	InitialVersion *SubscriptionDefinitionVersionType `pulumi:"initialVersion"`
 	Name           *string                            `pulumi:"name"`
-	Tags           interface{}                        `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::SubscriptionDefinition` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SubscriptionDefinition resource.
 type SubscriptionDefinitionArgs struct {
 	InitialVersion SubscriptionDefinitionVersionTypePtrInput
 	Name           pulumi.StringPtrInput
-	Tags           pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::SubscriptionDefinition` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (SubscriptionDefinitionArgs) ElementType() reflect.Type {
@@ -133,6 +136,7 @@ func (o SubscriptionDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriptionDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::SubscriptionDefinition` for more information about the expected schema for this property.
 func (o SubscriptionDefinitionOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *SubscriptionDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

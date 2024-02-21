@@ -27,7 +27,8 @@ type LookupWaitConditionArgs struct {
 }
 
 type LookupWaitConditionResult struct {
-	Count   *int        `pulumi:"count"`
+	Count *int `pulumi:"count"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::WaitCondition` for more information about the expected schema for this property.
 	Data    interface{} `pulumi:"data"`
 	Handle  *string     `pulumi:"handle"`
 	Id      *string     `pulumi:"id"`
@@ -73,6 +74,7 @@ func (o LookupWaitConditionResultOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupWaitConditionResult) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::WaitCondition` for more information about the expected schema for this property.
 func (o LookupWaitConditionResultOutput) Data() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupWaitConditionResult) interface{} { return v.Data }).(pulumi.AnyOutput)
 }

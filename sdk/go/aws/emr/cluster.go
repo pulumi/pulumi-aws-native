@@ -18,6 +18,7 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
 	AdditionalInfo          pulumi.AnyOutput                        `pulumi:"additionalInfo"`
 	Applications            ClusterApplicationArrayOutput           `pulumi:"applications"`
 	AutoScalingRole         pulumi.StringPtrOutput                  `pulumi:"autoScalingRole"`
@@ -121,6 +122,7 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
 	AdditionalInfo          interface{}                    `pulumi:"additionalInfo"`
 	Applications            []ClusterApplication           `pulumi:"applications"`
 	AutoScalingRole         *string                        `pulumi:"autoScalingRole"`
@@ -152,6 +154,7 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
 	AdditionalInfo          pulumi.Input
 	Applications            ClusterApplicationArrayInput
 	AutoScalingRole         pulumi.StringPtrInput
@@ -218,6 +221,7 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
 func (o ClusterOutput) AdditionalInfo() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.AnyOutput { return v.AdditionalInfo }).(pulumi.AnyOutput)
 }

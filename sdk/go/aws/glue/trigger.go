@@ -25,9 +25,10 @@ type Trigger struct {
 	Predicate              TriggerPredicatePtrOutput              `pulumi:"predicate"`
 	Schedule               pulumi.StringPtrOutput                 `pulumi:"schedule"`
 	StartOnCreation        pulumi.BoolPtrOutput                   `pulumi:"startOnCreation"`
-	Tags                   pulumi.AnyOutput                       `pulumi:"tags"`
-	Type                   pulumi.StringOutput                    `pulumi:"type"`
-	WorkflowName           pulumi.StringPtrOutput                 `pulumi:"workflowName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
+	Tags         pulumi.AnyOutput       `pulumi:"tags"`
+	Type         pulumi.StringOutput    `pulumi:"type"`
+	WorkflowName pulumi.StringPtrOutput `pulumi:"workflowName"`
 }
 
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
@@ -89,9 +90,10 @@ type triggerArgs struct {
 	Predicate              *TriggerPredicate              `pulumi:"predicate"`
 	Schedule               *string                        `pulumi:"schedule"`
 	StartOnCreation        *bool                          `pulumi:"startOnCreation"`
-	Tags                   interface{}                    `pulumi:"tags"`
-	Type                   string                         `pulumi:"type"`
-	WorkflowName           *string                        `pulumi:"workflowName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
+	Tags         interface{} `pulumi:"tags"`
+	Type         string      `pulumi:"type"`
+	WorkflowName *string     `pulumi:"workflowName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
@@ -103,9 +105,10 @@ type TriggerArgs struct {
 	Predicate              TriggerPredicatePtrInput
 	Schedule               pulumi.StringPtrInput
 	StartOnCreation        pulumi.BoolPtrInput
-	Tags                   pulumi.Input
-	Type                   pulumi.StringInput
-	WorkflowName           pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
+	Tags         pulumi.Input
+	Type         pulumi.StringInput
+	WorkflowName pulumi.StringPtrInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {
@@ -173,6 +176,7 @@ func (o TriggerOutput) StartOnCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.BoolPtrOutput { return v.StartOnCreation }).(pulumi.BoolPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
 func (o TriggerOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

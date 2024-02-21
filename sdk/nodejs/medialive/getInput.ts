@@ -32,6 +32,9 @@ export interface GetInputResult {
     readonly name?: string;
     readonly roleArn?: string;
     readonly sources?: outputs.medialive.InputSourceRequest[];
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

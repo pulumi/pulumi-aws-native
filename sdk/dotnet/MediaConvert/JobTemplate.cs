@@ -40,12 +40,18 @@ namespace Pulumi.AwsNative.MediaConvert
         [Output("queue")]
         public Output<string?> Queue { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+        /// </summary>
         [Output("settingsJson")]
         public Output<object> SettingsJson { get; private set; } = null!;
 
         [Output("statusUpdateInterval")]
         public Output<string?> StatusUpdateInterval { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -124,12 +130,18 @@ namespace Pulumi.AwsNative.MediaConvert
         [Input("queue")]
         public Input<string>? Queue { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+        /// </summary>
         [Input("settingsJson", required: true)]
         public Input<object> SettingsJson { get; set; } = null!;
 
         [Input("statusUpdateInterval")]
         public Input<string>? StatusUpdateInterval { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

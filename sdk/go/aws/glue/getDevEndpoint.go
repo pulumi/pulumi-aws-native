@@ -27,6 +27,7 @@ type LookupDevEndpointArgs struct {
 }
 
 type LookupDevEndpointResult struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
 	Arguments             interface{} `pulumi:"arguments"`
 	ExtraJarsS3Path       *string     `pulumi:"extraJarsS3Path"`
 	ExtraPythonLibsS3Path *string     `pulumi:"extraPythonLibsS3Path"`
@@ -40,8 +41,9 @@ type LookupDevEndpointResult struct {
 	SecurityConfiguration *string     `pulumi:"securityConfiguration"`
 	SecurityGroupIds      []string    `pulumi:"securityGroupIds"`
 	SubnetId              *string     `pulumi:"subnetId"`
-	Tags                  interface{} `pulumi:"tags"`
-	WorkerType            *string     `pulumi:"workerType"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
+	Tags       interface{} `pulumi:"tags"`
+	WorkerType *string     `pulumi:"workerType"`
 }
 
 func LookupDevEndpointOutput(ctx *pulumi.Context, args LookupDevEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupDevEndpointResultOutput {
@@ -79,6 +81,7 @@ func (o LookupDevEndpointResultOutput) ToLookupDevEndpointResultOutputWithContex
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
 func (o LookupDevEndpointResultOutput) Arguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDevEndpointResult) interface{} { return v.Arguments }).(pulumi.AnyOutput)
 }
@@ -131,6 +134,7 @@ func (o LookupDevEndpointResultOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDevEndpointResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
 func (o LookupDevEndpointResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDevEndpointResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

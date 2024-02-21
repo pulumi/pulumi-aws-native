@@ -46,7 +46,11 @@ class QueueArgs:
         :param pulumi.Input[str] queue_name: A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the .fifo suffix.
         :param pulumi.Input[int] receive_message_wait_time_seconds: Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
         :param Any redrive_allow_policy: The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         :param Any redrive_policy: A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         :param pulumi.Input[bool] sqs_managed_sse_enabled: Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
         :param pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]] tags: The tags that you attach to this queue.
         :param pulumi.Input[int] visibility_timeout: The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
@@ -221,6 +225,8 @@ class QueueArgs:
     def redrive_allow_policy(self) -> Optional[Any]:
         """
         The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "redrive_allow_policy")
 
@@ -233,6 +239,8 @@ class QueueArgs:
     def redrive_policy(self) -> Optional[Any]:
         """
         A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "redrive_policy")
 
@@ -316,7 +324,11 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] queue_name: A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the .fifo suffix.
         :param pulumi.Input[int] receive_message_wait_time_seconds: Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property.
         :param Any redrive_allow_policy: The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         :param Any redrive_policy: A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         :param pulumi.Input[bool] sqs_managed_sse_enabled: Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QueueTagArgs']]]] tags: The tags that you attach to this queue.
         :param pulumi.Input[int] visibility_timeout: The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
@@ -541,6 +553,8 @@ class Queue(pulumi.CustomResource):
     def redrive_allow_policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "redrive_allow_policy")
 
@@ -549,6 +563,8 @@ class Queue(pulumi.CustomResource):
     def redrive_policy(self) -> pulumi.Output[Optional[Any]]:
         """
         A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "redrive_policy")
 

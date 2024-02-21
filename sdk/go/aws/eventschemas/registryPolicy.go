@@ -16,6 +16,7 @@ import (
 type RegistryPolicy struct {
 	pulumi.CustomResourceState
 
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
 	Policy       pulumi.AnyOutput       `pulumi:"policy"`
 	RegistryName pulumi.StringOutput    `pulumi:"registryName"`
 	RevisionId   pulumi.StringPtrOutput `pulumi:"revisionId"`
@@ -67,6 +68,7 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 }
 
 type registryPolicyArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
 	Policy       interface{} `pulumi:"policy"`
 	RegistryName string      `pulumi:"registryName"`
 	RevisionId   *string     `pulumi:"revisionId"`
@@ -74,6 +76,7 @@ type registryPolicyArgs struct {
 
 // The set of arguments for constructing a RegistryPolicy resource.
 type RegistryPolicyArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
 	Policy       pulumi.Input
 	RegistryName pulumi.StringInput
 	RevisionId   pulumi.StringPtrInput
@@ -116,6 +119,7 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
 func (o RegistryPolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }

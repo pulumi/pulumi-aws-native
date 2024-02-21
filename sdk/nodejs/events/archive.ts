@@ -37,6 +37,9 @@ export class Archive extends pulumi.CustomResource {
     public readonly archiveName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+     */
     public readonly eventPattern!: pulumi.Output<any | undefined>;
     public readonly retentionDays!: pulumi.Output<number | undefined>;
     public readonly sourceArn!: pulumi.Output<string>;
@@ -82,6 +85,9 @@ export class Archive extends pulumi.CustomResource {
 export interface ArchiveArgs {
     archiveName?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+     */
     eventPattern?: any;
     retentionDays?: pulumi.Input<number>;
     sourceArn: pulumi.Input<string>;

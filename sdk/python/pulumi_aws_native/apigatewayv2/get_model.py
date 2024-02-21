@@ -69,6 +69,8 @@ class GetModelResult:
     def schema(self) -> Optional[Any]:
         """
         The schema for the model. For application/json models, this should be JSON schema draft 4 model.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "schema")
 

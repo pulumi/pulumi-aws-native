@@ -39,6 +39,8 @@ class GetClusterPolicyResult:
     def policy(self) -> Optional[Any]:
         """
         A policy document containing permissions to add to the specified cluster.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

@@ -53,6 +53,8 @@ namespace Pulumi.AwsNative.S3
 
         /// <summary>
         /// The Access Point Policy you want to apply to this access point.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
         public Output<object?> Policy { get; private set; } = null!;
@@ -141,6 +143,8 @@ namespace Pulumi.AwsNative.S3
 
         /// <summary>
         /// The Access Point Policy you want to apply to this access point.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy")]
         public Input<object>? Policy { get; set; }

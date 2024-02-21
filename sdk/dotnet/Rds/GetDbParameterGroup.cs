@@ -59,6 +59,8 @@ namespace Pulumi.AwsNative.Rds
     {
         /// <summary>
         /// An array of parameter names and values for the parameter update.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Parameters;
         /// <summary>

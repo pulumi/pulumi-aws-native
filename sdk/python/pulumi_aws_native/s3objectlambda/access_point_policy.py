@@ -20,6 +20,8 @@ class AccessPointPolicyArgs:
         The set of arguments for constructing a AccessPointPolicy resource.
         :param pulumi.Input[str] object_lambda_access_point: The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
         :param Any policy_document: A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3ObjectLambda::AccessPointPolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "object_lambda_access_point", object_lambda_access_point)
         pulumi.set(__self__, "policy_document", policy_document)
@@ -41,6 +43,8 @@ class AccessPointPolicyArgs:
     def policy_document(self) -> Any:
         """
         A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3ObjectLambda::AccessPointPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 
@@ -64,6 +68,8 @@ class AccessPointPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] object_lambda_access_point: The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
         :param Any policy_document: A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3ObjectLambda::AccessPointPolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -147,6 +153,8 @@ class AccessPointPolicy(pulumi.CustomResource):
     def policy_document(self) -> pulumi.Output[Any]:
         """
         A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3ObjectLambda::AccessPointPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

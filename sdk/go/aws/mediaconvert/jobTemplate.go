@@ -26,9 +26,11 @@ type JobTemplate struct {
 	Name                 pulumi.StringPtrOutput                   `pulumi:"name"`
 	Priority             pulumi.IntPtrOutput                      `pulumi:"priority"`
 	Queue                pulumi.StringPtrOutput                   `pulumi:"queue"`
-	SettingsJson         pulumi.AnyOutput                         `pulumi:"settingsJson"`
-	StatusUpdateInterval pulumi.StringPtrOutput                   `pulumi:"statusUpdateInterval"`
-	Tags                 pulumi.AnyOutput                         `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+	SettingsJson         pulumi.AnyOutput       `pulumi:"settingsJson"`
+	StatusUpdateInterval pulumi.StringPtrOutput `pulumi:"statusUpdateInterval"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewJobTemplate registers a new resource with the given unique name, arguments, and options.
@@ -85,9 +87,11 @@ type jobTemplateArgs struct {
 	Name                 *string                          `pulumi:"name"`
 	Priority             *int                             `pulumi:"priority"`
 	Queue                *string                          `pulumi:"queue"`
-	SettingsJson         interface{}                      `pulumi:"settingsJson"`
-	StatusUpdateInterval *string                          `pulumi:"statusUpdateInterval"`
-	Tags                 interface{}                      `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+	SettingsJson         interface{} `pulumi:"settingsJson"`
+	StatusUpdateInterval *string     `pulumi:"statusUpdateInterval"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a JobTemplate resource.
@@ -99,9 +103,11 @@ type JobTemplateArgs struct {
 	Name                 pulumi.StringPtrInput
 	Priority             pulumi.IntPtrInput
 	Queue                pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
 	SettingsJson         pulumi.Input
 	StatusUpdateInterval pulumi.StringPtrInput
-	Tags                 pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (JobTemplateArgs) ElementType() reflect.Type {
@@ -173,6 +179,7 @@ func (o JobTemplateOutput) Queue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.Queue }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
 func (o JobTemplateOutput) SettingsJson() pulumi.AnyOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.AnyOutput { return v.SettingsJson }).(pulumi.AnyOutput)
 }
@@ -181,6 +188,7 @@ func (o JobTemplateOutput) StatusUpdateInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.StatusUpdateInterval }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
 func (o JobTemplateOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

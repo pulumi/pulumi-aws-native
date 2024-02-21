@@ -27,8 +27,9 @@ type LookupAppArgs struct {
 }
 
 type LookupAppResult struct {
-	Arn  *string     `pulumi:"arn"`
-	Id   *string     `pulumi:"id"`
+	Arn *string `pulumi:"arn"`
+	Id  *string `pulumi:"id"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::App` for more information about the expected schema for this property.
 	Tags interface{} `pulumi:"tags"`
 }
 
@@ -75,6 +76,7 @@ func (o LookupAppResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::App` for more information about the expected schema for this property.
 func (o LookupAppResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupAppResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

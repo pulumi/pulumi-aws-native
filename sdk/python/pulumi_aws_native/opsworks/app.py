@@ -30,6 +30,7 @@ class AppArgs:
                  ssl_configuration: Optional[pulumi.Input['AppSslConfigurationArgs']] = None):
         """
         The set of arguments for constructing a App resource.
+        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "stack_id", stack_id)
         pulumi.set(__self__, "type", type)
@@ -84,6 +85,9 @@ class AppArgs:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -191,6 +195,7 @@ class App(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -300,6 +305,9 @@ class App(pulumi.CustomResource):
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @property

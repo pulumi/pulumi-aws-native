@@ -29,6 +29,8 @@ type LookupDbParameterGroupArgs struct {
 
 type LookupDbParameterGroupResult struct {
 	// An array of parameter names and values for the parameter update.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{} `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []DbParameterGroupTag `pulumi:"tags"`
@@ -71,6 +73,8 @@ func (o LookupDbParameterGroupResultOutput) ToLookupDbParameterGroupResultOutput
 }
 
 // An array of parameter names and values for the parameter update.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 func (o LookupDbParameterGroupResultOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDbParameterGroupResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }

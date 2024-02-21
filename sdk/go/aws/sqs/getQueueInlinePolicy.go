@@ -29,6 +29,8 @@ type LookupQueueInlinePolicyArgs struct {
 
 type LookupQueueInlinePolicyResult struct {
 	// A policy document that contains permissions to add to the specified SQS queue
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
@@ -69,6 +71,8 @@ func (o LookupQueueInlinePolicyResultOutput) ToLookupQueueInlinePolicyResultOutp
 }
 
 // A policy document that contains permissions to add to the specified SQS queue
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
 func (o LookupQueueInlinePolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupQueueInlinePolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

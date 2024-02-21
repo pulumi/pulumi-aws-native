@@ -48,6 +48,9 @@ export class MlTransform extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly numberOfWorkers!: pulumi.Output<number | undefined>;
     public readonly role!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::MLTransform` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly timeout!: pulumi.Output<number | undefined>;
     public readonly transformEncryption!: pulumi.Output<outputs.glue.MlTransformTransformEncryption | undefined>;
@@ -123,6 +126,9 @@ export interface MlTransformArgs {
     name?: pulumi.Input<string>;
     numberOfWorkers?: pulumi.Input<number>;
     role: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::MLTransform` for more information about the expected schema for this property.
+     */
     tags?: any;
     timeout?: pulumi.Input<number>;
     transformEncryption?: pulumi.Input<inputs.glue.MlTransformTransformEncryptionArgs>;

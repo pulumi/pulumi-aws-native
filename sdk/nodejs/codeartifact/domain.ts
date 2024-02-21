@@ -59,6 +59,8 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
      * The access control resource policy on the provided domain.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
      */
     public readonly permissionsPolicyDocument!: pulumi.Output<any | undefined>;
     /**
@@ -114,6 +116,8 @@ export interface DomainArgs {
     encryptionKey?: pulumi.Input<string>;
     /**
      * The access control resource policy on the provided domain.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Domain` for more information about the expected schema for this property.
      */
     permissionsPolicyDocument?: any;
     /**

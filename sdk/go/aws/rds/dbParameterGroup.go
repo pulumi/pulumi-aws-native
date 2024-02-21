@@ -23,6 +23,8 @@ type DbParameterGroup struct {
 	// The DB parameter group family name.
 	Family pulumi.StringOutput `pulumi:"family"`
 	// An array of parameter names and values for the parameter update.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this resource.
 	Tags DbParameterGroupTagArrayOutput `pulumi:"tags"`
@@ -87,6 +89,8 @@ type dbParameterGroupArgs struct {
 	// The DB parameter group family name.
 	Family string `pulumi:"family"`
 	// An array of parameter names and values for the parameter update.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{} `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []DbParameterGroupTag `pulumi:"tags"`
@@ -101,6 +105,8 @@ type DbParameterGroupArgs struct {
 	// The DB parameter group family name.
 	Family pulumi.StringInput
 	// An array of parameter names and values for the parameter update.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.Input
 	// An array of key-value pairs to apply to this resource.
 	Tags DbParameterGroupTagArrayInput
@@ -159,6 +165,8 @@ func (o DbParameterGroupOutput) Family() pulumi.StringOutput {
 }
 
 // An array of parameter names and values for the parameter update.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 func (o DbParameterGroupOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DbParameterGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }

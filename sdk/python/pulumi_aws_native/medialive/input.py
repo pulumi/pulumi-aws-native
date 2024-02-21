@@ -28,6 +28,7 @@ class InputArgs:
                  vpc: Optional[pulumi.Input['InputVpcRequestArgs']] = None):
         """
         The set of arguments for constructing a Input resource.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
         """
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
@@ -116,6 +117,9 @@ class InputArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -167,6 +171,7 @@ class Input(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -303,6 +308,9 @@ class Input(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::Input` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @property

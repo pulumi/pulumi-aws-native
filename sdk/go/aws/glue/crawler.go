@@ -29,8 +29,9 @@ type Crawler struct {
 	Schedule                     CrawlerSchedulePtrOutput           `pulumi:"schedule"`
 	SchemaChangePolicy           CrawlerSchemaChangePolicyPtrOutput `pulumi:"schemaChangePolicy"`
 	TablePrefix                  pulumi.StringPtrOutput             `pulumi:"tablePrefix"`
-	Tags                         pulumi.AnyOutput                   `pulumi:"tags"`
-	Targets                      CrawlerTargetsOutput               `pulumi:"targets"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
+	Tags    pulumi.AnyOutput     `pulumi:"tags"`
+	Targets CrawlerTargetsOutput `pulumi:"targets"`
 }
 
 // NewCrawler registers a new resource with the given unique name, arguments, and options.
@@ -94,8 +95,9 @@ type crawlerArgs struct {
 	Schedule                     *CrawlerSchedule           `pulumi:"schedule"`
 	SchemaChangePolicy           *CrawlerSchemaChangePolicy `pulumi:"schemaChangePolicy"`
 	TablePrefix                  *string                    `pulumi:"tablePrefix"`
-	Tags                         interface{}                `pulumi:"tags"`
-	Targets                      CrawlerTargets             `pulumi:"targets"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
+	Tags    interface{}    `pulumi:"tags"`
+	Targets CrawlerTargets `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a Crawler resource.
@@ -111,8 +113,9 @@ type CrawlerArgs struct {
 	Schedule                     CrawlerSchedulePtrInput
 	SchemaChangePolicy           CrawlerSchemaChangePolicyPtrInput
 	TablePrefix                  pulumi.StringPtrInput
-	Tags                         pulumi.Input
-	Targets                      CrawlerTargetsInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
+	Tags    pulumi.Input
+	Targets CrawlerTargetsInput
 }
 
 func (CrawlerArgs) ElementType() reflect.Type {
@@ -196,6 +199,7 @@ func (o CrawlerOutput) TablePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringPtrOutput { return v.TablePrefix }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
 func (o CrawlerOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

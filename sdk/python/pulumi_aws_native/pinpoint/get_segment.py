@@ -67,6 +67,9 @@ class GetSegmentResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Segment` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
 

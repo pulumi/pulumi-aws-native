@@ -24,6 +24,7 @@ class EventBusPolicyArgs:
                  statement: Optional[Any] = None):
         """
         The set of arguments for constructing a EventBusPolicy resource.
+        :param Any statement: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "statement_id", statement_id)
         if action is not None:
@@ -85,6 +86,9 @@ class EventBusPolicyArgs:
     @property
     @pulumi.getter
     def statement(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "statement")
 
     @statement.setter
@@ -114,6 +118,7 @@ class EventBusPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any statement: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -218,6 +223,9 @@ class EventBusPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def statement(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "statement")
 
     @property

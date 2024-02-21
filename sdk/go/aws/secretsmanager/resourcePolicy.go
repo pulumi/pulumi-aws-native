@@ -19,8 +19,9 @@ type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
 	BlockPublicPolicy pulumi.BoolPtrOutput `pulumi:"blockPublicPolicy"`
-	ResourcePolicy    pulumi.AnyOutput     `pulumi:"resourcePolicy"`
-	SecretId          pulumi.StringOutput  `pulumi:"secretId"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+	ResourcePolicy pulumi.AnyOutput    `pulumi:"resourcePolicy"`
+	SecretId       pulumi.StringOutput `pulumi:"secretId"`
 }
 
 // NewResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -73,16 +74,18 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
-	BlockPublicPolicy *bool       `pulumi:"blockPublicPolicy"`
-	ResourcePolicy    interface{} `pulumi:"resourcePolicy"`
-	SecretId          string      `pulumi:"secretId"`
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+	ResourcePolicy interface{} `pulumi:"resourcePolicy"`
+	SecretId       string      `pulumi:"secretId"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
 	BlockPublicPolicy pulumi.BoolPtrInput
-	ResourcePolicy    pulumi.Input
-	SecretId          pulumi.StringInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+	ResourcePolicy pulumi.Input
+	SecretId       pulumi.StringInput
 }
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {
@@ -126,6 +129,7 @@ func (o ResourcePolicyOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.BoolPtrOutput { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
 func (o ResourcePolicyOutput) ResourcePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.AnyOutput { return v.ResourcePolicy }).(pulumi.AnyOutput)
 }

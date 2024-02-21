@@ -32,6 +32,8 @@ export interface GetEventBusResult {
     readonly arn?: string;
     /**
      * A JSON string that describes the permission policy statement for the event bus.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
      */
     readonly policy?: any;
     /**

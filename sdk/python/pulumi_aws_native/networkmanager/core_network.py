@@ -25,6 +25,8 @@ class CoreNetworkArgs:
         :param pulumi.Input[str] global_network_id: The ID of the global network that your core network is a part of.
         :param pulumi.Input[str] description: The description of core network
         :param Any policy_document: Live policy document for the core network, you must provide PolicyDocument in Json Format
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]] tags: The tags for the global network.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
@@ -64,6 +66,8 @@ class CoreNetworkArgs:
     def policy_document(self) -> Optional[Any]:
         """
         Live policy document for the core network, you must provide PolicyDocument in Json Format
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 
@@ -102,6 +106,8 @@ class CoreNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of core network
         :param pulumi.Input[str] global_network_id: The ID of the global network that your core network is a part of.
         :param Any policy_document: Live policy document for the core network, you must provide PolicyDocument in Json Format
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkTagArgs']]]] tags: The tags for the global network.
         """
         ...
@@ -252,6 +258,8 @@ class CoreNetwork(pulumi.CustomResource):
     def policy_document(self) -> pulumi.Output[Optional[Any]]:
         """
         Live policy document for the core network, you must provide PolicyDocument in Json Format
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

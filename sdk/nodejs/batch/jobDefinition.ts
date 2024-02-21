@@ -41,11 +41,17 @@ export class JobDefinition extends pulumi.CustomResource {
     public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
     public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
     public readonly nodeProperties!: pulumi.Output<outputs.batch.JobDefinitionNodeProperties | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+     */
     public readonly parameters!: pulumi.Output<any | undefined>;
     public readonly platformCapabilities!: pulumi.Output<string[] | undefined>;
     public readonly propagateTags!: pulumi.Output<boolean | undefined>;
     public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
     public readonly schedulingPriority!: pulumi.Output<number | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
     public readonly type!: pulumi.Output<string>;
@@ -105,11 +111,17 @@ export interface JobDefinitionArgs {
     eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesArgs>;
     jobDefinitionName?: pulumi.Input<string>;
     nodeProperties?: pulumi.Input<inputs.batch.JobDefinitionNodePropertiesArgs>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+     */
     parameters?: any;
     platformCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
     propagateTags?: pulumi.Input<boolean>;
     retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategyArgs>;
     schedulingPriority?: pulumi.Input<number>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+     */
     tags?: any;
     timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeoutArgs>;
     type: pulumi.Input<string>;

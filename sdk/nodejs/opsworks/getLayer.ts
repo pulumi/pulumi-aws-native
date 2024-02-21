@@ -23,10 +23,16 @@ export interface GetLayerArgs {
 }
 
 export interface GetLayerResult {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+     */
     readonly attributes?: any;
     readonly autoAssignElasticIps?: boolean;
     readonly autoAssignPublicIps?: boolean;
     readonly customInstanceProfileArn?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
+     */
     readonly customJson?: any;
     readonly customRecipes?: outputs.opsworks.LayerRecipes;
     readonly customSecurityGroupIds?: string[];

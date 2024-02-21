@@ -25,8 +25,9 @@ type DataLakeSettings struct {
 	CreateTableDefaultPermissions    DataLakeSettingsCreateTableDefaultPermissionsPtrOutput    `pulumi:"createTableDefaultPermissions"`
 	ExternalDataFilteringAllowList   DataLakeSettingsExternalDataFilteringAllowListPtrOutput   `pulumi:"externalDataFilteringAllowList"`
 	MutationType                     pulumi.StringPtrOutput                                    `pulumi:"mutationType"`
-	Parameters                       pulumi.AnyOutput                                          `pulumi:"parameters"`
-	TrustedResourceOwners            pulumi.StringArrayOutput                                  `pulumi:"trustedResourceOwners"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+	Parameters            pulumi.AnyOutput         `pulumi:"parameters"`
+	TrustedResourceOwners pulumi.StringArrayOutput `pulumi:"trustedResourceOwners"`
 }
 
 // NewDataLakeSettings registers a new resource with the given unique name, arguments, and options.
@@ -77,8 +78,9 @@ type dataLakeSettingsArgs struct {
 	CreateTableDefaultPermissions    *DataLakeSettingsCreateTableDefaultPermissions    `pulumi:"createTableDefaultPermissions"`
 	ExternalDataFilteringAllowList   *DataLakeSettingsExternalDataFilteringAllowList   `pulumi:"externalDataFilteringAllowList"`
 	MutationType                     *string                                           `pulumi:"mutationType"`
-	Parameters                       interface{}                                       `pulumi:"parameters"`
-	TrustedResourceOwners            []string                                          `pulumi:"trustedResourceOwners"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+	Parameters            interface{} `pulumi:"parameters"`
+	TrustedResourceOwners []string    `pulumi:"trustedResourceOwners"`
 }
 
 // The set of arguments for constructing a DataLakeSettings resource.
@@ -91,8 +93,9 @@ type DataLakeSettingsArgs struct {
 	CreateTableDefaultPermissions    DataLakeSettingsCreateTableDefaultPermissionsPtrInput
 	ExternalDataFilteringAllowList   DataLakeSettingsExternalDataFilteringAllowListPtrInput
 	MutationType                     pulumi.StringPtrInput
-	Parameters                       pulumi.Input
-	TrustedResourceOwners            pulumi.StringArrayInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+	Parameters            pulumi.Input
+	TrustedResourceOwners pulumi.StringArrayInput
 }
 
 func (DataLakeSettingsArgs) ElementType() reflect.Type {
@@ -170,6 +173,7 @@ func (o DataLakeSettingsOutput) MutationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringPtrOutput { return v.MutationType }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
 func (o DataLakeSettingsOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }

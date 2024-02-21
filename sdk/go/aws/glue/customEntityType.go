@@ -20,7 +20,8 @@ type CustomEntityType struct {
 	ContextWords pulumi.StringArrayOutput `pulumi:"contextWords"`
 	Name         pulumi.StringPtrOutput   `pulumi:"name"`
 	RegexString  pulumi.StringPtrOutput   `pulumi:"regexString"`
-	Tags         pulumi.AnyOutput         `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::CustomEntityType` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewCustomEntityType registers a new resource with the given unique name, arguments, and options.
@@ -63,10 +64,11 @@ func (CustomEntityTypeState) ElementType() reflect.Type {
 }
 
 type customEntityTypeArgs struct {
-	ContextWords []string    `pulumi:"contextWords"`
-	Name         *string     `pulumi:"name"`
-	RegexString  *string     `pulumi:"regexString"`
-	Tags         interface{} `pulumi:"tags"`
+	ContextWords []string `pulumi:"contextWords"`
+	Name         *string  `pulumi:"name"`
+	RegexString  *string  `pulumi:"regexString"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::CustomEntityType` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomEntityType resource.
@@ -74,7 +76,8 @@ type CustomEntityTypeArgs struct {
 	ContextWords pulumi.StringArrayInput
 	Name         pulumi.StringPtrInput
 	RegexString  pulumi.StringPtrInput
-	Tags         pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::CustomEntityType` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (CustomEntityTypeArgs) ElementType() reflect.Type {
@@ -126,6 +129,7 @@ func (o CustomEntityTypeOutput) RegexString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomEntityType) pulumi.StringPtrOutput { return v.RegexString }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::CustomEntityType` for more information about the expected schema for this property.
 func (o CustomEntityTypeOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *CustomEntityType) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

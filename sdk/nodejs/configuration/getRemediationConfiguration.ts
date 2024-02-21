@@ -27,6 +27,9 @@ export interface GetRemediationConfigurationResult {
     readonly executionControls?: outputs.configuration.RemediationConfigurationExecutionControls;
     readonly id?: string;
     readonly maximumAutomaticAttempts?: number;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+     */
     readonly parameters?: any;
     readonly resourceType?: string;
     readonly retryAttemptSeconds?: number;

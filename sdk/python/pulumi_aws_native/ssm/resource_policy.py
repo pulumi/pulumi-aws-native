@@ -19,6 +19,8 @@ class ResourcePolicyArgs:
         """
         The set of arguments for constructing a ResourcePolicy resource.
         :param Any policy: Actual policy statement.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         :param pulumi.Input[str] resource_arn: Arn of OpsItemGroup etc.
         """
         pulumi.set(__self__, "policy", policy)
@@ -29,6 +31,8 @@ class ResourcePolicyArgs:
     def policy(self) -> Any:
         """
         Actual policy statement.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 
@@ -63,6 +67,8 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy: Actual policy statement.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         :param pulumi.Input[str] resource_arn: Arn of OpsItemGroup etc.
         """
         ...
@@ -143,6 +149,8 @@ class ResourcePolicy(pulumi.CustomResource):
     def policy(self) -> pulumi.Output[Any]:
         """
         Actual policy statement.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

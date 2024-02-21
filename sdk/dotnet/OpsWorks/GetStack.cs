@@ -52,10 +52,16 @@ namespace Pulumi.AwsNative.OpsWorks
     public sealed class GetStackResult
     {
         public readonly string? AgentVersion;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Attributes;
         public readonly Outputs.StackChefConfiguration? ChefConfiguration;
         public readonly Outputs.StackConfigurationManager? ConfigurationManager;
         public readonly Outputs.StackSource? CustomCookbooksSource;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? CustomJson;
         public readonly string? DefaultAvailabilityZone;
         public readonly string? DefaultInstanceProfileArn;

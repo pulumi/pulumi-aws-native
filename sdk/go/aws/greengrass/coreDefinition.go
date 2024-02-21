@@ -21,7 +21,8 @@ type CoreDefinition struct {
 	InitialVersion   CoreDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                `pulumi:"name"`
-	Tags             pulumi.AnyOutput                   `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::CoreDefinition` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewCoreDefinition registers a new resource with the given unique name, arguments, and options.
@@ -70,14 +71,16 @@ func (CoreDefinitionState) ElementType() reflect.Type {
 type coreDefinitionArgs struct {
 	InitialVersion *CoreDefinitionVersionType `pulumi:"initialVersion"`
 	Name           *string                    `pulumi:"name"`
-	Tags           interface{}                `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::CoreDefinition` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CoreDefinition resource.
 type CoreDefinitionArgs struct {
 	InitialVersion CoreDefinitionVersionTypePtrInput
 	Name           pulumi.StringPtrInput
-	Tags           pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::CoreDefinition` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (CoreDefinitionArgs) ElementType() reflect.Type {
@@ -133,6 +136,7 @@ func (o CoreDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CoreDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::CoreDefinition` for more information about the expected schema for this property.
 func (o CoreDefinitionOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *CoreDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

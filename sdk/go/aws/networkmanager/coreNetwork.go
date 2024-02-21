@@ -31,6 +31,8 @@ type CoreNetwork struct {
 	// Owner of the core network
 	OwnerAccount pulumi.StringOutput `pulumi:"ownerAccount"`
 	// Live policy document for the core network, you must provide PolicyDocument in Json Format
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The segments within a core network.
 	Segments CoreNetworkSegmentArrayOutput `pulumi:"segments"`
@@ -92,6 +94,8 @@ type coreNetworkArgs struct {
 	// The ID of the global network that your core network is a part of.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// Live policy document for the core network, you must provide PolicyDocument in Json Format
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The tags for the global network.
 	Tags []CoreNetworkTag `pulumi:"tags"`
@@ -104,6 +108,8 @@ type CoreNetworkArgs struct {
 	// The ID of the global network that your core network is a part of.
 	GlobalNetworkId pulumi.StringInput
 	// Live policy document for the core network, you must provide PolicyDocument in Json Format
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The tags for the global network.
 	Tags CoreNetworkTagArrayInput
@@ -182,6 +188,8 @@ func (o CoreNetworkOutput) OwnerAccount() pulumi.StringOutput {
 }
 
 // Live policy document for the core network, you must provide PolicyDocument in Json Format
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
 func (o CoreNetworkOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

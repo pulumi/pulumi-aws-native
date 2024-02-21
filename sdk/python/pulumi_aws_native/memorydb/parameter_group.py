@@ -27,6 +27,8 @@ class ParameterGroupArgs:
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group.
         :param Any parameters: An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]] tags: An array of key-value pairs to apply to this parameter group.
         """
         pulumi.set(__self__, "family", family)
@@ -80,6 +82,8 @@ class ParameterGroupArgs:
     def parameters(self) -> Optional[Any]:
         """
         An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 
@@ -120,6 +124,8 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] family: The name of the parameter group family that this parameter group is compatible with.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group.
         :param Any parameters: An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupTagArgs']]]] tags: An array of key-value pairs to apply to this parameter group.
         """
         ...
@@ -237,6 +243,8 @@ class ParameterGroup(pulumi.CustomResource):
     def parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 

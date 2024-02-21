@@ -17,6 +17,8 @@ namespace Pulumi.AwsNative.Sns
     {
         /// <summary>
         /// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
         [Output("archivePolicy")]
         public Output<object?> ArchivePolicy { get; private set; } = null!;
@@ -39,6 +41,8 @@ namespace Pulumi.AwsNative.Sns
         /// The policy must be in JSON string format.
         /// 
         /// Length Constraints: Maximum length of 30720
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
         [Output("dataProtectionPolicy")]
         public Output<object?> DataProtectionPolicy { get; private set; } = null!;
@@ -153,6 +157,8 @@ namespace Pulumi.AwsNative.Sns
     {
         /// <summary>
         /// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
         [Input("archivePolicy")]
         public Input<object>? ArchivePolicy { get; set; }
@@ -175,6 +181,8 @@ namespace Pulumi.AwsNative.Sns
         /// The policy must be in JSON string format.
         /// 
         /// Length Constraints: Maximum length of 30720
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
         [Input("dataProtectionPolicy")]
         public Input<object>? DataProtectionPolicy { get; set; }

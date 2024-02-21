@@ -59,6 +59,9 @@ class GetEventBusPolicyResult:
     @property
     @pulumi.getter
     def statement(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "statement")
 
 

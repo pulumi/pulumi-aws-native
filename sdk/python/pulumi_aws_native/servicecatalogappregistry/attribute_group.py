@@ -22,6 +22,7 @@ class AttributeGroupArgs:
                  tags: Optional[pulumi.Input['AttributeGroupTagsArgs']] = None):
         """
         The set of arguments for constructing a AttributeGroup resource.
+        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: The description of the attribute group. 
         :param pulumi.Input[str] name: The name of the attribute group. 
         """
@@ -36,6 +37,9 @@ class AttributeGroupArgs:
     @property
     @pulumi.getter
     def attributes(self) -> Any:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -91,6 +95,7 @@ class AttributeGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: The description of the attribute group. 
         :param pulumi.Input[str] name: The name of the attribute group. 
         """
@@ -175,6 +180,9 @@ class AttributeGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attributes")
 
     @property

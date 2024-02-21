@@ -27,20 +27,23 @@ type LookupIntegrationArgs struct {
 }
 
 type LookupIntegrationResult struct {
-	ConnectionId                *string               `pulumi:"connectionId"`
-	ConnectionType              *string               `pulumi:"connectionType"`
-	ContentHandlingStrategy     *string               `pulumi:"contentHandlingStrategy"`
-	CredentialsArn              *string               `pulumi:"credentialsArn"`
-	Description                 *string               `pulumi:"description"`
-	Id                          *string               `pulumi:"id"`
-	IntegrationMethod           *string               `pulumi:"integrationMethod"`
-	IntegrationSubtype          *string               `pulumi:"integrationSubtype"`
-	IntegrationType             *string               `pulumi:"integrationType"`
-	IntegrationUri              *string               `pulumi:"integrationUri"`
-	PassthroughBehavior         *string               `pulumi:"passthroughBehavior"`
-	PayloadFormatVersion        *string               `pulumi:"payloadFormatVersion"`
-	RequestParameters           interface{}           `pulumi:"requestParameters"`
-	RequestTemplates            interface{}           `pulumi:"requestTemplates"`
+	ConnectionId            *string `pulumi:"connectionId"`
+	ConnectionType          *string `pulumi:"connectionType"`
+	ContentHandlingStrategy *string `pulumi:"contentHandlingStrategy"`
+	CredentialsArn          *string `pulumi:"credentialsArn"`
+	Description             *string `pulumi:"description"`
+	Id                      *string `pulumi:"id"`
+	IntegrationMethod       *string `pulumi:"integrationMethod"`
+	IntegrationSubtype      *string `pulumi:"integrationSubtype"`
+	IntegrationType         *string `pulumi:"integrationType"`
+	IntegrationUri          *string `pulumi:"integrationUri"`
+	PassthroughBehavior     *string `pulumi:"passthroughBehavior"`
+	PayloadFormatVersion    *string `pulumi:"payloadFormatVersion"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+	RequestParameters interface{} `pulumi:"requestParameters"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+	RequestTemplates interface{} `pulumi:"requestTemplates"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
 	ResponseParameters          interface{}           `pulumi:"responseParameters"`
 	TemplateSelectionExpression *string               `pulumi:"templateSelectionExpression"`
 	TimeoutInMillis             *int                  `pulumi:"timeoutInMillis"`
@@ -130,14 +133,17 @@ func (o LookupIntegrationResultOutput) PayloadFormatVersion() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.PayloadFormatVersion }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
 func (o LookupIntegrationResultOutput) RequestParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) interface{} { return v.RequestParameters }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
 func (o LookupIntegrationResultOutput) RequestTemplates() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) interface{} { return v.RequestTemplates }).(pulumi.AnyOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
 func (o LookupIntegrationResultOutput) ResponseParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
 }

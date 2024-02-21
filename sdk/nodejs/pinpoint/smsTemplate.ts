@@ -40,6 +40,9 @@ export class SmsTemplate extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly body!: pulumi.Output<string>;
     public readonly defaultSubstitutions!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly templateDescription!: pulumi.Output<string | undefined>;
     public readonly templateName!: pulumi.Output<string>;
@@ -90,6 +93,9 @@ export class SmsTemplate extends pulumi.CustomResource {
 export interface SmsTemplateArgs {
     body: pulumi.Input<string>;
     defaultSubstitutions?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
+     */
     tags?: any;
     templateDescription?: pulumi.Input<string>;
     templateName: pulumi.Input<string>;

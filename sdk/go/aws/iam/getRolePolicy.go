@@ -31,6 +31,8 @@ type LookupRolePolicyArgs struct {
 
 type LookupRolePolicyResult struct {
 	// The policy document.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
@@ -73,6 +75,8 @@ func (o LookupRolePolicyResultOutput) ToLookupRolePolicyResultOutputWithContext(
 }
 
 // The policy document.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
 func (o LookupRolePolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRolePolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

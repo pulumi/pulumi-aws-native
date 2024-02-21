@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Ssm
         public readonly ImmutableArray<Outputs.MaintenanceWindowTaskTarget> Targets;
         public readonly string? TaskArn;
         public readonly Outputs.MaintenanceWindowTaskTaskInvocationParameters? TaskInvocationParameters;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? TaskParameters;
 
         [OutputConstructor]

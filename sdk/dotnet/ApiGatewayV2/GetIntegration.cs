@@ -63,8 +63,17 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public readonly string? IntegrationUri;
         public readonly string? PassthroughBehavior;
         public readonly string? PayloadFormatVersion;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? RequestParameters;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? RequestTemplates;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Integration` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? ResponseParameters;
         public readonly string? TemplateSelectionExpression;
         public readonly int? TimeoutInMillis;

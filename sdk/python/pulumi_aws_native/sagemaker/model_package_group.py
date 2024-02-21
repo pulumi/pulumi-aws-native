@@ -23,6 +23,7 @@ class ModelPackageGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelPackageGroup resource.
+        :param Any model_package_group_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if model_package_group_description is not None:
@@ -55,6 +56,9 @@ class ModelPackageGroupArgs:
     @property
     @pulumi.getter(name="modelPackageGroupPolicy")
     def model_package_group_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "model_package_group_policy")
 
     @model_package_group_policy.setter
@@ -89,6 +93,7 @@ class ModelPackageGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any model_package_group_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -194,6 +199,9 @@ class ModelPackageGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="modelPackageGroupPolicy")
     def model_package_group_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "model_package_group_policy")
 
     @property

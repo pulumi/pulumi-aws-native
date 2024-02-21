@@ -24,6 +24,9 @@ export interface GetSmsTemplateResult {
     readonly body?: string;
     readonly defaultSubstitutions?: string;
     readonly id?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly templateDescription?: string;
 }

@@ -63,6 +63,8 @@ namespace Pulumi.AwsNative.S3Outposts
         public readonly string? Arn;
         /// <summary>
         /// The access point policy associated with this access point.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;
 

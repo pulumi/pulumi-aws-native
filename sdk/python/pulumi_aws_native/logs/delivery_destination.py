@@ -27,6 +27,8 @@ class DeliveryDestinationArgs:
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
         :param pulumi.Input[str] name: The name of this delivery destination.
         :param pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationTagArgs']]] tags: The tags that have been assigned to this delivery destination.
@@ -49,6 +51,8 @@ class DeliveryDestinationArgs:
         The policy must be in JSON string format.
 
         Length Constraints: Maximum length of 51200
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "delivery_destination_policy")
 
@@ -115,6 +119,8 @@ class DeliveryDestination(pulumi.CustomResource):
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
         :param pulumi.Input[str] name: The name of this delivery destination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationTagArgs']]]] tags: The tags that have been assigned to this delivery destination.
@@ -213,6 +219,8 @@ class DeliveryDestination(pulumi.CustomResource):
         The policy must be in JSON string format.
 
         Length Constraints: Maximum length of 51200
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "delivery_destination_policy")
 

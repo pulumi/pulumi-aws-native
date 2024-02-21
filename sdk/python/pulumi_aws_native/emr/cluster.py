@@ -45,6 +45,7 @@ class ClusterArgs:
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+        :param Any additional_info: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "instances", instances)
         pulumi.set(__self__, "job_flow_role", job_flow_role)
@@ -128,6 +129,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="additionalInfo")
     def additional_info(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "additional_info")
 
     @additional_info.setter
@@ -385,6 +389,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any additional_info: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -538,6 +543,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="additionalInfo")
     def additional_info(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "additional_info")
 
     @property

@@ -110,6 +110,8 @@ class GetEnvironmentResult:
             Would be represented as
 
             "core.dags_folder": "{AIRFLOW_HOME}/dags"
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "airflow_configuration_options")
 
@@ -213,6 +215,8 @@ class GetEnvironmentResult:
     def tags(self) -> Optional[Any]:
         """
         A map of tags for the environment.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
 

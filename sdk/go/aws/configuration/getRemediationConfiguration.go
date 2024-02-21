@@ -31,12 +31,13 @@ type LookupRemediationConfigurationResult struct {
 	ExecutionControls        *RemediationConfigurationExecutionControls `pulumi:"executionControls"`
 	Id                       *string                                    `pulumi:"id"`
 	MaximumAutomaticAttempts *int                                       `pulumi:"maximumAutomaticAttempts"`
-	Parameters               interface{}                                `pulumi:"parameters"`
-	ResourceType             *string                                    `pulumi:"resourceType"`
-	RetryAttemptSeconds      *int                                       `pulumi:"retryAttemptSeconds"`
-	TargetId                 *string                                    `pulumi:"targetId"`
-	TargetType               *string                                    `pulumi:"targetType"`
-	TargetVersion            *string                                    `pulumi:"targetVersion"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
+	Parameters          interface{} `pulumi:"parameters"`
+	ResourceType        *string     `pulumi:"resourceType"`
+	RetryAttemptSeconds *int        `pulumi:"retryAttemptSeconds"`
+	TargetId            *string     `pulumi:"targetId"`
+	TargetType          *string     `pulumi:"targetType"`
+	TargetVersion       *string     `pulumi:"targetVersion"`
 }
 
 func LookupRemediationConfigurationOutput(ctx *pulumi.Context, args LookupRemediationConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupRemediationConfigurationResultOutput {
@@ -92,6 +93,7 @@ func (o LookupRemediationConfigurationResultOutput) MaximumAutomaticAttempts() p
 	return o.ApplyT(func(v LookupRemediationConfigurationResult) *int { return v.MaximumAutomaticAttempts }).(pulumi.IntPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
 func (o LookupRemediationConfigurationResultOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRemediationConfigurationResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }

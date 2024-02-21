@@ -22,6 +22,8 @@ class LinkArgs:
         """
         The set of arguments for constructing a Link resource.
         :param Any tags: Tags to apply to the link
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "resource_types", resource_types)
         pulumi.set(__self__, "sink_identifier", sink_identifier)
@@ -62,6 +64,8 @@ class LinkArgs:
     def tags(self) -> Optional[Any]:
         """
         Tags to apply to the link
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
 
@@ -86,6 +90,8 @@ class Link(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any tags: Tags to apply to the link
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -196,6 +202,8 @@ class Link(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Any]]:
         """
         Tags to apply to the link
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
 

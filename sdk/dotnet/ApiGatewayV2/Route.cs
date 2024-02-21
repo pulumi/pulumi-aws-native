@@ -59,12 +59,16 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         /// <summary>
         /// The request models for the route. Supported only for WebSocket APIs.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         /// </summary>
         [Output("requestModels")]
         public Output<object?> RequestModels { get; private set; } = null!;
 
         /// <summary>
         /// The request parameters for the route. Supported only for WebSocket APIs.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         /// </summary>
         [Output("requestParameters")]
         public Output<object?> RequestParameters { get; private set; } = null!;
@@ -189,12 +193,16 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         /// <summary>
         /// The request models for the route. Supported only for WebSocket APIs.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         /// </summary>
         [Input("requestModels")]
         public Input<object>? RequestModels { get; set; }
 
         /// <summary>
         /// The request parameters for the route. Supported only for WebSocket APIs.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         /// </summary>
         [Input("requestParameters")]
         public Input<object>? RequestParameters { get; set; }

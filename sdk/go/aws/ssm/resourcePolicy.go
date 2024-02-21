@@ -17,6 +17,8 @@ type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
 	// Actual policy statement.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// A snapshot identifier for the policy over time.
 	PolicyHash pulumi.StringOutput `pulumi:"policyHash"`
@@ -77,6 +79,8 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 
 type resourcePolicyArgs struct {
 	// Actual policy statement.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// Arn of OpsItemGroup etc.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -85,6 +89,8 @@ type resourcePolicyArgs struct {
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
 	// Actual policy statement.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
 	Policy pulumi.Input
 	// Arn of OpsItemGroup etc.
 	ResourceArn pulumi.StringInput
@@ -128,6 +134,8 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 }
 
 // Actual policy statement.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
 func (o ResourcePolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }

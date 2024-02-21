@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class GetWaitConditionResult
     {
         public readonly int? Count;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::WaitCondition` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Data;
         public readonly string? Handle;
         public readonly string? Id;

@@ -31,6 +31,8 @@ type LookupRoleResult struct {
 	// The Amazon Resource Name (ARN) for the role.
 	Arn *string `pulumi:"arn"`
 	// The trust policy that is associated with this role.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
 	AssumeRolePolicyDocument interface{} `pulumi:"assumeRolePolicyDocument"`
 	// A description of the role that you provide.
 	Description *string `pulumi:"description"`
@@ -90,6 +92,8 @@ func (o LookupRoleResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // The trust policy that is associated with this role.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
 func (o LookupRoleResultOutput) AssumeRolePolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRoleResult) interface{} { return v.AssumeRolePolicyDocument }).(pulumi.AnyOutput)
 }

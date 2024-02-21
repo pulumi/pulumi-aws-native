@@ -31,6 +31,9 @@ export interface GetClusterResult {
     readonly preferredMaintenanceWindow?: string;
     readonly replicationFactor?: number;
     readonly securityGroupIds?: string[];
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::Cluster` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
 }
 /**

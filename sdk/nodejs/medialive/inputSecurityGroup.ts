@@ -41,6 +41,9 @@ export class InputSecurityGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly whitelistRules!: pulumi.Output<outputs.medialive.InputSecurityGroupInputWhitelistRuleCidr[] | undefined>;
 
@@ -74,6 +77,9 @@ export class InputSecurityGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a InputSecurityGroup resource.
  */
 export interface InputSecurityGroupArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
+     */
     tags?: any;
     whitelistRules?: pulumi.Input<pulumi.Input<inputs.medialive.InputSecurityGroupInputWhitelistRuleCidrArgs>[]>;
 }

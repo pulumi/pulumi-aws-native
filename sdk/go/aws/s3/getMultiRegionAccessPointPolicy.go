@@ -29,6 +29,8 @@ type LookupMultiRegionAccessPointPolicyArgs struct {
 
 type LookupMultiRegionAccessPointPolicyResult struct {
 	// Policy document to apply to a Multi Region Access Point
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// The Policy Status associated with this Multi Region Access Point
 	PolicyStatus *PolicyStatusProperties `pulumi:"policyStatus"`
@@ -71,6 +73,8 @@ func (o LookupMultiRegionAccessPointPolicyResultOutput) ToLookupMultiRegionAcces
 }
 
 // Policy document to apply to a Multi Region Access Point
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
 func (o LookupMultiRegionAccessPointPolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointPolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

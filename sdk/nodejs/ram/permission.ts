@@ -49,6 +49,8 @@ export class Permission extends pulumi.CustomResource {
     public /*out*/ readonly permissionType!: pulumi.Output<string>;
     /**
      * Policy template for the permission.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
      */
     public readonly policyTemplate!: pulumi.Output<any>;
     /**
@@ -113,6 +115,8 @@ export interface PermissionArgs {
     name?: pulumi.Input<string>;
     /**
      * Policy template for the permission.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
      */
     policyTemplate: any;
     /**

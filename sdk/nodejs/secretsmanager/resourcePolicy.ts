@@ -38,6 +38,9 @@ export class ResourcePolicy extends pulumi.CustomResource {
     }
 
     public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+     */
     public readonly resourcePolicy!: pulumi.Output<any>;
     public readonly secretId!: pulumi.Output<string>;
 
@@ -80,6 +83,9 @@ export class ResourcePolicy extends pulumi.CustomResource {
  */
 export interface ResourcePolicyArgs {
     blockPublicPolicy?: pulumi.Input<boolean>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+     */
     resourcePolicy: any;
     secretId: pulumi.Input<string>;
 }

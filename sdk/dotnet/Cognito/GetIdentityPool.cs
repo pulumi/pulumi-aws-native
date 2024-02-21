@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.Cognito
         public readonly string? Name;
         public readonly ImmutableArray<string> OpenIdConnectProviderArns;
         public readonly ImmutableArray<string> SamlProviderArns;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? SupportedLoginProviders;
 
         [OutputConstructor]

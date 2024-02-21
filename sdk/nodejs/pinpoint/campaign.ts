@@ -56,6 +56,9 @@ export class Campaign extends pulumi.CustomResource {
     public readonly schedule!: pulumi.Output<outputs.pinpoint.CampaignSchedule>;
     public readonly segmentId!: pulumi.Output<string>;
     public readonly segmentVersion!: pulumi.Output<number | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly templateConfiguration!: pulumi.Output<outputs.pinpoint.CampaignTemplateConfiguration | undefined>;
     public readonly treatmentDescription!: pulumi.Output<string | undefined>;
@@ -150,6 +153,9 @@ export interface CampaignArgs {
     schedule: pulumi.Input<inputs.pinpoint.CampaignScheduleArgs>;
     segmentId: pulumi.Input<string>;
     segmentVersion?: pulumi.Input<number>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
+     */
     tags?: any;
     templateConfiguration?: pulumi.Input<inputs.pinpoint.CampaignTemplateConfigurationArgs>;
     treatmentDescription?: pulumi.Input<string>;

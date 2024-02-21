@@ -21,7 +21,8 @@ type LoggerDefinition struct {
 	InitialVersion   LoggerDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                  `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                  `pulumi:"name"`
-	Tags             pulumi.AnyOutput                     `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::LoggerDefinition` for more information about the expected schema for this property.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewLoggerDefinition registers a new resource with the given unique name, arguments, and options.
@@ -70,14 +71,16 @@ func (LoggerDefinitionState) ElementType() reflect.Type {
 type loggerDefinitionArgs struct {
 	InitialVersion *LoggerDefinitionVersionType `pulumi:"initialVersion"`
 	Name           *string                      `pulumi:"name"`
-	Tags           interface{}                  `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::LoggerDefinition` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoggerDefinition resource.
 type LoggerDefinitionArgs struct {
 	InitialVersion LoggerDefinitionVersionTypePtrInput
 	Name           pulumi.StringPtrInput
-	Tags           pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::LoggerDefinition` for more information about the expected schema for this property.
+	Tags pulumi.Input
 }
 
 func (LoggerDefinitionArgs) ElementType() reflect.Type {
@@ -133,6 +136,7 @@ func (o LoggerDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggerDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Greengrass::LoggerDefinition` for more information about the expected schema for this property.
 func (o LoggerDefinitionOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *LoggerDefinition) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

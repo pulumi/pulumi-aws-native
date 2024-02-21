@@ -27,6 +27,7 @@ type LookupAuthPolicyArgs struct {
 }
 
 type LookupAuthPolicyResult struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
 	Policy interface{}          `pulumi:"policy"`
 	State  *AuthPolicyStateEnum `pulumi:"state"`
 }
@@ -66,6 +67,7 @@ func (o LookupAuthPolicyResultOutput) ToLookupAuthPolicyResultOutputWithContext(
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
 func (o LookupAuthPolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupAuthPolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

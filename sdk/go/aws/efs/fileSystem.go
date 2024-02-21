@@ -19,18 +19,19 @@ type FileSystem struct {
 	AvailabilityZoneName pulumi.StringPtrOutput          `pulumi:"availabilityZoneName"`
 	BackupPolicy         FileSystemBackupPolicyPtrOutput `pulumi:"backupPolicy"`
 	// Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
-	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrOutput                        `pulumi:"bypassPolicyLockoutSafetyCheck"`
-	Encrypted                      pulumi.BoolPtrOutput                        `pulumi:"encrypted"`
-	FileSystemId                   pulumi.StringOutput                         `pulumi:"fileSystemId"`
-	FileSystemPolicy               pulumi.AnyOutput                            `pulumi:"fileSystemPolicy"`
-	FileSystemProtection           FileSystemProtectionPtrOutput               `pulumi:"fileSystemProtection"`
-	FileSystemTags                 FileSystemElasticFileSystemTagArrayOutput   `pulumi:"fileSystemTags"`
-	KmsKeyId                       pulumi.StringPtrOutput                      `pulumi:"kmsKeyId"`
-	LifecyclePolicies              FileSystemLifecyclePolicyArrayOutput        `pulumi:"lifecyclePolicies"`
-	PerformanceMode                pulumi.StringPtrOutput                      `pulumi:"performanceMode"`
-	ProvisionedThroughputInMibps   pulumi.Float64PtrOutput                     `pulumi:"provisionedThroughputInMibps"`
-	ReplicationConfiguration       FileSystemReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
-	ThroughputMode                 pulumi.StringPtrOutput                      `pulumi:"throughputMode"`
+	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrOutput `pulumi:"bypassPolicyLockoutSafetyCheck"`
+	Encrypted                      pulumi.BoolPtrOutput `pulumi:"encrypted"`
+	FileSystemId                   pulumi.StringOutput  `pulumi:"fileSystemId"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+	FileSystemPolicy             pulumi.AnyOutput                            `pulumi:"fileSystemPolicy"`
+	FileSystemProtection         FileSystemProtectionPtrOutput               `pulumi:"fileSystemProtection"`
+	FileSystemTags               FileSystemElasticFileSystemTagArrayOutput   `pulumi:"fileSystemTags"`
+	KmsKeyId                     pulumi.StringPtrOutput                      `pulumi:"kmsKeyId"`
+	LifecyclePolicies            FileSystemLifecyclePolicyArrayOutput        `pulumi:"lifecyclePolicies"`
+	PerformanceMode              pulumi.StringPtrOutput                      `pulumi:"performanceMode"`
+	ProvisionedThroughputInMibps pulumi.Float64PtrOutput                     `pulumi:"provisionedThroughputInMibps"`
+	ReplicationConfiguration     FileSystemReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
+	ThroughputMode               pulumi.StringPtrOutput                      `pulumi:"throughputMode"`
 }
 
 // NewFileSystem registers a new resource with the given unique name, arguments, and options.
@@ -83,17 +84,18 @@ type fileSystemArgs struct {
 	AvailabilityZoneName *string                 `pulumi:"availabilityZoneName"`
 	BackupPolicy         *FileSystemBackupPolicy `pulumi:"backupPolicy"`
 	// Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
-	BypassPolicyLockoutSafetyCheck *bool                               `pulumi:"bypassPolicyLockoutSafetyCheck"`
-	Encrypted                      *bool                               `pulumi:"encrypted"`
-	FileSystemPolicy               interface{}                         `pulumi:"fileSystemPolicy"`
-	FileSystemProtection           *FileSystemProtection               `pulumi:"fileSystemProtection"`
-	FileSystemTags                 []FileSystemElasticFileSystemTag    `pulumi:"fileSystemTags"`
-	KmsKeyId                       *string                             `pulumi:"kmsKeyId"`
-	LifecyclePolicies              []FileSystemLifecyclePolicy         `pulumi:"lifecyclePolicies"`
-	PerformanceMode                *string                             `pulumi:"performanceMode"`
-	ProvisionedThroughputInMibps   *float64                            `pulumi:"provisionedThroughputInMibps"`
-	ReplicationConfiguration       *FileSystemReplicationConfiguration `pulumi:"replicationConfiguration"`
-	ThroughputMode                 *string                             `pulumi:"throughputMode"`
+	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`
+	Encrypted                      *bool `pulumi:"encrypted"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+	FileSystemPolicy             interface{}                         `pulumi:"fileSystemPolicy"`
+	FileSystemProtection         *FileSystemProtection               `pulumi:"fileSystemProtection"`
+	FileSystemTags               []FileSystemElasticFileSystemTag    `pulumi:"fileSystemTags"`
+	KmsKeyId                     *string                             `pulumi:"kmsKeyId"`
+	LifecyclePolicies            []FileSystemLifecyclePolicy         `pulumi:"lifecyclePolicies"`
+	PerformanceMode              *string                             `pulumi:"performanceMode"`
+	ProvisionedThroughputInMibps *float64                            `pulumi:"provisionedThroughputInMibps"`
+	ReplicationConfiguration     *FileSystemReplicationConfiguration `pulumi:"replicationConfiguration"`
+	ThroughputMode               *string                             `pulumi:"throughputMode"`
 }
 
 // The set of arguments for constructing a FileSystem resource.
@@ -103,15 +105,16 @@ type FileSystemArgs struct {
 	// Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrInput
 	Encrypted                      pulumi.BoolPtrInput
-	FileSystemPolicy               pulumi.Input
-	FileSystemProtection           FileSystemProtectionPtrInput
-	FileSystemTags                 FileSystemElasticFileSystemTagArrayInput
-	KmsKeyId                       pulumi.StringPtrInput
-	LifecyclePolicies              FileSystemLifecyclePolicyArrayInput
-	PerformanceMode                pulumi.StringPtrInput
-	ProvisionedThroughputInMibps   pulumi.Float64PtrInput
-	ReplicationConfiguration       FileSystemReplicationConfigurationPtrInput
-	ThroughputMode                 pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
+	FileSystemPolicy             pulumi.Input
+	FileSystemProtection         FileSystemProtectionPtrInput
+	FileSystemTags               FileSystemElasticFileSystemTagArrayInput
+	KmsKeyId                     pulumi.StringPtrInput
+	LifecyclePolicies            FileSystemLifecyclePolicyArrayInput
+	PerformanceMode              pulumi.StringPtrInput
+	ProvisionedThroughputInMibps pulumi.Float64PtrInput
+	ReplicationConfiguration     FileSystemReplicationConfigurationPtrInput
+	ThroughputMode               pulumi.StringPtrInput
 }
 
 func (FileSystemArgs) ElementType() reflect.Type {
@@ -176,6 +179,7 @@ func (o FileSystemOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
 func (o FileSystemOutput) FileSystemPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.AnyOutput { return v.FileSystemPolicy }).(pulumi.AnyOutput)
 }

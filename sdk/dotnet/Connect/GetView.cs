@@ -79,6 +79,8 @@ namespace Pulumi.AwsNative.Connect
         public readonly ImmutableArray<Outputs.ViewTag> Tags;
         /// <summary>
         /// The template of the view as JSON.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Template;
         /// <summary>

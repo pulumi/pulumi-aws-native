@@ -59,8 +59,14 @@ namespace Pulumi.AwsNative.MediaConvert
         public readonly string? Id;
         public readonly int? Priority;
         public readonly string? Queue;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? SettingsJson;
         public readonly string? StatusUpdateInterval;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::JobTemplate` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
 
         [OutputConstructor]

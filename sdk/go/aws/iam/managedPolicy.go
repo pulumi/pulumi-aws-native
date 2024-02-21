@@ -37,6 +37,8 @@ type ManagedPolicy struct {
 	// Amazon Resource Name (ARN) of the managed policy
 	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
 	// The JSON policy document that you want to use as the content for the new policy.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The stable and unique string identifying the policy.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
@@ -106,6 +108,8 @@ type managedPolicyArgs struct {
 	// The path for the policy.
 	Path *string `pulumi:"path"`
 	// The JSON policy document that you want to use as the content for the new policy.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The name (friendly name, not ARN) of the role to attach the policy to.
 	Roles []string `pulumi:"roles"`
@@ -124,6 +128,8 @@ type ManagedPolicyArgs struct {
 	// The path for the policy.
 	Path pulumi.StringPtrInput
 	// The JSON policy document that you want to use as the content for the new policy.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The name (friendly name, not ARN) of the role to attach the policy to.
 	Roles pulumi.StringArrayInput
@@ -219,6 +225,8 @@ func (o ManagedPolicyOutput) PolicyArn() pulumi.StringOutput {
 }
 
 // The JSON policy document that you want to use as the content for the new policy.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
 func (o ManagedPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

@@ -25,6 +25,9 @@ export interface GetEmailTemplateResult {
     readonly htmlPart?: string;
     readonly id?: string;
     readonly subject?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::EmailTemplate` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly templateDescription?: string;
     readonly textPart?: string;

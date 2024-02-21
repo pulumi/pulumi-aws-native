@@ -42,6 +42,9 @@ class GetResourcePolicyResult:
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "resource_policy")
 
 

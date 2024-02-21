@@ -48,6 +48,9 @@ export class DataLakeSettings extends pulumi.CustomResource {
     public readonly createTableDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateTableDefaultPermissions | undefined>;
     public readonly externalDataFilteringAllowList!: pulumi.Output<outputs.lakeformation.DataLakeSettingsExternalDataFilteringAllowList | undefined>;
     public readonly mutationType!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+     */
     public readonly parameters!: pulumi.Output<any | undefined>;
     public readonly trustedResourceOwners!: pulumi.Output<string[] | undefined>;
 
@@ -103,6 +106,9 @@ export interface DataLakeSettingsArgs {
     createTableDefaultPermissions?: pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermissionsArgs>;
     externalDataFilteringAllowList?: pulumi.Input<inputs.lakeformation.DataLakeSettingsExternalDataFilteringAllowListArgs>;
     mutationType?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::LakeFormation::DataLakeSettings` for more information about the expected schema for this property.
+     */
     parameters?: any;
     trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
 }

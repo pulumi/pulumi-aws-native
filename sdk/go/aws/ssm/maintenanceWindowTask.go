@@ -29,9 +29,10 @@ type MaintenanceWindowTask struct {
 	Targets                  MaintenanceWindowTaskTargetArrayOutput                 `pulumi:"targets"`
 	TaskArn                  pulumi.StringOutput                                    `pulumi:"taskArn"`
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrOutput `pulumi:"taskInvocationParameters"`
-	TaskParameters           pulumi.AnyOutput                                       `pulumi:"taskParameters"`
-	TaskType                 pulumi.StringOutput                                    `pulumi:"taskType"`
-	WindowId                 pulumi.StringOutput                                    `pulumi:"windowId"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+	TaskParameters pulumi.AnyOutput    `pulumi:"taskParameters"`
+	TaskType       pulumi.StringOutput `pulumi:"taskType"`
+	WindowId       pulumi.StringOutput `pulumi:"windowId"`
 }
 
 // NewMaintenanceWindowTask registers a new resource with the given unique name, arguments, and options.
@@ -102,9 +103,10 @@ type maintenanceWindowTaskArgs struct {
 	Targets                  []MaintenanceWindowTaskTarget                  `pulumi:"targets"`
 	TaskArn                  string                                         `pulumi:"taskArn"`
 	TaskInvocationParameters *MaintenanceWindowTaskTaskInvocationParameters `pulumi:"taskInvocationParameters"`
-	TaskParameters           interface{}                                    `pulumi:"taskParameters"`
-	TaskType                 string                                         `pulumi:"taskType"`
-	WindowId                 string                                         `pulumi:"windowId"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+	TaskParameters interface{} `pulumi:"taskParameters"`
+	TaskType       string      `pulumi:"taskType"`
+	WindowId       string      `pulumi:"windowId"`
 }
 
 // The set of arguments for constructing a MaintenanceWindowTask resource.
@@ -120,9 +122,10 @@ type MaintenanceWindowTaskArgs struct {
 	Targets                  MaintenanceWindowTaskTargetArrayInput
 	TaskArn                  pulumi.StringInput
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrInput
-	TaskParameters           pulumi.Input
-	TaskType                 pulumi.StringInput
-	WindowId                 pulumi.StringInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
+	TaskParameters pulumi.Input
+	TaskType       pulumi.StringInput
+	WindowId       pulumi.StringInput
 }
 
 func (MaintenanceWindowTaskArgs) ElementType() reflect.Type {
@@ -208,6 +211,7 @@ func (o MaintenanceWindowTaskOutput) TaskInvocationParameters() MaintenanceWindo
 	}).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
 func (o MaintenanceWindowTaskOutput) TaskParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.AnyOutput { return v.TaskParameters }).(pulumi.AnyOutput)
 }

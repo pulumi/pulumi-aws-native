@@ -22,6 +22,8 @@ class UserPoolIdentityProviderArgs:
                  provider_details: Optional[Any] = None):
         """
         The set of arguments for constructing a UserPoolIdentityProvider resource.
+        :param Any attribute_mapping: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        :param Any provider_details: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "provider_name", provider_name)
         pulumi.set(__self__, "provider_type", provider_type)
@@ -63,6 +65,9 @@ class UserPoolIdentityProviderArgs:
     @property
     @pulumi.getter(name="attributeMapping")
     def attribute_mapping(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attribute_mapping")
 
     @attribute_mapping.setter
@@ -81,6 +86,9 @@ class UserPoolIdentityProviderArgs:
     @property
     @pulumi.getter(name="providerDetails")
     def provider_details(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "provider_details")
 
     @provider_details.setter
@@ -105,6 +113,8 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any attribute_mapping: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        :param Any provider_details: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -192,6 +202,9 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
     @property
     @pulumi.getter(name="attributeMapping")
     def attribute_mapping(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "attribute_mapping")
 
     @property
@@ -202,6 +215,9 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
     @property
     @pulumi.getter(name="providerDetails")
     def provider_details(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "provider_details")
 
     @property

@@ -40,6 +40,8 @@ export class GroupPolicy extends pulumi.CustomResource {
     public readonly groupName!: pulumi.Output<string>;
     /**
      * The policy document.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
      */
     public readonly policyDocument!: pulumi.Output<any | undefined>;
     /**
@@ -89,6 +91,8 @@ export interface GroupPolicyArgs {
     groupName: pulumi.Input<string>;
     /**
      * The policy document.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
      */
     policyDocument?: any;
     /**

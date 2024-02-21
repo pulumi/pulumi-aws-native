@@ -34,10 +34,11 @@ type Campaign struct {
 	Schedule                    CampaignScheduleOutput                       `pulumi:"schedule"`
 	SegmentId                   pulumi.StringOutput                          `pulumi:"segmentId"`
 	SegmentVersion              pulumi.IntPtrOutput                          `pulumi:"segmentVersion"`
-	Tags                        pulumi.AnyOutput                             `pulumi:"tags"`
-	TemplateConfiguration       CampaignTemplateConfigurationPtrOutput       `pulumi:"templateConfiguration"`
-	TreatmentDescription        pulumi.StringPtrOutput                       `pulumi:"treatmentDescription"`
-	TreatmentName               pulumi.StringPtrOutput                       `pulumi:"treatmentName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
+	Tags                  pulumi.AnyOutput                       `pulumi:"tags"`
+	TemplateConfiguration CampaignTemplateConfigurationPtrOutput `pulumi:"templateConfiguration"`
+	TreatmentDescription  pulumi.StringPtrOutput                 `pulumi:"treatmentDescription"`
+	TreatmentName         pulumi.StringPtrOutput                 `pulumi:"treatmentName"`
 }
 
 // NewCampaign registers a new resource with the given unique name, arguments, and options.
@@ -107,10 +108,11 @@ type campaignArgs struct {
 	Schedule                    CampaignSchedule                     `pulumi:"schedule"`
 	SegmentId                   string                               `pulumi:"segmentId"`
 	SegmentVersion              *int                                 `pulumi:"segmentVersion"`
-	Tags                        interface{}                          `pulumi:"tags"`
-	TemplateConfiguration       *CampaignTemplateConfiguration       `pulumi:"templateConfiguration"`
-	TreatmentDescription        *string                              `pulumi:"treatmentDescription"`
-	TreatmentName               *string                              `pulumi:"treatmentName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
+	Tags                  interface{}                    `pulumi:"tags"`
+	TemplateConfiguration *CampaignTemplateConfiguration `pulumi:"templateConfiguration"`
+	TreatmentDescription  *string                        `pulumi:"treatmentDescription"`
+	TreatmentName         *string                        `pulumi:"treatmentName"`
 }
 
 // The set of arguments for constructing a Campaign resource.
@@ -129,10 +131,11 @@ type CampaignArgs struct {
 	Schedule                    CampaignScheduleInput
 	SegmentId                   pulumi.StringInput
 	SegmentVersion              pulumi.IntPtrInput
-	Tags                        pulumi.Input
-	TemplateConfiguration       CampaignTemplateConfigurationPtrInput
-	TreatmentDescription        pulumi.StringPtrInput
-	TreatmentName               pulumi.StringPtrInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
+	Tags                  pulumi.Input
+	TemplateConfiguration CampaignTemplateConfigurationPtrInput
+	TreatmentDescription  pulumi.StringPtrInput
+	TreatmentName         pulumi.StringPtrInput
 }
 
 func (CampaignArgs) ElementType() reflect.Type {
@@ -236,6 +239,7 @@ func (o CampaignOutput) SegmentVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.IntPtrOutput { return v.SegmentVersion }).(pulumi.IntPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::Campaign` for more information about the expected schema for this property.
 func (o CampaignOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

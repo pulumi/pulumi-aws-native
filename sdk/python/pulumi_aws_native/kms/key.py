@@ -35,6 +35,8 @@ class KeyArgs:
         :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
         :param pulumi.Input[bool] enabled: Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
         :param Any key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
         :param pulumi.Input['KeySpec'] key_spec: Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
         :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
         :param pulumi.Input[bool] multi_region: Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
@@ -118,6 +120,8 @@ class KeyArgs:
     def key_policy(self) -> Optional[Any]:
         """
         The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "key_policy")
 
@@ -225,6 +229,8 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified AWS KMS key. By default, automation key rotation is not enabled.
         :param pulumi.Input[bool] enabled: Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
         :param Any key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
         :param pulumi.Input['KeySpec'] key_spec: Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
         :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
         :param pulumi.Input[bool] multi_region: Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
@@ -373,6 +379,8 @@ class Key(pulumi.CustomResource):
     def key_policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "key_policy")
 

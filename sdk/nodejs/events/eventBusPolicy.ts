@@ -44,6 +44,9 @@ export class EventBusPolicy extends pulumi.CustomResource {
     public readonly condition!: pulumi.Output<outputs.events.EventBusPolicyCondition | undefined>;
     public readonly eventBusName!: pulumi.Output<string | undefined>;
     public readonly principal!: pulumi.Output<string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+     */
     public readonly statement!: pulumi.Output<any | undefined>;
     public readonly statementId!: pulumi.Output<string>;
 
@@ -92,6 +95,9 @@ export interface EventBusPolicyArgs {
     condition?: pulumi.Input<inputs.events.EventBusPolicyConditionArgs>;
     eventBusName?: pulumi.Input<string>;
     principal?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property.
+     */
     statement?: any;
     statementId: pulumi.Input<string>;
 }

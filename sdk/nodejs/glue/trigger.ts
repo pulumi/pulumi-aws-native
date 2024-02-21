@@ -47,6 +47,9 @@ export class Trigger extends pulumi.CustomResource {
     public readonly predicate!: pulumi.Output<outputs.glue.TriggerPredicate | undefined>;
     public readonly schedule!: pulumi.Output<string | undefined>;
     public readonly startOnCreation!: pulumi.Output<boolean | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly type!: pulumi.Output<string>;
     public readonly workflowName!: pulumi.Output<string | undefined>;
@@ -110,6 +113,9 @@ export interface TriggerArgs {
     predicate?: pulumi.Input<inputs.glue.TriggerPredicateArgs>;
     schedule?: pulumi.Input<string>;
     startOnCreation?: pulumi.Input<boolean>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
+     */
     tags?: any;
     type: pulumi.Input<string>;
     workflowName?: pulumi.Input<string>;

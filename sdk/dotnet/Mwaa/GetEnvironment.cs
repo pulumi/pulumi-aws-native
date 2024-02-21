@@ -61,6 +61,8 @@ namespace Pulumi.AwsNative.Mwaa
         ///     Would be represented as
         /// 
         ///     "core.dags_folder": "{AIRFLOW_HOME}/dags"
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? AirflowConfigurationOptions;
         public readonly string? AirflowVersion;
@@ -84,6 +86,8 @@ namespace Pulumi.AwsNative.Mwaa
         public readonly string? StartupScriptS3Path;
         /// <summary>
         /// A map of tags for the environment.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Tags;
         public readonly Pulumi.AwsNative.Mwaa.EnvironmentWebserverAccessMode? WebserverAccessMode;

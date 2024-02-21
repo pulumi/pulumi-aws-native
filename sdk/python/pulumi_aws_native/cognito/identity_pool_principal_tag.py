@@ -20,6 +20,7 @@ class IdentityPoolPrincipalTagArgs:
                  use_defaults: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a IdentityPoolPrincipalTag resource.
+        :param Any principal_tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         pulumi.set(__self__, "identity_provider_name", identity_provider_name)
@@ -49,6 +50,9 @@ class IdentityPoolPrincipalTagArgs:
     @property
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "principal_tags")
 
     @principal_tags.setter
@@ -80,6 +84,7 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any principal_tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -169,6 +174,9 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
     @property
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "principal_tags")
 
     @property

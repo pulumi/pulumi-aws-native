@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.Batch
         public readonly Outputs.JobDefinitionEksProperties? EksProperties;
         public readonly string? Id;
         public readonly Outputs.JobDefinitionNodeProperties? NodeProperties;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Parameters;
         public readonly ImmutableArray<string> PlatformCapabilities;
         public readonly bool? PropagateTags;

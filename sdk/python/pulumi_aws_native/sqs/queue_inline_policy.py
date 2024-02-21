@@ -19,6 +19,8 @@ class QueueInlinePolicyArgs:
         """
         The set of arguments for constructing a QueueInlinePolicy resource.
         :param Any policy_document: A policy document that contains permissions to add to the specified SQS queue
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
         :param pulumi.Input[str] queue: The URL of the SQS queue.
         """
         pulumi.set(__self__, "policy_document", policy_document)
@@ -29,6 +31,8 @@ class QueueInlinePolicyArgs:
     def policy_document(self) -> Any:
         """
         A policy document that contains permissions to add to the specified SQS queue
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 
@@ -63,6 +67,8 @@ class QueueInlinePolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy_document: A policy document that contains permissions to add to the specified SQS queue
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
         :param pulumi.Input[str] queue: The URL of the SQS queue.
         """
         ...
@@ -139,6 +145,8 @@ class QueueInlinePolicy(pulumi.CustomResource):
     def policy_document(self) -> pulumi.Output[Any]:
         """
         A policy document that contains permissions to add to the specified SQS queue
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueueInlinePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

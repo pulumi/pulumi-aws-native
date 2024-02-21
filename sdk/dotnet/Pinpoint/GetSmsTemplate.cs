@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.Pinpoint
         public readonly string? Body;
         public readonly string? DefaultSubstitutions;
         public readonly string? Id;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? Tags;
         public readonly string? TemplateDescription;
 

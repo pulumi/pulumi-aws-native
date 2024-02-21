@@ -21,6 +21,7 @@ class ArchiveArgs:
                  retention_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Archive resource.
+        :param Any event_pattern: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "source_arn", source_arn)
         if archive_name is not None:
@@ -62,6 +63,9 @@ class ArchiveArgs:
     @property
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
@@ -94,6 +98,7 @@ class Archive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any event_pattern: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -191,6 +196,9 @@ class Archive(pulumi.CustomResource):
     @property
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "event_pattern")
 
     @property

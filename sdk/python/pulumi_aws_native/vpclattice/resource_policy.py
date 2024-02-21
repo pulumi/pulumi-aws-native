@@ -18,6 +18,7 @@ class ResourcePolicyArgs:
                  resource_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -25,6 +26,9 @@ class ResourcePolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> Any:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -54,6 +58,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -127,6 +132,9 @@ class ResourcePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy")
 
     @property

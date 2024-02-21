@@ -27,11 +27,13 @@ type LookupWorkflowArgs struct {
 }
 
 type LookupWorkflowResult struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
 	DefaultRunProperties interface{} `pulumi:"defaultRunProperties"`
 	Description          *string     `pulumi:"description"`
 	Id                   *string     `pulumi:"id"`
 	MaxConcurrentRuns    *int        `pulumi:"maxConcurrentRuns"`
-	Tags                 interface{} `pulumi:"tags"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 }
 
 func LookupWorkflowOutput(ctx *pulumi.Context, args LookupWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupWorkflowResultOutput {
@@ -69,6 +71,7 @@ func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutputWithContext(ctx 
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
 func (o LookupWorkflowResultOutput) DefaultRunProperties() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) interface{} { return v.DefaultRunProperties }).(pulumi.AnyOutput)
 }
@@ -85,6 +88,7 @@ func (o LookupWorkflowResultOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *int { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
 func (o LookupWorkflowResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }

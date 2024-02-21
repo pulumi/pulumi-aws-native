@@ -41,6 +41,8 @@ namespace Pulumi.AwsNative.MediaTailor
 
         /// <summary>
         /// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
         /// </summary>
         [Output("configurationAliases")]
         public Output<object?> ConfigurationAliases { get; private set; } = null!;
@@ -198,6 +200,8 @@ namespace Pulumi.AwsNative.MediaTailor
 
         /// <summary>
         /// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
         /// </summary>
         [Input("configurationAliases")]
         public Input<object>? ConfigurationAliases { get; set; }

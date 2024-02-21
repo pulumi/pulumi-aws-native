@@ -42,6 +42,8 @@ class GetSinkResult:
     def policy(self) -> Optional[Any]:
         """
         The policy of this ObservabilityAccessManager Sink.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 
@@ -50,6 +52,8 @@ class GetSinkResult:
     def tags(self) -> Optional[Any]:
         """
         Tags to apply to the sink
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
 

@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("appSource")]
         public Output<Outputs.AppSource?> AppSource { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
+        /// </summary>
         [Output("attributes")]
         public Output<object?> Attributes { get; private set; } = null!;
 
@@ -105,6 +108,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Input("appSource")]
         public Input<Inputs.AppSourceArgs>? AppSource { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
+        /// </summary>
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
 

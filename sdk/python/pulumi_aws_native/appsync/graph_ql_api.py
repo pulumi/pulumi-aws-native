@@ -36,6 +36,7 @@ class GraphQlApiArgs:
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GraphQlApi resource.
+        :param Any environment_variables: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         if additional_authentication_providers is not None:
@@ -112,6 +113,9 @@ class GraphQlApiArgs:
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -270,6 +274,7 @@ class GraphQlApi(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any environment_variables: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -432,6 +437,9 @@ class GraphQlApi(pulumi.CustomResource):
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "environment_variables")
 
     @property

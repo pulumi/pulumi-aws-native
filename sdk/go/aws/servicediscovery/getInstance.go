@@ -27,6 +27,7 @@ type LookupInstanceArgs struct {
 }
 
 type LookupInstanceResult struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
 	InstanceAttributes interface{} `pulumi:"instanceAttributes"`
 }
 
@@ -65,6 +66,7 @@ func (o LookupInstanceResultOutput) ToLookupInstanceResultOutputWithContext(ctx 
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property.
 func (o LookupInstanceResultOutput) InstanceAttributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupInstanceResult) interface{} { return v.InstanceAttributes }).(pulumi.AnyOutput)
 }

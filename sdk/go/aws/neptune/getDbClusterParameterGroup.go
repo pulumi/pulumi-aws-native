@@ -27,7 +27,8 @@ type LookupDbClusterParameterGroupArgs struct {
 }
 
 type LookupDbClusterParameterGroupResult struct {
-	Id         *string                      `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBClusterParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{}                  `pulumi:"parameters"`
 	Tags       []DbClusterParameterGroupTag `pulumi:"tags"`
 }
@@ -71,6 +72,7 @@ func (o LookupDbClusterParameterGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterParameterGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBClusterParameterGroup` for more information about the expected schema for this property.
 func (o LookupDbClusterParameterGroupResultOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDbClusterParameterGroupResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }

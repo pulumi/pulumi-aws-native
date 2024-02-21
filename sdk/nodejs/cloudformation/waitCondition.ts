@@ -38,6 +38,9 @@ export class WaitCondition extends pulumi.CustomResource {
     }
 
     public readonly count!: pulumi.Output<number | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::WaitCondition` for more information about the expected schema for this property.
+     */
     public /*out*/ readonly data!: pulumi.Output<any>;
     public readonly handle!: pulumi.Output<string | undefined>;
     public readonly timeout!: pulumi.Output<string | undefined>;

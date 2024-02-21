@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetIdentityPoolPrincipalTagResult
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+        /// </summary>
         public readonly object? PrincipalTags;
         public readonly bool? UseDefaults;
 

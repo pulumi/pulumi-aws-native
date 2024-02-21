@@ -99,6 +99,9 @@ class GetJobResult:
     @property
     @pulumi.getter(name="defaultArguments")
     def default_arguments(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "default_arguments")
 
     @property
@@ -144,6 +147,9 @@ class GetJobResult:
     @property
     @pulumi.getter(name="nonOverridableArguments")
     def non_overridable_arguments(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "non_overridable_arguments")
 
     @property
@@ -169,6 +175,9 @@ class GetJobResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "tags")
 
     @property

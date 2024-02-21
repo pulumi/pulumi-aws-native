@@ -40,6 +40,8 @@ type LookupRouteResult struct {
 	// The operation name for the route.
 	OperationName *string `pulumi:"operationName"`
 	// The request models for the route. Supported only for WebSocket APIs.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
 	RequestModels interface{} `pulumi:"requestModels"`
 	RouteId       *string     `pulumi:"routeId"`
 	// The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
@@ -113,6 +115,8 @@ func (o LookupRouteResultOutput) OperationName() pulumi.StringPtrOutput {
 }
 
 // The request models for the route. Supported only for WebSocket APIs.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
 func (o LookupRouteResultOutput) RequestModels() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRouteResult) interface{} { return v.RequestModels }).(pulumi.AnyOutput)
 }

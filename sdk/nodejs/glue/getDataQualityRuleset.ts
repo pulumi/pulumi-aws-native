@@ -28,6 +28,9 @@ export interface GetDataQualityRulesetResult {
     readonly id?: string;
     readonly name?: string;
     readonly ruleset?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DataQualityRuleset` for more information about the expected schema for this property.
+     */
     readonly tags?: any;
     readonly targetTable?: outputs.glue.DataQualityRulesetDataQualityTargetTable;
 }

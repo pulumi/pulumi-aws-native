@@ -19,6 +19,7 @@ class ParameterGroupArgs:
                  parameter_name_values: Optional[Any] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
+        :param Any parameter_name_values: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -48,6 +49,9 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter(name="parameterNameValues")
     def parameter_name_values(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameter_name_values")
 
     @parameter_name_values.setter
@@ -74,6 +78,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any parameter_name_values: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -157,5 +162,8 @@ class ParameterGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="parameterNameValues")
     def parameter_name_values(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "parameter_name_values")
 

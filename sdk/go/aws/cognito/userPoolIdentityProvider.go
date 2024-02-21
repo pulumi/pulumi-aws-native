@@ -16,12 +16,14 @@ import (
 type UserPoolIdentityProvider struct {
 	pulumi.CustomResourceState
 
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 	AttributeMapping pulumi.AnyOutput         `pulumi:"attributeMapping"`
 	IdpIdentifiers   pulumi.StringArrayOutput `pulumi:"idpIdentifiers"`
-	ProviderDetails  pulumi.AnyOutput         `pulumi:"providerDetails"`
-	ProviderName     pulumi.StringOutput      `pulumi:"providerName"`
-	ProviderType     pulumi.StringOutput      `pulumi:"providerType"`
-	UserPoolId       pulumi.StringOutput      `pulumi:"userPoolId"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+	ProviderDetails pulumi.AnyOutput    `pulumi:"providerDetails"`
+	ProviderName    pulumi.StringOutput `pulumi:"providerName"`
+	ProviderType    pulumi.StringOutput `pulumi:"providerType"`
+	UserPoolId      pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewUserPoolIdentityProvider registers a new resource with the given unique name, arguments, and options.
@@ -79,22 +81,26 @@ func (UserPoolIdentityProviderState) ElementType() reflect.Type {
 }
 
 type userPoolIdentityProviderArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 	AttributeMapping interface{} `pulumi:"attributeMapping"`
 	IdpIdentifiers   []string    `pulumi:"idpIdentifiers"`
-	ProviderDetails  interface{} `pulumi:"providerDetails"`
-	ProviderName     string      `pulumi:"providerName"`
-	ProviderType     string      `pulumi:"providerType"`
-	UserPoolId       string      `pulumi:"userPoolId"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+	ProviderDetails interface{} `pulumi:"providerDetails"`
+	ProviderName    string      `pulumi:"providerName"`
+	ProviderType    string      `pulumi:"providerType"`
+	UserPoolId      string      `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserPoolIdentityProvider resource.
 type UserPoolIdentityProviderArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 	AttributeMapping pulumi.Input
 	IdpIdentifiers   pulumi.StringArrayInput
-	ProviderDetails  pulumi.Input
-	ProviderName     pulumi.StringInput
-	ProviderType     pulumi.StringInput
-	UserPoolId       pulumi.StringInput
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+	ProviderDetails pulumi.Input
+	ProviderName    pulumi.StringInput
+	ProviderType    pulumi.StringInput
+	UserPoolId      pulumi.StringInput
 }
 
 func (UserPoolIdentityProviderArgs) ElementType() reflect.Type {
@@ -134,6 +140,7 @@ func (o UserPoolIdentityProviderOutput) ToUserPoolIdentityProviderOutputWithCont
 	return o
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 func (o UserPoolIdentityProviderOutput) AttributeMapping() pulumi.AnyOutput {
 	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.AnyOutput { return v.AttributeMapping }).(pulumi.AnyOutput)
 }
@@ -142,6 +149,7 @@ func (o UserPoolIdentityProviderOutput) IdpIdentifiers() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringArrayOutput { return v.IdpIdentifiers }).(pulumi.StringArrayOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 func (o UserPoolIdentityProviderOutput) ProviderDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.AnyOutput { return v.ProviderDetails }).(pulumi.AnyOutput)
 }

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Emr
     [AwsNativeResourceType("aws-native:emr:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
+        /// </summary>
         [Output("additionalInfo")]
         public Output<object?> AdditionalInfo { get; private set; } = null!;
 
@@ -169,6 +172,9 @@ namespace Pulumi.AwsNative.Emr
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::Cluster` for more information about the expected schema for this property.
+        /// </summary>
         [Input("additionalInfo")]
         public Input<object>? AdditionalInfo { get; set; }
 

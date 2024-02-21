@@ -153,6 +153,8 @@ class GetAssociationResult:
     def parameters(self) -> Optional[Any]:
         """
         Parameter values that the SSM document uses at runtime.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 
