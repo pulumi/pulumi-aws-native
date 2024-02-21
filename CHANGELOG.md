@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.97.0 (2024-02-21)
+
 - [Fix types which are maps](https://github.com/pulumi/pulumi-aws-native/pull/1342)
   - Resources parameters affected:
     - `aws-native:apigateway:Method`: `requestModels`, `requestParameters`
@@ -81,6 +83,22 @@
     - `aws-native:imagebuilder:LifecyclePolicyAmiExclusionRules`: `tagMap`
     - `aws-native:imagebuilder:LifecyclePolicyExclusionRules`: `tagMap`
     - `aws-native:imagebuilder:LifecyclePolicyResourceSelection`: `tagMap`
+
+### Breaking Changes
+
+#### Resources
+
+- "aws-native:ec2:PrefixList": required: `maxEntries` property is no longer Required
+
+#### New resources:
+
+- `cognito.UserPoolRiskConfigurationAttachment`
+
+#### New functions:
+
+- `cognito.getUserPoolRiskConfigurationAttachment`
+- `ec2.getTransitGatewayRouteTableAssociation`
+
 
 ## 0.96.0 (2024-02-09)
 
