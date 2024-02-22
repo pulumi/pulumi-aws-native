@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type Protection struct {
 	// The ARN (Amazon Resource Name) of the resource to be protected.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// One or more tag key-value pairs for the Protection object.
-	Tags ProtectionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewProtection registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +88,7 @@ type protectionArgs struct {
 	// The ARN (Amazon Resource Name) of the resource to be protected.
 	ResourceArn string `pulumi:"resourceArn"`
 	// One or more tag key-value pairs for the Protection object.
-	Tags []ProtectionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Protection resource.
@@ -100,7 +101,7 @@ type ProtectionArgs struct {
 	// The ARN (Amazon Resource Name) of the resource to be protected.
 	ResourceArn pulumi.StringInput
 	// One or more tag key-value pairs for the Protection object.
-	Tags ProtectionTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ProtectionArgs) ElementType() reflect.Type {
@@ -172,8 +173,8 @@ func (o ProtectionOutput) ResourceArn() pulumi.StringOutput {
 }
 
 // One or more tag key-value pairs for the Protection object.
-func (o ProtectionOutput) Tags() ProtectionTagArrayOutput {
-	return o.ApplyT(func(v *Protection) ProtectionTagArrayOutput { return v.Tags }).(ProtectionTagArrayOutput)
+func (o ProtectionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Protection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

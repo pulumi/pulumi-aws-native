@@ -96,7 +96,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Tags for the attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.VpcAttachmentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Last update time of the attachment.
      */
@@ -192,7 +192,7 @@ export interface VpcAttachmentArgs {
     /**
      * Tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.VpcAttachmentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ARN of the VPC.
      */

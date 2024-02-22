@@ -26,7 +26,7 @@ export interface GetChannelResult {
     readonly channelStorage?: outputs.iotanalytics.ChannelStorage;
     readonly id?: string;
     readonly retentionPeriod?: outputs.iotanalytics.ChannelRetentionPeriod;
-    readonly tags?: outputs.iotanalytics.ChannelTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::IoTAnalytics::Channel

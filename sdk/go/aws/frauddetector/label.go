@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type Label struct {
 	// The name of the label.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags associated with this label.
-	Tags LabelTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLabel registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type labelArgs struct {
 	// The name of the label.
 	Name *string `pulumi:"name"`
 	// Tags associated with this label.
-	Tags []LabelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Label resource.
@@ -88,7 +89,7 @@ type LabelArgs struct {
 	// The name of the label.
 	Name pulumi.StringPtrInput
 	// Tags associated with this label.
-	Tags LabelTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LabelArgs) ElementType() reflect.Type {
@@ -154,8 +155,8 @@ func (o LabelOutput) Name() pulumi.StringOutput {
 }
 
 // Tags associated with this label.
-func (o LabelOutput) Tags() LabelTagArrayOutput {
-	return o.ApplyT(func(v *Label) LabelTagArrayOutput { return v.Tags }).(LabelTagArrayOutput)
+func (o LabelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Label) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupLocalGatewayRouteTableResult struct {
 	// The state of the local gateway route table.
 	State *string `pulumi:"state"`
 	// The tags for the local gateway route table.
-	Tags []LocalGatewayRouteTableTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocalGatewayRouteTableOutput(ctx *pulumi.Context, args LookupLocalGatewayRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGatewayRouteTableResultOutput {
@@ -104,8 +105,8 @@ func (o LookupLocalGatewayRouteTableResultOutput) State() pulumi.StringPtrOutput
 }
 
 // The tags for the local gateway route table.
-func (o LookupLocalGatewayRouteTableResultOutput) Tags() LocalGatewayRouteTableTagArrayOutput {
-	return o.ApplyT(func(v LookupLocalGatewayRouteTableResult) []LocalGatewayRouteTableTag { return v.Tags }).(LocalGatewayRouteTableTagArrayOutput)
+func (o LookupLocalGatewayRouteTableResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

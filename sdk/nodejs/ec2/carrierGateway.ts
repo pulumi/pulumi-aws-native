@@ -52,7 +52,7 @@ export class CarrierGateway extends pulumi.CustomResource {
     /**
      * The tags for the carrier gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.CarrierGatewayTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC.
      */
@@ -98,7 +98,7 @@ export interface CarrierGatewayArgs {
     /**
      * The tags for the carrier gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.CarrierGatewayTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the VPC.
      */

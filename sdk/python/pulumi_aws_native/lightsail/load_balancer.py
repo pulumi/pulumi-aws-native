@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['LoadBalancerArgs', 'LoadBalancer']
 
@@ -23,7 +23,7 @@ class LoadBalancerArgs:
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  session_stickiness_enabled: Optional[pulumi.Input[bool]] = None,
                  session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tls_policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
@@ -34,7 +34,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[str] load_balancer_name: The name of your load balancer.
         :param pulumi.Input[bool] session_stickiness_enabled: Configuration option to enable session stickiness.
         :param pulumi.Input[str] session_stickiness_lb_cookie_duration_seconds: Configuration option to adjust session stickiness cookie duration parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] tls_policy_name: The name of the TLS policy to apply to the load balancer.
         """
         pulumi.set(__self__, "instance_port", instance_port)
@@ -141,14 +141,14 @@ class LoadBalancerArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -176,7 +176,7 @@ class LoadBalancer(pulumi.CustomResource):
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  session_stickiness_enabled: Optional[pulumi.Input[bool]] = None,
                  session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tls_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -191,7 +191,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_name: The name of your load balancer.
         :param pulumi.Input[bool] session_stickiness_enabled: Configuration option to enable session stickiness.
         :param pulumi.Input[str] session_stickiness_lb_cookie_duration_seconds: Configuration option to adjust session stickiness cookie duration parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] tls_policy_name: The name of the TLS policy to apply to the load balancer.
         """
         ...
@@ -225,7 +225,7 @@ class LoadBalancer(pulumi.CustomResource):
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  session_stickiness_enabled: Optional[pulumi.Input[bool]] = None,
                  session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tls_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -347,7 +347,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

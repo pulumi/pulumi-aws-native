@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupProjectResult struct {
 	DataDelivery      *ProjectDataDeliveryObject      `pulumi:"dataDelivery"`
 	Description       *string                         `pulumi:"description"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ProjectTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
@@ -87,8 +88,8 @@ func (o LookupProjectResultOutput) Description() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupProjectResultOutput) Tags() ProjectTagArrayOutput {
-	return o.ApplyT(func(v LookupProjectResult) []ProjectTag { return v.Tags }).(ProjectTagArrayOutput)
+func (o LookupProjectResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProjectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

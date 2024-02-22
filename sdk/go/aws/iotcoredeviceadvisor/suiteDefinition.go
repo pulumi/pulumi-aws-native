@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type SuiteDefinition struct {
 	// The suite definition version of a test suite.
 	SuiteDefinitionVersion pulumi.StringOutput `pulumi:"suiteDefinitionVersion"`
 	// An array of key-value pairs to apply to this resource.
-	Tags SuiteDefinitionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSuiteDefinition registers a new resource with the given unique name, arguments, and options.
@@ -72,14 +73,14 @@ func (SuiteDefinitionState) ElementType() reflect.Type {
 type suiteDefinitionArgs struct {
 	SuiteDefinitionConfiguration SuiteDefinitionConfigurationProperties `pulumi:"suiteDefinitionConfiguration"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []SuiteDefinitionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SuiteDefinition resource.
 type SuiteDefinitionArgs struct {
 	SuiteDefinitionConfiguration SuiteDefinitionConfigurationPropertiesInput
 	// An array of key-value pairs to apply to this resource.
-	Tags SuiteDefinitionTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SuiteDefinitionArgs) ElementType() reflect.Type {
@@ -141,8 +142,8 @@ func (o SuiteDefinitionOutput) SuiteDefinitionVersion() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o SuiteDefinitionOutput) Tags() SuiteDefinitionTagArrayOutput {
-	return o.ApplyT(func(v *SuiteDefinition) SuiteDefinitionTagArrayOutput { return v.Tags }).(SuiteDefinitionTagArrayOutput)
+func (o SuiteDefinitionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SuiteDefinition) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

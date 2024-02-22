@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupMitigationActionResult struct {
 	MitigationActionId  *string                       `pulumi:"mitigationActionId"`
 	RoleArn             *string                       `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []MitigationActionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupMitigationActionOutput(ctx *pulumi.Context, args LookupMitigationActionOutputArgs, opts ...pulumi.InvokeOption) LookupMitigationActionResultOutput {
@@ -89,8 +90,8 @@ func (o LookupMitigationActionResultOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupMitigationActionResultOutput) Tags() MitigationActionTagArrayOutput {
-	return o.ApplyT(func(v LookupMitigationActionResult) []MitigationActionTag { return v.Tags }).(MitigationActionTagArrayOutput)
+func (o LookupMitigationActionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMitigationActionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

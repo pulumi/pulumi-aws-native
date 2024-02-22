@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Service struct {
 	HealthCheckCustomConfig ServiceHealthCheckCustomConfigPtrOutput `pulumi:"healthCheckCustomConfig"`
 	Name                    pulumi.StringPtrOutput                  `pulumi:"name"`
 	NamespaceId             pulumi.StringPtrOutput                  `pulumi:"namespaceId"`
-	Tags                    ServiceTagArrayOutput                   `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                      `pulumi:"tags"`
 	Type                    pulumi.StringPtrOutput                  `pulumi:"type"`
 }
 
@@ -81,7 +82,7 @@ type serviceArgs struct {
 	HealthCheckCustomConfig *ServiceHealthCheckCustomConfig `pulumi:"healthCheckCustomConfig"`
 	Name                    *string                         `pulumi:"name"`
 	NamespaceId             *string                         `pulumi:"namespaceId"`
-	Tags                    []ServiceTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                       `pulumi:"tags"`
 	Type                    *string                         `pulumi:"type"`
 }
 
@@ -93,7 +94,7 @@ type ServiceArgs struct {
 	HealthCheckCustomConfig ServiceHealthCheckCustomConfigPtrInput
 	Name                    pulumi.StringPtrInput
 	NamespaceId             pulumi.StringPtrInput
-	Tags                    ServiceTagArrayInput
+	Tags                    aws.TagArrayInput
 	Type                    pulumi.StringPtrInput
 }
 
@@ -162,8 +163,8 @@ func (o ServiceOutput) NamespaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceOutput) Tags() ServiceTagArrayOutput {
-	return o.ApplyT(func(v *Service) ServiceTagArrayOutput { return v.Tags }).(ServiceTagArrayOutput)
+func (o ServiceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Service) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ServiceOutput) Type() pulumi.StringPtrOutput {

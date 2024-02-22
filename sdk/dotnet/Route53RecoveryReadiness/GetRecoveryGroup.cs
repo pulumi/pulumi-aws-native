@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// A collection of tags associated with a resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RecoveryGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRecoveryGroupResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
 
             string? recoveryGroupArn,
 
-            ImmutableArray<Outputs.RecoveryGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Cells = cells;
             RecoveryGroupArn = recoveryGroupArn;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupPrefixListResult struct {
 	// Name of Prefix List.
 	PrefixListName *string `pulumi:"prefixListName"`
 	// Tags for Prefix List
-	Tags []PrefixListTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Version of Prefix List.
 	Version *int `pulumi:"version"`
 }
@@ -120,8 +121,8 @@ func (o LookupPrefixListResultOutput) PrefixListName() pulumi.StringPtrOutput {
 }
 
 // Tags for Prefix List
-func (o LookupPrefixListResultOutput) Tags() PrefixListTagArrayOutput {
-	return o.ApplyT(func(v LookupPrefixListResult) []PrefixListTag { return v.Tags }).(PrefixListTagArrayOutput)
+func (o LookupPrefixListResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPrefixListResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Version of Prefix List.

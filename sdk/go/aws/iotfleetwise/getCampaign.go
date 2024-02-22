@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupCampaignResult struct {
 	LastModificationTime   *string                     `pulumi:"lastModificationTime"`
 	SignalsToCollect       []CampaignSignalInformation `pulumi:"signalsToCollect"`
 	Status                 *CampaignStatus             `pulumi:"status"`
-	Tags                   []CampaignTag               `pulumi:"tags"`
+	Tags                   []aws.Tag                   `pulumi:"tags"`
 }
 
 func LookupCampaignOutput(ctx *pulumi.Context, args LookupCampaignOutputArgs, opts ...pulumi.InvokeOption) LookupCampaignResultOutput {
@@ -105,8 +106,8 @@ func (o LookupCampaignResultOutput) Status() CampaignStatusPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *CampaignStatus { return v.Status }).(CampaignStatusPtrOutput)
 }
 
-func (o LookupCampaignResultOutput) Tags() CampaignTagArrayOutput {
-	return o.ApplyT(func(v LookupCampaignResult) []CampaignTag { return v.Tags }).(CampaignTagArrayOutput)
+func (o LookupCampaignResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCampaignResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

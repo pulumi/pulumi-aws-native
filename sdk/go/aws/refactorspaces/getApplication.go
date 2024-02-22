@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,8 +37,8 @@ type LookupApplicationResult struct {
 	ProxyUrl              *string `pulumi:"proxyUrl"`
 	StageName             *string `pulumi:"stageName"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags      []ApplicationTag `pulumi:"tags"`
-	VpcLinkId *string          `pulumi:"vpcLinkId"`
+	Tags      []aws.Tag `pulumi:"tags"`
+	VpcLinkId *string   `pulumi:"vpcLinkId"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -105,8 +106,8 @@ func (o LookupApplicationResultOutput) StageName() pulumi.StringPtrOutput {
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-func (o LookupApplicationResultOutput) Tags() ApplicationTagArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []ApplicationTag { return v.Tags }).(ApplicationTagArrayOutput)
+func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupApplicationResultOutput) VpcLinkId() pulumi.StringPtrOutput {

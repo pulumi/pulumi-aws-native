@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Shield
         /// <summary>
         /// One or more tag key-value pairs for the Protection object.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProtectionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetProtectionResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Shield
 
             string? protectionId,
 
-            ImmutableArray<Outputs.ProtectionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApplicationLayerAutomaticResponseConfiguration = applicationLayerAutomaticResponseConfiguration;
             HealthCheckArns = healthCheckArns;

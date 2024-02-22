@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Configuration
         /// The tags for the AggregationAuthorization.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AggregationAuthorizationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -102,14 +102,14 @@ namespace Pulumi.AwsNative.Configuration
         public Input<string> AuthorizedAwsRegion { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.AggregationAuthorizationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the AggregationAuthorization.
         /// </summary>
-        public InputList<Inputs.AggregationAuthorizationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AggregationAuthorizationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,8 +42,8 @@ type LookupPricingRuleResult struct {
 	// Pricing rule modifier percentage
 	ModifierPercentage *float64 `pulumi:"modifierPercentage"`
 	// Pricing rule name
-	Name *string          `pulumi:"name"`
-	Tags []PricingRuleTag `pulumi:"tags"`
+	Name *string   `pulumi:"name"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The set of tiering configurations for the pricing rule.
 	Tiering *TieringProperties `pulumi:"tiering"`
 	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
@@ -120,8 +121,8 @@ func (o LookupPricingRuleResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPricingRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPricingRuleResultOutput) Tags() PricingRuleTagArrayOutput {
-	return o.ApplyT(func(v LookupPricingRuleResult) []PricingRuleTag { return v.Tags }).(PricingRuleTagArrayOutput)
+func (o LookupPricingRuleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPricingRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The set of tiering configurations for the pricing rule.

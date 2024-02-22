@@ -12,9 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ChannelGroupTag',
     'ChannelIngestEndpoint',
-    'ChannelTag',
     'OriginEndpointEncryption',
     'OriginEndpointEncryptionContractConfiguration',
     'OriginEndpointEncryptionMethod',
@@ -25,29 +23,7 @@ __all__ = [
     'OriginEndpointScteHls',
     'OriginEndpointSegment',
     'OriginEndpointSpekeKeyProvider',
-    'OriginEndpointTag',
 ]
-
-@pulumi.output_type
-class ChannelGroupTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class ChannelIngestEndpoint(dict):
@@ -68,27 +44,6 @@ class ChannelIngestEndpoint(dict):
     @pulumi.getter
     def url(self) -> Optional[str]:
         return pulumi.get(self, "url")
-
-
-@pulumi.output_type
-class ChannelTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -860,26 +815,5 @@ class OriginEndpointSpekeKeyProvider(dict):
                  </p>
         """
         return pulumi.get(self, "url")
-
-
-@pulumi.output_type
-class OriginEndpointTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 

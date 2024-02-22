@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The tags to assign to the VOD source.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VodSourceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vodSourceName")]
         public Output<string> VodSourceName { get; private set; } = null!;
@@ -105,14 +105,14 @@ namespace Pulumi.AwsNative.MediaTailor
         public Input<string> SourceLocationName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.VodSourceTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags to assign to the VOD source.
         /// </summary>
-        public InputList<Inputs.VodSourceTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VodSourceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

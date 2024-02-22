@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Index struct {
 	// Server side encryption configuration
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// Tags for labeling the index
-	Tags                    IndexTagArrayOutput                    `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                     `pulumi:"tags"`
 	UserContextPolicy       IndexUserContextPolicyPtrOutput        `pulumi:"userContextPolicy"`
 	UserTokenConfigurations IndexUserTokenConfigurationArrayOutput `pulumi:"userTokenConfigurations"`
 }
@@ -97,7 +98,7 @@ type indexArgs struct {
 	// Server side encryption configuration
 	ServerSideEncryptionConfiguration *IndexServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// Tags for labeling the index
-	Tags                    []IndexTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                     `pulumi:"tags"`
 	UserContextPolicy       *IndexUserContextPolicy       `pulumi:"userContextPolicy"`
 	UserTokenConfigurations []IndexUserTokenConfiguration `pulumi:"userTokenConfigurations"`
 }
@@ -116,7 +117,7 @@ type IndexArgs struct {
 	// Server side encryption configuration
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrInput
 	// Tags for labeling the index
-	Tags                    IndexTagArrayInput
+	Tags                    aws.TagArrayInput
 	UserContextPolicy       IndexUserContextPolicyPtrInput
 	UserTokenConfigurations IndexUserTokenConfigurationArrayInput
 }
@@ -197,8 +198,8 @@ func (o IndexOutput) ServerSideEncryptionConfiguration() IndexServerSideEncrypti
 }
 
 // Tags for labeling the index
-func (o IndexOutput) Tags() IndexTagArrayOutput {
-	return o.ApplyT(func(v *Index) IndexTagArrayOutput { return v.Tags }).(IndexTagArrayOutput)
+func (o IndexOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Index) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o IndexOutput) UserContextPolicy() IndexUserContextPolicyPtrOutput {

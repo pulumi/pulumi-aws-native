@@ -47,7 +47,7 @@ export class SignalCatalog extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly nodeCounts!: pulumi.Output<outputs.iotfleetwise.SignalCatalogNodeCounts | undefined>;
     public readonly nodes!: pulumi.Output<(outputs.iotfleetwise.SignalCatalogNode0Properties | outputs.iotfleetwise.SignalCatalogNode1Properties | outputs.iotfleetwise.SignalCatalogNode2Properties | outputs.iotfleetwise.SignalCatalogNode3Properties)[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iotfleetwise.SignalCatalogTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SignalCatalog resource with the given unique name, arguments, and options.
@@ -95,5 +95,5 @@ export interface SignalCatalogArgs {
     name?: pulumi.Input<string>;
     nodeCounts?: pulumi.Input<inputs.iotfleetwise.SignalCatalogNodeCountsArgs>;
     nodes?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.SignalCatalogNode0PropertiesArgs | inputs.iotfleetwise.SignalCatalogNode1PropertiesArgs | inputs.iotfleetwise.SignalCatalogNode2PropertiesArgs | inputs.iotfleetwise.SignalCatalogNode3PropertiesArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.SignalCatalogTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

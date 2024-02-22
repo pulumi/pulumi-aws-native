@@ -18,101 +18,6 @@ type ChannelGroupTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// ChannelGroupTagInput is an input type that accepts ChannelGroupTagArgs and ChannelGroupTagOutput values.
-// You can construct a concrete instance of `ChannelGroupTagInput` via:
-//
-//	ChannelGroupTagArgs{...}
-type ChannelGroupTagInput interface {
-	pulumi.Input
-
-	ToChannelGroupTagOutput() ChannelGroupTagOutput
-	ToChannelGroupTagOutputWithContext(context.Context) ChannelGroupTagOutput
-}
-
-type ChannelGroupTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ChannelGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelGroupTag)(nil)).Elem()
-}
-
-func (i ChannelGroupTagArgs) ToChannelGroupTagOutput() ChannelGroupTagOutput {
-	return i.ToChannelGroupTagOutputWithContext(context.Background())
-}
-
-func (i ChannelGroupTagArgs) ToChannelGroupTagOutputWithContext(ctx context.Context) ChannelGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelGroupTagOutput)
-}
-
-// ChannelGroupTagArrayInput is an input type that accepts ChannelGroupTagArray and ChannelGroupTagArrayOutput values.
-// You can construct a concrete instance of `ChannelGroupTagArrayInput` via:
-//
-//	ChannelGroupTagArray{ ChannelGroupTagArgs{...} }
-type ChannelGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToChannelGroupTagArrayOutput() ChannelGroupTagArrayOutput
-	ToChannelGroupTagArrayOutputWithContext(context.Context) ChannelGroupTagArrayOutput
-}
-
-type ChannelGroupTagArray []ChannelGroupTagInput
-
-func (ChannelGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelGroupTag)(nil)).Elem()
-}
-
-func (i ChannelGroupTagArray) ToChannelGroupTagArrayOutput() ChannelGroupTagArrayOutput {
-	return i.ToChannelGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i ChannelGroupTagArray) ToChannelGroupTagArrayOutputWithContext(ctx context.Context) ChannelGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelGroupTagArrayOutput)
-}
-
-type ChannelGroupTagOutput struct{ *pulumi.OutputState }
-
-func (ChannelGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelGroupTag)(nil)).Elem()
-}
-
-func (o ChannelGroupTagOutput) ToChannelGroupTagOutput() ChannelGroupTagOutput {
-	return o
-}
-
-func (o ChannelGroupTagOutput) ToChannelGroupTagOutputWithContext(ctx context.Context) ChannelGroupTagOutput {
-	return o
-}
-
-func (o ChannelGroupTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ChannelGroupTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ChannelGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ChannelGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelGroupTag)(nil)).Elem()
-}
-
-func (o ChannelGroupTagArrayOutput) ToChannelGroupTagArrayOutput() ChannelGroupTagArrayOutput {
-	return o
-}
-
-func (o ChannelGroupTagArrayOutput) ToChannelGroupTagArrayOutputWithContext(ctx context.Context) ChannelGroupTagArrayOutput {
-	return o
-}
-
-func (o ChannelGroupTagArrayOutput) Index(i pulumi.IntInput) ChannelGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelGroupTag {
-		return vs[0].([]ChannelGroupTag)[vs[1].(int)]
-	}).(ChannelGroupTagOutput)
-}
-
 type ChannelIngestEndpoint struct {
 	Id  *string `pulumi:"id"`
 	Url *string `pulumi:"url"`
@@ -163,101 +68,6 @@ func (o ChannelIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelIngest
 type ChannelTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
-}
-
-// ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
-// You can construct a concrete instance of `ChannelTagInput` via:
-//
-//	ChannelTagArgs{...}
-type ChannelTagInput interface {
-	pulumi.Input
-
-	ToChannelTagOutput() ChannelTagOutput
-	ToChannelTagOutputWithContext(context.Context) ChannelTagOutput
-}
-
-type ChannelTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ChannelTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
-}
-
-func (i ChannelTagArgs) ToChannelTagOutput() ChannelTagOutput {
-	return i.ToChannelTagOutputWithContext(context.Background())
-}
-
-func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
-}
-
-// ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
-// You can construct a concrete instance of `ChannelTagArrayInput` via:
-//
-//	ChannelTagArray{ ChannelTagArgs{...} }
-type ChannelTagArrayInput interface {
-	pulumi.Input
-
-	ToChannelTagArrayOutput() ChannelTagArrayOutput
-	ToChannelTagArrayOutputWithContext(context.Context) ChannelTagArrayOutput
-}
-
-type ChannelTagArray []ChannelTagInput
-
-func (ChannelTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
-}
-
-func (i ChannelTagArray) ToChannelTagArrayOutput() ChannelTagArrayOutput {
-	return i.ToChannelTagArrayOutputWithContext(context.Background())
-}
-
-func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
-}
-
-type ChannelTagOutput struct{ *pulumi.OutputState }
-
-func (ChannelTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
-}
-
-func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
-	return o
-}
-
-func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
-	return o
-}
-
-func (o ChannelTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ChannelTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ChannelTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ChannelTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
-}
-
-func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
-	return o
-}
-
-func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
-	return o
-}
-
-func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTag {
-		return vs[0].([]ChannelTag)[vs[1].(int)]
-	}).(ChannelTagOutput)
 }
 
 // <p>The parameters for encrypting content.</p>
@@ -2061,106 +1871,7 @@ type OriginEndpointTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// OriginEndpointTagInput is an input type that accepts OriginEndpointTagArgs and OriginEndpointTagOutput values.
-// You can construct a concrete instance of `OriginEndpointTagInput` via:
-//
-//	OriginEndpointTagArgs{...}
-type OriginEndpointTagInput interface {
-	pulumi.Input
-
-	ToOriginEndpointTagOutput() OriginEndpointTagOutput
-	ToOriginEndpointTagOutputWithContext(context.Context) OriginEndpointTagOutput
-}
-
-type OriginEndpointTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (OriginEndpointTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginEndpointTag)(nil)).Elem()
-}
-
-func (i OriginEndpointTagArgs) ToOriginEndpointTagOutput() OriginEndpointTagOutput {
-	return i.ToOriginEndpointTagOutputWithContext(context.Background())
-}
-
-func (i OriginEndpointTagArgs) ToOriginEndpointTagOutputWithContext(ctx context.Context) OriginEndpointTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointTagOutput)
-}
-
-// OriginEndpointTagArrayInput is an input type that accepts OriginEndpointTagArray and OriginEndpointTagArrayOutput values.
-// You can construct a concrete instance of `OriginEndpointTagArrayInput` via:
-//
-//	OriginEndpointTagArray{ OriginEndpointTagArgs{...} }
-type OriginEndpointTagArrayInput interface {
-	pulumi.Input
-
-	ToOriginEndpointTagArrayOutput() OriginEndpointTagArrayOutput
-	ToOriginEndpointTagArrayOutputWithContext(context.Context) OriginEndpointTagArrayOutput
-}
-
-type OriginEndpointTagArray []OriginEndpointTagInput
-
-func (OriginEndpointTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OriginEndpointTag)(nil)).Elem()
-}
-
-func (i OriginEndpointTagArray) ToOriginEndpointTagArrayOutput() OriginEndpointTagArrayOutput {
-	return i.ToOriginEndpointTagArrayOutputWithContext(context.Background())
-}
-
-func (i OriginEndpointTagArray) ToOriginEndpointTagArrayOutputWithContext(ctx context.Context) OriginEndpointTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointTagArrayOutput)
-}
-
-type OriginEndpointTagOutput struct{ *pulumi.OutputState }
-
-func (OriginEndpointTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginEndpointTag)(nil)).Elem()
-}
-
-func (o OriginEndpointTagOutput) ToOriginEndpointTagOutput() OriginEndpointTagOutput {
-	return o
-}
-
-func (o OriginEndpointTagOutput) ToOriginEndpointTagOutputWithContext(ctx context.Context) OriginEndpointTagOutput {
-	return o
-}
-
-func (o OriginEndpointTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o OriginEndpointTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type OriginEndpointTagArrayOutput struct{ *pulumi.OutputState }
-
-func (OriginEndpointTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OriginEndpointTag)(nil)).Elem()
-}
-
-func (o OriginEndpointTagArrayOutput) ToOriginEndpointTagArrayOutput() OriginEndpointTagArrayOutput {
-	return o
-}
-
-func (o OriginEndpointTagArrayOutput) ToOriginEndpointTagArrayOutputWithContext(ctx context.Context) OriginEndpointTagArrayOutput {
-	return o
-}
-
-func (o OriginEndpointTagArrayOutput) Index(i pulumi.IntInput) OriginEndpointTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OriginEndpointTag {
-		return vs[0].([]OriginEndpointTag)[vs[1].(int)]
-	}).(OriginEndpointTagOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelGroupTagInput)(nil)).Elem(), ChannelGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelGroupTagArrayInput)(nil)).Elem(), ChannelGroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagInput)(nil)).Elem(), ChannelTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagArrayInput)(nil)).Elem(), ChannelTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionInput)(nil)).Elem(), OriginEndpointEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionPtrInput)(nil)).Elem(), OriginEndpointEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEncryptionContractConfigurationInput)(nil)).Elem(), OriginEndpointEncryptionContractConfigurationArgs{})
@@ -2181,14 +1892,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSegmentPtrInput)(nil)).Elem(), OriginEndpointSegmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSpekeKeyProviderInput)(nil)).Elem(), OriginEndpointSpekeKeyProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSpekeKeyProviderPtrInput)(nil)).Elem(), OriginEndpointSpekeKeyProviderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTagInput)(nil)).Elem(), OriginEndpointTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTagArrayInput)(nil)).Elem(), OriginEndpointTagArray{})
-	pulumi.RegisterOutputType(ChannelGroupTagOutput{})
-	pulumi.RegisterOutputType(ChannelGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointOutput{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointArrayOutput{})
-	pulumi.RegisterOutputType(ChannelTagOutput{})
-	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointEncryptionOutput{})
 	pulumi.RegisterOutputType(OriginEndpointEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointEncryptionContractConfigurationOutput{})
@@ -2209,6 +1914,4 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointSegmentPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointSpekeKeyProviderOutput{})
 	pulumi.RegisterOutputType(OriginEndpointSpekeKeyProviderPtrOutput{})
-	pulumi.RegisterOutputType(OriginEndpointTagOutput{})
-	pulumi.RegisterOutputType(OriginEndpointTagArrayOutput{})
 }

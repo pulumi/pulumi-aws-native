@@ -48,7 +48,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
      */
-    public readonly tags!: pulumi.Output<outputs.codedeploy.ApplicationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -91,5 +91,5 @@ export interface ApplicationArgs {
     /**
      * The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.codedeploy.ApplicationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -12,54 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ChannelTag',
-    'PlaybackKeyPairTag',
     'RecordingConfigurationDestinationConfiguration',
     'RecordingConfigurationRenditionConfiguration',
     'RecordingConfigurationS3DestinationConfiguration',
-    'RecordingConfigurationTag',
     'RecordingConfigurationThumbnailConfiguration',
-    'StageTag',
-    'StreamKeyTag',
 ]
-
-@pulumi.output_type
-class ChannelTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class PlaybackKeyPairTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class RecordingConfigurationDestinationConfiguration(dict):
@@ -168,25 +125,6 @@ class RecordingConfigurationS3DestinationConfiguration(dict):
 
 
 @pulumi.output_type
-class RecordingConfigurationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class RecordingConfigurationThumbnailConfiguration(dict):
     """
     Recording Thumbnail Configuration.
@@ -262,43 +200,5 @@ class RecordingConfigurationThumbnailConfiguration(dict):
         Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
         """
         return pulumi.get(self, "target_interval_seconds")
-
-
-@pulumi.output_type
-class StageTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class StreamKeyTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

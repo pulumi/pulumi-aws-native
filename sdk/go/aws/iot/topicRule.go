@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,10 +17,10 @@ import (
 type TopicRule struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput     `pulumi:"arn"`
-	RuleName         pulumi.StringPtrOutput  `pulumi:"ruleName"`
-	Tags             TopicRuleTagArrayOutput `pulumi:"tags"`
-	TopicRulePayload TopicRulePayloadOutput  `pulumi:"topicRulePayload"`
+	Arn              pulumi.StringOutput    `pulumi:"arn"`
+	RuleName         pulumi.StringPtrOutput `pulumi:"ruleName"`
+	Tags             aws.TagArrayOutput     `pulumi:"tags"`
+	TopicRulePayload TopicRulePayloadOutput `pulumi:"topicRulePayload"`
 }
 
 // NewTopicRule registers a new resource with the given unique name, arguments, and options.
@@ -70,14 +71,14 @@ func (TopicRuleState) ElementType() reflect.Type {
 
 type topicRuleArgs struct {
 	RuleName         *string          `pulumi:"ruleName"`
-	Tags             []TopicRuleTag   `pulumi:"tags"`
+	Tags             []aws.Tag        `pulumi:"tags"`
 	TopicRulePayload TopicRulePayload `pulumi:"topicRulePayload"`
 }
 
 // The set of arguments for constructing a TopicRule resource.
 type TopicRuleArgs struct {
 	RuleName         pulumi.StringPtrInput
-	Tags             TopicRuleTagArrayInput
+	Tags             aws.TagArrayInput
 	TopicRulePayload TopicRulePayloadInput
 }
 
@@ -126,8 +127,8 @@ func (o TopicRuleOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringPtrOutput { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-func (o TopicRuleOutput) Tags() TopicRuleTagArrayOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleTagArrayOutput { return v.Tags }).(TopicRuleTagArrayOutput)
+func (o TopicRuleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TopicRule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TopicRuleOutput) TopicRulePayload() TopicRulePayloadOutput {

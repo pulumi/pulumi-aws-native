@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LookupPublicRepositoryResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
 	RepositoryPolicyText interface{} `pulumi:"repositoryPolicyText"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []PublicRepositoryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPublicRepositoryOutput(ctx *pulumi.Context, args LookupPublicRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupPublicRepositoryResultOutput {
@@ -92,8 +93,8 @@ func (o LookupPublicRepositoryResultOutput) RepositoryPolicyText() pulumi.AnyOut
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupPublicRepositoryResultOutput) Tags() PublicRepositoryTagArrayOutput {
-	return o.ApplyT(func(v LookupPublicRepositoryResult) []PublicRepositoryTag { return v.Tags }).(PublicRepositoryTagArrayOutput)
+func (o LookupPublicRepositoryResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPublicRepositoryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

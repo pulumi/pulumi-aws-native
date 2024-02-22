@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The tags for the site.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SiteTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSiteResult(
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? state,
 
-            ImmutableArray<Outputs.SiteTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreatedAt = createdAt;
             Description = description;

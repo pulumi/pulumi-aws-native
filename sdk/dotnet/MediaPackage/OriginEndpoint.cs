@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// A collection of tags associated with a resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.OriginEndpointTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
@@ -181,14 +181,14 @@ namespace Pulumi.AwsNative.MediaPackage
         public Input<int>? StartoverWindowSeconds { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.OriginEndpointTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
-        public InputList<Inputs.OriginEndpointTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.OriginEndpointTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

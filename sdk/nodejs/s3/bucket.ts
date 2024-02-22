@@ -118,7 +118,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * An arbitrary set of tags (key-value pairs) for this S3 bucket.
      */
-    public readonly tags!: pulumi.Output<outputs.s3.BucketTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly versioningConfiguration!: pulumi.Output<outputs.s3.BucketVersioningConfiguration | undefined>;
     public readonly websiteConfiguration!: pulumi.Output<outputs.s3.BucketWebsiteConfiguration | undefined>;
     /**
@@ -265,7 +265,7 @@ export interface BucketArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this S3 bucket.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.s3.BucketTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     versioningConfiguration?: pulumi.Input<inputs.s3.BucketVersioningConfigurationArgs>;
     websiteConfiguration?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationArgs>;
 }

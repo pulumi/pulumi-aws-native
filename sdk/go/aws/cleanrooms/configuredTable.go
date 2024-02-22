@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type ConfiguredTable struct {
 	Name                      pulumi.StringOutput                    `pulumi:"name"`
 	TableReference            ConfiguredTableTableReferenceOutput    `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags ConfiguredTableTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewConfiguredTable registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type configuredTableArgs struct {
 	Name           *string                       `pulumi:"name"`
 	TableReference ConfiguredTableTableReference `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags []ConfiguredTableTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfiguredTable resource.
@@ -102,7 +103,7 @@ type ConfiguredTableArgs struct {
 	Name           pulumi.StringPtrInput
 	TableReference ConfiguredTableTableReferenceInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags ConfiguredTableTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ConfiguredTableArgs) ElementType() reflect.Type {
@@ -175,8 +176,8 @@ func (o ConfiguredTableOutput) TableReference() ConfiguredTableTableReferenceOut
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-func (o ConfiguredTableOutput) Tags() ConfiguredTableTagArrayOutput {
-	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableTagArrayOutput { return v.Tags }).(ConfiguredTableTagArrayOutput)
+func (o ConfiguredTableOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ConfiguredTable) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.AppFlow
         /// List of Tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FlowTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// List of tasks for the flow.
@@ -180,14 +180,14 @@ namespace Pulumi.AwsNative.AppFlow
         public Input<Inputs.FlowSourceFlowConfigArgs> SourceFlowConfig { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.FlowTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// List of Tags.
         /// </summary>
-        public InputList<Inputs.FlowTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FlowTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

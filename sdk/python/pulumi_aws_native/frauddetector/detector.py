@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -24,7 +26,7 @@ class DetectorArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  detector_version_status: Optional[pulumi.Input['DetectorVersionStatus']] = None,
                  rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Detector resource.
         :param pulumi.Input[str] detector_id: The ID of the detector
@@ -32,7 +34,7 @@ class DetectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DetectorModelArgs']]] associated_models: The models to associate with this detector.
         :param pulumi.Input[str] description: The description of the detector.
         :param pulumi.Input['DetectorVersionStatus'] detector_version_status: The desired detector version status for the detector
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]] tags: Tags associated with this detector.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with this detector.
         """
         pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "event_type", event_type)
@@ -128,14 +130,14 @@ class DetectorArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags associated with this detector.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -151,7 +153,7 @@ class Detector(pulumi.CustomResource):
                  event_type: Optional[pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']]] = None,
                  rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         A resource schema for a Detector in Amazon Fraud Detector.
@@ -163,7 +165,7 @@ class Detector(pulumi.CustomResource):
         :param pulumi.Input[str] detector_id: The ID of the detector
         :param pulumi.Input['DetectorVersionStatus'] detector_version_status: The desired detector version status for the detector
         :param pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']] event_type: The event type to associate this detector with.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]] tags: Tags associated with this detector.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with this detector.
         """
         ...
     @overload
@@ -196,7 +198,7 @@ class Detector(pulumi.CustomResource):
                  event_type: Optional[pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']]] = None,
                  rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,7 +348,7 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DetectorTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Tags associated with this detector.
         """

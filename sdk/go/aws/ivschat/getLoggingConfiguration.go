@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupLoggingConfigurationResult struct {
 	// The state of the logging configuration. When the state is ACTIVE, the configuration is ready to log chat content.
 	State *LoggingConfigurationStateEnum `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LoggingConfigurationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLoggingConfigurationOutput(ctx *pulumi.Context, args LookupLoggingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupLoggingConfigurationResultOutput {
@@ -104,8 +105,8 @@ func (o LookupLoggingConfigurationResultOutput) State() LoggingConfigurationStat
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLoggingConfigurationResultOutput) Tags() LoggingConfigurationTagArrayOutput {
-	return o.ApplyT(func(v LookupLoggingConfigurationResult) []LoggingConfigurationTag { return v.Tags }).(LoggingConfigurationTagArrayOutput)
+func (o LookupLoggingConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLoggingConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

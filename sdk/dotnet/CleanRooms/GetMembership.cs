@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MembershipTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetMembershipResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.CleanRooms
 
             Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus? queryLogStatus,
 
-            ImmutableArray<Outputs.MembershipTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CollaborationArn = collaborationArn;

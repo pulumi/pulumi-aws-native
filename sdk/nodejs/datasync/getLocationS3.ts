@@ -37,7 +37,7 @@ export interface GetLocationS3Result {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.datasync.LocationS3Tag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataSync::LocationS3

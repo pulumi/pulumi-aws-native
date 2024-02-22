@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.AppConfig
         public readonly double? GrowthFactor;
         public readonly string? GrowthType;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.DeploymentStrategyTags> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDeploymentStrategyResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.AppConfig
 
             string? id,
 
-            ImmutableArray<Outputs.DeploymentStrategyTags> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DeploymentDurationInMinutes = deploymentDurationInMinutes;
             Description = description;

@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.KendraRanking
         /// <summary>
         /// Tags for labeling the execution plan
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExecutionPlanTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetExecutionPlanResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.KendraRanking
 
             string? name,
 
-            ImmutableArray<Outputs.ExecutionPlanTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CapacityUnits = capacityUnits;

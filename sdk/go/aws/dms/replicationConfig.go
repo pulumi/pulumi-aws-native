@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type ReplicationConfig struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	TableMappings pulumi.AnyOutput `pulumi:"tableMappings"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags ReplicationConfigTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
 	TargetEndpointArn pulumi.StringPtrOutput `pulumi:"targetEndpointArn"`
 }
@@ -112,7 +113,7 @@ type replicationConfigArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	TableMappings interface{} `pulumi:"tableMappings"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags []ReplicationConfigTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
 	TargetEndpointArn *string `pulumi:"targetEndpointArn"`
 }
@@ -143,7 +144,7 @@ type ReplicationConfigArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	TableMappings pulumi.Input
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags ReplicationConfigTagArrayInput
+	Tags aws.TagArrayInput
 	// The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
 	TargetEndpointArn pulumi.StringPtrInput
 }
@@ -236,8 +237,8 @@ func (o ReplicationConfigOutput) TableMappings() pulumi.AnyOutput {
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-func (o ReplicationConfigOutput) Tags() ReplicationConfigTagArrayOutput {
-	return o.ApplyT(func(v *ReplicationConfig) ReplicationConfigTagArrayOutput { return v.Tags }).(ReplicationConfigTagArrayOutput)
+func (o ReplicationConfigOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ReplicationConfig) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration

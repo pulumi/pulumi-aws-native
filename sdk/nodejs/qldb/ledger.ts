@@ -44,7 +44,7 @@ export class Ledger extends pulumi.CustomResource {
     public readonly kmsKey!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly permissionsMode!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.qldb.LedgerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Ledger resource with the given unique name, arguments, and options.
@@ -89,5 +89,5 @@ export interface LedgerArgs {
     kmsKey?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     permissionsMode: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.qldb.LedgerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ModelPackageTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetModelPackageResult(
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             Pulumi.AwsNative.SageMaker.ModelPackageSkipModelValidation? skipModelValidation,
 
-            ImmutableArray<Outputs.ModelPackageTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AdditionalInferenceSpecifications = additionalInferenceSpecifications;
             ApprovalDescription = approvalDescription;

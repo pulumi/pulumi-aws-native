@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type OrganizationalUnit struct {
 	// The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
 	// A list of tags that you want to attach to the newly created OU.
-	Tags OrganizationalUnitTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewOrganizationalUnit registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type organizationalUnitArgs struct {
 	// The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
 	ParentId string `pulumi:"parentId"`
 	// A list of tags that you want to attach to the newly created OU.
-	Tags []OrganizationalUnitTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OrganizationalUnit resource.
@@ -88,7 +89,7 @@ type OrganizationalUnitArgs struct {
 	// The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
 	ParentId pulumi.StringInput
 	// A list of tags that you want to attach to the newly created OU.
-	Tags OrganizationalUnitTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (OrganizationalUnitArgs) ElementType() reflect.Type {
@@ -144,8 +145,8 @@ func (o OrganizationalUnitOutput) ParentId() pulumi.StringOutput {
 }
 
 // A list of tags that you want to attach to the newly created OU.
-func (o OrganizationalUnitOutput) Tags() OrganizationalUnitTagArrayOutput {
-	return o.ApplyT(func(v *OrganizationalUnit) OrganizationalUnitTagArrayOutput { return v.Tags }).(OrganizationalUnitTagArrayOutput)
+func (o OrganizationalUnitOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *OrganizationalUnit) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

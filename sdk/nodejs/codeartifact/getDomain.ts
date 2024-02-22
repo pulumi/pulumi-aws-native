@@ -47,7 +47,7 @@ export interface GetDomainResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.codeartifact.DomainTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The resource schema to create a CodeArtifact domain.

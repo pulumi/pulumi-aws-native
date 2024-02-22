@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Wisdom
         public Output<Pulumi.AwsNative.Wisdom.AssistantAssociationAssociationType> AssociationType { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AssistantAssociationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -98,10 +98,10 @@ namespace Pulumi.AwsNative.Wisdom
         public Input<Pulumi.AwsNative.Wisdom.AssistantAssociationAssociationType> AssociationType { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.AssistantAssociationTagArgs>? _tags;
-        public InputList<Inputs.AssistantAssociationTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AssistantAssociationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

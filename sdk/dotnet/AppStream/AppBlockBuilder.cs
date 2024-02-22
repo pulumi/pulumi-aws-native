@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.AppStream
         public Output<string> Platform { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AppBlockBuilderTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpcConfig")]
         public Output<Outputs.AppBlockBuilderVpcConfig> VpcConfig { get; private set; } = null!;
@@ -141,10 +141,10 @@ namespace Pulumi.AwsNative.AppStream
         public Input<string> Platform { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.AppBlockBuilderTagArgs>? _tags;
-        public InputList<Inputs.AppBlockBuilderTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AppBlockBuilderTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

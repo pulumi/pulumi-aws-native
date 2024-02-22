@@ -64,7 +64,7 @@ export class WirelessDevice extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.WirelessDeviceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Thing arn. Passed into update to associate Thing with Wireless device.
      */
@@ -149,7 +149,7 @@ export interface WirelessDeviceArgs {
     /**
      * A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.WirelessDeviceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Thing arn. Passed into update to associate Thing with Wireless device.
      */

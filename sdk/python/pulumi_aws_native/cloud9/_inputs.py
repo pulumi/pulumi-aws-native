@@ -11,7 +11,6 @@ from .. import _utilities
 
 __all__ = [
     'EnvironmentEc2RepositoryArgs',
-    'EnvironmentEc2TagArgs',
 ]
 
 @pulumi.input_type
@@ -39,32 +38,5 @@ class EnvironmentEc2RepositoryArgs:
     @repository_url.setter
     def repository_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository_url", value)
-
-
-@pulumi.input_type
-class EnvironmentEc2TagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

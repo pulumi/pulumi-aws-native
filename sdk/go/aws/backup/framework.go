@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type Framework struct {
 	// `UNAVAILABLE` when AWS Backup is unable to validate recording status at this time.
 	FrameworkStatus pulumi.StringOutput `pulumi:"frameworkStatus"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	FrameworkTags FrameworkTagArrayOutput `pulumi:"frameworkTags"`
+	FrameworkTags aws.TagArrayOutput `pulumi:"frameworkTags"`
 }
 
 // NewFramework registers a new resource with the given unique name, arguments, and options.
@@ -96,7 +97,7 @@ type frameworkArgs struct {
 	// The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
 	FrameworkName *string `pulumi:"frameworkName"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	FrameworkTags []FrameworkTag `pulumi:"frameworkTags"`
+	FrameworkTags []aws.Tag `pulumi:"frameworkTags"`
 }
 
 // The set of arguments for constructing a Framework resource.
@@ -108,7 +109,7 @@ type FrameworkArgs struct {
 	// The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
 	FrameworkName pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	FrameworkTags FrameworkTagArrayInput
+	FrameworkTags aws.TagArrayInput
 }
 
 func (FrameworkArgs) ElementType() reflect.Type {
@@ -192,8 +193,8 @@ func (o FrameworkOutput) FrameworkStatus() pulumi.StringOutput {
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-func (o FrameworkOutput) FrameworkTags() FrameworkTagArrayOutput {
-	return o.ApplyT(func(v *Framework) FrameworkTagArrayOutput { return v.FrameworkTags }).(FrameworkTagArrayOutput)
+func (o FrameworkOutput) FrameworkTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Framework) aws.TagArrayOutput { return v.FrameworkTags }).(aws.TagArrayOutput)
 }
 
 func init() {

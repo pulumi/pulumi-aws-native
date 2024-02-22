@@ -76,7 +76,7 @@ export class DbProxy extends pulumi.CustomResource {
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
      */
-    public readonly tags!: pulumi.Output<outputs.rds.DbProxyTagFormat[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * VPC ID to associate with the new DB proxy.
      */
@@ -183,7 +183,7 @@ export interface DbProxyArgs {
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.rds.DbProxyTagFormatArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * VPC security group IDs to associate with the new proxy.
      */

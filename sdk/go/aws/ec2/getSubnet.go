@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,8 +38,8 @@ type LookupSubnetResult struct {
 	NetworkAclAssociationId       *string                                  `pulumi:"networkAclAssociationId"`
 	PrivateDnsNameOptionsOnLaunch *PrivateDnsNameOptionsOnLaunchProperties `pulumi:"privateDnsNameOptionsOnLaunch"`
 	// The ID of the subnet
-	SubnetId *string     `pulumi:"subnetId"`
-	Tags     []SubnetTag `pulumi:"tags"`
+	SubnetId *string   `pulumi:"subnetId"`
+	Tags     []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
@@ -113,8 +114,8 @@ func (o LookupSubnetResultOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSubnetResultOutput) Tags() SubnetTagArrayOutput {
-	return o.ApplyT(func(v LookupSubnetResult) []SubnetTag { return v.Tags }).(SubnetTagArrayOutput)
+func (o LookupSubnetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSubnetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

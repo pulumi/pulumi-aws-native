@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.StepFunctions
     public sealed class GetActivityResult
     {
         public readonly string? Arn;
-        public readonly ImmutableArray<Outputs.ActivityTagsEntry> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetActivityResult(
             string? arn,
 
-            ImmutableArray<Outputs.ActivityTagsEntry> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Tags = tags;

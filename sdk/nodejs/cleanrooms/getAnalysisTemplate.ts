@@ -35,7 +35,7 @@ export interface GetAnalysisTemplateResult {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
      */
-    readonly tags?: outputs.cleanrooms.AnalysisTemplateTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Represents a stored analysis within a collaboration

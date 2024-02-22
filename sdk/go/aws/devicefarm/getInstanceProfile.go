@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,13 +28,13 @@ type LookupInstanceProfileArgs struct {
 }
 
 type LookupInstanceProfileResult struct {
-	Arn                           *string              `pulumi:"arn"`
-	Description                   *string              `pulumi:"description"`
-	ExcludeAppPackagesFromCleanup []string             `pulumi:"excludeAppPackagesFromCleanup"`
-	Name                          *string              `pulumi:"name"`
-	PackageCleanup                *bool                `pulumi:"packageCleanup"`
-	RebootAfterUse                *bool                `pulumi:"rebootAfterUse"`
-	Tags                          []InstanceProfileTag `pulumi:"tags"`
+	Arn                           *string   `pulumi:"arn"`
+	Description                   *string   `pulumi:"description"`
+	ExcludeAppPackagesFromCleanup []string  `pulumi:"excludeAppPackagesFromCleanup"`
+	Name                          *string   `pulumi:"name"`
+	PackageCleanup                *bool     `pulumi:"packageCleanup"`
+	RebootAfterUse                *bool     `pulumi:"rebootAfterUse"`
+	Tags                          []aws.Tag `pulumi:"tags"`
 }
 
 func LookupInstanceProfileOutput(ctx *pulumi.Context, args LookupInstanceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceProfileResultOutput {
@@ -95,8 +96,8 @@ func (o LookupInstanceProfileResultOutput) RebootAfterUse() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v LookupInstanceProfileResult) *bool { return v.RebootAfterUse }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupInstanceProfileResultOutput) Tags() InstanceProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupInstanceProfileResult) []InstanceProfileTag { return v.Tags }).(InstanceProfileTagArrayOutput)
+func (o LookupInstanceProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupInstanceProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

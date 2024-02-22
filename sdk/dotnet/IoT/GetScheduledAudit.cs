@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScheduledAuditTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Which checks are performed during the scheduled audit. Checks must be enabled for your account.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? scheduledAuditArn,
 
-            ImmutableArray<Outputs.ScheduledAuditTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> targetCheckNames)
         {

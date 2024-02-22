@@ -46,7 +46,7 @@ export class ServerCertificate extends pulumi.CustomResource {
     public readonly path!: pulumi.Output<string | undefined>;
     public readonly privateKey!: pulumi.Output<string | undefined>;
     public readonly serverCertificateName!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iam.ServerCertificateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ServerCertificate resource with the given unique name, arguments, and options.
@@ -91,5 +91,5 @@ export interface ServerCertificateArgs {
     path?: pulumi.Input<string>;
     privateKey?: pulumi.Input<string>;
     serverCertificateName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iam.ServerCertificateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

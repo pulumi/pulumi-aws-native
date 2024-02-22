@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupVirtualNodeResult struct {
 	Id            *string          `pulumi:"id"`
 	ResourceOwner *string          `pulumi:"resourceOwner"`
 	Spec          *VirtualNodeSpec `pulumi:"spec"`
-	Tags          []VirtualNodeTag `pulumi:"tags"`
+	Tags          []aws.Tag        `pulumi:"tags"`
 	Uid           *string          `pulumi:"uid"`
 }
 
@@ -86,8 +87,8 @@ func (o LookupVirtualNodeResultOutput) Spec() VirtualNodeSpecPtrOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) *VirtualNodeSpec { return v.Spec }).(VirtualNodeSpecPtrOutput)
 }
 
-func (o LookupVirtualNodeResultOutput) Tags() VirtualNodeTagArrayOutput {
-	return o.ApplyT(func(v LookupVirtualNodeResult) []VirtualNodeTag { return v.Tags }).(VirtualNodeTagArrayOutput)
+func (o LookupVirtualNodeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNodeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupVirtualNodeResultOutput) Uid() pulumi.StringPtrOutput {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LookupLaunchResult struct {
 	RandomizationSalt     *string                        `pulumi:"randomizationSalt"`
 	ScheduledSplitsConfig []LaunchStepConfig             `pulumi:"scheduledSplitsConfig"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LaunchTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLaunchOutput(ctx *pulumi.Context, args LookupLaunchOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchResultOutput {
@@ -104,8 +105,8 @@ func (o LookupLaunchResultOutput) ScheduledSplitsConfig() LaunchStepConfigArrayO
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLaunchResultOutput) Tags() LaunchTagArrayOutput {
-	return o.ApplyT(func(v LookupLaunchResult) []LaunchTag { return v.Tags }).(LaunchTagArrayOutput)
+func (o LookupLaunchResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLaunchResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

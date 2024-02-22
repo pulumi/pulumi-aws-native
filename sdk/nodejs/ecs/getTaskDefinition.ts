@@ -26,7 +26,7 @@ export interface GetTaskDefinitionArgs {
 }
 
 export interface GetTaskDefinitionResult {
-    readonly tags?: outputs.ecs.TaskDefinitionTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The Amazon Resource Name (ARN) of the Amazon ECS task definition
      */

@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.Sqs
         /// The tags that you attach to this queue.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.QueueTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
@@ -266,14 +266,14 @@ namespace Pulumi.AwsNative.Sqs
         public Input<bool>? SqsManagedSseEnabled { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.QueueTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags that you attach to this queue.
         /// </summary>
-        public InputList<Inputs.QueueTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.QueueTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

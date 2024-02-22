@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -15,13 +16,13 @@ import (
 type ChannelGroup struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput        `pulumi:"arn"`
-	ChannelGroupName pulumi.StringPtrOutput     `pulumi:"channelGroupName"`
-	CreatedAt        pulumi.StringOutput        `pulumi:"createdAt"`
-	Description      pulumi.StringPtrOutput     `pulumi:"description"`
-	EgressDomain     pulumi.StringOutput        `pulumi:"egressDomain"`
-	ModifiedAt       pulumi.StringOutput        `pulumi:"modifiedAt"`
-	Tags             ChannelGroupTagArrayOutput `pulumi:"tags"`
+	Arn              pulumi.StringOutput    `pulumi:"arn"`
+	ChannelGroupName pulumi.StringPtrOutput `pulumi:"channelGroupName"`
+	CreatedAt        pulumi.StringOutput    `pulumi:"createdAt"`
+	Description      pulumi.StringPtrOutput `pulumi:"description"`
+	EgressDomain     pulumi.StringOutput    `pulumi:"egressDomain"`
+	ModifiedAt       pulumi.StringOutput    `pulumi:"modifiedAt"`
+	Tags             aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewChannelGroup registers a new resource with the given unique name, arguments, and options.
@@ -68,16 +69,16 @@ func (ChannelGroupState) ElementType() reflect.Type {
 }
 
 type channelGroupArgs struct {
-	ChannelGroupName *string           `pulumi:"channelGroupName"`
-	Description      *string           `pulumi:"description"`
-	Tags             []ChannelGroupTag `pulumi:"tags"`
+	ChannelGroupName *string   `pulumi:"channelGroupName"`
+	Description      *string   `pulumi:"description"`
+	Tags             []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ChannelGroup resource.
 type ChannelGroupArgs struct {
 	ChannelGroupName pulumi.StringPtrInput
 	Description      pulumi.StringPtrInput
-	Tags             ChannelGroupTagArrayInput
+	Tags             aws.TagArrayInput
 }
 
 func (ChannelGroupArgs) ElementType() reflect.Type {
@@ -141,8 +142,8 @@ func (o ChannelGroupOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
-func (o ChannelGroupOutput) Tags() ChannelGroupTagArrayOutput {
-	return o.ApplyT(func(v *ChannelGroup) ChannelGroupTagArrayOutput { return v.Tags }).(ChannelGroupTagArrayOutput)
+func (o ChannelGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ChannelGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

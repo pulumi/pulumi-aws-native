@@ -47,7 +47,7 @@ export class Service extends pulumi.CustomResource {
     public readonly healthCheckCustomConfig!: pulumi.Output<outputs.servicediscovery.ServiceHealthCheckCustomConfig | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly namespaceId!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.servicediscovery.ServiceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly type!: pulumi.Output<string | undefined>;
 
     /**
@@ -100,6 +100,6 @@ export interface ServiceArgs {
     healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfigArgs>;
     name?: pulumi.Input<string>;
     namespaceId?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.servicediscovery.ServiceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     type?: pulumi.Input<string>;
 }

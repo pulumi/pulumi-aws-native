@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ThingTypeTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("thingTypeName")]
         public Output<string?> ThingTypeName { get; private set; } = null!;
@@ -87,14 +87,14 @@ namespace Pulumi.AwsNative.IoT
         public Input<bool>? DeprecateThingType { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ThingTypeTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.ThingTypeTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ThingTypeTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

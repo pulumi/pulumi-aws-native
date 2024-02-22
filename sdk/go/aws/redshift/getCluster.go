@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -125,7 +126,7 @@ type LookupClusterResult struct {
 	//  Constraints: Must be at least 1 and no more than 35.
 	SnapshotCopyRetentionPeriod *int `pulumi:"snapshotCopyRetentionPeriod"`
 	// The list of tags for the cluster parameter group.
-	Tags []ClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -386,8 +387,8 @@ func (o LookupClusterResultOutput) SnapshotCopyRetentionPeriod() pulumi.IntPtrOu
 }
 
 // The list of tags for the cluster parameter group.
-func (o LookupClusterResultOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v LookupClusterResult) []ClusterTag { return v.Tags }).(ClusterTagArrayOutput)
+func (o LookupClusterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.

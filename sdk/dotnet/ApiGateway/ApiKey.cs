@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ApiKeyTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a value of the API key.
@@ -162,14 +162,14 @@ namespace Pulumi.AwsNative.ApiGateway
         }
 
         [Input("tags")]
-        private InputList<Inputs.ApiKeyTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
         /// </summary>
-        public InputList<Inputs.ApiKeyTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ApiKeyTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

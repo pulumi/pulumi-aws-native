@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.SsmIncidents
         /// <summary>
         /// The tags to apply to the replication set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ReplicationSetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetReplicationSetResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.SsmIncidents
 
             ImmutableArray<Outputs.ReplicationSetReplicationRegion> regions,
 
-            ImmutableArray<Outputs.ReplicationSetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DeletionProtected = deletionProtected;

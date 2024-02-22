@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SignalingChannelTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.KinesisVideo
 
             int? messageTtlSeconds,
 
-            ImmutableArray<Outputs.SignalingChannelTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.KinesisVideo.SignalingChannelType? type)
         {

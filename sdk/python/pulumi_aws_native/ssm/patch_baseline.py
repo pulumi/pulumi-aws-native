@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -30,7 +32,7 @@ class PatchBaselineArgs:
                  rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rejected_patches_action: Optional[pulumi.Input['PatchBaselineRejectedPatchesAction']] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchSourceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PatchBaseline resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] approved_patches: A list of explicitly approved patches for the baseline.
@@ -45,7 +47,7 @@ class PatchBaselineArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rejected_patches: A list of explicitly rejected patches for the baseline.
         :param pulumi.Input['PatchBaselineRejectedPatchesAction'] rejected_patches_action: The action for Patch Manager to take on patches included in the RejectedPackages list.
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchSourceArgs']]] sources: Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
-        :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineTagArgs']]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
         """
         if approval_rules is not None:
             pulumi.set(__self__, "approval_rules", approval_rules)
@@ -231,14 +233,14 @@ class PatchBaselineArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -260,7 +262,7 @@ class PatchBaseline(pulumi.CustomResource):
                  rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rejected_patches_action: Optional[pulumi.Input['PatchBaselineRejectedPatchesAction']] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselinePatchSourceArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselineTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SSM::PatchBaseline
@@ -279,7 +281,7 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rejected_patches: A list of explicitly rejected patches for the baseline.
         :param pulumi.Input['PatchBaselineRejectedPatchesAction'] rejected_patches_action: The action for Patch Manager to take on patches included in the RejectedPackages list.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselinePatchSourceArgs']]]] sources: Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselineTagArgs']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
         """
         ...
     @overload
@@ -318,7 +320,7 @@ class PatchBaseline(pulumi.CustomResource):
                  rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rejected_patches_action: Optional[pulumi.Input['PatchBaselineRejectedPatchesAction']] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselinePatchSourceArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselineTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -485,7 +487,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PatchBaselineTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
         """

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type TransitGatewayRouteTableAttachment struct {
 	// The state of the attachment.
 	State pulumi.StringOutput `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags TransitGatewayRouteTableAttachmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The Arn of transit gateway route table.
 	TransitGatewayRouteTableArn pulumi.StringOutput `pulumi:"transitGatewayRouteTableArn"`
 	// Last update time of the attachment.
@@ -106,7 +107,7 @@ type transitGatewayRouteTableAttachmentArgs struct {
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *TransitGatewayRouteTableAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []TransitGatewayRouteTableAttachmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Arn of transit gateway route table.
 	TransitGatewayRouteTableArn string `pulumi:"transitGatewayRouteTableArn"`
 }
@@ -118,7 +119,7 @@ type TransitGatewayRouteTableAttachmentArgs struct {
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags TransitGatewayRouteTableAttachmentTagArrayInput
+	Tags aws.TagArrayInput
 	// The Arn of transit gateway route table.
 	TransitGatewayRouteTableArn pulumi.StringInput
 }
@@ -228,10 +229,8 @@ func (o TransitGatewayRouteTableAttachmentOutput) State() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o TransitGatewayRouteTableAttachmentOutput) Tags() TransitGatewayRouteTableAttachmentTagArrayOutput {
-	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) TransitGatewayRouteTableAttachmentTagArrayOutput {
-		return v.Tags
-	}).(TransitGatewayRouteTableAttachmentTagArrayOutput)
+func (o TransitGatewayRouteTableAttachmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Arn of transit gateway route table.

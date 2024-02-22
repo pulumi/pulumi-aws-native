@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,8 +36,8 @@ type LookupPipelineResult struct {
 	// The display name of the Pipeline.
 	PipelineDisplayName *string `pulumi:"pipelineDisplayName"`
 	// Role Arn
-	RoleArn *string       `pulumi:"roleArn"`
-	Tags    []PipelineTag `pulumi:"tags"`
+	RoleArn *string   `pulumi:"roleArn"`
+	Tags    []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineResultOutput {
@@ -98,8 +99,8 @@ func (o LookupPipelineResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPipelineResultOutput) Tags() PipelineTagArrayOutput {
-	return o.ApplyT(func(v LookupPipelineResult) []PipelineTag { return v.Tags }).(PipelineTagArrayOutput)
+func (o LookupPipelineResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPipelineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

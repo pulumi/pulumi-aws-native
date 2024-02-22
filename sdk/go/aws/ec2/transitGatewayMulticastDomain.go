@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type TransitGatewayMulticastDomain struct {
 	// The state of the transit gateway multicast domain.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the transit gateway multicast domain.
-	Tags TransitGatewayMulticastDomainTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 	// The Amazon Resource Name (ARN) of the transit gateway multicast domain.
@@ -82,7 +83,7 @@ type transitGatewayMulticastDomainArgs struct {
 	// The options for the transit gateway multicast domain.
 	Options *OptionsProperties `pulumi:"options"`
 	// The tags for the transit gateway multicast domain.
-	Tags []TransitGatewayMulticastDomainTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the transit gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
@@ -92,7 +93,7 @@ type TransitGatewayMulticastDomainArgs struct {
 	// The options for the transit gateway multicast domain.
 	Options OptionsPropertiesPtrInput
 	// The tags for the transit gateway multicast domain.
-	Tags TransitGatewayMulticastDomainTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringInput
 }
@@ -150,8 +151,8 @@ func (o TransitGatewayMulticastDomainOutput) State() pulumi.StringOutput {
 }
 
 // The tags for the transit gateway multicast domain.
-func (o TransitGatewayMulticastDomainOutput) Tags() TransitGatewayMulticastDomainTagArrayOutput {
-	return o.ApplyT(func(v *TransitGatewayMulticastDomain) TransitGatewayMulticastDomainTagArrayOutput { return v.Tags }).(TransitGatewayMulticastDomainTagArrayOutput)
+func (o TransitGatewayMulticastDomainOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayMulticastDomain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the transit gateway.

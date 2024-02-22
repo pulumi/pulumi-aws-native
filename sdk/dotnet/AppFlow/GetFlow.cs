@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// List of Tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FlowTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// List of tasks for the flow.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.AppFlow
 
             Outputs.FlowSourceFlowConfig? sourceFlowConfig,
 
-            ImmutableArray<Outputs.FlowTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.FlowTask> tasks,
 

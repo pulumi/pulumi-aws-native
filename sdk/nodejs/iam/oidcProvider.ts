@@ -42,7 +42,7 @@ export class OidcProvider extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly clientIdList!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iam.OidcProviderTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly thumbprintList!: pulumi.Output<string[]>;
     public readonly url!: pulumi.Output<string | undefined>;
 
@@ -84,7 +84,7 @@ export class OidcProvider extends pulumi.CustomResource {
  */
 export interface OidcProviderArgs {
     clientIdList?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iam.OidcProviderTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     thumbprintList: pulumi.Input<pulumi.Input<string>[]>;
     url?: pulumi.Input<string>;
 }

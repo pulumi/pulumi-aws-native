@@ -49,7 +49,7 @@ export class User extends pulumi.CustomResource {
     public readonly role!: pulumi.Output<string>;
     public readonly serverId!: pulumi.Output<string>;
     public readonly sshPublicKeys!: pulumi.Output<outputs.transfer.UserSshPublicKey[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.transfer.UserTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly userName!: pulumi.Output<string>;
 
     /**
@@ -114,6 +114,6 @@ export interface UserArgs {
     role: pulumi.Input<string>;
     serverId: pulumi.Input<string>;
     sshPublicKeys?: pulumi.Input<pulumi.Input<inputs.transfer.UserSshPublicKeyArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.transfer.UserTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     userName?: pulumi.Input<string>;
 }

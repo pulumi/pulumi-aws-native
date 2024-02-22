@@ -64,7 +64,7 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
     /**
      * The tags for the transit gateway peering attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayPeeringAttachmentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the transit gateway peering attachment.
      */
@@ -143,7 +143,7 @@ export interface TransitGatewayPeeringAttachmentArgs {
     /**
      * The tags for the transit gateway peering attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayPeeringAttachmentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the transit gateway.
      */

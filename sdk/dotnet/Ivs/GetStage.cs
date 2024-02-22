@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Ivs
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StageTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetStageResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Ivs
 
             string? name,
 
-            ImmutableArray<Outputs.StageTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ActiveSessionId = activeSessionId;
             Arn = arn;

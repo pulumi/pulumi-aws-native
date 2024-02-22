@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type SamplingRule struct {
 	SamplingRule       SamplingRuleTypePtrOutput   `pulumi:"samplingRule"`
 	SamplingRuleRecord SamplingRuleRecordPtrOutput `pulumi:"samplingRuleRecord"`
 	SamplingRuleUpdate SamplingRuleUpdatePtrOutput `pulumi:"samplingRuleUpdate"`
-	Tags               SamplingRuleTagArrayOutput  `pulumi:"tags"`
+	Tags               aws.TagArrayOutput          `pulumi:"tags"`
 }
 
 // NewSamplingRule registers a new resource with the given unique name, arguments, and options.
@@ -72,7 +73,7 @@ type samplingRuleArgs struct {
 	SamplingRule       *SamplingRuleType   `pulumi:"samplingRule"`
 	SamplingRuleRecord *SamplingRuleRecord `pulumi:"samplingRuleRecord"`
 	SamplingRuleUpdate *SamplingRuleUpdate `pulumi:"samplingRuleUpdate"`
-	Tags               []SamplingRuleTag   `pulumi:"tags"`
+	Tags               []aws.Tag           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SamplingRule resource.
@@ -81,7 +82,7 @@ type SamplingRuleArgs struct {
 	SamplingRule       SamplingRuleTypePtrInput
 	SamplingRuleRecord SamplingRuleRecordPtrInput
 	SamplingRuleUpdate SamplingRuleUpdatePtrInput
-	Tags               SamplingRuleTagArrayInput
+	Tags               aws.TagArrayInput
 }
 
 func (SamplingRuleArgs) ElementType() reflect.Type {
@@ -141,8 +142,8 @@ func (o SamplingRuleOutput) SamplingRuleUpdate() SamplingRuleUpdatePtrOutput {
 	return o.ApplyT(func(v *SamplingRule) SamplingRuleUpdatePtrOutput { return v.SamplingRuleUpdate }).(SamplingRuleUpdatePtrOutput)
 }
 
-func (o SamplingRuleOutput) Tags() SamplingRuleTagArrayOutput {
-	return o.ApplyT(func(v *SamplingRule) SamplingRuleTagArrayOutput { return v.Tags }).(SamplingRuleTagArrayOutput)
+func (o SamplingRuleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SamplingRule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

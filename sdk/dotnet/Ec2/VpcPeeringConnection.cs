@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> PeerVpcId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VpcPeeringConnectionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the VPC.
@@ -126,10 +126,10 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string> PeerVpcId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.VpcPeeringConnectionTagArgs>? _tags;
-        public InputList<Inputs.VpcPeeringConnectionTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VpcPeeringConnectionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

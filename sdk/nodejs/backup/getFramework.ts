@@ -61,7 +61,7 @@ export interface GetFrameworkResult {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    readonly frameworkTags?: outputs.backup.FrameworkTag[];
+    readonly frameworkTags?: outputs.Tag[];
 }
 /**
  * Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.

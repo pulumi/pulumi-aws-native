@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupReportPlanResult struct {
 	// An optional description of the report plan with a maximum of 1,024 characters.
 	ReportPlanDescription *string `pulumi:"reportPlanDescription"`
 	// Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
-	ReportPlanTags []ReportPlanTag `pulumi:"reportPlanTags"`
+	ReportPlanTags []aws.Tag `pulumi:"reportPlanTags"`
 	// Identifies the report template for the report. Reports are built using a report template.
 	ReportSetting *ReportSettingProperties `pulumi:"reportSetting"`
 }
@@ -92,8 +93,8 @@ func (o LookupReportPlanResultOutput) ReportPlanDescription() pulumi.StringPtrOu
 }
 
 // Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
-func (o LookupReportPlanResultOutput) ReportPlanTags() ReportPlanTagArrayOutput {
-	return o.ApplyT(func(v LookupReportPlanResult) []ReportPlanTag { return v.ReportPlanTags }).(ReportPlanTagArrayOutput)
+func (o LookupReportPlanResultOutput) ReportPlanTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReportPlanResult) []aws.Tag { return v.ReportPlanTags }).(aws.TagArrayOutput)
 }
 
 // Identifies the report template for the report. Reports are built using a report template.

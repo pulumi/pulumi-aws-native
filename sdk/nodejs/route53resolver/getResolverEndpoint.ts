@@ -31,7 +31,7 @@ export interface GetResolverEndpointResult {
     readonly protocols?: string[];
     readonly resolverEndpointId?: string;
     readonly resolverEndpointType?: string;
-    readonly tags?: outputs.route53resolver.ResolverEndpointTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Route53Resolver::ResolverEndpoint

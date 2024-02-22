@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type ResolverEndpoint struct {
 	ResolverEndpointId    pulumi.StringOutput                         `pulumi:"resolverEndpointId"`
 	ResolverEndpointType  pulumi.StringPtrOutput                      `pulumi:"resolverEndpointType"`
 	SecurityGroupIds      pulumi.StringArrayOutput                    `pulumi:"securityGroupIds"`
-	Tags                  ResolverEndpointTagArrayOutput              `pulumi:"tags"`
+	Tags                  aws.TagArrayOutput                          `pulumi:"tags"`
 }
 
 // NewResolverEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +98,7 @@ type resolverEndpointArgs struct {
 	Protocols             []string                           `pulumi:"protocols"`
 	ResolverEndpointType  *string                            `pulumi:"resolverEndpointType"`
 	SecurityGroupIds      []string                           `pulumi:"securityGroupIds"`
-	Tags                  []ResolverEndpointTag              `pulumi:"tags"`
+	Tags                  []aws.Tag                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResolverEndpoint resource.
@@ -110,7 +111,7 @@ type ResolverEndpointArgs struct {
 	Protocols             pulumi.StringArrayInput
 	ResolverEndpointType  pulumi.StringPtrInput
 	SecurityGroupIds      pulumi.StringArrayInput
-	Tags                  ResolverEndpointTagArrayInput
+	Tags                  aws.TagArrayInput
 }
 
 func (ResolverEndpointArgs) ElementType() reflect.Type {
@@ -198,8 +199,8 @@ func (o ResolverEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-func (o ResolverEndpointOutput) Tags() ResolverEndpointTagArrayOutput {
-	return o.ApplyT(func(v *ResolverEndpoint) ResolverEndpointTagArrayOutput { return v.Tags }).(ResolverEndpointTagArrayOutput)
+func (o ResolverEndpointOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

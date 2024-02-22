@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Eks
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AccessEntryTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The Kubernetes user that the access entry is associated with.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Eks
 
             ImmutableArray<string> kubernetesGroups,
 
-            ImmutableArray<Outputs.AccessEntryTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? username)
         {

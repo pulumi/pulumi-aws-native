@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<int> SessionNumber { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TrafficMirrorSessionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("trafficMirrorFilterId")]
         public Output<string> TrafficMirrorFilterId { get; private set; } = null!;
@@ -102,10 +102,10 @@ namespace Pulumi.AwsNative.Ec2
         public Input<int> SessionNumber { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.TrafficMirrorSessionTagArgs>? _tags;
-        public InputList<Inputs.TrafficMirrorSessionTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TrafficMirrorSessionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

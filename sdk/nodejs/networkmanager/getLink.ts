@@ -62,7 +62,7 @@ export interface GetLinkResult {
     /**
      * The tags for the link.
      */
-    readonly tags?: outputs.networkmanager.LinkTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The type of the link.
      */

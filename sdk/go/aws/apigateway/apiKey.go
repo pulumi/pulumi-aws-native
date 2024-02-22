@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type ApiKey struct {
 	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys ApiKeyStageKeyArrayOutput `pulumi:"stageKeys"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
-	Tags ApiKeyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Specifies a value of the API key.
 	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
@@ -95,7 +96,7 @@ type apiKeyArgs struct {
 	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys []ApiKeyStageKey `pulumi:"stageKeys"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
-	Tags []ApiKeyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies a value of the API key.
 	Value *string `pulumi:"value"`
 }
@@ -116,7 +117,7 @@ type ApiKeyArgs struct {
 	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys ApiKeyStageKeyArrayInput
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
-	Tags ApiKeyTagArrayInput
+	Tags aws.TagArrayInput
 	// Specifies a value of the API key.
 	Value pulumi.StringPtrInput
 }
@@ -195,8 +196,8 @@ func (o ApiKeyOutput) StageKeys() ApiKeyStageKeyArrayOutput {
 }
 
 // The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with “aws:“. The tag value can be up to 256 characters.
-func (o ApiKeyOutput) Tags() ApiKeyTagArrayOutput {
-	return o.ApplyT(func(v *ApiKey) ApiKeyTagArrayOutput { return v.Tags }).(ApiKeyTagArrayOutput)
+func (o ApiKeyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ApiKey) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Specifies a value of the API key.

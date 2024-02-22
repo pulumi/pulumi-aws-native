@@ -81,7 +81,7 @@ export class FleetMetric extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource
      */
-    public readonly tags!: pulumi.Output<outputs.iot.FleetMetricTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The unit of data points emitted by a fleet metric
      */
@@ -178,7 +178,7 @@ export interface FleetMetricArgs {
     /**
      * An array of key-value pairs to apply to this resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.FleetMetricTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The unit of data points emitted by a fleet metric
      */

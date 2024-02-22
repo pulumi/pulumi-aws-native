@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// Tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FirewallDomainListTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -154,14 +154,14 @@ namespace Pulumi.AwsNative.Route53Resolver
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.FirewallDomainListTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags
         /// </summary>
-        public InputList<Inputs.FirewallDomainListTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FirewallDomainListTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

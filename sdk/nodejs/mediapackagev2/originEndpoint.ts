@@ -70,7 +70,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
     public readonly startoverWindowSeconds!: pulumi.Output<number | undefined>;
-    public readonly tags!: pulumi.Output<outputs.mediapackagev2.OriginEndpointTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a OriginEndpoint resource with the given unique name, arguments, and options.
@@ -146,5 +146,5 @@ export interface OriginEndpointArgs {
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
     startoverWindowSeconds?: pulumi.Input<number>;
-    tags?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

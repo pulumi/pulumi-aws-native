@@ -60,7 +60,6 @@ __all__ = [
     'DeliveryStreamSplunkBufferingHintsArgs',
     'DeliveryStreamSplunkDestinationConfigurationArgs',
     'DeliveryStreamSplunkRetryOptionsArgs',
-    'DeliveryStreamTagArgs',
     'DeliveryStreamVpcConfigurationArgs',
 ]
 
@@ -1470,7 +1469,7 @@ class DeliveryStreamMskSourceConfigurationArgs:
 class DeliveryStreamOpenXJsonSerDeArgs:
     def __init__(__self__, *,
                  case_insensitive: Optional[pulumi.Input[bool]] = None,
-                 column_to_json_key_mappings: Optional[Any] = None,
+                 column_to_json_key_mappings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  convert_dots_in_json_keys_to_underscores: Optional[pulumi.Input[bool]] = None):
         if case_insensitive is not None:
             pulumi.set(__self__, "case_insensitive", case_insensitive)
@@ -1490,11 +1489,11 @@ class DeliveryStreamOpenXJsonSerDeArgs:
 
     @property
     @pulumi.getter(name="columnToJsonKeyMappings")
-    def column_to_json_key_mappings(self) -> Optional[Any]:
+    def column_to_json_key_mappings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "column_to_json_key_mappings")
 
     @column_to_json_key_mappings.setter
-    def column_to_json_key_mappings(self, value: Optional[Any]):
+    def column_to_json_key_mappings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "column_to_json_key_mappings", value)
 
     @property
@@ -2620,34 +2619,6 @@ class DeliveryStreamSplunkRetryOptionsArgs:
     @duration_in_seconds.setter
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
-
-
-@pulumi.input_type
-class DeliveryStreamTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

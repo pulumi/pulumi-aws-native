@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -20,7 +22,7 @@ class SchemaMappingArgs:
                  mapped_input_fields: pulumi.Input[Sequence[pulumi.Input['SchemaMappingSchemaInputAttributeArgs']]],
                  schema_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMappingTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SchemaMapping resource.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaMappingSchemaInputAttributeArgs']]] mapped_input_fields: The SchemaMapping attributes input
@@ -72,11 +74,11 @@ class SchemaMappingArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMappingTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMappingTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -88,7 +90,7 @@ class SchemaMapping(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  mapped_input_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMappingSchemaInputAttributeArgs']]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMappingTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         SchemaMapping defined in AWS Entity Resolution service
@@ -126,7 +128,7 @@ class SchemaMapping(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  mapped_input_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMappingSchemaInputAttributeArgs']]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMappingTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -223,7 +225,7 @@ class SchemaMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SchemaMappingTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

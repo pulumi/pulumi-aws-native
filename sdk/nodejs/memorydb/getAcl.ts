@@ -37,7 +37,7 @@ export interface GetAclResult {
     /**
      * An array of key-value pairs to apply to this cluster.
      */
-    readonly tags?: outputs.memorydb.AclTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * List of users associated to this acl.
      */

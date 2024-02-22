@@ -56,7 +56,7 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.ivs.PlaybackKeyPairTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PlaybackKeyPair resource with the given unique name, arguments, and options.
@@ -103,5 +103,5 @@ export interface PlaybackKeyPairArgs {
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ivs.PlaybackKeyPairTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

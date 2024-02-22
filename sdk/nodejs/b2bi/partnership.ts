@@ -46,7 +46,7 @@ export class Partnership extends pulumi.CustomResource {
     public /*out*/ readonly partnershipId!: pulumi.Output<string>;
     public readonly phone!: pulumi.Output<string | undefined>;
     public readonly profileId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.b2bi.PartnershipTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly tradingPartnerId!: pulumi.Output<string>;
 
     /**
@@ -106,5 +106,5 @@ export interface PartnershipArgs {
     name?: pulumi.Input<string>;
     phone?: pulumi.Input<string>;
     profileId: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.b2bi.PartnershipTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Evidently
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SegmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSegmentResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Evidently
 
             string? pattern,
 
-            ImmutableArray<Outputs.SegmentTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

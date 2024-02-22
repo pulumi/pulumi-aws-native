@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Connect
         /// One or more tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.EvaluationFormTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The title of the evaluation form.
@@ -145,14 +145,14 @@ namespace Pulumi.AwsNative.Connect
         public Input<Pulumi.AwsNative.Connect.EvaluationFormStatus> Status { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.EvaluationFormTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public InputList<Inputs.EvaluationFormTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.EvaluationFormTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

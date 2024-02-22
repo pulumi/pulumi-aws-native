@@ -676,101 +676,6 @@ type AppTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AppTagInput is an input type that accepts AppTagArgs and AppTagOutput values.
-// You can construct a concrete instance of `AppTagInput` via:
-//
-//	AppTagArgs{...}
-type AppTagInput interface {
-	pulumi.Input
-
-	ToAppTagOutput() AppTagOutput
-	ToAppTagOutputWithContext(context.Context) AppTagOutput
-}
-
-type AppTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AppTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppTag)(nil)).Elem()
-}
-
-func (i AppTagArgs) ToAppTagOutput() AppTagOutput {
-	return i.ToAppTagOutputWithContext(context.Background())
-}
-
-func (i AppTagArgs) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppTagOutput)
-}
-
-// AppTagArrayInput is an input type that accepts AppTagArray and AppTagArrayOutput values.
-// You can construct a concrete instance of `AppTagArrayInput` via:
-//
-//	AppTagArray{ AppTagArgs{...} }
-type AppTagArrayInput interface {
-	pulumi.Input
-
-	ToAppTagArrayOutput() AppTagArrayOutput
-	ToAppTagArrayOutputWithContext(context.Context) AppTagArrayOutput
-}
-
-type AppTagArray []AppTagInput
-
-func (AppTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppTag)(nil)).Elem()
-}
-
-func (i AppTagArray) ToAppTagArrayOutput() AppTagArrayOutput {
-	return i.ToAppTagArrayOutputWithContext(context.Background())
-}
-
-func (i AppTagArray) ToAppTagArrayOutputWithContext(ctx context.Context) AppTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppTagArrayOutput)
-}
-
-type AppTagOutput struct{ *pulumi.OutputState }
-
-func (AppTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppTag)(nil)).Elem()
-}
-
-func (o AppTagOutput) ToAppTagOutput() AppTagOutput {
-	return o
-}
-
-func (o AppTagOutput) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput {
-	return o
-}
-
-func (o AppTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AppTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AppTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AppTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AppTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AppTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppTag)(nil)).Elem()
-}
-
-func (o AppTagArrayOutput) ToAppTagArrayOutput() AppTagArrayOutput {
-	return o
-}
-
-func (o AppTagArrayOutput) ToAppTagArrayOutputWithContext(ctx context.Context) AppTagArrayOutput {
-	return o
-}
-
-func (o AppTagArrayOutput) Index(i pulumi.IntInput) AppTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTag {
-		return vs[0].([]AppTag)[vs[1].(int)]
-	}).(AppTagOutput)
-}
-
 type BranchBackend struct {
 	StackArn *string `pulumi:"stackArn"`
 }
@@ -1172,101 +1077,6 @@ type BranchTag struct {
 	Value string `pulumi:"value"`
 }
 
-// BranchTagInput is an input type that accepts BranchTagArgs and BranchTagOutput values.
-// You can construct a concrete instance of `BranchTagInput` via:
-//
-//	BranchTagArgs{...}
-type BranchTagInput interface {
-	pulumi.Input
-
-	ToBranchTagOutput() BranchTagOutput
-	ToBranchTagOutputWithContext(context.Context) BranchTagOutput
-}
-
-type BranchTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (BranchTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchTag)(nil)).Elem()
-}
-
-func (i BranchTagArgs) ToBranchTagOutput() BranchTagOutput {
-	return i.ToBranchTagOutputWithContext(context.Background())
-}
-
-func (i BranchTagArgs) ToBranchTagOutputWithContext(ctx context.Context) BranchTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchTagOutput)
-}
-
-// BranchTagArrayInput is an input type that accepts BranchTagArray and BranchTagArrayOutput values.
-// You can construct a concrete instance of `BranchTagArrayInput` via:
-//
-//	BranchTagArray{ BranchTagArgs{...} }
-type BranchTagArrayInput interface {
-	pulumi.Input
-
-	ToBranchTagArrayOutput() BranchTagArrayOutput
-	ToBranchTagArrayOutputWithContext(context.Context) BranchTagArrayOutput
-}
-
-type BranchTagArray []BranchTagInput
-
-func (BranchTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BranchTag)(nil)).Elem()
-}
-
-func (i BranchTagArray) ToBranchTagArrayOutput() BranchTagArrayOutput {
-	return i.ToBranchTagArrayOutputWithContext(context.Background())
-}
-
-func (i BranchTagArray) ToBranchTagArrayOutputWithContext(ctx context.Context) BranchTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchTagArrayOutput)
-}
-
-type BranchTagOutput struct{ *pulumi.OutputState }
-
-func (BranchTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchTag)(nil)).Elem()
-}
-
-func (o BranchTagOutput) ToBranchTagOutput() BranchTagOutput {
-	return o
-}
-
-func (o BranchTagOutput) ToBranchTagOutputWithContext(ctx context.Context) BranchTagOutput {
-	return o
-}
-
-func (o BranchTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BranchTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o BranchTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v BranchTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type BranchTagArrayOutput struct{ *pulumi.OutputState }
-
-func (BranchTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BranchTag)(nil)).Elem()
-}
-
-func (o BranchTagArrayOutput) ToBranchTagArrayOutput() BranchTagArrayOutput {
-	return o
-}
-
-func (o BranchTagArrayOutput) ToBranchTagArrayOutputWithContext(ctx context.Context) BranchTagArrayOutput {
-	return o
-}
-
-func (o BranchTagArrayOutput) Index(i pulumi.IntInput) BranchTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchTag {
-		return vs[0].([]BranchTag)[vs[1].(int)]
-	}).(BranchTagOutput)
-}
-
 type DomainSubDomainSetting struct {
 	BranchName string `pulumi:"branchName"`
 	Prefix     string `pulumi:"prefix"`
@@ -1376,16 +1186,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleArrayInput)(nil)).Elem(), AppCustomRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppEnvironmentVariableInput)(nil)).Elem(), AppEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppEnvironmentVariableArrayInput)(nil)).Elem(), AppEnvironmentVariableArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppTagInput)(nil)).Elem(), AppTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppTagArrayInput)(nil)).Elem(), AppTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchBackendInput)(nil)).Elem(), BranchBackendArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchBackendPtrInput)(nil)).Elem(), BranchBackendArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchBasicAuthConfigInput)(nil)).Elem(), BranchBasicAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchBasicAuthConfigPtrInput)(nil)).Elem(), BranchBasicAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchEnvironmentVariableInput)(nil)).Elem(), BranchEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchEnvironmentVariableArrayInput)(nil)).Elem(), BranchEnvironmentVariableArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchTagInput)(nil)).Elem(), BranchTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchTagArrayInput)(nil)).Elem(), BranchTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSubDomainSettingInput)(nil)).Elem(), DomainSubDomainSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSubDomainSettingArrayInput)(nil)).Elem(), DomainSubDomainSettingArray{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigOutput{})
@@ -1396,16 +1202,12 @@ func init() {
 	pulumi.RegisterOutputType(AppCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(AppEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(AppEnvironmentVariableArrayOutput{})
-	pulumi.RegisterOutputType(AppTagOutput{})
-	pulumi.RegisterOutputType(AppTagArrayOutput{})
 	pulumi.RegisterOutputType(BranchBackendOutput{})
 	pulumi.RegisterOutputType(BranchBackendPtrOutput{})
 	pulumi.RegisterOutputType(BranchBasicAuthConfigOutput{})
 	pulumi.RegisterOutputType(BranchBasicAuthConfigPtrOutput{})
 	pulumi.RegisterOutputType(BranchEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(BranchEnvironmentVariableArrayOutput{})
-	pulumi.RegisterOutputType(BranchTagOutput{})
-	pulumi.RegisterOutputType(BranchTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainSubDomainSettingOutput{})
 	pulumi.RegisterOutputType(DomainSubDomainSettingArrayOutput{})
 }

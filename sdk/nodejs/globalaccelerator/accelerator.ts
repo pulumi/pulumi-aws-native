@@ -73,7 +73,7 @@ export class Accelerator extends pulumi.CustomResource {
      * Name of accelerator.
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.globalaccelerator.AcceleratorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Accelerator resource with the given unique name, arguments, and options.
@@ -133,5 +133,5 @@ export interface AcceleratorArgs {
      * Name of accelerator.
      */
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.AcceleratorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['AutoScalingConfigurationArgs', 'AutoScalingConfiguration']
 
@@ -20,14 +20,14 @@ class AutoScalingConfigurationArgs:
                  max_concurrency: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingConfigurationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AutoScalingConfiguration resource.
         :param pulumi.Input[str] auto_scaling_configuration_name: The customer-provided auto scaling configuration name.  When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration. The auto scaling configuration name can be used in multiple revisions of a configuration.
         :param pulumi.Input[int] max_concurrency: The maximum number of concurrent requests that an instance processes. If the number of concurrent requests exceeds this limit, App Runner scales the service up to use more instances to process the requests.
         :param pulumi.Input[int] max_size: The maximum number of instances that an App Runner service scales up to. At most MaxSize instances actively serve traffic for your service.
         :param pulumi.Input[int] min_size: The minimum number of instances that App Runner provisions for a service. The service always has at least MinSize provisioned instances. Some of them actively serve traffic. The rest of them (provisioned and inactive instances) are a cost-effective compute capacity reserve and are ready to be quickly activated. You pay for memory usage of all the provisioned instances. You pay for CPU usage of only the active subset.
-        :param pulumi.Input[Sequence[pulumi.Input['AutoScalingConfigurationTagArgs']]] tags: A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
         """
         if auto_scaling_configuration_name is not None:
             pulumi.set(__self__, "auto_scaling_configuration_name", auto_scaling_configuration_name)
@@ -90,14 +90,14 @@ class AutoScalingConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingConfigurationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingConfigurationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,7 +110,7 @@ class AutoScalingConfiguration(pulumi.CustomResource):
                  max_concurrency: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         """
         Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
@@ -121,7 +121,7 @@ class AutoScalingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[int] max_concurrency: The maximum number of concurrent requests that an instance processes. If the number of concurrent requests exceeds this limit, App Runner scales the service up to use more instances to process the requests.
         :param pulumi.Input[int] max_size: The maximum number of instances that an App Runner service scales up to. At most MaxSize instances actively serve traffic for your service.
         :param pulumi.Input[int] min_size: The minimum number of instances that App Runner provisions for a service. The service always has at least MinSize provisioned instances. Some of them actively serve traffic. The rest of them (provisioned and inactive instances) are a cost-effective compute capacity reserve and are ready to be quickly activated. You pay for memory usage of all the provisioned instances. You pay for CPU usage of only the active subset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingConfigurationTagArgs']]]] tags: A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
         """
         ...
     @overload
@@ -151,7 +151,7 @@ class AutoScalingConfiguration(pulumi.CustomResource):
                  max_concurrency: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -261,7 +261,7 @@ class AutoScalingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AutoScalingConfigurationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
         """

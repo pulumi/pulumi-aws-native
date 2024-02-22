@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['EventSubscriptionArgs', 'EventSubscription']
 
@@ -24,7 +24,7 @@ class EventSubscriptionArgs:
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_type: Optional[pulumi.Input['EventSubscriptionSourceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
         :param pulumi.Input[str] subscription_name: The name of the Amazon Redshift event notification subscription
@@ -34,7 +34,7 @@ class EventSubscriptionArgs:
         :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: A list of one or more identifiers of Amazon Redshift source objects.
         :param pulumi.Input['EventSubscriptionSourceType'] source_type: The type of source that will be generating the events.
-        :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "subscription_name", subscription_name)
         if enabled is not None:
@@ -138,14 +138,14 @@ class EventSubscriptionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,7 +161,7 @@ class EventSubscription(pulumi.CustomResource):
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_type: Optional[pulumi.Input['EventSubscriptionSourceType']] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
@@ -175,7 +175,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: A list of one or more identifiers of Amazon Redshift source objects.
         :param pulumi.Input['EventSubscriptionSourceType'] source_type: The type of source that will be generating the events.
         :param pulumi.Input[str] subscription_name: The name of the Amazon Redshift event notification subscription
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -208,7 +208,7 @@ class EventSubscription(pulumi.CustomResource):
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_type: Optional[pulumi.Input['EventSubscriptionSourceType']] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -380,7 +380,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EventSubscriptionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

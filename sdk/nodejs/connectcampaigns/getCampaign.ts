@@ -39,7 +39,7 @@ export interface GetCampaignResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connectcampaigns.CampaignTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::ConnectCampaigns::Campaign Resource Type

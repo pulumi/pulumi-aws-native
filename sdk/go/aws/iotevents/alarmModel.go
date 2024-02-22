@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type AlarmModel struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags AlarmModelTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAlarmModel registers a new resource with the given unique name, arguments, and options.
@@ -108,7 +109,7 @@ type alarmModelArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags []AlarmModelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AlarmModel resource.
@@ -131,7 +132,7 @@ type AlarmModelArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags AlarmModelTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AlarmModelArgs) ElementType() reflect.Type {
@@ -213,8 +214,8 @@ func (o AlarmModelOutput) Severity() pulumi.IntPtrOutput {
 // An array of key-value pairs to apply to this resource.
 //
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-func (o AlarmModelOutput) Tags() AlarmModelTagArrayOutput {
-	return o.ApplyT(func(v *AlarmModel) AlarmModelTagArrayOutput { return v.Tags }).(AlarmModelTagArrayOutput)
+func (o AlarmModelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AlarmModel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -794,101 +794,6 @@ type ChannelTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
-// You can construct a concrete instance of `ChannelTagInput` via:
-//
-//	ChannelTagArgs{...}
-type ChannelTagInput interface {
-	pulumi.Input
-
-	ToChannelTagOutput() ChannelTagOutput
-	ToChannelTagOutputWithContext(context.Context) ChannelTagOutput
-}
-
-type ChannelTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ChannelTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
-}
-
-func (i ChannelTagArgs) ToChannelTagOutput() ChannelTagOutput {
-	return i.ToChannelTagOutputWithContext(context.Background())
-}
-
-func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
-}
-
-// ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
-// You can construct a concrete instance of `ChannelTagArrayInput` via:
-//
-//	ChannelTagArray{ ChannelTagArgs{...} }
-type ChannelTagArrayInput interface {
-	pulumi.Input
-
-	ToChannelTagArrayOutput() ChannelTagArrayOutput
-	ToChannelTagArrayOutputWithContext(context.Context) ChannelTagArrayOutput
-}
-
-type ChannelTagArray []ChannelTagInput
-
-func (ChannelTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
-}
-
-func (i ChannelTagArray) ToChannelTagArrayOutput() ChannelTagArrayOutput {
-	return i.ToChannelTagArrayOutputWithContext(context.Background())
-}
-
-func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
-}
-
-type ChannelTagOutput struct{ *pulumi.OutputState }
-
-func (ChannelTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
-}
-
-func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
-	return o
-}
-
-func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
-	return o
-}
-
-func (o ChannelTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ChannelTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ChannelTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ChannelTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ChannelTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ChannelTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
-}
-
-func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
-	return o
-}
-
-func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
-	return o
-}
-
-func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTag {
-		return vs[0].([]ChannelTag)[vs[1].(int)]
-	}).(ChannelTagOutput)
-}
-
 // <p>The configuration for time-shifted viewing.</p>
 type ChannelTimeShiftConfiguration struct {
 	// <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
@@ -1147,101 +1052,6 @@ func (o LiveSourceHttpPackageConfigurationArrayOutput) Index(i pulumi.IntInput) 
 type LiveSourceTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// LiveSourceTagInput is an input type that accepts LiveSourceTagArgs and LiveSourceTagOutput values.
-// You can construct a concrete instance of `LiveSourceTagInput` via:
-//
-//	LiveSourceTagArgs{...}
-type LiveSourceTagInput interface {
-	pulumi.Input
-
-	ToLiveSourceTagOutput() LiveSourceTagOutput
-	ToLiveSourceTagOutputWithContext(context.Context) LiveSourceTagOutput
-}
-
-type LiveSourceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LiveSourceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveSourceTag)(nil)).Elem()
-}
-
-func (i LiveSourceTagArgs) ToLiveSourceTagOutput() LiveSourceTagOutput {
-	return i.ToLiveSourceTagOutputWithContext(context.Background())
-}
-
-func (i LiveSourceTagArgs) ToLiveSourceTagOutputWithContext(ctx context.Context) LiveSourceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceTagOutput)
-}
-
-// LiveSourceTagArrayInput is an input type that accepts LiveSourceTagArray and LiveSourceTagArrayOutput values.
-// You can construct a concrete instance of `LiveSourceTagArrayInput` via:
-//
-//	LiveSourceTagArray{ LiveSourceTagArgs{...} }
-type LiveSourceTagArrayInput interface {
-	pulumi.Input
-
-	ToLiveSourceTagArrayOutput() LiveSourceTagArrayOutput
-	ToLiveSourceTagArrayOutputWithContext(context.Context) LiveSourceTagArrayOutput
-}
-
-type LiveSourceTagArray []LiveSourceTagInput
-
-func (LiveSourceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LiveSourceTag)(nil)).Elem()
-}
-
-func (i LiveSourceTagArray) ToLiveSourceTagArrayOutput() LiveSourceTagArrayOutput {
-	return i.ToLiveSourceTagArrayOutputWithContext(context.Background())
-}
-
-func (i LiveSourceTagArray) ToLiveSourceTagArrayOutputWithContext(ctx context.Context) LiveSourceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveSourceTagArrayOutput)
-}
-
-type LiveSourceTagOutput struct{ *pulumi.OutputState }
-
-func (LiveSourceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveSourceTag)(nil)).Elem()
-}
-
-func (o LiveSourceTagOutput) ToLiveSourceTagOutput() LiveSourceTagOutput {
-	return o
-}
-
-func (o LiveSourceTagOutput) ToLiveSourceTagOutputWithContext(ctx context.Context) LiveSourceTagOutput {
-	return o
-}
-
-func (o LiveSourceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LiveSourceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o LiveSourceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LiveSourceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LiveSourceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LiveSourceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LiveSourceTag)(nil)).Elem()
-}
-
-func (o LiveSourceTagArrayOutput) ToLiveSourceTagArrayOutput() LiveSourceTagArrayOutput {
-	return o
-}
-
-func (o LiveSourceTagArrayOutput) ToLiveSourceTagArrayOutputWithContext(ctx context.Context) LiveSourceTagArrayOutput {
-	return o
-}
-
-func (o LiveSourceTagArrayOutput) Index(i pulumi.IntInput) LiveSourceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveSourceTag {
-		return vs[0].([]LiveSourceTag)[vs[1].(int)]
-	}).(LiveSourceTagOutput)
 }
 
 // For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
@@ -2486,101 +2296,6 @@ type PlaybackConfigurationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PlaybackConfigurationTagInput is an input type that accepts PlaybackConfigurationTagArgs and PlaybackConfigurationTagOutput values.
-// You can construct a concrete instance of `PlaybackConfigurationTagInput` via:
-//
-//	PlaybackConfigurationTagArgs{...}
-type PlaybackConfigurationTagInput interface {
-	pulumi.Input
-
-	ToPlaybackConfigurationTagOutput() PlaybackConfigurationTagOutput
-	ToPlaybackConfigurationTagOutputWithContext(context.Context) PlaybackConfigurationTagOutput
-}
-
-type PlaybackConfigurationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PlaybackConfigurationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlaybackConfigurationTag)(nil)).Elem()
-}
-
-func (i PlaybackConfigurationTagArgs) ToPlaybackConfigurationTagOutput() PlaybackConfigurationTagOutput {
-	return i.ToPlaybackConfigurationTagOutputWithContext(context.Background())
-}
-
-func (i PlaybackConfigurationTagArgs) ToPlaybackConfigurationTagOutputWithContext(ctx context.Context) PlaybackConfigurationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationTagOutput)
-}
-
-// PlaybackConfigurationTagArrayInput is an input type that accepts PlaybackConfigurationTagArray and PlaybackConfigurationTagArrayOutput values.
-// You can construct a concrete instance of `PlaybackConfigurationTagArrayInput` via:
-//
-//	PlaybackConfigurationTagArray{ PlaybackConfigurationTagArgs{...} }
-type PlaybackConfigurationTagArrayInput interface {
-	pulumi.Input
-
-	ToPlaybackConfigurationTagArrayOutput() PlaybackConfigurationTagArrayOutput
-	ToPlaybackConfigurationTagArrayOutputWithContext(context.Context) PlaybackConfigurationTagArrayOutput
-}
-
-type PlaybackConfigurationTagArray []PlaybackConfigurationTagInput
-
-func (PlaybackConfigurationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PlaybackConfigurationTag)(nil)).Elem()
-}
-
-func (i PlaybackConfigurationTagArray) ToPlaybackConfigurationTagArrayOutput() PlaybackConfigurationTagArrayOutput {
-	return i.ToPlaybackConfigurationTagArrayOutputWithContext(context.Background())
-}
-
-func (i PlaybackConfigurationTagArray) ToPlaybackConfigurationTagArrayOutputWithContext(ctx context.Context) PlaybackConfigurationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationTagArrayOutput)
-}
-
-type PlaybackConfigurationTagOutput struct{ *pulumi.OutputState }
-
-func (PlaybackConfigurationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlaybackConfigurationTag)(nil)).Elem()
-}
-
-func (o PlaybackConfigurationTagOutput) ToPlaybackConfigurationTagOutput() PlaybackConfigurationTagOutput {
-	return o
-}
-
-func (o PlaybackConfigurationTagOutput) ToPlaybackConfigurationTagOutputWithContext(ctx context.Context) PlaybackConfigurationTagOutput {
-	return o
-}
-
-func (o PlaybackConfigurationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PlaybackConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PlaybackConfigurationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PlaybackConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PlaybackConfigurationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PlaybackConfigurationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PlaybackConfigurationTag)(nil)).Elem()
-}
-
-func (o PlaybackConfigurationTagArrayOutput) ToPlaybackConfigurationTagArrayOutput() PlaybackConfigurationTagArrayOutput {
-	return o
-}
-
-func (o PlaybackConfigurationTagArrayOutput) ToPlaybackConfigurationTagArrayOutputWithContext(ctx context.Context) PlaybackConfigurationTagArrayOutput {
-	return o
-}
-
-func (o PlaybackConfigurationTagArrayOutput) Index(i pulumi.IntInput) PlaybackConfigurationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlaybackConfigurationTag {
-		return vs[0].([]PlaybackConfigurationTag)[vs[1].(int)]
-	}).(PlaybackConfigurationTagOutput)
-}
-
 // <p>Access configuration parameters.</p>
 type SourceLocationAccessConfiguration struct {
 	AccessType                             *SourceLocationAccessType                             `pulumi:"accessType"`
@@ -3255,101 +2970,6 @@ type SourceLocationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// SourceLocationTagInput is an input type that accepts SourceLocationTagArgs and SourceLocationTagOutput values.
-// You can construct a concrete instance of `SourceLocationTagInput` via:
-//
-//	SourceLocationTagArgs{...}
-type SourceLocationTagInput interface {
-	pulumi.Input
-
-	ToSourceLocationTagOutput() SourceLocationTagOutput
-	ToSourceLocationTagOutputWithContext(context.Context) SourceLocationTagOutput
-}
-
-type SourceLocationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SourceLocationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceLocationTag)(nil)).Elem()
-}
-
-func (i SourceLocationTagArgs) ToSourceLocationTagOutput() SourceLocationTagOutput {
-	return i.ToSourceLocationTagOutputWithContext(context.Background())
-}
-
-func (i SourceLocationTagArgs) ToSourceLocationTagOutputWithContext(ctx context.Context) SourceLocationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationTagOutput)
-}
-
-// SourceLocationTagArrayInput is an input type that accepts SourceLocationTagArray and SourceLocationTagArrayOutput values.
-// You can construct a concrete instance of `SourceLocationTagArrayInput` via:
-//
-//	SourceLocationTagArray{ SourceLocationTagArgs{...} }
-type SourceLocationTagArrayInput interface {
-	pulumi.Input
-
-	ToSourceLocationTagArrayOutput() SourceLocationTagArrayOutput
-	ToSourceLocationTagArrayOutputWithContext(context.Context) SourceLocationTagArrayOutput
-}
-
-type SourceLocationTagArray []SourceLocationTagInput
-
-func (SourceLocationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SourceLocationTag)(nil)).Elem()
-}
-
-func (i SourceLocationTagArray) ToSourceLocationTagArrayOutput() SourceLocationTagArrayOutput {
-	return i.ToSourceLocationTagArrayOutputWithContext(context.Background())
-}
-
-func (i SourceLocationTagArray) ToSourceLocationTagArrayOutputWithContext(ctx context.Context) SourceLocationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceLocationTagArrayOutput)
-}
-
-type SourceLocationTagOutput struct{ *pulumi.OutputState }
-
-func (SourceLocationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceLocationTag)(nil)).Elem()
-}
-
-func (o SourceLocationTagOutput) ToSourceLocationTagOutput() SourceLocationTagOutput {
-	return o
-}
-
-func (o SourceLocationTagOutput) ToSourceLocationTagOutputWithContext(ctx context.Context) SourceLocationTagOutput {
-	return o
-}
-
-func (o SourceLocationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SourceLocationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o SourceLocationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SourceLocationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type SourceLocationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (SourceLocationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SourceLocationTag)(nil)).Elem()
-}
-
-func (o SourceLocationTagArrayOutput) ToSourceLocationTagArrayOutput() SourceLocationTagArrayOutput {
-	return o
-}
-
-func (o SourceLocationTagArrayOutput) ToSourceLocationTagArrayOutputWithContext(ctx context.Context) SourceLocationTagArrayOutput {
-	return o
-}
-
-func (o SourceLocationTagArrayOutput) Index(i pulumi.IntInput) SourceLocationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceLocationTag {
-		return vs[0].([]SourceLocationTag)[vs[1].(int)]
-	}).(SourceLocationTagOutput)
-}
-
 // <p>The HTTP package configuration properties for the requested VOD source.</p>
 type VodSourceHttpPackageConfiguration struct {
 	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
@@ -3470,101 +3090,6 @@ type VodSourceTag struct {
 	Value string `pulumi:"value"`
 }
 
-// VodSourceTagInput is an input type that accepts VodSourceTagArgs and VodSourceTagOutput values.
-// You can construct a concrete instance of `VodSourceTagInput` via:
-//
-//	VodSourceTagArgs{...}
-type VodSourceTagInput interface {
-	pulumi.Input
-
-	ToVodSourceTagOutput() VodSourceTagOutput
-	ToVodSourceTagOutputWithContext(context.Context) VodSourceTagOutput
-}
-
-type VodSourceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VodSourceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VodSourceTag)(nil)).Elem()
-}
-
-func (i VodSourceTagArgs) ToVodSourceTagOutput() VodSourceTagOutput {
-	return i.ToVodSourceTagOutputWithContext(context.Background())
-}
-
-func (i VodSourceTagArgs) ToVodSourceTagOutputWithContext(ctx context.Context) VodSourceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VodSourceTagOutput)
-}
-
-// VodSourceTagArrayInput is an input type that accepts VodSourceTagArray and VodSourceTagArrayOutput values.
-// You can construct a concrete instance of `VodSourceTagArrayInput` via:
-//
-//	VodSourceTagArray{ VodSourceTagArgs{...} }
-type VodSourceTagArrayInput interface {
-	pulumi.Input
-
-	ToVodSourceTagArrayOutput() VodSourceTagArrayOutput
-	ToVodSourceTagArrayOutputWithContext(context.Context) VodSourceTagArrayOutput
-}
-
-type VodSourceTagArray []VodSourceTagInput
-
-func (VodSourceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VodSourceTag)(nil)).Elem()
-}
-
-func (i VodSourceTagArray) ToVodSourceTagArrayOutput() VodSourceTagArrayOutput {
-	return i.ToVodSourceTagArrayOutputWithContext(context.Background())
-}
-
-func (i VodSourceTagArray) ToVodSourceTagArrayOutputWithContext(ctx context.Context) VodSourceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VodSourceTagArrayOutput)
-}
-
-type VodSourceTagOutput struct{ *pulumi.OutputState }
-
-func (VodSourceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VodSourceTag)(nil)).Elem()
-}
-
-func (o VodSourceTagOutput) ToVodSourceTagOutput() VodSourceTagOutput {
-	return o
-}
-
-func (o VodSourceTagOutput) ToVodSourceTagOutputWithContext(ctx context.Context) VodSourceTagOutput {
-	return o
-}
-
-func (o VodSourceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VodSourceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VodSourceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VodSourceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VodSourceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VodSourceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VodSourceTag)(nil)).Elem()
-}
-
-func (o VodSourceTagArrayOutput) ToVodSourceTagArrayOutput() VodSourceTagArrayOutput {
-	return o
-}
-
-func (o VodSourceTagArrayOutput) ToVodSourceTagArrayOutputWithContext(ctx context.Context) VodSourceTagArrayOutput {
-	return o
-}
-
-func (o VodSourceTagArrayOutput) Index(i pulumi.IntInput) VodSourceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VodSourceTag {
-		return vs[0].([]VodSourceTag)[vs[1].(int)]
-	}).(VodSourceTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDashPlaylistSettingsInput)(nil)).Elem(), ChannelDashPlaylistSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDashPlaylistSettingsPtrInput)(nil)).Elem(), ChannelDashPlaylistSettingsArgs{})
@@ -3576,14 +3101,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelRequestOutputItemArrayInput)(nil)).Elem(), ChannelRequestOutputItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlateSourceInput)(nil)).Elem(), ChannelSlateSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlateSourcePtrInput)(nil)).Elem(), ChannelSlateSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagInput)(nil)).Elem(), ChannelTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagArrayInput)(nil)).Elem(), ChannelTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationPtrInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationArrayInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTagInput)(nil)).Elem(), LiveSourceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTagArrayInput)(nil)).Elem(), LiveSourceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughPtrInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionArgs{})
@@ -3600,8 +3121,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationLivePreRollConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationLivePreRollConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationManifestProcessingRulesInput)(nil)).Elem(), PlaybackConfigurationManifestProcessingRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationManifestProcessingRulesPtrInput)(nil)).Elem(), PlaybackConfigurationManifestProcessingRulesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationTagInput)(nil)).Elem(), PlaybackConfigurationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationTagArrayInput)(nil)).Elem(), PlaybackConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessConfigurationInput)(nil)).Elem(), SourceLocationAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessConfigurationPtrInput)(nil)).Elem(), SourceLocationAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationDefaultSegmentDeliveryConfigurationInput)(nil)).Elem(), SourceLocationDefaultSegmentDeliveryConfigurationArgs{})
@@ -3611,12 +3130,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationSecretsManagerAccessTokenConfigurationPtrInput)(nil)).Elem(), SourceLocationSecretsManagerAccessTokenConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationSegmentDeliveryConfigurationInput)(nil)).Elem(), SourceLocationSegmentDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationSegmentDeliveryConfigurationArrayInput)(nil)).Elem(), SourceLocationSegmentDeliveryConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationTagInput)(nil)).Elem(), SourceLocationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationTagArrayInput)(nil)).Elem(), SourceLocationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceHttpPackageConfigurationInput)(nil)).Elem(), VodSourceHttpPackageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceHttpPackageConfigurationArrayInput)(nil)).Elem(), VodSourceHttpPackageConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTagInput)(nil)).Elem(), VodSourceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTagArrayInput)(nil)).Elem(), VodSourceTagArray{})
 	pulumi.RegisterOutputType(ChannelDashPlaylistSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelDashPlaylistSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelHlsPlaylistSettingsOutput{})
@@ -3627,14 +3142,10 @@ func init() {
 	pulumi.RegisterOutputType(ChannelRequestOutputItemArrayOutput{})
 	pulumi.RegisterOutputType(ChannelSlateSourceOutput{})
 	pulumi.RegisterOutputType(ChannelSlateSourcePtrOutput{})
-	pulumi.RegisterOutputType(ChannelTagOutput{})
-	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
 	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationOutput{})
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(LiveSourceTagOutput{})
-	pulumi.RegisterOutputType(LiveSourceTagArrayOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionOutput{})
@@ -3651,8 +3162,6 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationLivePreRollConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationManifestProcessingRulesOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationManifestProcessingRulesPtrOutput{})
-	pulumi.RegisterOutputType(PlaybackConfigurationTagOutput{})
-	pulumi.RegisterOutputType(PlaybackConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SourceLocationDefaultSegmentDeliveryConfigurationOutput{})
@@ -3663,10 +3172,6 @@ func init() {
 	pulumi.RegisterOutputType(SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SourceLocationSegmentDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(SourceLocationSegmentDeliveryConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(SourceLocationTagOutput{})
-	pulumi.RegisterOutputType(SourceLocationTagArrayOutput{})
 	pulumi.RegisterOutputType(VodSourceHttpPackageConfigurationOutput{})
 	pulumi.RegisterOutputType(VodSourceHttpPackageConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(VodSourceTagOutput{})
-	pulumi.RegisterOutputType(VodSourceTagArrayOutput{})
 }

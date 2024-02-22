@@ -43,7 +43,7 @@ export interface GetResourcePolicyResult {
     /**
      * A list of tags that you want to attach to the resource policy
      */
-    readonly tags?: outputs.organizations.ResourcePolicyTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * You can use AWS::Organizations::ResourcePolicy to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account.

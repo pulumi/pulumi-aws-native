@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,12 +28,12 @@ type LookupNetworkInsightsPathArgs struct {
 }
 
 type LookupNetworkInsightsPathResult struct {
-	CreatedDate            *string                  `pulumi:"createdDate"`
-	DestinationArn         *string                  `pulumi:"destinationArn"`
-	NetworkInsightsPathArn *string                  `pulumi:"networkInsightsPathArn"`
-	NetworkInsightsPathId  *string                  `pulumi:"networkInsightsPathId"`
-	SourceArn              *string                  `pulumi:"sourceArn"`
-	Tags                   []NetworkInsightsPathTag `pulumi:"tags"`
+	CreatedDate            *string   `pulumi:"createdDate"`
+	DestinationArn         *string   `pulumi:"destinationArn"`
+	NetworkInsightsPathArn *string   `pulumi:"networkInsightsPathArn"`
+	NetworkInsightsPathId  *string   `pulumi:"networkInsightsPathId"`
+	SourceArn              *string   `pulumi:"sourceArn"`
+	Tags                   []aws.Tag `pulumi:"tags"`
 }
 
 func LookupNetworkInsightsPathOutput(ctx *pulumi.Context, args LookupNetworkInsightsPathOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsPathResultOutput {
@@ -90,8 +91,8 @@ func (o LookupNetworkInsightsPathResultOutput) SourceArn() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupNetworkInsightsPathResultOutput) Tags() NetworkInsightsPathTagArrayOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsPathResult) []NetworkInsightsPathTag { return v.Tags }).(NetworkInsightsPathTagArrayOutput)
+func (o LookupNetworkInsightsPathResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

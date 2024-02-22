@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.WaFv2
         public Output<Pulumi.AwsNative.WaFv2.RegexPatternSetScope> Scope { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RegexPatternSetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -122,10 +122,10 @@ namespace Pulumi.AwsNative.WaFv2
         public Input<Pulumi.AwsNative.WaFv2.RegexPatternSetScope> Scope { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.RegexPatternSetTagArgs>? _tags;
-        public InputList<Inputs.RegexPatternSetTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RegexPatternSetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

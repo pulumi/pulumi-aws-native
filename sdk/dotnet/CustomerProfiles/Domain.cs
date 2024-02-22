@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The tags (keys and values) associated with the domain
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DomainTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -146,14 +146,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Input<Inputs.DomainRuleBasedMatchingArgs>? RuleBasedMatching { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DomainTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags (keys and values) associated with the domain
         /// </summary>
-        public InputList<Inputs.DomainTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DomainTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

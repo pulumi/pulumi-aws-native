@@ -12,11 +12,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AccessLogSubscriptionTag',
     'ListenerDefaultAction',
     'ListenerFixedResponse',
     'ListenerForward',
-    'ListenerTag',
     'ListenerWeightedTargetGroup',
     'RuleAction',
     'RuleFixedResponse',
@@ -27,39 +25,14 @@ __all__ = [
     'RuleMatch',
     'RulePathMatch',
     'RulePathMatchType',
-    'RuleTag',
     'RuleWeightedTargetGroup',
     'ServiceDnsEntry',
     'ServiceNetworkServiceAssociationDnsEntry',
-    'ServiceNetworkServiceAssociationTag',
-    'ServiceNetworkTag',
-    'ServiceNetworkVpcAssociationTag',
-    'ServiceTag',
     'TargetGroupConfig',
     'TargetGroupHealthCheckConfig',
     'TargetGroupMatcher',
-    'TargetGroupTag',
     'TargetGroupTarget',
 ]
-
-@pulumi.output_type
-class AccessLogSubscriptionTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class ListenerDefaultAction(dict):
@@ -155,25 +128,6 @@ class ListenerForward(dict):
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> Sequence['outputs.ListenerWeightedTargetGroup']:
         return pulumi.get(self, "target_groups")
-
-
-@pulumi.output_type
-class ListenerTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -518,25 +472,6 @@ class RulePathMatchType(dict):
 
 
 @pulumi.output_type
-class RuleTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class RuleWeightedTargetGroup(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -651,82 +586,6 @@ class ServiceNetworkServiceAssociationDnsEntry(dict):
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[str]:
         return pulumi.get(self, "hosted_zone_id")
-
-
-@pulumi.output_type
-class ServiceNetworkServiceAssociationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ServiceNetworkTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ServiceNetworkVpcAssociationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ServiceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -952,25 +811,6 @@ class TargetGroupMatcher(dict):
     @pulumi.getter(name="httpCode")
     def http_code(self) -> str:
         return pulumi.get(self, "http_code")
-
-
-@pulumi.output_type
-class TargetGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

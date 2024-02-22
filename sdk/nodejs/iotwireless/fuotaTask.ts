@@ -84,7 +84,7 @@ export class FuotaTask extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the FUOTA task.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.FuotaTaskTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FuotaTask resource with the given unique name, arguments, and options.
@@ -180,5 +180,5 @@ export interface FuotaTaskArgs {
     /**
      * A list of key-value pairs that contain metadata for the FUOTA task.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.FuotaTaskTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

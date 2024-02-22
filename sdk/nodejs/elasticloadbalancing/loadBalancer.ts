@@ -60,7 +60,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     public readonly sourceSecurityGroupGroupName!: pulumi.Output<string | undefined>;
     public readonly sourceSecurityGroupOwnerAlias!: pulumi.Output<string | undefined>;
     public readonly subnets!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -150,5 +150,5 @@ export interface LoadBalancerArgs {
     sourceSecurityGroupGroupName?: pulumi.Input<string>;
     sourceSecurityGroupOwnerAlias?: pulumi.Input<string>;
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

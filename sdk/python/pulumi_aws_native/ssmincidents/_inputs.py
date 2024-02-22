@@ -13,7 +13,6 @@ from ._enums import *
 __all__ = [
     'ReplicationSetRegionConfigurationArgs',
     'ReplicationSetReplicationRegionArgs',
-    'ReplicationSetTagArgs',
     'ResponsePlanActionArgs',
     'ResponsePlanChatChannelArgs',
     'ResponsePlanDynamicSsmParameterValueArgs',
@@ -77,36 +76,6 @@ class ReplicationSetReplicationRegionArgs:
     @region_name.setter
     def region_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region_name", value)
-
-
-@pulumi.input_type
-class ReplicationSetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to tag a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

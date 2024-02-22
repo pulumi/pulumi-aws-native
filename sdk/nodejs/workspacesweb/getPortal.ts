@@ -36,7 +36,7 @@ export interface GetPortalResult {
     readonly rendererType?: enums.workspacesweb.PortalRendererType;
     readonly serviceProviderSamlMetadata?: string;
     readonly statusReason?: string;
-    readonly tags?: outputs.workspacesweb.PortalTag[];
+    readonly tags?: outputs.Tag[];
     readonly trustStoreArn?: string;
     readonly userAccessLoggingSettingsArn?: string;
     readonly userSettingsArn?: string;

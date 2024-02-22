@@ -58,7 +58,7 @@ export interface GetIpamResourceDiscoveryResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ec2.IpamResourceDiscoveryTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Schema of AWS::EC2::IPAMResourceDiscovery Type

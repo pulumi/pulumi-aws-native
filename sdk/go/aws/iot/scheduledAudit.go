@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type ScheduledAudit struct {
 	// The name you want to give to the scheduled audit.
 	ScheduledAuditName pulumi.StringPtrOutput `pulumi:"scheduledAuditName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ScheduledAuditTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Which checks are performed during the scheduled audit. Checks must be enabled for your account.
 	TargetCheckNames pulumi.StringArrayOutput `pulumi:"targetCheckNames"`
 }
@@ -91,7 +92,7 @@ type scheduledAuditArgs struct {
 	// The name you want to give to the scheduled audit.
 	ScheduledAuditName *string `pulumi:"scheduledAuditName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ScheduledAuditTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Which checks are performed during the scheduled audit. Checks must be enabled for your account.
 	TargetCheckNames []string `pulumi:"targetCheckNames"`
 }
@@ -107,7 +108,7 @@ type ScheduledAuditArgs struct {
 	// The name you want to give to the scheduled audit.
 	ScheduledAuditName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ScheduledAuditTagArrayInput
+	Tags aws.TagArrayInput
 	// Which checks are performed during the scheduled audit. Checks must be enabled for your account.
 	TargetCheckNames pulumi.StringArrayInput
 }
@@ -175,8 +176,8 @@ func (o ScheduledAuditOutput) ScheduledAuditName() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ScheduledAuditOutput) Tags() ScheduledAuditTagArrayOutput {
-	return o.ApplyT(func(v *ScheduledAudit) ScheduledAuditTagArrayOutput { return v.Tags }).(ScheduledAuditTagArrayOutput)
+func (o ScheduledAuditOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ScheduledAudit) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Which checks are performed during the scheduled audit. Checks must be enabled for your account.

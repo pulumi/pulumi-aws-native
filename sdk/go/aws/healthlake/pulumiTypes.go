@@ -734,107 +734,6 @@ type FhirDatastoreTag struct {
 	Value string `pulumi:"value"`
 }
 
-// FhirDatastoreTagInput is an input type that accepts FhirDatastoreTagArgs and FhirDatastoreTagOutput values.
-// You can construct a concrete instance of `FhirDatastoreTagInput` via:
-//
-//	FhirDatastoreTagArgs{...}
-type FhirDatastoreTagInput interface {
-	pulumi.Input
-
-	ToFhirDatastoreTagOutput() FhirDatastoreTagOutput
-	ToFhirDatastoreTagOutputWithContext(context.Context) FhirDatastoreTagOutput
-}
-
-// A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
-type FhirDatastoreTagArgs struct {
-	// The key of the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FhirDatastoreTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FhirDatastoreTag)(nil)).Elem()
-}
-
-func (i FhirDatastoreTagArgs) ToFhirDatastoreTagOutput() FhirDatastoreTagOutput {
-	return i.ToFhirDatastoreTagOutputWithContext(context.Background())
-}
-
-func (i FhirDatastoreTagArgs) ToFhirDatastoreTagOutputWithContext(ctx context.Context) FhirDatastoreTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreTagOutput)
-}
-
-// FhirDatastoreTagArrayInput is an input type that accepts FhirDatastoreTagArray and FhirDatastoreTagArrayOutput values.
-// You can construct a concrete instance of `FhirDatastoreTagArrayInput` via:
-//
-//	FhirDatastoreTagArray{ FhirDatastoreTagArgs{...} }
-type FhirDatastoreTagArrayInput interface {
-	pulumi.Input
-
-	ToFhirDatastoreTagArrayOutput() FhirDatastoreTagArrayOutput
-	ToFhirDatastoreTagArrayOutputWithContext(context.Context) FhirDatastoreTagArrayOutput
-}
-
-type FhirDatastoreTagArray []FhirDatastoreTagInput
-
-func (FhirDatastoreTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FhirDatastoreTag)(nil)).Elem()
-}
-
-func (i FhirDatastoreTagArray) ToFhirDatastoreTagArrayOutput() FhirDatastoreTagArrayOutput {
-	return i.ToFhirDatastoreTagArrayOutputWithContext(context.Background())
-}
-
-func (i FhirDatastoreTagArray) ToFhirDatastoreTagArrayOutputWithContext(ctx context.Context) FhirDatastoreTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FhirDatastoreTagArrayOutput)
-}
-
-// A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
-type FhirDatastoreTagOutput struct{ *pulumi.OutputState }
-
-func (FhirDatastoreTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FhirDatastoreTag)(nil)).Elem()
-}
-
-func (o FhirDatastoreTagOutput) ToFhirDatastoreTagOutput() FhirDatastoreTagOutput {
-	return o
-}
-
-func (o FhirDatastoreTagOutput) ToFhirDatastoreTagOutputWithContext(ctx context.Context) FhirDatastoreTagOutput {
-	return o
-}
-
-// The key of the tag.
-func (o FhirDatastoreTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FhirDatastoreTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value of the tag.
-func (o FhirDatastoreTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FhirDatastoreTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FhirDatastoreTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FhirDatastoreTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FhirDatastoreTag)(nil)).Elem()
-}
-
-func (o FhirDatastoreTagArrayOutput) ToFhirDatastoreTagArrayOutput() FhirDatastoreTagArrayOutput {
-	return o
-}
-
-func (o FhirDatastoreTagArrayOutput) ToFhirDatastoreTagArrayOutputWithContext(ctx context.Context) FhirDatastoreTagArrayOutput {
-	return o
-}
-
-func (o FhirDatastoreTagArrayOutput) Index(i pulumi.IntInput) FhirDatastoreTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FhirDatastoreTag {
-		return vs[0].([]FhirDatastoreTag)[vs[1].(int)]
-	}).(FhirDatastoreTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreIdentityProviderConfigurationInput)(nil)).Elem(), FhirDatastoreIdentityProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreIdentityProviderConfigurationPtrInput)(nil)).Elem(), FhirDatastoreIdentityProviderConfigurationArgs{})
@@ -844,8 +743,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastorePreloadDataConfigPtrInput)(nil)).Elem(), FhirDatastorePreloadDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreSseConfigurationInput)(nil)).Elem(), FhirDatastoreSseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreSseConfigurationPtrInput)(nil)).Elem(), FhirDatastoreSseConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreTagInput)(nil)).Elem(), FhirDatastoreTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreTagArrayInput)(nil)).Elem(), FhirDatastoreTagArray{})
 	pulumi.RegisterOutputType(FhirDatastoreCreatedAtOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreCreatedAtPtrOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreIdentityProviderConfigurationOutput{})
@@ -856,6 +753,4 @@ func init() {
 	pulumi.RegisterOutputType(FhirDatastorePreloadDataConfigPtrOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreSseConfigurationOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreSseConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(FhirDatastoreTagOutput{})
-	pulumi.RegisterOutputType(FhirDatastoreTagArrayOutput{})
 }

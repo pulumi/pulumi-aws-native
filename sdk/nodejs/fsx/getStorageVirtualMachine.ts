@@ -27,7 +27,7 @@ export interface GetStorageVirtualMachineResult {
     readonly resourceArn?: string;
     readonly storageVirtualMachineId?: string;
     readonly svmAdminPassword?: string;
-    readonly tags?: outputs.fsx.StorageVirtualMachineTag[];
+    readonly tags?: outputs.Tag[];
     readonly uuid?: string;
 }
 /**

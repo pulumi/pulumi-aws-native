@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,10 +40,10 @@ type LookupCustomLineItemResult struct {
 	CustomLineItemChargeDetails *CustomLineItemChargeDetails `pulumi:"customLineItemChargeDetails"`
 	Description                 *string                      `pulumi:"description"`
 	// Latest modified timestamp in UNIX epoch time format
-	LastModifiedTime *int                `pulumi:"lastModifiedTime"`
-	Name             *string             `pulumi:"name"`
-	ProductCode      *string             `pulumi:"productCode"`
-	Tags             []CustomLineItemTag `pulumi:"tags"`
+	LastModifiedTime *int      `pulumi:"lastModifiedTime"`
+	Name             *string   `pulumi:"name"`
+	ProductCode      *string   `pulumi:"productCode"`
+	Tags             []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCustomLineItemOutput(ctx *pulumi.Context, args LookupCustomLineItemOutputArgs, opts ...pulumi.InvokeOption) LookupCustomLineItemResultOutput {
@@ -125,8 +126,8 @@ func (o LookupCustomLineItemResultOutput) ProductCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCustomLineItemResult) *string { return v.ProductCode }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCustomLineItemResultOutput) Tags() CustomLineItemTagArrayOutput {
-	return o.ApplyT(func(v LookupCustomLineItemResult) []CustomLineItemTag { return v.Tags }).(CustomLineItemTagArrayOutput)
+func (o LookupCustomLineItemResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCustomLineItemResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

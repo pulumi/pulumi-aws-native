@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ThingGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.ThingGroupPropertiesProperties? ThingGroupProperties;
 
         [OutputConstructor]
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? queryString,
 
-            ImmutableArray<Outputs.ThingGroupTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.ThingGroupPropertiesProperties? thingGroupProperties)
         {

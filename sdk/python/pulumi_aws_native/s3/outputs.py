@@ -13,10 +13,7 @@ from ._enums import *
 
 __all__ = [
     'AccessGrantGrantee',
-    'AccessGrantTag',
-    'AccessGrantsInstanceTag',
     'AccessGrantsLocationConfiguration',
-    'AccessGrantsLocationTag',
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointVpcConfiguration',
     'BucketAbortIncompleteMultipartUpload',
@@ -69,7 +66,6 @@ __all__ = [
     'BucketSourceSelectionCriteria',
     'BucketSseKmsEncryptedObjects',
     'BucketStorageClassAnalysis',
-    'BucketTag',
     'BucketTagFilter',
     'BucketTargetObjectKeyFormat',
     'BucketTiering',
@@ -104,7 +100,6 @@ __all__ = [
     'StorageLensPrefixLevelStorageMetrics',
     'StorageLensS3BucketDestination',
     'StorageLensSelectionCriteria',
-    'StorageLensTag',
 ]
 
 @pulumi.output_type
@@ -156,44 +151,6 @@ class AccessGrantGrantee(dict):
 
 
 @pulumi.output_type
-class AccessGrantTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class AccessGrantsInstanceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class AccessGrantsLocationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -226,25 +183,6 @@ class AccessGrantsLocationConfiguration(dict):
         The S3 sub prefix of a registered location in your S3 Access Grants instance
         """
         return pulumi.get(self, "s3_sub_prefix")
-
-
-@pulumi.output_type
-class AccessGrantsLocationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2876,25 +2814,6 @@ class BucketStorageClassAnalysis(dict):
 
 
 @pulumi.output_type
-class BucketTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class BucketTagFilter(dict):
     """
     Tags to use to identify a subset of objects for an Amazon S3 bucket.
@@ -4582,24 +4501,5 @@ class StorageLensSelectionCriteria(dict):
         The minimum storage bytes threshold for the prefixes to be included in the analysis.
         """
         return pulumi.get(self, "min_storage_bytes_percentage")
-
-
-@pulumi.output_type
-class StorageLensTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HoursOfOperationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The time zone of the hours of operation.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Connect
 
             string? name,
 
-            ImmutableArray<Outputs.HoursOfOperationTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? timeZone)
         {

@@ -84,7 +84,7 @@ export class FirewallRuleGroupAssociation extends pulumi.CustomResource {
     /**
      * Tags
      */
-    public readonly tags!: pulumi.Output<outputs.route53resolver.FirewallRuleGroupAssociationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * VpcId
      */
@@ -168,7 +168,7 @@ export interface FirewallRuleGroupAssociationArgs {
     /**
      * Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.FirewallRuleGroupAssociationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * VpcId
      */

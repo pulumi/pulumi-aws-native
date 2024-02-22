@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -51,7 +52,7 @@ type LookupDeviceResult struct {
 	// The state of the device.
 	State *string `pulumi:"state"`
 	// The tags for the device.
-	Tags []DeviceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The device type.
 	Type *string `pulumi:"type"`
 	// The device vendor.
@@ -147,8 +148,8 @@ func (o LookupDeviceResultOutput) State() pulumi.StringPtrOutput {
 }
 
 // The tags for the device.
-func (o LookupDeviceResultOutput) Tags() DeviceTagArrayOutput {
-	return o.ApplyT(func(v LookupDeviceResult) []DeviceTag { return v.Tags }).(DeviceTagArrayOutput)
+func (o LookupDeviceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDeviceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The device type.

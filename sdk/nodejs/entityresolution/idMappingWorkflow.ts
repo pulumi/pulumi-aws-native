@@ -46,7 +46,7 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
     public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowInputSource[]>;
     public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowOutputSource[]>;
     public readonly roleArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     public /*out*/ readonly workflowArn!: pulumi.Output<string>;
     /**
@@ -121,7 +121,7 @@ export interface IdMappingWorkflowArgs {
     inputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowInputSourceArgs>[]>;
     outputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowOutputSourceArgs>[]>;
     roleArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the IdMappingWorkflow
      */

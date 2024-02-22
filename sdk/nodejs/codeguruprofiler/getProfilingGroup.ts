@@ -41,7 +41,7 @@ export interface GetProfilingGroupResult {
     /**
      * The tags associated with a profiling group.
      */
-    readonly tags?: outputs.codeguruprofiler.ProfilingGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.

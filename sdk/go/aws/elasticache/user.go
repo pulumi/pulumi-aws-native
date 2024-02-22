@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type User struct {
 	// Indicates the user status. Can be "active", "modifying" or "deleting".
 	Status pulumi.StringOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this user.
-	Tags UserTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the user.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 	// The username of the user.
@@ -99,7 +100,7 @@ type userArgs struct {
 	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
 	// An array of key-value pairs to apply to this user.
-	Tags []UserTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the user.
 	UserId string `pulumi:"userId"`
 	// The username of the user.
@@ -118,7 +119,7 @@ type UserArgs struct {
 	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this user.
-	Tags UserTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the user.
 	UserId pulumi.StringInput
 	// The username of the user.
@@ -197,8 +198,8 @@ func (o UserOutput) Status() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this user.
-func (o UserOutput) Tags() UserTagArrayOutput {
-	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
+func (o UserOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *User) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the user.

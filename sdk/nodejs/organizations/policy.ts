@@ -62,7 +62,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
      */
-    public readonly tags!: pulumi.Output<outputs.organizations.PolicyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
      */
@@ -135,7 +135,7 @@ export interface PolicyArgs {
     /**
      * A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.organizations.PolicyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
      */

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class DecoderManifestArgs:
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DecoderManifestCanNetworkInterfaceArgs', 'DecoderManifestObdNetworkInterfaceArgs']]]]] = None,
                  signal_decoders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DecoderManifestCanSignalDecoderArgs', 'DecoderManifestObdSignalDecoderArgs']]]]] = None,
                  status: Optional[pulumi.Input['DecoderManifestManifestStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DecoderManifestTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DecoderManifest resource.
         """
@@ -97,11 +99,11 @@ class DecoderManifestArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DecoderManifestTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DecoderManifestTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -121,7 +123,7 @@ class DecoderManifest(pulumi.CustomResource):
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DecoderManifestCanNetworkInterfaceArgs'], pulumi.InputType['DecoderManifestObdNetworkInterfaceArgs']]]]]] = None,
                  signal_decoders: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DecoderManifestCanSignalDecoderArgs'], pulumi.InputType['DecoderManifestObdSignalDecoderArgs']]]]]] = None,
                  status: Optional[pulumi.Input['DecoderManifestManifestStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DecoderManifestTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::IoTFleetWise::DecoderManifest Resource Type
@@ -159,7 +161,7 @@ class DecoderManifest(pulumi.CustomResource):
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DecoderManifestCanNetworkInterfaceArgs'], pulumi.InputType['DecoderManifestObdNetworkInterfaceArgs']]]]]] = None,
                  signal_decoders: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DecoderManifestCanSignalDecoderArgs'], pulumi.InputType['DecoderManifestObdSignalDecoderArgs']]]]]] = None,
                  status: Optional[pulumi.Input['DecoderManifestManifestStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DecoderManifestTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""DecoderManifest is deprecated: DecoderManifest is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -265,6 +267,6 @@ class DecoderManifest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DecoderManifestTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SiteArgs', 'Site']
@@ -19,13 +21,13 @@ class SiteArgs:
                  global_network_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input['SiteLocationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Site resource.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] description: The description of the site.
         :param pulumi.Input['SiteLocationArgs'] location: The location of the site.
-        :param pulumi.Input[Sequence[pulumi.Input['SiteTagArgs']]] tags: The tags for the site.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the site.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         if description is not None:
@@ -73,14 +75,14 @@ class SiteArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SiteTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the site.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SiteTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,7 +94,7 @@ class Site(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['SiteLocationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::NetworkManager::Site type describes a site.
@@ -102,7 +104,7 @@ class Site(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the site.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: The location of the site.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteTagArgs']]]] tags: The tags for the site.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the site.
         """
         ...
     @overload
@@ -131,7 +133,7 @@ class Site(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['SiteLocationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -243,7 +245,7 @@ class Site(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SiteTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags for the site.
         """

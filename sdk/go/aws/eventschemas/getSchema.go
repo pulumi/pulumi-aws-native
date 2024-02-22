@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupSchemaResult struct {
 	// The version number of the schema.
 	SchemaVersion *string `pulumi:"schemaVersion"`
 	// Tags associated with the resource.
-	Tags []SchemaTagsEntry `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
 	Type *string `pulumi:"type"`
 	// The date the schema version was created.
@@ -108,8 +109,8 @@ func (o LookupSchemaResultOutput) SchemaVersion() pulumi.StringPtrOutput {
 }
 
 // Tags associated with the resource.
-func (o LookupSchemaResultOutput) Tags() SchemaTagsEntryArrayOutput {
-	return o.ApplyT(func(v LookupSchemaResult) []SchemaTagsEntry { return v.Tags }).(SchemaTagsEntryArrayOutput)
+func (o LookupSchemaResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSchemaResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.

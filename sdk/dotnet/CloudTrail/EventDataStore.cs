@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.CloudTrail
         public Output<string> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.EventDataStoreTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the event data store is protected from termination.
@@ -250,10 +250,10 @@ namespace Pulumi.AwsNative.CloudTrail
         public Input<int>? RetentionPeriod { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.EventDataStoreTagArgs>? _tags;
-        public InputList<Inputs.EventDataStoreTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.EventDataStoreTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

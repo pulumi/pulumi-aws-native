@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type Table struct {
 	StreamSpecification              TableStreamSpecificationPtrOutput              `pulumi:"streamSpecification"`
 	TableClass                       pulumi.StringPtrOutput                         `pulumi:"tableClass"`
 	TableName                        pulumi.StringPtrOutput                         `pulumi:"tableName"`
-	Tags                             TableTagArrayOutput                            `pulumi:"tags"`
+	Tags                             aws.TagArrayOutput                             `pulumi:"tags"`
 	TimeToLiveSpecification          TableTimeToLiveSpecificationPtrOutput          `pulumi:"timeToLiveSpecification"`
 }
 
@@ -102,7 +103,7 @@ type tableArgs struct {
 	StreamSpecification              *TableStreamSpecification              `pulumi:"streamSpecification"`
 	TableClass                       *string                                `pulumi:"tableClass"`
 	TableName                        *string                                `pulumi:"tableName"`
-	Tags                             []TableTag                             `pulumi:"tags"`
+	Tags                             []aws.Tag                              `pulumi:"tags"`
 	TimeToLiveSpecification          *TableTimeToLiveSpecification          `pulumi:"timeToLiveSpecification"`
 }
 
@@ -124,7 +125,7 @@ type TableArgs struct {
 	StreamSpecification              TableStreamSpecificationPtrInput
 	TableClass                       pulumi.StringPtrInput
 	TableName                        pulumi.StringPtrInput
-	Tags                             TableTagArrayInput
+	Tags                             aws.TagArrayInput
 	TimeToLiveSpecification          TableTimeToLiveSpecificationPtrInput
 }
 
@@ -241,8 +242,8 @@ func (o TableOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
 }
 
-func (o TableOutput) Tags() TableTagArrayOutput {
-	return o.ApplyT(func(v *Table) TableTagArrayOutput { return v.Tags }).(TableTagArrayOutput)
+func (o TableOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Table) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TableOutput) TimeToLiveSpecification() TableTimeToLiveSpecificationPtrOutput {

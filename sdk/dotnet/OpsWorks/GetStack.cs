@@ -52,10 +52,7 @@ namespace Pulumi.AwsNative.OpsWorks
     public sealed class GetStackResult
     {
         public readonly string? AgentVersion;
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-        /// </summary>
-        public readonly object? Attributes;
+        public readonly ImmutableDictionary<string, string>? Attributes;
         public readonly Outputs.StackChefConfiguration? ChefConfiguration;
         public readonly Outputs.StackConfigurationManager? ConfigurationManager;
         public readonly Outputs.StackSource? CustomCookbooksSource;
@@ -75,7 +72,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public readonly string? Id;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.StackRdsDbInstance> RdsDbInstances;
-        public readonly ImmutableArray<Outputs.StackTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly bool? UseCustomCookbooks;
         public readonly bool? UseOpsworksSecurityGroups;
 
@@ -83,7 +80,7 @@ namespace Pulumi.AwsNative.OpsWorks
         private GetStackResult(
             string? agentVersion,
 
-            object? attributes,
+            ImmutableDictionary<string, string>? attributes,
 
             Outputs.StackChefConfiguration? chefConfiguration,
 
@@ -117,7 +114,7 @@ namespace Pulumi.AwsNative.OpsWorks
 
             ImmutableArray<Outputs.StackRdsDbInstance> rdsDbInstances,
 
-            ImmutableArray<Outputs.StackTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? useCustomCookbooks,
 

@@ -48,7 +48,7 @@ export class StateMachine extends pulumi.CustomResource {
     public readonly stateMachineName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly stateMachineRevisionId!: pulumi.Output<string>;
     public readonly stateMachineType!: pulumi.Output<enums.stepfunctions.StateMachineType | undefined>;
-    public readonly tags!: pulumi.Output<outputs.stepfunctions.StateMachineTagsEntry[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly tracingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineTracingConfiguration | undefined>;
 
     /**
@@ -112,6 +112,6 @@ export interface StateMachineArgs {
     roleArn: pulumi.Input<string>;
     stateMachineName?: pulumi.Input<string>;
     stateMachineType?: pulumi.Input<enums.stepfunctions.StateMachineType>;
-    tags?: pulumi.Input<pulumi.Input<inputs.stepfunctions.StateMachineTagsEntryArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     tracingConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineTracingConfigurationArgs>;
 }

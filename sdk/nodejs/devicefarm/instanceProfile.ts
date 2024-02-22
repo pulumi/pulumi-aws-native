@@ -43,7 +43,7 @@ export class InstanceProfile extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly packageCleanup!: pulumi.Output<boolean | undefined>;
     public readonly rebootAfterUse!: pulumi.Output<boolean | undefined>;
-    public readonly tags!: pulumi.Output<outputs.devicefarm.InstanceProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a InstanceProfile resource with the given unique name, arguments, and options.
@@ -86,5 +86,5 @@ export interface InstanceProfileArgs {
     name?: pulumi.Input<string>;
     packageCleanup?: pulumi.Input<boolean>;
     rebootAfterUse?: pulumi.Input<boolean>;
-    tags?: pulumi.Input<pulumi.Input<inputs.devicefarm.InstanceProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

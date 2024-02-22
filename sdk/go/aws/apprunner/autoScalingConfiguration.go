@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type AutoScalingConfiguration struct {
 	// The minimum number of instances that App Runner provisions for a service. The service always has at least MinSize provisioned instances. Some of them actively serve traffic. The rest of them (provisioned and inactive instances) are a cost-effective compute capacity reserve and are ready to be quickly activated. You pay for memory usage of all the provisioned instances. You pay for CPU usage of only the active subset.
 	MinSize pulumi.IntPtrOutput `pulumi:"minSize"`
 	// A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
-	Tags AutoScalingConfigurationTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAutoScalingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type autoScalingConfigurationArgs struct {
 	// The minimum number of instances that App Runner provisions for a service. The service always has at least MinSize provisioned instances. Some of them actively serve traffic. The rest of them (provisioned and inactive instances) are a cost-effective compute capacity reserve and are ready to be quickly activated. You pay for memory usage of all the provisioned instances. You pay for CPU usage of only the active subset.
 	MinSize *int `pulumi:"minSize"`
 	// A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
-	Tags []AutoScalingConfigurationTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AutoScalingConfiguration resource.
@@ -104,7 +105,7 @@ type AutoScalingConfigurationArgs struct {
 	// The minimum number of instances that App Runner provisions for a service. The service always has at least MinSize provisioned instances. Some of them actively serve traffic. The rest of them (provisioned and inactive instances) are a cost-effective compute capacity reserve and are ready to be quickly activated. You pay for memory usage of all the provisioned instances. You pay for CPU usage of only the active subset.
 	MinSize pulumi.IntPtrInput
 	// A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
-	Tags AutoScalingConfigurationTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (AutoScalingConfigurationArgs) ElementType() reflect.Type {
@@ -180,8 +181,8 @@ func (o AutoScalingConfigurationOutput) MinSize() pulumi.IntPtrOutput {
 }
 
 // A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
-func (o AutoScalingConfigurationOutput) Tags() AutoScalingConfigurationTagArrayOutput {
-	return o.ApplyT(func(v *AutoScalingConfiguration) AutoScalingConfigurationTagArrayOutput { return v.Tags }).(AutoScalingConfigurationTagArrayOutput)
+func (o AutoScalingConfigurationOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *AutoScalingConfiguration) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

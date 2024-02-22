@@ -42,7 +42,7 @@ export interface GetLoadBalancerResult {
     readonly sourceSecurityGroupGroupName?: string;
     readonly sourceSecurityGroupOwnerAlias?: string;
     readonly subnets?: string[];
-    readonly tags?: outputs.elasticloadbalancing.LoadBalancerTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ElasticLoadBalancing::LoadBalancer

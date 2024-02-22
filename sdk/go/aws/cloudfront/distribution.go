@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,9 +17,9 @@ import (
 type Distribution struct {
 	pulumi.CustomResourceState
 
-	DistributionConfig DistributionConfigOutput   `pulumi:"distributionConfig"`
-	DomainName         pulumi.StringOutput        `pulumi:"domainName"`
-	Tags               DistributionTagArrayOutput `pulumi:"tags"`
+	DistributionConfig DistributionConfigOutput `pulumi:"distributionConfig"`
+	DomainName         pulumi.StringOutput      `pulumi:"domainName"`
+	Tags               aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewDistribution registers a new resource with the given unique name, arguments, and options.
@@ -65,13 +66,13 @@ func (DistributionState) ElementType() reflect.Type {
 
 type distributionArgs struct {
 	DistributionConfig DistributionConfig `pulumi:"distributionConfig"`
-	Tags               []DistributionTag  `pulumi:"tags"`
+	Tags               []aws.Tag          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Distribution resource.
 type DistributionArgs struct {
 	DistributionConfig DistributionConfigInput
-	Tags               DistributionTagArrayInput
+	Tags               aws.TagArrayInput
 }
 
 func (DistributionArgs) ElementType() reflect.Type {
@@ -119,8 +120,8 @@ func (o DistributionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-func (o DistributionOutput) Tags() DistributionTagArrayOutput {
-	return o.ApplyT(func(v *Distribution) DistributionTagArrayOutput { return v.Tags }).(DistributionTagArrayOutput)
+func (o DistributionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Distribution) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

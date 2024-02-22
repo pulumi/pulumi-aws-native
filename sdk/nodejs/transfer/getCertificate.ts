@@ -65,7 +65,7 @@ export interface GetCertificateResult {
     /**
      * Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
      */
-    readonly tags?: outputs.transfer.CertificateTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Describing the type of certificate. With or without a private key.
      */

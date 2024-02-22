@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupGroupResult struct {
 	Description   *string             `pulumi:"description"`
 	ResourceQuery *GroupResourceQuery `pulumi:"resourceQuery"`
 	Resources     []string            `pulumi:"resources"`
-	Tags          []GroupTag          `pulumi:"tags"`
+	Tags          []aws.Tag           `pulumi:"tags"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -96,8 +97,8 @@ func (o LookupGroupResultOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupGroupResultOutput) Tags() GroupTagArrayOutput {
-	return o.ApplyT(func(v LookupGroupResult) []GroupTag { return v.Tags }).(GroupTagArrayOutput)
+func (o LookupGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

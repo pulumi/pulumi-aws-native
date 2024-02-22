@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DistributionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDistributionResult(
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.Lightsail
 
             string? status,
 
-            ImmutableArray<Outputs.DistributionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AbleToUpdateBundle = ableToUpdateBundle;
             BundleId = bundleId;

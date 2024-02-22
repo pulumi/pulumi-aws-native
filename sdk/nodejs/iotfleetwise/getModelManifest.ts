@@ -30,7 +30,7 @@ export interface GetModelManifestResult {
     readonly nodes?: string[];
     readonly signalCatalogArn?: string;
     readonly status?: enums.iotfleetwise.ModelManifestManifestStatus;
-    readonly tags?: outputs.iotfleetwise.ModelManifestTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::IoTFleetWise::ModelManifest Resource Type

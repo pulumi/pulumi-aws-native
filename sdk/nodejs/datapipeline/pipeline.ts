@@ -65,7 +65,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
      */
-    public readonly pipelineTags!: pulumi.Output<outputs.datapipeline.PipelineTag[] | undefined>;
+    public readonly pipelineTags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -134,5 +134,5 @@ export interface PipelineArgs {
     /**
      * A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
      */
-    pipelineTags?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineTagArgs>[]>;
+    pipelineTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

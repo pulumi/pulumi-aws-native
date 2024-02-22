@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.MonitoringScheduleTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -143,14 +143,14 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Pulumi.AwsNative.SageMaker.MonitoringScheduleStatus>? MonitoringScheduleStatus { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.MonitoringScheduleTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.MonitoringScheduleTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.MonitoringScheduleTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

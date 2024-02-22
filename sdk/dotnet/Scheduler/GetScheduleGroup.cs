@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Scheduler
         /// <summary>
         /// The list of tags to associate with the schedule group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScheduleGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetScheduleGroupResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Scheduler
 
             Pulumi.AwsNative.Scheduler.ScheduleGroupState? state,
 
-            ImmutableArray<Outputs.ScheduleGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationDate = creationDate;

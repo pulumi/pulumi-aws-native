@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type Domain struct {
 	RuleBasedMatching DomainRuleBasedMatchingPtrOutput `pulumi:"ruleBasedMatching"`
 	Stats             DomainStatsOutput                `pulumi:"stats"`
 	// The tags (keys and values) associated with the domain
-	Tags DomainTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -89,7 +90,7 @@ type domainArgs struct {
 	Matching          *DomainMatching          `pulumi:"matching"`
 	RuleBasedMatching *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
 	// The tags (keys and values) associated with the domain
-	Tags []DomainTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -105,7 +106,7 @@ type DomainArgs struct {
 	Matching          DomainMatchingPtrInput
 	RuleBasedMatching DomainRuleBasedMatchingPtrInput
 	// The tags (keys and values) associated with the domain
-	Tags DomainTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -188,8 +189,8 @@ func (o DomainOutput) Stats() DomainStatsOutput {
 }
 
 // The tags (keys and values) associated with the domain
-func (o DomainOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+func (o DomainOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Domain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

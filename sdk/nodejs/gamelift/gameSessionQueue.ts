@@ -72,7 +72,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.gamelift.GameSessionQueueTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The maximum time, in seconds, that a new game session placement request remains in the queue.
      */
@@ -153,7 +153,7 @@ export interface GameSessionQueueArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueueTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The maximum time, in seconds, that a new game session placement request remains in the queue.
      */

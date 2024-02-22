@@ -54,7 +54,7 @@ export interface GetIpamScopeResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ec2.IpamScopeTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Schema of AWS::EC2::IPAMScope Type

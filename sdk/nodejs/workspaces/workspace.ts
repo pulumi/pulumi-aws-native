@@ -43,7 +43,7 @@ export class Workspace extends pulumi.CustomResource {
     public readonly bundleId!: pulumi.Output<string>;
     public readonly directoryId!: pulumi.Output<string>;
     public readonly rootVolumeEncryptionEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly tags!: pulumi.Output<outputs.workspaces.WorkspaceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly userName!: pulumi.Output<string>;
     public readonly userVolumeEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     public readonly volumeEncryptionKey!: pulumi.Output<string | undefined>;
@@ -103,7 +103,7 @@ export interface WorkspaceArgs {
     bundleId: pulumi.Input<string>;
     directoryId: pulumi.Input<string>;
     rootVolumeEncryptionEnabled?: pulumi.Input<boolean>;
-    tags?: pulumi.Input<pulumi.Input<inputs.workspaces.WorkspaceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     userName: pulumi.Input<string>;
     userVolumeEncryptionEnabled?: pulumi.Input<boolean>;
     volumeEncryptionKey?: pulumi.Input<string>;

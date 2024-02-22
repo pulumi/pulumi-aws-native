@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type ReplicationSet struct {
 	// The ReplicationSet configuration.
 	Regions ReplicationSetReplicationRegionArrayOutput `pulumi:"regions"`
 	// The tags to apply to the replication set.
-	Tags ReplicationSetTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewReplicationSet registers a new resource with the given unique name, arguments, and options.
@@ -72,7 +73,7 @@ type replicationSetArgs struct {
 	// The ReplicationSet configuration.
 	Regions []ReplicationSetReplicationRegion `pulumi:"regions"`
 	// The tags to apply to the replication set.
-	Tags []ReplicationSetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReplicationSet resource.
@@ -81,7 +82,7 @@ type ReplicationSetArgs struct {
 	// The ReplicationSet configuration.
 	Regions ReplicationSetReplicationRegionArrayInput
 	// The tags to apply to the replication set.
-	Tags ReplicationSetTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ReplicationSetArgs) ElementType() reflect.Type {
@@ -136,8 +137,8 @@ func (o ReplicationSetOutput) Regions() ReplicationSetReplicationRegionArrayOutp
 }
 
 // The tags to apply to the replication set.
-func (o ReplicationSetOutput) Tags() ReplicationSetTagArrayOutput {
-	return o.ApplyT(func(v *ReplicationSet) ReplicationSetTagArrayOutput { return v.Tags }).(ReplicationSetTagArrayOutput)
+func (o ReplicationSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ReplicationSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

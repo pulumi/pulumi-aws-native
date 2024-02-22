@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,12 +17,12 @@ import (
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	Description        pulumi.StringPtrOutput       `pulumi:"description"`
-	FirewallPolicy     FirewallPolicyTypeOutput     `pulumi:"firewallPolicy"`
-	FirewallPolicyArn  pulumi.StringOutput          `pulumi:"firewallPolicyArn"`
-	FirewallPolicyId   pulumi.StringOutput          `pulumi:"firewallPolicyId"`
-	FirewallPolicyName pulumi.StringOutput          `pulumi:"firewallPolicyName"`
-	Tags               FirewallPolicyTagArrayOutput `pulumi:"tags"`
+	Description        pulumi.StringPtrOutput   `pulumi:"description"`
+	FirewallPolicy     FirewallPolicyTypeOutput `pulumi:"firewallPolicy"`
+	FirewallPolicyArn  pulumi.StringOutput      `pulumi:"firewallPolicyArn"`
+	FirewallPolicyId   pulumi.StringOutput      `pulumi:"firewallPolicyId"`
+	FirewallPolicyName pulumi.StringOutput      `pulumi:"firewallPolicyName"`
+	Tags               aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -71,10 +72,10 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
-	Description        *string             `pulumi:"description"`
-	FirewallPolicy     FirewallPolicyType  `pulumi:"firewallPolicy"`
-	FirewallPolicyName *string             `pulumi:"firewallPolicyName"`
-	Tags               []FirewallPolicyTag `pulumi:"tags"`
+	Description        *string            `pulumi:"description"`
+	FirewallPolicy     FirewallPolicyType `pulumi:"firewallPolicy"`
+	FirewallPolicyName *string            `pulumi:"firewallPolicyName"`
+	Tags               []aws.Tag          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
@@ -82,7 +83,7 @@ type FirewallPolicyArgs struct {
 	Description        pulumi.StringPtrInput
 	FirewallPolicy     FirewallPolicyTypeInput
 	FirewallPolicyName pulumi.StringPtrInput
-	Tags               FirewallPolicyTagArrayInput
+	Tags               aws.TagArrayInput
 }
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {
@@ -142,8 +143,8 @@ func (o FirewallPolicyOutput) FirewallPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.FirewallPolicyName }).(pulumi.StringOutput)
 }
 
-func (o FirewallPolicyOutput) Tags() FirewallPolicyTagArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyTagArrayOutput { return v.Tags }).(FirewallPolicyTagArrayOutput)
+func (o FirewallPolicyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

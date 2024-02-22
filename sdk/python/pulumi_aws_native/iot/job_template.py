@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -28,7 +30,7 @@ class JobTemplateArgs:
                  job_executions_rollout_config: Optional[pulumi.Input['JobExecutionsRolloutConfigPropertiesArgs']] = None,
                  maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateMaintenanceWindowArgs']]]] = None,
                  presigned_url_config: Optional[pulumi.Input['PresignedUrlConfigPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
                  timeout_config: Optional[pulumi.Input['TimeoutConfigPropertiesArgs']] = None):
         """
         The set of arguments for constructing a JobTemplate resource.
@@ -39,7 +41,7 @@ class JobTemplateArgs:
         :param pulumi.Input[str] job_arn: Optional for copying a JobTemplate from a pre-existing Job configuration.
         :param pulumi.Input['JobExecutionsRolloutConfigPropertiesArgs'] job_executions_rollout_config: Allows you to create a staged rollout of a job.
         :param pulumi.Input['PresignedUrlConfigPropertiesArgs'] presigned_url_config: Configuration for pre-signed S3 URLs.
-        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateTagArgs']]] tags: Metadata that can be used to manage the JobTemplate.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata that can be used to manage the JobTemplate.
         :param pulumi.Input['TimeoutConfigPropertiesArgs'] timeout_config: Specifies the amount of time each device has to finish its execution of the job.
         """
         pulumi.set(__self__, "description", description)
@@ -189,14 +191,14 @@ class JobTemplateArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         Metadata that can be used to manage the JobTemplate.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -228,7 +230,7 @@ class JobTemplate(pulumi.CustomResource):
                  job_template_id: Optional[pulumi.Input[str]] = None,
                  maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateMaintenanceWindowArgs']]]]] = None,
                  presigned_url_config: Optional[pulumi.Input[pulumi.InputType['PresignedUrlConfigPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  timeout_config: Optional[pulumi.Input[pulumi.InputType['TimeoutConfigPropertiesArgs']]] = None,
                  __props__=None):
         """
@@ -243,7 +245,7 @@ class JobTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] job_arn: Optional for copying a JobTemplate from a pre-existing Job configuration.
         :param pulumi.Input[pulumi.InputType['JobExecutionsRolloutConfigPropertiesArgs']] job_executions_rollout_config: Allows you to create a staged rollout of a job.
         :param pulumi.Input[pulumi.InputType['PresignedUrlConfigPropertiesArgs']] presigned_url_config: Configuration for pre-signed S3 URLs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateTagArgs']]]] tags: Metadata that can be used to manage the JobTemplate.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata that can be used to manage the JobTemplate.
         :param pulumi.Input[pulumi.InputType['TimeoutConfigPropertiesArgs']] timeout_config: Specifies the amount of time each device has to finish its execution of the job.
         """
         ...
@@ -281,7 +283,7 @@ class JobTemplate(pulumi.CustomResource):
                  job_template_id: Optional[pulumi.Input[str]] = None,
                  maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateMaintenanceWindowArgs']]]]] = None,
                  presigned_url_config: Optional[pulumi.Input[pulumi.InputType['PresignedUrlConfigPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  timeout_config: Optional[pulumi.Input[pulumi.InputType['TimeoutConfigPropertiesArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -433,7 +435,7 @@ class JobTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.JobTemplateTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         Metadata that can be used to manage the JobTemplate.
         """

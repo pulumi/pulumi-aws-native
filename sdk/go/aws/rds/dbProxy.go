@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type DbProxy struct {
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
-	Tags DbProxyTagFormatArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// VPC ID to associate with the new DB proxy.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// VPC security group IDs to associate with the new proxy.
@@ -117,7 +118,7 @@ type dbProxyArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn string `pulumi:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
-	Tags []DbProxyTagFormat `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 	// VPC subnet IDs to associate with the new proxy.
@@ -141,7 +142,7 @@ type DbProxyArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringInput
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
-	Tags DbProxyTagFormatArrayInput
+	Tags aws.TagArrayInput
 	// VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 	// VPC subnet IDs to associate with the new proxy.
@@ -231,8 +232,8 @@ func (o DbProxyOutput) RoleArn() pulumi.StringOutput {
 }
 
 // An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
-func (o DbProxyOutput) Tags() DbProxyTagFormatArrayOutput {
-	return o.ApplyT(func(v *DbProxy) DbProxyTagFormatArrayOutput { return v.Tags }).(DbProxyTagFormatArrayOutput)
+func (o DbProxyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbProxy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // VPC ID to associate with the new DB proxy.

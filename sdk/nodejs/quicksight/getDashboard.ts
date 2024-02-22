@@ -31,7 +31,7 @@ export interface GetDashboardResult {
     readonly lastUpdatedTime?: string;
     readonly name?: string;
     readonly permissions?: outputs.quicksight.DashboardResourcePermission[];
-    readonly tags?: outputs.quicksight.DashboardTag[];
+    readonly tags?: outputs.Tag[];
     readonly version?: outputs.quicksight.DashboardVersion;
 }
 /**

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupConnectPeerResult struct {
 	// State of the connect peer.
 	State *string `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ConnectPeerTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupConnectPeerOutput(ctx *pulumi.Context, args LookupConnectPeerOutputArgs, opts ...pulumi.InvokeOption) LookupConnectPeerResultOutput {
@@ -111,8 +112,8 @@ func (o LookupConnectPeerResultOutput) State() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupConnectPeerResultOutput) Tags() ConnectPeerTagArrayOutput {
-	return o.ApplyT(func(v LookupConnectPeerResult) []ConnectPeerTag { return v.Tags }).(ConnectPeerTagArrayOutput)
+func (o LookupConnectPeerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

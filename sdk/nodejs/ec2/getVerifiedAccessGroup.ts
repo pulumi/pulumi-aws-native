@@ -57,7 +57,7 @@ export interface GetVerifiedAccessGroupResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ec2.VerifiedAccessGroupTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ARN of the Verified Access group.
      */

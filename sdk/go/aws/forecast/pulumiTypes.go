@@ -129,107 +129,6 @@ type DatasetGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DatasetGroupTagInput is an input type that accepts DatasetGroupTagArgs and DatasetGroupTagOutput values.
-// You can construct a concrete instance of `DatasetGroupTagInput` via:
-//
-//	DatasetGroupTagArgs{...}
-type DatasetGroupTagInput interface {
-	pulumi.Input
-
-	ToDatasetGroupTagOutput() DatasetGroupTagOutput
-	ToDatasetGroupTagOutputWithContext(context.Context) DatasetGroupTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type DatasetGroupTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DatasetGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetGroupTag)(nil)).Elem()
-}
-
-func (i DatasetGroupTagArgs) ToDatasetGroupTagOutput() DatasetGroupTagOutput {
-	return i.ToDatasetGroupTagOutputWithContext(context.Background())
-}
-
-func (i DatasetGroupTagArgs) ToDatasetGroupTagOutputWithContext(ctx context.Context) DatasetGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetGroupTagOutput)
-}
-
-// DatasetGroupTagArrayInput is an input type that accepts DatasetGroupTagArray and DatasetGroupTagArrayOutput values.
-// You can construct a concrete instance of `DatasetGroupTagArrayInput` via:
-//
-//	DatasetGroupTagArray{ DatasetGroupTagArgs{...} }
-type DatasetGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToDatasetGroupTagArrayOutput() DatasetGroupTagArrayOutput
-	ToDatasetGroupTagArrayOutputWithContext(context.Context) DatasetGroupTagArrayOutput
-}
-
-type DatasetGroupTagArray []DatasetGroupTagInput
-
-func (DatasetGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetGroupTag)(nil)).Elem()
-}
-
-func (i DatasetGroupTagArray) ToDatasetGroupTagArrayOutput() DatasetGroupTagArrayOutput {
-	return i.ToDatasetGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i DatasetGroupTagArray) ToDatasetGroupTagArrayOutputWithContext(ctx context.Context) DatasetGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetGroupTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type DatasetGroupTagOutput struct{ *pulumi.OutputState }
-
-func (DatasetGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetGroupTag)(nil)).Elem()
-}
-
-func (o DatasetGroupTagOutput) ToDatasetGroupTagOutput() DatasetGroupTagOutput {
-	return o
-}
-
-func (o DatasetGroupTagOutput) ToDatasetGroupTagOutputWithContext(ctx context.Context) DatasetGroupTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DatasetGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DatasetGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DatasetGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DatasetGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetGroupTag)(nil)).Elem()
-}
-
-func (o DatasetGroupTagArrayOutput) ToDatasetGroupTagArrayOutput() DatasetGroupTagArrayOutput {
-	return o
-}
-
-func (o DatasetGroupTagArrayOutput) ToDatasetGroupTagArrayOutputWithContext(ctx context.Context) DatasetGroupTagArrayOutput {
-	return o
-}
-
-func (o DatasetGroupTagArrayOutput) Index(i pulumi.IntInput) DatasetGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetGroupTag {
-		return vs[0].([]DatasetGroupTag)[vs[1].(int)]
-	}).(DatasetGroupTagOutput)
-}
-
 type EncryptionConfigProperties struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	RoleArn   *string `pulumi:"roleArn"`
@@ -466,121 +365,16 @@ type TagsItemProperties struct {
 	Value string `pulumi:"value"`
 }
 
-// TagsItemPropertiesInput is an input type that accepts TagsItemPropertiesArgs and TagsItemPropertiesOutput values.
-// You can construct a concrete instance of `TagsItemPropertiesInput` via:
-//
-//	TagsItemPropertiesArgs{...}
-type TagsItemPropertiesInput interface {
-	pulumi.Input
-
-	ToTagsItemPropertiesOutput() TagsItemPropertiesOutput
-	ToTagsItemPropertiesOutputWithContext(context.Context) TagsItemPropertiesOutput
-}
-
-// A key-value pair to associate with a resource.
-type TagsItemPropertiesArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TagsItemPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsItemProperties)(nil)).Elem()
-}
-
-func (i TagsItemPropertiesArgs) ToTagsItemPropertiesOutput() TagsItemPropertiesOutput {
-	return i.ToTagsItemPropertiesOutputWithContext(context.Background())
-}
-
-func (i TagsItemPropertiesArgs) ToTagsItemPropertiesOutputWithContext(ctx context.Context) TagsItemPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsItemPropertiesOutput)
-}
-
-// TagsItemPropertiesArrayInput is an input type that accepts TagsItemPropertiesArray and TagsItemPropertiesArrayOutput values.
-// You can construct a concrete instance of `TagsItemPropertiesArrayInput` via:
-//
-//	TagsItemPropertiesArray{ TagsItemPropertiesArgs{...} }
-type TagsItemPropertiesArrayInput interface {
-	pulumi.Input
-
-	ToTagsItemPropertiesArrayOutput() TagsItemPropertiesArrayOutput
-	ToTagsItemPropertiesArrayOutputWithContext(context.Context) TagsItemPropertiesArrayOutput
-}
-
-type TagsItemPropertiesArray []TagsItemPropertiesInput
-
-func (TagsItemPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TagsItemProperties)(nil)).Elem()
-}
-
-func (i TagsItemPropertiesArray) ToTagsItemPropertiesArrayOutput() TagsItemPropertiesArrayOutput {
-	return i.ToTagsItemPropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i TagsItemPropertiesArray) ToTagsItemPropertiesArrayOutputWithContext(ctx context.Context) TagsItemPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsItemPropertiesArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type TagsItemPropertiesOutput struct{ *pulumi.OutputState }
-
-func (TagsItemPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsItemProperties)(nil)).Elem()
-}
-
-func (o TagsItemPropertiesOutput) ToTagsItemPropertiesOutput() TagsItemPropertiesOutput {
-	return o
-}
-
-func (o TagsItemPropertiesOutput) ToTagsItemPropertiesOutputWithContext(ctx context.Context) TagsItemPropertiesOutput {
-	return o
-}
-
-func (o TagsItemPropertiesOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TagsItemProperties) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o TagsItemPropertiesOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TagsItemProperties) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TagsItemPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (TagsItemPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TagsItemProperties)(nil)).Elem()
-}
-
-func (o TagsItemPropertiesArrayOutput) ToTagsItemPropertiesArrayOutput() TagsItemPropertiesArrayOutput {
-	return o
-}
-
-func (o TagsItemPropertiesArrayOutput) ToTagsItemPropertiesArrayOutputWithContext(ctx context.Context) TagsItemPropertiesArrayOutput {
-	return o
-}
-
-func (o TagsItemPropertiesArrayOutput) Index(i pulumi.IntInput) TagsItemPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagsItemProperties {
-		return vs[0].([]TagsItemProperties)[vs[1].(int)]
-	}).(TagsItemPropertiesOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAttributesItemPropertiesInput)(nil)).Elem(), DatasetAttributesItemPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAttributesItemPropertiesArrayInput)(nil)).Elem(), DatasetAttributesItemPropertiesArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetGroupTagInput)(nil)).Elem(), DatasetGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetGroupTagArrayInput)(nil)).Elem(), DatasetGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigPropertiesInput)(nil)).Elem(), EncryptionConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigPropertiesPtrInput)(nil)).Elem(), EncryptionConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPropertiesInput)(nil)).Elem(), SchemaPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagsItemPropertiesInput)(nil)).Elem(), TagsItemPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagsItemPropertiesArrayInput)(nil)).Elem(), TagsItemPropertiesArray{})
 	pulumi.RegisterOutputType(DatasetAttributesItemPropertiesOutput{})
 	pulumi.RegisterOutputType(DatasetAttributesItemPropertiesArrayOutput{})
-	pulumi.RegisterOutputType(DatasetGroupTagOutput{})
-	pulumi.RegisterOutputType(DatasetGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SchemaPropertiesOutput{})
 	pulumi.RegisterOutputType(SchemaPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(TagsItemPropertiesOutput{})
-	pulumi.RegisterOutputType(TagsItemPropertiesArrayOutput{})
 }

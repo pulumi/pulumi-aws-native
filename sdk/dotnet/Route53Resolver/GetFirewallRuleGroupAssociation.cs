@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Tags
         /// </summary>
-        public readonly ImmutableArray<Outputs.FirewallRuleGroupAssociationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFirewallRuleGroupAssociationResult(
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.Route53Resolver
 
             string? statusMessage,
 
-            ImmutableArray<Outputs.FirewallRuleGroupAssociationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationTime = creationTime;

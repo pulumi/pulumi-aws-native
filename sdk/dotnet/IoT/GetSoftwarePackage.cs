@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SoftwarePackageTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSoftwarePackageResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? packageArn,
 
-            ImmutableArray<Outputs.SoftwarePackageTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             PackageArn = packageArn;

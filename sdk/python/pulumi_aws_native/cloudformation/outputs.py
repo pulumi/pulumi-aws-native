@@ -21,8 +21,6 @@ __all__ = [
     'StackSetOperationPreferences',
     'StackSetParameter',
     'StackSetStackInstances',
-    'StackSetTag',
-    'StackTag',
     'TypeActivationLoggingConfig',
 ]
 
@@ -523,58 +521,6 @@ class StackSetStackInstances(dict):
         A list of stack set parameters whose values you want to override in the selected stack instances.
         """
         return pulumi.get(self, "parameter_overrides")
-
-
-@pulumi.output_type
-class StackSetTag(dict):
-    """
-    Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
-        :param str key: A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
-        :param str value: A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class StackTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

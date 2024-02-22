@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type Distribution struct {
 	// The status of the distribution.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags DistributionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDistribution registers a new resource with the given unique name, arguments, and options.
@@ -118,7 +119,7 @@ type distributionArgs struct {
 	// An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer.
 	Origin DistributionInputOrigin `pulumi:"origin"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DistributionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Distribution resource.
@@ -142,7 +143,7 @@ type DistributionArgs struct {
 	// An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer.
 	Origin DistributionInputOriginInput
 	// An array of key-value pairs to apply to this resource.
-	Tags DistributionTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DistributionArgs) ElementType() reflect.Type {
@@ -242,8 +243,8 @@ func (o DistributionOutput) Status() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o DistributionOutput) Tags() DistributionTagArrayOutput {
-	return o.ApplyT(func(v *Distribution) DistributionTagArrayOutput { return v.Tags }).(DistributionTagArrayOutput)
+func (o DistributionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Distribution) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

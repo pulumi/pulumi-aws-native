@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,12 +19,12 @@ import (
 type Portfolio struct {
 	pulumi.CustomResourceState
 
-	AcceptLanguage pulumi.StringPtrOutput  `pulumi:"acceptLanguage"`
-	Description    pulumi.StringPtrOutput  `pulumi:"description"`
-	DisplayName    pulumi.StringOutput     `pulumi:"displayName"`
-	PortfolioName  pulumi.StringOutput     `pulumi:"portfolioName"`
-	ProviderName   pulumi.StringOutput     `pulumi:"providerName"`
-	Tags           PortfolioTagArrayOutput `pulumi:"tags"`
+	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	DisplayName    pulumi.StringOutput    `pulumi:"displayName"`
+	PortfolioName  pulumi.StringOutput    `pulumi:"portfolioName"`
+	ProviderName   pulumi.StringOutput    `pulumi:"providerName"`
+	Tags           aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewPortfolio registers a new resource with the given unique name, arguments, and options.
@@ -72,11 +73,11 @@ func (PortfolioState) ElementType() reflect.Type {
 }
 
 type portfolioArgs struct {
-	AcceptLanguage *string        `pulumi:"acceptLanguage"`
-	Description    *string        `pulumi:"description"`
-	DisplayName    string         `pulumi:"displayName"`
-	ProviderName   string         `pulumi:"providerName"`
-	Tags           []PortfolioTag `pulumi:"tags"`
+	AcceptLanguage *string   `pulumi:"acceptLanguage"`
+	Description    *string   `pulumi:"description"`
+	DisplayName    string    `pulumi:"displayName"`
+	ProviderName   string    `pulumi:"providerName"`
+	Tags           []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Portfolio resource.
@@ -85,7 +86,7 @@ type PortfolioArgs struct {
 	Description    pulumi.StringPtrInput
 	DisplayName    pulumi.StringInput
 	ProviderName   pulumi.StringInput
-	Tags           PortfolioTagArrayInput
+	Tags           aws.TagArrayInput
 }
 
 func (PortfolioArgs) ElementType() reflect.Type {
@@ -145,8 +146,8 @@ func (o PortfolioOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-func (o PortfolioOutput) Tags() PortfolioTagArrayOutput {
-	return o.ApplyT(func(v *Portfolio) PortfolioTagArrayOutput { return v.Tags }).(PortfolioTagArrayOutput)
+func (o PortfolioOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Portfolio) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

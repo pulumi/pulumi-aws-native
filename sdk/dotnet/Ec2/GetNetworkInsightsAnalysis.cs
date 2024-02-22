@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly Pulumi.AwsNative.Ec2.NetworkInsightsAnalysisStatus? Status;
         public readonly string? StatusMessage;
         public readonly ImmutableArray<string> SuggestedAccounts;
-        public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisResult(
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<string> suggestedAccounts,
 
-            ImmutableArray<Outputs.NetworkInsightsAnalysisTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AdditionalAccounts = additionalAccounts;
             AlternatePathHints = alternatePathHints;

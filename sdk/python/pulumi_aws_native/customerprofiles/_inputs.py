@@ -15,7 +15,6 @@ __all__ = [
     'CalculatedAttributeDefinitionAttributeItemArgs',
     'CalculatedAttributeDefinitionConditionsArgs',
     'CalculatedAttributeDefinitionRangeArgs',
-    'CalculatedAttributeDefinitionTagArgs',
     'CalculatedAttributeDefinitionThresholdArgs',
     'DomainAttributeTypesSelectorArgs',
     'DomainAutoMergingArgs',
@@ -27,8 +26,6 @@ __all__ = [
     'DomainMatchingArgs',
     'DomainRuleBasedMatchingArgs',
     'DomainS3ExportingConfigArgs',
-    'DomainTagArgs',
-    'EventStreamTagArgs',
     'IntegrationConnectorOperatorArgs',
     'IntegrationFlowDefinitionArgs',
     'IntegrationIncrementalPullConfigArgs',
@@ -40,7 +37,6 @@ __all__ = [
     'IntegrationServiceNowSourcePropertiesArgs',
     'IntegrationSourceConnectorPropertiesArgs',
     'IntegrationSourceFlowConfigArgs',
-    'IntegrationTagArgs',
     'IntegrationTaskPropertiesMapArgs',
     'IntegrationTaskArgs',
     'IntegrationTriggerConfigArgs',
@@ -50,7 +46,6 @@ __all__ = [
     'ObjectTypeFieldArgs',
     'ObjectTypeKeyMapArgs',
     'ObjectTypeKeyArgs',
-    'ObjectTypeTagArgs',
 ]
 
 @pulumi.input_type
@@ -173,44 +168,6 @@ class CalculatedAttributeDefinitionRangeArgs:
 
     @value.setter
     def value(self, value: pulumi.Input[int]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class CalculatedAttributeDefinitionTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
@@ -735,71 +692,6 @@ class DomainS3ExportingConfigArgs:
 
 
 @pulumi.input_type
-class DomainTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class EventStreamTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class IntegrationConnectorOperatorArgs:
     def __init__(__self__, *,
                  marketo: Optional[pulumi.Input['IntegrationMarketoConnectorOperator']] = None,
@@ -1285,33 +1177,6 @@ class IntegrationSourceFlowConfigArgs:
 
 
 @pulumi.input_type
-class IntegrationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class IntegrationTaskPropertiesMapArgs:
     def __init__(__self__, *,
                  operator_property_key: pulumi.Input['IntegrationOperatorPropertiesKeys'],
@@ -1614,32 +1479,5 @@ class ObjectTypeKeyArgs:
     @standard_identifiers.setter
     def standard_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]):
         pulumi.set(self, "standard_identifiers", value)
-
-
-@pulumi.input_type
-class ObjectTypeTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

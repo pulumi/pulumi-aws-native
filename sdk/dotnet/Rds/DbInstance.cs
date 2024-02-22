@@ -468,7 +468,7 @@ namespace Pulumi.AwsNative.Rds
         /// Tags to assign to the DB instance.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DbInstanceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ARN from the key store with which to associate the instance for TDE encryption.
@@ -1029,14 +1029,14 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DbInstanceTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags to assign to the DB instance.
         /// </summary>
-        public InputList<Inputs.DbInstanceTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DbInstanceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

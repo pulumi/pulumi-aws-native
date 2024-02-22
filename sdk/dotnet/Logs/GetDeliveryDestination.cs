@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// The tags that have been assigned to this delivery destination.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeliveryDestinationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDeliveryDestinationResult(
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Logs
 
             string? deliveryDestinationType,
 
-            ImmutableArray<Outputs.DeliveryDestinationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DeliveryDestinationPolicy = deliveryDestinationPolicy;

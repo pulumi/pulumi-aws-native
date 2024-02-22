@@ -11,7 +11,6 @@ from .. import _utilities
 
 __all__ = [
     'ExecutionPlanCapacityUnitsConfiguration',
-    'ExecutionPlanTag',
 ]
 
 @pulumi.output_type
@@ -41,38 +40,5 @@ class ExecutionPlanCapacityUnitsConfiguration(dict):
     @pulumi.getter(name="rescoreCapacityUnits")
     def rescore_capacity_units(self) -> int:
         return pulumi.get(self, "rescore_capacity_units")
-
-
-@pulumi.output_type
-class ExecutionPlanTag(dict):
-    """
-    A label for tagging KendraRanking resources
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A label for tagging KendraRanking resources
-        :param str key: A string used to identify this tag
-        :param str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
 
 

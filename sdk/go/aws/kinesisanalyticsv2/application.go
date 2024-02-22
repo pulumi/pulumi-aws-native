@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type Application struct {
 	// Specifies the IAM role that the application uses to access external resources.
 	ServiceExecutionRole pulumi.StringOutput `pulumi:"serviceExecutionRole"`
 	// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-	Tags ApplicationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -105,7 +106,7 @@ type applicationArgs struct {
 	// Specifies the IAM role that the application uses to access external resources.
 	ServiceExecutionRole string `pulumi:"serviceExecutionRole"`
 	// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-	Tags []ApplicationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -127,7 +128,7 @@ type ApplicationArgs struct {
 	// Specifies the IAM role that the application uses to access external resources.
 	ServiceExecutionRole pulumi.StringInput
 	// A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-	Tags ApplicationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -210,8 +211,8 @@ func (o ApplicationOutput) ServiceExecutionRole() pulumi.StringOutput {
 }
 
 // A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
-	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
+func (o ApplicationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Application) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -169,214 +169,12 @@ type ApplicationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ApplicationTagInput is an input type that accepts ApplicationTagArgs and ApplicationTagOutput values.
-// You can construct a concrete instance of `ApplicationTagInput` via:
-//
-//	ApplicationTagArgs{...}
-type ApplicationTagInput interface {
-	pulumi.Input
-
-	ToApplicationTagOutput() ApplicationTagOutput
-	ToApplicationTagOutputWithContext(context.Context) ApplicationTagOutput
-}
-
-// A label for tagging Environment resource
-type ApplicationTagArgs struct {
-	// A string used to identify this tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// A string containing the value for the tag
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ApplicationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTag)(nil)).Elem()
-}
-
-func (i ApplicationTagArgs) ToApplicationTagOutput() ApplicationTagOutput {
-	return i.ToApplicationTagOutputWithContext(context.Background())
-}
-
-func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagOutput)
-}
-
-// ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
-// You can construct a concrete instance of `ApplicationTagArrayInput` via:
-//
-//	ApplicationTagArray{ ApplicationTagArgs{...} }
-type ApplicationTagArrayInput interface {
-	pulumi.Input
-
-	ToApplicationTagArrayOutput() ApplicationTagArrayOutput
-	ToApplicationTagArrayOutputWithContext(context.Context) ApplicationTagArrayOutput
-}
-
-type ApplicationTagArray []ApplicationTagInput
-
-func (ApplicationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationTag)(nil)).Elem()
-}
-
-func (i ApplicationTagArray) ToApplicationTagArrayOutput() ApplicationTagArrayOutput {
-	return i.ToApplicationTagArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
-}
-
-// A label for tagging Environment resource
-type ApplicationTagOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTag)(nil)).Elem()
-}
-
-func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
-	return o
-}
-
-func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
-	return o
-}
-
-// A string used to identify this tag
-func (o ApplicationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A string containing the value for the tag
-func (o ApplicationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ApplicationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationTag)(nil)).Elem()
-}
-
-func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutput() ApplicationTagArrayOutput {
-	return o
-}
-
-func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
-	return o
-}
-
-func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationTag {
-		return vs[0].([]ApplicationTag)[vs[1].(int)]
-	}).(ApplicationTagOutput)
-}
-
 // A label for tagging Environment resource
 type EnvironmentTag struct {
 	// A string used to identify this tag
 	Key string `pulumi:"key"`
 	// A string containing the value for the tag
 	Value string `pulumi:"value"`
-}
-
-// EnvironmentTagInput is an input type that accepts EnvironmentTagArgs and EnvironmentTagOutput values.
-// You can construct a concrete instance of `EnvironmentTagInput` via:
-//
-//	EnvironmentTagArgs{...}
-type EnvironmentTagInput interface {
-	pulumi.Input
-
-	ToEnvironmentTagOutput() EnvironmentTagOutput
-	ToEnvironmentTagOutputWithContext(context.Context) EnvironmentTagOutput
-}
-
-// A label for tagging Environment resource
-type EnvironmentTagArgs struct {
-	// A string used to identify this tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// A string containing the value for the tag
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (EnvironmentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentTag)(nil)).Elem()
-}
-
-func (i EnvironmentTagArgs) ToEnvironmentTagOutput() EnvironmentTagOutput {
-	return i.ToEnvironmentTagOutputWithContext(context.Background())
-}
-
-func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagOutput)
-}
-
-// EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
-// You can construct a concrete instance of `EnvironmentTagArrayInput` via:
-//
-//	EnvironmentTagArray{ EnvironmentTagArgs{...} }
-type EnvironmentTagArrayInput interface {
-	pulumi.Input
-
-	ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput
-	ToEnvironmentTagArrayOutputWithContext(context.Context) EnvironmentTagArrayOutput
-}
-
-type EnvironmentTagArray []EnvironmentTagInput
-
-func (EnvironmentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentTag)(nil)).Elem()
-}
-
-func (i EnvironmentTagArray) ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput {
-	return i.ToEnvironmentTagArrayOutputWithContext(context.Background())
-}
-
-func (i EnvironmentTagArray) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagArrayOutput)
-}
-
-// A label for tagging Environment resource
-type EnvironmentTagOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentTag)(nil)).Elem()
-}
-
-func (o EnvironmentTagOutput) ToEnvironmentTagOutput() EnvironmentTagOutput {
-	return o
-}
-
-func (o EnvironmentTagOutput) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
-	return o
-}
-
-// A string used to identify this tag
-func (o EnvironmentTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A string containing the value for the tag
-func (o EnvironmentTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type EnvironmentTagArrayOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentTag)(nil)).Elem()
-}
-
-func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput {
-	return o
-}
-
-func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
-	return o
-}
-
-func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentTag {
-		return vs[0].([]EnvironmentTag)[vs[1].(int)]
-	}).(EnvironmentTagOutput)
 }
 
 type RouteDefaultRouteInput struct {
@@ -518,107 +316,6 @@ type RouteTag struct {
 	Key string `pulumi:"key"`
 	// A string containing the value for the tag
 	Value string `pulumi:"value"`
-}
-
-// RouteTagInput is an input type that accepts RouteTagArgs and RouteTagOutput values.
-// You can construct a concrete instance of `RouteTagInput` via:
-//
-//	RouteTagArgs{...}
-type RouteTagInput interface {
-	pulumi.Input
-
-	ToRouteTagOutput() RouteTagOutput
-	ToRouteTagOutputWithContext(context.Context) RouteTagOutput
-}
-
-// A label for tagging Environment resource
-type RouteTagArgs struct {
-	// A string used to identify this tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// A string containing the value for the tag
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RouteTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteTag)(nil)).Elem()
-}
-
-func (i RouteTagArgs) ToRouteTagOutput() RouteTagOutput {
-	return i.ToRouteTagOutputWithContext(context.Background())
-}
-
-func (i RouteTagArgs) ToRouteTagOutputWithContext(ctx context.Context) RouteTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteTagOutput)
-}
-
-// RouteTagArrayInput is an input type that accepts RouteTagArray and RouteTagArrayOutput values.
-// You can construct a concrete instance of `RouteTagArrayInput` via:
-//
-//	RouteTagArray{ RouteTagArgs{...} }
-type RouteTagArrayInput interface {
-	pulumi.Input
-
-	ToRouteTagArrayOutput() RouteTagArrayOutput
-	ToRouteTagArrayOutputWithContext(context.Context) RouteTagArrayOutput
-}
-
-type RouteTagArray []RouteTagInput
-
-func (RouteTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RouteTag)(nil)).Elem()
-}
-
-func (i RouteTagArray) ToRouteTagArrayOutput() RouteTagArrayOutput {
-	return i.ToRouteTagArrayOutputWithContext(context.Background())
-}
-
-func (i RouteTagArray) ToRouteTagArrayOutputWithContext(ctx context.Context) RouteTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteTagArrayOutput)
-}
-
-// A label for tagging Environment resource
-type RouteTagOutput struct{ *pulumi.OutputState }
-
-func (RouteTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteTag)(nil)).Elem()
-}
-
-func (o RouteTagOutput) ToRouteTagOutput() RouteTagOutput {
-	return o
-}
-
-func (o RouteTagOutput) ToRouteTagOutputWithContext(ctx context.Context) RouteTagOutput {
-	return o
-}
-
-// A string used to identify this tag
-func (o RouteTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RouteTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A string containing the value for the tag
-func (o RouteTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RouteTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RouteTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RouteTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RouteTag)(nil)).Elem()
-}
-
-func (o RouteTagArrayOutput) ToRouteTagArrayOutput() RouteTagArrayOutput {
-	return o
-}
-
-func (o RouteTagArrayOutput) ToRouteTagArrayOutputWithContext(ctx context.Context) RouteTagArrayOutput {
-	return o
-}
-
-func (o RouteTagArrayOutput) Index(i pulumi.IntInput) RouteTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteTag {
-		return vs[0].([]RouteTag)[vs[1].(int)]
-	}).(RouteTagOutput)
 }
 
 type RouteUriPathRouteInput struct {
@@ -955,107 +652,6 @@ type ServiceTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ServiceTagInput is an input type that accepts ServiceTagArgs and ServiceTagOutput values.
-// You can construct a concrete instance of `ServiceTagInput` via:
-//
-//	ServiceTagArgs{...}
-type ServiceTagInput interface {
-	pulumi.Input
-
-	ToServiceTagOutput() ServiceTagOutput
-	ToServiceTagOutputWithContext(context.Context) ServiceTagOutput
-}
-
-// A label for tagging Environment resource
-type ServiceTagArgs struct {
-	// A string used to identify this tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// A string containing the value for the tag
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ServiceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTag)(nil)).Elem()
-}
-
-func (i ServiceTagArgs) ToServiceTagOutput() ServiceTagOutput {
-	return i.ToServiceTagOutputWithContext(context.Background())
-}
-
-func (i ServiceTagArgs) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagOutput)
-}
-
-// ServiceTagArrayInput is an input type that accepts ServiceTagArray and ServiceTagArrayOutput values.
-// You can construct a concrete instance of `ServiceTagArrayInput` via:
-//
-//	ServiceTagArray{ ServiceTagArgs{...} }
-type ServiceTagArrayInput interface {
-	pulumi.Input
-
-	ToServiceTagArrayOutput() ServiceTagArrayOutput
-	ToServiceTagArrayOutputWithContext(context.Context) ServiceTagArrayOutput
-}
-
-type ServiceTagArray []ServiceTagInput
-
-func (ServiceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceTag)(nil)).Elem()
-}
-
-func (i ServiceTagArray) ToServiceTagArrayOutput() ServiceTagArrayOutput {
-	return i.ToServiceTagArrayOutputWithContext(context.Background())
-}
-
-func (i ServiceTagArray) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagArrayOutput)
-}
-
-// A label for tagging Environment resource
-type ServiceTagOutput struct{ *pulumi.OutputState }
-
-func (ServiceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTag)(nil)).Elem()
-}
-
-func (o ServiceTagOutput) ToServiceTagOutput() ServiceTagOutput {
-	return o
-}
-
-func (o ServiceTagOutput) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
-	return o
-}
-
-// A string used to identify this tag
-func (o ServiceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A string containing the value for the tag
-func (o ServiceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ServiceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ServiceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceTag)(nil)).Elem()
-}
-
-func (o ServiceTagArrayOutput) ToServiceTagArrayOutput() ServiceTagArrayOutput {
-	return o
-}
-
-func (o ServiceTagArrayOutput) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
-	return o
-}
-
-func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceTag {
-		return vs[0].([]ServiceTag)[vs[1].(int)]
-	}).(ServiceTagOutput)
-}
-
 type ServiceUrlEndpointInput struct {
 	HealthUrl *string `pulumi:"healthUrl"`
 	Url       string  `pulumi:"url"`
@@ -1207,38 +803,22 @@ func (o ServiceUrlEndpointInputPtrOutput) Url() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationApiGatewayProxyInputInput)(nil)).Elem(), ApplicationApiGatewayProxyInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationApiGatewayProxyInputPtrInput)(nil)).Elem(), ApplicationApiGatewayProxyInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagInput)(nil)).Elem(), ApplicationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagInput)(nil)).Elem(), EnvironmentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagArrayInput)(nil)).Elem(), EnvironmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteDefaultRouteInputInput)(nil)).Elem(), RouteDefaultRouteInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteDefaultRouteInputPtrInput)(nil)).Elem(), RouteDefaultRouteInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RouteTagInput)(nil)).Elem(), RouteTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RouteTagArrayInput)(nil)).Elem(), RouteTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteUriPathRouteInputInput)(nil)).Elem(), RouteUriPathRouteInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteUriPathRouteInputPtrInput)(nil)).Elem(), RouteUriPathRouteInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLambdaEndpointInputInput)(nil)).Elem(), ServiceLambdaEndpointInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLambdaEndpointInputPtrInput)(nil)).Elem(), ServiceLambdaEndpointInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagInput)(nil)).Elem(), ServiceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagArrayInput)(nil)).Elem(), ServiceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUrlEndpointInputInput)(nil)).Elem(), ServiceUrlEndpointInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUrlEndpointInputPtrInput)(nil)).Elem(), ServiceUrlEndpointInputArgs{})
 	pulumi.RegisterOutputType(ApplicationApiGatewayProxyInputOutput{})
 	pulumi.RegisterOutputType(ApplicationApiGatewayProxyInputPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationTagOutput{})
-	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
-	pulumi.RegisterOutputType(EnvironmentTagOutput{})
-	pulumi.RegisterOutputType(EnvironmentTagArrayOutput{})
 	pulumi.RegisterOutputType(RouteDefaultRouteInputOutput{})
 	pulumi.RegisterOutputType(RouteDefaultRouteInputPtrOutput{})
-	pulumi.RegisterOutputType(RouteTagOutput{})
-	pulumi.RegisterOutputType(RouteTagArrayOutput{})
 	pulumi.RegisterOutputType(RouteUriPathRouteInputOutput{})
 	pulumi.RegisterOutputType(RouteUriPathRouteInputPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLambdaEndpointInputOutput{})
 	pulumi.RegisterOutputType(ServiceLambdaEndpointInputPtrOutput{})
-	pulumi.RegisterOutputType(ServiceTagOutput{})
-	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceUrlEndpointInputOutput{})
 	pulumi.RegisterOutputType(ServiceUrlEndpointInputPtrOutput{})
 }

@@ -1344,101 +1344,6 @@ type FirewallPolicyTag struct {
 	Value string `pulumi:"value"`
 }
 
-// FirewallPolicyTagInput is an input type that accepts FirewallPolicyTagArgs and FirewallPolicyTagOutput values.
-// You can construct a concrete instance of `FirewallPolicyTagInput` via:
-//
-//	FirewallPolicyTagArgs{...}
-type FirewallPolicyTagInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyTagOutput() FirewallPolicyTagOutput
-	ToFirewallPolicyTagOutputWithContext(context.Context) FirewallPolicyTagOutput
-}
-
-type FirewallPolicyTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FirewallPolicyTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyTag)(nil)).Elem()
-}
-
-func (i FirewallPolicyTagArgs) ToFirewallPolicyTagOutput() FirewallPolicyTagOutput {
-	return i.ToFirewallPolicyTagOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyTagArgs) ToFirewallPolicyTagOutputWithContext(ctx context.Context) FirewallPolicyTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTagOutput)
-}
-
-// FirewallPolicyTagArrayInput is an input type that accepts FirewallPolicyTagArray and FirewallPolicyTagArrayOutput values.
-// You can construct a concrete instance of `FirewallPolicyTagArrayInput` via:
-//
-//	FirewallPolicyTagArray{ FirewallPolicyTagArgs{...} }
-type FirewallPolicyTagArrayInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyTagArrayOutput() FirewallPolicyTagArrayOutput
-	ToFirewallPolicyTagArrayOutputWithContext(context.Context) FirewallPolicyTagArrayOutput
-}
-
-type FirewallPolicyTagArray []FirewallPolicyTagInput
-
-func (FirewallPolicyTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallPolicyTag)(nil)).Elem()
-}
-
-func (i FirewallPolicyTagArray) ToFirewallPolicyTagArrayOutput() FirewallPolicyTagArrayOutput {
-	return i.ToFirewallPolicyTagArrayOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyTagArray) ToFirewallPolicyTagArrayOutputWithContext(ctx context.Context) FirewallPolicyTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTagArrayOutput)
-}
-
-type FirewallPolicyTagOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyTag)(nil)).Elem()
-}
-
-func (o FirewallPolicyTagOutput) ToFirewallPolicyTagOutput() FirewallPolicyTagOutput {
-	return o
-}
-
-func (o FirewallPolicyTagOutput) ToFirewallPolicyTagOutputWithContext(ctx context.Context) FirewallPolicyTagOutput {
-	return o
-}
-
-func (o FirewallPolicyTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallPolicyTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o FirewallPolicyTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallPolicyTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FirewallPolicyTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallPolicyTag)(nil)).Elem()
-}
-
-func (o FirewallPolicyTagArrayOutput) ToFirewallPolicyTagArrayOutput() FirewallPolicyTagArrayOutput {
-	return o
-}
-
-func (o FirewallPolicyTagArrayOutput) ToFirewallPolicyTagArrayOutputWithContext(ctx context.Context) FirewallPolicyTagArrayOutput {
-	return o
-}
-
-func (o FirewallPolicyTagArrayOutput) Index(i pulumi.IntInput) FirewallPolicyTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyTag {
-		return vs[0].([]FirewallPolicyTag)[vs[1].(int)]
-	}).(FirewallPolicyTagOutput)
-}
-
 type FirewallSubnetMapping struct {
 	// A IPAddressType
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -1548,101 +1453,6 @@ func (o FirewallSubnetMappingArrayOutput) Index(i pulumi.IntInput) FirewallSubne
 type FirewallTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// FirewallTagInput is an input type that accepts FirewallTagArgs and FirewallTagOutput values.
-// You can construct a concrete instance of `FirewallTagInput` via:
-//
-//	FirewallTagArgs{...}
-type FirewallTagInput interface {
-	pulumi.Input
-
-	ToFirewallTagOutput() FirewallTagOutput
-	ToFirewallTagOutputWithContext(context.Context) FirewallTagOutput
-}
-
-type FirewallTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FirewallTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallTag)(nil)).Elem()
-}
-
-func (i FirewallTagArgs) ToFirewallTagOutput() FirewallTagOutput {
-	return i.ToFirewallTagOutputWithContext(context.Background())
-}
-
-func (i FirewallTagArgs) ToFirewallTagOutputWithContext(ctx context.Context) FirewallTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallTagOutput)
-}
-
-// FirewallTagArrayInput is an input type that accepts FirewallTagArray and FirewallTagArrayOutput values.
-// You can construct a concrete instance of `FirewallTagArrayInput` via:
-//
-//	FirewallTagArray{ FirewallTagArgs{...} }
-type FirewallTagArrayInput interface {
-	pulumi.Input
-
-	ToFirewallTagArrayOutput() FirewallTagArrayOutput
-	ToFirewallTagArrayOutputWithContext(context.Context) FirewallTagArrayOutput
-}
-
-type FirewallTagArray []FirewallTagInput
-
-func (FirewallTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallTag)(nil)).Elem()
-}
-
-func (i FirewallTagArray) ToFirewallTagArrayOutput() FirewallTagArrayOutput {
-	return i.ToFirewallTagArrayOutputWithContext(context.Background())
-}
-
-func (i FirewallTagArray) ToFirewallTagArrayOutputWithContext(ctx context.Context) FirewallTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallTagArrayOutput)
-}
-
-type FirewallTagOutput struct{ *pulumi.OutputState }
-
-func (FirewallTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallTag)(nil)).Elem()
-}
-
-func (o FirewallTagOutput) ToFirewallTagOutput() FirewallTagOutput {
-	return o
-}
-
-func (o FirewallTagOutput) ToFirewallTagOutputWithContext(ctx context.Context) FirewallTagOutput {
-	return o
-}
-
-func (o FirewallTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o FirewallTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FirewallTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FirewallTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallTag)(nil)).Elem()
-}
-
-func (o FirewallTagArrayOutput) ToFirewallTagArrayOutput() FirewallTagArrayOutput {
-	return o
-}
-
-func (o FirewallTagArrayOutput) ToFirewallTagArrayOutputWithContext(ctx context.Context) FirewallTagArrayOutput {
-	return o
-}
-
-func (o FirewallTagArrayOutput) Index(i pulumi.IntInput) FirewallTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallTag {
-		return vs[0].([]FirewallTag)[vs[1].(int)]
-	}).(FirewallTagOutput)
 }
 
 type LoggingConfigurationType struct {
@@ -4301,101 +4111,6 @@ type RuleGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// RuleGroupTagInput is an input type that accepts RuleGroupTagArgs and RuleGroupTagOutput values.
-// You can construct a concrete instance of `RuleGroupTagInput` via:
-//
-//	RuleGroupTagArgs{...}
-type RuleGroupTagInput interface {
-	pulumi.Input
-
-	ToRuleGroupTagOutput() RuleGroupTagOutput
-	ToRuleGroupTagOutputWithContext(context.Context) RuleGroupTagOutput
-}
-
-type RuleGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RuleGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTag)(nil)).Elem()
-}
-
-func (i RuleGroupTagArgs) ToRuleGroupTagOutput() RuleGroupTagOutput {
-	return i.ToRuleGroupTagOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTagArgs) ToRuleGroupTagOutputWithContext(ctx context.Context) RuleGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTagOutput)
-}
-
-// RuleGroupTagArrayInput is an input type that accepts RuleGroupTagArray and RuleGroupTagArrayOutput values.
-// You can construct a concrete instance of `RuleGroupTagArrayInput` via:
-//
-//	RuleGroupTagArray{ RuleGroupTagArgs{...} }
-type RuleGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToRuleGroupTagArrayOutput() RuleGroupTagArrayOutput
-	ToRuleGroupTagArrayOutputWithContext(context.Context) RuleGroupTagArrayOutput
-}
-
-type RuleGroupTagArray []RuleGroupTagInput
-
-func (RuleGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupTag)(nil)).Elem()
-}
-
-func (i RuleGroupTagArray) ToRuleGroupTagArrayOutput() RuleGroupTagArrayOutput {
-	return i.ToRuleGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTagArray) ToRuleGroupTagArrayOutputWithContext(ctx context.Context) RuleGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTagArrayOutput)
-}
-
-type RuleGroupTagOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTag)(nil)).Elem()
-}
-
-func (o RuleGroupTagOutput) ToRuleGroupTagOutput() RuleGroupTagOutput {
-	return o
-}
-
-func (o RuleGroupTagOutput) ToRuleGroupTagOutputWithContext(ctx context.Context) RuleGroupTagOutput {
-	return o
-}
-
-func (o RuleGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o RuleGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RuleGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupTag)(nil)).Elem()
-}
-
-func (o RuleGroupTagArrayOutput) ToRuleGroupTagArrayOutput() RuleGroupTagArrayOutput {
-	return o
-}
-
-func (o RuleGroupTagArrayOutput) ToRuleGroupTagArrayOutputWithContext(ctx context.Context) RuleGroupTagArrayOutput {
-	return o
-}
-
-func (o RuleGroupTagArrayOutput) Index(i pulumi.IntInput) RuleGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupTag {
-		return vs[0].([]RuleGroupTag)[vs[1].(int)]
-	}).(RuleGroupTagOutput)
-}
-
 type RuleGroupTcpFlagField struct {
 	Flags []RuleGroupTcpFlag `pulumi:"flags"`
 	Masks []RuleGroupTcpFlag `pulumi:"masks"`
@@ -5187,101 +4902,6 @@ type TlsInspectionConfigurationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// TlsInspectionConfigurationTagInput is an input type that accepts TlsInspectionConfigurationTagArgs and TlsInspectionConfigurationTagOutput values.
-// You can construct a concrete instance of `TlsInspectionConfigurationTagInput` via:
-//
-//	TlsInspectionConfigurationTagArgs{...}
-type TlsInspectionConfigurationTagInput interface {
-	pulumi.Input
-
-	ToTlsInspectionConfigurationTagOutput() TlsInspectionConfigurationTagOutput
-	ToTlsInspectionConfigurationTagOutputWithContext(context.Context) TlsInspectionConfigurationTagOutput
-}
-
-type TlsInspectionConfigurationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TlsInspectionConfigurationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TlsInspectionConfigurationTag)(nil)).Elem()
-}
-
-func (i TlsInspectionConfigurationTagArgs) ToTlsInspectionConfigurationTagOutput() TlsInspectionConfigurationTagOutput {
-	return i.ToTlsInspectionConfigurationTagOutputWithContext(context.Background())
-}
-
-func (i TlsInspectionConfigurationTagArgs) ToTlsInspectionConfigurationTagOutputWithContext(ctx context.Context) TlsInspectionConfigurationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationTagOutput)
-}
-
-// TlsInspectionConfigurationTagArrayInput is an input type that accepts TlsInspectionConfigurationTagArray and TlsInspectionConfigurationTagArrayOutput values.
-// You can construct a concrete instance of `TlsInspectionConfigurationTagArrayInput` via:
-//
-//	TlsInspectionConfigurationTagArray{ TlsInspectionConfigurationTagArgs{...} }
-type TlsInspectionConfigurationTagArrayInput interface {
-	pulumi.Input
-
-	ToTlsInspectionConfigurationTagArrayOutput() TlsInspectionConfigurationTagArrayOutput
-	ToTlsInspectionConfigurationTagArrayOutputWithContext(context.Context) TlsInspectionConfigurationTagArrayOutput
-}
-
-type TlsInspectionConfigurationTagArray []TlsInspectionConfigurationTagInput
-
-func (TlsInspectionConfigurationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TlsInspectionConfigurationTag)(nil)).Elem()
-}
-
-func (i TlsInspectionConfigurationTagArray) ToTlsInspectionConfigurationTagArrayOutput() TlsInspectionConfigurationTagArrayOutput {
-	return i.ToTlsInspectionConfigurationTagArrayOutputWithContext(context.Background())
-}
-
-func (i TlsInspectionConfigurationTagArray) ToTlsInspectionConfigurationTagArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationTagArrayOutput)
-}
-
-type TlsInspectionConfigurationTagOutput struct{ *pulumi.OutputState }
-
-func (TlsInspectionConfigurationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TlsInspectionConfigurationTag)(nil)).Elem()
-}
-
-func (o TlsInspectionConfigurationTagOutput) ToTlsInspectionConfigurationTagOutput() TlsInspectionConfigurationTagOutput {
-	return o
-}
-
-func (o TlsInspectionConfigurationTagOutput) ToTlsInspectionConfigurationTagOutputWithContext(ctx context.Context) TlsInspectionConfigurationTagOutput {
-	return o
-}
-
-func (o TlsInspectionConfigurationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TlsInspectionConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o TlsInspectionConfigurationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TlsInspectionConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TlsInspectionConfigurationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TlsInspectionConfigurationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TlsInspectionConfigurationTag)(nil)).Elem()
-}
-
-func (o TlsInspectionConfigurationTagArrayOutput) ToTlsInspectionConfigurationTagArrayOutput() TlsInspectionConfigurationTagArrayOutput {
-	return o
-}
-
-func (o TlsInspectionConfigurationTagArrayOutput) ToTlsInspectionConfigurationTagArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationTagArrayOutput {
-	return o
-}
-
-func (o TlsInspectionConfigurationTagArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TlsInspectionConfigurationTag {
-		return vs[0].([]TlsInspectionConfigurationTag)[vs[1].(int)]
-	}).(TlsInspectionConfigurationTagOutput)
-}
-
 type TlsInspectionConfigurationTlsInspectionConfiguration struct {
 	ServerCertificateConfigurations []TlsInspectionConfigurationServerCertificateConfiguration `pulumi:"serverCertificateConfigurations"`
 }
@@ -5387,12 +5007,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulRuleGroupReferenceArrayInput)(nil)).Elem(), FirewallPolicyStatefulRuleGroupReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatelessRuleGroupReferenceInput)(nil)).Elem(), FirewallPolicyStatelessRuleGroupReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatelessRuleGroupReferenceArrayInput)(nil)).Elem(), FirewallPolicyStatelessRuleGroupReferenceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyTagInput)(nil)).Elem(), FirewallPolicyTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyTagArrayInput)(nil)).Elem(), FirewallPolicyTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallSubnetMappingInput)(nil)).Elem(), FirewallSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallSubnetMappingArrayInput)(nil)).Elem(), FirewallSubnetMappingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallTagInput)(nil)).Elem(), FirewallTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallTagArrayInput)(nil)).Elem(), FirewallTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationTypeInput)(nil)).Elem(), LoggingConfigurationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLogDestinationConfigInput)(nil)).Elem(), LoggingConfigurationLogDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLogDestinationConfigArrayInput)(nil)).Elem(), LoggingConfigurationLogDestinationConfigArray{})
@@ -5436,8 +5052,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatelessRuleArrayInput)(nil)).Elem(), RuleGroupStatelessRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatelessRulesAndCustomActionsInput)(nil)).Elem(), RuleGroupStatelessRulesAndCustomActionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatelessRulesAndCustomActionsPtrInput)(nil)).Elem(), RuleGroupStatelessRulesAndCustomActionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTagInput)(nil)).Elem(), RuleGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTagArrayInput)(nil)).Elem(), RuleGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTcpFlagFieldInput)(nil)).Elem(), RuleGroupTcpFlagFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTcpFlagFieldArrayInput)(nil)).Elem(), RuleGroupTcpFlagFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationAddressInput)(nil)).Elem(), TlsInspectionConfigurationAddressArgs{})
@@ -5452,8 +5066,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateScopeInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateScopeArrayInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateScopeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTagInput)(nil)).Elem(), TlsInspectionConfigurationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTagArrayInput)(nil)).Elem(), TlsInspectionConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfigurationInput)(nil)).Elem(), TlsInspectionConfigurationTlsInspectionConfigurationArgs{})
 	pulumi.RegisterOutputType(FirewallPolicyTypeOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyTypePtrOutput{})
@@ -5476,12 +5088,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupReferenceArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatelessRuleGroupReferenceOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatelessRuleGroupReferenceArrayOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyTagOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyTagArrayOutput{})
 	pulumi.RegisterOutputType(FirewallSubnetMappingOutput{})
 	pulumi.RegisterOutputType(FirewallSubnetMappingArrayOutput{})
-	pulumi.RegisterOutputType(FirewallTagOutput{})
-	pulumi.RegisterOutputType(FirewallTagArrayOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigOutput{})
@@ -5526,8 +5134,6 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupStatelessRuleArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRulesAndCustomActionsOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRulesAndCustomActionsPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupTagOutput{})
-	pulumi.RegisterOutputType(RuleGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTcpFlagFieldOutput{})
 	pulumi.RegisterOutputType(RuleGroupTcpFlagFieldArrayOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationAddressOutput{})
@@ -5542,8 +5148,6 @@ func init() {
 	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateScopeOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateScopeArrayOutput{})
-	pulumi.RegisterOutputType(TlsInspectionConfigurationTagOutput{})
-	pulumi.RegisterOutputType(TlsInspectionConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput{})
 }

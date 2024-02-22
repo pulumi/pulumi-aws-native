@@ -55,7 +55,7 @@ export class CloudFormationProduct extends pulumi.CustomResource {
     public readonly supportDescription!: pulumi.Output<string | undefined>;
     public readonly supportEmail!: pulumi.Output<string | undefined>;
     public readonly supportUrl!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.servicecatalog.CloudFormationProductTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CloudFormationProduct resource with the given unique name, arguments, and options.
@@ -128,5 +128,5 @@ export interface CloudFormationProductArgs {
     supportDescription?: pulumi.Input<string>;
     supportEmail?: pulumi.Input<string>;
     supportUrl?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProductTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

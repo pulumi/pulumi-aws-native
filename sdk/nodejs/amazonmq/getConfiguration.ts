@@ -28,7 +28,7 @@ export interface GetConfigurationResult {
     readonly description?: string;
     readonly id?: string;
     readonly revision?: number;
-    readonly tags?: outputs.amazonmq.ConfigurationTagsEntry[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::AmazonMQ::Configuration

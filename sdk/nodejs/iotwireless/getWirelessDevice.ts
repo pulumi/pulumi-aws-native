@@ -57,7 +57,7 @@ export interface GetWirelessDeviceResult {
     /**
      * A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
      */
-    readonly tags?: outputs.iotwireless.WirelessDeviceTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Thing arn. Passed into update to associate Thing with Wireless device.
      */

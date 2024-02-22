@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.WaFv2
         public Output<Pulumi.AwsNative.WaFv2.RuleGroupScope> Scope { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RuleGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("visibilityConfig")]
         public Output<Outputs.RuleGroupVisibilityConfig> VisibilityConfig { get; private set; } = null!;
@@ -162,10 +162,10 @@ namespace Pulumi.AwsNative.WaFv2
         public Input<Pulumi.AwsNative.WaFv2.RuleGroupScope> Scope { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.RuleGroupTagArgs>? _tags;
-        public InputList<Inputs.RuleGroupTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RuleGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

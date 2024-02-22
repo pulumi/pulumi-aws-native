@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.MemoryDb
         /// An array of key-value pairs to apply to this parameter group.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ParameterGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -131,14 +131,14 @@ namespace Pulumi.AwsNative.MemoryDb
         public Input<object>? Parameters { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ParameterGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this parameter group.
         /// </summary>
-        public InputList<Inputs.ParameterGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ParameterGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

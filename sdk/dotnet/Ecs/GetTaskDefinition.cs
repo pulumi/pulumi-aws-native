@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Ecs
     [OutputType]
     public sealed class GetTaskDefinitionResult
     {
-        public readonly ImmutableArray<Outputs.TaskDefinitionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon ECS task definition
         /// </summary>
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Ecs
 
         [OutputConstructor]
         private GetTaskDefinitionResult(
-            ImmutableArray<Outputs.TaskDefinitionTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? taskDefinitionArn)
         {

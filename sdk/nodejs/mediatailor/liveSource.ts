@@ -50,7 +50,7 @@ export class LiveSource extends pulumi.CustomResource {
     /**
      * The tags to assign to the live source.
      */
-    public readonly tags!: pulumi.Output<outputs.mediatailor.LiveSourceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LiveSource resource with the given unique name, arguments, and options.
@@ -101,5 +101,5 @@ export interface LiveSourceArgs {
     /**
      * The tags to assign to the live source.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.mediatailor.LiveSourceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupFaqResult struct {
 	Id           *string `pulumi:"id"`
 	LanguageCode *string `pulumi:"languageCode"`
 	// Tags for labeling the FAQ
-	Tags []FaqTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFaqOutput(ctx *pulumi.Context, args LookupFaqOutputArgs, opts ...pulumi.InvokeOption) LookupFaqResultOutput {
@@ -86,8 +87,8 @@ func (o LookupFaqResultOutput) LanguageCode() pulumi.StringPtrOutput {
 }
 
 // Tags for labeling the FAQ
-func (o LookupFaqResultOutput) Tags() FaqTagArrayOutput {
-	return o.ApplyT(func(v LookupFaqResult) []FaqTag { return v.Tags }).(FaqTagArrayOutput)
+func (o LookupFaqResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFaqResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

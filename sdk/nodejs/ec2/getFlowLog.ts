@@ -33,7 +33,7 @@ export interface GetFlowLogResult {
     /**
      * The tags to apply to the flow logs.
      */
-    readonly tags?: outputs.ec2.FlowLogTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.

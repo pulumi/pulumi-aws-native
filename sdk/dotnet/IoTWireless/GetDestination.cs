@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// A list of key-value pairs that contain metadata for the destination.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DestinationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDestinationResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? roleArn,
 
-            ImmutableArray<Outputs.DestinationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

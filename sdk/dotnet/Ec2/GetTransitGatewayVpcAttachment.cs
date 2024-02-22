@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The options for the transit gateway vpc attachment.
         /// </summary>
         public readonly Outputs.OptionsProperties? Options;
-        public readonly ImmutableArray<Outputs.TransitGatewayVpcAttachmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetTransitGatewayVpcAttachmentResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Ec2
 
             Outputs.OptionsProperties? options,
 
-            ImmutableArray<Outputs.TransitGatewayVpcAttachmentTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Options = options;

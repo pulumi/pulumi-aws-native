@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,8 +44,8 @@ type LookupOriginEndpointResult struct {
 	ModifiedAt *string                `pulumi:"modifiedAt"`
 	Segment    *OriginEndpointSegment `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
-	StartoverWindowSeconds *int                `pulumi:"startoverWindowSeconds"`
-	Tags                   []OriginEndpointTag `pulumi:"tags"`
+	StartoverWindowSeconds *int      `pulumi:"startoverWindowSeconds"`
+	Tags                   []aws.Tag `pulumi:"tags"`
 }
 
 func LookupOriginEndpointOutput(ctx *pulumi.Context, args LookupOriginEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupOriginEndpointResultOutput {
@@ -128,8 +129,8 @@ func (o LookupOriginEndpointResultOutput) StartoverWindowSeconds() pulumi.IntPtr
 	return o.ApplyT(func(v LookupOriginEndpointResult) *int { return v.StartoverWindowSeconds }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupOriginEndpointResultOutput) Tags() OriginEndpointTagArrayOutput {
-	return o.ApplyT(func(v LookupOriginEndpointResult) []OriginEndpointTag { return v.Tags }).(OriginEndpointTagArrayOutput)
+func (o LookupOriginEndpointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupOriginEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

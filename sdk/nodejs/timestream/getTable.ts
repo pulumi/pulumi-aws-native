@@ -51,7 +51,7 @@ export interface GetTableResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.timestream.TableTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::Timestream::Table resource creates a Timestream Table.

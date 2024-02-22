@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,14 +19,14 @@ import (
 type VirtualNode struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput       `pulumi:"arn"`
-	MeshName        pulumi.StringOutput       `pulumi:"meshName"`
-	MeshOwner       pulumi.StringPtrOutput    `pulumi:"meshOwner"`
-	ResourceOwner   pulumi.StringOutput       `pulumi:"resourceOwner"`
-	Spec            VirtualNodeSpecOutput     `pulumi:"spec"`
-	Tags            VirtualNodeTagArrayOutput `pulumi:"tags"`
-	Uid             pulumi.StringOutput       `pulumi:"uid"`
-	VirtualNodeName pulumi.StringPtrOutput    `pulumi:"virtualNodeName"`
+	Arn             pulumi.StringOutput    `pulumi:"arn"`
+	MeshName        pulumi.StringOutput    `pulumi:"meshName"`
+	MeshOwner       pulumi.StringPtrOutput `pulumi:"meshOwner"`
+	ResourceOwner   pulumi.StringOutput    `pulumi:"resourceOwner"`
+	Spec            VirtualNodeSpecOutput  `pulumi:"spec"`
+	Tags            aws.TagArrayOutput     `pulumi:"tags"`
+	Uid             pulumi.StringOutput    `pulumi:"uid"`
+	VirtualNodeName pulumi.StringPtrOutput `pulumi:"virtualNodeName"`
 }
 
 // NewVirtualNode registers a new resource with the given unique name, arguments, and options.
@@ -80,11 +81,11 @@ func (VirtualNodeState) ElementType() reflect.Type {
 }
 
 type virtualNodeArgs struct {
-	MeshName        string           `pulumi:"meshName"`
-	MeshOwner       *string          `pulumi:"meshOwner"`
-	Spec            VirtualNodeSpec  `pulumi:"spec"`
-	Tags            []VirtualNodeTag `pulumi:"tags"`
-	VirtualNodeName *string          `pulumi:"virtualNodeName"`
+	MeshName        string          `pulumi:"meshName"`
+	MeshOwner       *string         `pulumi:"meshOwner"`
+	Spec            VirtualNodeSpec `pulumi:"spec"`
+	Tags            []aws.Tag       `pulumi:"tags"`
+	VirtualNodeName *string         `pulumi:"virtualNodeName"`
 }
 
 // The set of arguments for constructing a VirtualNode resource.
@@ -92,7 +93,7 @@ type VirtualNodeArgs struct {
 	MeshName        pulumi.StringInput
 	MeshOwner       pulumi.StringPtrInput
 	Spec            VirtualNodeSpecInput
-	Tags            VirtualNodeTagArrayInput
+	Tags            aws.TagArrayInput
 	VirtualNodeName pulumi.StringPtrInput
 }
 
@@ -153,8 +154,8 @@ func (o VirtualNodeOutput) Spec() VirtualNodeSpecOutput {
 	return o.ApplyT(func(v *VirtualNode) VirtualNodeSpecOutput { return v.Spec }).(VirtualNodeSpecOutput)
 }
 
-func (o VirtualNodeOutput) Tags() VirtualNodeTagArrayOutput {
-	return o.ApplyT(func(v *VirtualNode) VirtualNodeTagArrayOutput { return v.Tags }).(VirtualNodeTagArrayOutput)
+func (o VirtualNodeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VirtualNode) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o VirtualNodeOutput) Uid() pulumi.StringOutput {

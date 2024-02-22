@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string?> FindingPublishingFrequency { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DetectorTagItem>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -93,10 +93,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public Input<string>? FindingPublishingFrequency { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DetectorTagItemArgs>? _tags;
-        public InputList<Inputs.DetectorTagItemArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DetectorTagItemArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

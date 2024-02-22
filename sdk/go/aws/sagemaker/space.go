@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type Space struct {
 	SpaceSettings        SpaceSettingsPtrOutput        `pulumi:"spaceSettings"`
 	SpaceSharingSettings SpaceSharingSettingsPtrOutput `pulumi:"spaceSharingSettings"`
 	// A list of tags to apply to the space.
-	Tags SpaceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput  `pulumi:"tags"`
 	Url  pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -92,7 +93,7 @@ type spaceArgs struct {
 	SpaceSettings        *SpaceSettings        `pulumi:"spaceSettings"`
 	SpaceSharingSettings *SpaceSharingSettings `pulumi:"spaceSharingSettings"`
 	// A list of tags to apply to the space.
-	Tags []SpaceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Space resource.
@@ -107,7 +108,7 @@ type SpaceArgs struct {
 	SpaceSettings        SpaceSettingsPtrInput
 	SpaceSharingSettings SpaceSharingSettingsPtrInput
 	// A list of tags to apply to the space.
-	Tags SpaceTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SpaceArgs) ElementType() reflect.Type {
@@ -180,8 +181,8 @@ func (o SpaceOutput) SpaceSharingSettings() SpaceSharingSettingsPtrOutput {
 }
 
 // A list of tags to apply to the space.
-func (o SpaceOutput) Tags() SpaceTagArrayOutput {
-	return o.ApplyT(func(v *Space) SpaceTagArrayOutput { return v.Tags }).(SpaceTagArrayOutput)
+func (o SpaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Space) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o SpaceOutput) Url() pulumi.StringOutput {

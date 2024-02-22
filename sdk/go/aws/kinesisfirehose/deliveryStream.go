@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type DeliveryStream struct {
 	S3DestinationConfiguration                         DeliveryStreamS3DestinationConfigurationPtrOutput                         `pulumi:"s3DestinationConfiguration"`
 	SnowflakeDestinationConfiguration                  DeliveryStreamSnowflakeDestinationConfigurationPtrOutput                  `pulumi:"snowflakeDestinationConfiguration"`
 	SplunkDestinationConfiguration                     DeliveryStreamSplunkDestinationConfigurationPtrOutput                     `pulumi:"splunkDestinationConfiguration"`
-	Tags                                               DeliveryStreamTagArrayOutput                                              `pulumi:"tags"`
+	Tags                                               aws.TagArrayOutput                                                        `pulumi:"tags"`
 }
 
 // NewDeliveryStream registers a new resource with the given unique name, arguments, and options.
@@ -98,7 +99,7 @@ type deliveryStreamArgs struct {
 	S3DestinationConfiguration                         *DeliveryStreamS3DestinationConfiguration                         `pulumi:"s3DestinationConfiguration"`
 	SnowflakeDestinationConfiguration                  *DeliveryStreamSnowflakeDestinationConfiguration                  `pulumi:"snowflakeDestinationConfiguration"`
 	SplunkDestinationConfiguration                     *DeliveryStreamSplunkDestinationConfiguration                     `pulumi:"splunkDestinationConfiguration"`
-	Tags                                               []DeliveryStreamTag                                               `pulumi:"tags"`
+	Tags                                               []aws.Tag                                                         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeliveryStream resource.
@@ -117,7 +118,7 @@ type DeliveryStreamArgs struct {
 	S3DestinationConfiguration                         DeliveryStreamS3DestinationConfigurationPtrInput
 	SnowflakeDestinationConfiguration                  DeliveryStreamSnowflakeDestinationConfigurationPtrInput
 	SplunkDestinationConfiguration                     DeliveryStreamSplunkDestinationConfigurationPtrInput
-	Tags                                               DeliveryStreamTagArrayInput
+	Tags                                               aws.TagArrayInput
 }
 
 func (DeliveryStreamArgs) ElementType() reflect.Type {
@@ -239,8 +240,8 @@ func (o DeliveryStreamOutput) SplunkDestinationConfiguration() DeliveryStreamSpl
 	}).(DeliveryStreamSplunkDestinationConfigurationPtrOutput)
 }
 
-func (o DeliveryStreamOutput) Tags() DeliveryStreamTagArrayOutput {
-	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamTagArrayOutput { return v.Tags }).(DeliveryStreamTagArrayOutput)
+func (o DeliveryStreamOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DeliveryStream) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

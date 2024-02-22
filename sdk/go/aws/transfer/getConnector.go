@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupConnectorResult struct {
 	// Configuration for an SFTP connector.
 	SftpConfig *SftpConfigProperties `pulumi:"sftpConfig"`
 	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
-	Tags []ConnectorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// URL for Connector
 	Url *string `pulumi:"url"`
 }
@@ -113,8 +114,8 @@ func (o LookupConnectorResultOutput) SftpConfig() SftpConfigPropertiesPtrOutput 
 }
 
 // Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
-func (o LookupConnectorResultOutput) Tags() ConnectorTagArrayOutput {
-	return o.ApplyT(func(v LookupConnectorResult) []ConnectorTag { return v.Tags }).(ConnectorTagArrayOutput)
+func (o LookupConnectorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConnectorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // URL for Connector

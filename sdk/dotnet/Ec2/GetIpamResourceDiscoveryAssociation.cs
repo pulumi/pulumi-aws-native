@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpamResourceDiscoveryAssociationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetIpamResourceDiscoveryAssociationResult(
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? state,
 
-            ImmutableArray<Outputs.IpamResourceDiscoveryAssociationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             IpamArn = ipamArn;
             IpamRegion = ipamRegion;

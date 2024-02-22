@@ -60,7 +60,7 @@ export class ProfilingGroup extends pulumi.CustomResource {
     /**
      * The tags associated with a profiling group.
      */
-    public readonly tags!: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ProfilingGroup resource with the given unique name, arguments, and options.
@@ -117,5 +117,5 @@ export interface ProfilingGroupArgs {
     /**
      * The tags associated with a profiling group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.codeguruprofiler.ProfilingGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

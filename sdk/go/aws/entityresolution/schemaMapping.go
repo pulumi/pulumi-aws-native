@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,9 +25,9 @@ type SchemaMapping struct {
 	MappedInputFields SchemaMappingSchemaInputAttributeArrayOutput `pulumi:"mappedInputFields"`
 	SchemaArn         pulumi.StringOutput                          `pulumi:"schemaArn"`
 	// The name of the SchemaMapping
-	SchemaName pulumi.StringOutput         `pulumi:"schemaName"`
-	Tags       SchemaMappingTagArrayOutput `pulumi:"tags"`
-	UpdatedAt  pulumi.StringOutput         `pulumi:"updatedAt"`
+	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
+	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	UpdatedAt  pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewSchemaMapping registers a new resource with the given unique name, arguments, and options.
@@ -84,8 +85,8 @@ type schemaMappingArgs struct {
 	// The SchemaMapping attributes input
 	MappedInputFields []SchemaMappingSchemaInputAttribute `pulumi:"mappedInputFields"`
 	// The name of the SchemaMapping
-	SchemaName string             `pulumi:"schemaName"`
-	Tags       []SchemaMappingTag `pulumi:"tags"`
+	SchemaName string    `pulumi:"schemaName"`
+	Tags       []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SchemaMapping resource.
@@ -96,7 +97,7 @@ type SchemaMappingArgs struct {
 	MappedInputFields SchemaMappingSchemaInputAttributeArrayInput
 	// The name of the SchemaMapping
 	SchemaName pulumi.StringInput
-	Tags       SchemaMappingTagArrayInput
+	Tags       aws.TagArrayInput
 }
 
 func (SchemaMappingArgs) ElementType() reflect.Type {
@@ -163,8 +164,8 @@ func (o SchemaMappingOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaMapping) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
 }
 
-func (o SchemaMappingOutput) Tags() SchemaMappingTagArrayOutput {
-	return o.ApplyT(func(v *SchemaMapping) SchemaMappingTagArrayOutput { return v.Tags }).(SchemaMappingTagArrayOutput)
+func (o SchemaMappingOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SchemaMapping) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o SchemaMappingOutput) UpdatedAt() pulumi.StringOutput {

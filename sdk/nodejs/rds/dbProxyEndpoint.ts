@@ -60,7 +60,7 @@ export class DbProxyEndpoint extends pulumi.CustomResource {
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
      */
-    public readonly tags!: pulumi.Output<outputs.rds.DbProxyEndpointTagFormat[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
      */
@@ -139,7 +139,7 @@ export interface DbProxyEndpointArgs {
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.rds.DbProxyEndpointTagFormatArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
      */

@@ -89,7 +89,7 @@ export class Canary extends pulumi.CustomResource {
      * Retention period of successful canary runs represented in number of days
      */
     public readonly successRetentionPeriod!: pulumi.Output<number | undefined>;
-    public readonly tags!: pulumi.Output<outputs.synthetics.CanaryTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Visual reference configuration for visual testing
      */
@@ -218,7 +218,7 @@ export interface CanaryArgs {
      * Retention period of successful canary runs represented in number of days
      */
     successRetentionPeriod?: pulumi.Input<number>;
-    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Visual reference configuration for visual testing
      */

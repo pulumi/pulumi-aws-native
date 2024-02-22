@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.DataPipeline
         /// <summary>
         /// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PipelineTag> PipelineTags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> PipelineTags;
 
         [OutputConstructor]
         private GetPipelineResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.DataPipeline
 
             ImmutableArray<Outputs.PipelineObject> pipelineObjects,
 
-            ImmutableArray<Outputs.PipelineTag> pipelineTags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> pipelineTags)
         {
             Activate = activate;
             ParameterObjects = parameterObjects;

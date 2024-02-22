@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupVirtualClusterResult struct {
 	// Id of the virtual cluster.
 	Id *string `pulumi:"id"`
 	// An array of key-value pairs to apply to this virtual cluster.
-	Tags []VirtualClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupVirtualClusterOutput(ctx *pulumi.Context, args LookupVirtualClusterOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualClusterResultOutput {
@@ -81,8 +82,8 @@ func (o LookupVirtualClusterResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this virtual cluster.
-func (o LookupVirtualClusterResultOutput) Tags() VirtualClusterTagArrayOutput {
-	return o.ApplyT(func(v LookupVirtualClusterResult) []VirtualClusterTag { return v.Tags }).(VirtualClusterTagArrayOutput)
+func (o LookupVirtualClusterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVirtualClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

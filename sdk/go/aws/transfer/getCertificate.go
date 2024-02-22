@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,7 +48,7 @@ type LookupCertificateResult struct {
 	// A status description for the certificate.
 	Status *CertificateStatus `pulumi:"status"`
 	// Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
-	Tags []CertificateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Describing the type of certificate. With or without a private key.
 	Type *CertificateType `pulumi:"type"`
 	// Specifies the usage type for the certificate.
@@ -136,8 +137,8 @@ func (o LookupCertificateResultOutput) Status() CertificateStatusPtrOutput {
 }
 
 // Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
-func (o LookupCertificateResultOutput) Tags() CertificateTagArrayOutput {
-	return o.ApplyT(func(v LookupCertificateResult) []CertificateTag { return v.Tags }).(CertificateTagArrayOutput)
+func (o LookupCertificateResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCertificateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Describing the type of certificate. With or without a private key.

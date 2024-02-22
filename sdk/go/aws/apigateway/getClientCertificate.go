@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupClientCertificateResult struct {
 	// The description of the client certificate.
 	Description *string `pulumi:"description"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags []ClientCertificateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupClientCertificateOutput(ctx *pulumi.Context, args LookupClientCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupClientCertificateResultOutput {
@@ -79,8 +80,8 @@ func (o LookupClientCertificateResultOutput) Description() pulumi.StringPtrOutpu
 }
 
 // The collection of tags. Each tag element is associated with a given resource.
-func (o LookupClientCertificateResultOutput) Tags() ClientCertificateTagArrayOutput {
-	return o.ApplyT(func(v LookupClientCertificateResult) []ClientCertificateTag { return v.Tags }).(ClientCertificateTagArrayOutput)
+func (o LookupClientCertificateResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupClientCertificateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

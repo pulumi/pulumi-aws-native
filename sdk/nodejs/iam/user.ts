@@ -68,7 +68,7 @@ export class User extends pulumi.CustomResource {
     /**
      * A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
      */
-    public readonly tags!: pulumi.Output<outputs.iam.UserTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The friendly name identifying the user.
      */
@@ -143,7 +143,7 @@ export interface UserArgs {
     /**
      * A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iam.UserTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The friendly name identifying the user.
      */

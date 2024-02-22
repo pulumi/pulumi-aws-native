@@ -76,7 +76,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * The tags for the link.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.LinkTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the link.
      */
@@ -160,7 +160,7 @@ export interface LinkArgs {
     /**
      * The tags for the link.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.LinkTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of the link.
      */

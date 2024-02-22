@@ -76,7 +76,7 @@ export class Framework extends pulumi.CustomResource {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    public readonly frameworkTags!: pulumi.Output<outputs.backup.FrameworkTag[] | undefined>;
+    public readonly frameworkTags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Framework resource with the given unique name, arguments, and options.
@@ -136,5 +136,5 @@ export interface FrameworkArgs {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    frameworkTags?: pulumi.Input<pulumi.Input<inputs.backup.FrameworkTagArgs>[]>;
+    frameworkTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Dlm
         public Output<string?> State { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.LifecyclePolicyTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -134,10 +134,10 @@ namespace Pulumi.AwsNative.Dlm
         public Input<string>? State { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.LifecyclePolicyTagArgs>? _tags;
-        public InputList<Inputs.LifecyclePolicyTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.LifecyclePolicyTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

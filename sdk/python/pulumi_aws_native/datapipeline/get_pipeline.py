@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetPipelineResult',
@@ -78,7 +79,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter(name="pipelineTags")
-    def pipeline_tags(self) -> Optional[Sequence['outputs.PipelineTag']]:
+    def pipeline_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
         """

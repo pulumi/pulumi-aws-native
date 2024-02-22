@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.GameLift
         /// A list of labels to assign to the new game server group resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.GameServerGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
@@ -211,14 +211,14 @@ namespace Pulumi.AwsNative.GameLift
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.GameServerGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of labels to assign to the new game server group resource.
         /// </summary>
-        public InputList<Inputs.GameServerGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.GameServerGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

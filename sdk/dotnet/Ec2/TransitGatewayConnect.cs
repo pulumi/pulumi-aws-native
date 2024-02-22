@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags for the attachment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TransitGatewayConnectTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Connect attachment.
@@ -114,14 +114,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<Inputs.TransitGatewayConnectOptionsArgs> Options { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.TransitGatewayConnectTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the attachment.
         /// </summary>
-        public InputList<Inputs.TransitGatewayConnectTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TransitGatewayConnectTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

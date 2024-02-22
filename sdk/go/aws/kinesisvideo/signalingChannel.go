@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type SignalingChannel struct {
 	// The name of the Kinesis Video Signaling Channel.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags SignalingChannelTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
 	Type SignalingChannelTypePtrOutput `pulumi:"type"`
 }
@@ -76,7 +77,7 @@ type signalingChannelArgs struct {
 	// The name of the Kinesis Video Signaling Channel.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []SignalingChannelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
 	Type *SignalingChannelType `pulumi:"type"`
 }
@@ -88,7 +89,7 @@ type SignalingChannelArgs struct {
 	// The name of the Kinesis Video Signaling Channel.
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags SignalingChannelTagArrayInput
+	Tags aws.TagArrayInput
 	// The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
 	Type SignalingChannelTypePtrInput
 }
@@ -146,8 +147,8 @@ func (o SignalingChannelOutput) Name() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o SignalingChannelOutput) Tags() SignalingChannelTagArrayOutput {
-	return o.ApplyT(func(v *SignalingChannel) SignalingChannelTagArrayOutput { return v.Tags }).(SignalingChannelTagArrayOutput)
+func (o SignalingChannelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SignalingChannel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.

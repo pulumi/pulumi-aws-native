@@ -64,7 +64,7 @@ export interface GetReplicationConfigResult {
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
-    readonly tags?: outputs.dms.ReplicationConfigTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
      */

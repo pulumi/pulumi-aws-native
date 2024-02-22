@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type ServiceTemplate struct {
 	// <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags ServiceTemplateTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewServiceTemplate registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +89,7 @@ type serviceTemplateArgs struct {
 	// <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags []ServiceTemplateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceTemplate resource.
@@ -104,7 +105,7 @@ type ServiceTemplateArgs struct {
 	// <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags ServiceTemplateTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ServiceTemplateArgs) ElementType() reflect.Type {
@@ -176,8 +177,8 @@ func (o ServiceTemplateOutput) PipelineProvisioning() ServiceTemplateProvisionin
 //
 //	 <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 //	<i>Proton User Guide</i>.</p>
-func (o ServiceTemplateOutput) Tags() ServiceTemplateTagArrayOutput {
-	return o.ApplyT(func(v *ServiceTemplate) ServiceTemplateTagArrayOutput { return v.Tags }).(ServiceTemplateTagArrayOutput)
+func (o ServiceTemplateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ServiceTemplate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

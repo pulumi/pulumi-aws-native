@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['StreamingDistributionArgs', 'StreamingDistribution']
@@ -17,7 +19,7 @@ __all__ = ['StreamingDistributionArgs', 'StreamingDistribution']
 class StreamingDistributionArgs:
     def __init__(__self__, *,
                  streaming_distribution_config: pulumi.Input['StreamingDistributionConfigArgs'],
-                 tags: pulumi.Input[Sequence[pulumi.Input['StreamingDistributionTagArgs']]]):
+                 tags: pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]):
         """
         The set of arguments for constructing a StreamingDistribution resource.
         """
@@ -35,11 +37,11 @@ class StreamingDistributionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Sequence[pulumi.Input['StreamingDistributionTagArgs']]]:
+    def tags(self) -> pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Sequence[pulumi.Input['StreamingDistributionTagArgs']]]):
+    def tags(self, value: pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]):
         pulumi.set(self, "tags", value)
 
 
@@ -54,7 +56,7 @@ class StreamingDistribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  streaming_distribution_config: Optional[pulumi.Input[pulumi.InputType['StreamingDistributionConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingDistributionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::StreamingDistribution
@@ -87,7 +89,7 @@ class StreamingDistribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  streaming_distribution_config: Optional[pulumi.Input[pulumi.InputType['StreamingDistributionConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingDistributionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""StreamingDistribution is deprecated: StreamingDistribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -144,6 +146,6 @@ class StreamingDistribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Sequence['outputs.StreamingDistributionTag']]:
+    def tags(self) -> pulumi.Output[Sequence['_root_outputs.Tag']]:
         return pulumi.get(self, "tags")
 

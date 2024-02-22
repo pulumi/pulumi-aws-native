@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Pipeline struct {
 	RestartExecutionOnUpdate       pulumi.BoolPtrOutput                   `pulumi:"restartExecutionOnUpdate"`
 	RoleArn                        pulumi.StringOutput                    `pulumi:"roleArn"`
 	Stages                         PipelineStageDeclarationArrayOutput    `pulumi:"stages"`
-	Tags                           PipelineTagArrayOutput                 `pulumi:"tags"`
+	Tags                           aws.TagArrayOutput                     `pulumi:"tags"`
 	Triggers                       PipelineTriggerDeclarationArrayOutput  `pulumi:"triggers"`
 	Variables                      PipelineVariableDeclarationArrayOutput `pulumi:"variables"`
 	Version                        pulumi.StringOutput                    `pulumi:"version"`
@@ -92,7 +93,7 @@ type pipelineArgs struct {
 	RestartExecutionOnUpdate       *bool                         `pulumi:"restartExecutionOnUpdate"`
 	RoleArn                        string                        `pulumi:"roleArn"`
 	Stages                         []PipelineStageDeclaration    `pulumi:"stages"`
-	Tags                           []PipelineTag                 `pulumi:"tags"`
+	Tags                           []aws.Tag                     `pulumi:"tags"`
 	Triggers                       []PipelineTriggerDeclaration  `pulumi:"triggers"`
 	Variables                      []PipelineVariableDeclaration `pulumi:"variables"`
 }
@@ -108,7 +109,7 @@ type PipelineArgs struct {
 	RestartExecutionOnUpdate       pulumi.BoolPtrInput
 	RoleArn                        pulumi.StringInput
 	Stages                         PipelineStageDeclarationArrayInput
-	Tags                           PipelineTagArrayInput
+	Tags                           aws.TagArrayInput
 	Triggers                       PipelineTriggerDeclarationArrayInput
 	Variables                      PipelineVariableDeclarationArrayInput
 }
@@ -186,8 +187,8 @@ func (o PipelineOutput) Stages() PipelineStageDeclarationArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineStageDeclarationArrayOutput { return v.Stages }).(PipelineStageDeclarationArrayOutput)
 }
 
-func (o PipelineOutput) Tags() PipelineTagArrayOutput {
-	return o.ApplyT(func(v *Pipeline) PipelineTagArrayOutput { return v.Tags }).(PipelineTagArrayOutput)
+func (o PipelineOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Pipeline) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o PipelineOutput) Triggers() PipelineTriggerDeclarationArrayOutput {

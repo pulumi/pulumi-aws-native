@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// Key-value pairs used to manage metadata for model cards.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ModelCardTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -162,14 +162,14 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.ModelCardSecurityConfigArgs>? SecurityConfig { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ModelCardTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Key-value pairs used to manage metadata for model cards.
         /// </summary>
-        public InputList<Inputs.ModelCardTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ModelCardTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

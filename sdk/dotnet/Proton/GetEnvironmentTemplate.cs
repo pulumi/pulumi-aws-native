@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Proton
         ///          &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html"&gt;Proton resources and tagging&lt;/a&gt; in the
         ///         &lt;i&gt;Proton User Guide&lt;/i&gt;.&lt;/p&gt;
         /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentTemplateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEnvironmentTemplateResult(
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Proton
 
             string? displayName,
 
-            ImmutableArray<Outputs.EnvironmentTemplateTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

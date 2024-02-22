@@ -2243,101 +2243,6 @@ type CertificateAuthorityTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// CertificateAuthorityTagInput is an input type that accepts CertificateAuthorityTagArgs and CertificateAuthorityTagOutput values.
-// You can construct a concrete instance of `CertificateAuthorityTagInput` via:
-//
-//	CertificateAuthorityTagArgs{...}
-type CertificateAuthorityTagInput interface {
-	pulumi.Input
-
-	ToCertificateAuthorityTagOutput() CertificateAuthorityTagOutput
-	ToCertificateAuthorityTagOutputWithContext(context.Context) CertificateAuthorityTagOutput
-}
-
-type CertificateAuthorityTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (CertificateAuthorityTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateAuthorityTag)(nil)).Elem()
-}
-
-func (i CertificateAuthorityTagArgs) ToCertificateAuthorityTagOutput() CertificateAuthorityTagOutput {
-	return i.ToCertificateAuthorityTagOutputWithContext(context.Background())
-}
-
-func (i CertificateAuthorityTagArgs) ToCertificateAuthorityTagOutputWithContext(ctx context.Context) CertificateAuthorityTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityTagOutput)
-}
-
-// CertificateAuthorityTagArrayInput is an input type that accepts CertificateAuthorityTagArray and CertificateAuthorityTagArrayOutput values.
-// You can construct a concrete instance of `CertificateAuthorityTagArrayInput` via:
-//
-//	CertificateAuthorityTagArray{ CertificateAuthorityTagArgs{...} }
-type CertificateAuthorityTagArrayInput interface {
-	pulumi.Input
-
-	ToCertificateAuthorityTagArrayOutput() CertificateAuthorityTagArrayOutput
-	ToCertificateAuthorityTagArrayOutputWithContext(context.Context) CertificateAuthorityTagArrayOutput
-}
-
-type CertificateAuthorityTagArray []CertificateAuthorityTagInput
-
-func (CertificateAuthorityTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CertificateAuthorityTag)(nil)).Elem()
-}
-
-func (i CertificateAuthorityTagArray) ToCertificateAuthorityTagArrayOutput() CertificateAuthorityTagArrayOutput {
-	return i.ToCertificateAuthorityTagArrayOutputWithContext(context.Background())
-}
-
-func (i CertificateAuthorityTagArray) ToCertificateAuthorityTagArrayOutputWithContext(ctx context.Context) CertificateAuthorityTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityTagArrayOutput)
-}
-
-type CertificateAuthorityTagOutput struct{ *pulumi.OutputState }
-
-func (CertificateAuthorityTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateAuthorityTag)(nil)).Elem()
-}
-
-func (o CertificateAuthorityTagOutput) ToCertificateAuthorityTagOutput() CertificateAuthorityTagOutput {
-	return o
-}
-
-func (o CertificateAuthorityTagOutput) ToCertificateAuthorityTagOutputWithContext(ctx context.Context) CertificateAuthorityTagOutput {
-	return o
-}
-
-func (o CertificateAuthorityTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o CertificateAuthorityTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type CertificateAuthorityTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CertificateAuthorityTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CertificateAuthorityTag)(nil)).Elem()
-}
-
-func (o CertificateAuthorityTagArrayOutput) ToCertificateAuthorityTagArrayOutput() CertificateAuthorityTagArrayOutput {
-	return o
-}
-
-func (o CertificateAuthorityTagArrayOutput) ToCertificateAuthorityTagArrayOutputWithContext(ctx context.Context) CertificateAuthorityTagArrayOutput {
-	return o
-}
-
-func (o CertificateAuthorityTagArrayOutput) Index(i pulumi.IntInput) CertificateAuthorityTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateAuthorityTag {
-		return vs[0].([]CertificateAuthorityTag)[vs[1].(int)]
-	}).(CertificateAuthorityTagOutput)
-}
-
 type CertificateCustomAttribute struct {
 	ObjectIdentifier string `pulumi:"objectIdentifier"`
 	Value            string `pulumi:"value"`
@@ -4378,8 +4283,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityRevocationConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityRevocationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthoritySubjectInput)(nil)).Elem(), CertificateAuthoritySubjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthoritySubjectPtrInput)(nil)).Elem(), CertificateAuthoritySubjectArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityTagInput)(nil)).Elem(), CertificateAuthorityTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityTagArrayInput)(nil)).Elem(), CertificateAuthorityTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCustomAttributeInput)(nil)).Elem(), CertificateCustomAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCustomAttributeArrayInput)(nil)).Elem(), CertificateCustomAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCustomExtensionInput)(nil)).Elem(), CertificateCustomExtensionArgs{})
@@ -4431,8 +4334,6 @@ func init() {
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthoritySubjectOutput{})
 	pulumi.RegisterOutputType(CertificateAuthoritySubjectPtrOutput{})
-	pulumi.RegisterOutputType(CertificateAuthorityTagOutput{})
-	pulumi.RegisterOutputType(CertificateAuthorityTagArrayOutput{})
 	pulumi.RegisterOutputType(CertificateCustomAttributeOutput{})
 	pulumi.RegisterOutputType(CertificateCustomAttributeArrayOutput{})
 	pulumi.RegisterOutputType(CertificateCustomExtensionOutput{})

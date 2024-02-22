@@ -59,7 +59,7 @@ export class Fleet extends pulumi.CustomResource {
     public readonly platform!: pulumi.Output<string | undefined>;
     public readonly sessionScriptS3Location!: pulumi.Output<outputs.appstream.FleetS3Location | undefined>;
     public readonly streamView!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.appstream.FleetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly usbDeviceFilterStrings!: pulumi.Output<string[] | undefined>;
     public readonly vpcConfig!: pulumi.Output<outputs.appstream.FleetVpcConfig | undefined>;
 
@@ -155,7 +155,7 @@ export interface FleetArgs {
     platform?: pulumi.Input<string>;
     sessionScriptS3Location?: pulumi.Input<inputs.appstream.FleetS3LocationArgs>;
     streamView?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appstream.FleetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     usbDeviceFilterStrings?: pulumi.Input<pulumi.Input<string>[]>;
     vpcConfig?: pulumi.Input<inputs.appstream.FleetVpcConfigArgs>;
 }

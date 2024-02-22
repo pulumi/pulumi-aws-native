@@ -70,7 +70,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * List of tags to tag the schema
      */
-    public readonly tags!: pulumi.Output<outputs.glue.SchemaTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -150,5 +150,5 @@ export interface SchemaArgs {
     /**
      * List of tags to tag the schema
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.glue.SchemaTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

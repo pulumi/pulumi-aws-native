@@ -32,7 +32,7 @@ export interface GetProfileResult {
     readonly requireInstanceProperties?: boolean;
     readonly roleArns?: string[];
     readonly sessionPolicy?: string;
-    readonly tags?: outputs.rolesanywhere.ProfileTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::RolesAnywhere::Profile Resource Type

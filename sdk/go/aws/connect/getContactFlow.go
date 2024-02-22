@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupContactFlowResult struct {
 	// The state of the contact flow.
 	State *ContactFlowStateEnum `pulumi:"state"`
 	// One or more tags.
-	Tags []ContactFlowTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupContactFlowOutput(ctx *pulumi.Context, args LookupContactFlowOutputArgs, opts ...pulumi.InvokeOption) LookupContactFlowResultOutput {
@@ -111,8 +112,8 @@ func (o LookupContactFlowResultOutput) State() ContactFlowStateEnumPtrOutput {
 }
 
 // One or more tags.
-func (o LookupContactFlowResultOutput) Tags() ContactFlowTagArrayOutput {
-	return o.ApplyT(func(v LookupContactFlowResult) []ContactFlowTag { return v.Tags }).(ContactFlowTagArrayOutput)
+func (o LookupContactFlowResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupContactFlowResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

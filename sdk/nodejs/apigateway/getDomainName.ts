@@ -33,7 +33,7 @@ export interface GetDomainNameResult {
     readonly regionalDomainName?: string;
     readonly regionalHostedZoneId?: string;
     readonly securityPolicy?: string;
-    readonly tags?: outputs.apigateway.DomainNameTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ApiGateway::DomainName.

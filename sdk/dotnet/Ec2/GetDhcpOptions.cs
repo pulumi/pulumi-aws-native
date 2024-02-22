@@ -55,13 +55,13 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// Any tags assigned to the DHCP options set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DhcpOptionsTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDhcpOptionsResult(
             string? dhcpOptionsId,
 
-            ImmutableArray<Outputs.DhcpOptionsTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DhcpOptionsId = dhcpOptionsId;
             Tags = tags;

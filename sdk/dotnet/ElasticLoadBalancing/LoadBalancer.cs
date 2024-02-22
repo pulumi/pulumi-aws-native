@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.LoadBalancerTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -221,10 +221,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         }
 
         [Input("tags")]
-        private InputList<Inputs.LoadBalancerTagArgs>? _tags;
-        public InputList<Inputs.LoadBalancerTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.LoadBalancerTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -31,7 +31,7 @@ export interface GetClientCertificateResult {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    readonly tags?: outputs.apigateway.ClientCertificateTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.

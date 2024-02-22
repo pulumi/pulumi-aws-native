@@ -137,7 +137,7 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// A list of tags to apply to the function.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FunctionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
         /// </summary>
@@ -193,7 +193,7 @@ namespace Pulumi.AwsNative.Lambda
 
             Outputs.FunctionSnapStartResponse? snapStartResponse,
 
-            ImmutableArray<Outputs.FunctionTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? timeout,
 

@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         public readonly string? SourceSecurityGroupGroupName;
         public readonly string? SourceSecurityGroupOwnerAlias;
         public readonly ImmutableArray<string> Subnets;
-        public readonly ImmutableArray<Outputs.LoadBalancerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLoadBalancerResult(
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
 
             ImmutableArray<string> subnets,
 
-            ImmutableArray<Outputs.LoadBalancerTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AccessLoggingPolicy = accessLoggingPolicy;
             AppCookieStickinessPolicy = appCookieStickinessPolicy;

@@ -42,7 +42,7 @@ export class Fleet extends pulumi.CustomResource {
     public readonly computeType!: pulumi.Output<enums.codebuild.FleetComputeType | undefined>;
     public readonly environmentType!: pulumi.Output<enums.codebuild.FleetEnvironmentType | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.codebuild.FleetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -82,5 +82,5 @@ export interface FleetArgs {
     computeType?: pulumi.Input<enums.codebuild.FleetComputeType>;
     environmentType?: pulumi.Input<enums.codebuild.FleetEnvironmentType>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.codebuild.FleetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

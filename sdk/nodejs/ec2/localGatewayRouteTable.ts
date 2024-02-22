@@ -68,7 +68,7 @@ export class LocalGatewayRouteTable extends pulumi.CustomResource {
     /**
      * The tags for the local gateway route table.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.LocalGatewayRouteTableTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocalGatewayRouteTable resource with the given unique name, arguments, and options.
@@ -124,5 +124,5 @@ export interface LocalGatewayRouteTableArgs {
     /**
      * The tags for the local gateway route table.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.LocalGatewayRouteTableTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

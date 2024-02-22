@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupPhoneNumberResult struct {
 	// The phone number ARN
 	PhoneNumberArn *string `pulumi:"phoneNumberArn"`
 	// One or more tags.
-	Tags []PhoneNumberTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the target the phone number is claimed to.
 	TargetArn *string `pulumi:"targetArn"`
 }
@@ -92,8 +93,8 @@ func (o LookupPhoneNumberResultOutput) PhoneNumberArn() pulumi.StringPtrOutput {
 }
 
 // One or more tags.
-func (o LookupPhoneNumberResultOutput) Tags() PhoneNumberTagArrayOutput {
-	return o.ApplyT(func(v LookupPhoneNumberResult) []PhoneNumberTag { return v.Tags }).(PhoneNumberTagArrayOutput)
+func (o LookupPhoneNumberResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPhoneNumberResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the target the phone number is claimed to.

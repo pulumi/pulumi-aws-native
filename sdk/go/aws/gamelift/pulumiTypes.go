@@ -2267,105 +2267,6 @@ type GameServerGroupTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// GameServerGroupTagInput is an input type that accepts GameServerGroupTagArgs and GameServerGroupTagOutput values.
-// You can construct a concrete instance of `GameServerGroupTagInput` via:
-//
-//	GameServerGroupTagArgs{...}
-type GameServerGroupTagInput interface {
-	pulumi.Input
-
-	ToGameServerGroupTagOutput() GameServerGroupTagOutput
-	ToGameServerGroupTagOutputWithContext(context.Context) GameServerGroupTagOutput
-}
-
-type GameServerGroupTagArgs struct {
-	// The key for a developer-defined key:value pair for tagging an AWS resource.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The value for a developer-defined key:value pair for tagging an AWS resource.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (GameServerGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameServerGroupTag)(nil)).Elem()
-}
-
-func (i GameServerGroupTagArgs) ToGameServerGroupTagOutput() GameServerGroupTagOutput {
-	return i.ToGameServerGroupTagOutputWithContext(context.Background())
-}
-
-func (i GameServerGroupTagArgs) ToGameServerGroupTagOutputWithContext(ctx context.Context) GameServerGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTagOutput)
-}
-
-// GameServerGroupTagArrayInput is an input type that accepts GameServerGroupTagArray and GameServerGroupTagArrayOutput values.
-// You can construct a concrete instance of `GameServerGroupTagArrayInput` via:
-//
-//	GameServerGroupTagArray{ GameServerGroupTagArgs{...} }
-type GameServerGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToGameServerGroupTagArrayOutput() GameServerGroupTagArrayOutput
-	ToGameServerGroupTagArrayOutputWithContext(context.Context) GameServerGroupTagArrayOutput
-}
-
-type GameServerGroupTagArray []GameServerGroupTagInput
-
-func (GameServerGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GameServerGroupTag)(nil)).Elem()
-}
-
-func (i GameServerGroupTagArray) ToGameServerGroupTagArrayOutput() GameServerGroupTagArrayOutput {
-	return i.ToGameServerGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i GameServerGroupTagArray) ToGameServerGroupTagArrayOutputWithContext(ctx context.Context) GameServerGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTagArrayOutput)
-}
-
-type GameServerGroupTagOutput struct{ *pulumi.OutputState }
-
-func (GameServerGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameServerGroupTag)(nil)).Elem()
-}
-
-func (o GameServerGroupTagOutput) ToGameServerGroupTagOutput() GameServerGroupTagOutput {
-	return o
-}
-
-func (o GameServerGroupTagOutput) ToGameServerGroupTagOutputWithContext(ctx context.Context) GameServerGroupTagOutput {
-	return o
-}
-
-// The key for a developer-defined key:value pair for tagging an AWS resource.
-func (o GameServerGroupTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GameServerGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-// The value for a developer-defined key:value pair for tagging an AWS resource.
-func (o GameServerGroupTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GameServerGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type GameServerGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (GameServerGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GameServerGroupTag)(nil)).Elem()
-}
-
-func (o GameServerGroupTagArrayOutput) ToGameServerGroupTagArrayOutput() GameServerGroupTagArrayOutput {
-	return o
-}
-
-func (o GameServerGroupTagArrayOutput) ToGameServerGroupTagArrayOutputWithContext(ctx context.Context) GameServerGroupTagArrayOutput {
-	return o
-}
-
-func (o GameServerGroupTagArrayOutput) Index(i pulumi.IntInput) GameServerGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameServerGroupTag {
-		return vs[0].([]GameServerGroupTag)[vs[1].(int)]
-	}).(GameServerGroupTagOutput)
-}
-
 // Settings for a target-based scaling policy applied to Auto Scaling group.
 type GameServerGroupTargetTrackingConfiguration struct {
 	TargetValue float64 `pulumi:"targetValue"`
@@ -2999,214 +2900,12 @@ type GameSessionQueueTag struct {
 	Value string `pulumi:"value"`
 }
 
-// GameSessionQueueTagInput is an input type that accepts GameSessionQueueTagArgs and GameSessionQueueTagOutput values.
-// You can construct a concrete instance of `GameSessionQueueTagInput` via:
-//
-//	GameSessionQueueTagArgs{...}
-type GameSessionQueueTagInput interface {
-	pulumi.Input
-
-	ToGameSessionQueueTagOutput() GameSessionQueueTagOutput
-	ToGameSessionQueueTagOutputWithContext(context.Context) GameSessionQueueTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type GameSessionQueueTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (GameSessionQueueTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameSessionQueueTag)(nil)).Elem()
-}
-
-func (i GameSessionQueueTagArgs) ToGameSessionQueueTagOutput() GameSessionQueueTagOutput {
-	return i.ToGameSessionQueueTagOutputWithContext(context.Background())
-}
-
-func (i GameSessionQueueTagArgs) ToGameSessionQueueTagOutputWithContext(ctx context.Context) GameSessionQueueTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueTagOutput)
-}
-
-// GameSessionQueueTagArrayInput is an input type that accepts GameSessionQueueTagArray and GameSessionQueueTagArrayOutput values.
-// You can construct a concrete instance of `GameSessionQueueTagArrayInput` via:
-//
-//	GameSessionQueueTagArray{ GameSessionQueueTagArgs{...} }
-type GameSessionQueueTagArrayInput interface {
-	pulumi.Input
-
-	ToGameSessionQueueTagArrayOutput() GameSessionQueueTagArrayOutput
-	ToGameSessionQueueTagArrayOutputWithContext(context.Context) GameSessionQueueTagArrayOutput
-}
-
-type GameSessionQueueTagArray []GameSessionQueueTagInput
-
-func (GameSessionQueueTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GameSessionQueueTag)(nil)).Elem()
-}
-
-func (i GameSessionQueueTagArray) ToGameSessionQueueTagArrayOutput() GameSessionQueueTagArrayOutput {
-	return i.ToGameSessionQueueTagArrayOutputWithContext(context.Background())
-}
-
-func (i GameSessionQueueTagArray) ToGameSessionQueueTagArrayOutputWithContext(ctx context.Context) GameSessionQueueTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type GameSessionQueueTagOutput struct{ *pulumi.OutputState }
-
-func (GameSessionQueueTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameSessionQueueTag)(nil)).Elem()
-}
-
-func (o GameSessionQueueTagOutput) ToGameSessionQueueTagOutput() GameSessionQueueTagOutput {
-	return o
-}
-
-func (o GameSessionQueueTagOutput) ToGameSessionQueueTagOutputWithContext(ctx context.Context) GameSessionQueueTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-func (o GameSessionQueueTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GameSessionQueueTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-func (o GameSessionQueueTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GameSessionQueueTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type GameSessionQueueTagArrayOutput struct{ *pulumi.OutputState }
-
-func (GameSessionQueueTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GameSessionQueueTag)(nil)).Elem()
-}
-
-func (o GameSessionQueueTagArrayOutput) ToGameSessionQueueTagArrayOutput() GameSessionQueueTagArrayOutput {
-	return o
-}
-
-func (o GameSessionQueueTagArrayOutput) ToGameSessionQueueTagArrayOutputWithContext(ctx context.Context) GameSessionQueueTagArrayOutput {
-	return o
-}
-
-func (o GameSessionQueueTagArrayOutput) Index(i pulumi.IntInput) GameSessionQueueTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameSessionQueueTag {
-		return vs[0].([]GameSessionQueueTag)[vs[1].(int)]
-	}).(GameSessionQueueTagOutput)
-}
-
 // A key-value pair to associate with a resource.
 type LocationTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
 	Value string `pulumi:"value"`
-}
-
-// LocationTagInput is an input type that accepts LocationTagArgs and LocationTagOutput values.
-// You can construct a concrete instance of `LocationTagInput` via:
-//
-//	LocationTagArgs{...}
-type LocationTagInput interface {
-	pulumi.Input
-
-	ToLocationTagOutput() LocationTagOutput
-	ToLocationTagOutputWithContext(context.Context) LocationTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type LocationTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LocationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationTag)(nil)).Elem()
-}
-
-func (i LocationTagArgs) ToLocationTagOutput() LocationTagOutput {
-	return i.ToLocationTagOutputWithContext(context.Background())
-}
-
-func (i LocationTagArgs) ToLocationTagOutputWithContext(ctx context.Context) LocationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationTagOutput)
-}
-
-// LocationTagArrayInput is an input type that accepts LocationTagArray and LocationTagArrayOutput values.
-// You can construct a concrete instance of `LocationTagArrayInput` via:
-//
-//	LocationTagArray{ LocationTagArgs{...} }
-type LocationTagArrayInput interface {
-	pulumi.Input
-
-	ToLocationTagArrayOutput() LocationTagArrayOutput
-	ToLocationTagArrayOutputWithContext(context.Context) LocationTagArrayOutput
-}
-
-type LocationTagArray []LocationTagInput
-
-func (LocationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationTag)(nil)).Elem()
-}
-
-func (i LocationTagArray) ToLocationTagArrayOutput() LocationTagArrayOutput {
-	return i.ToLocationTagArrayOutputWithContext(context.Background())
-}
-
-func (i LocationTagArray) ToLocationTagArrayOutputWithContext(ctx context.Context) LocationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type LocationTagOutput struct{ *pulumi.OutputState }
-
-func (LocationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationTag)(nil)).Elem()
-}
-
-func (o LocationTagOutput) ToLocationTagOutput() LocationTagOutput {
-	return o
-}
-
-func (o LocationTagOutput) ToLocationTagOutputWithContext(ctx context.Context) LocationTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-func (o LocationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-func (o LocationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LocationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LocationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocationTag)(nil)).Elem()
-}
-
-func (o LocationTagArrayOutput) ToLocationTagArrayOutput() LocationTagArrayOutput {
-	return o
-}
-
-func (o LocationTagArrayOutput) ToLocationTagArrayOutputWithContext(ctx context.Context) LocationTagArrayOutput {
-	return o
-}
-
-func (o LocationTagArrayOutput) Index(i pulumi.IntInput) LocationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationTag {
-		return vs[0].([]LocationTag)[vs[1].(int)]
-	}).(LocationTagOutput)
 }
 
 // A key-value pair that contains information about a game session.
@@ -3326,214 +3025,12 @@ type MatchmakingConfigurationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// MatchmakingConfigurationTagInput is an input type that accepts MatchmakingConfigurationTagArgs and MatchmakingConfigurationTagOutput values.
-// You can construct a concrete instance of `MatchmakingConfigurationTagInput` via:
-//
-//	MatchmakingConfigurationTagArgs{...}
-type MatchmakingConfigurationTagInput interface {
-	pulumi.Input
-
-	ToMatchmakingConfigurationTagOutput() MatchmakingConfigurationTagOutput
-	ToMatchmakingConfigurationTagOutputWithContext(context.Context) MatchmakingConfigurationTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type MatchmakingConfigurationTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (MatchmakingConfigurationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchmakingConfigurationTag)(nil)).Elem()
-}
-
-func (i MatchmakingConfigurationTagArgs) ToMatchmakingConfigurationTagOutput() MatchmakingConfigurationTagOutput {
-	return i.ToMatchmakingConfigurationTagOutputWithContext(context.Background())
-}
-
-func (i MatchmakingConfigurationTagArgs) ToMatchmakingConfigurationTagOutputWithContext(ctx context.Context) MatchmakingConfigurationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationTagOutput)
-}
-
-// MatchmakingConfigurationTagArrayInput is an input type that accepts MatchmakingConfigurationTagArray and MatchmakingConfigurationTagArrayOutput values.
-// You can construct a concrete instance of `MatchmakingConfigurationTagArrayInput` via:
-//
-//	MatchmakingConfigurationTagArray{ MatchmakingConfigurationTagArgs{...} }
-type MatchmakingConfigurationTagArrayInput interface {
-	pulumi.Input
-
-	ToMatchmakingConfigurationTagArrayOutput() MatchmakingConfigurationTagArrayOutput
-	ToMatchmakingConfigurationTagArrayOutputWithContext(context.Context) MatchmakingConfigurationTagArrayOutput
-}
-
-type MatchmakingConfigurationTagArray []MatchmakingConfigurationTagInput
-
-func (MatchmakingConfigurationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MatchmakingConfigurationTag)(nil)).Elem()
-}
-
-func (i MatchmakingConfigurationTagArray) ToMatchmakingConfigurationTagArrayOutput() MatchmakingConfigurationTagArrayOutput {
-	return i.ToMatchmakingConfigurationTagArrayOutputWithContext(context.Background())
-}
-
-func (i MatchmakingConfigurationTagArray) ToMatchmakingConfigurationTagArrayOutputWithContext(ctx context.Context) MatchmakingConfigurationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type MatchmakingConfigurationTagOutput struct{ *pulumi.OutputState }
-
-func (MatchmakingConfigurationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchmakingConfigurationTag)(nil)).Elem()
-}
-
-func (o MatchmakingConfigurationTagOutput) ToMatchmakingConfigurationTagOutput() MatchmakingConfigurationTagOutput {
-	return o
-}
-
-func (o MatchmakingConfigurationTagOutput) ToMatchmakingConfigurationTagOutputWithContext(ctx context.Context) MatchmakingConfigurationTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-func (o MatchmakingConfigurationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v MatchmakingConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-func (o MatchmakingConfigurationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v MatchmakingConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type MatchmakingConfigurationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (MatchmakingConfigurationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MatchmakingConfigurationTag)(nil)).Elem()
-}
-
-func (o MatchmakingConfigurationTagArrayOutput) ToMatchmakingConfigurationTagArrayOutput() MatchmakingConfigurationTagArrayOutput {
-	return o
-}
-
-func (o MatchmakingConfigurationTagArrayOutput) ToMatchmakingConfigurationTagArrayOutputWithContext(ctx context.Context) MatchmakingConfigurationTagArrayOutput {
-	return o
-}
-
-func (o MatchmakingConfigurationTagArrayOutput) Index(i pulumi.IntInput) MatchmakingConfigurationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchmakingConfigurationTag {
-		return vs[0].([]MatchmakingConfigurationTag)[vs[1].(int)]
-	}).(MatchmakingConfigurationTagOutput)
-}
-
 // A key-value pair to associate with a resource.
 type MatchmakingRuleSetTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
 	Value string `pulumi:"value"`
-}
-
-// MatchmakingRuleSetTagInput is an input type that accepts MatchmakingRuleSetTagArgs and MatchmakingRuleSetTagOutput values.
-// You can construct a concrete instance of `MatchmakingRuleSetTagInput` via:
-//
-//	MatchmakingRuleSetTagArgs{...}
-type MatchmakingRuleSetTagInput interface {
-	pulumi.Input
-
-	ToMatchmakingRuleSetTagOutput() MatchmakingRuleSetTagOutput
-	ToMatchmakingRuleSetTagOutputWithContext(context.Context) MatchmakingRuleSetTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type MatchmakingRuleSetTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (MatchmakingRuleSetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchmakingRuleSetTag)(nil)).Elem()
-}
-
-func (i MatchmakingRuleSetTagArgs) ToMatchmakingRuleSetTagOutput() MatchmakingRuleSetTagOutput {
-	return i.ToMatchmakingRuleSetTagOutputWithContext(context.Background())
-}
-
-func (i MatchmakingRuleSetTagArgs) ToMatchmakingRuleSetTagOutputWithContext(ctx context.Context) MatchmakingRuleSetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingRuleSetTagOutput)
-}
-
-// MatchmakingRuleSetTagArrayInput is an input type that accepts MatchmakingRuleSetTagArray and MatchmakingRuleSetTagArrayOutput values.
-// You can construct a concrete instance of `MatchmakingRuleSetTagArrayInput` via:
-//
-//	MatchmakingRuleSetTagArray{ MatchmakingRuleSetTagArgs{...} }
-type MatchmakingRuleSetTagArrayInput interface {
-	pulumi.Input
-
-	ToMatchmakingRuleSetTagArrayOutput() MatchmakingRuleSetTagArrayOutput
-	ToMatchmakingRuleSetTagArrayOutputWithContext(context.Context) MatchmakingRuleSetTagArrayOutput
-}
-
-type MatchmakingRuleSetTagArray []MatchmakingRuleSetTagInput
-
-func (MatchmakingRuleSetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MatchmakingRuleSetTag)(nil)).Elem()
-}
-
-func (i MatchmakingRuleSetTagArray) ToMatchmakingRuleSetTagArrayOutput() MatchmakingRuleSetTagArrayOutput {
-	return i.ToMatchmakingRuleSetTagArrayOutputWithContext(context.Background())
-}
-
-func (i MatchmakingRuleSetTagArray) ToMatchmakingRuleSetTagArrayOutputWithContext(ctx context.Context) MatchmakingRuleSetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingRuleSetTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type MatchmakingRuleSetTagOutput struct{ *pulumi.OutputState }
-
-func (MatchmakingRuleSetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchmakingRuleSetTag)(nil)).Elem()
-}
-
-func (o MatchmakingRuleSetTagOutput) ToMatchmakingRuleSetTagOutput() MatchmakingRuleSetTagOutput {
-	return o
-}
-
-func (o MatchmakingRuleSetTagOutput) ToMatchmakingRuleSetTagOutputWithContext(ctx context.Context) MatchmakingRuleSetTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-func (o MatchmakingRuleSetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v MatchmakingRuleSetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-func (o MatchmakingRuleSetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v MatchmakingRuleSetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type MatchmakingRuleSetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (MatchmakingRuleSetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MatchmakingRuleSetTag)(nil)).Elem()
-}
-
-func (o MatchmakingRuleSetTagArrayOutput) ToMatchmakingRuleSetTagArrayOutput() MatchmakingRuleSetTagArrayOutput {
-	return o
-}
-
-func (o MatchmakingRuleSetTagArrayOutput) ToMatchmakingRuleSetTagArrayOutputWithContext(ctx context.Context) MatchmakingRuleSetTagArrayOutput {
-	return o
-}
-
-func (o MatchmakingRuleSetTagArrayOutput) Index(i pulumi.IntInput) MatchmakingRuleSetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchmakingRuleSetTag {
-		return vs[0].([]MatchmakingRuleSetTag)[vs[1].(int)]
-	}).(MatchmakingRuleSetTagOutput)
 }
 
 type ScriptS3Location struct {
@@ -3687,107 +3184,6 @@ type ScriptTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ScriptTagInput is an input type that accepts ScriptTagArgs and ScriptTagOutput values.
-// You can construct a concrete instance of `ScriptTagInput` via:
-//
-//	ScriptTagArgs{...}
-type ScriptTagInput interface {
-	pulumi.Input
-
-	ToScriptTagOutput() ScriptTagOutput
-	ToScriptTagOutputWithContext(context.Context) ScriptTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ScriptTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ScriptTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScriptTag)(nil)).Elem()
-}
-
-func (i ScriptTagArgs) ToScriptTagOutput() ScriptTagOutput {
-	return i.ToScriptTagOutputWithContext(context.Background())
-}
-
-func (i ScriptTagArgs) ToScriptTagOutputWithContext(ctx context.Context) ScriptTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScriptTagOutput)
-}
-
-// ScriptTagArrayInput is an input type that accepts ScriptTagArray and ScriptTagArrayOutput values.
-// You can construct a concrete instance of `ScriptTagArrayInput` via:
-//
-//	ScriptTagArray{ ScriptTagArgs{...} }
-type ScriptTagArrayInput interface {
-	pulumi.Input
-
-	ToScriptTagArrayOutput() ScriptTagArrayOutput
-	ToScriptTagArrayOutputWithContext(context.Context) ScriptTagArrayOutput
-}
-
-type ScriptTagArray []ScriptTagInput
-
-func (ScriptTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScriptTag)(nil)).Elem()
-}
-
-func (i ScriptTagArray) ToScriptTagArrayOutput() ScriptTagArrayOutput {
-	return i.ToScriptTagArrayOutputWithContext(context.Background())
-}
-
-func (i ScriptTagArray) ToScriptTagArrayOutputWithContext(ctx context.Context) ScriptTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScriptTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ScriptTagOutput struct{ *pulumi.OutputState }
-
-func (ScriptTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScriptTag)(nil)).Elem()
-}
-
-func (o ScriptTagOutput) ToScriptTagOutput() ScriptTagOutput {
-	return o
-}
-
-func (o ScriptTagOutput) ToScriptTagOutputWithContext(ctx context.Context) ScriptTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-func (o ScriptTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ScriptTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-func (o ScriptTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ScriptTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ScriptTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ScriptTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScriptTag)(nil)).Elem()
-}
-
-func (o ScriptTagArrayOutput) ToScriptTagArrayOutput() ScriptTagArrayOutput {
-	return o
-}
-
-func (o ScriptTagArrayOutput) ToScriptTagArrayOutputWithContext(ctx context.Context) ScriptTagArrayOutput {
-	return o
-}
-
-func (o ScriptTagArrayOutput) Index(i pulumi.IntInput) ScriptTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScriptTag {
-		return vs[0].([]ScriptTag)[vs[1].(int)]
-	}).(ScriptTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildStorageLocationInput)(nil)).Elem(), BuildStorageLocationArgs{})
@@ -3818,8 +3214,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupInstanceDefinitionArrayInput)(nil)).Elem(), GameServerGroupInstanceDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupLaunchTemplateInput)(nil)).Elem(), GameServerGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupLaunchTemplatePtrInput)(nil)).Elem(), GameServerGroupLaunchTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTagInput)(nil)).Elem(), GameServerGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTagArrayInput)(nil)).Elem(), GameServerGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTargetTrackingConfigurationInput)(nil)).Elem(), GameServerGroupTargetTrackingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTargetTrackingConfigurationPtrInput)(nil)).Elem(), GameServerGroupTargetTrackingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueDestinationInput)(nil)).Elem(), GameSessionQueueDestinationArgs{})
@@ -3830,19 +3224,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicyArrayInput)(nil)).Elem(), GameSessionQueuePlayerLatencyPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityConfigurationInput)(nil)).Elem(), GameSessionQueuePriorityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityConfigurationPtrInput)(nil)).Elem(), GameSessionQueuePriorityConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueTagInput)(nil)).Elem(), GameSessionQueueTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueTagArrayInput)(nil)).Elem(), GameSessionQueueTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationTagInput)(nil)).Elem(), LocationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationTagArrayInput)(nil)).Elem(), LocationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationGamePropertyInput)(nil)).Elem(), MatchmakingConfigurationGamePropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationGamePropertyArrayInput)(nil)).Elem(), MatchmakingConfigurationGamePropertyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationTagInput)(nil)).Elem(), MatchmakingConfigurationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationTagArrayInput)(nil)).Elem(), MatchmakingConfigurationTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingRuleSetTagInput)(nil)).Elem(), MatchmakingRuleSetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingRuleSetTagArrayInput)(nil)).Elem(), MatchmakingRuleSetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptS3LocationInput)(nil)).Elem(), ScriptS3LocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTagInput)(nil)).Elem(), ScriptTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTagArrayInput)(nil)).Elem(), ScriptTagArray{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyOutput{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BuildStorageLocationOutput{})
@@ -3873,8 +3257,6 @@ func init() {
 	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GameServerGroupLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(GameServerGroupLaunchTemplatePtrOutput{})
-	pulumi.RegisterOutputType(GameServerGroupTagOutput{})
-	pulumi.RegisterOutputType(GameServerGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueDestinationOutput{})
@@ -3885,18 +3267,8 @@ func init() {
 	pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePriorityConfigurationOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePriorityConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(GameSessionQueueTagOutput{})
-	pulumi.RegisterOutputType(GameSessionQueueTagArrayOutput{})
-	pulumi.RegisterOutputType(LocationTagOutput{})
-	pulumi.RegisterOutputType(LocationTagArrayOutput{})
 	pulumi.RegisterOutputType(MatchmakingConfigurationGamePropertyOutput{})
 	pulumi.RegisterOutputType(MatchmakingConfigurationGamePropertyArrayOutput{})
-	pulumi.RegisterOutputType(MatchmakingConfigurationTagOutput{})
-	pulumi.RegisterOutputType(MatchmakingConfigurationTagArrayOutput{})
-	pulumi.RegisterOutputType(MatchmakingRuleSetTagOutput{})
-	pulumi.RegisterOutputType(MatchmakingRuleSetTagArrayOutput{})
 	pulumi.RegisterOutputType(ScriptS3LocationOutput{})
 	pulumi.RegisterOutputType(ScriptS3LocationPtrOutput{})
-	pulumi.RegisterOutputType(ScriptTagOutput{})
-	pulumi.RegisterOutputType(ScriptTagArrayOutput{})
 }

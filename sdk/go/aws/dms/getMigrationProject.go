@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupMigrationProjectResult struct {
 	// The property describes source data provider descriptors for the migration project.
 	SourceDataProviderDescriptors []MigrationProjectDataProviderDescriptor `pulumi:"sourceDataProviderDescriptors"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []MigrationProjectTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The property describes target data provider descriptors for the migration project.
 	TargetDataProviderDescriptors []MigrationProjectDataProviderDescriptor `pulumi:"targetDataProviderDescriptors"`
 	// The property describes transformation rules for the migration project.
@@ -133,8 +134,8 @@ func (o LookupMigrationProjectResultOutput) SourceDataProviderDescriptors() Migr
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupMigrationProjectResultOutput) Tags() MigrationProjectTagArrayOutput {
-	return o.ApplyT(func(v LookupMigrationProjectResult) []MigrationProjectTag { return v.Tags }).(MigrationProjectTagArrayOutput)
+func (o LookupMigrationProjectResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMigrationProjectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The property describes target data provider descriptors for the migration project.

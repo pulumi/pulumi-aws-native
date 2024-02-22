@@ -42,7 +42,7 @@ export interface GetBrokerResult {
     readonly openWireEndpoints?: string[];
     readonly securityGroups?: string[];
     readonly stompEndpoints?: string[];
-    readonly tags?: outputs.amazonmq.BrokerTagsEntry[];
+    readonly tags?: outputs.Tag[];
     readonly users?: outputs.amazonmq.BrokerUser[];
     readonly wssEndpoints?: string[];
 }

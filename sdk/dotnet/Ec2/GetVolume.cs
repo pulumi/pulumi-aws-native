@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags to apply to the volume during creation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The throughput that the volume supports, in MiB/s.
         /// </summary>
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? snapshotId,
 
-            ImmutableArray<Outputs.VolumeTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? throughput,
 

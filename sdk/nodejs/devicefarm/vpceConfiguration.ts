@@ -39,7 +39,7 @@ export class VpceConfiguration extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly serviceDnsName!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.devicefarm.VpceConfigurationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpceConfigurationDescription!: pulumi.Output<string | undefined>;
     public readonly vpceConfigurationName!: pulumi.Output<string>;
     public readonly vpceServiceName!: pulumi.Output<string>;
@@ -85,7 +85,7 @@ export class VpceConfiguration extends pulumi.CustomResource {
  */
 export interface VpceConfigurationArgs {
     serviceDnsName: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.devicefarm.VpceConfigurationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpceConfigurationDescription?: pulumi.Input<string>;
     vpceConfigurationName?: pulumi.Input<string>;
     vpceServiceName: pulumi.Input<string>;

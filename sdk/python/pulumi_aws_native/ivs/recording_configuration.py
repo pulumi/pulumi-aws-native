@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,13 +23,13 @@ class RecordingConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
                  rendition_configuration: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RecordingConfiguration resource.
         :param pulumi.Input[str] name: Recording Configuration Name.
         :param pulumi.Input[int] recording_reconnect_window_seconds: Recording Reconnect Window Seconds. (0 means disabled)
-        :param pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         pulumi.set(__self__, "destination_configuration", destination_configuration)
         if name is not None:
@@ -85,14 +87,14 @@ class RecordingConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the asset model.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -114,7 +116,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
                  rendition_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationRenditionConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordingConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']]] = None,
                  __props__=None):
         """
@@ -124,7 +126,7 @@ class RecordingConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Recording Configuration Name.
         :param pulumi.Input[int] recording_reconnect_window_seconds: Recording Reconnect Window Seconds. (0 means disabled)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordingConfigurationTagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         ...
     @overload
@@ -154,7 +156,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
                  rendition_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationRenditionConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordingConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  thumbnail_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -253,7 +255,7 @@ class RecordingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RecordingConfigurationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the asset model.
         """

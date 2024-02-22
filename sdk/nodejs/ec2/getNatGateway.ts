@@ -44,7 +44,7 @@ export interface GetNatGatewayResult {
     /**
      * The tags for the NAT gateway.
      */
-    readonly tags?: outputs.ec2.NatGatewayTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.

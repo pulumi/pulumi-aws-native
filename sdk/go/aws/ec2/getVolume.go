@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,7 +47,7 @@ type LookupVolumeResult struct {
 	// The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The tags to apply to the volume during creation.
-	Tags []VolumeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The throughput that the volume supports, in MiB/s.
 	Throughput *int    `pulumi:"throughput"`
 	VolumeId   *string `pulumi:"volumeId"`
@@ -135,8 +136,8 @@ func (o LookupVolumeResultOutput) SnapshotId() pulumi.StringPtrOutput {
 }
 
 // The tags to apply to the volume during creation.
-func (o LookupVolumeResultOutput) Tags() VolumeTagArrayOutput {
-	return o.ApplyT(func(v LookupVolumeResult) []VolumeTag { return v.Tags }).(VolumeTagArrayOutput)
+func (o LookupVolumeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The throughput that the volume supports, in MiB/s.

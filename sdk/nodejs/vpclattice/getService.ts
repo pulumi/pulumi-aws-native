@@ -31,7 +31,7 @@ export interface GetServiceResult {
     readonly id?: string;
     readonly lastUpdatedAt?: string;
     readonly status?: enums.vpclattice.ServiceStatus;
-    readonly tags?: outputs.vpclattice.ServiceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).

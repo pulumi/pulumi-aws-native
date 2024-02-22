@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RestApiTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRestApiResult(
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.ApiGateway
 
             string? rootResourceId,
 
-            ImmutableArray<Outputs.RestApiTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApiKeySourceType = apiKeySourceType;
             BinaryMediaTypes = binaryMediaTypes;

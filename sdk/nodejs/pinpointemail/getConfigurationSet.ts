@@ -27,7 +27,7 @@ export interface GetConfigurationSetResult {
     readonly id?: string;
     readonly reputationOptions?: outputs.pinpointemail.ConfigurationSetReputationOptions;
     readonly sendingOptions?: outputs.pinpointemail.ConfigurationSetSendingOptions;
-    readonly tags?: outputs.pinpointemail.ConfigurationSetTags[];
+    readonly tags?: outputs.Tag[];
     readonly trackingOptions?: outputs.pinpointemail.ConfigurationSetTrackingOptions;
 }
 /**

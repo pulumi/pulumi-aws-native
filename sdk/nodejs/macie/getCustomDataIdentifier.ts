@@ -37,7 +37,7 @@ export interface GetCustomDataIdentifierResult {
     /**
      * A collection of tags associated with a resource
      */
-    readonly tags?: outputs.macie.CustomDataIdentifierTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Macie CustomDataIdentifier resource schema

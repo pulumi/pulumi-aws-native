@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Location
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MapTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UpdateTime;
 
         [OutputConstructor]
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Location
 
             Pulumi.AwsNative.Location.MapPricingPlan? pricingPlan,
 
-            ImmutableArray<Outputs.MapTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updateTime)
         {

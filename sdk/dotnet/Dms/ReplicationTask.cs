@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.Dms
         public Output<string> TableMappings { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ReplicationTaskTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("targetEndpointArn")]
         public Output<string> TargetEndpointArn { get; private set; } = null!;
@@ -138,10 +138,10 @@ namespace Pulumi.AwsNative.Dms
         public Input<string> TableMappings { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.ReplicationTaskTagArgs>? _tags;
-        public InputList<Inputs.ReplicationTaskTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ReplicationTaskTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -29617,103 +29617,6 @@ type MultiplexTags struct {
 	Value *string `pulumi:"value"`
 }
 
-// MultiplexTagsInput is an input type that accepts MultiplexTagsArgs and MultiplexTagsOutput values.
-// You can construct a concrete instance of `MultiplexTagsInput` via:
-//
-//	MultiplexTagsArgs{...}
-type MultiplexTagsInput interface {
-	pulumi.Input
-
-	ToMultiplexTagsOutput() MultiplexTagsOutput
-	ToMultiplexTagsOutputWithContext(context.Context) MultiplexTagsOutput
-}
-
-// A key-value pair to associate with a resource.
-type MultiplexTagsArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (MultiplexTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiplexTags)(nil)).Elem()
-}
-
-func (i MultiplexTagsArgs) ToMultiplexTagsOutput() MultiplexTagsOutput {
-	return i.ToMultiplexTagsOutputWithContext(context.Background())
-}
-
-func (i MultiplexTagsArgs) ToMultiplexTagsOutputWithContext(ctx context.Context) MultiplexTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultiplexTagsOutput)
-}
-
-// MultiplexTagsArrayInput is an input type that accepts MultiplexTagsArray and MultiplexTagsArrayOutput values.
-// You can construct a concrete instance of `MultiplexTagsArrayInput` via:
-//
-//	MultiplexTagsArray{ MultiplexTagsArgs{...} }
-type MultiplexTagsArrayInput interface {
-	pulumi.Input
-
-	ToMultiplexTagsArrayOutput() MultiplexTagsArrayOutput
-	ToMultiplexTagsArrayOutputWithContext(context.Context) MultiplexTagsArrayOutput
-}
-
-type MultiplexTagsArray []MultiplexTagsInput
-
-func (MultiplexTagsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MultiplexTags)(nil)).Elem()
-}
-
-func (i MultiplexTagsArray) ToMultiplexTagsArrayOutput() MultiplexTagsArrayOutput {
-	return i.ToMultiplexTagsArrayOutputWithContext(context.Background())
-}
-
-func (i MultiplexTagsArray) ToMultiplexTagsArrayOutputWithContext(ctx context.Context) MultiplexTagsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultiplexTagsArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type MultiplexTagsOutput struct{ *pulumi.OutputState }
-
-func (MultiplexTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiplexTags)(nil)).Elem()
-}
-
-func (o MultiplexTagsOutput) ToMultiplexTagsOutput() MultiplexTagsOutput {
-	return o
-}
-
-func (o MultiplexTagsOutput) ToMultiplexTagsOutputWithContext(ctx context.Context) MultiplexTagsOutput {
-	return o
-}
-
-func (o MultiplexTagsOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MultiplexTags) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o MultiplexTagsOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MultiplexTags) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type MultiplexTagsArrayOutput struct{ *pulumi.OutputState }
-
-func (MultiplexTagsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MultiplexTags)(nil)).Elem()
-}
-
-func (o MultiplexTagsArrayOutput) ToMultiplexTagsArrayOutput() MultiplexTagsArrayOutput {
-	return o
-}
-
-func (o MultiplexTagsArrayOutput) ToMultiplexTagsArrayOutputWithContext(ctx context.Context) MultiplexTagsArrayOutput {
-	return o
-}
-
-func (o MultiplexTagsArrayOutput) Index(i pulumi.IntInput) MultiplexTagsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultiplexTags {
-		return vs[0].([]MultiplexTags)[vs[1].(int)]
-	}).(MultiplexTagsOutput)
-}
-
 // Packet identifiers map for a given Multiplex program.
 type MultiplexprogramMultiplexProgramPacketIdentifiersMap struct {
 	AudioPids          []int `pulumi:"audioPids"`
@@ -30960,8 +30863,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesInput)(nil)).Elem(), MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrInput)(nil)).Elem(), MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexSettingsInput)(nil)).Elem(), MultiplexSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexTagsInput)(nil)).Elem(), MultiplexTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexTagsArrayInput)(nil)).Elem(), MultiplexTagsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexProgramPacketIdentifiersMapInput)(nil)).Elem(), MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexProgramPacketIdentifiersMapPtrInput)(nil)).Elem(), MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexProgramPipelineDetailInput)(nil)).Elem(), MultiplexprogramMultiplexProgramPipelineDetailArgs{})
@@ -31314,8 +31215,6 @@ func init() {
 	pulumi.RegisterOutputType(MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexSettingsOutput{})
 	pulumi.RegisterOutputType(MultiplexSettingsPtrOutput{})
-	pulumi.RegisterOutputType(MultiplexTagsOutput{})
-	pulumi.RegisterOutputType(MultiplexTagsArrayOutput{})
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexProgramPacketIdentifiersMapOutput{})
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexProgramPacketIdentifiersMapPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexProgramPipelineDetailOutput{})

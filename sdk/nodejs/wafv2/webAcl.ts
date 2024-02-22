@@ -52,7 +52,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
     public readonly scope!: pulumi.Output<enums.wafv2.WebAclScope>;
-    public readonly tags!: pulumi.Output<outputs.wafv2.WebAclTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly tokenDomains!: pulumi.Output<string[] | undefined>;
     public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.WebAclVisibilityConfig>;
 
@@ -131,7 +131,7 @@ export interface WebAclArgs {
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleArgs>[]>;
     scope: pulumi.Input<enums.wafv2.WebAclScope>;
-    tags?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     tokenDomains?: pulumi.Input<pulumi.Input<string>[]>;
     visibilityConfig: pulumi.Input<inputs.wafv2.WebAclVisibilityConfigArgs>;
 }

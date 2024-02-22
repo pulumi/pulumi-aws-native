@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type FirewallRuleGroup struct {
 	// FirewallRuleGroupStatus
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// Tags
-	Tags FirewallRuleGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFirewallRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +91,7 @@ type firewallRuleGroupArgs struct {
 	// FirewallRuleGroupName
 	Name *string `pulumi:"name"`
 	// Tags
-	Tags []FirewallRuleGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallRuleGroup resource.
@@ -100,7 +101,7 @@ type FirewallRuleGroupArgs struct {
 	// FirewallRuleGroupName
 	Name pulumi.StringPtrInput
 	// Tags
-	Tags FirewallRuleGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (FirewallRuleGroupArgs) ElementType() reflect.Type {
@@ -196,8 +197,8 @@ func (o FirewallRuleGroupOutput) StatusMessage() pulumi.StringOutput {
 }
 
 // Tags
-func (o FirewallRuleGroupOutput) Tags() FirewallRuleGroupTagArrayOutput {
-	return o.ApplyT(func(v *FirewallRuleGroup) FirewallRuleGroupTagArrayOutput { return v.Tags }).(FirewallRuleGroupTagArrayOutput)
+func (o FirewallRuleGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FirewallRuleGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

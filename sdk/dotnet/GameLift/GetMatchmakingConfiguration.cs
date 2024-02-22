@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MatchmakingConfigurationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetMatchmakingConfigurationResult(
@@ -160,7 +160,7 @@ namespace Pulumi.AwsNative.GameLift
 
             string? ruleSetName,
 
-            ImmutableArray<Outputs.MatchmakingConfigurationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AcceptanceRequired = acceptanceRequired;
             AcceptanceTimeoutSeconds = acceptanceTimeoutSeconds;

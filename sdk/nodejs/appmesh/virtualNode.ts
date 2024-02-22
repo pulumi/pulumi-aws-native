@@ -45,7 +45,7 @@ export class VirtualNode extends pulumi.CustomResource {
     public readonly meshOwner!: pulumi.Output<string | undefined>;
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     public readonly spec!: pulumi.Output<outputs.appmesh.VirtualNodeSpec>;
-    public readonly tags!: pulumi.Output<outputs.appmesh.VirtualNodeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly uid!: pulumi.Output<string>;
     public readonly virtualNodeName!: pulumi.Output<string | undefined>;
 
@@ -100,6 +100,6 @@ export interface VirtualNodeArgs {
     meshName: pulumi.Input<string>;
     meshOwner?: pulumi.Input<string>;
     spec: pulumi.Input<inputs.appmesh.VirtualNodeSpecArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualNodeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     virtualNodeName?: pulumi.Input<string>;
 }

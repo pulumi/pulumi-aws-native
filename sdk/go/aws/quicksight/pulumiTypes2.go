@@ -2911,111 +2911,6 @@ type DataSourceTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DataSourceTagInput is an input type that accepts DataSourceTagArgs and DataSourceTagOutput values.
-// You can construct a concrete instance of `DataSourceTagInput` via:
-//
-//	DataSourceTagArgs{...}
-type DataSourceTagInput interface {
-	pulumi.Input
-
-	ToDataSourceTagOutput() DataSourceTagOutput
-	ToDataSourceTagOutputWithContext(context.Context) DataSourceTagOutput
-}
-
-// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//
-//	resource.</p>
-type DataSourceTagArgs struct {
-	// <p>Tag key.</p>
-	Key pulumi.StringInput `pulumi:"key"`
-	// <p>Tag value.</p>
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DataSourceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceTag)(nil)).Elem()
-}
-
-func (i DataSourceTagArgs) ToDataSourceTagOutput() DataSourceTagOutput {
-	return i.ToDataSourceTagOutputWithContext(context.Background())
-}
-
-func (i DataSourceTagArgs) ToDataSourceTagOutputWithContext(ctx context.Context) DataSourceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTagOutput)
-}
-
-// DataSourceTagArrayInput is an input type that accepts DataSourceTagArray and DataSourceTagArrayOutput values.
-// You can construct a concrete instance of `DataSourceTagArrayInput` via:
-//
-//	DataSourceTagArray{ DataSourceTagArgs{...} }
-type DataSourceTagArrayInput interface {
-	pulumi.Input
-
-	ToDataSourceTagArrayOutput() DataSourceTagArrayOutput
-	ToDataSourceTagArrayOutputWithContext(context.Context) DataSourceTagArrayOutput
-}
-
-type DataSourceTagArray []DataSourceTagInput
-
-func (DataSourceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSourceTag)(nil)).Elem()
-}
-
-func (i DataSourceTagArray) ToDataSourceTagArrayOutput() DataSourceTagArrayOutput {
-	return i.ToDataSourceTagArrayOutputWithContext(context.Background())
-}
-
-func (i DataSourceTagArray) ToDataSourceTagArrayOutputWithContext(ctx context.Context) DataSourceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTagArrayOutput)
-}
-
-// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//
-//	resource.</p>
-type DataSourceTagOutput struct{ *pulumi.OutputState }
-
-func (DataSourceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceTag)(nil)).Elem()
-}
-
-func (o DataSourceTagOutput) ToDataSourceTagOutput() DataSourceTagOutput {
-	return o
-}
-
-func (o DataSourceTagOutput) ToDataSourceTagOutputWithContext(ctx context.Context) DataSourceTagOutput {
-	return o
-}
-
-// <p>Tag key.</p>
-func (o DataSourceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// <p>Tag value.</p>
-func (o DataSourceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DataSourceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DataSourceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSourceTag)(nil)).Elem()
-}
-
-func (o DataSourceTagArrayOutput) ToDataSourceTagArrayOutput() DataSourceTagArrayOutput {
-	return o
-}
-
-func (o DataSourceTagArrayOutput) ToDataSourceTagArrayOutputWithContext(ctx context.Context) DataSourceTagArrayOutput {
-	return o
-}
-
-func (o DataSourceTagArrayOutput) Index(i pulumi.IntInput) DataSourceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceTag {
-		return vs[0].([]DataSourceTag)[vs[1].(int)]
-	}).(DataSourceTagOutput)
-}
-
 // <p>Teradata parameters.</p>
 type DataSourceTeradataParameters struct {
 	// <p>Database.</p>
@@ -70440,101 +70335,6 @@ type TemplateTag struct {
 	Value string `pulumi:"value"`
 }
 
-// TemplateTagInput is an input type that accepts TemplateTagArgs and TemplateTagOutput values.
-// You can construct a concrete instance of `TemplateTagInput` via:
-//
-//	TemplateTagArgs{...}
-type TemplateTagInput interface {
-	pulumi.Input
-
-	ToTemplateTagOutput() TemplateTagOutput
-	ToTemplateTagOutputWithContext(context.Context) TemplateTagOutput
-}
-
-type TemplateTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TemplateTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTag)(nil)).Elem()
-}
-
-func (i TemplateTagArgs) ToTemplateTagOutput() TemplateTagOutput {
-	return i.ToTemplateTagOutputWithContext(context.Background())
-}
-
-func (i TemplateTagArgs) ToTemplateTagOutputWithContext(ctx context.Context) TemplateTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTagOutput)
-}
-
-// TemplateTagArrayInput is an input type that accepts TemplateTagArray and TemplateTagArrayOutput values.
-// You can construct a concrete instance of `TemplateTagArrayInput` via:
-//
-//	TemplateTagArray{ TemplateTagArgs{...} }
-type TemplateTagArrayInput interface {
-	pulumi.Input
-
-	ToTemplateTagArrayOutput() TemplateTagArrayOutput
-	ToTemplateTagArrayOutputWithContext(context.Context) TemplateTagArrayOutput
-}
-
-type TemplateTagArray []TemplateTagInput
-
-func (TemplateTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateTag)(nil)).Elem()
-}
-
-func (i TemplateTagArray) ToTemplateTagArrayOutput() TemplateTagArrayOutput {
-	return i.ToTemplateTagArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateTagArray) ToTemplateTagArrayOutputWithContext(ctx context.Context) TemplateTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTagArrayOutput)
-}
-
-type TemplateTagOutput struct{ *pulumi.OutputState }
-
-func (TemplateTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTag)(nil)).Elem()
-}
-
-func (o TemplateTagOutput) ToTemplateTagOutput() TemplateTagOutput {
-	return o
-}
-
-func (o TemplateTagOutput) ToTemplateTagOutputWithContext(ctx context.Context) TemplateTagOutput {
-	return o
-}
-
-func (o TemplateTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o TemplateTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TemplateTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateTag)(nil)).Elem()
-}
-
-func (o TemplateTagArrayOutput) ToTemplateTagArrayOutput() TemplateTagArrayOutput {
-	return o
-}
-
-func (o TemplateTagArrayOutput) ToTemplateTagArrayOutputWithContext(ctx context.Context) TemplateTagArrayOutput {
-	return o
-}
-
-func (o TemplateTagArrayOutput) Index(i pulumi.IntInput) TemplateTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateTag {
-		return vs[0].([]TemplateTag)[vs[1].(int)]
-	}).(TemplateTagOutput)
-}
-
 type TemplateTextAreaControlDisplayOptions struct {
 	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
 	PlaceholderOptions   *TemplateTextControlPlaceholderOptions    `pulumi:"placeholderOptions"`
@@ -79522,8 +79322,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSslPropertiesPtrInput)(nil)).Elem(), DataSourceSslPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceStarburstParametersInput)(nil)).Elem(), DataSourceStarburstParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceStarburstParametersPtrInput)(nil)).Elem(), DataSourceStarburstParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTagInput)(nil)).Elem(), DataSourceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTagArrayInput)(nil)).Elem(), DataSourceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTeradataParametersInput)(nil)).Elem(), DataSourceTeradataParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTeradataParametersPtrInput)(nil)).Elem(), DataSourceTeradataParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTrinoParametersInput)(nil)).Elem(), DataSourceTrinoParametersArgs{})
@@ -80371,8 +80169,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableUnaggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateTableUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableVisualInput)(nil)).Elem(), TemplateTableVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableVisualPtrInput)(nil)).Elem(), TemplateTableVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTagInput)(nil)).Elem(), TemplateTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTagArrayInput)(nil)).Elem(), TemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextAreaControlDisplayOptionsInput)(nil)).Elem(), TemplateTextAreaControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextAreaControlDisplayOptionsPtrInput)(nil)).Elem(), TemplateTextAreaControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextConditionalFormatInput)(nil)).Elem(), TemplateTextConditionalFormatArgs{})
@@ -80508,8 +80304,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceSslPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceStarburstParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceStarburstParametersPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceTagOutput{})
-	pulumi.RegisterOutputType(DataSourceTagArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceTeradataParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceTeradataParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTrinoParametersOutput{})
@@ -81363,8 +81157,6 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTableUnaggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableVisualOutput{})
 	pulumi.RegisterOutputType(TemplateTableVisualPtrOutput{})
-	pulumi.RegisterOutputType(TemplateTagOutput{})
-	pulumi.RegisterOutputType(TemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTextAreaControlDisplayOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateTextAreaControlDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTextConditionalFormatOutput{})

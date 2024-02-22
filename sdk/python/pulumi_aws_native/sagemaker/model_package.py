@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -38,12 +40,12 @@ class ModelPackageArgs:
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
                  skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
                  source_algorithm_specification: Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
                  validation_specification: Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']] = None):
         """
         The set of arguments for constructing a ModelPackage resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if additional_inference_specifications is not None:
             pulumi.set(__self__, "additional_inference_specifications", additional_inference_specifications)
@@ -285,14 +287,14 @@ class ModelPackageArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -340,7 +342,7 @@ class ModelPackage(pulumi.CustomResource):
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
                  skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
                  source_algorithm_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageSourceAlgorithmSpecificationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
                  validation_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageValidationSpecificationArgs']]] = None,
                  __props__=None):
@@ -349,7 +351,7 @@ class ModelPackage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -396,7 +398,7 @@ class ModelPackage(pulumi.CustomResource):
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
                  skip_model_validation: Optional[pulumi.Input['ModelPackageSkipModelValidation']] = None,
                  source_algorithm_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageSourceAlgorithmSpecificationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
                  validation_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageValidationSpecificationArgs']]] = None,
                  __props__=None):
@@ -610,7 +612,7 @@ class ModelPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ModelPackageTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

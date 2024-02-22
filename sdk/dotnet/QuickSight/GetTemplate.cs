@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly string? LastUpdatedTime;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.TemplateResourcePermission> Permissions;
-        public readonly ImmutableArray<Outputs.TemplateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.TemplateVersion? Version;
 
         [OutputConstructor]
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.TemplateResourcePermission> permissions,
 
-            ImmutableArray<Outputs.TemplateTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.TemplateVersion? version)
         {

@@ -27,7 +27,7 @@ export interface GetWorkteamResult {
     readonly id?: string;
     readonly memberDefinitions?: outputs.sagemaker.WorkteamMemberDefinition[];
     readonly notificationConfiguration?: outputs.sagemaker.WorkteamNotificationConfiguration;
-    readonly tags?: outputs.sagemaker.WorkteamTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::Workteam

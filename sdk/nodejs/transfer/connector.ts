@@ -64,7 +64,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
      */
-    public readonly tags!: pulumi.Output<outputs.transfer.ConnectorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * URL for Connector
      */
@@ -133,7 +133,7 @@ export interface ConnectorArgs {
     /**
      * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.transfer.ConnectorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * URL for Connector
      */

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type SignalCatalog struct {
 	Name                 pulumi.StringPtrOutput           `pulumi:"name"`
 	NodeCounts           SignalCatalogNodeCountsPtrOutput `pulumi:"nodeCounts"`
 	Nodes                pulumi.ArrayOutput               `pulumi:"nodes"`
-	Tags                 SignalCatalogTagArrayOutput      `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput               `pulumi:"tags"`
 }
 
 // NewSignalCatalog registers a new resource with the given unique name, arguments, and options.
@@ -75,7 +76,7 @@ type signalCatalogArgs struct {
 	Name        *string                  `pulumi:"name"`
 	NodeCounts  *SignalCatalogNodeCounts `pulumi:"nodeCounts"`
 	Nodes       []interface{}            `pulumi:"nodes"`
-	Tags        []SignalCatalogTag       `pulumi:"tags"`
+	Tags        []aws.Tag                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SignalCatalog resource.
@@ -84,7 +85,7 @@ type SignalCatalogArgs struct {
 	Name        pulumi.StringPtrInput
 	NodeCounts  SignalCatalogNodeCountsPtrInput
 	Nodes       pulumi.ArrayInput
-	Tags        SignalCatalogTagArrayInput
+	Tags        aws.TagArrayInput
 }
 
 func (SignalCatalogArgs) ElementType() reflect.Type {
@@ -152,8 +153,8 @@ func (o SignalCatalogOutput) Nodes() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *SignalCatalog) pulumi.ArrayOutput { return v.Nodes }).(pulumi.ArrayOutput)
 }
 
-func (o SignalCatalogOutput) Tags() SignalCatalogTagArrayOutput {
-	return o.ApplyT(func(v *SignalCatalog) SignalCatalogTagArrayOutput { return v.Tags }).(SignalCatalogTagArrayOutput)
+func (o SignalCatalogOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SignalCatalog) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

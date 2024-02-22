@@ -50,7 +50,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly configuration!: pulumi.Output<outputs.ecs.ClusterConfiguration | undefined>;
     public readonly defaultCapacityProviderStrategy!: pulumi.Output<outputs.ecs.ClusterCapacityProviderStrategyItem[] | undefined>;
     public readonly serviceConnectDefaults!: pulumi.Output<outputs.ecs.ClusterServiceConnectDefaults | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ecs.ClusterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -101,5 +101,5 @@ export interface ClusterArgs {
     configuration?: pulumi.Input<inputs.ecs.ClusterConfigurationArgs>;
     defaultCapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProviderStrategyItemArgs>[]>;
     serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaultsArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +29,7 @@ class OriginEndpointArgs:
                  mss_package: Optional[pulumi.Input['OriginEndpointMssPackageArgs']] = None,
                  origination: Optional[pulumi.Input['OriginEndpointOrigination']] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None,
                  whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -37,7 +39,7 @@ class OriginEndpointArgs:
         :param pulumi.Input[str] manifest_name: A short string appended to the end of the OriginEndpoint URL.
         :param pulumi.Input['OriginEndpointOrigination'] origination: Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         :param pulumi.Input[int] startover_window_seconds: Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
         :param pulumi.Input[int] time_delay_seconds: Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelist: A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
         """
@@ -174,14 +176,14 @@ class OriginEndpointArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -224,7 +226,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  mss_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointMssPackageArgs']]] = None,
                  origination: Optional[pulumi.Input['OriginEndpointOrigination']] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None,
                  whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -238,7 +240,7 @@ class OriginEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] manifest_name: A short string appended to the end of the OriginEndpoint URL.
         :param pulumi.Input['OriginEndpointOrigination'] origination: Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         :param pulumi.Input[int] startover_window_seconds: Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
         :param pulumi.Input[int] time_delay_seconds: Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelist: A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
         """
@@ -276,7 +278,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  mss_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointMssPackageArgs']]] = None,
                  origination: Optional[pulumi.Input['OriginEndpointOrigination']] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None,
                  whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -419,7 +421,7 @@ class OriginEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.OriginEndpointTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A collection of tags associated with a resource
         """

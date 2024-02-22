@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Destination struct {
 	// AWS role ARN that grants access
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags DestinationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDestination registers a new resource with the given unique name, arguments, and options.
@@ -93,7 +94,7 @@ type destinationArgs struct {
 	// AWS role ARN that grants access
 	RoleArn *string `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags []DestinationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Destination resource.
@@ -109,7 +110,7 @@ type DestinationArgs struct {
 	// AWS role ARN that grants access
 	RoleArn pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags DestinationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DestinationArgs) ElementType() reflect.Type {
@@ -180,8 +181,8 @@ func (o DestinationOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the destination.
-func (o DestinationOutput) Tags() DestinationTagArrayOutput {
-	return o.ApplyT(func(v *Destination) DestinationTagArrayOutput { return v.Tags }).(DestinationTagArrayOutput)
+func (o DestinationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Destination) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

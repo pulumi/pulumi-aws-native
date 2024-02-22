@@ -42,7 +42,7 @@ export class ServiceNetwork extends pulumi.CustomResource {
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.vpclattice.ServiceNetworkTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ServiceNetwork resource with the given unique name, arguments, and options.
@@ -82,5 +82,5 @@ export class ServiceNetwork extends pulumi.CustomResource {
 export interface ServiceNetworkArgs {
     authType?: pulumi.Input<enums.vpclattice.ServiceNetworkAuthType>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

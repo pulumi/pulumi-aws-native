@@ -51,7 +51,7 @@ export interface GetBucketResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.lightsail.BucketTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The URL of the bucket.
      */

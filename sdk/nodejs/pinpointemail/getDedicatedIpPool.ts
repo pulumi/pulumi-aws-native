@@ -24,7 +24,7 @@ export interface GetDedicatedIpPoolArgs {
 
 export interface GetDedicatedIpPoolResult {
     readonly id?: string;
-    readonly tags?: outputs.pinpointemail.DedicatedIpPoolTags[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::PinpointEmail::DedicatedIpPool

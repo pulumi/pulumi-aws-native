@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Ec2
         /// Any tags to assign to the internet gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.InternetGatewayTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -73,14 +73,14 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class InternetGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
-        private InputList<Inputs.InternetGatewayTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Any tags to assign to the internet gateway.
         /// </summary>
-        public InputList<Inputs.InternetGatewayTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.InternetGatewayTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

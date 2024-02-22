@@ -42,7 +42,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     public readonly groupName!: pulumi.Output<string | undefined>;
     public readonly securityGroupEgress!: pulumi.Output<outputs.ec2.SecurityGroupEgress[] | undefined>;
     public readonly securityGroupIngress!: pulumi.Output<outputs.ec2.SecurityGroupIngress[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ec2.SecurityGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
@@ -90,6 +90,6 @@ export interface SecurityGroupArgs {
     groupName?: pulumi.Input<string>;
     securityGroupEgress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgressArgs>[]>;
     securityGroupIngress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngressArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcId?: pulumi.Input<string>;
 }

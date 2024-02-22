@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -33,7 +35,7 @@ class CampaignArgs:
                  signals_to_collect: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignSignalInformationArgs']]]] = None,
                  spooling_mode: Optional[pulumi.Input['CampaignSpoolingMode']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Campaign resource.
         """
@@ -214,11 +216,11 @@ class CampaignArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -247,7 +249,7 @@ class Campaign(pulumi.CustomResource):
                  signals_to_collect: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignSignalInformationArgs']]]]] = None,
                  spooling_mode: Optional[pulumi.Input['CampaignSpoolingMode']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -295,7 +297,7 @@ class Campaign(pulumi.CustomResource):
                  signals_to_collect: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignSignalInformationArgs']]]]] = None,
                  spooling_mode: Optional[pulumi.Input['CampaignSpoolingMode']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Campaign is deprecated: Campaign is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -480,7 +482,7 @@ class Campaign(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CampaignTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

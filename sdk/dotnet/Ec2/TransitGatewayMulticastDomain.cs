@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags for the transit gateway multicast domain.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TransitGatewayMulticastDomainTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway.
@@ -113,14 +113,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<Inputs.OptionsPropertiesArgs>? Options { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TransitGatewayMulticastDomainTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the transit gateway multicast domain.
         /// </summary>
-        public InputList<Inputs.TransitGatewayMulticastDomainTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TransitGatewayMulticastDomainTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

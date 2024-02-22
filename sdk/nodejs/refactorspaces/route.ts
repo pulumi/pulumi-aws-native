@@ -48,7 +48,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.refactorspaces.RouteTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly uriPathRoute!: pulumi.Output<outputs.refactorspaces.RouteUriPathRouteInput | undefined>;
 
     /**
@@ -115,6 +115,6 @@ export interface RouteArgs {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.refactorspaces.RouteTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     uriPathRoute?: pulumi.Input<inputs.refactorspaces.RouteUriPathRouteInputArgs>;
 }

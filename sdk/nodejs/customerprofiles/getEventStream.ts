@@ -50,7 +50,7 @@ export interface GetEventStreamResult {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    readonly tags?: outputs.customerprofiles.EventStreamTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * An Event Stream resource of Amazon Connect Customer Profiles

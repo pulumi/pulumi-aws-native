@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupLoadBalancerResult struct {
 	// Configuration option to adjust session stickiness cookie duration parameter.
 	SessionStickinessLbCookieDurationSeconds *string `pulumi:"sessionStickinessLbCookieDurationSeconds"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LoadBalancerTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the TLS policy to apply to the load balancer.
 	TlsPolicyName *string `pulumi:"tlsPolicyName"`
 }
@@ -104,8 +105,8 @@ func (o LookupLoadBalancerResultOutput) SessionStickinessLbCookieDurationSeconds
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLoadBalancerResultOutput) Tags() LoadBalancerTagArrayOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) []LoadBalancerTag { return v.Tags }).(LoadBalancerTagArrayOutput)
+func (o LookupLoadBalancerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the TLS policy to apply to the load balancer.

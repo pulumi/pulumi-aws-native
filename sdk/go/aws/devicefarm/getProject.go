@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type LookupProjectResult struct {
 	Arn                      *string           `pulumi:"arn"`
 	DefaultJobTimeoutMinutes *int              `pulumi:"defaultJobTimeoutMinutes"`
 	Name                     *string           `pulumi:"name"`
-	Tags                     []ProjectTag      `pulumi:"tags"`
+	Tags                     []aws.Tag         `pulumi:"tags"`
 	VpcConfig                *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -81,8 +82,8 @@ func (o LookupProjectResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupProjectResultOutput) Tags() ProjectTagArrayOutput {
-	return o.ApplyT(func(v LookupProjectResult) []ProjectTag { return v.Tags }).(ProjectTagArrayOutput)
+func (o LookupProjectResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProjectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupProjectResultOutput) VpcConfig() ProjectVpcConfigPtrOutput {

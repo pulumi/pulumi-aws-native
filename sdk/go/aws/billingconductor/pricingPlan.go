@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,8 +28,8 @@ type PricingPlan struct {
 	Name             pulumi.StringOutput      `pulumi:"name"`
 	PricingRuleArns  pulumi.StringArrayOutput `pulumi:"pricingRuleArns"`
 	// Number of associated pricing rules
-	Size pulumi.IntOutput          `pulumi:"size"`
-	Tags PricingPlanTagArrayOutput `pulumi:"tags"`
+	Size pulumi.IntOutput   `pulumi:"size"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPricingPlan registers a new resource with the given unique name, arguments, and options.
@@ -71,10 +72,10 @@ func (PricingPlanState) ElementType() reflect.Type {
 }
 
 type pricingPlanArgs struct {
-	Description     *string          `pulumi:"description"`
-	Name            *string          `pulumi:"name"`
-	PricingRuleArns []string         `pulumi:"pricingRuleArns"`
-	Tags            []PricingPlanTag `pulumi:"tags"`
+	Description     *string   `pulumi:"description"`
+	Name            *string   `pulumi:"name"`
+	PricingRuleArns []string  `pulumi:"pricingRuleArns"`
+	Tags            []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PricingPlan resource.
@@ -82,7 +83,7 @@ type PricingPlanArgs struct {
 	Description     pulumi.StringPtrInput
 	Name            pulumi.StringPtrInput
 	PricingRuleArns pulumi.StringArrayInput
-	Tags            PricingPlanTagArrayInput
+	Tags            aws.TagArrayInput
 }
 
 func (PricingPlanArgs) ElementType() reflect.Type {
@@ -154,8 +155,8 @@ func (o PricingPlanOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v *PricingPlan) pulumi.IntOutput { return v.Size }).(pulumi.IntOutput)
 }
 
-func (o PricingPlanOutput) Tags() PricingPlanTagArrayOutput {
-	return o.ApplyT(func(v *PricingPlan) PricingPlanTagArrayOutput { return v.Tags }).(PricingPlanTagArrayOutput)
+func (o PricingPlanOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PricingPlan) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

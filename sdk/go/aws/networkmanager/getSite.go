@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupSiteResult struct {
 	// The state of the site.
 	State *string `pulumi:"state"`
 	// The tags for the site.
-	Tags []SiteTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSiteOutput(ctx *pulumi.Context, args LookupSiteOutputArgs, opts ...pulumi.InvokeOption) LookupSiteResultOutput {
@@ -115,8 +116,8 @@ func (o LookupSiteResultOutput) State() pulumi.StringPtrOutput {
 }
 
 // The tags for the site.
-func (o LookupSiteResultOutput) Tags() SiteTagArrayOutput {
-	return o.ApplyT(func(v LookupSiteResult) []SiteTag { return v.Tags }).(SiteTagArrayOutput)
+func (o LookupSiteResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSiteResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

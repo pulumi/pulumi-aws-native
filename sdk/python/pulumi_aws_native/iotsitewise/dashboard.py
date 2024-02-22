@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['DashboardArgs', 'Dashboard']
 
@@ -20,14 +20,14 @@ class DashboardArgs:
                  dashboard_description: pulumi.Input[str],
                  dashboard_name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
         :param pulumi.Input[str] dashboard_definition: The dashboard definition specified in a JSON literal.
         :param pulumi.Input[str] dashboard_description: A description for the dashboard.
         :param pulumi.Input[str] dashboard_name: A friendly name for the dashboard.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]] tags: A list of key-value pairs that contain metadata for the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the dashboard.
         """
         pulumi.set(__self__, "dashboard_definition", dashboard_definition)
         pulumi.set(__self__, "dashboard_description", dashboard_description)
@@ -88,14 +88,14 @@ class DashboardArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the dashboard.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -108,7 +108,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_description: Optional[pulumi.Input[str]] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Dashboard
@@ -119,7 +119,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] dashboard_description: A description for the dashboard.
         :param pulumi.Input[str] dashboard_name: A friendly name for the dashboard.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]] tags: A list of key-value pairs that contain metadata for the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the dashboard.
         """
         ...
     @overload
@@ -149,7 +149,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_description: Optional[pulumi.Input[str]] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,7 +253,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the dashboard.
         """

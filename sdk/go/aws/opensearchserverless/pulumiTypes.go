@@ -21,107 +21,6 @@ type CollectionTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CollectionTagInput is an input type that accepts CollectionTagArgs and CollectionTagOutput values.
-// You can construct a concrete instance of `CollectionTagInput` via:
-//
-//	CollectionTagArgs{...}
-type CollectionTagInput interface {
-	pulumi.Input
-
-	ToCollectionTagOutput() CollectionTagOutput
-	ToCollectionTagOutputWithContext(context.Context) CollectionTagOutput
-}
-
-// A key-value pair metadata associated with resource
-type CollectionTagArgs struct {
-	// The key in the key-value pair
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value in the key-value pair
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CollectionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CollectionTag)(nil)).Elem()
-}
-
-func (i CollectionTagArgs) ToCollectionTagOutput() CollectionTagOutput {
-	return i.ToCollectionTagOutputWithContext(context.Background())
-}
-
-func (i CollectionTagArgs) ToCollectionTagOutputWithContext(ctx context.Context) CollectionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CollectionTagOutput)
-}
-
-// CollectionTagArrayInput is an input type that accepts CollectionTagArray and CollectionTagArrayOutput values.
-// You can construct a concrete instance of `CollectionTagArrayInput` via:
-//
-//	CollectionTagArray{ CollectionTagArgs{...} }
-type CollectionTagArrayInput interface {
-	pulumi.Input
-
-	ToCollectionTagArrayOutput() CollectionTagArrayOutput
-	ToCollectionTagArrayOutputWithContext(context.Context) CollectionTagArrayOutput
-}
-
-type CollectionTagArray []CollectionTagInput
-
-func (CollectionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CollectionTag)(nil)).Elem()
-}
-
-func (i CollectionTagArray) ToCollectionTagArrayOutput() CollectionTagArrayOutput {
-	return i.ToCollectionTagArrayOutputWithContext(context.Background())
-}
-
-func (i CollectionTagArray) ToCollectionTagArrayOutputWithContext(ctx context.Context) CollectionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CollectionTagArrayOutput)
-}
-
-// A key-value pair metadata associated with resource
-type CollectionTagOutput struct{ *pulumi.OutputState }
-
-func (CollectionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CollectionTag)(nil)).Elem()
-}
-
-func (o CollectionTagOutput) ToCollectionTagOutput() CollectionTagOutput {
-	return o
-}
-
-func (o CollectionTagOutput) ToCollectionTagOutputWithContext(ctx context.Context) CollectionTagOutput {
-	return o
-}
-
-// The key in the key-value pair
-func (o CollectionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CollectionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value in the key-value pair
-func (o CollectionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CollectionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CollectionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CollectionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CollectionTag)(nil)).Elem()
-}
-
-func (o CollectionTagArrayOutput) ToCollectionTagArrayOutput() CollectionTagArrayOutput {
-	return o
-}
-
-func (o CollectionTagArrayOutput) ToCollectionTagArrayOutputWithContext(ctx context.Context) CollectionTagArrayOutput {
-	return o
-}
-
-func (o CollectionTagArrayOutput) Index(i pulumi.IntInput) CollectionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CollectionTag {
-		return vs[0].([]CollectionTag)[vs[1].(int)]
-	}).(CollectionTagOutput)
-}
-
 // Describes saml options in form of key value map
 type SecurityConfigSamlConfigOptions struct {
 	// Group attribute for this saml integration
@@ -320,12 +219,8 @@ func (o SecurityConfigSamlConfigOptionsPtrOutput) UserAttribute() pulumi.StringP
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTagInput)(nil)).Elem(), CollectionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTagArrayInput)(nil)).Elem(), CollectionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
-	pulumi.RegisterOutputType(CollectionTagOutput{})
-	pulumi.RegisterOutputType(CollectionTagArrayOutput{})
 	pulumi.RegisterOutputType(SecurityConfigSamlConfigOptionsOutput{})
 	pulumi.RegisterOutputType(SecurityConfigSamlConfigOptionsPtrOutput{})
 }

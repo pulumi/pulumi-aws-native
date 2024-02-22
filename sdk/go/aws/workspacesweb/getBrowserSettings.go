@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,10 +28,10 @@ type LookupBrowserSettingsArgs struct {
 }
 
 type LookupBrowserSettingsResult struct {
-	AssociatedPortalArns []string             `pulumi:"associatedPortalArns"`
-	BrowserPolicy        *string              `pulumi:"browserPolicy"`
-	BrowserSettingsArn   *string              `pulumi:"browserSettingsArn"`
-	Tags                 []BrowserSettingsTag `pulumi:"tags"`
+	AssociatedPortalArns []string  `pulumi:"associatedPortalArns"`
+	BrowserPolicy        *string   `pulumi:"browserPolicy"`
+	BrowserSettingsArn   *string   `pulumi:"browserSettingsArn"`
+	Tags                 []aws.Tag `pulumi:"tags"`
 }
 
 func LookupBrowserSettingsOutput(ctx *pulumi.Context, args LookupBrowserSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupBrowserSettingsResultOutput {
@@ -80,8 +81,8 @@ func (o LookupBrowserSettingsResultOutput) BrowserSettingsArn() pulumi.StringPtr
 	return o.ApplyT(func(v LookupBrowserSettingsResult) *string { return v.BrowserSettingsArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupBrowserSettingsResultOutput) Tags() BrowserSettingsTagArrayOutput {
-	return o.ApplyT(func(v LookupBrowserSettingsResult) []BrowserSettingsTag { return v.Tags }).(BrowserSettingsTagArrayOutput)
+func (o LookupBrowserSettingsResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBrowserSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

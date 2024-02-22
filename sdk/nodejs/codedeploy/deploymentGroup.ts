@@ -57,7 +57,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     public readonly onPremisesTagSet!: pulumi.Output<outputs.codedeploy.DeploymentGroupOnPremisesTagSet | undefined>;
     public readonly outdatedInstancesStrategy!: pulumi.Output<string | undefined>;
     public readonly serviceRoleArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.codedeploy.DeploymentGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly terminationHookEnabled!: pulumi.Output<boolean | undefined>;
     public readonly triggerConfigurations!: pulumi.Output<outputs.codedeploy.DeploymentGroupTriggerConfig[] | undefined>;
 
@@ -150,7 +150,7 @@ export interface DeploymentGroupArgs {
     onPremisesTagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupOnPremisesTagSetArgs>;
     outdatedInstancesStrategy?: pulumi.Input<string>;
     serviceRoleArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     terminationHookEnabled?: pulumi.Input<boolean>;
     triggerConfigurations?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTriggerConfigArgs>[]>;
 }

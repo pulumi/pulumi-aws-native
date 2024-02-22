@@ -43,7 +43,7 @@ export interface GetApiKeyResult {
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
      */
-    readonly tags?: outputs.apigateway.ApiKeyTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.

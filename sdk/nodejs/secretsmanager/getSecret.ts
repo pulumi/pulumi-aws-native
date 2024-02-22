@@ -45,7 +45,7 @@ export interface GetSecretResult {
     /**
      * The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
      */
-    readonly tags?: outputs.secretsmanager.SecretTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SecretsManager::Secret

@@ -48,7 +48,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.refactorspaces.ServiceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly urlEndpoint!: pulumi.Output<outputs.refactorspaces.ServiceUrlEndpointInput | undefined>;
     public readonly vpcId!: pulumi.Output<string | undefined>;
 
@@ -116,7 +116,7 @@ export interface ServiceArgs {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.refactorspaces.ServiceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     urlEndpoint?: pulumi.Input<inputs.refactorspaces.ServiceUrlEndpointInputArgs>;
     vpcId?: pulumi.Input<string>;
 }

@@ -47,7 +47,7 @@ export class Container extends pulumi.CustomResource {
     public readonly lifecyclePolicy!: pulumi.Output<string | undefined>;
     public readonly metricPolicy!: pulumi.Output<outputs.mediastore.ContainerMetricPolicy | undefined>;
     public readonly policy!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.mediastore.ContainerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Container resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface ContainerArgs {
     lifecyclePolicy?: pulumi.Input<string>;
     metricPolicy?: pulumi.Input<inputs.mediastore.ContainerMetricPolicyArgs>;
     policy?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.mediastore.ContainerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

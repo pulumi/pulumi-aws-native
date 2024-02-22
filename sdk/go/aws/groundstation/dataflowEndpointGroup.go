@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type DataflowEndpointGroup struct {
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
 	ContactPrePassDurationSeconds pulumi.IntPtrOutput                             `pulumi:"contactPrePassDurationSeconds"`
 	EndpointDetails               DataflowEndpointGroupEndpointDetailsArrayOutput `pulumi:"endpointDetails"`
-	Tags                          DataflowEndpointGroupTagArrayOutput             `pulumi:"tags"`
+	Tags                          aws.TagArrayOutput                              `pulumi:"tags"`
 }
 
 // NewDataflowEndpointGroup registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +74,7 @@ type dataflowEndpointGroupArgs struct {
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
 	ContactPrePassDurationSeconds *int                                   `pulumi:"contactPrePassDurationSeconds"`
 	EndpointDetails               []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
-	Tags                          []DataflowEndpointGroupTag             `pulumi:"tags"`
+	Tags                          []aws.Tag                              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataflowEndpointGroup resource.
@@ -83,7 +84,7 @@ type DataflowEndpointGroupArgs struct {
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
 	ContactPrePassDurationSeconds pulumi.IntPtrInput
 	EndpointDetails               DataflowEndpointGroupEndpointDetailsArrayInput
-	Tags                          DataflowEndpointGroupTagArrayInput
+	Tags                          aws.TagArrayInput
 }
 
 func (DataflowEndpointGroupArgs) ElementType() reflect.Type {
@@ -143,8 +144,8 @@ func (o DataflowEndpointGroupOutput) EndpointDetails() DataflowEndpointGroupEndp
 	}).(DataflowEndpointGroupEndpointDetailsArrayOutput)
 }
 
-func (o DataflowEndpointGroupOutput) Tags() DataflowEndpointGroupTagArrayOutput {
-	return o.ApplyT(func(v *DataflowEndpointGroup) DataflowEndpointGroupTagArrayOutput { return v.Tags }).(DataflowEndpointGroupTagArrayOutput)
+func (o DataflowEndpointGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

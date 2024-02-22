@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,7 +20,7 @@ type Graph struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
 	AutoEnableMembers pulumi.BoolPtrOutput `pulumi:"autoEnableMembers"`
-	Tags              GraphTagArrayOutput  `pulumi:"tags"`
+	Tags              aws.TagArrayOutput   `pulumi:"tags"`
 }
 
 // NewGraph registers a new resource with the given unique name, arguments, and options.
@@ -63,15 +64,15 @@ func (GraphState) ElementType() reflect.Type {
 
 type graphArgs struct {
 	// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
-	AutoEnableMembers *bool      `pulumi:"autoEnableMembers"`
-	Tags              []GraphTag `pulumi:"tags"`
+	AutoEnableMembers *bool     `pulumi:"autoEnableMembers"`
+	Tags              []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Graph resource.
 type GraphArgs struct {
 	// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
 	AutoEnableMembers pulumi.BoolPtrInput
-	Tags              GraphTagArrayInput
+	Tags              aws.TagArrayInput
 }
 
 func (GraphArgs) ElementType() reflect.Type {
@@ -121,8 +122,8 @@ func (o GraphOutput) AutoEnableMembers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Graph) pulumi.BoolPtrOutput { return v.AutoEnableMembers }).(pulumi.BoolPtrOutput)
 }
 
-func (o GraphOutput) Tags() GraphTagArrayOutput {
-	return o.ApplyT(func(v *Graph) GraphTagArrayOutput { return v.Tags }).(GraphTagArrayOutput)
+func (o GraphOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Graph) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

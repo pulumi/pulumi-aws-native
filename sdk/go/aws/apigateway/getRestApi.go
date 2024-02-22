@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -50,7 +51,7 @@ type LookupRestApiResult struct {
 	RestApiId      *string     `pulumi:"restApiId"`
 	RootResourceId *string     `pulumi:"rootResourceId"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
-	Tags []RestApiTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts ...pulumi.InvokeOption) LookupRestApiResultOutput {
@@ -139,8 +140,8 @@ func (o LookupRestApiResultOutput) RootResourceId() pulumi.StringPtrOutput {
 }
 
 // The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with “aws:“. The tag value can be up to 256 characters.
-func (o LookupRestApiResultOutput) Tags() RestApiTagArrayOutput {
-	return o.ApplyT(func(v LookupRestApiResult) []RestApiTag { return v.Tags }).(RestApiTagArrayOutput)
+func (o LookupRestApiResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRestApiResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

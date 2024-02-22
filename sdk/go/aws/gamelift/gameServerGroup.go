@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type GameServerGroup struct {
 	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A list of labels to assign to the new game server group resource.
-	Tags GameServerGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
 	VpcSubnets pulumi.StringArrayOutput `pulumi:"vpcSubnets"`
 }
@@ -113,7 +114,7 @@ type gameServerGroupArgs struct {
 	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn string `pulumi:"roleArn"`
 	// A list of labels to assign to the new game server group resource.
-	Tags []GameServerGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
 	VpcSubnets []string `pulumi:"vpcSubnets"`
 }
@@ -141,7 +142,7 @@ type GameServerGroupArgs struct {
 	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn pulumi.StringInput
 	// A list of labels to assign to the new game server group resource.
-	Tags GameServerGroupTagArrayInput
+	Tags aws.TagArrayInput
 	// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
 	VpcSubnets pulumi.StringArrayInput
 }
@@ -246,8 +247,8 @@ func (o GameServerGroupOutput) RoleArn() pulumi.StringOutput {
 }
 
 // A list of labels to assign to the new game server group resource.
-func (o GameServerGroupOutput) Tags() GameServerGroupTagArrayOutput {
-	return o.ApplyT(func(v *GameServerGroup) GameServerGroupTagArrayOutput { return v.Tags }).(GameServerGroupTagArrayOutput)
+func (o GameServerGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *GameServerGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A list of virtual private cloud (VPC) subnets to use with instances in the game server group.

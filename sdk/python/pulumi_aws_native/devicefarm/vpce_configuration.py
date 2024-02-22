@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['VpceConfigurationArgs', 'VpceConfiguration']
 
@@ -18,7 +18,7 @@ class VpceConfigurationArgs:
     def __init__(__self__, *,
                  service_dns_name: pulumi.Input[str],
                  vpce_service_name: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpceConfigurationTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpce_configuration_description: Optional[pulumi.Input[str]] = None,
                  vpce_configuration_name: Optional[pulumi.Input[str]] = None):
         """
@@ -53,11 +53,11 @@ class VpceConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpceConfigurationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpceConfigurationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -85,7 +85,7 @@ class VpceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  service_dns_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpceConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpce_configuration_description: Optional[pulumi.Input[str]] = None,
                  vpce_configuration_name: Optional[pulumi.Input[str]] = None,
                  vpce_service_name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class VpceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  service_dns_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpceConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpce_configuration_description: Optional[pulumi.Input[str]] = None,
                  vpce_configuration_name: Optional[pulumi.Input[str]] = None,
                  vpce_service_name: Optional[pulumi.Input[str]] = None,
@@ -186,7 +186,7 @@ class VpceConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VpceConfigurationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

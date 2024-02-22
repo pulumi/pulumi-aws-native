@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -71,7 +72,7 @@ class GetEventStreamResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.EventStreamTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The tags used to organize, track, or control access for this resource.
         """

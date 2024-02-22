@@ -272,7 +272,7 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// Tags to assign to the DB instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DbInstanceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ARN from the key store with which to associate the instance for TDE encryption.
         /// </summary>
@@ -386,7 +386,7 @@ namespace Pulumi.AwsNative.Rds
 
             string? storageType,
 
-            ImmutableArray<Outputs.DbInstanceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? tdeCredentialArn,
 

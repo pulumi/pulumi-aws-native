@@ -201,101 +201,6 @@ type BillingGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// BillingGroupTagInput is an input type that accepts BillingGroupTagArgs and BillingGroupTagOutput values.
-// You can construct a concrete instance of `BillingGroupTagInput` via:
-//
-//	BillingGroupTagArgs{...}
-type BillingGroupTagInput interface {
-	pulumi.Input
-
-	ToBillingGroupTagOutput() BillingGroupTagOutput
-	ToBillingGroupTagOutputWithContext(context.Context) BillingGroupTagOutput
-}
-
-type BillingGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (BillingGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingGroupTag)(nil)).Elem()
-}
-
-func (i BillingGroupTagArgs) ToBillingGroupTagOutput() BillingGroupTagOutput {
-	return i.ToBillingGroupTagOutputWithContext(context.Background())
-}
-
-func (i BillingGroupTagArgs) ToBillingGroupTagOutputWithContext(ctx context.Context) BillingGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupTagOutput)
-}
-
-// BillingGroupTagArrayInput is an input type that accepts BillingGroupTagArray and BillingGroupTagArrayOutput values.
-// You can construct a concrete instance of `BillingGroupTagArrayInput` via:
-//
-//	BillingGroupTagArray{ BillingGroupTagArgs{...} }
-type BillingGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToBillingGroupTagArrayOutput() BillingGroupTagArrayOutput
-	ToBillingGroupTagArrayOutputWithContext(context.Context) BillingGroupTagArrayOutput
-}
-
-type BillingGroupTagArray []BillingGroupTagInput
-
-func (BillingGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BillingGroupTag)(nil)).Elem()
-}
-
-func (i BillingGroupTagArray) ToBillingGroupTagArrayOutput() BillingGroupTagArrayOutput {
-	return i.ToBillingGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i BillingGroupTagArray) ToBillingGroupTagArrayOutputWithContext(ctx context.Context) BillingGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupTagArrayOutput)
-}
-
-type BillingGroupTagOutput struct{ *pulumi.OutputState }
-
-func (BillingGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingGroupTag)(nil)).Elem()
-}
-
-func (o BillingGroupTagOutput) ToBillingGroupTagOutput() BillingGroupTagOutput {
-	return o
-}
-
-func (o BillingGroupTagOutput) ToBillingGroupTagOutputWithContext(ctx context.Context) BillingGroupTagOutput {
-	return o
-}
-
-func (o BillingGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BillingGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o BillingGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v BillingGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type BillingGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (BillingGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BillingGroupTag)(nil)).Elem()
-}
-
-func (o BillingGroupTagArrayOutput) ToBillingGroupTagArrayOutput() BillingGroupTagArrayOutput {
-	return o
-}
-
-func (o BillingGroupTagArrayOutput) ToBillingGroupTagArrayOutputWithContext(ctx context.Context) BillingGroupTagArrayOutput {
-	return o
-}
-
-func (o BillingGroupTagArrayOutput) Index(i pulumi.IntInput) BillingGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BillingGroupTag {
-		return vs[0].([]BillingGroupTag)[vs[1].(int)]
-	}).(BillingGroupTagOutput)
-}
-
 type CustomLineItemBillingPeriodRange struct {
 	ExclusiveEndBillingPeriod   *string `pulumi:"exclusiveEndBillingPeriod"`
 	InclusiveStartBillingPeriod *string `pulumi:"inclusiveStartBillingPeriod"`
@@ -1014,199 +919,9 @@ type CustomLineItemTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CustomLineItemTagInput is an input type that accepts CustomLineItemTagArgs and CustomLineItemTagOutput values.
-// You can construct a concrete instance of `CustomLineItemTagInput` via:
-//
-//	CustomLineItemTagArgs{...}
-type CustomLineItemTagInput interface {
-	pulumi.Input
-
-	ToCustomLineItemTagOutput() CustomLineItemTagOutput
-	ToCustomLineItemTagOutputWithContext(context.Context) CustomLineItemTagOutput
-}
-
-type CustomLineItemTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CustomLineItemTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomLineItemTag)(nil)).Elem()
-}
-
-func (i CustomLineItemTagArgs) ToCustomLineItemTagOutput() CustomLineItemTagOutput {
-	return i.ToCustomLineItemTagOutputWithContext(context.Background())
-}
-
-func (i CustomLineItemTagArgs) ToCustomLineItemTagOutputWithContext(ctx context.Context) CustomLineItemTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemTagOutput)
-}
-
-// CustomLineItemTagArrayInput is an input type that accepts CustomLineItemTagArray and CustomLineItemTagArrayOutput values.
-// You can construct a concrete instance of `CustomLineItemTagArrayInput` via:
-//
-//	CustomLineItemTagArray{ CustomLineItemTagArgs{...} }
-type CustomLineItemTagArrayInput interface {
-	pulumi.Input
-
-	ToCustomLineItemTagArrayOutput() CustomLineItemTagArrayOutput
-	ToCustomLineItemTagArrayOutputWithContext(context.Context) CustomLineItemTagArrayOutput
-}
-
-type CustomLineItemTagArray []CustomLineItemTagInput
-
-func (CustomLineItemTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomLineItemTag)(nil)).Elem()
-}
-
-func (i CustomLineItemTagArray) ToCustomLineItemTagArrayOutput() CustomLineItemTagArrayOutput {
-	return i.ToCustomLineItemTagArrayOutputWithContext(context.Background())
-}
-
-func (i CustomLineItemTagArray) ToCustomLineItemTagArrayOutputWithContext(ctx context.Context) CustomLineItemTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemTagArrayOutput)
-}
-
-type CustomLineItemTagOutput struct{ *pulumi.OutputState }
-
-func (CustomLineItemTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomLineItemTag)(nil)).Elem()
-}
-
-func (o CustomLineItemTagOutput) ToCustomLineItemTagOutput() CustomLineItemTagOutput {
-	return o
-}
-
-func (o CustomLineItemTagOutput) ToCustomLineItemTagOutputWithContext(ctx context.Context) CustomLineItemTagOutput {
-	return o
-}
-
-func (o CustomLineItemTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomLineItemTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CustomLineItemTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomLineItemTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CustomLineItemTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CustomLineItemTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomLineItemTag)(nil)).Elem()
-}
-
-func (o CustomLineItemTagArrayOutput) ToCustomLineItemTagArrayOutput() CustomLineItemTagArrayOutput {
-	return o
-}
-
-func (o CustomLineItemTagArrayOutput) ToCustomLineItemTagArrayOutputWithContext(ctx context.Context) CustomLineItemTagArrayOutput {
-	return o
-}
-
-func (o CustomLineItemTagArrayOutput) Index(i pulumi.IntInput) CustomLineItemTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomLineItemTag {
-		return vs[0].([]CustomLineItemTag)[vs[1].(int)]
-	}).(CustomLineItemTagOutput)
-}
-
 type PricingPlanTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// PricingPlanTagInput is an input type that accepts PricingPlanTagArgs and PricingPlanTagOutput values.
-// You can construct a concrete instance of `PricingPlanTagInput` via:
-//
-//	PricingPlanTagArgs{...}
-type PricingPlanTagInput interface {
-	pulumi.Input
-
-	ToPricingPlanTagOutput() PricingPlanTagOutput
-	ToPricingPlanTagOutputWithContext(context.Context) PricingPlanTagOutput
-}
-
-type PricingPlanTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PricingPlanTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PricingPlanTag)(nil)).Elem()
-}
-
-func (i PricingPlanTagArgs) ToPricingPlanTagOutput() PricingPlanTagOutput {
-	return i.ToPricingPlanTagOutputWithContext(context.Background())
-}
-
-func (i PricingPlanTagArgs) ToPricingPlanTagOutputWithContext(ctx context.Context) PricingPlanTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PricingPlanTagOutput)
-}
-
-// PricingPlanTagArrayInput is an input type that accepts PricingPlanTagArray and PricingPlanTagArrayOutput values.
-// You can construct a concrete instance of `PricingPlanTagArrayInput` via:
-//
-//	PricingPlanTagArray{ PricingPlanTagArgs{...} }
-type PricingPlanTagArrayInput interface {
-	pulumi.Input
-
-	ToPricingPlanTagArrayOutput() PricingPlanTagArrayOutput
-	ToPricingPlanTagArrayOutputWithContext(context.Context) PricingPlanTagArrayOutput
-}
-
-type PricingPlanTagArray []PricingPlanTagInput
-
-func (PricingPlanTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PricingPlanTag)(nil)).Elem()
-}
-
-func (i PricingPlanTagArray) ToPricingPlanTagArrayOutput() PricingPlanTagArrayOutput {
-	return i.ToPricingPlanTagArrayOutputWithContext(context.Background())
-}
-
-func (i PricingPlanTagArray) ToPricingPlanTagArrayOutputWithContext(ctx context.Context) PricingPlanTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PricingPlanTagArrayOutput)
-}
-
-type PricingPlanTagOutput struct{ *pulumi.OutputState }
-
-func (PricingPlanTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PricingPlanTag)(nil)).Elem()
-}
-
-func (o PricingPlanTagOutput) ToPricingPlanTagOutput() PricingPlanTagOutput {
-	return o
-}
-
-func (o PricingPlanTagOutput) ToPricingPlanTagOutputWithContext(ctx context.Context) PricingPlanTagOutput {
-	return o
-}
-
-func (o PricingPlanTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PricingPlanTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PricingPlanTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PricingPlanTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PricingPlanTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PricingPlanTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PricingPlanTag)(nil)).Elem()
-}
-
-func (o PricingPlanTagArrayOutput) ToPricingPlanTagArrayOutput() PricingPlanTagArrayOutput {
-	return o
-}
-
-func (o PricingPlanTagArrayOutput) ToPricingPlanTagArrayOutputWithContext(ctx context.Context) PricingPlanTagArrayOutput {
-	return o
-}
-
-func (o PricingPlanTagArrayOutput) Index(i pulumi.IntInput) PricingPlanTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PricingPlanTag {
-		return vs[0].([]PricingPlanTag)[vs[1].(int)]
-	}).(PricingPlanTagOutput)
 }
 
 // The possible customizable free tier configurations.
@@ -1350,101 +1065,6 @@ type PricingRuleTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PricingRuleTagInput is an input type that accepts PricingRuleTagArgs and PricingRuleTagOutput values.
-// You can construct a concrete instance of `PricingRuleTagInput` via:
-//
-//	PricingRuleTagArgs{...}
-type PricingRuleTagInput interface {
-	pulumi.Input
-
-	ToPricingRuleTagOutput() PricingRuleTagOutput
-	ToPricingRuleTagOutputWithContext(context.Context) PricingRuleTagOutput
-}
-
-type PricingRuleTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PricingRuleTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PricingRuleTag)(nil)).Elem()
-}
-
-func (i PricingRuleTagArgs) ToPricingRuleTagOutput() PricingRuleTagOutput {
-	return i.ToPricingRuleTagOutputWithContext(context.Background())
-}
-
-func (i PricingRuleTagArgs) ToPricingRuleTagOutputWithContext(ctx context.Context) PricingRuleTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PricingRuleTagOutput)
-}
-
-// PricingRuleTagArrayInput is an input type that accepts PricingRuleTagArray and PricingRuleTagArrayOutput values.
-// You can construct a concrete instance of `PricingRuleTagArrayInput` via:
-//
-//	PricingRuleTagArray{ PricingRuleTagArgs{...} }
-type PricingRuleTagArrayInput interface {
-	pulumi.Input
-
-	ToPricingRuleTagArrayOutput() PricingRuleTagArrayOutput
-	ToPricingRuleTagArrayOutputWithContext(context.Context) PricingRuleTagArrayOutput
-}
-
-type PricingRuleTagArray []PricingRuleTagInput
-
-func (PricingRuleTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PricingRuleTag)(nil)).Elem()
-}
-
-func (i PricingRuleTagArray) ToPricingRuleTagArrayOutput() PricingRuleTagArrayOutput {
-	return i.ToPricingRuleTagArrayOutputWithContext(context.Background())
-}
-
-func (i PricingRuleTagArray) ToPricingRuleTagArrayOutputWithContext(ctx context.Context) PricingRuleTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PricingRuleTagArrayOutput)
-}
-
-type PricingRuleTagOutput struct{ *pulumi.OutputState }
-
-func (PricingRuleTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PricingRuleTag)(nil)).Elem()
-}
-
-func (o PricingRuleTagOutput) ToPricingRuleTagOutput() PricingRuleTagOutput {
-	return o
-}
-
-func (o PricingRuleTagOutput) ToPricingRuleTagOutputWithContext(ctx context.Context) PricingRuleTagOutput {
-	return o
-}
-
-func (o PricingRuleTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PricingRuleTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PricingRuleTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PricingRuleTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PricingRuleTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PricingRuleTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PricingRuleTag)(nil)).Elem()
-}
-
-func (o PricingRuleTagArrayOutput) ToPricingRuleTagArrayOutput() PricingRuleTagArrayOutput {
-	return o
-}
-
-func (o PricingRuleTagArrayOutput) ToPricingRuleTagArrayOutputWithContext(ctx context.Context) PricingRuleTagArrayOutput {
-	return o
-}
-
-func (o PricingRuleTagArrayOutput) Index(i pulumi.IntInput) PricingRuleTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PricingRuleTag {
-		return vs[0].([]PricingRuleTag)[vs[1].(int)]
-	}).(PricingRuleTagOutput)
-}
-
 // The set of tiering configurations for the pricing rule.
 type TieringProperties struct {
 	FreeTier *PricingRuleFreeTier `pulumi:"freeTier"`
@@ -1584,8 +1204,6 @@ func (o TieringPropertiesPtrOutput) FreeTier() PricingRuleFreeTierPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupAccountGroupingInput)(nil)).Elem(), BillingGroupAccountGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupComputationPreferenceInput)(nil)).Elem(), BillingGroupComputationPreferenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupTagInput)(nil)).Elem(), BillingGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupTagArrayInput)(nil)).Elem(), BillingGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemBillingPeriodRangeInput)(nil)).Elem(), CustomLineItemBillingPeriodRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemBillingPeriodRangePtrInput)(nil)).Elem(), CustomLineItemBillingPeriodRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemChargeDetailsInput)(nil)).Elem(), CustomLineItemChargeDetailsArgs{})
@@ -1596,22 +1214,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemLineItemFilterArrayInput)(nil)).Elem(), CustomLineItemLineItemFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemPercentageChargeDetailsInput)(nil)).Elem(), CustomLineItemPercentageChargeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemPercentageChargeDetailsPtrInput)(nil)).Elem(), CustomLineItemPercentageChargeDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemTagInput)(nil)).Elem(), CustomLineItemTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemTagArrayInput)(nil)).Elem(), CustomLineItemTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PricingPlanTagInput)(nil)).Elem(), PricingPlanTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PricingPlanTagArrayInput)(nil)).Elem(), PricingPlanTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleFreeTierInput)(nil)).Elem(), PricingRuleFreeTierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleFreeTierPtrInput)(nil)).Elem(), PricingRuleFreeTierArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleTagInput)(nil)).Elem(), PricingRuleTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleTagArrayInput)(nil)).Elem(), PricingRuleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TieringPropertiesInput)(nil)).Elem(), TieringPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TieringPropertiesPtrInput)(nil)).Elem(), TieringPropertiesArgs{})
 	pulumi.RegisterOutputType(BillingGroupAccountGroupingOutput{})
 	pulumi.RegisterOutputType(BillingGroupAccountGroupingPtrOutput{})
 	pulumi.RegisterOutputType(BillingGroupComputationPreferenceOutput{})
 	pulumi.RegisterOutputType(BillingGroupComputationPreferencePtrOutput{})
-	pulumi.RegisterOutputType(BillingGroupTagOutput{})
-	pulumi.RegisterOutputType(BillingGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(CustomLineItemBillingPeriodRangeOutput{})
 	pulumi.RegisterOutputType(CustomLineItemBillingPeriodRangePtrOutput{})
 	pulumi.RegisterOutputType(CustomLineItemChargeDetailsOutput{})
@@ -1622,14 +1232,8 @@ func init() {
 	pulumi.RegisterOutputType(CustomLineItemLineItemFilterArrayOutput{})
 	pulumi.RegisterOutputType(CustomLineItemPercentageChargeDetailsOutput{})
 	pulumi.RegisterOutputType(CustomLineItemPercentageChargeDetailsPtrOutput{})
-	pulumi.RegisterOutputType(CustomLineItemTagOutput{})
-	pulumi.RegisterOutputType(CustomLineItemTagArrayOutput{})
-	pulumi.RegisterOutputType(PricingPlanTagOutput{})
-	pulumi.RegisterOutputType(PricingPlanTagArrayOutput{})
 	pulumi.RegisterOutputType(PricingRuleFreeTierOutput{})
 	pulumi.RegisterOutputType(PricingRuleFreeTierPtrOutput{})
-	pulumi.RegisterOutputType(PricingRuleTagOutput{})
-	pulumi.RegisterOutputType(PricingRuleTagArrayOutput{})
 	pulumi.RegisterOutputType(TieringPropertiesOutput{})
 	pulumi.RegisterOutputType(TieringPropertiesPtrOutput{})
 }

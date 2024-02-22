@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// <summary>
         /// The tags associated with this graph.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GraphTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetGraphResult(
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.NeptuneGraph
 
             bool? publicConnectivity,
 
-            ImmutableArray<Outputs.GraphTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DeletionProtection = deletionProtection;
             Endpoint = endpoint;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupDashboardResult struct {
 	// A friendly name for the dashboard.
 	DashboardName *string `pulumi:"dashboardName"`
 	// A list of key-value pairs that contain metadata for the dashboard.
-	Tags []DashboardTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardResultOutput {
@@ -104,8 +105,8 @@ func (o LookupDashboardResultOutput) DashboardName() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the dashboard.
-func (o LookupDashboardResultOutput) Tags() DashboardTagArrayOutput {
-	return o.ApplyT(func(v LookupDashboardResult) []DashboardTag { return v.Tags }).(DashboardTagArrayOutput)
+func (o LookupDashboardResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDashboardResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

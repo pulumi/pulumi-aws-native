@@ -73,13 +73,13 @@ namespace Pulumi.AwsNative.Eks
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FargateProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFargateProfileResult(
             string? arn,
 
-            ImmutableArray<Outputs.FargateProfileTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Tags = tags;

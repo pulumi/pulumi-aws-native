@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type Flow struct {
 	// Configurations of Source connector of the flow.
 	SourceFlowConfig FlowSourceFlowConfigOutput `pulumi:"sourceFlowConfig"`
 	// List of Tags.
-	Tags FlowTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// List of tasks for the flow.
 	Tasks FlowTaskArrayOutput `pulumi:"tasks"`
 	// Trigger settings of the flow.
@@ -112,7 +113,7 @@ type flowArgs struct {
 	// Configurations of Source connector of the flow.
 	SourceFlowConfig FlowSourceFlowConfig `pulumi:"sourceFlowConfig"`
 	// List of Tags.
-	Tags []FlowTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// List of tasks for the flow.
 	Tasks []FlowTask `pulumi:"tasks"`
 	// Trigger settings of the flow.
@@ -136,7 +137,7 @@ type FlowArgs struct {
 	// Configurations of Source connector of the flow.
 	SourceFlowConfig FlowSourceFlowConfigInput
 	// List of Tags.
-	Tags FlowTagArrayInput
+	Tags aws.TagArrayInput
 	// List of tasks for the flow.
 	Tasks FlowTaskArrayInput
 	// Trigger settings of the flow.
@@ -221,8 +222,8 @@ func (o FlowOutput) SourceFlowConfig() FlowSourceFlowConfigOutput {
 }
 
 // List of Tags.
-func (o FlowOutput) Tags() FlowTagArrayOutput {
-	return o.ApplyT(func(v *Flow) FlowTagArrayOutput { return v.Tags }).(FlowTagArrayOutput)
+func (o FlowOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Flow) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // List of tasks for the flow.

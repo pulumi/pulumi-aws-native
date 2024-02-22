@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Kendra
         /// Tags for labeling the FAQ
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FaqTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -157,14 +157,14 @@ namespace Pulumi.AwsNative.Kendra
         public Input<Inputs.FaqS3PathArgs> S3Path { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.FaqTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags for labeling the FAQ
         /// </summary>
-        public InputList<Inputs.FaqTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FaqTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

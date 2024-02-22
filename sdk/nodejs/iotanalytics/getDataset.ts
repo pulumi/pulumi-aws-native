@@ -28,7 +28,7 @@ export interface GetDatasetResult {
     readonly id?: string;
     readonly lateDataRules?: outputs.iotanalytics.DatasetLateDataRule[];
     readonly retentionPeriod?: outputs.iotanalytics.DatasetRetentionPeriod;
-    readonly tags?: outputs.iotanalytics.DatasetTag[];
+    readonly tags?: outputs.Tag[];
     readonly triggers?: outputs.iotanalytics.DatasetTrigger[];
     readonly versioningConfiguration?: outputs.iotanalytics.DatasetVersioningConfiguration;
 }

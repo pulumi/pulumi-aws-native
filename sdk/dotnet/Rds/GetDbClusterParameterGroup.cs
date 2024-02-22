@@ -60,13 +60,13 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The list of tags for the cluster parameter group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DbClusterParameterGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDbClusterParameterGroupResult(
             object? parameters,
 
-            ImmutableArray<Outputs.DbClusterParameterGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Parameters = parameters;
             Tags = tags;

@@ -35,7 +35,7 @@ export interface GetIdMappingWorkflowResult {
     readonly inputSourceConfig?: outputs.entityresolution.IdMappingWorkflowInputSource[];
     readonly outputSourceConfig?: outputs.entityresolution.IdMappingWorkflowOutputSource[];
     readonly roleArn?: string;
-    readonly tags?: outputs.entityresolution.IdMappingWorkflowTag[];
+    readonly tags?: outputs.Tag[];
     readonly updatedAt?: string;
     readonly workflowArn?: string;
 }

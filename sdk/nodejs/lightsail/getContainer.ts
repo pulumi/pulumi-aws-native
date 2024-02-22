@@ -58,7 +58,7 @@ export interface GetContainerResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.lightsail.ContainerTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The publicly accessible URL of the container service.
      */

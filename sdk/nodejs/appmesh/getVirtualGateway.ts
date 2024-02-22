@@ -27,7 +27,7 @@ export interface GetVirtualGatewayResult {
     readonly id?: string;
     readonly resourceOwner?: string;
     readonly spec?: outputs.appmesh.VirtualGatewaySpec;
-    readonly tags?: outputs.appmesh.VirtualGatewayTag[];
+    readonly tags?: outputs.Tag[];
     readonly uid?: string;
 }
 /**

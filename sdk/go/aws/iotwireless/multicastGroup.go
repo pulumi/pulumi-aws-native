@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type MulticastGroup struct {
 	// Multicast group status. Returned after successful read.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A list of key-value pairs that contain metadata for the Multicast group.
-	Tags MulticastGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewMulticastGroup registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +89,7 @@ type multicastGroupArgs struct {
 	// Name of Multicast group
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the Multicast group.
-	Tags []MulticastGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MulticastGroup resource.
@@ -104,7 +105,7 @@ type MulticastGroupArgs struct {
 	// Name of Multicast group
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the Multicast group.
-	Tags MulticastGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (MulticastGroupArgs) ElementType() reflect.Type {
@@ -180,8 +181,8 @@ func (o MulticastGroupOutput) Status() pulumi.StringOutput {
 }
 
 // A list of key-value pairs that contain metadata for the Multicast group.
-func (o MulticastGroupOutput) Tags() MulticastGroupTagArrayOutput {
-	return o.ApplyT(func(v *MulticastGroup) MulticastGroupTagArrayOutput { return v.Tags }).(MulticastGroupTagArrayOutput)
+func (o MulticastGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *MulticastGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

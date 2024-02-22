@@ -20,12 +20,8 @@ __all__ = [
     'DetectorCfnMalwareProtectionConfiguration',
     'DetectorCfnScanEc2InstanceWithFindingsConfiguration',
     'DetectorCfns3LogsConfiguration',
-    'DetectorTagItem',
     'FilterCondition',
     'FilterFindingCriteria',
-    'FilterTagItem',
-    'IpSetTagItem',
-    'ThreatIntelSetTagItem',
 ]
 
 @pulumi.output_type
@@ -255,25 +251,6 @@ class DetectorCfns3LogsConfiguration(dict):
 
 
 @pulumi.output_type
-class DetectorTagItem(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class FilterCondition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -410,62 +387,5 @@ class FilterFindingCriteria(dict):
     @pulumi.getter
     def criterion(self) -> Optional[Mapping[str, 'outputs.FilterCondition']]:
         return pulumi.get(self, "criterion")
-
-
-@pulumi.output_type
-class FilterTagItem(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class IpSetTagItem(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ThreatIntelSetTagItem(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,8 +35,8 @@ type PermissionSet struct {
 	// The relay state URL that redirect links to any service in the AWS Management Console.
 	RelayStateType pulumi.StringPtrOutput `pulumi:"relayStateType"`
 	// The length of time that a user can be signed in to an AWS account.
-	SessionDuration pulumi.StringPtrOutput      `pulumi:"sessionDuration"`
-	Tags            PermissionSetTagArrayOutput `pulumi:"tags"`
+	SessionDuration pulumi.StringPtrOutput `pulumi:"sessionDuration"`
+	Tags            aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewPermissionSet registers a new resource with the given unique name, arguments, and options.
@@ -102,8 +103,8 @@ type permissionSetArgs struct {
 	// The relay state URL that redirect links to any service in the AWS Management Console.
 	RelayStateType *string `pulumi:"relayStateType"`
 	// The length of time that a user can be signed in to an AWS account.
-	SessionDuration *string            `pulumi:"sessionDuration"`
-	Tags            []PermissionSetTag `pulumi:"tags"`
+	SessionDuration *string   `pulumi:"sessionDuration"`
+	Tags            []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PermissionSet resource.
@@ -125,7 +126,7 @@ type PermissionSetArgs struct {
 	RelayStateType pulumi.StringPtrInput
 	// The length of time that a user can be signed in to an AWS account.
 	SessionDuration pulumi.StringPtrInput
-	Tags            PermissionSetTagArrayInput
+	Tags            aws.TagArrayInput
 }
 
 func (PermissionSetArgs) ElementType() reflect.Type {
@@ -216,8 +217,8 @@ func (o PermissionSetOutput) SessionDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.SessionDuration }).(pulumi.StringPtrOutput)
 }
 
-func (o PermissionSetOutput) Tags() PermissionSetTagArrayOutput {
-	return o.ApplyT(func(v *PermissionSet) PermissionSetTagArrayOutput { return v.Tags }).(PermissionSetTagArrayOutput)
+func (o PermissionSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PermissionSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,14 +28,14 @@ type LookupTrafficMirrorSessionArgs struct {
 }
 
 type LookupTrafficMirrorSessionResult struct {
-	Description           *string                   `pulumi:"description"`
-	Id                    *string                   `pulumi:"id"`
-	PacketLength          *int                      `pulumi:"packetLength"`
-	SessionNumber         *int                      `pulumi:"sessionNumber"`
-	Tags                  []TrafficMirrorSessionTag `pulumi:"tags"`
-	TrafficMirrorFilterId *string                   `pulumi:"trafficMirrorFilterId"`
-	TrafficMirrorTargetId *string                   `pulumi:"trafficMirrorTargetId"`
-	VirtualNetworkId      *int                      `pulumi:"virtualNetworkId"`
+	Description           *string   `pulumi:"description"`
+	Id                    *string   `pulumi:"id"`
+	PacketLength          *int      `pulumi:"packetLength"`
+	SessionNumber         *int      `pulumi:"sessionNumber"`
+	Tags                  []aws.Tag `pulumi:"tags"`
+	TrafficMirrorFilterId *string   `pulumi:"trafficMirrorFilterId"`
+	TrafficMirrorTargetId *string   `pulumi:"trafficMirrorTargetId"`
+	VirtualNetworkId      *int      `pulumi:"virtualNetworkId"`
 }
 
 func LookupTrafficMirrorSessionOutput(ctx *pulumi.Context, args LookupTrafficMirrorSessionOutputArgs, opts ...pulumi.InvokeOption) LookupTrafficMirrorSessionResultOutput {
@@ -88,8 +89,8 @@ func (o LookupTrafficMirrorSessionResultOutput) SessionNumber() pulumi.IntPtrOut
 	return o.ApplyT(func(v LookupTrafficMirrorSessionResult) *int { return v.SessionNumber }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupTrafficMirrorSessionResultOutput) Tags() TrafficMirrorSessionTagArrayOutput {
-	return o.ApplyT(func(v LookupTrafficMirrorSessionResult) []TrafficMirrorSessionTag { return v.Tags }).(TrafficMirrorSessionTagArrayOutput)
+func (o LookupTrafficMirrorSessionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTrafficMirrorSessionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupTrafficMirrorSessionResultOutput) TrafficMirrorFilterId() pulumi.StringPtrOutput {

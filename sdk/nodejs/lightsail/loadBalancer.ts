@@ -69,7 +69,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.lightsail.LoadBalancerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the TLS policy to apply to the load balancer.
      */
@@ -153,7 +153,7 @@ export interface LoadBalancerArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.lightsail.LoadBalancerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the TLS policy to apply to the load balancer.
      */

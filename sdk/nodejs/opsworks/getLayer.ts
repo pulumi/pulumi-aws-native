@@ -23,10 +23,7 @@ export interface GetLayerArgs {
 }
 
 export interface GetLayerResult {
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-     */
-    readonly attributes?: any;
+    readonly attributes?: {[key: string]: string};
     readonly autoAssignElasticIps?: boolean;
     readonly autoAssignPublicIps?: boolean;
     readonly customInstanceProfileArn?: string;
@@ -44,7 +41,7 @@ export interface GetLayerResult {
     readonly name?: string;
     readonly packages?: string[];
     readonly shortname?: string;
-    readonly tags?: outputs.opsworks.LayerTag[];
+    readonly tags?: outputs.Tag[];
     readonly useEbsOptimizedInstances?: boolean;
     readonly volumeConfigurations?: outputs.opsworks.LayerVolumeConfiguration[];
 }

@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Synthetics
         public Output<int?> SuccessRetentionPeriod { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.CanaryTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Visual reference configuration for visual testing
@@ -230,10 +230,10 @@ namespace Pulumi.AwsNative.Synthetics
         public Input<int>? SuccessRetentionPeriod { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.CanaryTagArgs>? _tags;
-        public InputList<Inputs.CanaryTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.CanaryTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

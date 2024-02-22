@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrafficDistributionGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The identifier of the traffic distribution group.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Connect
 
             Pulumi.AwsNative.Connect.TrafficDistributionGroupStatus? status,
 
-            ImmutableArray<Outputs.TrafficDistributionGroupTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? trafficDistributionGroupArn)
         {

@@ -73,7 +73,7 @@ export class JobTemplate extends pulumi.CustomResource {
     /**
      * Metadata that can be used to manage the JobTemplate.
      */
-    public readonly tags!: pulumi.Output<outputs.iot.JobTemplateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * Specifies the amount of time each device has to finish its execution of the job.
      */
@@ -172,7 +172,7 @@ export interface JobTemplateArgs {
     /**
      * Metadata that can be used to manage the JobTemplate.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.JobTemplateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * Specifies the amount of time each device has to finish its execution of the job.
      */

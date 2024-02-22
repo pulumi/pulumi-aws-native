@@ -63,7 +63,7 @@ export class EventType extends pulumi.CustomResource {
     /**
      * Tags associated with this event type.
      */
-    public readonly tags!: pulumi.Output<outputs.frauddetector.EventTypeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EventType resource with the given unique name, arguments, and options.
@@ -130,5 +130,5 @@ export interface EventTypeArgs {
     /**
      * Tags associated with this event type.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

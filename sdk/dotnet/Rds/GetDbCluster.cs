@@ -212,7 +212,7 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DbClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// A list of EC2 VPC security groups to associate with this DB cluster.
         /// </summary>
@@ -298,7 +298,7 @@ namespace Pulumi.AwsNative.Rds
 
             string? storageType,
 
-            ImmutableArray<Outputs.DbClusterTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

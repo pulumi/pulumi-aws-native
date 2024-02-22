@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.CertificateManager
     {
         public readonly string? CertificateTransparencyLoggingPreference;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.CertificateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCertificateResult(
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.CertificateManager
 
             string? id,
 
-            ImmutableArray<Outputs.CertificateTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CertificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
             Id = id;

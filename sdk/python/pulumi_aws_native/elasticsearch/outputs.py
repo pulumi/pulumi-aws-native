@@ -18,10 +18,10 @@ __all__ = [
     'DomainElasticsearchClusterConfig',
     'DomainEncryptionAtRestOptions',
     'DomainEndpointOptions',
+    'DomainLogPublishingOption',
     'DomainMasterUserOptions',
     'DomainNodeToNodeEncryptionOptions',
     'DomainSnapshotOptions',
-    'DomainTag',
     'DomainVpcOptions',
     'DomainZoneAwarenessConfig',
 ]
@@ -452,6 +452,44 @@ class DomainEndpointOptions(dict):
 
 
 @pulumi.output_type
+class DomainLogPublishingOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogsLogGroupArn":
+            suggest = "cloud_watch_logs_log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainLogPublishingOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainLogPublishingOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainLogPublishingOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs_log_group_arn: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        if cloud_watch_logs_log_group_arn is not None:
+            pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsLogGroupArn")
+    def cloud_watch_logs_log_group_arn(self) -> Optional[str]:
+        return pulumi.get(self, "cloud_watch_logs_log_group_arn")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class DomainMasterUserOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -542,25 +580,6 @@ class DomainSnapshotOptions(dict):
     @pulumi.getter(name="automatedSnapshotStartHour")
     def automated_snapshot_start_hour(self) -> Optional[int]:
         return pulumi.get(self, "automated_snapshot_start_hour")
-
-
-@pulumi.output_type
-class DomainTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

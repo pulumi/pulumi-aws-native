@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupQuickConnectResult struct {
 	// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 	QuickConnectType *QuickConnectType `pulumi:"quickConnectType"`
 	// One or more tags.
-	Tags []QuickConnectTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupQuickConnectOutput(ctx *pulumi.Context, args LookupQuickConnectOutputArgs, opts ...pulumi.InvokeOption) LookupQuickConnectResultOutput {
@@ -111,8 +112,8 @@ func (o LookupQuickConnectResultOutput) QuickConnectType() QuickConnectTypePtrOu
 }
 
 // One or more tags.
-func (o LookupQuickConnectResultOutput) Tags() QuickConnectTagArrayOutput {
-	return o.ApplyT(func(v LookupQuickConnectResult) []QuickConnectTag { return v.Tags }).(QuickConnectTagArrayOutput)
+func (o LookupQuickConnectResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupQuickConnectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

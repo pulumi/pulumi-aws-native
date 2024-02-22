@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type Repository struct {
 	RepositoryPolicyText pulumi.AnyOutput    `pulumi:"repositoryPolicyText"`
 	RepositoryUri        pulumi.StringOutput `pulumi:"repositoryUri"`
 	// An array of key-value pairs to apply to this resource.
-	Tags RepositoryTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -91,7 +92,7 @@ type repositoryArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
 	RepositoryPolicyText interface{} `pulumi:"repositoryPolicyText"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RepositoryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Repository resource.
@@ -109,7 +110,7 @@ type RepositoryArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
 	RepositoryPolicyText pulumi.Input
 	// An array of key-value pairs to apply to this resource.
-	Tags RepositoryTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -191,8 +192,8 @@ func (o RepositoryOutput) RepositoryUri() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o RepositoryOutput) Tags() RepositoryTagArrayOutput {
-	return o.ApplyT(func(v *Repository) RepositoryTagArrayOutput { return v.Tags }).(RepositoryTagArrayOutput)
+func (o RepositoryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Repository) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The tags to assign to the channel.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ChannelTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("tier")]
         public Output<Pulumi.AwsNative.MediaTailor.ChannelTier?> Tier { get; private set; } = null!;
@@ -126,14 +126,14 @@ namespace Pulumi.AwsNative.MediaTailor
         public Input<Pulumi.AwsNative.MediaTailor.ChannelPlaybackMode> PlaybackMode { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.ChannelTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags to assign to the channel.
         /// </summary>
-        public InputList<Inputs.ChannelTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ChannelTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

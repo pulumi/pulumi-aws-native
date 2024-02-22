@@ -49,7 +49,7 @@ export interface GetDeliveryDestinationResult {
     /**
      * The tags that have been assigned to this delivery destination.
      */
-    readonly tags?: outputs.logs.DeliveryDestinationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * This structure contains information about one delivery destination in your account.

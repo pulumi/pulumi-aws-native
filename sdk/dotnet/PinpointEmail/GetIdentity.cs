@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         public readonly string? IdentityDnsRecordValue2;
         public readonly string? IdentityDnsRecordValue3;
         public readonly Outputs.IdentityMailFromAttributes? MailFromAttributes;
-        public readonly ImmutableArray<Outputs.IdentityTags> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetIdentityResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.PinpointEmail
 
             Outputs.IdentityMailFromAttributes? mailFromAttributes,
 
-            ImmutableArray<Outputs.IdentityTags> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DkimSigningEnabled = dkimSigningEnabled;
             FeedbackForwardingEnabled = feedbackForwardingEnabled;

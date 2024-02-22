@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupNetworkInsightsAccessScopeAnalysisResult struct {
 	StartDate                             *string                                          `pulumi:"startDate"`
 	Status                                *NetworkInsightsAccessScopeAnalysisStatus        `pulumi:"status"`
 	StatusMessage                         *string                                          `pulumi:"statusMessage"`
-	Tags                                  []NetworkInsightsAccessScopeAnalysisTag          `pulumi:"tags"`
+	Tags                                  []aws.Tag                                        `pulumi:"tags"`
 }
 
 func LookupNetworkInsightsAccessScopeAnalysisOutput(ctx *pulumi.Context, args LookupNetworkInsightsAccessScopeAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAccessScopeAnalysisResultOutput {
@@ -113,10 +114,8 @@ func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) StatusMessage() pu
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) Tags() NetworkInsightsAccessScopeAnalysisTagArrayOutput {
-	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) []NetworkInsightsAccessScopeAnalysisTag {
-		return v.Tags
-	}).(NetworkInsightsAccessScopeAnalysisTagArrayOutput)
+func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

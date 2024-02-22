@@ -96,7 +96,7 @@ export class Studio extends pulumi.CustomResource {
     /**
      * A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
      */
-    public readonly tags!: pulumi.Output<outputs.emr.StudioTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
      */
@@ -254,7 +254,7 @@ export interface StudioArgs {
     /**
      * A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.emr.StudioTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
      */

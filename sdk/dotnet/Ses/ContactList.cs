@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Ses
         /// The tags (keys and values) associated with the contact list.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ContactListTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The topics associated with the contact list.
@@ -101,14 +101,14 @@ namespace Pulumi.AwsNative.Ses
         public Input<string>? Description { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ContactListTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags (keys and values) associated with the contact list.
         /// </summary>
-        public InputList<Inputs.ContactListTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ContactListTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -5103,9 +5103,9 @@ func (o DeliveryStreamMskSourceConfigurationPtrOutput) TopicName() pulumi.String
 }
 
 type DeliveryStreamOpenXJsonSerDe struct {
-	CaseInsensitive                    *bool       `pulumi:"caseInsensitive"`
-	ColumnToJsonKeyMappings            interface{} `pulumi:"columnToJsonKeyMappings"`
-	ConvertDotsInJsonKeysToUnderscores *bool       `pulumi:"convertDotsInJsonKeysToUnderscores"`
+	CaseInsensitive                    *bool             `pulumi:"caseInsensitive"`
+	ColumnToJsonKeyMappings            map[string]string `pulumi:"columnToJsonKeyMappings"`
+	ConvertDotsInJsonKeysToUnderscores *bool             `pulumi:"convertDotsInJsonKeysToUnderscores"`
 }
 
 // DeliveryStreamOpenXJsonSerDeInput is an input type that accepts DeliveryStreamOpenXJsonSerDeArgs and DeliveryStreamOpenXJsonSerDeOutput values.
@@ -5120,9 +5120,9 @@ type DeliveryStreamOpenXJsonSerDeInput interface {
 }
 
 type DeliveryStreamOpenXJsonSerDeArgs struct {
-	CaseInsensitive                    pulumi.BoolPtrInput `pulumi:"caseInsensitive"`
-	ColumnToJsonKeyMappings            pulumi.Input        `pulumi:"columnToJsonKeyMappings"`
-	ConvertDotsInJsonKeysToUnderscores pulumi.BoolPtrInput `pulumi:"convertDotsInJsonKeysToUnderscores"`
+	CaseInsensitive                    pulumi.BoolPtrInput   `pulumi:"caseInsensitive"`
+	ColumnToJsonKeyMappings            pulumi.StringMapInput `pulumi:"columnToJsonKeyMappings"`
+	ConvertDotsInJsonKeysToUnderscores pulumi.BoolPtrInput   `pulumi:"convertDotsInJsonKeysToUnderscores"`
 }
 
 func (DeliveryStreamOpenXJsonSerDeArgs) ElementType() reflect.Type {
@@ -5206,8 +5206,8 @@ func (o DeliveryStreamOpenXJsonSerDeOutput) CaseInsensitive() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v DeliveryStreamOpenXJsonSerDe) *bool { return v.CaseInsensitive }).(pulumi.BoolPtrOutput)
 }
 
-func (o DeliveryStreamOpenXJsonSerDeOutput) ColumnToJsonKeyMappings() pulumi.AnyOutput {
-	return o.ApplyT(func(v DeliveryStreamOpenXJsonSerDe) interface{} { return v.ColumnToJsonKeyMappings }).(pulumi.AnyOutput)
+func (o DeliveryStreamOpenXJsonSerDeOutput) ColumnToJsonKeyMappings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeliveryStreamOpenXJsonSerDe) map[string]string { return v.ColumnToJsonKeyMappings }).(pulumi.StringMapOutput)
 }
 
 func (o DeliveryStreamOpenXJsonSerDeOutput) ConvertDotsInJsonKeysToUnderscores() pulumi.BoolPtrOutput {
@@ -5247,13 +5247,13 @@ func (o DeliveryStreamOpenXJsonSerDePtrOutput) CaseInsensitive() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o DeliveryStreamOpenXJsonSerDePtrOutput) ColumnToJsonKeyMappings() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DeliveryStreamOpenXJsonSerDe) interface{} {
+func (o DeliveryStreamOpenXJsonSerDePtrOutput) ColumnToJsonKeyMappings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeliveryStreamOpenXJsonSerDe) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ColumnToJsonKeyMappings
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o DeliveryStreamOpenXJsonSerDePtrOutput) ConvertDotsInJsonKeysToUnderscores() pulumi.BoolPtrOutput {
@@ -8769,101 +8769,6 @@ type DeliveryStreamTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// DeliveryStreamTagInput is an input type that accepts DeliveryStreamTagArgs and DeliveryStreamTagOutput values.
-// You can construct a concrete instance of `DeliveryStreamTagInput` via:
-//
-//	DeliveryStreamTagArgs{...}
-type DeliveryStreamTagInput interface {
-	pulumi.Input
-
-	ToDeliveryStreamTagOutput() DeliveryStreamTagOutput
-	ToDeliveryStreamTagOutputWithContext(context.Context) DeliveryStreamTagOutput
-}
-
-type DeliveryStreamTagArgs struct {
-	Key   pulumi.StringInput    `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (DeliveryStreamTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStreamTag)(nil)).Elem()
-}
-
-func (i DeliveryStreamTagArgs) ToDeliveryStreamTagOutput() DeliveryStreamTagOutput {
-	return i.ToDeliveryStreamTagOutputWithContext(context.Background())
-}
-
-func (i DeliveryStreamTagArgs) ToDeliveryStreamTagOutputWithContext(ctx context.Context) DeliveryStreamTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamTagOutput)
-}
-
-// DeliveryStreamTagArrayInput is an input type that accepts DeliveryStreamTagArray and DeliveryStreamTagArrayOutput values.
-// You can construct a concrete instance of `DeliveryStreamTagArrayInput` via:
-//
-//	DeliveryStreamTagArray{ DeliveryStreamTagArgs{...} }
-type DeliveryStreamTagArrayInput interface {
-	pulumi.Input
-
-	ToDeliveryStreamTagArrayOutput() DeliveryStreamTagArrayOutput
-	ToDeliveryStreamTagArrayOutputWithContext(context.Context) DeliveryStreamTagArrayOutput
-}
-
-type DeliveryStreamTagArray []DeliveryStreamTagInput
-
-func (DeliveryStreamTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryStreamTag)(nil)).Elem()
-}
-
-func (i DeliveryStreamTagArray) ToDeliveryStreamTagArrayOutput() DeliveryStreamTagArrayOutput {
-	return i.ToDeliveryStreamTagArrayOutputWithContext(context.Background())
-}
-
-func (i DeliveryStreamTagArray) ToDeliveryStreamTagArrayOutputWithContext(ctx context.Context) DeliveryStreamTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamTagArrayOutput)
-}
-
-type DeliveryStreamTagOutput struct{ *pulumi.OutputState }
-
-func (DeliveryStreamTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStreamTag)(nil)).Elem()
-}
-
-func (o DeliveryStreamTagOutput) ToDeliveryStreamTagOutput() DeliveryStreamTagOutput {
-	return o
-}
-
-func (o DeliveryStreamTagOutput) ToDeliveryStreamTagOutputWithContext(ctx context.Context) DeliveryStreamTagOutput {
-	return o
-}
-
-func (o DeliveryStreamTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryStreamTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DeliveryStreamTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryStreamTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type DeliveryStreamTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DeliveryStreamTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryStreamTag)(nil)).Elem()
-}
-
-func (o DeliveryStreamTagArrayOutput) ToDeliveryStreamTagArrayOutput() DeliveryStreamTagArrayOutput {
-	return o
-}
-
-func (o DeliveryStreamTagArrayOutput) ToDeliveryStreamTagArrayOutputWithContext(ctx context.Context) DeliveryStreamTagArrayOutput {
-	return o
-}
-
-func (o DeliveryStreamTagArrayOutput) Index(i pulumi.IntInput) DeliveryStreamTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryStreamTag {
-		return vs[0].([]DeliveryStreamTag)[vs[1].(int)]
-	}).(DeliveryStreamTagOutput)
-}
-
 type DeliveryStreamVpcConfiguration struct {
 	RoleArn          string   `pulumi:"roleArn"`
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -9126,8 +9031,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkRetryOptionsInput)(nil)).Elem(), DeliveryStreamSplunkRetryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkRetryOptionsPtrInput)(nil)).Elem(), DeliveryStreamSplunkRetryOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTagInput)(nil)).Elem(), DeliveryStreamTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTagArrayInput)(nil)).Elem(), DeliveryStreamTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamVpcConfigurationInput)(nil)).Elem(), DeliveryStreamVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamVpcConfigurationPtrInput)(nil)).Elem(), DeliveryStreamVpcConfigurationArgs{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput{})
@@ -9228,8 +9131,6 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkRetryOptionsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkRetryOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DeliveryStreamTagOutput{})
-	pulumi.RegisterOutputType(DeliveryStreamTagArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamVpcConfigurationPtrOutput{})
 }

@@ -11,7 +11,6 @@ from .. import _utilities
 
 __all__ = [
     'ExecutionPlanCapacityUnitsConfigurationArgs',
-    'ExecutionPlanTagArgs',
 ]
 
 @pulumi.input_type
@@ -28,43 +27,5 @@ class ExecutionPlanCapacityUnitsConfigurationArgs:
     @rescore_capacity_units.setter
     def rescore_capacity_units(self, value: pulumi.Input[int]):
         pulumi.set(self, "rescore_capacity_units", value)
-
-
-@pulumi.input_type
-class ExecutionPlanTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A label for tagging KendraRanking resources
-        :param pulumi.Input[str] key: A string used to identify this tag
-        :param pulumi.Input[str] value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

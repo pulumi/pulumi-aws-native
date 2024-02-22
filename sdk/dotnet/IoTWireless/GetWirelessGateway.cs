@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// A list of key-value pairs that contain metadata for the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WirelessGatewayTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? name,
 
-            ImmutableArray<Outputs.WirelessGatewayTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? thingArn,
 

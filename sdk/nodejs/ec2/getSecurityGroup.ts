@@ -27,7 +27,7 @@ export interface GetSecurityGroupResult {
     readonly id?: string;
     readonly securityGroupEgress?: outputs.ec2.SecurityGroupEgress[];
     readonly securityGroupIngress?: outputs.ec2.SecurityGroupIngress[];
-    readonly tags?: outputs.ec2.SecurityGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::SecurityGroup

@@ -17,13 +17,11 @@ __all__ = [
     'DocumentClassifierDocuments',
     'DocumentClassifierInputDataConfig',
     'DocumentClassifierOutputDataConfig',
-    'DocumentClassifierTag',
     'DocumentClassifierVpcConfig',
     'FlywheelDataSecurityConfig',
     'FlywheelDocumentClassificationConfig',
     'FlywheelEntityRecognitionConfig',
     'FlywheelEntityTypesListItem',
-    'FlywheelTag',
     'FlywheelTaskConfig',
     'FlywheelVpcConfig',
 ]
@@ -301,25 +299,6 @@ class DocumentClassifierOutputDataConfig(dict):
 
 
 @pulumi.output_type
-class DocumentClassifierTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class DocumentClassifierVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -475,25 +454,6 @@ class FlywheelEntityTypesListItem(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class FlywheelTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

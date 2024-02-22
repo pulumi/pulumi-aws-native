@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Feature struct {
 	Name               pulumi.StringOutput                `pulumi:"name"`
 	Project            pulumi.StringOutput                `pulumi:"project"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       FeatureTagArrayOutput             `pulumi:"tags"`
+	Tags       aws.TagArrayOutput                `pulumi:"tags"`
 	Variations FeatureVariationObjectArrayOutput `pulumi:"variations"`
 }
 
@@ -86,7 +87,7 @@ type featureArgs struct {
 	Name               *string                    `pulumi:"name"`
 	Project            string                     `pulumi:"project"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []FeatureTag             `pulumi:"tags"`
+	Tags       []aws.Tag                `pulumi:"tags"`
 	Variations []FeatureVariationObject `pulumi:"variations"`
 }
 
@@ -99,7 +100,7 @@ type FeatureArgs struct {
 	Name               pulumi.StringPtrInput
 	Project            pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags       FeatureTagArrayInput
+	Tags       aws.TagArrayInput
 	Variations FeatureVariationObjectArrayInput
 }
 
@@ -169,8 +170,8 @@ func (o FeatureOutput) Project() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o FeatureOutput) Tags() FeatureTagArrayOutput {
-	return o.ApplyT(func(v *Feature) FeatureTagArrayOutput { return v.Tags }).(FeatureTagArrayOutput)
+func (o FeatureOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Feature) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o FeatureOutput) Variations() FeatureVariationObjectArrayOutput {

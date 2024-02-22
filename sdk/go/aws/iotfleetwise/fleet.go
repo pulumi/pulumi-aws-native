@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type Fleet struct {
 	Description          pulumi.StringPtrOutput `pulumi:"description"`
 	LastModificationTime pulumi.StringOutput    `pulumi:"lastModificationTime"`
 	SignalCatalogArn     pulumi.StringOutput    `pulumi:"signalCatalogArn"`
-	Tags                 FleetTagArrayOutput    `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -73,16 +74,16 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
-	Description      *string    `pulumi:"description"`
-	SignalCatalogArn string     `pulumi:"signalCatalogArn"`
-	Tags             []FleetTag `pulumi:"tags"`
+	Description      *string   `pulumi:"description"`
+	SignalCatalogArn string    `pulumi:"signalCatalogArn"`
+	Tags             []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
 	Description      pulumi.StringPtrInput
 	SignalCatalogArn pulumi.StringInput
-	Tags             FleetTagArrayInput
+	Tags             aws.TagArrayInput
 }
 
 func (FleetArgs) ElementType() reflect.Type {
@@ -142,8 +143,8 @@ func (o FleetOutput) SignalCatalogArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.SignalCatalogArn }).(pulumi.StringOutput)
 }
 
-func (o FleetOutput) Tags() FleetTagArrayOutput {
-	return o.ApplyT(func(v *Fleet) FleetTagArrayOutput { return v.Tags }).(FleetTagArrayOutput)
+func (o FleetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Fleet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

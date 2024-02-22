@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Ruleset struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of the data quality rules in the ruleset
 	Rules RulesetRuleArrayOutput `pulumi:"rules"`
-	Tags  RulesetTagArrayOutput  `pulumi:"tags"`
+	Tags  aws.TagArrayOutput     `pulumi:"tags"`
 	// Arn of the target resource (dataset) to apply the ruleset to
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
@@ -84,7 +85,7 @@ type rulesetArgs struct {
 	Name *string `pulumi:"name"`
 	// List of the data quality rules in the ruleset
 	Rules []RulesetRule `pulumi:"rules"`
-	Tags  []RulesetTag  `pulumi:"tags"`
+	Tags  []aws.Tag     `pulumi:"tags"`
 	// Arn of the target resource (dataset) to apply the ruleset to
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -97,7 +98,7 @@ type RulesetArgs struct {
 	Name pulumi.StringPtrInput
 	// List of the data quality rules in the ruleset
 	Rules RulesetRuleArrayInput
-	Tags  RulesetTagArrayInput
+	Tags  aws.TagArrayInput
 	// Arn of the target resource (dataset) to apply the ruleset to
 	TargetArn pulumi.StringInput
 }
@@ -154,8 +155,8 @@ func (o RulesetOutput) Rules() RulesetRuleArrayOutput {
 	return o.ApplyT(func(v *Ruleset) RulesetRuleArrayOutput { return v.Rules }).(RulesetRuleArrayOutput)
 }
 
-func (o RulesetOutput) Tags() RulesetTagArrayOutput {
-	return o.ApplyT(func(v *Ruleset) RulesetTagArrayOutput { return v.Tags }).(RulesetTagArrayOutput)
+func (o RulesetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Ruleset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Arn of the target resource (dataset) to apply the ruleset to

@@ -31,7 +31,7 @@ export interface GetCampaignResult {
     readonly lastModificationTime?: string;
     readonly signalsToCollect?: outputs.iotfleetwise.CampaignSignalInformation[];
     readonly status?: enums.iotfleetwise.CampaignStatus;
-    readonly tags?: outputs.iotfleetwise.CampaignTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::IoTFleetWise::Campaign Resource Type

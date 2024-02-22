@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type Cluster struct {
 	ServiceRole             pulumi.StringOutput                     `pulumi:"serviceRole"`
 	StepConcurrencyLevel    pulumi.IntPtrOutput                     `pulumi:"stepConcurrencyLevel"`
 	Steps                   ClusterStepConfigArrayOutput            `pulumi:"steps"`
-	Tags                    ClusterTagArrayOutput                   `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                      `pulumi:"tags"`
 	VisibleToAllUsers       pulumi.BoolPtrOutput                    `pulumi:"visibleToAllUsers"`
 }
 
@@ -148,7 +149,7 @@ type clusterArgs struct {
 	ServiceRole             string                         `pulumi:"serviceRole"`
 	StepConcurrencyLevel    *int                           `pulumi:"stepConcurrencyLevel"`
 	Steps                   []ClusterStepConfig            `pulumi:"steps"`
-	Tags                    []ClusterTag                   `pulumi:"tags"`
+	Tags                    []aws.Tag                      `pulumi:"tags"`
 	VisibleToAllUsers       *bool                          `pulumi:"visibleToAllUsers"`
 }
 
@@ -180,7 +181,7 @@ type ClusterArgs struct {
 	ServiceRole             pulumi.StringInput
 	StepConcurrencyLevel    pulumi.IntPtrInput
 	Steps                   ClusterStepConfigArrayInput
-	Tags                    ClusterTagArrayInput
+	Tags                    aws.TagArrayInput
 	VisibleToAllUsers       pulumi.BoolPtrInput
 }
 
@@ -326,8 +327,8 @@ func (o ClusterOutput) Steps() ClusterStepConfigArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterStepConfigArrayOutput { return v.Steps }).(ClusterStepConfigArrayOutput)
 }
 
-func (o ClusterOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+func (o ClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Cluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ClusterOutput) VisibleToAllUsers() pulumi.BoolPtrOutput {

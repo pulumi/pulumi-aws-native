@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['PhoneNumberArgs', 'PhoneNumber']
 
@@ -21,7 +21,7 @@ class PhoneNumberArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  source_phone_number_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PhoneNumber resource.
@@ -30,7 +30,7 @@ class PhoneNumberArgs:
         :param pulumi.Input[str] description: The description of the phone number.
         :param pulumi.Input[str] prefix: The phone number prefix.
         :param pulumi.Input[str] source_phone_number_arn: The source phone number arn.
-        :param pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         :param pulumi.Input[str] type: The phone number type
         """
         pulumi.set(__self__, "target_arn", target_arn)
@@ -109,14 +109,14 @@ class PhoneNumberArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -141,7 +141,7 @@ class PhoneNumber(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  source_phone_number_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -154,7 +154,7 @@ class PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the phone number.
         :param pulumi.Input[str] prefix: The phone number prefix.
         :param pulumi.Input[str] source_phone_number_arn: The source phone number arn.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberTagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
         :param pulumi.Input[str] target_arn: The ARN of the target the phone number is claimed to.
         :param pulumi.Input[str] type: The phone number type
         """
@@ -186,7 +186,7 @@ class PhoneNumber(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  source_phone_number_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -294,7 +294,7 @@ class PhoneNumber(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PhoneNumberTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         One or more tags.
         """

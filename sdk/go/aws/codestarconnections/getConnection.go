@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupConnectionResult struct {
 	// The name of the external provider where your third-party code repository is configured. For Bitbucket, this is the account ID of the owner of the Bitbucket repository.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// Specifies the tags applied to a connection.
-	Tags []ConnectionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
@@ -90,8 +91,8 @@ func (o LookupConnectionResultOutput) OwnerAccountId() pulumi.StringPtrOutput {
 }
 
 // Specifies the tags applied to a connection.
-func (o LookupConnectionResultOutput) Tags() ConnectionTagArrayOutput {
-	return o.ApplyT(func(v LookupConnectionResult) []ConnectionTag { return v.Tags }).(ConnectionTagArrayOutput)
+func (o LookupConnectionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

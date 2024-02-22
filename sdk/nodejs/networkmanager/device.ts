@@ -84,7 +84,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The tags for the device.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.DeviceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The device type.
      */
@@ -180,7 +180,7 @@ export interface DeviceArgs {
     /**
      * The tags for the device.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.DeviceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The device type.
      */

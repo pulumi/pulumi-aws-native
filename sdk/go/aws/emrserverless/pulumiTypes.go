@@ -1871,107 +1871,6 @@ type ApplicationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ApplicationTagInput is an input type that accepts ApplicationTagArgs and ApplicationTagOutput values.
-// You can construct a concrete instance of `ApplicationTagInput` via:
-//
-//	ApplicationTagArgs{...}
-type ApplicationTagInput interface {
-	pulumi.Input
-
-	ToApplicationTagOutput() ApplicationTagOutput
-	ToApplicationTagOutputWithContext(context.Context) ApplicationTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ApplicationTagArgs struct {
-	// The value for the tag. You can specify a value that is 1 to 128 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ApplicationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTag)(nil)).Elem()
-}
-
-func (i ApplicationTagArgs) ToApplicationTagOutput() ApplicationTagOutput {
-	return i.ToApplicationTagOutputWithContext(context.Background())
-}
-
-func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagOutput)
-}
-
-// ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
-// You can construct a concrete instance of `ApplicationTagArrayInput` via:
-//
-//	ApplicationTagArray{ ApplicationTagArgs{...} }
-type ApplicationTagArrayInput interface {
-	pulumi.Input
-
-	ToApplicationTagArrayOutput() ApplicationTagArrayOutput
-	ToApplicationTagArrayOutputWithContext(context.Context) ApplicationTagArrayOutput
-}
-
-type ApplicationTagArray []ApplicationTagInput
-
-func (ApplicationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationTag)(nil)).Elem()
-}
-
-func (i ApplicationTagArray) ToApplicationTagArrayOutput() ApplicationTagArrayOutput {
-	return i.ToApplicationTagArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ApplicationTagOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTag)(nil)).Elem()
-}
-
-func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
-	return o
-}
-
-func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
-	return o
-}
-
-// The value for the tag. You can specify a value that is 1 to 128 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ApplicationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ApplicationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ApplicationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationTag)(nil)).Elem()
-}
-
-func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutput() ApplicationTagArrayOutput {
-	return o
-}
-
-func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
-	return o
-}
-
-func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationTag {
-		return vs[0].([]ApplicationTag)[vs[1].(int)]
-	}).(ApplicationTagOutput)
-}
-
 type ApplicationWorkerConfiguration struct {
 	// Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
 	Cpu string `pulumi:"cpu"`
@@ -2186,8 +2085,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkConfigurationPtrInput)(nil)).Elem(), ApplicationNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3MonitoringConfigurationInput)(nil)).Elem(), ApplicationS3MonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3MonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationS3MonitoringConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagInput)(nil)).Elem(), ApplicationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerConfigurationInput)(nil)).Elem(), ApplicationWorkerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMapInput)(nil)).Elem(), ApplicationWorkerTypeSpecificationInputMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMapPtrInput)(nil)).Elem(), ApplicationWorkerTypeSpecificationInputMapArgs{})
@@ -2216,8 +2113,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationS3MonitoringConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationS3MonitoringConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationTagOutput{})
-	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationWorkerConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationWorkerTypeSpecificationInputMapOutput{})
 	pulumi.RegisterOutputType(ApplicationWorkerTypeSpecificationInputMapPtrOutput{})

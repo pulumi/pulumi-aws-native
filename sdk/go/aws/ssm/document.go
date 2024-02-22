@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type Document struct {
 	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
 	Requires DocumentRequiresArrayOutput `pulumi:"requires"`
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
-	Tags DocumentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Specify a target type to define the kinds of resources the document can run on.
 	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
 	// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
@@ -103,7 +104,7 @@ type documentArgs struct {
 	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
 	Requires []DocumentRequires `pulumi:"requires"`
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
-	Tags []DocumentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Specify a target type to define the kinds of resources the document can run on.
 	TargetType *string `pulumi:"targetType"`
 	// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
@@ -129,7 +130,7 @@ type DocumentArgs struct {
 	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
 	Requires DocumentRequiresArrayInput
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
-	Tags DocumentTagArrayInput
+	Tags aws.TagArrayInput
 	// Specify a target type to define the kinds of resources the document can run on.
 	TargetType pulumi.StringPtrInput
 	// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
@@ -208,8 +209,8 @@ func (o DocumentOutput) Requires() DocumentRequiresArrayOutput {
 }
 
 // Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
-func (o DocumentOutput) Tags() DocumentTagArrayOutput {
-	return o.ApplyT(func(v *Document) DocumentTagArrayOutput { return v.Tags }).(DocumentTagArrayOutput)
+func (o DocumentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Document) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Specify a target type to define the kinds of resources the document can run on.

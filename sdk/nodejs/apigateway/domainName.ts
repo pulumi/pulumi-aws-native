@@ -48,7 +48,7 @@ export class DomainName extends pulumi.CustomResource {
     public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
     public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
     public readonly securityPolicy!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.apigateway.DomainNameTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -105,5 +105,5 @@ export interface DomainNameArgs {
     ownershipVerificationCertificateArn?: pulumi.Input<string>;
     regionalCertificateArn?: pulumi.Input<string>;
     securityPolicy?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.apigateway.DomainNameTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

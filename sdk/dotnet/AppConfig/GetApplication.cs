@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.AppConfig
         /// <summary>
         /// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationTags> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.AppConfig
 
             string? name,
 
-            ImmutableArray<Outputs.ApplicationTags> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApplicationId = applicationId;
             Description = description;

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Launch struct {
 	RandomizationSalt     pulumi.StringPtrOutput                  `pulumi:"randomizationSalt"`
 	ScheduledSplitsConfig LaunchStepConfigArrayOutput             `pulumi:"scheduledSplitsConfig"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LaunchTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLaunch registers a new resource with the given unique name, arguments, and options.
@@ -94,7 +95,7 @@ type launchArgs struct {
 	RandomizationSalt     *string                        `pulumi:"randomizationSalt"`
 	ScheduledSplitsConfig []LaunchStepConfig             `pulumi:"scheduledSplitsConfig"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LaunchTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Launch resource.
@@ -109,7 +110,7 @@ type LaunchArgs struct {
 	RandomizationSalt     pulumi.StringPtrInput
 	ScheduledSplitsConfig LaunchStepConfigArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LaunchTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LaunchArgs) ElementType() reflect.Type {
@@ -187,8 +188,8 @@ func (o LaunchOutput) ScheduledSplitsConfig() LaunchStepConfigArrayOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LaunchOutput) Tags() LaunchTagArrayOutput {
-	return o.ApplyT(func(v *Launch) LaunchTagArrayOutput { return v.Tags }).(LaunchTagArrayOutput)
+func (o LaunchOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Launch) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

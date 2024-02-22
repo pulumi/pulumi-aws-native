@@ -45,7 +45,7 @@ export class Graph extends pulumi.CustomResource {
      * Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
      */
     public readonly autoEnableMembers!: pulumi.Output<boolean | undefined>;
-    public readonly tags!: pulumi.Output<outputs.detective.GraphTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Graph resource with the given unique name, arguments, and options.
@@ -79,5 +79,5 @@ export interface GraphArgs {
      * Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
      */
     autoEnableMembers?: pulumi.Input<boolean>;
-    tags?: pulumi.Input<pulumi.Input<inputs.detective.GraphTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

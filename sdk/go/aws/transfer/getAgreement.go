@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,7 +48,7 @@ type LookupAgreementResult struct {
 	// Specifies the status of the agreement.
 	Status *AgreementStatus `pulumi:"status"`
 	// Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
-	Tags []AgreementTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAgreementOutput(ctx *pulumi.Context, args LookupAgreementOutputArgs, opts ...pulumi.InvokeOption) LookupAgreementResultOutput {
@@ -129,8 +130,8 @@ func (o LookupAgreementResultOutput) Status() AgreementStatusPtrOutput {
 }
 
 // Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
-func (o LookupAgreementResultOutput) Tags() AgreementTagArrayOutput {
-	return o.ApplyT(func(v LookupAgreementResult) []AgreementTag { return v.Tags }).(AgreementTagArrayOutput)
+func (o LookupAgreementResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAgreementResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

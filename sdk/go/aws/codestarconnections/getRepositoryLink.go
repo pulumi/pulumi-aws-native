@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupRepositoryLinkResult struct {
 	// A UUID that uniquely identifies the RepositoryLink.
 	RepositoryLinkId *string `pulumi:"repositoryLinkId"`
 	// Specifies the tags applied to a RepositoryLink.
-	Tags []RepositoryLinkTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRepositoryLinkOutput(ctx *pulumi.Context, args LookupRepositoryLinkOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryLinkResultOutput {
@@ -104,8 +105,8 @@ func (o LookupRepositoryLinkResultOutput) RepositoryLinkId() pulumi.StringPtrOut
 }
 
 // Specifies the tags applied to a RepositoryLink.
-func (o LookupRepositoryLinkResultOutput) Tags() RepositoryLinkTagArrayOutput {
-	return o.ApplyT(func(v LookupRepositoryLinkResult) []RepositoryLinkTag { return v.Tags }).(RepositoryLinkTagArrayOutput)
+func (o LookupRepositoryLinkResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryLinkResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

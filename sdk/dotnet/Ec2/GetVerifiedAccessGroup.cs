@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VerifiedAccessGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ARN of the Verified Access group.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Ec2
 
             Outputs.VerifiedAccessGroupSseSpecification? sseSpecification,
 
-            ImmutableArray<Outputs.VerifiedAccessGroupTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? verifiedAccessGroupArn,
 

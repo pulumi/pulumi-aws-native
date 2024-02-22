@@ -56,7 +56,7 @@ export interface GetOriginEndpointResult {
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
     readonly startoverWindowSeconds?: number;
-    readonly tags?: outputs.mediapackagev2.OriginEndpointTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>

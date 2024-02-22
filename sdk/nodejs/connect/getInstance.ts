@@ -53,7 +53,7 @@ export interface GetInstanceResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.connect.InstanceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Connect::Instance

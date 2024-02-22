@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ThingTypeArgs', 'ThingType']
@@ -17,12 +19,12 @@ __all__ = ['ThingTypeArgs', 'ThingType']
 class ThingTypeArgs:
     def __init__(__self__, *,
                  deprecate_thing_type: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypeTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  thing_type_name: Optional[pulumi.Input[str]] = None,
                  thing_type_properties: Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ThingType resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ThingTypeTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if deprecate_thing_type is not None:
             pulumi.set(__self__, "deprecate_thing_type", deprecate_thing_type)
@@ -44,14 +46,14 @@ class ThingTypeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypeTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypeTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -79,7 +81,7 @@ class ThingType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecate_thing_type: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThingTypeTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  thing_type_name: Optional[pulumi.Input[str]] = None,
                  thing_type_properties: Optional[pulumi.Input[pulumi.InputType['ThingTypePropertiesPropertiesArgs']]] = None,
                  __props__=None):
@@ -88,7 +90,7 @@ class ThingType(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThingTypeTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -115,7 +117,7 @@ class ThingType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecate_thing_type: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThingTypeTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  thing_type_name: Optional[pulumi.Input[str]] = None,
                  thing_type_properties: Optional[pulumi.Input[pulumi.InputType['ThingTypePropertiesPropertiesArgs']]] = None,
                  __props__=None):
@@ -175,7 +177,7 @@ class ThingType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ThingTypeTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

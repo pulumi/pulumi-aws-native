@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupApplicationResult struct {
 	// When set to true, creates opsItems for any problems detected on an application.
 	OpsCenterEnabled *bool `pulumi:"opsCenterEnabled"`
 	// The tags of Application Insights application.
-	Tags []ApplicationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -97,8 +98,8 @@ func (o LookupApplicationResultOutput) OpsCenterEnabled() pulumi.BoolPtrOutput {
 }
 
 // The tags of Application Insights application.
-func (o LookupApplicationResultOutput) Tags() ApplicationTagArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []ApplicationTag { return v.Tags }).(ApplicationTagArrayOutput)
+func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

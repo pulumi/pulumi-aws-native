@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type LookupStreamingDistributionResult struct {
 	DomainName                  *string                      `pulumi:"domainName"`
 	Id                          *string                      `pulumi:"id"`
 	StreamingDistributionConfig *StreamingDistributionConfig `pulumi:"streamingDistributionConfig"`
-	Tags                        []StreamingDistributionTag   `pulumi:"tags"`
+	Tags                        []aws.Tag                    `pulumi:"tags"`
 }
 
 func LookupStreamingDistributionOutput(ctx *pulumi.Context, args LookupStreamingDistributionOutputArgs, opts ...pulumi.InvokeOption) LookupStreamingDistributionResultOutput {
@@ -82,8 +83,8 @@ func (o LookupStreamingDistributionResultOutput) StreamingDistributionConfig() S
 	}).(StreamingDistributionConfigPtrOutput)
 }
 
-func (o LookupStreamingDistributionResultOutput) Tags() StreamingDistributionTagArrayOutput {
-	return o.ApplyT(func(v LookupStreamingDistributionResult) []StreamingDistributionTag { return v.Tags }).(StreamingDistributionTagArrayOutput)
+func (o LookupStreamingDistributionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStreamingDistributionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

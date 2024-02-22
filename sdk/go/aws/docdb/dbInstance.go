@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,18 +19,18 @@ import (
 type DbInstance struct {
 	pulumi.CustomResourceState
 
-	AutoMinorVersionUpgrade    pulumi.BoolPtrOutput     `pulumi:"autoMinorVersionUpgrade"`
-	AvailabilityZone           pulumi.StringPtrOutput   `pulumi:"availabilityZone"`
-	CaCertificateIdentifier    pulumi.StringPtrOutput   `pulumi:"caCertificateIdentifier"`
-	CertificateRotationRestart pulumi.BoolPtrOutput     `pulumi:"certificateRotationRestart"`
-	DbClusterIdentifier        pulumi.StringOutput      `pulumi:"dbClusterIdentifier"`
-	DbInstanceClass            pulumi.StringOutput      `pulumi:"dbInstanceClass"`
-	DbInstanceIdentifier       pulumi.StringPtrOutput   `pulumi:"dbInstanceIdentifier"`
-	EnablePerformanceInsights  pulumi.BoolPtrOutput     `pulumi:"enablePerformanceInsights"`
-	Endpoint                   pulumi.StringOutput      `pulumi:"endpoint"`
-	Port                       pulumi.StringOutput      `pulumi:"port"`
-	PreferredMaintenanceWindow pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
-	Tags                       DbInstanceTagArrayOutput `pulumi:"tags"`
+	AutoMinorVersionUpgrade    pulumi.BoolPtrOutput   `pulumi:"autoMinorVersionUpgrade"`
+	AvailabilityZone           pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	CaCertificateIdentifier    pulumi.StringPtrOutput `pulumi:"caCertificateIdentifier"`
+	CertificateRotationRestart pulumi.BoolPtrOutput   `pulumi:"certificateRotationRestart"`
+	DbClusterIdentifier        pulumi.StringOutput    `pulumi:"dbClusterIdentifier"`
+	DbInstanceClass            pulumi.StringOutput    `pulumi:"dbInstanceClass"`
+	DbInstanceIdentifier       pulumi.StringPtrOutput `pulumi:"dbInstanceIdentifier"`
+	EnablePerformanceInsights  pulumi.BoolPtrOutput   `pulumi:"enablePerformanceInsights"`
+	Endpoint                   pulumi.StringOutput    `pulumi:"endpoint"`
+	Port                       pulumi.StringOutput    `pulumi:"port"`
+	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
+	Tags                       aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewDbInstance registers a new resource with the given unique name, arguments, and options.
@@ -84,16 +85,16 @@ func (DbInstanceState) ElementType() reflect.Type {
 }
 
 type dbInstanceArgs struct {
-	AutoMinorVersionUpgrade    *bool           `pulumi:"autoMinorVersionUpgrade"`
-	AvailabilityZone           *string         `pulumi:"availabilityZone"`
-	CaCertificateIdentifier    *string         `pulumi:"caCertificateIdentifier"`
-	CertificateRotationRestart *bool           `pulumi:"certificateRotationRestart"`
-	DbClusterIdentifier        string          `pulumi:"dbClusterIdentifier"`
-	DbInstanceClass            string          `pulumi:"dbInstanceClass"`
-	DbInstanceIdentifier       *string         `pulumi:"dbInstanceIdentifier"`
-	EnablePerformanceInsights  *bool           `pulumi:"enablePerformanceInsights"`
-	PreferredMaintenanceWindow *string         `pulumi:"preferredMaintenanceWindow"`
-	Tags                       []DbInstanceTag `pulumi:"tags"`
+	AutoMinorVersionUpgrade    *bool     `pulumi:"autoMinorVersionUpgrade"`
+	AvailabilityZone           *string   `pulumi:"availabilityZone"`
+	CaCertificateIdentifier    *string   `pulumi:"caCertificateIdentifier"`
+	CertificateRotationRestart *bool     `pulumi:"certificateRotationRestart"`
+	DbClusterIdentifier        string    `pulumi:"dbClusterIdentifier"`
+	DbInstanceClass            string    `pulumi:"dbInstanceClass"`
+	DbInstanceIdentifier       *string   `pulumi:"dbInstanceIdentifier"`
+	EnablePerformanceInsights  *bool     `pulumi:"enablePerformanceInsights"`
+	PreferredMaintenanceWindow *string   `pulumi:"preferredMaintenanceWindow"`
+	Tags                       []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DbInstance resource.
@@ -107,7 +108,7 @@ type DbInstanceArgs struct {
 	DbInstanceIdentifier       pulumi.StringPtrInput
 	EnablePerformanceInsights  pulumi.BoolPtrInput
 	PreferredMaintenanceWindow pulumi.StringPtrInput
-	Tags                       DbInstanceTagArrayInput
+	Tags                       aws.TagArrayInput
 }
 
 func (DbInstanceArgs) ElementType() reflect.Type {
@@ -191,8 +192,8 @@ func (o DbInstanceOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-func (o DbInstanceOutput) Tags() DbInstanceTagArrayOutput {
-	return o.ApplyT(func(v *DbInstance) DbInstanceTagArrayOutput { return v.Tags }).(DbInstanceTagArrayOutput)
+func (o DbInstanceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbInstance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

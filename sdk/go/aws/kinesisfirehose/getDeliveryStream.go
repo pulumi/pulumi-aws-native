@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupDeliveryStreamResult struct {
 	S3DestinationConfiguration                         *DeliveryStreamS3DestinationConfiguration                         `pulumi:"s3DestinationConfiguration"`
 	SnowflakeDestinationConfiguration                  *DeliveryStreamSnowflakeDestinationConfiguration                  `pulumi:"snowflakeDestinationConfiguration"`
 	SplunkDestinationConfiguration                     *DeliveryStreamSplunkDestinationConfiguration                     `pulumi:"splunkDestinationConfiguration"`
-	Tags                                               []DeliveryStreamTag                                               `pulumi:"tags"`
+	Tags                                               []aws.Tag                                                         `pulumi:"tags"`
 }
 
 func LookupDeliveryStreamOutput(ctx *pulumi.Context, args LookupDeliveryStreamOutputArgs, opts ...pulumi.InvokeOption) LookupDeliveryStreamResultOutput {
@@ -140,8 +141,8 @@ func (o LookupDeliveryStreamResultOutput) SplunkDestinationConfiguration() Deliv
 	}).(DeliveryStreamSplunkDestinationConfigurationPtrOutput)
 }
 
-func (o LookupDeliveryStreamResultOutput) Tags() DeliveryStreamTagArrayOutput {
-	return o.ApplyT(func(v LookupDeliveryStreamResult) []DeliveryStreamTag { return v.Tags }).(DeliveryStreamTagArrayOutput)
+func (o LookupDeliveryStreamResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDeliveryStreamResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

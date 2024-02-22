@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,7 +41,7 @@ type LookupDatabaseResult struct {
 	// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DatabaseTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
@@ -109,8 +110,8 @@ func (o LookupDatabaseResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupDatabaseResultOutput) Tags() DatabaseTagArrayOutput {
-	return o.ApplyT(func(v LookupDatabaseResult) []DatabaseTag { return v.Tags }).(DatabaseTagArrayOutput)
+func (o LookupDatabaseResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

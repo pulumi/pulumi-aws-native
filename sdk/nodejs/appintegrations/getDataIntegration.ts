@@ -53,7 +53,7 @@ export interface GetDataIntegrationResult {
     /**
      * The tags (keys and values) associated with the data integration.
      */
-    readonly tags?: outputs.appintegrations.DataIntegrationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::AppIntegrations::DataIntegration

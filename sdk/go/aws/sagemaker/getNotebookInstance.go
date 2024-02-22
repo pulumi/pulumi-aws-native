@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LookupNotebookInstanceResult struct {
 	LifecycleConfigName                  *string                                               `pulumi:"lifecycleConfigName"`
 	RoleArn                              *string                                               `pulumi:"roleArn"`
 	RootAccess                           *string                                               `pulumi:"rootAccess"`
-	Tags                                 []NotebookInstanceTag                                 `pulumi:"tags"`
+	Tags                                 []aws.Tag                                             `pulumi:"tags"`
 	VolumeSizeInGb                       *int                                                  `pulumi:"volumeSizeInGb"`
 }
 
@@ -113,8 +114,8 @@ func (o LookupNotebookInstanceResultOutput) RootAccess() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupNotebookInstanceResult) *string { return v.RootAccess }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupNotebookInstanceResultOutput) Tags() NotebookInstanceTagArrayOutput {
-	return o.ApplyT(func(v LookupNotebookInstanceResult) []NotebookInstanceTag { return v.Tags }).(NotebookInstanceTagArrayOutput)
+func (o LookupNotebookInstanceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNotebookInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupNotebookInstanceResultOutput) VolumeSizeInGb() pulumi.IntPtrOutput {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,7 +48,7 @@ type LookupInstanceProfileResult struct {
 	// The property describes a subnet group identifier for the instance profile.
 	SubnetGroupIdentifier *string `pulumi:"subnetGroupIdentifier"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []InstanceProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The property describes vps security groups for the instance profile.
 	VpcSecurityGroups []string `pulumi:"vpcSecurityGroups"`
 }
@@ -134,8 +135,8 @@ func (o LookupInstanceProfileResultOutput) SubnetGroupIdentifier() pulumi.String
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupInstanceProfileResultOutput) Tags() InstanceProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupInstanceProfileResult) []InstanceProfileTag { return v.Tags }).(InstanceProfileTagArrayOutput)
+func (o LookupInstanceProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupInstanceProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The property describes vps security groups for the instance profile.

@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The tags used to organize, track, or control access for this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SecurityProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSecurityProfileResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Connect
 
             ImmutableArray<string> tagRestrictedResources,
 
-            ImmutableArray<Outputs.SecurityProfileTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllowedAccessControlTags = allowedAccessControlTags;
             Description = description;

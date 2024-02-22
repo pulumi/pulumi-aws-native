@@ -57,7 +57,7 @@ export interface GetPrefixListResult {
     /**
      * Tags for Prefix List
      */
-    readonly tags?: outputs.ec2.PrefixListTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Version of Prefix List.
      */

@@ -49,7 +49,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      * The EC2 subnet IDs for the cache subnet group.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<outputs.elasticache.SubnetGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -101,5 +101,5 @@ export interface SubnetGroupArgs {
      * The EC2 subnet IDs for the cache subnet group.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticache.SubnetGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -31,7 +31,7 @@ export interface GetSamlProviderResult {
      */
     readonly arn?: string;
     readonly samlMetadataDocument?: string;
-    readonly tags?: outputs.iam.SamlProviderTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::IAM::SAMLProvider

@@ -73,7 +73,7 @@ export interface GetFirewallRuleGroupAssociationResult {
     /**
      * Tags
      */
-    readonly tags?: outputs.route53resolver.FirewallRuleGroupAssociationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.

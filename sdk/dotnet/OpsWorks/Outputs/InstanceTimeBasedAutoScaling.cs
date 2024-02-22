@@ -13,29 +13,29 @@ namespace Pulumi.AwsNative.OpsWorks.Outputs
     [OutputType]
     public sealed class InstanceTimeBasedAutoScaling
     {
-        public readonly object? Friday;
-        public readonly object? Monday;
-        public readonly object? Saturday;
-        public readonly object? Sunday;
-        public readonly object? Thursday;
-        public readonly object? Tuesday;
-        public readonly object? Wednesday;
+        public readonly ImmutableDictionary<string, string>? Friday;
+        public readonly ImmutableDictionary<string, string>? Monday;
+        public readonly ImmutableDictionary<string, string>? Saturday;
+        public readonly ImmutableDictionary<string, string>? Sunday;
+        public readonly ImmutableDictionary<string, string>? Thursday;
+        public readonly ImmutableDictionary<string, string>? Tuesday;
+        public readonly ImmutableDictionary<string, string>? Wednesday;
 
         [OutputConstructor]
         private InstanceTimeBasedAutoScaling(
-            object? friday,
+            ImmutableDictionary<string, string>? friday,
 
-            object? monday,
+            ImmutableDictionary<string, string>? monday,
 
-            object? saturday,
+            ImmutableDictionary<string, string>? saturday,
 
-            object? sunday,
+            ImmutableDictionary<string, string>? sunday,
 
-            object? thursday,
+            ImmutableDictionary<string, string>? thursday,
 
-            object? tuesday,
+            ImmutableDictionary<string, string>? tuesday,
 
-            object? wednesday)
+            ImmutableDictionary<string, string>? wednesday)
         {
             Friday = friday;
             Monday = monday;

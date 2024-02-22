@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -121,7 +122,7 @@ class GetReplicationConfigResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ReplicationConfigTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """

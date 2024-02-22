@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type IpSet struct {
 	IpAddressVersion IpSetIpAddressVersionOutput `pulumi:"ipAddressVersion"`
 	Name             pulumi.StringPtrOutput      `pulumi:"name"`
 	Scope            IpSetScopeOutput            `pulumi:"scope"`
-	Tags             IpSetTagArrayOutput         `pulumi:"tags"`
+	Tags             aws.TagArrayOutput          `pulumi:"tags"`
 }
 
 // NewIpSet registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +87,7 @@ type ipSetArgs struct {
 	IpAddressVersion IpSetIpAddressVersion `pulumi:"ipAddressVersion"`
 	Name             *string               `pulumi:"name"`
 	Scope            IpSetScope            `pulumi:"scope"`
-	Tags             []IpSetTag            `pulumi:"tags"`
+	Tags             []aws.Tag             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpSet resource.
@@ -97,7 +98,7 @@ type IpSetArgs struct {
 	IpAddressVersion IpSetIpAddressVersionInput
 	Name             pulumi.StringPtrInput
 	Scope            IpSetScopeInput
-	Tags             IpSetTagArrayInput
+	Tags             aws.TagArrayInput
 }
 
 func (IpSetArgs) ElementType() reflect.Type {
@@ -162,8 +163,8 @@ func (o IpSetOutput) Scope() IpSetScopeOutput {
 	return o.ApplyT(func(v *IpSet) IpSetScopeOutput { return v.Scope }).(IpSetScopeOutput)
 }
 
-func (o IpSetOutput) Tags() IpSetTagArrayOutput {
-	return o.ApplyT(func(v *IpSet) IpSetTagArrayOutput { return v.Tags }).(IpSetTagArrayOutput)
+func (o IpSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IpSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

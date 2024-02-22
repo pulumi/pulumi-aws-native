@@ -45,7 +45,7 @@ export interface GetSigningProfileResult {
     /**
      * A list of tags associated with the signing profile.
      */
-    readonly tags?: outputs.signer.SigningProfileTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A signing profile is a signing template that can be used to carry out a pre-defined signing job.

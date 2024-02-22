@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Group struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             pulumi.StringOutput                 `pulumi:"groupName"`
 	InsightsConfiguration GroupInsightsConfigurationPtrOutput `pulumi:"insightsConfiguration"`
-	Tags                  GroupTagArrayOutput                 `pulumi:"tags"`
+	Tags                  aws.TagArrayOutput                  `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +71,7 @@ type groupArgs struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             *string                     `pulumi:"groupName"`
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
-	Tags                  []GroupTag                  `pulumi:"tags"`
+	Tags                  []aws.Tag                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -80,7 +81,7 @@ type GroupArgs struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             pulumi.StringPtrInput
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
-	Tags                  GroupTagArrayInput
+	Tags                  aws.TagArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -139,8 +140,8 @@ func (o GroupOutput) InsightsConfiguration() GroupInsightsConfigurationPtrOutput
 	return o.ApplyT(func(v *Group) GroupInsightsConfigurationPtrOutput { return v.InsightsConfiguration }).(GroupInsightsConfigurationPtrOutput)
 }
 
-func (o GroupOutput) Tags() GroupTagArrayOutput {
-	return o.ApplyT(func(v *Group) GroupTagArrayOutput { return v.Tags }).(GroupTagArrayOutput)
+func (o GroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Group) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

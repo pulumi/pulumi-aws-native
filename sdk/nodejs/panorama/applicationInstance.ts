@@ -52,7 +52,7 @@ export class ApplicationInstance extends pulumi.CustomResource {
     public readonly runtimeRoleArn!: pulumi.Output<string | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.panorama.ApplicationInstanceStatus>;
     public /*out*/ readonly statusDescription!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.panorama.ApplicationInstanceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ApplicationInstance resource with the given unique name, arguments, and options.
@@ -123,5 +123,5 @@ export interface ApplicationInstanceArgs {
     manifestPayload: pulumi.Input<inputs.panorama.ApplicationInstanceManifestPayloadArgs>;
     name?: pulumi.Input<string>;
     runtimeRoleArn?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.panorama.ApplicationInstanceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

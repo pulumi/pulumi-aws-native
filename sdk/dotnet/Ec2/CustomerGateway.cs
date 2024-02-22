@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Ec2
         /// One or more tags for the customer gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.CustomerGatewayTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of VPN connection that this customer gateway supports.
@@ -122,14 +122,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string> IpAddress { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.CustomerGatewayTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// One or more tags for the customer gateway.
         /// </summary>
-        public InputList<Inputs.CustomerGatewayTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.CustomerGatewayTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

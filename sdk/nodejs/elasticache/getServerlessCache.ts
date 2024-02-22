@@ -64,7 +64,7 @@ export interface GetServerlessCacheResult {
     /**
      * An array of key-value pairs to apply to this Serverless Cache.
      */
-    readonly tags?: outputs.elasticache.ServerlessCacheTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ID of the user group.
      */

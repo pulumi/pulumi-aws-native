@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupWirelessGatewayResult struct {
 	// Name of Wireless Gateway.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the gateway.
-	Tags []WirelessGatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
 	ThingArn *string `pulumi:"thingArn"`
 	// Thing Name. If there is a Thing created, this can be returned with a Get call.
@@ -115,8 +116,8 @@ func (o LookupWirelessGatewayResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the gateway.
-func (o LookupWirelessGatewayResultOutput) Tags() WirelessGatewayTagArrayOutput {
-	return o.ApplyT(func(v LookupWirelessGatewayResult) []WirelessGatewayTag { return v.Tags }).(WirelessGatewayTagArrayOutput)
+func (o LookupWirelessGatewayResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWirelessGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.

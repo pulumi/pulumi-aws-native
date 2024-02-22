@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.VoiceId
     public sealed class GetDomainResult
     {
         public readonly string? DomainId;
-        public readonly ImmutableArray<Outputs.DomainTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDomainResult(
             string? domainId,
 
-            ImmutableArray<Outputs.DomainTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DomainId = domainId;
             Tags = tags;

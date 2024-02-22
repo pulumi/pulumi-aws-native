@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupSignalingChannelResult struct {
 	// The period of time a signaling channel retains undelivered messages before they are discarded.
 	MessageTtlSeconds *int `pulumi:"messageTtlSeconds"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []SignalingChannelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
 	Type *SignalingChannelType `pulumi:"type"`
 }
@@ -85,8 +86,8 @@ func (o LookupSignalingChannelResultOutput) MessageTtlSeconds() pulumi.IntPtrOut
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupSignalingChannelResultOutput) Tags() SignalingChannelTagArrayOutput {
-	return o.ApplyT(func(v LookupSignalingChannelResult) []SignalingChannelTag { return v.Tags }).(SignalingChannelTagArrayOutput)
+func (o LookupSignalingChannelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSignalingChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.

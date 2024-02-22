@@ -28,7 +28,7 @@ export interface GetPrivateDnsNamespaceResult {
     readonly hostedZoneId?: string;
     readonly id?: string;
     readonly properties?: outputs.servicediscovery.PrivateDnsNamespaceProperties;
-    readonly tags?: outputs.servicediscovery.PrivateDnsNamespaceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ServiceDiscovery::PrivateDnsNamespace

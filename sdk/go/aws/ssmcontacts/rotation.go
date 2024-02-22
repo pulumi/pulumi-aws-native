@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,8 +25,8 @@ type Rotation struct {
 	Name       pulumi.StringOutput              `pulumi:"name"`
 	Recurrence RotationRecurrenceSettingsOutput `pulumi:"recurrence"`
 	// Start time of the first shift of Oncall Schedule
-	StartTime pulumi.StringOutput    `pulumi:"startTime"`
-	Tags      RotationTagArrayOutput `pulumi:"tags"`
+	StartTime pulumi.StringOutput `pulumi:"startTime"`
+	Tags      aws.TagArrayOutput  `pulumi:"tags"`
 	// TimeZone Identifier for the Oncall Schedule
 	TimeZoneId pulumi.StringOutput `pulumi:"timeZoneId"`
 }
@@ -88,8 +89,8 @@ type rotationArgs struct {
 	Name       *string                    `pulumi:"name"`
 	Recurrence RotationRecurrenceSettings `pulumi:"recurrence"`
 	// Start time of the first shift of Oncall Schedule
-	StartTime string        `pulumi:"startTime"`
-	Tags      []RotationTag `pulumi:"tags"`
+	StartTime string    `pulumi:"startTime"`
+	Tags      []aws.Tag `pulumi:"tags"`
 	// TimeZone Identifier for the Oncall Schedule
 	TimeZoneId string `pulumi:"timeZoneId"`
 }
@@ -103,7 +104,7 @@ type RotationArgs struct {
 	Recurrence RotationRecurrenceSettingsInput
 	// Start time of the first shift of Oncall Schedule
 	StartTime pulumi.StringInput
-	Tags      RotationTagArrayInput
+	Tags      aws.TagArrayInput
 	// TimeZone Identifier for the Oncall Schedule
 	TimeZoneId pulumi.StringInput
 }
@@ -169,8 +170,8 @@ func (o RotationOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rotation) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
 }
 
-func (o RotationOutput) Tags() RotationTagArrayOutput {
-	return o.ApplyT(func(v *Rotation) RotationTagArrayOutput { return v.Tags }).(RotationTagArrayOutput)
+func (o RotationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Rotation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // TimeZone Identifier for the Oncall Schedule

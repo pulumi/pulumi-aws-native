@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,8 +33,8 @@ type Accelerator struct {
 	// The IPv6 addresses assigned if the accelerator is dualstack
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// Name of accelerator.
-	Name pulumi.StringOutput       `pulumi:"name"`
-	Tags AcceleratorTagArrayOutput `pulumi:"tags"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	Tags aws.TagArrayOutput  `pulumi:"tags"`
 }
 
 // NewAccelerator registers a new resource with the given unique name, arguments, and options.
@@ -83,8 +84,8 @@ type acceleratorArgs struct {
 	// The IP addresses from BYOIP Prefix pool.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// Name of accelerator.
-	Name *string          `pulumi:"name"`
-	Tags []AcceleratorTag `pulumi:"tags"`
+	Name *string   `pulumi:"name"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Accelerator resource.
@@ -97,7 +98,7 @@ type AcceleratorArgs struct {
 	IpAddresses pulumi.StringArrayInput
 	// Name of accelerator.
 	Name pulumi.StringPtrInput
-	Tags AcceleratorTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AcceleratorArgs) ElementType() reflect.Type {
@@ -182,8 +183,8 @@ func (o AcceleratorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o AcceleratorOutput) Tags() AcceleratorTagArrayOutput {
-	return o.ApplyT(func(v *Accelerator) AcceleratorTagArrayOutput { return v.Tags }).(AcceleratorTagArrayOutput)
+func (o AcceleratorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Accelerator) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

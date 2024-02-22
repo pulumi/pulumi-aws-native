@@ -48,7 +48,7 @@ export interface GetAlarmModelResult {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    readonly tags?: outputs.iotevents.AlarmModelTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::IoTEvents::AlarmModel resource creates a alarm model. AWS IoT Events alarms help you monitor your data for changes. The data can be metrics that you measure for your equipment and processes. You can create alarms that send notifications when a threshold is breached. Alarms help you detect issues, streamline maintenance, and optimize performance of your equipment and processes.

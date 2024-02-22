@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type User struct {
 	// Indicates the user status. Can be "active", "modifying" or "deleting".
 	Status pulumi.StringOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this user.
-	Tags UserTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the user.
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
@@ -76,7 +77,7 @@ type userArgs struct {
 	AccessString       *string                       `pulumi:"accessString"`
 	AuthenticationMode *AuthenticationModeProperties `pulumi:"authenticationMode"`
 	// An array of key-value pairs to apply to this user.
-	Tags []UserTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the user.
 	UserName *string `pulumi:"userName"`
 }
@@ -87,7 +88,7 @@ type UserArgs struct {
 	AccessString       pulumi.StringPtrInput
 	AuthenticationMode AuthenticationModePropertiesPtrInput
 	// An array of key-value pairs to apply to this user.
-	Tags UserTagArrayInput
+	Tags aws.TagArrayInput
 	// The name of the user.
 	UserName pulumi.StringPtrInput
 }
@@ -149,8 +150,8 @@ func (o UserOutput) Status() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this user.
-func (o UserOutput) Tags() UserTagArrayOutput {
-	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
+func (o UserOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *User) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the user.

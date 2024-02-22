@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -54,7 +55,7 @@ type NetworkInterface struct {
 	// The ID of the subnet to associate with the network interface.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// An arbitrary set of tags (key-value pairs) for this network interface.
-	Tags NetworkInterfaceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
@@ -138,7 +139,7 @@ type networkInterfaceArgs struct {
 	// The ID of the subnet to associate with the network interface.
 	SubnetId string `pulumi:"subnetId"`
 	// An arbitrary set of tags (key-value pairs) for this network interface.
-	Tags []NetworkInterfaceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInterface resource.
@@ -175,7 +176,7 @@ type NetworkInterfaceArgs struct {
 	// The ID of the subnet to associate with the network interface.
 	SubnetId pulumi.StringInput
 	// An arbitrary set of tags (key-value pairs) for this network interface.
-	Tags NetworkInterfaceTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (NetworkInterfaceArgs) ElementType() reflect.Type {
@@ -314,8 +315,8 @@ func (o NetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
 }
 
 // An arbitrary set of tags (key-value pairs) for this network interface.
-func (o NetworkInterfaceOutput) Tags() NetworkInterfaceTagArrayOutput {
-	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceTagArrayOutput { return v.Tags }).(NetworkInterfaceTagArrayOutput)
+func (o NetworkInterfaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *NetworkInterface) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

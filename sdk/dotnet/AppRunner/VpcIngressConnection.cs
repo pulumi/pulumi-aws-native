@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.AppRunner
         public Output<Pulumi.AwsNative.AppRunner.VpcIngressConnectionStatus> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VpcIngressConnectionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the VpcIngressConnection.
@@ -112,10 +112,10 @@ namespace Pulumi.AwsNative.AppRunner
         public Input<string> ServiceArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.VpcIngressConnectionTagArgs>? _tags;
-        public InputList<Inputs.VpcIngressConnectionTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VpcIngressConnectionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         public Output<Outputs.ConfigurationSetSendingOptions?> SendingOptions { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ConfigurationSetTags>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("trackingOptions")]
         public Output<Outputs.ConfigurationSetTrackingOptions?> TrackingOptions { get; private set; } = null!;
@@ -96,10 +96,10 @@ namespace Pulumi.AwsNative.PinpointEmail
         public Input<Inputs.ConfigurationSetSendingOptionsArgs>? SendingOptions { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ConfigurationSetTagsArgs>? _tags;
-        public InputList<Inputs.ConfigurationSetTagsArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ConfigurationSetTagsArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

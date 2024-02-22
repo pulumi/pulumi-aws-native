@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.AppSync
         public Output<int?> ResolverCountLimit { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.GraphQlApiTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("userPoolConfig")]
         public Output<Outputs.GraphQlApiUserPoolConfig?> UserPoolConfig { get; private set; } = null!;
@@ -190,10 +190,10 @@ namespace Pulumi.AwsNative.AppSync
         public Input<int>? ResolverCountLimit { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.GraphQlApiTagArgs>? _tags;
-        public InputList<Inputs.GraphQlApiTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.GraphQlApiTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

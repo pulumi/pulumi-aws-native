@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationNfsTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLocationNfsResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.DataSync
 
             Outputs.LocationNfsOnPremConfig? onPremConfig,
 
-            ImmutableArray<Outputs.LocationNfsTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             LocationArn = locationArn;
             LocationUri = locationUri;

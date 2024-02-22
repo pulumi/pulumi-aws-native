@@ -66,7 +66,7 @@ export interface GetInstanceResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.lightsail.InstanceTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Username of the  Lightsail instance.
      */

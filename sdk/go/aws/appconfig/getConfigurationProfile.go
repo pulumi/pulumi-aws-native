@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupConfigurationProfileResult struct {
 	// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
 	RetrievalRoleArn *string `pulumi:"retrievalRoleArn"`
 	// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags []ConfigurationProfileTags `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A list of methods for validating the configuration.
 	Validators []ConfigurationProfileValidators `pulumi:"validators"`
 }
@@ -117,8 +118,8 @@ func (o LookupConfigurationProfileResultOutput) RetrievalRoleArn() pulumi.String
 }
 
 // Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-func (o LookupConfigurationProfileResultOutput) Tags() ConfigurationProfileTagsArrayOutput {
-	return o.ApplyT(func(v LookupConfigurationProfileResult) []ConfigurationProfileTags { return v.Tags }).(ConfigurationProfileTagsArrayOutput)
+func (o LookupConfigurationProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A list of methods for validating the configuration.

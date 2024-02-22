@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,8 +24,8 @@ type SoftwarePackageVersion struct {
 	PackageVersionArn pulumi.StringOutput                               `pulumi:"packageVersionArn"`
 	Status            SoftwarePackageVersionPackageVersionStatusOutput  `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags        SoftwarePackageVersionTagArrayOutput `pulumi:"tags"`
-	VersionName pulumi.StringPtrOutput               `pulumi:"versionName"`
+	Tags        aws.TagArrayOutput     `pulumi:"tags"`
+	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
 }
 
 // NewSoftwarePackageVersion registers a new resource with the given unique name, arguments, and options.
@@ -79,8 +80,8 @@ type softwarePackageVersionArgs struct {
 	Description *string                                   `pulumi:"description"`
 	PackageName string                                    `pulumi:"packageName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags        []SoftwarePackageVersionTag `pulumi:"tags"`
-	VersionName *string                     `pulumi:"versionName"`
+	Tags        []aws.Tag `pulumi:"tags"`
+	VersionName *string   `pulumi:"versionName"`
 }
 
 // The set of arguments for constructing a SoftwarePackageVersion resource.
@@ -89,7 +90,7 @@ type SoftwarePackageVersionArgs struct {
 	Description pulumi.StringPtrInput
 	PackageName pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags        SoftwarePackageVersionTagArrayInput
+	Tags        aws.TagArrayInput
 	VersionName pulumi.StringPtrInput
 }
 
@@ -155,8 +156,8 @@ func (o SoftwarePackageVersionOutput) Status() SoftwarePackageVersionPackageVers
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o SoftwarePackageVersionOutput) Tags() SoftwarePackageVersionTagArrayOutput {
-	return o.ApplyT(func(v *SoftwarePackageVersion) SoftwarePackageVersionTagArrayOutput { return v.Tags }).(SoftwarePackageVersionTagArrayOutput)
+func (o SoftwarePackageVersionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersion) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o SoftwarePackageVersionOutput) VersionName() pulumi.StringPtrOutput {

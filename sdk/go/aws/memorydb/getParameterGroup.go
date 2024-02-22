@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupParameterGroupResult struct {
 	// The Amazon Resource Name (ARN) of the parameter group.
 	Arn *string `pulumi:"arn"`
 	// An array of key-value pairs to apply to this parameter group.
-	Tags []ParameterGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupParameterGroupResultOutput {
@@ -76,8 +77,8 @@ func (o LookupParameterGroupResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this parameter group.
-func (o LookupParameterGroupResultOutput) Tags() ParameterGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupParameterGroupResult) []ParameterGroupTag { return v.Tags }).(ParameterGroupTagArrayOutput)
+func (o LookupParameterGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

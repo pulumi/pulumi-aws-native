@@ -45,7 +45,7 @@ export interface GetDeliveryResult {
     /**
      * The tags that have been assigned to this delivery.
      */
-    readonly tags?: outputs.logs.DeliveryTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * This structure contains information about one delivery in your account.

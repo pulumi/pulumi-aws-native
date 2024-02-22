@@ -26,7 +26,7 @@ export interface GetReplicationSubnetGroupResult {
     readonly id?: string;
     readonly replicationSubnetGroupDescription?: string;
     readonly subnetIds?: string[];
-    readonly tags?: outputs.dms.ReplicationSubnetGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::DMS::ReplicationSubnetGroup

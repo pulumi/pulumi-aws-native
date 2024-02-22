@@ -76,7 +76,7 @@ export class Agreement extends pulumi.CustomResource {
     /**
      * Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
      */
-    public readonly tags!: pulumi.Output<outputs.transfer.AgreementTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Agreement resource with the given unique name, arguments, and options.
@@ -168,5 +168,5 @@ export interface AgreementArgs {
     /**
      * Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.transfer.AgreementTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

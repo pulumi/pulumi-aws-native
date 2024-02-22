@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetRouteResult',
@@ -50,7 +50,7 @@ class GetRouteResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.RouteTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """

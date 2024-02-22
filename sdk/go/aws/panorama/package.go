@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type Package struct {
 	PackageId       pulumi.StringOutput             `pulumi:"packageId"`
 	PackageName     pulumi.StringOutput             `pulumi:"packageName"`
 	StorageLocation PackageStorageLocationPtrOutput `pulumi:"storageLocation"`
-	Tags            PackageTagArrayOutput           `pulumi:"tags"`
+	Tags            aws.TagArrayOutput              `pulumi:"tags"`
 }
 
 // NewPackage registers a new resource with the given unique name, arguments, and options.
@@ -69,14 +70,14 @@ func (PackageState) ElementType() reflect.Type {
 type packageArgs struct {
 	PackageName     *string                 `pulumi:"packageName"`
 	StorageLocation *PackageStorageLocation `pulumi:"storageLocation"`
-	Tags            []PackageTag            `pulumi:"tags"`
+	Tags            []aws.Tag               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Package resource.
 type PackageArgs struct {
 	PackageName     pulumi.StringPtrInput
 	StorageLocation PackageStorageLocationPtrInput
-	Tags            PackageTagArrayInput
+	Tags            aws.TagArrayInput
 }
 
 func (PackageArgs) ElementType() reflect.Type {
@@ -136,8 +137,8 @@ func (o PackageOutput) StorageLocation() PackageStorageLocationPtrOutput {
 	return o.ApplyT(func(v *Package) PackageStorageLocationPtrOutput { return v.StorageLocation }).(PackageStorageLocationPtrOutput)
 }
 
-func (o PackageOutput) Tags() PackageTagArrayOutput {
-	return o.ApplyT(func(v *Package) PackageTagArrayOutput { return v.Tags }).(PackageTagArrayOutput)
+func (o PackageOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Package) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

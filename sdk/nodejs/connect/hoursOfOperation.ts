@@ -60,7 +60,7 @@ export class HoursOfOperation extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.HoursOfOperationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The time zone of the hours of operation.
      */
@@ -130,7 +130,7 @@ export interface HoursOfOperationArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The time zone of the hours of operation.
      */

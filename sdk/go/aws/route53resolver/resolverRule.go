@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type ResolverRule struct {
 	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
 	RuleType ResolverRuleRuleTypeOutput `pulumi:"ruleType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ResolverRuleTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
 	TargetIps ResolverRuleTargetAddressArrayOutput `pulumi:"targetIps"`
 }
@@ -93,7 +94,7 @@ type resolverRuleArgs struct {
 	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
 	RuleType ResolverRuleRuleType `pulumi:"ruleType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ResolverRuleTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
 	TargetIps []ResolverRuleTargetAddress `pulumi:"targetIps"`
 }
@@ -109,7 +110,7 @@ type ResolverRuleArgs struct {
 	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
 	RuleType ResolverRuleRuleTypeInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ResolverRuleTagArrayInput
+	Tags aws.TagArrayInput
 	// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
 	TargetIps ResolverRuleTargetAddressArrayInput
 }
@@ -182,8 +183,8 @@ func (o ResolverRuleOutput) RuleType() ResolverRuleRuleTypeOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ResolverRuleOutput) Tags() ResolverRuleTagArrayOutput {
-	return o.ApplyT(func(v *ResolverRule) ResolverRuleTagArrayOutput { return v.Tags }).(ResolverRuleTagArrayOutput)
+func (o ResolverRuleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ResolverRule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.

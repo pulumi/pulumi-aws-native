@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// An array of arbitrary tags (key-value pairs) to associate with the stage.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpcLinkTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ID of the instance that backs VPC link.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.ApiGateway
 
             string? name,
 
-            ImmutableArray<Outputs.VpcLinkTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? vpcLinkId)
         {

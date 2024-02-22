@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupLocationAzureBlobResult struct {
 	// The URL of the Azure Blob Location that was described.
 	LocationUri *string `pulumi:"locationUri"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationAzureBlobTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocationAzureBlobOutput(ctx *pulumi.Context, args LookupLocationAzureBlobOutputArgs, opts ...pulumi.InvokeOption) LookupLocationAzureBlobResultOutput {
@@ -113,8 +114,8 @@ func (o LookupLocationAzureBlobResultOutput) LocationUri() pulumi.StringPtrOutpu
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLocationAzureBlobResultOutput) Tags() LocationAzureBlobTagArrayOutput {
-	return o.ApplyT(func(v LookupLocationAzureBlobResult) []LocationAzureBlobTag { return v.Tags }).(LocationAzureBlobTagArrayOutput)
+func (o LookupLocationAzureBlobResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocationAzureBlobResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -35,7 +35,7 @@ export interface GetFargateProfileResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.eks.FargateProfileTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Schema for AWS::EKS::FargateProfile

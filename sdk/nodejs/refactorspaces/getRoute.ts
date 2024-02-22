@@ -33,7 +33,7 @@ export interface GetRouteResult {
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    readonly tags?: outputs.refactorspaces.RouteTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::RefactorSpaces::Route Resource Type

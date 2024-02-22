@@ -102,7 +102,6 @@ __all__ = [
     'FlowSourceConnectorProperties',
     'FlowSourceFlowConfig',
     'FlowSuccessResponseHandlingConfig',
-    'FlowTag',
     'FlowTask',
     'FlowTaskPropertiesObject',
     'FlowTrendmicroSourceProperties',
@@ -4874,39 +4873,6 @@ class FlowSuccessResponseHandlingConfig(dict):
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
         return pulumi.get(self, "bucket_prefix")
-
-
-@pulumi.output_type
-class FlowTag(dict):
-    """
-    A label for tagging AppFlow resources
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A label for tagging AppFlow resources
-        :param str key: A string used to identify this tag
-        :param str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,12 +17,12 @@ import (
 type NetworkSettings struct {
 	pulumi.CustomResourceState
 
-	AssociatedPortalArns pulumi.StringArrayOutput      `pulumi:"associatedPortalArns"`
-	NetworkSettingsArn   pulumi.StringOutput           `pulumi:"networkSettingsArn"`
-	SecurityGroupIds     pulumi.StringArrayOutput      `pulumi:"securityGroupIds"`
-	SubnetIds            pulumi.StringArrayOutput      `pulumi:"subnetIds"`
-	Tags                 NetworkSettingsTagArrayOutput `pulumi:"tags"`
-	VpcId                pulumi.StringOutput           `pulumi:"vpcId"`
+	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
+	NetworkSettingsArn   pulumi.StringOutput      `pulumi:"networkSettingsArn"`
+	SecurityGroupIds     pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	SubnetIds            pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	Tags                 aws.TagArrayOutput       `pulumi:"tags"`
+	VpcId                pulumi.StringOutput      `pulumi:"vpcId"`
 }
 
 // NewNetworkSettings registers a new resource with the given unique name, arguments, and options.
@@ -73,17 +74,17 @@ func (NetworkSettingsState) ElementType() reflect.Type {
 }
 
 type networkSettingsArgs struct {
-	SecurityGroupIds []string             `pulumi:"securityGroupIds"`
-	SubnetIds        []string             `pulumi:"subnetIds"`
-	Tags             []NetworkSettingsTag `pulumi:"tags"`
-	VpcId            string               `pulumi:"vpcId"`
+	SecurityGroupIds []string  `pulumi:"securityGroupIds"`
+	SubnetIds        []string  `pulumi:"subnetIds"`
+	Tags             []aws.Tag `pulumi:"tags"`
+	VpcId            string    `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a NetworkSettings resource.
 type NetworkSettingsArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	SubnetIds        pulumi.StringArrayInput
-	Tags             NetworkSettingsTagArrayInput
+	Tags             aws.TagArrayInput
 	VpcId            pulumi.StringInput
 }
 
@@ -140,8 +141,8 @@ func (o NetworkSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o NetworkSettingsOutput) Tags() NetworkSettingsTagArrayOutput {
-	return o.ApplyT(func(v *NetworkSettings) NetworkSettingsTagArrayOutput { return v.Tags }).(NetworkSettingsTagArrayOutput)
+func (o NetworkSettingsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *NetworkSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o NetworkSettingsOutput) VpcId() pulumi.StringOutput {

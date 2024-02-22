@@ -476,107 +476,6 @@ type DataIntegrationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DataIntegrationTagInput is an input type that accepts DataIntegrationTagArgs and DataIntegrationTagOutput values.
-// You can construct a concrete instance of `DataIntegrationTagInput` via:
-//
-//	DataIntegrationTagArgs{...}
-type DataIntegrationTagInput interface {
-	pulumi.Input
-
-	ToDataIntegrationTagOutput() DataIntegrationTagOutput
-	ToDataIntegrationTagOutputWithContext(context.Context) DataIntegrationTagOutput
-}
-
-// A label for tagging DataIntegration resources
-type DataIntegrationTagArgs struct {
-	// A key to identify the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Corresponding tag value for the key.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DataIntegrationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataIntegrationTag)(nil)).Elem()
-}
-
-func (i DataIntegrationTagArgs) ToDataIntegrationTagOutput() DataIntegrationTagOutput {
-	return i.ToDataIntegrationTagOutputWithContext(context.Background())
-}
-
-func (i DataIntegrationTagArgs) ToDataIntegrationTagOutputWithContext(ctx context.Context) DataIntegrationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationTagOutput)
-}
-
-// DataIntegrationTagArrayInput is an input type that accepts DataIntegrationTagArray and DataIntegrationTagArrayOutput values.
-// You can construct a concrete instance of `DataIntegrationTagArrayInput` via:
-//
-//	DataIntegrationTagArray{ DataIntegrationTagArgs{...} }
-type DataIntegrationTagArrayInput interface {
-	pulumi.Input
-
-	ToDataIntegrationTagArrayOutput() DataIntegrationTagArrayOutput
-	ToDataIntegrationTagArrayOutputWithContext(context.Context) DataIntegrationTagArrayOutput
-}
-
-type DataIntegrationTagArray []DataIntegrationTagInput
-
-func (DataIntegrationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataIntegrationTag)(nil)).Elem()
-}
-
-func (i DataIntegrationTagArray) ToDataIntegrationTagArrayOutput() DataIntegrationTagArrayOutput {
-	return i.ToDataIntegrationTagArrayOutputWithContext(context.Background())
-}
-
-func (i DataIntegrationTagArray) ToDataIntegrationTagArrayOutputWithContext(ctx context.Context) DataIntegrationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationTagArrayOutput)
-}
-
-// A label for tagging DataIntegration resources
-type DataIntegrationTagOutput struct{ *pulumi.OutputState }
-
-func (DataIntegrationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataIntegrationTag)(nil)).Elem()
-}
-
-func (o DataIntegrationTagOutput) ToDataIntegrationTagOutput() DataIntegrationTagOutput {
-	return o
-}
-
-func (o DataIntegrationTagOutput) ToDataIntegrationTagOutputWithContext(ctx context.Context) DataIntegrationTagOutput {
-	return o
-}
-
-// A key to identify the tag.
-func (o DataIntegrationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DataIntegrationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Corresponding tag value for the key.
-func (o DataIntegrationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DataIntegrationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DataIntegrationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DataIntegrationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataIntegrationTag)(nil)).Elem()
-}
-
-func (o DataIntegrationTagArrayOutput) ToDataIntegrationTagArrayOutput() DataIntegrationTagArrayOutput {
-	return o
-}
-
-func (o DataIntegrationTagArrayOutput) ToDataIntegrationTagArrayOutputWithContext(ctx context.Context) DataIntegrationTagArrayOutput {
-	return o
-}
-
-func (o DataIntegrationTagArrayOutput) Index(i pulumi.IntInput) DataIntegrationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataIntegrationTag {
-		return vs[0].([]DataIntegrationTag)[vs[1].(int)]
-	}).(DataIntegrationTagOutput)
-}
-
 type EventIntegrationEventFilter struct {
 	// The source of the events.
 	Source string `pulumi:"source"`
@@ -636,105 +535,6 @@ type EventIntegrationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// EventIntegrationTagInput is an input type that accepts EventIntegrationTagArgs and EventIntegrationTagOutput values.
-// You can construct a concrete instance of `EventIntegrationTagInput` via:
-//
-//	EventIntegrationTagArgs{...}
-type EventIntegrationTagInput interface {
-	pulumi.Input
-
-	ToEventIntegrationTagOutput() EventIntegrationTagOutput
-	ToEventIntegrationTagOutputWithContext(context.Context) EventIntegrationTagOutput
-}
-
-type EventIntegrationTagArgs struct {
-	// A key to identify the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Corresponding tag value for the key.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (EventIntegrationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventIntegrationTag)(nil)).Elem()
-}
-
-func (i EventIntegrationTagArgs) ToEventIntegrationTagOutput() EventIntegrationTagOutput {
-	return i.ToEventIntegrationTagOutputWithContext(context.Background())
-}
-
-func (i EventIntegrationTagArgs) ToEventIntegrationTagOutputWithContext(ctx context.Context) EventIntegrationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationTagOutput)
-}
-
-// EventIntegrationTagArrayInput is an input type that accepts EventIntegrationTagArray and EventIntegrationTagArrayOutput values.
-// You can construct a concrete instance of `EventIntegrationTagArrayInput` via:
-//
-//	EventIntegrationTagArray{ EventIntegrationTagArgs{...} }
-type EventIntegrationTagArrayInput interface {
-	pulumi.Input
-
-	ToEventIntegrationTagArrayOutput() EventIntegrationTagArrayOutput
-	ToEventIntegrationTagArrayOutputWithContext(context.Context) EventIntegrationTagArrayOutput
-}
-
-type EventIntegrationTagArray []EventIntegrationTagInput
-
-func (EventIntegrationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventIntegrationTag)(nil)).Elem()
-}
-
-func (i EventIntegrationTagArray) ToEventIntegrationTagArrayOutput() EventIntegrationTagArrayOutput {
-	return i.ToEventIntegrationTagArrayOutputWithContext(context.Background())
-}
-
-func (i EventIntegrationTagArray) ToEventIntegrationTagArrayOutputWithContext(ctx context.Context) EventIntegrationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationTagArrayOutput)
-}
-
-type EventIntegrationTagOutput struct{ *pulumi.OutputState }
-
-func (EventIntegrationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventIntegrationTag)(nil)).Elem()
-}
-
-func (o EventIntegrationTagOutput) ToEventIntegrationTagOutput() EventIntegrationTagOutput {
-	return o
-}
-
-func (o EventIntegrationTagOutput) ToEventIntegrationTagOutputWithContext(ctx context.Context) EventIntegrationTagOutput {
-	return o
-}
-
-// A key to identify the tag.
-func (o EventIntegrationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v EventIntegrationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Corresponding tag value for the key.
-func (o EventIntegrationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EventIntegrationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type EventIntegrationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (EventIntegrationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventIntegrationTag)(nil)).Elem()
-}
-
-func (o EventIntegrationTagArrayOutput) ToEventIntegrationTagArrayOutput() EventIntegrationTagArrayOutput {
-	return o
-}
-
-func (o EventIntegrationTagArrayOutput) ToEventIntegrationTagArrayOutputWithContext(ctx context.Context) EventIntegrationTagArrayOutput {
-	return o
-}
-
-func (o EventIntegrationTagArrayOutput) Index(i pulumi.IntInput) EventIntegrationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventIntegrationTag {
-		return vs[0].([]EventIntegrationTag)[vs[1].(int)]
-	}).(EventIntegrationTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationFileConfigurationInput)(nil)).Elem(), DataIntegrationFileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationFileConfigurationPtrInput)(nil)).Elem(), DataIntegrationFileConfigurationArgs{})
@@ -742,20 +542,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationObjectConfigurationPtrInput)(nil)).Elem(), DataIntegrationObjectConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigPtrInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationTagInput)(nil)).Elem(), DataIntegrationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationTagArrayInput)(nil)).Elem(), DataIntegrationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationTagInput)(nil)).Elem(), EventIntegrationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationTagArrayInput)(nil)).Elem(), EventIntegrationTagArray{})
 	pulumi.RegisterOutputType(DataIntegrationFileConfigurationOutput{})
 	pulumi.RegisterOutputType(DataIntegrationFileConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataIntegrationObjectConfigurationOutput{})
 	pulumi.RegisterOutputType(DataIntegrationObjectConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataIntegrationScheduleConfigOutput{})
 	pulumi.RegisterOutputType(DataIntegrationScheduleConfigPtrOutput{})
-	pulumi.RegisterOutputType(DataIntegrationTagOutput{})
-	pulumi.RegisterOutputType(DataIntegrationTagArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})
-	pulumi.RegisterOutputType(EventIntegrationTagOutput{})
-	pulumi.RegisterOutputType(EventIntegrationTagArrayOutput{})
 }

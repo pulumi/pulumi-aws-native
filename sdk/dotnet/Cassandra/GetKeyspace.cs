@@ -57,10 +57,10 @@ namespace Pulumi.AwsNative.Cassandra
     [OutputType]
     public sealed class GetKeyspaceResult
     {
-        public readonly ImmutableArray<Outputs.KeyspaceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GetKeyspaceResult(ImmutableArray<Outputs.KeyspaceTag> tags)
+        private GetKeyspaceResult(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Tags = tags;
         }

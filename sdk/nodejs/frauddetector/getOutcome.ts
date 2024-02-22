@@ -45,7 +45,7 @@ export interface GetOutcomeResult {
     /**
      * Tags associated with this outcome.
      */
-    readonly tags?: outputs.frauddetector.OutcomeTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * An outcome for rule evaluation.

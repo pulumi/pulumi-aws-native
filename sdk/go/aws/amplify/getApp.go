@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupAppResult struct {
 	Name                     *string                  `pulumi:"name"`
 	Platform                 *AppPlatform             `pulumi:"platform"`
 	Repository               *string                  `pulumi:"repository"`
-	Tags                     []AppTag                 `pulumi:"tags"`
+	Tags                     []aws.Tag                `pulumi:"tags"`
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
@@ -135,8 +136,8 @@ func (o LookupAppResultOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Repository }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAppResultOutput) Tags() AppTagArrayOutput {
-	return o.ApplyT(func(v LookupAppResult) []AppTag { return v.Tags }).(AppTagArrayOutput)
+func (o LookupAppResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAppResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

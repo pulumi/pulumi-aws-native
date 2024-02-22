@@ -16,10 +16,8 @@ __all__ = [
     'ChannelLogConfigurationForChannelArgs',
     'ChannelRequestOutputItemArgs',
     'ChannelSlateSourceArgs',
-    'ChannelTagArgs',
     'ChannelTimeShiftConfigurationArgs',
     'LiveSourceHttpPackageConfigurationArgs',
-    'LiveSourceTagArgs',
     'PlaybackConfigurationAdMarkerPassthroughArgs',
     'PlaybackConfigurationAvailSuppressionArgs',
     'PlaybackConfigurationBumperArgs',
@@ -28,15 +26,12 @@ __all__ = [
     'PlaybackConfigurationHlsConfigurationArgs',
     'PlaybackConfigurationLivePreRollConfigurationArgs',
     'PlaybackConfigurationManifestProcessingRulesArgs',
-    'PlaybackConfigurationTagArgs',
     'SourceLocationAccessConfigurationArgs',
     'SourceLocationDefaultSegmentDeliveryConfigurationArgs',
     'SourceLocationHttpConfigurationArgs',
     'SourceLocationSecretsManagerAccessTokenConfigurationArgs',
     'SourceLocationSegmentDeliveryConfigurationArgs',
-    'SourceLocationTagArgs',
     'VodSourceHttpPackageConfigurationArgs',
-    'VodSourceTagArgs',
 ]
 
 @pulumi.input_type
@@ -278,33 +273,6 @@ class ChannelSlateSourceArgs:
 
 
 @pulumi.input_type
-class ChannelTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ChannelTimeShiftConfigurationArgs:
     def __init__(__self__, *,
                  max_time_delay_seconds: pulumi.Input[float]):
@@ -374,33 +342,6 @@ class LiveSourceHttpPackageConfigurationArgs:
     @type.setter
     def type(self, value: pulumi.Input['LiveSourceType']):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class LiveSourceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -691,33 +632,6 @@ class PlaybackConfigurationManifestProcessingRulesArgs:
 
 
 @pulumi.input_type
-class PlaybackConfigurationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class SourceLocationAccessConfigurationArgs:
     def __init__(__self__, *,
                  access_type: Optional[pulumi.Input['SourceLocationAccessType']] = None,
@@ -893,33 +807,6 @@ class SourceLocationSegmentDeliveryConfigurationArgs:
 
 
 @pulumi.input_type
-class SourceLocationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class VodSourceHttpPackageConfigurationArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
@@ -966,32 +853,5 @@ class VodSourceHttpPackageConfigurationArgs:
     @type.setter
     def type(self, value: pulumi.Input['VodSourceType']):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class VodSourceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

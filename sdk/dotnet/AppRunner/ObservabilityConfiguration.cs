@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.AppRunner
         /// A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ObservabilityConfigurationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
@@ -109,14 +109,14 @@ namespace Pulumi.AwsNative.AppRunner
         public Input<string>? ObservabilityConfigurationName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ObservabilityConfigurationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
         /// </summary>
-        public InputList<Inputs.ObservabilityConfigurationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ObservabilityConfigurationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

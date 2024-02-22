@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,7 +41,7 @@ type LookupEventTypeResult struct {
 	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Tags associated with this event type.
-	Tags []EventTypeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEventTypeOutput(ctx *pulumi.Context, args LookupEventTypeOutputArgs, opts ...pulumi.InvokeOption) LookupEventTypeResultOutput {
@@ -112,8 +113,8 @@ func (o LookupEventTypeResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 }
 
 // Tags associated with this event type.
-func (o LookupEventTypeResultOutput) Tags() EventTypeTagArrayOutput {
-	return o.ApplyT(func(v LookupEventTypeResult) []EventTypeTag { return v.Tags }).(EventTypeTagArrayOutput)
+func (o LookupEventTypeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEventTypeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -35,7 +35,7 @@ export interface GetImageBuilderResult {
     readonly instanceType?: string;
     readonly name?: string;
     readonly streamingUrl?: string;
-    readonly tags?: outputs.appstream.ImageBuilderTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcConfig?: outputs.appstream.ImageBuilderVpcConfig;
 }
 /**

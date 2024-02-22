@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Athena
         /// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.WorkGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The workgroup configuration
@@ -137,14 +137,14 @@ namespace Pulumi.AwsNative.Athena
         public Input<Pulumi.AwsNative.Athena.WorkGroupState>? State { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.WorkGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
         /// </summary>
-        public InputList<Inputs.WorkGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.WorkGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

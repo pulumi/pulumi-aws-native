@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Campaign struct {
 	Name               pulumi.StringOutput              `pulumi:"name"`
 	OutboundCallConfig CampaignOutboundCallConfigOutput `pulumi:"outboundCallConfig"`
 	// One or more tags.
-	Tags CampaignTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCampaign registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +89,7 @@ type campaignArgs struct {
 	Name               *string                    `pulumi:"name"`
 	OutboundCallConfig CampaignOutboundCallConfig `pulumi:"outboundCallConfig"`
 	// One or more tags.
-	Tags []CampaignTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Campaign resource.
@@ -100,7 +101,7 @@ type CampaignArgs struct {
 	Name               pulumi.StringPtrInput
 	OutboundCallConfig CampaignOutboundCallConfigInput
 	// One or more tags.
-	Tags CampaignTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (CampaignArgs) ElementType() reflect.Type {
@@ -164,8 +165,8 @@ func (o CampaignOutput) OutboundCallConfig() CampaignOutboundCallConfigOutput {
 }
 
 // One or more tags.
-func (o CampaignOutput) Tags() CampaignTagArrayOutput {
-	return o.ApplyT(func(v *Campaign) CampaignTagArrayOutput { return v.Tags }).(CampaignTagArrayOutput)
+func (o CampaignOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Campaign) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

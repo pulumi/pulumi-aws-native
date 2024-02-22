@@ -26,7 +26,7 @@ export interface GetRoleAliasResult {
     readonly credentialDurationSeconds?: number;
     readonly roleAliasArn?: string;
     readonly roleArn?: string;
-    readonly tags?: outputs.iot.RoleAliasTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.

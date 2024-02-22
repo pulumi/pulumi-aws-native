@@ -33,7 +33,7 @@ export interface GetWorkflowResult {
     /**
      * Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
      */
-    readonly tags?: outputs.transfer.WorkflowTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * A unique identifier for the workflow.
      */

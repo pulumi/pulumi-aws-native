@@ -64,7 +64,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the project.
      */
-    public readonly tags!: pulumi.Output<outputs.iotsitewise.ProjectTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -126,5 +126,5 @@ export interface ProjectArgs {
     /**
      * A list of key-value pairs that contain metadata for the project.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotsitewise.ProjectTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

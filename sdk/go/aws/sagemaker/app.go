@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type App struct {
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	ResourceSpec AppResourceSpecPtrOutput `pulumi:"resourceSpec"`
 	// A list of tags to apply to the app.
-	Tags AppTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The user profile name.
 	UserProfileName pulumi.StringOutput `pulumi:"userProfileName"`
 }
@@ -99,7 +100,7 @@ type appArgs struct {
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
 	// A list of tags to apply to the app.
-	Tags []AppTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// The user profile name.
 	UserProfileName string `pulumi:"userProfileName"`
 }
@@ -115,7 +116,7 @@ type AppArgs struct {
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	ResourceSpec AppResourceSpecPtrInput
 	// A list of tags to apply to the app.
-	Tags AppTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 	// The user profile name.
 	UserProfileName pulumi.StringInput
 }
@@ -183,8 +184,8 @@ func (o AppOutput) ResourceSpec() AppResourceSpecPtrOutput {
 }
 
 // A list of tags to apply to the app.
-func (o AppOutput) Tags() AppTagArrayOutput {
-	return o.ApplyT(func(v *App) AppTagArrayOutput { return v.Tags }).(AppTagArrayOutput)
+func (o AppOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *App) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // The user profile name.

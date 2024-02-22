@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,8 +26,8 @@ type GeofenceCollection struct {
 	PricingPlan           GeofenceCollectionPricingPlanPtrOutput `pulumi:"pricingPlan"`
 	PricingPlanDataSource pulumi.StringPtrOutput                 `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       GeofenceCollectionTagArrayOutput `pulumi:"tags"`
-	UpdateTime pulumi.StringOutput              `pulumi:"updateTime"`
+	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewGeofenceCollection registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +84,7 @@ type geofenceCollectionArgs struct {
 	PricingPlan           *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
 	PricingPlanDataSource *string                        `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []GeofenceCollectionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GeofenceCollection resource.
@@ -94,7 +95,7 @@ type GeofenceCollectionArgs struct {
 	PricingPlan           GeofenceCollectionPricingPlanPtrInput
 	PricingPlanDataSource pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags GeofenceCollectionTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (GeofenceCollectionArgs) ElementType() reflect.Type {
@@ -167,8 +168,8 @@ func (o GeofenceCollectionOutput) PricingPlanDataSource() pulumi.StringPtrOutput
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o GeofenceCollectionOutput) Tags() GeofenceCollectionTagArrayOutput {
-	return o.ApplyT(func(v *GeofenceCollection) GeofenceCollectionTagArrayOutput { return v.Tags }).(GeofenceCollectionTagArrayOutput)
+func (o GeofenceCollectionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *GeofenceCollection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o GeofenceCollectionOutput) UpdateTime() pulumi.StringOutput {

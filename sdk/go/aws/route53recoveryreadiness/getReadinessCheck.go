@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupReadinessCheckResult struct {
 	// The name of the resource set to check.
 	ResourceSetName *string `pulumi:"resourceSetName"`
 	// A collection of tags associated with a resource.
-	Tags []ReadinessCheckTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupReadinessCheckOutput(ctx *pulumi.Context, args LookupReadinessCheckOutputArgs, opts ...pulumi.InvokeOption) LookupReadinessCheckResultOutput {
@@ -83,8 +84,8 @@ func (o LookupReadinessCheckResultOutput) ResourceSetName() pulumi.StringPtrOutp
 }
 
 // A collection of tags associated with a resource.
-func (o LookupReadinessCheckResultOutput) Tags() ReadinessCheckTagArrayOutput {
-	return o.ApplyT(func(v LookupReadinessCheckResult) []ReadinessCheckTag { return v.Tags }).(ReadinessCheckTagArrayOutput)
+func (o LookupReadinessCheckResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReadinessCheckResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

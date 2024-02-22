@@ -45,7 +45,7 @@ export class Theme extends pulumi.CustomResource {
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly permissions!: pulumi.Output<outputs.quicksight.ThemeResourcePermission[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.quicksight.ThemeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly themeId!: pulumi.Output<string>;
     public /*out*/ readonly type!: pulumi.Output<enums.quicksight.ThemeType>;
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.ThemeVersion>;
@@ -118,7 +118,7 @@ export interface ThemeArgs {
     configuration: pulumi.Input<inputs.quicksight.ThemeConfigurationArgs>;
     name?: pulumi.Input<string>;
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeResourcePermissionArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     themeId: pulumi.Input<string>;
     versionDescription?: pulumi.Input<string>;
 }

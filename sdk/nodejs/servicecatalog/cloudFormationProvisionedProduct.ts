@@ -55,7 +55,7 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
     public readonly provisioningParameters!: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameter[] | undefined>;
     public readonly provisioningPreferences!: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferences | undefined>;
     public /*out*/ readonly recordId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CloudFormationProvisionedProduct resource with the given unique name, arguments, and options.
@@ -124,5 +124,5 @@ export interface CloudFormationProvisionedProductArgs {
     provisioningArtifactName?: pulumi.Input<string>;
     provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameterArgs>[]>;
     provisioningPreferences?: pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferencesArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

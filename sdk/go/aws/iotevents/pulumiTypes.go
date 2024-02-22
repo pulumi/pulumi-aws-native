@@ -3419,107 +3419,6 @@ type AlarmModelTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AlarmModelTagInput is an input type that accepts AlarmModelTagArgs and AlarmModelTagOutput values.
-// You can construct a concrete instance of `AlarmModelTagInput` via:
-//
-//	AlarmModelTagArgs{...}
-type AlarmModelTagInput interface {
-	pulumi.Input
-
-	ToAlarmModelTagOutput() AlarmModelTagOutput
-	ToAlarmModelTagOutputWithContext(context.Context) AlarmModelTagOutput
-}
-
-// Tags to be applied to Input.
-type AlarmModelTagArgs struct {
-	// Key of the Tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Value of the Tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AlarmModelTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlarmModelTag)(nil)).Elem()
-}
-
-func (i AlarmModelTagArgs) ToAlarmModelTagOutput() AlarmModelTagOutput {
-	return i.ToAlarmModelTagOutputWithContext(context.Background())
-}
-
-func (i AlarmModelTagArgs) ToAlarmModelTagOutputWithContext(ctx context.Context) AlarmModelTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelTagOutput)
-}
-
-// AlarmModelTagArrayInput is an input type that accepts AlarmModelTagArray and AlarmModelTagArrayOutput values.
-// You can construct a concrete instance of `AlarmModelTagArrayInput` via:
-//
-//	AlarmModelTagArray{ AlarmModelTagArgs{...} }
-type AlarmModelTagArrayInput interface {
-	pulumi.Input
-
-	ToAlarmModelTagArrayOutput() AlarmModelTagArrayOutput
-	ToAlarmModelTagArrayOutputWithContext(context.Context) AlarmModelTagArrayOutput
-}
-
-type AlarmModelTagArray []AlarmModelTagInput
-
-func (AlarmModelTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlarmModelTag)(nil)).Elem()
-}
-
-func (i AlarmModelTagArray) ToAlarmModelTagArrayOutput() AlarmModelTagArrayOutput {
-	return i.ToAlarmModelTagArrayOutputWithContext(context.Background())
-}
-
-func (i AlarmModelTagArray) ToAlarmModelTagArrayOutputWithContext(ctx context.Context) AlarmModelTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelTagArrayOutput)
-}
-
-// Tags to be applied to Input.
-type AlarmModelTagOutput struct{ *pulumi.OutputState }
-
-func (AlarmModelTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlarmModelTag)(nil)).Elem()
-}
-
-func (o AlarmModelTagOutput) ToAlarmModelTagOutput() AlarmModelTagOutput {
-	return o
-}
-
-func (o AlarmModelTagOutput) ToAlarmModelTagOutputWithContext(ctx context.Context) AlarmModelTagOutput {
-	return o
-}
-
-// Key of the Tag.
-func (o AlarmModelTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AlarmModelTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Value of the Tag.
-func (o AlarmModelTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AlarmModelTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AlarmModelTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AlarmModelTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlarmModelTag)(nil)).Elem()
-}
-
-func (o AlarmModelTagArrayOutput) ToAlarmModelTagArrayOutput() AlarmModelTagArrayOutput {
-	return o
-}
-
-func (o AlarmModelTagArrayOutput) ToAlarmModelTagArrayOutputWithContext(ctx context.Context) AlarmModelTagArrayOutput {
-	return o
-}
-
-func (o AlarmModelTagArrayOutput) Index(i pulumi.IntInput) AlarmModelTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlarmModelTag {
-		return vs[0].([]AlarmModelTag)[vs[1].(int)]
-	}).(AlarmModelTagOutput)
-}
-
 // The actions to be performed.
 type DetectorModelAction struct {
 	ClearTimer      *DetectorModelClearTimer      `pulumi:"clearTimer"`
@@ -7514,107 +7413,6 @@ type DetectorModelTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DetectorModelTagInput is an input type that accepts DetectorModelTagArgs and DetectorModelTagOutput values.
-// You can construct a concrete instance of `DetectorModelTagInput` via:
-//
-//	DetectorModelTagArgs{...}
-type DetectorModelTagInput interface {
-	pulumi.Input
-
-	ToDetectorModelTagOutput() DetectorModelTagOutput
-	ToDetectorModelTagOutputWithContext(context.Context) DetectorModelTagOutput
-}
-
-// Tags to be applied to Input.
-type DetectorModelTagArgs struct {
-	// Key of the Tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Value of the Tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DetectorModelTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorModelTag)(nil)).Elem()
-}
-
-func (i DetectorModelTagArgs) ToDetectorModelTagOutput() DetectorModelTagOutput {
-	return i.ToDetectorModelTagOutputWithContext(context.Background())
-}
-
-func (i DetectorModelTagArgs) ToDetectorModelTagOutputWithContext(ctx context.Context) DetectorModelTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelTagOutput)
-}
-
-// DetectorModelTagArrayInput is an input type that accepts DetectorModelTagArray and DetectorModelTagArrayOutput values.
-// You can construct a concrete instance of `DetectorModelTagArrayInput` via:
-//
-//	DetectorModelTagArray{ DetectorModelTagArgs{...} }
-type DetectorModelTagArrayInput interface {
-	pulumi.Input
-
-	ToDetectorModelTagArrayOutput() DetectorModelTagArrayOutput
-	ToDetectorModelTagArrayOutputWithContext(context.Context) DetectorModelTagArrayOutput
-}
-
-type DetectorModelTagArray []DetectorModelTagInput
-
-func (DetectorModelTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DetectorModelTag)(nil)).Elem()
-}
-
-func (i DetectorModelTagArray) ToDetectorModelTagArrayOutput() DetectorModelTagArrayOutput {
-	return i.ToDetectorModelTagArrayOutputWithContext(context.Background())
-}
-
-func (i DetectorModelTagArray) ToDetectorModelTagArrayOutputWithContext(ctx context.Context) DetectorModelTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelTagArrayOutput)
-}
-
-// Tags to be applied to Input.
-type DetectorModelTagOutput struct{ *pulumi.OutputState }
-
-func (DetectorModelTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorModelTag)(nil)).Elem()
-}
-
-func (o DetectorModelTagOutput) ToDetectorModelTagOutput() DetectorModelTagOutput {
-	return o
-}
-
-func (o DetectorModelTagOutput) ToDetectorModelTagOutputWithContext(ctx context.Context) DetectorModelTagOutput {
-	return o
-}
-
-// Key of the Tag.
-func (o DetectorModelTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DetectorModelTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Value of the Tag.
-func (o DetectorModelTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DetectorModelTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DetectorModelTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DetectorModelTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DetectorModelTag)(nil)).Elem()
-}
-
-func (o DetectorModelTagArrayOutput) ToDetectorModelTagArrayOutput() DetectorModelTagArrayOutput {
-	return o
-}
-
-func (o DetectorModelTagArrayOutput) ToDetectorModelTagArrayOutputWithContext(ctx context.Context) DetectorModelTagArrayOutput {
-	return o
-}
-
-func (o DetectorModelTagArrayOutput) Index(i pulumi.IntInput) DetectorModelTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorModelTag {
-		return vs[0].([]DetectorModelTag)[vs[1].(int)]
-	}).(DetectorModelTagOutput)
-}
-
 // Specifies the ` actions  `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
 type DetectorModelTransitionEvent struct {
 	// The actions to be performed.
@@ -7945,107 +7743,6 @@ type InputTag struct {
 	Value string `pulumi:"value"`
 }
 
-// InputTagInput is an input type that accepts InputTagArgs and InputTagOutput values.
-// You can construct a concrete instance of `InputTagInput` via:
-//
-//	InputTagArgs{...}
-type InputTagInput interface {
-	pulumi.Input
-
-	ToInputTagOutput() InputTagOutput
-	ToInputTagOutputWithContext(context.Context) InputTagOutput
-}
-
-// Tags to be applied to Input.
-type InputTagArgs struct {
-	// Key of the Tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Value of the Tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (InputTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputTag)(nil)).Elem()
-}
-
-func (i InputTagArgs) ToInputTagOutput() InputTagOutput {
-	return i.ToInputTagOutputWithContext(context.Background())
-}
-
-func (i InputTagArgs) ToInputTagOutputWithContext(ctx context.Context) InputTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputTagOutput)
-}
-
-// InputTagArrayInput is an input type that accepts InputTagArray and InputTagArrayOutput values.
-// You can construct a concrete instance of `InputTagArrayInput` via:
-//
-//	InputTagArray{ InputTagArgs{...} }
-type InputTagArrayInput interface {
-	pulumi.Input
-
-	ToInputTagArrayOutput() InputTagArrayOutput
-	ToInputTagArrayOutputWithContext(context.Context) InputTagArrayOutput
-}
-
-type InputTagArray []InputTagInput
-
-func (InputTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InputTag)(nil)).Elem()
-}
-
-func (i InputTagArray) ToInputTagArrayOutput() InputTagArrayOutput {
-	return i.ToInputTagArrayOutputWithContext(context.Background())
-}
-
-func (i InputTagArray) ToInputTagArrayOutputWithContext(ctx context.Context) InputTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputTagArrayOutput)
-}
-
-// Tags to be applied to Input.
-type InputTagOutput struct{ *pulumi.OutputState }
-
-func (InputTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputTag)(nil)).Elem()
-}
-
-func (o InputTagOutput) ToInputTagOutput() InputTagOutput {
-	return o
-}
-
-func (o InputTagOutput) ToInputTagOutputWithContext(ctx context.Context) InputTagOutput {
-	return o
-}
-
-// Key of the Tag.
-func (o InputTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v InputTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Value of the Tag.
-func (o InputTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v InputTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type InputTagArrayOutput struct{ *pulumi.OutputState }
-
-func (InputTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InputTag)(nil)).Elem()
-}
-
-func (o InputTagArrayOutput) ToInputTagArrayOutput() InputTagArrayOutput {
-	return o
-}
-
-func (o InputTagArrayOutput) ToInputTagArrayOutputWithContext(ctx context.Context) InputTagArrayOutput {
-	return o
-}
-
-func (o InputTagArrayOutput) Index(i pulumi.IntInput) InputTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputTag {
-		return vs[0].([]InputTag)[vs[1].(int)]
-	}).(InputTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelAcknowledgeFlowInput)(nil)).Elem(), AlarmModelAcknowledgeFlowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelAcknowledgeFlowPtrInput)(nil)).Elem(), AlarmModelAcknowledgeFlowArgs{})
@@ -8086,8 +7783,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelSnsPtrInput)(nil)).Elem(), AlarmModelSnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelSqsInput)(nil)).Elem(), AlarmModelSqsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelSqsPtrInput)(nil)).Elem(), AlarmModelSqsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelTagInput)(nil)).Elem(), AlarmModelTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlarmModelTagArrayInput)(nil)).Elem(), AlarmModelTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelActionInput)(nil)).Elem(), DetectorModelActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelActionArrayInput)(nil)).Elem(), DetectorModelActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelAssetPropertyTimestampInput)(nil)).Elem(), DetectorModelAssetPropertyTimestampArgs{})
@@ -8135,15 +7830,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelSqsPtrInput)(nil)).Elem(), DetectorModelSqsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelStateTypeInput)(nil)).Elem(), DetectorModelStateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelStateTypeArrayInput)(nil)).Elem(), DetectorModelStateTypeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelTagInput)(nil)).Elem(), DetectorModelTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelTagArrayInput)(nil)).Elem(), DetectorModelTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelTransitionEventInput)(nil)).Elem(), DetectorModelTransitionEventArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelTransitionEventArrayInput)(nil)).Elem(), DetectorModelTransitionEventArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InputAttributeInput)(nil)).Elem(), InputAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InputAttributeArrayInput)(nil)).Elem(), InputAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InputDefinitionInput)(nil)).Elem(), InputDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InputTagInput)(nil)).Elem(), InputTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InputTagArrayInput)(nil)).Elem(), InputTagArray{})
 	pulumi.RegisterOutputType(AlarmModelAcknowledgeFlowOutput{})
 	pulumi.RegisterOutputType(AlarmModelAcknowledgeFlowPtrOutput{})
 	pulumi.RegisterOutputType(AlarmModelAlarmActionOutput{})
@@ -8184,8 +7875,6 @@ func init() {
 	pulumi.RegisterOutputType(AlarmModelSnsPtrOutput{})
 	pulumi.RegisterOutputType(AlarmModelSqsOutput{})
 	pulumi.RegisterOutputType(AlarmModelSqsPtrOutput{})
-	pulumi.RegisterOutputType(AlarmModelTagOutput{})
-	pulumi.RegisterOutputType(AlarmModelTagArrayOutput{})
 	pulumi.RegisterOutputType(DetectorModelActionOutput{})
 	pulumi.RegisterOutputType(DetectorModelActionArrayOutput{})
 	pulumi.RegisterOutputType(DetectorModelAssetPropertyTimestampOutput{})
@@ -8234,14 +7923,10 @@ func init() {
 	pulumi.RegisterOutputType(DetectorModelSqsPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelStateTypeOutput{})
 	pulumi.RegisterOutputType(DetectorModelStateTypeArrayOutput{})
-	pulumi.RegisterOutputType(DetectorModelTagOutput{})
-	pulumi.RegisterOutputType(DetectorModelTagArrayOutput{})
 	pulumi.RegisterOutputType(DetectorModelTransitionEventOutput{})
 	pulumi.RegisterOutputType(DetectorModelTransitionEventArrayOutput{})
 	pulumi.RegisterOutputType(InputAttributeOutput{})
 	pulumi.RegisterOutputType(InputAttributeArrayOutput{})
 	pulumi.RegisterOutputType(InputDefinitionOutput{})
 	pulumi.RegisterOutputType(InputDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(InputTagOutput{})
-	pulumi.RegisterOutputType(InputTagArrayOutput{})
 }

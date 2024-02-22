@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupDataIntegrationResult struct {
 	// The configuration for what data should be pulled from the source.
 	ObjectConfiguration *DataIntegrationObjectConfiguration `pulumi:"objectConfiguration"`
 	// The tags (keys and values) associated with the data integration.
-	Tags []DataIntegrationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDataIntegrationOutput(ctx *pulumi.Context, args LookupDataIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupDataIntegrationResultOutput {
@@ -111,8 +112,8 @@ func (o LookupDataIntegrationResultOutput) ObjectConfiguration() DataIntegration
 }
 
 // The tags (keys and values) associated with the data integration.
-func (o LookupDataIntegrationResultOutput) Tags() DataIntegrationTagArrayOutput {
-	return o.ApplyT(func(v LookupDataIntegrationResult) []DataIntegrationTag { return v.Tags }).(DataIntegrationTagArrayOutput)
+func (o LookupDataIntegrationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDataIntegrationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

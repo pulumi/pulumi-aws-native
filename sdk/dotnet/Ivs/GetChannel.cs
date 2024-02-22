@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.Ivs
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ChannelTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.Ivs
 
             string? recordingConfigurationArn,
 
-            ImmutableArray<Outputs.ChannelTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.Ivs.ChannelType? type)
         {

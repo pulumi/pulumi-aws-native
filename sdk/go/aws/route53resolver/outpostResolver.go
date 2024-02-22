@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type OutpostResolver struct {
 	// The OutpostResolver status message.
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// An array of key-value pairs to apply to this resource.
-	Tags OutpostResolverTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewOutpostResolver registers a new resource with the given unique name, arguments, and options.
@@ -99,7 +100,7 @@ type outpostResolverArgs struct {
 	// The OutpostResolver instance type.
 	PreferredInstanceType string `pulumi:"preferredInstanceType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []OutpostResolverTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OutpostResolver resource.
@@ -113,7 +114,7 @@ type OutpostResolverArgs struct {
 	// The OutpostResolver instance type.
 	PreferredInstanceType pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags OutpostResolverTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (OutpostResolverArgs) ElementType() reflect.Type {
@@ -204,8 +205,8 @@ func (o OutpostResolverOutput) StatusMessage() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o OutpostResolverOutput) Tags() OutpostResolverTagArrayOutput {
-	return o.ApplyT(func(v *OutpostResolver) OutpostResolverTagArrayOutput { return v.Tags }).(OutpostResolverTagArrayOutput)
+func (o OutpostResolverOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *OutpostResolver) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

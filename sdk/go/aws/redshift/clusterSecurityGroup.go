@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,8 +19,8 @@ import (
 type ClusterSecurityGroup struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringOutput                `pulumi:"description"`
-	Tags        ClusterSecurityGroupTagArrayOutput `pulumi:"tags"`
+	Description pulumi.StringOutput `pulumi:"description"`
+	Tags        aws.TagArrayOutput  `pulumi:"tags"`
 }
 
 // NewClusterSecurityGroup registers a new resource with the given unique name, arguments, and options.
@@ -69,14 +70,14 @@ func (ClusterSecurityGroupState) ElementType() reflect.Type {
 }
 
 type clusterSecurityGroupArgs struct {
-	Description string                    `pulumi:"description"`
-	Tags        []ClusterSecurityGroupTag `pulumi:"tags"`
+	Description string    `pulumi:"description"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterSecurityGroup resource.
 type ClusterSecurityGroupArgs struct {
 	Description pulumi.StringInput
-	Tags        ClusterSecurityGroupTagArrayInput
+	Tags        aws.TagArrayInput
 }
 
 func (ClusterSecurityGroupArgs) ElementType() reflect.Type {
@@ -120,8 +121,8 @@ func (o ClusterSecurityGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSecurityGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-func (o ClusterSecurityGroupOutput) Tags() ClusterSecurityGroupTagArrayOutput {
-	return o.ApplyT(func(v *ClusterSecurityGroup) ClusterSecurityGroupTagArrayOutput { return v.Tags }).(ClusterSecurityGroupTagArrayOutput)
+func (o ClusterSecurityGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

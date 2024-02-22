@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrameworkTag> FrameworkTags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> FrameworkTags;
 
         [OutputConstructor]
         private GetFrameworkResult(
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.Backup
 
             string? frameworkStatus,
 
-            ImmutableArray<Outputs.FrameworkTag> frameworkTags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> frameworkTags)
         {
             CreationTime = creationTime;
             DeploymentStatus = deploymentStatus;

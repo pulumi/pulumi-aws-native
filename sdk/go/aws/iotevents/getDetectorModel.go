@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupDetectorModelResult struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags []DetectorModelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDetectorModelOutput(ctx *pulumi.Context, args LookupDetectorModelOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorModelResultOutput {
@@ -99,8 +100,8 @@ func (o LookupDetectorModelResultOutput) RoleArn() pulumi.StringPtrOutput {
 // An array of key-value pairs to apply to this resource.
 //
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-func (o LookupDetectorModelResultOutput) Tags() DetectorModelTagArrayOutput {
-	return o.ApplyT(func(v LookupDetectorModelResult) []DetectorModelTag { return v.Tags }).(DetectorModelTagArrayOutput)
+func (o LookupDetectorModelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDetectorModelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

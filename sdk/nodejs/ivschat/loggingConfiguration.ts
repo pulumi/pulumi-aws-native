@@ -53,7 +53,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.ivschat.LoggingConfigurationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -98,5 +98,5 @@ export interface LoggingConfigurationArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ivschat.LoggingConfigurationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

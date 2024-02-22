@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupCellResult struct {
 	// The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
 	ParentReadinessScopes []string `pulumi:"parentReadinessScopes"`
 	// A collection of tags associated with a resource
-	Tags []CellTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCellOutput(ctx *pulumi.Context, args LookupCellOutputArgs, opts ...pulumi.InvokeOption) LookupCellResultOutput {
@@ -90,8 +91,8 @@ func (o LookupCellResultOutput) ParentReadinessScopes() pulumi.StringArrayOutput
 }
 
 // A collection of tags associated with a resource
-func (o LookupCellResultOutput) Tags() CellTagArrayOutput {
-	return o.ApplyT(func(v LookupCellResult) []CellTag { return v.Tags }).(CellTagArrayOutput)
+func (o LookupCellResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCellResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -72,7 +72,7 @@ export class Variable extends pulumi.CustomResource {
     /**
      * Tags associated with this variable.
      */
-    public readonly tags!: pulumi.Output<outputs.frauddetector.VariableTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
      */
@@ -154,7 +154,7 @@ export interface VariableArgs {
     /**
      * Tags associated with this variable.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.VariableTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
      */

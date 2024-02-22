@@ -18,101 +18,6 @@ type IpSetTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// IpSetTagInput is an input type that accepts IpSetTagArgs and IpSetTagOutput values.
-// You can construct a concrete instance of `IpSetTagInput` via:
-//
-//	IpSetTagArgs{...}
-type IpSetTagInput interface {
-	pulumi.Input
-
-	ToIpSetTagOutput() IpSetTagOutput
-	ToIpSetTagOutputWithContext(context.Context) IpSetTagOutput
-}
-
-type IpSetTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (IpSetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpSetTag)(nil)).Elem()
-}
-
-func (i IpSetTagArgs) ToIpSetTagOutput() IpSetTagOutput {
-	return i.ToIpSetTagOutputWithContext(context.Background())
-}
-
-func (i IpSetTagArgs) ToIpSetTagOutputWithContext(ctx context.Context) IpSetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IpSetTagOutput)
-}
-
-// IpSetTagArrayInput is an input type that accepts IpSetTagArray and IpSetTagArrayOutput values.
-// You can construct a concrete instance of `IpSetTagArrayInput` via:
-//
-//	IpSetTagArray{ IpSetTagArgs{...} }
-type IpSetTagArrayInput interface {
-	pulumi.Input
-
-	ToIpSetTagArrayOutput() IpSetTagArrayOutput
-	ToIpSetTagArrayOutputWithContext(context.Context) IpSetTagArrayOutput
-}
-
-type IpSetTagArray []IpSetTagInput
-
-func (IpSetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IpSetTag)(nil)).Elem()
-}
-
-func (i IpSetTagArray) ToIpSetTagArrayOutput() IpSetTagArrayOutput {
-	return i.ToIpSetTagArrayOutputWithContext(context.Background())
-}
-
-func (i IpSetTagArray) ToIpSetTagArrayOutputWithContext(ctx context.Context) IpSetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IpSetTagArrayOutput)
-}
-
-type IpSetTagOutput struct{ *pulumi.OutputState }
-
-func (IpSetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpSetTag)(nil)).Elem()
-}
-
-func (o IpSetTagOutput) ToIpSetTagOutput() IpSetTagOutput {
-	return o
-}
-
-func (o IpSetTagOutput) ToIpSetTagOutputWithContext(ctx context.Context) IpSetTagOutput {
-	return o
-}
-
-func (o IpSetTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IpSetTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o IpSetTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IpSetTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type IpSetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (IpSetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IpSetTag)(nil)).Elem()
-}
-
-func (o IpSetTagArrayOutput) ToIpSetTagArrayOutput() IpSetTagArrayOutput {
-	return o
-}
-
-func (o IpSetTagArrayOutput) ToIpSetTagArrayOutputWithContext(ctx context.Context) IpSetTagArrayOutput {
-	return o
-}
-
-func (o IpSetTagArrayOutput) Index(i pulumi.IntInput) IpSetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpSetTag {
-		return vs[0].([]IpSetTag)[vs[1].(int)]
-	}).(IpSetTagOutput)
-}
-
 type LoggingConfigurationCondition struct {
 	// A single action condition.
 	ActionCondition *LoggingConfigurationConditionActionConditionProperties `pulumi:"actionCondition"`
@@ -1053,101 +958,6 @@ func (o LoggingFilterPropertiesPtrOutput) Filters() LoggingConfigurationFilterAr
 type RegexPatternSetTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
-}
-
-// RegexPatternSetTagInput is an input type that accepts RegexPatternSetTagArgs and RegexPatternSetTagOutput values.
-// You can construct a concrete instance of `RegexPatternSetTagInput` via:
-//
-//	RegexPatternSetTagArgs{...}
-type RegexPatternSetTagInput interface {
-	pulumi.Input
-
-	ToRegexPatternSetTagOutput() RegexPatternSetTagOutput
-	ToRegexPatternSetTagOutputWithContext(context.Context) RegexPatternSetTagOutput
-}
-
-type RegexPatternSetTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (RegexPatternSetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegexPatternSetTag)(nil)).Elem()
-}
-
-func (i RegexPatternSetTagArgs) ToRegexPatternSetTagOutput() RegexPatternSetTagOutput {
-	return i.ToRegexPatternSetTagOutputWithContext(context.Background())
-}
-
-func (i RegexPatternSetTagArgs) ToRegexPatternSetTagOutputWithContext(ctx context.Context) RegexPatternSetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetTagOutput)
-}
-
-// RegexPatternSetTagArrayInput is an input type that accepts RegexPatternSetTagArray and RegexPatternSetTagArrayOutput values.
-// You can construct a concrete instance of `RegexPatternSetTagArrayInput` via:
-//
-//	RegexPatternSetTagArray{ RegexPatternSetTagArgs{...} }
-type RegexPatternSetTagArrayInput interface {
-	pulumi.Input
-
-	ToRegexPatternSetTagArrayOutput() RegexPatternSetTagArrayOutput
-	ToRegexPatternSetTagArrayOutputWithContext(context.Context) RegexPatternSetTagArrayOutput
-}
-
-type RegexPatternSetTagArray []RegexPatternSetTagInput
-
-func (RegexPatternSetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegexPatternSetTag)(nil)).Elem()
-}
-
-func (i RegexPatternSetTagArray) ToRegexPatternSetTagArrayOutput() RegexPatternSetTagArrayOutput {
-	return i.ToRegexPatternSetTagArrayOutputWithContext(context.Background())
-}
-
-func (i RegexPatternSetTagArray) ToRegexPatternSetTagArrayOutputWithContext(ctx context.Context) RegexPatternSetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetTagArrayOutput)
-}
-
-type RegexPatternSetTagOutput struct{ *pulumi.OutputState }
-
-func (RegexPatternSetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegexPatternSetTag)(nil)).Elem()
-}
-
-func (o RegexPatternSetTagOutput) ToRegexPatternSetTagOutput() RegexPatternSetTagOutput {
-	return o
-}
-
-func (o RegexPatternSetTagOutput) ToRegexPatternSetTagOutputWithContext(ctx context.Context) RegexPatternSetTagOutput {
-	return o
-}
-
-func (o RegexPatternSetTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RegexPatternSetTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o RegexPatternSetTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RegexPatternSetTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type RegexPatternSetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RegexPatternSetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegexPatternSetTag)(nil)).Elem()
-}
-
-func (o RegexPatternSetTagArrayOutput) ToRegexPatternSetTagArrayOutput() RegexPatternSetTagArrayOutput {
-	return o
-}
-
-func (o RegexPatternSetTagArrayOutput) ToRegexPatternSetTagArrayOutputWithContext(ctx context.Context) RegexPatternSetTagArrayOutput {
-	return o
-}
-
-func (o RegexPatternSetTagArrayOutput) Index(i pulumi.IntInput) RegexPatternSetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegexPatternSetTag {
-		return vs[0].([]RegexPatternSetTag)[vs[1].(int)]
-	}).(RegexPatternSetTagOutput)
 }
 
 // Allow traffic towards application.
@@ -8986,101 +8796,6 @@ func (o RuleGroupStatementArrayOutput) Index(i pulumi.IntInput) RuleGroupStateme
 type RuleGroupTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
-}
-
-// RuleGroupTagInput is an input type that accepts RuleGroupTagArgs and RuleGroupTagOutput values.
-// You can construct a concrete instance of `RuleGroupTagInput` via:
-//
-//	RuleGroupTagArgs{...}
-type RuleGroupTagInput interface {
-	pulumi.Input
-
-	ToRuleGroupTagOutput() RuleGroupTagOutput
-	ToRuleGroupTagOutputWithContext(context.Context) RuleGroupTagOutput
-}
-
-type RuleGroupTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (RuleGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTag)(nil)).Elem()
-}
-
-func (i RuleGroupTagArgs) ToRuleGroupTagOutput() RuleGroupTagOutput {
-	return i.ToRuleGroupTagOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTagArgs) ToRuleGroupTagOutputWithContext(ctx context.Context) RuleGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTagOutput)
-}
-
-// RuleGroupTagArrayInput is an input type that accepts RuleGroupTagArray and RuleGroupTagArrayOutput values.
-// You can construct a concrete instance of `RuleGroupTagArrayInput` via:
-//
-//	RuleGroupTagArray{ RuleGroupTagArgs{...} }
-type RuleGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToRuleGroupTagArrayOutput() RuleGroupTagArrayOutput
-	ToRuleGroupTagArrayOutputWithContext(context.Context) RuleGroupTagArrayOutput
-}
-
-type RuleGroupTagArray []RuleGroupTagInput
-
-func (RuleGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupTag)(nil)).Elem()
-}
-
-func (i RuleGroupTagArray) ToRuleGroupTagArrayOutput() RuleGroupTagArrayOutput {
-	return i.ToRuleGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTagArray) ToRuleGroupTagArrayOutputWithContext(ctx context.Context) RuleGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTagArrayOutput)
-}
-
-type RuleGroupTagOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTag)(nil)).Elem()
-}
-
-func (o RuleGroupTagOutput) ToRuleGroupTagOutput() RuleGroupTagOutput {
-	return o
-}
-
-func (o RuleGroupTagOutput) ToRuleGroupTagOutputWithContext(ctx context.Context) RuleGroupTagOutput {
-	return o
-}
-
-func (o RuleGroupTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o RuleGroupTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type RuleGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupTag)(nil)).Elem()
-}
-
-func (o RuleGroupTagArrayOutput) ToRuleGroupTagArrayOutput() RuleGroupTagArrayOutput {
-	return o
-}
-
-func (o RuleGroupTagArrayOutput) ToRuleGroupTagArrayOutputWithContext(ctx context.Context) RuleGroupTagArrayOutput {
-	return o
-}
-
-func (o RuleGroupTagArrayOutput) Index(i pulumi.IntInput) RuleGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupTag {
-		return vs[0].([]RuleGroupTag)[vs[1].(int)]
-	}).(RuleGroupTagOutput)
 }
 
 // Text Transformation on the Search String before match.
@@ -20383,101 +20098,6 @@ type WebAclTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// WebAclTagInput is an input type that accepts WebAclTagArgs and WebAclTagOutput values.
-// You can construct a concrete instance of `WebAclTagInput` via:
-//
-//	WebAclTagArgs{...}
-type WebAclTagInput interface {
-	pulumi.Input
-
-	ToWebAclTagOutput() WebAclTagOutput
-	ToWebAclTagOutputWithContext(context.Context) WebAclTagOutput
-}
-
-type WebAclTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (WebAclTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclTag)(nil)).Elem()
-}
-
-func (i WebAclTagArgs) ToWebAclTagOutput() WebAclTagOutput {
-	return i.ToWebAclTagOutputWithContext(context.Background())
-}
-
-func (i WebAclTagArgs) ToWebAclTagOutputWithContext(ctx context.Context) WebAclTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclTagOutput)
-}
-
-// WebAclTagArrayInput is an input type that accepts WebAclTagArray and WebAclTagArrayOutput values.
-// You can construct a concrete instance of `WebAclTagArrayInput` via:
-//
-//	WebAclTagArray{ WebAclTagArgs{...} }
-type WebAclTagArrayInput interface {
-	pulumi.Input
-
-	ToWebAclTagArrayOutput() WebAclTagArrayOutput
-	ToWebAclTagArrayOutputWithContext(context.Context) WebAclTagArrayOutput
-}
-
-type WebAclTagArray []WebAclTagInput
-
-func (WebAclTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclTag)(nil)).Elem()
-}
-
-func (i WebAclTagArray) ToWebAclTagArrayOutput() WebAclTagArrayOutput {
-	return i.ToWebAclTagArrayOutputWithContext(context.Background())
-}
-
-func (i WebAclTagArray) ToWebAclTagArrayOutputWithContext(ctx context.Context) WebAclTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclTagArrayOutput)
-}
-
-type WebAclTagOutput struct{ *pulumi.OutputState }
-
-func (WebAclTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclTag)(nil)).Elem()
-}
-
-func (o WebAclTagOutput) ToWebAclTagOutput() WebAclTagOutput {
-	return o
-}
-
-func (o WebAclTagOutput) ToWebAclTagOutputWithContext(ctx context.Context) WebAclTagOutput {
-	return o
-}
-
-func (o WebAclTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o WebAclTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type WebAclTagArrayOutput struct{ *pulumi.OutputState }
-
-func (WebAclTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclTag)(nil)).Elem()
-}
-
-func (o WebAclTagArrayOutput) ToWebAclTagArrayOutput() WebAclTagArrayOutput {
-	return o
-}
-
-func (o WebAclTagArrayOutput) ToWebAclTagArrayOutputWithContext(ctx context.Context) WebAclTagArrayOutput {
-	return o
-}
-
-func (o WebAclTagArrayOutput) Index(i pulumi.IntInput) WebAclTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclTag {
-		return vs[0].([]WebAclTag)[vs[1].(int)]
-	}).(WebAclTagOutput)
-}
-
 // Text Transformation on the Search String before match.
 type WebAclTextTransformation struct {
 	Priority int                          `pulumi:"priority"`
@@ -20848,8 +20468,6 @@ func (o WebAclXssMatchStatementPtrOutput) TextTransformations() WebAclTextTransf
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*IpSetTagInput)(nil)).Elem(), IpSetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IpSetTagArrayInput)(nil)).Elem(), IpSetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationConditionInput)(nil)).Elem(), LoggingConfigurationConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationConditionArrayInput)(nil)).Elem(), LoggingConfigurationConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationConditionActionConditionPropertiesInput)(nil)).Elem(), LoggingConfigurationConditionActionConditionPropertiesArgs{})
@@ -20864,8 +20482,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationFilterArrayInput)(nil)).Elem(), LoggingConfigurationFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingFilterPropertiesInput)(nil)).Elem(), LoggingFilterPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingFilterPropertiesPtrInput)(nil)).Elem(), LoggingFilterPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetTagInput)(nil)).Elem(), RegexPatternSetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetTagArrayInput)(nil)).Elem(), RegexPatternSetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAllowActionInput)(nil)).Elem(), RuleGroupAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAllowActionPtrInput)(nil)).Elem(), RuleGroupAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAndStatementInput)(nil)).Elem(), RuleGroupAndStatementArgs{})
@@ -20969,8 +20585,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatementInput)(nil)).Elem(), RuleGroupStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatementPtrInput)(nil)).Elem(), RuleGroupStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatementArrayInput)(nil)).Elem(), RuleGroupStatementArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTagInput)(nil)).Elem(), RuleGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTagArrayInput)(nil)).Elem(), RuleGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationInput)(nil)).Elem(), RuleGroupTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationArrayInput)(nil)).Elem(), RuleGroupTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupVisibilityConfigInput)(nil)).Elem(), RuleGroupVisibilityConfigArgs{})
@@ -21117,15 +20731,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclStatementInput)(nil)).Elem(), WebAclStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclStatementPtrInput)(nil)).Elem(), WebAclStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclStatementArrayInput)(nil)).Elem(), WebAclStatementArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTagInput)(nil)).Elem(), WebAclTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTagArrayInput)(nil)).Elem(), WebAclTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationInput)(nil)).Elem(), WebAclTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationArrayInput)(nil)).Elem(), WebAclTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclVisibilityConfigInput)(nil)).Elem(), WebAclVisibilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclXssMatchStatementInput)(nil)).Elem(), WebAclXssMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclXssMatchStatementPtrInput)(nil)).Elem(), WebAclXssMatchStatementArgs{})
-	pulumi.RegisterOutputType(IpSetTagOutput{})
-	pulumi.RegisterOutputType(IpSetTagArrayOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationConditionOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationConditionArrayOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationConditionActionConditionPropertiesOutput{})
@@ -21140,8 +20750,6 @@ func init() {
 	pulumi.RegisterOutputType(LoggingConfigurationFilterArrayOutput{})
 	pulumi.RegisterOutputType(LoggingFilterPropertiesOutput{})
 	pulumi.RegisterOutputType(LoggingFilterPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(RegexPatternSetTagOutput{})
-	pulumi.RegisterOutputType(RegexPatternSetTagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupAllowActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupAllowActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementOutput{})
@@ -21245,8 +20853,6 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatementArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupTagOutput{})
-	pulumi.RegisterOutputType(RuleGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupVisibilityConfigOutput{})
@@ -21395,8 +21001,6 @@ func init() {
 	pulumi.RegisterOutputType(WebAclStatementOutput{})
 	pulumi.RegisterOutputType(WebAclStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclStatementArrayOutput{})
-	pulumi.RegisterOutputType(WebAclTagOutput{})
-	pulumi.RegisterOutputType(WebAclTagArrayOutput{})
 	pulumi.RegisterOutputType(WebAclTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclVisibilityConfigOutput{})

@@ -34,7 +34,7 @@ export interface GetRulesetResult {
      * List of the data quality rules in the ruleset
      */
     readonly rules?: outputs.databrew.RulesetRule[];
-    readonly tags?: outputs.databrew.RulesetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataBrew::Ruleset.

@@ -51,7 +51,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly fileSystemPolicy!: pulumi.Output<any | undefined>;
     public readonly fileSystemProtection!: pulumi.Output<outputs.efs.FileSystemProtection | undefined>;
-    public readonly fileSystemTags!: pulumi.Output<outputs.efs.FileSystemElasticFileSystemTag[] | undefined>;
+    public readonly fileSystemTags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly lifecyclePolicies!: pulumi.Output<outputs.efs.FileSystemLifecyclePolicy[] | undefined>;
     public readonly performanceMode!: pulumi.Output<string | undefined>;
@@ -125,7 +125,7 @@ export interface FileSystemArgs {
      */
     fileSystemPolicy?: any;
     fileSystemProtection?: pulumi.Input<inputs.efs.FileSystemProtectionArgs>;
-    fileSystemTags?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemElasticFileSystemTagArgs>[]>;
+    fileSystemTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     kmsKeyId?: pulumi.Input<string>;
     lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicyArgs>[]>;
     performanceMode?: pulumi.Input<string>;

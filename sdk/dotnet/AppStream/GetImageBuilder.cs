@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.AppStream
         public readonly string? InstanceType;
         public readonly string? Name;
         public readonly string? StreamingUrl;
-        public readonly ImmutableArray<Outputs.ImageBuilderTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.ImageBuilderVpcConfig? VpcConfig;
 
         [OutputConstructor]
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.AppStream
 
             string? streamingUrl,
 
-            ImmutableArray<Outputs.ImageBuilderTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.ImageBuilderVpcConfig? vpcConfig)
         {

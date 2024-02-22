@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.MemoryDb
         /// <summary>
         /// An array of key-value pairs to apply to this subnet group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSubnetGroupResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.MemoryDb
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableArray<Outputs.SubnetGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

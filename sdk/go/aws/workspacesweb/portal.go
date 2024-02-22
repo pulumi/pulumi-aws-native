@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type Portal struct {
 	RendererType                 PortalRendererTypeOutput            `pulumi:"rendererType"`
 	ServiceProviderSamlMetadata  pulumi.StringOutput                 `pulumi:"serviceProviderSamlMetadata"`
 	StatusReason                 pulumi.StringOutput                 `pulumi:"statusReason"`
-	Tags                         PortalTagArrayOutput                `pulumi:"tags"`
+	Tags                         aws.TagArrayOutput                  `pulumi:"tags"`
 	TrustStoreArn                pulumi.StringPtrOutput              `pulumi:"trustStoreArn"`
 	UserAccessLoggingSettingsArn pulumi.StringPtrOutput              `pulumi:"userAccessLoggingSettingsArn"`
 	UserSettingsArn              pulumi.StringPtrOutput              `pulumi:"userSettingsArn"`
@@ -88,7 +89,7 @@ type portalArgs struct {
 	DisplayName                  *string                     `pulumi:"displayName"`
 	IpAccessSettingsArn          *string                     `pulumi:"ipAccessSettingsArn"`
 	NetworkSettingsArn           *string                     `pulumi:"networkSettingsArn"`
-	Tags                         []PortalTag                 `pulumi:"tags"`
+	Tags                         []aws.Tag                   `pulumi:"tags"`
 	TrustStoreArn                *string                     `pulumi:"trustStoreArn"`
 	UserAccessLoggingSettingsArn *string                     `pulumi:"userAccessLoggingSettingsArn"`
 	UserSettingsArn              *string                     `pulumi:"userSettingsArn"`
@@ -103,7 +104,7 @@ type PortalArgs struct {
 	DisplayName                  pulumi.StringPtrInput
 	IpAccessSettingsArn          pulumi.StringPtrInput
 	NetworkSettingsArn           pulumi.StringPtrInput
-	Tags                         PortalTagArrayInput
+	Tags                         aws.TagArrayInput
 	TrustStoreArn                pulumi.StringPtrInput
 	UserAccessLoggingSettingsArn pulumi.StringPtrInput
 	UserSettingsArn              pulumi.StringPtrInput
@@ -206,8 +207,8 @@ func (o PortalOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-func (o PortalOutput) Tags() PortalTagArrayOutput {
-	return o.ApplyT(func(v *Portal) PortalTagArrayOutput { return v.Tags }).(PortalTagArrayOutput)
+func (o PortalOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Portal) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o PortalOutput) TrustStoreArn() pulumi.StringPtrOutput {

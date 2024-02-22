@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupPolicyResult struct {
 	ResourceTypeList          []string                         `pulumi:"resourceTypeList"`
 	ResourcesCleanUp          *bool                            `pulumi:"resourcesCleanUp"`
 	SecurityServicePolicyData *PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
-	Tags                      []PolicyTag                      `pulumi:"tags"`
+	Tags                      []aws.Tag                        `pulumi:"tags"`
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
@@ -135,8 +136,8 @@ func (o LookupPolicyResultOutput) SecurityServicePolicyData() PolicySecurityServ
 	return o.ApplyT(func(v LookupPolicyResult) *PolicySecurityServicePolicyData { return v.SecurityServicePolicyData }).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
-func (o LookupPolicyResultOutput) Tags() PolicyTagArrayOutput {
-	return o.ApplyT(func(v LookupPolicyResult) []PolicyTag { return v.Tags }).(PolicyTagArrayOutput)
+func (o LookupPolicyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

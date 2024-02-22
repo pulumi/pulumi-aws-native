@@ -56,7 +56,7 @@ export class ReportPlan extends pulumi.CustomResource {
     /**
      * Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
      */
-    public readonly reportPlanTags!: pulumi.Output<outputs.backup.ReportPlanTag[] | undefined>;
+    public readonly reportPlanTags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Identifies the report template for the report. Reports are built using a report template.
      */
@@ -119,7 +119,7 @@ export interface ReportPlanArgs {
     /**
      * Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
      */
-    reportPlanTags?: pulumi.Input<pulumi.Input<inputs.backup.ReportPlanTagArgs>[]>;
+    reportPlanTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Identifies the report template for the report. Reports are built using a report template.
      */

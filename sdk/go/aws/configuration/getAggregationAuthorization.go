@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupAggregationAuthorizationResult struct {
 	// The ARN of the AggregationAuthorization.
 	AggregationAuthorizationArn *string `pulumi:"aggregationAuthorizationArn"`
 	// The tags for the AggregationAuthorization.
-	Tags []AggregationAuthorizationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAggregationAuthorizationOutput(ctx *pulumi.Context, args LookupAggregationAuthorizationOutputArgs, opts ...pulumi.InvokeOption) LookupAggregationAuthorizationResultOutput {
@@ -80,8 +81,8 @@ func (o LookupAggregationAuthorizationResultOutput) AggregationAuthorizationArn(
 }
 
 // The tags for the AggregationAuthorization.
-func (o LookupAggregationAuthorizationResultOutput) Tags() AggregationAuthorizationTagArrayOutput {
-	return o.ApplyT(func(v LookupAggregationAuthorizationResult) []AggregationAuthorizationTag { return v.Tags }).(AggregationAuthorizationTagArrayOutput)
+func (o LookupAggregationAuthorizationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAggregationAuthorizationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

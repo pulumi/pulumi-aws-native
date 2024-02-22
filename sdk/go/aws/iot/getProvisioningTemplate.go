@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupProvisioningTemplateResult struct {
 	Enabled             *bool                                 `pulumi:"enabled"`
 	PreProvisioningHook *ProvisioningTemplateProvisioningHook `pulumi:"preProvisioningHook"`
 	ProvisioningRoleArn *string                               `pulumi:"provisioningRoleArn"`
-	Tags                []ProvisioningTemplateTag             `pulumi:"tags"`
+	Tags                []aws.Tag                             `pulumi:"tags"`
 	TemplateArn         *string                               `pulumi:"templateArn"`
 	TemplateBody        *string                               `pulumi:"templateBody"`
 }
@@ -89,8 +90,8 @@ func (o LookupProvisioningTemplateResultOutput) ProvisioningRoleArn() pulumi.Str
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) *string { return v.ProvisioningRoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupProvisioningTemplateResultOutput) Tags() ProvisioningTemplateTagArrayOutput {
-	return o.ApplyT(func(v LookupProvisioningTemplateResult) []ProvisioningTemplateTag { return v.Tags }).(ProvisioningTemplateTagArrayOutput)
+func (o LookupProvisioningTemplateResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProvisioningTemplateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupProvisioningTemplateResultOutput) TemplateArn() pulumi.StringPtrOutput {

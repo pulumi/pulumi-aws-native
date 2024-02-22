@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Ec2
         /// Any tags assigned to the VPN connection.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VpnConnectionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway associated with the VPN connection.
@@ -130,14 +130,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<bool>? StaticRoutesOnly { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.VpnConnectionTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Any tags assigned to the VPN connection.
         /// </summary>
-        public InputList<Inputs.VpnConnectionTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VpnConnectionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

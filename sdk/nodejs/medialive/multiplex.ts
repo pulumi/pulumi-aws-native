@@ -69,7 +69,7 @@ export class Multiplex extends pulumi.CustomResource {
     /**
      * A collection of key-value pairs.
      */
-    public readonly tags!: pulumi.Output<outputs.medialive.MultiplexTags[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Multiplex resource with the given unique name, arguments, and options.
@@ -138,5 +138,5 @@ export interface MultiplexArgs {
     /**
      * A collection of key-value pairs.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.medialive.MultiplexTagsArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

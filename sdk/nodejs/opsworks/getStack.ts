@@ -24,10 +24,7 @@ export interface GetStackArgs {
 
 export interface GetStackResult {
     readonly agentVersion?: string;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-     */
-    readonly attributes?: any;
+    readonly attributes?: {[key: string]: string};
     readonly chefConfiguration?: outputs.opsworks.StackChefConfiguration;
     readonly configurationManager?: outputs.opsworks.StackConfigurationManager;
     readonly customCookbooksSource?: outputs.opsworks.StackSource;
@@ -47,7 +44,7 @@ export interface GetStackResult {
     readonly id?: string;
     readonly name?: string;
     readonly rdsDbInstances?: outputs.opsworks.StackRdsDbInstance[];
-    readonly tags?: outputs.opsworks.StackTag[];
+    readonly tags?: outputs.Tag[];
     readonly useCustomCookbooks?: boolean;
     readonly useOpsworksSecurityGroups?: boolean;
 }

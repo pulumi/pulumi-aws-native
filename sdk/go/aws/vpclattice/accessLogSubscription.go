@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,12 +17,12 @@ import (
 type AccessLogSubscription struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                 `pulumi:"arn"`
-	DestinationArn     pulumi.StringOutput                 `pulumi:"destinationArn"`
-	ResourceArn        pulumi.StringOutput                 `pulumi:"resourceArn"`
-	ResourceId         pulumi.StringOutput                 `pulumi:"resourceId"`
-	ResourceIdentifier pulumi.StringPtrOutput              `pulumi:"resourceIdentifier"`
-	Tags               AccessLogSubscriptionTagArrayOutput `pulumi:"tags"`
+	Arn                pulumi.StringOutput    `pulumi:"arn"`
+	DestinationArn     pulumi.StringOutput    `pulumi:"destinationArn"`
+	ResourceArn        pulumi.StringOutput    `pulumi:"resourceArn"`
+	ResourceId         pulumi.StringOutput    `pulumi:"resourceId"`
+	ResourceIdentifier pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
+	Tags               aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewAccessLogSubscription registers a new resource with the given unique name, arguments, and options.
@@ -71,16 +72,16 @@ func (AccessLogSubscriptionState) ElementType() reflect.Type {
 }
 
 type accessLogSubscriptionArgs struct {
-	DestinationArn     string                     `pulumi:"destinationArn"`
-	ResourceIdentifier *string                    `pulumi:"resourceIdentifier"`
-	Tags               []AccessLogSubscriptionTag `pulumi:"tags"`
+	DestinationArn     string    `pulumi:"destinationArn"`
+	ResourceIdentifier *string   `pulumi:"resourceIdentifier"`
+	Tags               []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessLogSubscription resource.
 type AccessLogSubscriptionArgs struct {
 	DestinationArn     pulumi.StringInput
 	ResourceIdentifier pulumi.StringPtrInput
-	Tags               AccessLogSubscriptionTagArrayInput
+	Tags               aws.TagArrayInput
 }
 
 func (AccessLogSubscriptionArgs) ElementType() reflect.Type {
@@ -140,8 +141,8 @@ func (o AccessLogSubscriptionOutput) ResourceIdentifier() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o AccessLogSubscriptionOutput) Tags() AccessLogSubscriptionTagArrayOutput {
-	return o.ApplyT(func(v *AccessLogSubscription) AccessLogSubscriptionTagArrayOutput { return v.Tags }).(AccessLogSubscriptionTagArrayOutput)
+func (o AccessLogSubscriptionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AccessLogSubscription) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

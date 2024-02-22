@@ -48,7 +48,7 @@ export interface GetCustomLineItemResult {
     readonly lastModifiedTime?: number;
     readonly name?: string;
     readonly productCode?: string;
-    readonly tags?: outputs.billingconductor.CustomLineItemTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A custom line item is an one time charge that is applied to a specific billing group's bill.

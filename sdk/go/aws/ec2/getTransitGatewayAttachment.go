@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,9 +30,9 @@ type LookupTransitGatewayAttachmentArgs struct {
 type LookupTransitGatewayAttachmentResult struct {
 	Id *string `pulumi:"id"`
 	// The options for the transit gateway vpc attachment.
-	Options   *OptionsProperties            `pulumi:"options"`
-	SubnetIds []string                      `pulumi:"subnetIds"`
-	Tags      []TransitGatewayAttachmentTag `pulumi:"tags"`
+	Options   *OptionsProperties `pulumi:"options"`
+	SubnetIds []string           `pulumi:"subnetIds"`
+	Tags      []aws.Tag          `pulumi:"tags"`
 }
 
 func LookupTransitGatewayAttachmentOutput(ctx *pulumi.Context, args LookupTransitGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayAttachmentResultOutput {
@@ -82,8 +83,8 @@ func (o LookupTransitGatewayAttachmentResultOutput) SubnetIds() pulumi.StringArr
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupTransitGatewayAttachmentResultOutput) Tags() TransitGatewayAttachmentTagArrayOutput {
-	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) []TransitGatewayAttachmentTag { return v.Tags }).(TransitGatewayAttachmentTagArrayOutput)
+func (o LookupTransitGatewayAttachmentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

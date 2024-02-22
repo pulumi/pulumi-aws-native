@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.IoT
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? PolicyDocument;
-        public readonly ImmutableArray<Outputs.PolicyTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPolicyResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.IoT
 
             object? policyDocument,
 
-            ImmutableArray<Outputs.PolicyTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Id = id;

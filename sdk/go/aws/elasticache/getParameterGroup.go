@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,11 +28,10 @@ type LookupParameterGroupArgs struct {
 }
 
 type LookupParameterGroupResult struct {
-	Description *string `pulumi:"description"`
-	Id          *string `pulumi:"id"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
-	Properties interface{}         `pulumi:"properties"`
-	Tags       []ParameterGroupTag `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	Id          *string           `pulumi:"id"`
+	Properties  map[string]string `pulumi:"properties"`
+	Tags        []aws.Tag         `pulumi:"tags"`
 }
 
 func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupParameterGroupResultOutput {
@@ -77,13 +77,12 @@ func (o LookupParameterGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
-func (o LookupParameterGroupResultOutput) Properties() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupParameterGroupResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
+func (o LookupParameterGroupResultOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-func (o LookupParameterGroupResultOutput) Tags() ParameterGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupParameterGroupResult) []ParameterGroupTag { return v.Tags }).(ParameterGroupTagArrayOutput)
+func (o LookupParameterGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

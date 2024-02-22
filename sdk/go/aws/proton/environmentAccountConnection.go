@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type EnvironmentAccountConnection struct {
 	// <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags EnvironmentAccountConnectionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewEnvironmentAccountConnection registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +93,7 @@ type environmentAccountConnectionArgs struct {
 	// <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags []EnvironmentAccountConnectionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EnvironmentAccountConnection resource.
@@ -112,7 +113,7 @@ type EnvironmentAccountConnectionArgs struct {
 	// <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags EnvironmentAccountConnectionTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (EnvironmentAccountConnectionArgs) ElementType() reflect.Type {
@@ -196,8 +197,8 @@ func (o EnvironmentAccountConnectionOutput) Status() EnvironmentAccountConnectio
 //
 //	 <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 //	<i>Proton User Guide</i>.</p>
-func (o EnvironmentAccountConnectionOutput) Tags() EnvironmentAccountConnectionTagArrayOutput {
-	return o.ApplyT(func(v *EnvironmentAccountConnection) EnvironmentAccountConnectionTagArrayOutput { return v.Tags }).(EnvironmentAccountConnectionTagArrayOutput)
+func (o EnvironmentAccountConnectionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EnvironmentAccountConnection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

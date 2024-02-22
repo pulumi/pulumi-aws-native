@@ -61,7 +61,6 @@ __all__ = [
     'DeliveryStreamSplunkBufferingHints',
     'DeliveryStreamSplunkDestinationConfiguration',
     'DeliveryStreamSplunkRetryOptions',
-    'DeliveryStreamTag',
     'DeliveryStreamVpcConfiguration',
 ]
 
@@ -1682,7 +1681,7 @@ class DeliveryStreamOpenXJsonSerDe(dict):
 
     def __init__(__self__, *,
                  case_insensitive: Optional[bool] = None,
-                 column_to_json_key_mappings: Optional[Any] = None,
+                 column_to_json_key_mappings: Optional[Mapping[str, str]] = None,
                  convert_dots_in_json_keys_to_underscores: Optional[bool] = None):
         if case_insensitive is not None:
             pulumi.set(__self__, "case_insensitive", case_insensitive)
@@ -1698,7 +1697,7 @@ class DeliveryStreamOpenXJsonSerDe(dict):
 
     @property
     @pulumi.getter(name="columnToJsonKeyMappings")
-    def column_to_json_key_mappings(self) -> Optional[Any]:
+    def column_to_json_key_mappings(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "column_to_json_key_mappings")
 
     @property
@@ -2854,26 +2853,6 @@ class DeliveryStreamSplunkRetryOptions(dict):
     @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[int]:
         return pulumi.get(self, "duration_in_seconds")
-
-
-@pulumi.output_type
-class DeliveryStreamTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

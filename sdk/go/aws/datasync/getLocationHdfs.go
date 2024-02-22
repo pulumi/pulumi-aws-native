@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -50,7 +51,7 @@ type LookupLocationHdfsResult struct {
 	// The user name that has read and write permissions on the specified HDFS cluster.
 	SimpleUser *string `pulumi:"simpleUser"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationHdfsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocationHdfsOutput(ctx *pulumi.Context, args LookupLocationHdfsOutputArgs, opts ...pulumi.InvokeOption) LookupLocationHdfsResultOutput {
@@ -144,8 +145,8 @@ func (o LookupLocationHdfsResultOutput) SimpleUser() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLocationHdfsResultOutput) Tags() LocationHdfsTagArrayOutput {
-	return o.ApplyT(func(v LookupLocationHdfsResult) []LocationHdfsTag { return v.Tags }).(LocationHdfsTagArrayOutput)
+func (o LookupLocationHdfsResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocationHdfsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ClusterArgs', 'Cluster']
@@ -41,7 +43,7 @@ class ClusterArgs:
                  security_configuration: Optional[pulumi.Input[str]] = None,
                  step_concurrency_level: Optional[pulumi.Input[int]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepConfigArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -329,11 +331,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -381,7 +383,7 @@ class Cluster(pulumi.CustomResource):
                  service_role: Optional[pulumi.Input[str]] = None,
                  step_concurrency_level: Optional[pulumi.Input[int]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -440,7 +442,7 @@ class Cluster(pulumi.CustomResource):
                  service_role: Optional[pulumi.Input[str]] = None,
                  step_concurrency_level: Optional[pulumi.Input[int]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         pulumi.log.warn("""Cluster is deprecated: Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -675,7 +677,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

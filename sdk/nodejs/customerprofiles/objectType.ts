@@ -84,7 +84,7 @@ export class ObjectType extends pulumi.CustomResource {
     /**
      * The tags (keys and values) associated with the integration.
      */
-    public readonly tags!: pulumi.Output<outputs.customerprofiles.ObjectTypeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A unique identifier for the object template.
      */
@@ -182,7 +182,7 @@ export interface ObjectTypeArgs {
     /**
      * The tags (keys and values) associated with the integration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.customerprofiles.ObjectTypeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A unique identifier for the object template.
      */

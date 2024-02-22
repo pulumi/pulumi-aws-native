@@ -88,7 +88,7 @@ export class Graph extends pulumi.CustomResource {
     /**
      * The tags associated with this graph.
      */
-    public readonly tags!: pulumi.Output<outputs.neptunegraph.GraphTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Vector Search Configuration
      */
@@ -180,7 +180,7 @@ export interface GraphArgs {
     /**
      * The tags associated with this graph.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.neptunegraph.GraphTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Vector Search Configuration
      */

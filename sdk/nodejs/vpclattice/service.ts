@@ -46,7 +46,7 @@ export class Service extends pulumi.CustomResource {
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceStatus>;
-    public readonly tags!: pulumi.Output<outputs.vpclattice.ServiceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface ServiceArgs {
     customDomainName?: pulumi.Input<string>;
     dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceDnsEntryArgs>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

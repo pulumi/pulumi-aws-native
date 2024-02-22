@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Stack struct {
 	RedirectUrl                 pulumi.StringPtrOutput                    `pulumi:"redirectUrl"`
 	StorageConnectors           StackStorageConnectorArrayOutput          `pulumi:"storageConnectors"`
 	StreamingExperienceSettings StackStreamingExperienceSettingsPtrOutput `pulumi:"streamingExperienceSettings"`
-	Tags                        StackTagArrayOutput                       `pulumi:"tags"`
+	Tags                        aws.TagArrayOutput                        `pulumi:"tags"`
 	UserSettings                StackUserSettingArrayOutput               `pulumi:"userSettings"`
 }
 
@@ -89,7 +90,7 @@ type stackArgs struct {
 	RedirectUrl                 *string                           `pulumi:"redirectUrl"`
 	StorageConnectors           []StackStorageConnector           `pulumi:"storageConnectors"`
 	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
-	Tags                        []StackTag                        `pulumi:"tags"`
+	Tags                        []aws.Tag                         `pulumi:"tags"`
 	UserSettings                []StackUserSetting                `pulumi:"userSettings"`
 }
 
@@ -107,7 +108,7 @@ type StackArgs struct {
 	RedirectUrl                 pulumi.StringPtrInput
 	StorageConnectors           StackStorageConnectorArrayInput
 	StreamingExperienceSettings StackStreamingExperienceSettingsPtrInput
-	Tags                        StackTagArrayInput
+	Tags                        aws.TagArrayInput
 	UserSettings                StackUserSettingArrayInput
 }
 
@@ -196,8 +197,8 @@ func (o StackOutput) StreamingExperienceSettings() StackStreamingExperienceSetti
 	return o.ApplyT(func(v *Stack) StackStreamingExperienceSettingsPtrOutput { return v.StreamingExperienceSettings }).(StackStreamingExperienceSettingsPtrOutput)
 }
 
-func (o StackOutput) Tags() StackTagArrayOutput {
-	return o.ApplyT(func(v *Stack) StackTagArrayOutput { return v.Tags }).(StackTagArrayOutput)
+func (o StackOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Stack) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o StackOutput) UserSettings() StackUserSettingArrayOutput {

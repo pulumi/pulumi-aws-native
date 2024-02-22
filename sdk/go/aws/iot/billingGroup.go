@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,7 +20,7 @@ type BillingGroup struct {
 	BillingGroupName       pulumi.StringPtrOutput                    `pulumi:"billingGroupName"`
 	BillingGroupProperties BillingGroupPropertiesPropertiesPtrOutput `pulumi:"billingGroupProperties"`
 	// An array of key-value pairs to apply to this resource.
-	Tags BillingGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewBillingGroup registers a new resource with the given unique name, arguments, and options.
@@ -69,7 +70,7 @@ type billingGroupArgs struct {
 	BillingGroupName       *string                           `pulumi:"billingGroupName"`
 	BillingGroupProperties *BillingGroupPropertiesProperties `pulumi:"billingGroupProperties"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []BillingGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BillingGroup resource.
@@ -77,7 +78,7 @@ type BillingGroupArgs struct {
 	BillingGroupName       pulumi.StringPtrInput
 	BillingGroupProperties BillingGroupPropertiesPropertiesPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags BillingGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (BillingGroupArgs) ElementType() reflect.Type {
@@ -130,8 +131,8 @@ func (o BillingGroupOutput) BillingGroupProperties() BillingGroupPropertiesPrope
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o BillingGroupOutput) Tags() BillingGroupTagArrayOutput {
-	return o.ApplyT(func(v *BillingGroup) BillingGroupTagArrayOutput { return v.Tags }).(BillingGroupTagArrayOutput)
+func (o BillingGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *BillingGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

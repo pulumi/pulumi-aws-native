@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.FSx
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FileSystemTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("windowsConfiguration")]
         public Output<Outputs.FileSystemWindowsConfiguration?> WindowsConfiguration { get; private set; } = null!;
@@ -165,10 +165,10 @@ namespace Pulumi.AwsNative.FSx
         }
 
         [Input("tags")]
-        private InputList<Inputs.FileSystemTagArgs>? _tags;
-        public InputList<Inputs.FileSystemTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FileSystemTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

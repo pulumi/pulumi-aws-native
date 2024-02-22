@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.Rekognition
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StreamProcessorTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetStreamProcessorResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Rekognition
 
             string? statusMessage,
 
-            ImmutableArray<Outputs.StreamProcessorTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Status = status;

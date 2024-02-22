@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type DetectorModel struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags DetectorModelTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDetectorModel registers a new resource with the given unique name, arguments, and options.
@@ -102,7 +103,7 @@ type detectorModelArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags []DetectorModelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DetectorModel resource.
@@ -123,7 +124,7 @@ type DetectorModelArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags DetectorModelTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DetectorModelArgs) ElementType() reflect.Type {
@@ -197,8 +198,8 @@ func (o DetectorModelOutput) RoleArn() pulumi.StringOutput {
 // An array of key-value pairs to apply to this resource.
 //
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-func (o DetectorModelOutput) Tags() DetectorModelTagArrayOutput {
-	return o.ApplyT(func(v *DetectorModel) DetectorModelTagArrayOutput { return v.Tags }).(DetectorModelTagArrayOutput)
+func (o DetectorModelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DetectorModel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

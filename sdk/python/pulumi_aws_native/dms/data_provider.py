@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class DataProviderArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  exact_settings: Optional[pulumi.Input[bool]] = None,
                  settings: Optional[pulumi.Input[Union['Settings0PropertiesArgs', 'Settings1PropertiesArgs', 'Settings2PropertiesArgs', 'Settings3PropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataProviderTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataProvider resource.
         :param pulumi.Input['DataProviderEngine'] engine: The property describes a data engine for the data provider.
@@ -32,7 +34,7 @@ class DataProviderArgs:
         :param pulumi.Input[str] description: The optional description of the data provider.
         :param pulumi.Input[bool] exact_settings: The property describes the exact settings which can be modified
         :param pulumi.Input[Union['Settings0PropertiesArgs', 'Settings1PropertiesArgs', 'Settings2PropertiesArgs', 'Settings3PropertiesArgs']] settings: The property identifies the exact type of settings for the data provider.
-        :param pulumi.Input[Sequence[pulumi.Input['DataProviderTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "engine", engine)
         if data_provider_identifier is not None:
@@ -122,14 +124,14 @@ class DataProviderArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataProviderTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataProviderTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,7 +146,7 @@ class DataProvider(pulumi.CustomResource):
                  engine: Optional[pulumi.Input['DataProviderEngine']] = None,
                  exact_settings: Optional[pulumi.Input[bool]] = None,
                  settings: Optional[pulumi.Input[Union[pulumi.InputType['Settings0PropertiesArgs'], pulumi.InputType['Settings1PropertiesArgs'], pulumi.InputType['Settings2PropertiesArgs'], pulumi.InputType['Settings3PropertiesArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataProviderTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DMS::DataProvider
@@ -157,7 +159,7 @@ class DataProvider(pulumi.CustomResource):
         :param pulumi.Input['DataProviderEngine'] engine: The property describes a data engine for the data provider.
         :param pulumi.Input[bool] exact_settings: The property describes the exact settings which can be modified
         :param pulumi.Input[Union[pulumi.InputType['Settings0PropertiesArgs'], pulumi.InputType['Settings1PropertiesArgs'], pulumi.InputType['Settings2PropertiesArgs'], pulumi.InputType['Settings3PropertiesArgs']]] settings: The property identifies the exact type of settings for the data provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataProviderTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -189,7 +191,7 @@ class DataProvider(pulumi.CustomResource):
                  engine: Optional[pulumi.Input['DataProviderEngine']] = None,
                  exact_settings: Optional[pulumi.Input[bool]] = None,
                  settings: Optional[pulumi.Input[Union[pulumi.InputType['Settings0PropertiesArgs'], pulumi.InputType['Settings1PropertiesArgs'], pulumi.InputType['Settings2PropertiesArgs'], pulumi.InputType['Settings3PropertiesArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataProviderTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,7 +311,7 @@ class DataProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DataProviderTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

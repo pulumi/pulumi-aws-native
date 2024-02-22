@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupRepositoryResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RepositoryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A list of upstream repositories associated with the repository.
 	Upstreams []string `pulumi:"upstreams"`
 }
@@ -110,8 +111,8 @@ func (o LookupRepositoryResultOutput) PermissionsPolicyDocument() pulumi.AnyOutp
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupRepositoryResultOutput) Tags() RepositoryTagArrayOutput {
-	return o.ApplyT(func(v LookupRepositoryResult) []RepositoryTag { return v.Tags }).(RepositoryTagArrayOutput)
+func (o LookupRepositoryResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A list of upstream repositories associated with the repository.

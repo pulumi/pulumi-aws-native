@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupTrafficDistributionGroupResult struct {
 	// The status of the traffic distribution group.
 	Status *TrafficDistributionGroupStatus `pulumi:"status"`
 	// One or more tags.
-	Tags []TrafficDistributionGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The identifier of the traffic distribution group.
 	TrafficDistributionGroupArn *string `pulumi:"trafficDistributionGroupArn"`
 }
@@ -92,8 +93,8 @@ func (o LookupTrafficDistributionGroupResultOutput) Status() TrafficDistribution
 }
 
 // One or more tags.
-func (o LookupTrafficDistributionGroupResultOutput) Tags() TrafficDistributionGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupTrafficDistributionGroupResult) []TrafficDistributionGroupTag { return v.Tags }).(TrafficDistributionGroupTagArrayOutput)
+func (o LookupTrafficDistributionGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTrafficDistributionGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The identifier of the traffic distribution group.

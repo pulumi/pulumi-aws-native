@@ -57,7 +57,7 @@ export interface GetGameSessionQueueResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.gamelift.GameSessionQueueTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The maximum time, in seconds, that a new game session placement request remains in the queue.
      */

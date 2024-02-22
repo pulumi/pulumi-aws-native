@@ -613,101 +613,6 @@ type CacheClusterTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CacheClusterTagInput is an input type that accepts CacheClusterTagArgs and CacheClusterTagOutput values.
-// You can construct a concrete instance of `CacheClusterTagInput` via:
-//
-//	CacheClusterTagArgs{...}
-type CacheClusterTagInput interface {
-	pulumi.Input
-
-	ToCacheClusterTagOutput() CacheClusterTagOutput
-	ToCacheClusterTagOutputWithContext(context.Context) CacheClusterTagOutput
-}
-
-type CacheClusterTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CacheClusterTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheClusterTag)(nil)).Elem()
-}
-
-func (i CacheClusterTagArgs) ToCacheClusterTagOutput() CacheClusterTagOutput {
-	return i.ToCacheClusterTagOutputWithContext(context.Background())
-}
-
-func (i CacheClusterTagArgs) ToCacheClusterTagOutputWithContext(ctx context.Context) CacheClusterTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterTagOutput)
-}
-
-// CacheClusterTagArrayInput is an input type that accepts CacheClusterTagArray and CacheClusterTagArrayOutput values.
-// You can construct a concrete instance of `CacheClusterTagArrayInput` via:
-//
-//	CacheClusterTagArray{ CacheClusterTagArgs{...} }
-type CacheClusterTagArrayInput interface {
-	pulumi.Input
-
-	ToCacheClusterTagArrayOutput() CacheClusterTagArrayOutput
-	ToCacheClusterTagArrayOutputWithContext(context.Context) CacheClusterTagArrayOutput
-}
-
-type CacheClusterTagArray []CacheClusterTagInput
-
-func (CacheClusterTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CacheClusterTag)(nil)).Elem()
-}
-
-func (i CacheClusterTagArray) ToCacheClusterTagArrayOutput() CacheClusterTagArrayOutput {
-	return i.ToCacheClusterTagArrayOutputWithContext(context.Background())
-}
-
-func (i CacheClusterTagArray) ToCacheClusterTagArrayOutputWithContext(ctx context.Context) CacheClusterTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterTagArrayOutput)
-}
-
-type CacheClusterTagOutput struct{ *pulumi.OutputState }
-
-func (CacheClusterTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheClusterTag)(nil)).Elem()
-}
-
-func (o CacheClusterTagOutput) ToCacheClusterTagOutput() CacheClusterTagOutput {
-	return o
-}
-
-func (o CacheClusterTagOutput) ToCacheClusterTagOutputWithContext(ctx context.Context) CacheClusterTagOutput {
-	return o
-}
-
-func (o CacheClusterTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CacheClusterTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CacheClusterTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CacheClusterTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CacheClusterTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CacheClusterTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CacheClusterTag)(nil)).Elem()
-}
-
-func (o CacheClusterTagArrayOutput) ToCacheClusterTagArrayOutput() CacheClusterTagArrayOutput {
-	return o
-}
-
-func (o CacheClusterTagArrayOutput) ToCacheClusterTagArrayOutputWithContext(ctx context.Context) CacheClusterTagArrayOutput {
-	return o
-}
-
-func (o CacheClusterTagArrayOutput) Index(i pulumi.IntInput) CacheClusterTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CacheClusterTag {
-		return vs[0].([]CacheClusterTag)[vs[1].(int)]
-	}).(CacheClusterTagOutput)
-}
-
 type GlobalReplicationGroupMember struct {
 	// Regionally unique identifier for the member i.e. ReplicationGroupId.
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
@@ -1049,101 +954,6 @@ func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) Index(i pulumi
 type ParameterGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// ParameterGroupTagInput is an input type that accepts ParameterGroupTagArgs and ParameterGroupTagOutput values.
-// You can construct a concrete instance of `ParameterGroupTagInput` via:
-//
-//	ParameterGroupTagArgs{...}
-type ParameterGroupTagInput interface {
-	pulumi.Input
-
-	ToParameterGroupTagOutput() ParameterGroupTagOutput
-	ToParameterGroupTagOutputWithContext(context.Context) ParameterGroupTagOutput
-}
-
-type ParameterGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ParameterGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterGroupTag)(nil)).Elem()
-}
-
-func (i ParameterGroupTagArgs) ToParameterGroupTagOutput() ParameterGroupTagOutput {
-	return i.ToParameterGroupTagOutputWithContext(context.Background())
-}
-
-func (i ParameterGroupTagArgs) ToParameterGroupTagOutputWithContext(ctx context.Context) ParameterGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupTagOutput)
-}
-
-// ParameterGroupTagArrayInput is an input type that accepts ParameterGroupTagArray and ParameterGroupTagArrayOutput values.
-// You can construct a concrete instance of `ParameterGroupTagArrayInput` via:
-//
-//	ParameterGroupTagArray{ ParameterGroupTagArgs{...} }
-type ParameterGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToParameterGroupTagArrayOutput() ParameterGroupTagArrayOutput
-	ToParameterGroupTagArrayOutputWithContext(context.Context) ParameterGroupTagArrayOutput
-}
-
-type ParameterGroupTagArray []ParameterGroupTagInput
-
-func (ParameterGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ParameterGroupTag)(nil)).Elem()
-}
-
-func (i ParameterGroupTagArray) ToParameterGroupTagArrayOutput() ParameterGroupTagArrayOutput {
-	return i.ToParameterGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i ParameterGroupTagArray) ToParameterGroupTagArrayOutputWithContext(ctx context.Context) ParameterGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupTagArrayOutput)
-}
-
-type ParameterGroupTagOutput struct{ *pulumi.OutputState }
-
-func (ParameterGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterGroupTag)(nil)).Elem()
-}
-
-func (o ParameterGroupTagOutput) ToParameterGroupTagOutput() ParameterGroupTagOutput {
-	return o
-}
-
-func (o ParameterGroupTagOutput) ToParameterGroupTagOutputWithContext(ctx context.Context) ParameterGroupTagOutput {
-	return o
-}
-
-func (o ParameterGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ParameterGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ParameterGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ParameterGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ParameterGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ParameterGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ParameterGroupTag)(nil)).Elem()
-}
-
-func (o ParameterGroupTagArrayOutput) ToParameterGroupTagArrayOutput() ParameterGroupTagArrayOutput {
-	return o
-}
-
-func (o ParameterGroupTagArrayOutput) ToParameterGroupTagArrayOutputWithContext(ctx context.Context) ParameterGroupTagArrayOutput {
-	return o
-}
-
-func (o ParameterGroupTagArrayOutput) Index(i pulumi.IntInput) ParameterGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParameterGroupTag {
-		return vs[0].([]ParameterGroupTag)[vs[1].(int)]
-	}).(ParameterGroupTagOutput)
 }
 
 type ReplicationGroupCloudWatchLogsDestinationDetails struct {
@@ -1708,199 +1518,9 @@ type ReplicationGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ReplicationGroupTagInput is an input type that accepts ReplicationGroupTagArgs and ReplicationGroupTagOutput values.
-// You can construct a concrete instance of `ReplicationGroupTagInput` via:
-//
-//	ReplicationGroupTagArgs{...}
-type ReplicationGroupTagInput interface {
-	pulumi.Input
-
-	ToReplicationGroupTagOutput() ReplicationGroupTagOutput
-	ToReplicationGroupTagOutputWithContext(context.Context) ReplicationGroupTagOutput
-}
-
-type ReplicationGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ReplicationGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationGroupTag)(nil)).Elem()
-}
-
-func (i ReplicationGroupTagArgs) ToReplicationGroupTagOutput() ReplicationGroupTagOutput {
-	return i.ToReplicationGroupTagOutputWithContext(context.Background())
-}
-
-func (i ReplicationGroupTagArgs) ToReplicationGroupTagOutputWithContext(ctx context.Context) ReplicationGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupTagOutput)
-}
-
-// ReplicationGroupTagArrayInput is an input type that accepts ReplicationGroupTagArray and ReplicationGroupTagArrayOutput values.
-// You can construct a concrete instance of `ReplicationGroupTagArrayInput` via:
-//
-//	ReplicationGroupTagArray{ ReplicationGroupTagArgs{...} }
-type ReplicationGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToReplicationGroupTagArrayOutput() ReplicationGroupTagArrayOutput
-	ToReplicationGroupTagArrayOutputWithContext(context.Context) ReplicationGroupTagArrayOutput
-}
-
-type ReplicationGroupTagArray []ReplicationGroupTagInput
-
-func (ReplicationGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicationGroupTag)(nil)).Elem()
-}
-
-func (i ReplicationGroupTagArray) ToReplicationGroupTagArrayOutput() ReplicationGroupTagArrayOutput {
-	return i.ToReplicationGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i ReplicationGroupTagArray) ToReplicationGroupTagArrayOutputWithContext(ctx context.Context) ReplicationGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupTagArrayOutput)
-}
-
-type ReplicationGroupTagOutput struct{ *pulumi.OutputState }
-
-func (ReplicationGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationGroupTag)(nil)).Elem()
-}
-
-func (o ReplicationGroupTagOutput) ToReplicationGroupTagOutput() ReplicationGroupTagOutput {
-	return o
-}
-
-func (o ReplicationGroupTagOutput) ToReplicationGroupTagOutputWithContext(ctx context.Context) ReplicationGroupTagOutput {
-	return o
-}
-
-func (o ReplicationGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicationGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ReplicationGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicationGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ReplicationGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ReplicationGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicationGroupTag)(nil)).Elem()
-}
-
-func (o ReplicationGroupTagArrayOutput) ToReplicationGroupTagArrayOutput() ReplicationGroupTagArrayOutput {
-	return o
-}
-
-func (o ReplicationGroupTagArrayOutput) ToReplicationGroupTagArrayOutputWithContext(ctx context.Context) ReplicationGroupTagArrayOutput {
-	return o
-}
-
-func (o ReplicationGroupTagArrayOutput) Index(i pulumi.IntInput) ReplicationGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationGroupTag {
-		return vs[0].([]ReplicationGroupTag)[vs[1].(int)]
-	}).(ReplicationGroupTagOutput)
-}
-
 type SecurityGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// SecurityGroupTagInput is an input type that accepts SecurityGroupTagArgs and SecurityGroupTagOutput values.
-// You can construct a concrete instance of `SecurityGroupTagInput` via:
-//
-//	SecurityGroupTagArgs{...}
-type SecurityGroupTagInput interface {
-	pulumi.Input
-
-	ToSecurityGroupTagOutput() SecurityGroupTagOutput
-	ToSecurityGroupTagOutputWithContext(context.Context) SecurityGroupTagOutput
-}
-
-type SecurityGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SecurityGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupTag)(nil)).Elem()
-}
-
-func (i SecurityGroupTagArgs) ToSecurityGroupTagOutput() SecurityGroupTagOutput {
-	return i.ToSecurityGroupTagOutputWithContext(context.Background())
-}
-
-func (i SecurityGroupTagArgs) ToSecurityGroupTagOutputWithContext(ctx context.Context) SecurityGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupTagOutput)
-}
-
-// SecurityGroupTagArrayInput is an input type that accepts SecurityGroupTagArray and SecurityGroupTagArrayOutput values.
-// You can construct a concrete instance of `SecurityGroupTagArrayInput` via:
-//
-//	SecurityGroupTagArray{ SecurityGroupTagArgs{...} }
-type SecurityGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToSecurityGroupTagArrayOutput() SecurityGroupTagArrayOutput
-	ToSecurityGroupTagArrayOutputWithContext(context.Context) SecurityGroupTagArrayOutput
-}
-
-type SecurityGroupTagArray []SecurityGroupTagInput
-
-func (SecurityGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityGroupTag)(nil)).Elem()
-}
-
-func (i SecurityGroupTagArray) ToSecurityGroupTagArrayOutput() SecurityGroupTagArrayOutput {
-	return i.ToSecurityGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i SecurityGroupTagArray) ToSecurityGroupTagArrayOutputWithContext(ctx context.Context) SecurityGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupTagArrayOutput)
-}
-
-type SecurityGroupTagOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupTag)(nil)).Elem()
-}
-
-func (o SecurityGroupTagOutput) ToSecurityGroupTagOutput() SecurityGroupTagOutput {
-	return o
-}
-
-func (o SecurityGroupTagOutput) ToSecurityGroupTagOutputWithContext(ctx context.Context) SecurityGroupTagOutput {
-	return o
-}
-
-func (o SecurityGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o SecurityGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type SecurityGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityGroupTag)(nil)).Elem()
-}
-
-func (o SecurityGroupTagArrayOutput) ToSecurityGroupTagArrayOutput() SecurityGroupTagArrayOutput {
-	return o
-}
-
-func (o SecurityGroupTagArrayOutput) ToSecurityGroupTagArrayOutputWithContext(ctx context.Context) SecurityGroupTagArrayOutput {
-	return o
-}
-
-func (o SecurityGroupTagArrayOutput) Index(i pulumi.IntInput) SecurityGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupTag {
-		return vs[0].([]SecurityGroupTag)[vs[1].(int)]
-	}).(SecurityGroupTagOutput)
 }
 
 // The cache capacity limit of the Serverless Cache.
@@ -2520,208 +2140,10 @@ type ServerlessCacheTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// ServerlessCacheTagInput is an input type that accepts ServerlessCacheTagArgs and ServerlessCacheTagOutput values.
-// You can construct a concrete instance of `ServerlessCacheTagInput` via:
-//
-//	ServerlessCacheTagArgs{...}
-type ServerlessCacheTagInput interface {
-	pulumi.Input
-
-	ToServerlessCacheTagOutput() ServerlessCacheTagOutput
-	ToServerlessCacheTagOutputWithContext(context.Context) ServerlessCacheTagOutput
-}
-
-// A key-value pair to associate with Serverless Cache.
-type ServerlessCacheTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ServerlessCacheTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerlessCacheTag)(nil)).Elem()
-}
-
-func (i ServerlessCacheTagArgs) ToServerlessCacheTagOutput() ServerlessCacheTagOutput {
-	return i.ToServerlessCacheTagOutputWithContext(context.Background())
-}
-
-func (i ServerlessCacheTagArgs) ToServerlessCacheTagOutputWithContext(ctx context.Context) ServerlessCacheTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheTagOutput)
-}
-
-// ServerlessCacheTagArrayInput is an input type that accepts ServerlessCacheTagArray and ServerlessCacheTagArrayOutput values.
-// You can construct a concrete instance of `ServerlessCacheTagArrayInput` via:
-//
-//	ServerlessCacheTagArray{ ServerlessCacheTagArgs{...} }
-type ServerlessCacheTagArrayInput interface {
-	pulumi.Input
-
-	ToServerlessCacheTagArrayOutput() ServerlessCacheTagArrayOutput
-	ToServerlessCacheTagArrayOutputWithContext(context.Context) ServerlessCacheTagArrayOutput
-}
-
-type ServerlessCacheTagArray []ServerlessCacheTagInput
-
-func (ServerlessCacheTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerlessCacheTag)(nil)).Elem()
-}
-
-func (i ServerlessCacheTagArray) ToServerlessCacheTagArrayOutput() ServerlessCacheTagArrayOutput {
-	return i.ToServerlessCacheTagArrayOutputWithContext(context.Background())
-}
-
-func (i ServerlessCacheTagArray) ToServerlessCacheTagArrayOutputWithContext(ctx context.Context) ServerlessCacheTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheTagArrayOutput)
-}
-
-// A key-value pair to associate with Serverless Cache.
-type ServerlessCacheTagOutput struct{ *pulumi.OutputState }
-
-func (ServerlessCacheTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerlessCacheTag)(nil)).Elem()
-}
-
-func (o ServerlessCacheTagOutput) ToServerlessCacheTagOutput() ServerlessCacheTagOutput {
-	return o
-}
-
-func (o ServerlessCacheTagOutput) ToServerlessCacheTagOutputWithContext(ctx context.Context) ServerlessCacheTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ServerlessCacheTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerlessCacheTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ServerlessCacheTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerlessCacheTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ServerlessCacheTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ServerlessCacheTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerlessCacheTag)(nil)).Elem()
-}
-
-func (o ServerlessCacheTagArrayOutput) ToServerlessCacheTagArrayOutput() ServerlessCacheTagArrayOutput {
-	return o
-}
-
-func (o ServerlessCacheTagArrayOutput) ToServerlessCacheTagArrayOutputWithContext(ctx context.Context) ServerlessCacheTagArrayOutput {
-	return o
-}
-
-func (o ServerlessCacheTagArrayOutput) Index(i pulumi.IntInput) ServerlessCacheTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessCacheTag {
-		return vs[0].([]ServerlessCacheTag)[vs[1].(int)]
-	}).(ServerlessCacheTagOutput)
-}
-
 // A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
 type SubnetGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// SubnetGroupTagInput is an input type that accepts SubnetGroupTagArgs and SubnetGroupTagOutput values.
-// You can construct a concrete instance of `SubnetGroupTagInput` via:
-//
-//	SubnetGroupTagArgs{...}
-type SubnetGroupTagInput interface {
-	pulumi.Input
-
-	ToSubnetGroupTagOutput() SubnetGroupTagOutput
-	ToSubnetGroupTagOutputWithContext(context.Context) SubnetGroupTagOutput
-}
-
-// A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
-type SubnetGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SubnetGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetGroupTag)(nil)).Elem()
-}
-
-func (i SubnetGroupTagArgs) ToSubnetGroupTagOutput() SubnetGroupTagOutput {
-	return i.ToSubnetGroupTagOutputWithContext(context.Background())
-}
-
-func (i SubnetGroupTagArgs) ToSubnetGroupTagOutputWithContext(ctx context.Context) SubnetGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupTagOutput)
-}
-
-// SubnetGroupTagArrayInput is an input type that accepts SubnetGroupTagArray and SubnetGroupTagArrayOutput values.
-// You can construct a concrete instance of `SubnetGroupTagArrayInput` via:
-//
-//	SubnetGroupTagArray{ SubnetGroupTagArgs{...} }
-type SubnetGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToSubnetGroupTagArrayOutput() SubnetGroupTagArrayOutput
-	ToSubnetGroupTagArrayOutputWithContext(context.Context) SubnetGroupTagArrayOutput
-}
-
-type SubnetGroupTagArray []SubnetGroupTagInput
-
-func (SubnetGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SubnetGroupTag)(nil)).Elem()
-}
-
-func (i SubnetGroupTagArray) ToSubnetGroupTagArrayOutput() SubnetGroupTagArrayOutput {
-	return i.ToSubnetGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i SubnetGroupTagArray) ToSubnetGroupTagArrayOutputWithContext(ctx context.Context) SubnetGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupTagArrayOutput)
-}
-
-// A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
-type SubnetGroupTagOutput struct{ *pulumi.OutputState }
-
-func (SubnetGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetGroupTag)(nil)).Elem()
-}
-
-func (o SubnetGroupTagOutput) ToSubnetGroupTagOutput() SubnetGroupTagOutput {
-	return o
-}
-
-func (o SubnetGroupTagOutput) ToSubnetGroupTagOutputWithContext(ctx context.Context) SubnetGroupTagOutput {
-	return o
-}
-
-func (o SubnetGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SubnetGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o SubnetGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SubnetGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type SubnetGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (SubnetGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SubnetGroupTag)(nil)).Elem()
-}
-
-func (o SubnetGroupTagArrayOutput) ToSubnetGroupTagArrayOutput() SubnetGroupTagArrayOutput {
-	return o
-}
-
-func (o SubnetGroupTagArrayOutput) ToSubnetGroupTagArrayOutputWithContext(ctx context.Context) SubnetGroupTagArrayOutput {
-	return o
-}
-
-func (o SubnetGroupTagArrayOutput) Index(i pulumi.IntInput) SubnetGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetGroupTag {
-		return vs[0].([]SubnetGroupTag)[vs[1].(int)]
-	}).(SubnetGroupTagOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2732,214 +2154,12 @@ type UserGroupTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// UserGroupTagInput is an input type that accepts UserGroupTagArgs and UserGroupTagOutput values.
-// You can construct a concrete instance of `UserGroupTagInput` via:
-//
-//	UserGroupTagArgs{...}
-type UserGroupTagInput interface {
-	pulumi.Input
-
-	ToUserGroupTagOutput() UserGroupTagOutput
-	ToUserGroupTagOutputWithContext(context.Context) UserGroupTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type UserGroupTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (UserGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroupTag)(nil)).Elem()
-}
-
-func (i UserGroupTagArgs) ToUserGroupTagOutput() UserGroupTagOutput {
-	return i.ToUserGroupTagOutputWithContext(context.Background())
-}
-
-func (i UserGroupTagArgs) ToUserGroupTagOutputWithContext(ctx context.Context) UserGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupTagOutput)
-}
-
-// UserGroupTagArrayInput is an input type that accepts UserGroupTagArray and UserGroupTagArrayOutput values.
-// You can construct a concrete instance of `UserGroupTagArrayInput` via:
-//
-//	UserGroupTagArray{ UserGroupTagArgs{...} }
-type UserGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToUserGroupTagArrayOutput() UserGroupTagArrayOutput
-	ToUserGroupTagArrayOutputWithContext(context.Context) UserGroupTagArrayOutput
-}
-
-type UserGroupTagArray []UserGroupTagInput
-
-func (UserGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserGroupTag)(nil)).Elem()
-}
-
-func (i UserGroupTagArray) ToUserGroupTagArrayOutput() UserGroupTagArrayOutput {
-	return i.ToUserGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i UserGroupTagArray) ToUserGroupTagArrayOutputWithContext(ctx context.Context) UserGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type UserGroupTagOutput struct{ *pulumi.OutputState }
-
-func (UserGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroupTag)(nil)).Elem()
-}
-
-func (o UserGroupTagOutput) ToUserGroupTagOutput() UserGroupTagOutput {
-	return o
-}
-
-func (o UserGroupTagOutput) ToUserGroupTagOutputWithContext(ctx context.Context) UserGroupTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o UserGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v UserGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o UserGroupTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type UserGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (UserGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserGroupTag)(nil)).Elem()
-}
-
-func (o UserGroupTagArrayOutput) ToUserGroupTagArrayOutput() UserGroupTagArrayOutput {
-	return o
-}
-
-func (o UserGroupTagArrayOutput) ToUserGroupTagArrayOutputWithContext(ctx context.Context) UserGroupTagArrayOutput {
-	return o
-}
-
-func (o UserGroupTagArrayOutput) Index(i pulumi.IntInput) UserGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserGroupTag {
-		return vs[0].([]UserGroupTag)[vs[1].(int)]
-	}).(UserGroupTagOutput)
-}
-
 // A key-value pair to associate with a resource.
 type UserTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value *string `pulumi:"value"`
-}
-
-// UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
-// You can construct a concrete instance of `UserTagInput` via:
-//
-//	UserTagArgs{...}
-type UserTagInput interface {
-	pulumi.Input
-
-	ToUserTagOutput() UserTagOutput
-	ToUserTagOutputWithContext(context.Context) UserTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type UserTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (UserTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserTag)(nil)).Elem()
-}
-
-func (i UserTagArgs) ToUserTagOutput() UserTagOutput {
-	return i.ToUserTagOutputWithContext(context.Background())
-}
-
-func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
-}
-
-// UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
-// You can construct a concrete instance of `UserTagArrayInput` via:
-//
-//	UserTagArray{ UserTagArgs{...} }
-type UserTagArrayInput interface {
-	pulumi.Input
-
-	ToUserTagArrayOutput() UserTagArrayOutput
-	ToUserTagArrayOutputWithContext(context.Context) UserTagArrayOutput
-}
-
-type UserTagArray []UserTagInput
-
-func (UserTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
-}
-
-func (i UserTagArray) ToUserTagArrayOutput() UserTagArrayOutput {
-	return i.ToUserTagArrayOutputWithContext(context.Background())
-}
-
-func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type UserTagOutput struct{ *pulumi.OutputState }
-
-func (UserTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserTag)(nil)).Elem()
-}
-
-func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
-	return o
-}
-
-func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o UserTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v UserTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o UserTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type UserTagArrayOutput struct{ *pulumi.OutputState }
-
-func (UserTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
-}
-
-func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
-	return o
-}
-
-func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
-	return o
-}
-
-func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserTag {
-		return vs[0].([]UserTag)[vs[1].(int)]
-	}).(UserTagOutput)
 }
 
 func init() {
@@ -2952,16 +2172,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterKinesisFirehoseDestinationDetailsPtrInput)(nil)).Elem(), CacheClusterKinesisFirehoseDestinationDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterLogDeliveryConfigurationRequestInput)(nil)).Elem(), CacheClusterLogDeliveryConfigurationRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterLogDeliveryConfigurationRequestArrayInput)(nil)).Elem(), CacheClusterLogDeliveryConfigurationRequestArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterTagInput)(nil)).Elem(), CacheClusterTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterTagArrayInput)(nil)).Elem(), CacheClusterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberInput)(nil)).Elem(), GlobalReplicationGroupMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberArrayInput)(nil)).Elem(), GlobalReplicationGroupMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupRegionalConfigurationInput)(nil)).Elem(), GlobalReplicationGroupRegionalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupRegionalConfigurationArrayInput)(nil)).Elem(), GlobalReplicationGroupRegionalConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupReshardingConfigurationInput)(nil)).Elem(), GlobalReplicationGroupReshardingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupReshardingConfigurationArrayInput)(nil)).Elem(), GlobalReplicationGroupReshardingConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupTagInput)(nil)).Elem(), ParameterGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupTagArrayInput)(nil)).Elem(), ParameterGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupCloudWatchLogsDestinationDetailsInput)(nil)).Elem(), ReplicationGroupCloudWatchLogsDestinationDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput)(nil)).Elem(), ReplicationGroupCloudWatchLogsDestinationDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupDestinationDetailsInput)(nil)).Elem(), ReplicationGroupDestinationDetailsArgs{})
@@ -2971,10 +2187,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationRequestArrayInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupNodeGroupConfigurationInput)(nil)).Elem(), ReplicationGroupNodeGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupNodeGroupConfigurationArrayInput)(nil)).Elem(), ReplicationGroupNodeGroupConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupTagInput)(nil)).Elem(), ReplicationGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupTagArrayInput)(nil)).Elem(), ReplicationGroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupTagInput)(nil)).Elem(), SecurityGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupTagArrayInput)(nil)).Elem(), SecurityGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsPtrInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStorageInput)(nil)).Elem(), ServerlessCacheDataStorageArgs{})
@@ -2983,14 +2195,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEcpuPerSecondPtrInput)(nil)).Elem(), ServerlessCacheEcpuPerSecondArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEndpointInput)(nil)).Elem(), ServerlessCacheEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEndpointPtrInput)(nil)).Elem(), ServerlessCacheEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheTagInput)(nil)).Elem(), ServerlessCacheTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheTagArrayInput)(nil)).Elem(), ServerlessCacheTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupTagInput)(nil)).Elem(), SubnetGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupTagArrayInput)(nil)).Elem(), SubnetGroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserGroupTagInput)(nil)).Elem(), UserGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserGroupTagArrayInput)(nil)).Elem(), UserGroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
 	pulumi.RegisterOutputType(AuthenticationModePropertiesOutput{})
 	pulumi.RegisterOutputType(AuthenticationModePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CacheClusterCloudWatchLogsDestinationDetailsOutput{})
@@ -3000,16 +2204,12 @@ func init() {
 	pulumi.RegisterOutputType(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CacheClusterLogDeliveryConfigurationRequestOutput{})
 	pulumi.RegisterOutputType(CacheClusterLogDeliveryConfigurationRequestArrayOutput{})
-	pulumi.RegisterOutputType(CacheClusterTagOutput{})
-	pulumi.RegisterOutputType(CacheClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupRegionalConfigurationOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupRegionalConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupReshardingConfigurationOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupReshardingConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(ParameterGroupTagOutput{})
-	pulumi.RegisterOutputType(ParameterGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupCloudWatchLogsDestinationDetailsOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupDestinationDetailsOutput{})
@@ -3019,10 +2219,6 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationRequestArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupNodeGroupConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupNodeGroupConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(ReplicationGroupTagOutput{})
-	pulumi.RegisterOutputType(ReplicationGroupTagArrayOutput{})
-	pulumi.RegisterOutputType(SecurityGroupTagOutput{})
-	pulumi.RegisterOutputType(SecurityGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheDataStorageOutput{})
@@ -3031,12 +2227,4 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessCacheEcpuPerSecondPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheEndpointOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheEndpointPtrOutput{})
-	pulumi.RegisterOutputType(ServerlessCacheTagOutput{})
-	pulumi.RegisterOutputType(ServerlessCacheTagArrayOutput{})
-	pulumi.RegisterOutputType(SubnetGroupTagOutput{})
-	pulumi.RegisterOutputType(SubnetGroupTagArrayOutput{})
-	pulumi.RegisterOutputType(UserGroupTagOutput{})
-	pulumi.RegisterOutputType(UserGroupTagArrayOutput{})
-	pulumi.RegisterOutputType(UserTagOutput{})
-	pulumi.RegisterOutputType(UserTagArrayOutput{})
 }

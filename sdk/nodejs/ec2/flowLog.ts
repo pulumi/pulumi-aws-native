@@ -77,7 +77,7 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * The tags to apply to the flow logs.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.FlowLogTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
      */
@@ -177,7 +177,7 @@ export interface FlowLogArgs {
     /**
      * The tags to apply to the flow logs.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.FlowLogTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
      */

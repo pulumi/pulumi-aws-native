@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<Pulumi.AwsNative.IoT.AuthorizerStatus?> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AuthorizerTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("tokenKeyName")]
         public Output<string?> TokenKeyName { get; private set; } = null!;
@@ -108,10 +108,10 @@ namespace Pulumi.AwsNative.IoT
         public Input<Pulumi.AwsNative.IoT.AuthorizerStatus>? Status { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AuthorizerTagArgs>? _tags;
-        public InputList<Inputs.AuthorizerTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AuthorizerTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

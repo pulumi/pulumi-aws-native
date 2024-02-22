@@ -3922,105 +3922,6 @@ type FunctionTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// FunctionTagInput is an input type that accepts FunctionTagArgs and FunctionTagOutput values.
-// You can construct a concrete instance of `FunctionTagInput` via:
-//
-//	FunctionTagArgs{...}
-type FunctionTagInput interface {
-	pulumi.Input
-
-	ToFunctionTagOutput() FunctionTagOutput
-	ToFunctionTagOutputWithContext(context.Context) FunctionTagOutput
-}
-
-type FunctionTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (FunctionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionTag)(nil)).Elem()
-}
-
-func (i FunctionTagArgs) ToFunctionTagOutput() FunctionTagOutput {
-	return i.ToFunctionTagOutputWithContext(context.Background())
-}
-
-func (i FunctionTagArgs) ToFunctionTagOutputWithContext(ctx context.Context) FunctionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionTagOutput)
-}
-
-// FunctionTagArrayInput is an input type that accepts FunctionTagArray and FunctionTagArrayOutput values.
-// You can construct a concrete instance of `FunctionTagArrayInput` via:
-//
-//	FunctionTagArray{ FunctionTagArgs{...} }
-type FunctionTagArrayInput interface {
-	pulumi.Input
-
-	ToFunctionTagArrayOutput() FunctionTagArrayOutput
-	ToFunctionTagArrayOutputWithContext(context.Context) FunctionTagArrayOutput
-}
-
-type FunctionTagArray []FunctionTagInput
-
-func (FunctionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionTag)(nil)).Elem()
-}
-
-func (i FunctionTagArray) ToFunctionTagArrayOutput() FunctionTagArrayOutput {
-	return i.ToFunctionTagArrayOutputWithContext(context.Background())
-}
-
-func (i FunctionTagArray) ToFunctionTagArrayOutputWithContext(ctx context.Context) FunctionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionTagArrayOutput)
-}
-
-type FunctionTagOutput struct{ *pulumi.OutputState }
-
-func (FunctionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionTag)(nil)).Elem()
-}
-
-func (o FunctionTagOutput) ToFunctionTagOutput() FunctionTagOutput {
-	return o
-}
-
-func (o FunctionTagOutput) ToFunctionTagOutputWithContext(ctx context.Context) FunctionTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o FunctionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o FunctionTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type FunctionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FunctionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionTag)(nil)).Elem()
-}
-
-func (o FunctionTagArrayOutput) ToFunctionTagArrayOutput() FunctionTagArrayOutput {
-	return o
-}
-
-func (o FunctionTagArrayOutput) ToFunctionTagArrayOutputWithContext(ctx context.Context) FunctionTagArrayOutput {
-	return o
-}
-
-func (o FunctionTagArrayOutput) Index(i pulumi.IntInput) FunctionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionTag {
-		return vs[0].([]FunctionTag)[vs[1].(int)]
-	}).(FunctionTagOutput)
-}
-
 // The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
 type FunctionTracingConfig struct {
 	// The tracing mode.
@@ -4991,8 +4892,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigPtrInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartInput)(nil)).Elem(), FunctionSnapStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartPtrInput)(nil)).Elem(), FunctionSnapStartArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTagInput)(nil)).Elem(), FunctionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTagArrayInput)(nil)).Elem(), FunctionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigInput)(nil)).Elem(), FunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigPtrInput)(nil)).Elem(), FunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigInput)(nil)).Elem(), FunctionVpcConfigArgs{})
@@ -5061,8 +4960,6 @@ func init() {
 	pulumi.RegisterOutputType(FunctionSnapStartPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartResponseOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartResponsePtrOutput{})
-	pulumi.RegisterOutputType(FunctionTagOutput{})
-	pulumi.RegisterOutputType(FunctionTagArrayOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})

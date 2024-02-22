@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> NetworkLoadBalancerArn { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TrafficMirrorTargetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -96,10 +96,10 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? NetworkLoadBalancerArn { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TrafficMirrorTargetTagArgs>? _tags;
-        public InputList<Inputs.TrafficMirrorTargetTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TrafficMirrorTargetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

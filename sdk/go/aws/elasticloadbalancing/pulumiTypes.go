@@ -1112,101 +1112,6 @@ type LoadBalancerTag struct {
 	Value string `pulumi:"value"`
 }
 
-// LoadBalancerTagInput is an input type that accepts LoadBalancerTagArgs and LoadBalancerTagOutput values.
-// You can construct a concrete instance of `LoadBalancerTagInput` via:
-//
-//	LoadBalancerTagArgs{...}
-type LoadBalancerTagInput interface {
-	pulumi.Input
-
-	ToLoadBalancerTagOutput() LoadBalancerTagOutput
-	ToLoadBalancerTagOutputWithContext(context.Context) LoadBalancerTagOutput
-}
-
-type LoadBalancerTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LoadBalancerTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerTag)(nil)).Elem()
-}
-
-func (i LoadBalancerTagArgs) ToLoadBalancerTagOutput() LoadBalancerTagOutput {
-	return i.ToLoadBalancerTagOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerTagArgs) ToLoadBalancerTagOutputWithContext(ctx context.Context) LoadBalancerTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTagOutput)
-}
-
-// LoadBalancerTagArrayInput is an input type that accepts LoadBalancerTagArray and LoadBalancerTagArrayOutput values.
-// You can construct a concrete instance of `LoadBalancerTagArrayInput` via:
-//
-//	LoadBalancerTagArray{ LoadBalancerTagArgs{...} }
-type LoadBalancerTagArrayInput interface {
-	pulumi.Input
-
-	ToLoadBalancerTagArrayOutput() LoadBalancerTagArrayOutput
-	ToLoadBalancerTagArrayOutputWithContext(context.Context) LoadBalancerTagArrayOutput
-}
-
-type LoadBalancerTagArray []LoadBalancerTagInput
-
-func (LoadBalancerTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerTag)(nil)).Elem()
-}
-
-func (i LoadBalancerTagArray) ToLoadBalancerTagArrayOutput() LoadBalancerTagArrayOutput {
-	return i.ToLoadBalancerTagArrayOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerTagArray) ToLoadBalancerTagArrayOutputWithContext(ctx context.Context) LoadBalancerTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTagArrayOutput)
-}
-
-type LoadBalancerTagOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerTag)(nil)).Elem()
-}
-
-func (o LoadBalancerTagOutput) ToLoadBalancerTagOutput() LoadBalancerTagOutput {
-	return o
-}
-
-func (o LoadBalancerTagOutput) ToLoadBalancerTagOutputWithContext(ctx context.Context) LoadBalancerTagOutput {
-	return o
-}
-
-func (o LoadBalancerTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LoadBalancerTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o LoadBalancerTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LoadBalancerTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LoadBalancerTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerTag)(nil)).Elem()
-}
-
-func (o LoadBalancerTagArrayOutput) ToLoadBalancerTagArrayOutput() LoadBalancerTagArrayOutput {
-	return o
-}
-
-func (o LoadBalancerTagArrayOutput) ToLoadBalancerTagArrayOutputWithContext(ctx context.Context) LoadBalancerTagArrayOutput {
-	return o
-}
-
-func (o LoadBalancerTagArrayOutput) Index(i pulumi.IntInput) LoadBalancerTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerTag {
-		return vs[0].([]LoadBalancerTag)[vs[1].(int)]
-	}).(LoadBalancerTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLoggingPolicyInput)(nil)).Elem(), LoadBalancerAccessLoggingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLoggingPolicyPtrInput)(nil)).Elem(), LoadBalancerAccessLoggingPolicyArgs{})
@@ -1224,8 +1129,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerListenersArrayInput)(nil)).Elem(), LoadBalancerListenersArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPoliciesInput)(nil)).Elem(), LoadBalancerPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPoliciesArrayInput)(nil)).Elem(), LoadBalancerPoliciesArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTagInput)(nil)).Elem(), LoadBalancerTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTagArrayInput)(nil)).Elem(), LoadBalancerTagArray{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLoggingPolicyOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLoggingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAppCookieStickinessPolicyOutput{})
@@ -1242,6 +1145,4 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerListenersArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerPoliciesOutput{})
 	pulumi.RegisterOutputType(LoadBalancerPoliciesArrayOutput{})
-	pulumi.RegisterOutputType(LoadBalancerTagOutput{})
-	pulumi.RegisterOutputType(LoadBalancerTagArrayOutput{})
 }

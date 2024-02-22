@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -51,7 +52,7 @@ type MatchmakingConfiguration struct {
 	// A unique identifier for the matchmaking rule set to use with this configuration.
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags MatchmakingConfigurationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewMatchmakingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -140,7 +141,7 @@ type matchmakingConfigurationArgs struct {
 	// A unique identifier for the matchmaking rule set to use with this configuration.
 	RuleSetName string `pulumi:"ruleSetName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []MatchmakingConfigurationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MatchmakingConfiguration resource.
@@ -178,7 +179,7 @@ type MatchmakingConfigurationArgs struct {
 	// A unique identifier for the matchmaking rule set to use with this configuration.
 	RuleSetName pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags MatchmakingConfigurationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (MatchmakingConfigurationArgs) ElementType() reflect.Type {
@@ -308,8 +309,8 @@ func (o MatchmakingConfigurationOutput) RuleSetName() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o MatchmakingConfigurationOutput) Tags() MatchmakingConfigurationTagArrayOutput {
-	return o.ApplyT(func(v *MatchmakingConfiguration) MatchmakingConfigurationTagArrayOutput { return v.Tags }).(MatchmakingConfigurationTagArrayOutput)
+func (o MatchmakingConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

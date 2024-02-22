@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type StoredQuery struct {
 	QueryId          pulumi.StringOutput    `pulumi:"queryId"`
 	QueryName        pulumi.StringOutput    `pulumi:"queryName"`
 	// The tags for the stored query.
-	Tags StoredQueryTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewStoredQuery registers a new resource with the given unique name, arguments, and options.
@@ -79,7 +80,7 @@ type storedQueryArgs struct {
 	QueryExpression  string  `pulumi:"queryExpression"`
 	QueryName        string  `pulumi:"queryName"`
 	// The tags for the stored query.
-	Tags []StoredQueryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StoredQuery resource.
@@ -88,7 +89,7 @@ type StoredQueryArgs struct {
 	QueryExpression  pulumi.StringInput
 	QueryName        pulumi.StringInput
 	// The tags for the stored query.
-	Tags StoredQueryTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (StoredQueryArgs) ElementType() reflect.Type {
@@ -149,8 +150,8 @@ func (o StoredQueryOutput) QueryName() pulumi.StringOutput {
 }
 
 // The tags for the stored query.
-func (o StoredQueryOutput) Tags() StoredQueryTagArrayOutput {
-	return o.ApplyT(func(v *StoredQuery) StoredQueryTagArrayOutput { return v.Tags }).(StoredQueryTagArrayOutput)
+func (o StoredQueryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *StoredQuery) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

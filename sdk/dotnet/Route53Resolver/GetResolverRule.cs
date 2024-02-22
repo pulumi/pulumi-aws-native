@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResolverRuleTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Route53Resolver
 
             string? resolverRuleId,
 
-            ImmutableArray<Outputs.ResolverRuleTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.ResolverRuleTargetAddress> targetIps)
         {

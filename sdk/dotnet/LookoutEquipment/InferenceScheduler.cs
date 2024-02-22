@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.LookoutEquipment
         /// Any tags associated with the inference scheduler.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.InferenceSchedulerTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -176,14 +176,14 @@ namespace Pulumi.AwsNative.LookoutEquipment
         public Input<string>? ServerSideKmsKeyId { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.InferenceSchedulerTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Any tags associated with the inference scheduler.
         /// </summary>
-        public InputList<Inputs.InferenceSchedulerTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.InferenceSchedulerTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

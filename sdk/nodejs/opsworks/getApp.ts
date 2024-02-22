@@ -24,10 +24,7 @@ export interface GetAppArgs {
 
 export interface GetAppResult {
     readonly appSource?: outputs.opsworks.AppSource;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-     */
-    readonly attributes?: any;
+    readonly attributes?: {[key: string]: string};
     readonly dataSources?: outputs.opsworks.AppDataSource[];
     readonly description?: string;
     readonly domains?: string[];

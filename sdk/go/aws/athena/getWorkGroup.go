@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupWorkGroupResult struct {
 	// The state of the workgroup: ENABLED or DISABLED.
 	State *WorkGroupStateEnum `pulumi:"state"`
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
-	Tags []WorkGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The workgroup configuration
 	WorkGroupConfiguration *WorkGroupConfiguration `pulumi:"workGroupConfiguration"`
 }
@@ -92,8 +93,8 @@ func (o LookupWorkGroupResultOutput) State() WorkGroupStateEnumPtrOutput {
 }
 
 // One or more tags, separated by commas, that you want to attach to the workgroup as you create it
-func (o LookupWorkGroupResultOutput) Tags() WorkGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupWorkGroupResult) []WorkGroupTag { return v.Tags }).(WorkGroupTagArrayOutput)
+func (o LookupWorkGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWorkGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The workgroup configuration

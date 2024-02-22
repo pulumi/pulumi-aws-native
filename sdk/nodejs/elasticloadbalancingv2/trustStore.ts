@@ -64,7 +64,7 @@ export class TrustStore extends pulumi.CustomResource {
     /**
      * The tags to assign to the trust store.
      */
-    public readonly tags!: pulumi.Output<outputs.elasticloadbalancingv2.TrustStoreTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the trust store.
      */
@@ -129,5 +129,5 @@ export interface TrustStoreArgs {
     /**
      * The tags to assign to the trust store.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TrustStoreTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

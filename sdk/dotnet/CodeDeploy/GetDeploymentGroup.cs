@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.CodeDeploy
         public readonly Outputs.DeploymentGroupOnPremisesTagSet? OnPremisesTagSet;
         public readonly string? OutdatedInstancesStrategy;
         public readonly string? ServiceRoleArn;
-        public readonly ImmutableArray<Outputs.DeploymentGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly bool? TerminationHookEnabled;
         public readonly ImmutableArray<Outputs.DeploymentGroupTriggerConfig> TriggerConfigurations;
 
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.CodeDeploy
 
             string? serviceRoleArn,
 
-            ImmutableArray<Outputs.DeploymentGroupTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? terminationHookEnabled,
 

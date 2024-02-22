@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type PrefixList struct {
 	// Name of Prefix List.
 	PrefixListName pulumi.StringOutput `pulumi:"prefixListName"`
 	// Tags for Prefix List
-	Tags PrefixListTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Version of Prefix List.
 	Version pulumi.IntOutput `pulumi:"version"`
 }
@@ -88,7 +89,7 @@ type prefixListArgs struct {
 	// Name of Prefix List.
 	PrefixListName *string `pulumi:"prefixListName"`
 	// Tags for Prefix List
-	Tags []PrefixListTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrefixList resource.
@@ -102,7 +103,7 @@ type PrefixListArgs struct {
 	// Name of Prefix List.
 	PrefixListName pulumi.StringPtrInput
 	// Tags for Prefix List
-	Tags PrefixListTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (PrefixListArgs) ElementType() reflect.Type {
@@ -178,8 +179,8 @@ func (o PrefixListOutput) PrefixListName() pulumi.StringOutput {
 }
 
 // Tags for Prefix List
-func (o PrefixListOutput) Tags() PrefixListTagArrayOutput {
-	return o.ApplyT(func(v *PrefixList) PrefixListTagArrayOutput { return v.Tags }).(PrefixListTagArrayOutput)
+func (o PrefixListOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PrefixList) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Version of Prefix List.

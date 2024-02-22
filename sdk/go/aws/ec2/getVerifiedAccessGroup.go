@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupVerifiedAccessGroupResult struct {
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification *VerifiedAccessGroupSseSpecification `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []VerifiedAccessGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the Verified Access group.
 	VerifiedAccessGroupArn *string `pulumi:"verifiedAccessGroupArn"`
 	// The ID of the AWS Verified Access group.
@@ -126,8 +127,8 @@ func (o LookupVerifiedAccessGroupResultOutput) SseSpecification() VerifiedAccess
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupVerifiedAccessGroupResultOutput) Tags() VerifiedAccessGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupVerifiedAccessGroupResult) []VerifiedAccessGroupTag { return v.Tags }).(VerifiedAccessGroupTagArrayOutput)
+func (o LookupVerifiedAccessGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the Verified Access group.

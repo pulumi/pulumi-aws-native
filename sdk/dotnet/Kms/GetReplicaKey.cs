@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Kms
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ReplicaKeyTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetReplicaKeyResult(
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Kms
 
             object? keyPolicy,
 
-            ImmutableArray<Outputs.ReplicaKeyTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

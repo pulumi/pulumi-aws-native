@@ -96,7 +96,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * The tags.
      */
-    public readonly tags!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the Target Group
      */
@@ -255,7 +255,7 @@ export interface TargetGroupArgs {
     /**
      * The tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The attributes.
      */

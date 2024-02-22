@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public readonly string? StreamArn;
         public readonly Outputs.TableStreamSpecification? StreamSpecification;
         public readonly string? TableClass;
-        public readonly ImmutableArray<Outputs.TableTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.TableTimeToLiveSpecification? TimeToLiveSpecification;
 
         [OutputConstructor]
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.DynamoDb
 
             string? tableClass,
 
-            ImmutableArray<Outputs.TableTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.TableTimeToLiveSpecification? timeToLiveSpecification)
         {

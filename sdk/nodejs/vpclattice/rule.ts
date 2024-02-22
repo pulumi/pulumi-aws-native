@@ -44,7 +44,7 @@ export class Rule extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly priority!: pulumi.Output<number>;
     public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.vpclattice.RuleTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -101,5 +101,5 @@ export interface RuleArgs {
     name?: pulumi.Input<string>;
     priority: pulumi.Input<number>;
     serviceIdentifier?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.vpclattice.RuleTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

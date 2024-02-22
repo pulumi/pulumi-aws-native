@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -34,7 +36,7 @@ class JobArgs:
                  profile_configuration: Optional[pulumi.Input['JobProfileConfigurationArgs']] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  recipe: Optional[pulumi.Input['JobRecipeArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['JobTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]]] = None):
         """
@@ -288,11 +290,11 @@ class JobArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -341,7 +343,7 @@ class Job(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  recipe: Optional[pulumi.Input[pulumi.InputType['JobRecipeArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input['JobType']] = None,
                  validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobValidationConfigurationArgs']]]]] = None,
@@ -407,7 +409,7 @@ class Job(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  recipe: Optional[pulumi.Input[pulumi.InputType['JobRecipeArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input['JobType']] = None,
                  validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobValidationConfigurationArgs']]]]] = None,
@@ -608,7 +610,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.JobTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         return pulumi.get(self, "tags")
 
     @property

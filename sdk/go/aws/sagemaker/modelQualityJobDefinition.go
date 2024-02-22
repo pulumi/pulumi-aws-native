@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type ModelQualityJobDefinition struct {
 	RoleArn           pulumi.StringOutput                                 `pulumi:"roleArn"`
 	StoppingCondition ModelQualityJobDefinitionStoppingConditionPtrOutput `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ModelQualityJobDefinitionTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewModelQualityJobDefinition registers a new resource with the given unique name, arguments, and options.
@@ -116,7 +117,7 @@ type modelQualityJobDefinitionArgs struct {
 	RoleArn           string                                      `pulumi:"roleArn"`
 	StoppingCondition *ModelQualityJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ModelQualityJobDefinitionTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ModelQualityJobDefinition resource.
@@ -133,7 +134,7 @@ type ModelQualityJobDefinitionArgs struct {
 	RoleArn           pulumi.StringInput
 	StoppingCondition ModelQualityJobDefinitionStoppingConditionPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ModelQualityJobDefinitionTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ModelQualityJobDefinitionArgs) ElementType() reflect.Type {
@@ -239,8 +240,8 @@ func (o ModelQualityJobDefinitionOutput) StoppingCondition() ModelQualityJobDefi
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ModelQualityJobDefinitionOutput) Tags() ModelQualityJobDefinitionTagArrayOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionTagArrayOutput { return v.Tags }).(ModelQualityJobDefinitionTagArrayOutput)
+func (o ModelQualityJobDefinitionOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinition) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

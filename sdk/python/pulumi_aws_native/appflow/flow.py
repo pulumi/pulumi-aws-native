@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,7 @@ class FlowArgs:
                  flow_status: Optional[pulumi.Input['FlowStatus']] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
                  metadata_catalog_config: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Flow resource.
         :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_config_list: List of Destination connectors of the flow.
@@ -38,7 +40,7 @@ class FlowArgs:
         :param pulumi.Input['FlowStatus'] flow_status: Flow activation status for Scheduled- and Event-triggered flows
         :param pulumi.Input[str] kms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input['FlowMetadataCatalogConfigArgs'] metadata_catalog_config: Configurations of metadata catalog of the flow.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]] tags: List of Tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: List of Tags.
         """
         pulumi.set(__self__, "destination_flow_config_list", destination_flow_config_list)
         pulumi.set(__self__, "source_flow_config", source_flow_config)
@@ -167,14 +169,14 @@ class FlowArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         List of Tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -190,7 +192,7 @@ class Flow(pulumi.CustomResource):
                  kms_arn: Optional[pulumi.Input[str]] = None,
                  metadata_catalog_config: Optional[pulumi.Input[pulumi.InputType['FlowMetadataCatalogConfigArgs']]] = None,
                  source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]]] = None,
                  trigger_config: Optional[pulumi.Input[pulumi.InputType['FlowTriggerConfigArgs']]] = None,
                  __props__=None):
@@ -206,7 +208,7 @@ class Flow(pulumi.CustomResource):
         :param pulumi.Input[str] kms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input[pulumi.InputType['FlowMetadataCatalogConfigArgs']] metadata_catalog_config: Configurations of metadata catalog of the flow.
         :param pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']] source_flow_config: Configurations of Source connector of the flow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTagArgs']]]] tags: List of Tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: List of Tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]] tasks: List of tasks for the flow.
         :param pulumi.Input[pulumi.InputType['FlowTriggerConfigArgs']] trigger_config: Trigger settings of the flow.
         """
@@ -241,7 +243,7 @@ class Flow(pulumi.CustomResource):
                  kms_arn: Optional[pulumi.Input[str]] = None,
                  metadata_catalog_config: Optional[pulumi.Input[pulumi.InputType['FlowMetadataCatalogConfigArgs']]] = None,
                  source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]]] = None,
                  trigger_config: Optional[pulumi.Input[pulumi.InputType['FlowTriggerConfigArgs']]] = None,
                  __props__=None):
@@ -375,7 +377,7 @@ class Flow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FlowTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         List of Tags.
         """

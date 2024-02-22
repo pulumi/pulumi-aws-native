@@ -2059,107 +2059,6 @@ type ReportPlanTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// ReportPlanTagInput is an input type that accepts ReportPlanTagArgs and ReportPlanTagOutput values.
-// You can construct a concrete instance of `ReportPlanTagInput` via:
-//
-//	ReportPlanTagArgs{...}
-type ReportPlanTagInput interface {
-	pulumi.Input
-
-	ToReportPlanTagOutput() ReportPlanTagOutput
-	ToReportPlanTagOutputWithContext(context.Context) ReportPlanTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ReportPlanTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ReportPlanTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportPlanTag)(nil)).Elem()
-}
-
-func (i ReportPlanTagArgs) ToReportPlanTagOutput() ReportPlanTagOutput {
-	return i.ToReportPlanTagOutputWithContext(context.Background())
-}
-
-func (i ReportPlanTagArgs) ToReportPlanTagOutputWithContext(ctx context.Context) ReportPlanTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanTagOutput)
-}
-
-// ReportPlanTagArrayInput is an input type that accepts ReportPlanTagArray and ReportPlanTagArrayOutput values.
-// You can construct a concrete instance of `ReportPlanTagArrayInput` via:
-//
-//	ReportPlanTagArray{ ReportPlanTagArgs{...} }
-type ReportPlanTagArrayInput interface {
-	pulumi.Input
-
-	ToReportPlanTagArrayOutput() ReportPlanTagArrayOutput
-	ToReportPlanTagArrayOutputWithContext(context.Context) ReportPlanTagArrayOutput
-}
-
-type ReportPlanTagArray []ReportPlanTagInput
-
-func (ReportPlanTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReportPlanTag)(nil)).Elem()
-}
-
-func (i ReportPlanTagArray) ToReportPlanTagArrayOutput() ReportPlanTagArrayOutput {
-	return i.ToReportPlanTagArrayOutputWithContext(context.Background())
-}
-
-func (i ReportPlanTagArray) ToReportPlanTagArrayOutputWithContext(ctx context.Context) ReportPlanTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ReportPlanTagOutput struct{ *pulumi.OutputState }
-
-func (ReportPlanTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportPlanTag)(nil)).Elem()
-}
-
-func (o ReportPlanTagOutput) ToReportPlanTagOutput() ReportPlanTagOutput {
-	return o
-}
-
-func (o ReportPlanTagOutput) ToReportPlanTagOutputWithContext(ctx context.Context) ReportPlanTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ReportPlanTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReportPlanTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ReportPlanTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReportPlanTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ReportPlanTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ReportPlanTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReportPlanTag)(nil)).Elem()
-}
-
-func (o ReportPlanTagArrayOutput) ToReportPlanTagArrayOutput() ReportPlanTagArrayOutput {
-	return o
-}
-
-func (o ReportPlanTagArrayOutput) ToReportPlanTagArrayOutputWithContext(ctx context.Context) ReportPlanTagArrayOutput {
-	return o
-}
-
-func (o ReportPlanTagArrayOutput) Index(i pulumi.IntInput) ReportPlanTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReportPlanTag {
-		return vs[0].([]ReportPlanTag)[vs[1].(int)]
-	}).(ReportPlanTagOutput)
-}
-
 // Identifies the report template for the report. Reports are built using a report template.
 type ReportSettingProperties struct {
 	// The list of AWS accounts that a report covers.
@@ -2476,105 +2375,6 @@ type RestoreTestingPlanTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// RestoreTestingPlanTagInput is an input type that accepts RestoreTestingPlanTagArgs and RestoreTestingPlanTagOutput values.
-// You can construct a concrete instance of `RestoreTestingPlanTagInput` via:
-//
-//	RestoreTestingPlanTagArgs{...}
-type RestoreTestingPlanTagInput interface {
-	pulumi.Input
-
-	ToRestoreTestingPlanTagOutput() RestoreTestingPlanTagOutput
-	ToRestoreTestingPlanTagOutputWithContext(context.Context) RestoreTestingPlanTagOutput
-}
-
-type RestoreTestingPlanTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RestoreTestingPlanTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestoreTestingPlanTag)(nil)).Elem()
-}
-
-func (i RestoreTestingPlanTagArgs) ToRestoreTestingPlanTagOutput() RestoreTestingPlanTagOutput {
-	return i.ToRestoreTestingPlanTagOutputWithContext(context.Background())
-}
-
-func (i RestoreTestingPlanTagArgs) ToRestoreTestingPlanTagOutputWithContext(ctx context.Context) RestoreTestingPlanTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanTagOutput)
-}
-
-// RestoreTestingPlanTagArrayInput is an input type that accepts RestoreTestingPlanTagArray and RestoreTestingPlanTagArrayOutput values.
-// You can construct a concrete instance of `RestoreTestingPlanTagArrayInput` via:
-//
-//	RestoreTestingPlanTagArray{ RestoreTestingPlanTagArgs{...} }
-type RestoreTestingPlanTagArrayInput interface {
-	pulumi.Input
-
-	ToRestoreTestingPlanTagArrayOutput() RestoreTestingPlanTagArrayOutput
-	ToRestoreTestingPlanTagArrayOutputWithContext(context.Context) RestoreTestingPlanTagArrayOutput
-}
-
-type RestoreTestingPlanTagArray []RestoreTestingPlanTagInput
-
-func (RestoreTestingPlanTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RestoreTestingPlanTag)(nil)).Elem()
-}
-
-func (i RestoreTestingPlanTagArray) ToRestoreTestingPlanTagArrayOutput() RestoreTestingPlanTagArrayOutput {
-	return i.ToRestoreTestingPlanTagArrayOutputWithContext(context.Background())
-}
-
-func (i RestoreTestingPlanTagArray) ToRestoreTestingPlanTagArrayOutputWithContext(ctx context.Context) RestoreTestingPlanTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanTagArrayOutput)
-}
-
-type RestoreTestingPlanTagOutput struct{ *pulumi.OutputState }
-
-func (RestoreTestingPlanTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestoreTestingPlanTag)(nil)).Elem()
-}
-
-func (o RestoreTestingPlanTagOutput) ToRestoreTestingPlanTagOutput() RestoreTestingPlanTagOutput {
-	return o
-}
-
-func (o RestoreTestingPlanTagOutput) ToRestoreTestingPlanTagOutputWithContext(ctx context.Context) RestoreTestingPlanTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o RestoreTestingPlanTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RestoreTestingPlanTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o RestoreTestingPlanTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RestoreTestingPlanTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RestoreTestingPlanTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RestoreTestingPlanTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RestoreTestingPlanTag)(nil)).Elem()
-}
-
-func (o RestoreTestingPlanTagArrayOutput) ToRestoreTestingPlanTagArrayOutput() RestoreTestingPlanTagArrayOutput {
-	return o
-}
-
-func (o RestoreTestingPlanTagArrayOutput) ToRestoreTestingPlanTagArrayOutputWithContext(ctx context.Context) RestoreTestingPlanTagArrayOutput {
-	return o
-}
-
-func (o RestoreTestingPlanTagArrayOutput) Index(i pulumi.IntInput) RestoreTestingPlanTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestoreTestingPlanTag {
-		return vs[0].([]RestoreTestingPlanTag)[vs[1].(int)]
-	}).(RestoreTestingPlanTagOutput)
 }
 
 type RestoreTestingSelectionKeyValue struct {
@@ -2977,12 +2777,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkTagInput)(nil)).Elem(), FrameworkTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkTagArrayInput)(nil)).Elem(), FrameworkTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportDeliveryChannelPropertiesInput)(nil)).Elem(), ReportDeliveryChannelPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanTagInput)(nil)).Elem(), ReportPlanTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanTagArrayInput)(nil)).Elem(), ReportPlanTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportSettingPropertiesInput)(nil)).Elem(), ReportSettingPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointSelectionInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanTagInput)(nil)).Elem(), RestoreTestingPlanTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanTagArrayInput)(nil)).Elem(), RestoreTestingPlanTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionKeyValueInput)(nil)).Elem(), RestoreTestingSelectionKeyValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionKeyValueArrayInput)(nil)).Elem(), RestoreTestingSelectionKeyValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsArgs{})
@@ -3020,14 +2816,10 @@ func init() {
 	pulumi.RegisterOutputType(FrameworkTagArrayOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryChannelPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ReportPlanTagOutput{})
-	pulumi.RegisterOutputType(ReportPlanTagArrayOutput{})
 	pulumi.RegisterOutputType(ReportSettingPropertiesOutput{})
 	pulumi.RegisterOutputType(ReportSettingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput{})
 	pulumi.RegisterOutputType(RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput{})
-	pulumi.RegisterOutputType(RestoreTestingPlanTagOutput{})
-	pulumi.RegisterOutputType(RestoreTestingPlanTagArrayOutput{})
 	pulumi.RegisterOutputType(RestoreTestingSelectionKeyValueOutput{})
 	pulumi.RegisterOutputType(RestoreTestingSelectionKeyValueArrayOutput{})
 	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsOutput{})

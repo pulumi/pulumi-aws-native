@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.DocDb
         public Output<string?> StorageType { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DbClusterTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("useLatestRestorableTime")]
         public Output<bool?> UseLatestRestorableTime { get; private set; } = null!;
@@ -227,10 +227,10 @@ namespace Pulumi.AwsNative.DocDb
         public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DbClusterTagArgs>? _tags;
-        public InputList<Inputs.DbClusterTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DbClusterTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -71,7 +72,7 @@ type Cluster struct {
 	// The name of the subnet group to be used for the cluster.
 	SubnetGroupName pulumi.StringPtrOutput `pulumi:"subnetGroupName"`
 	// An array of key-value pairs to apply to this cluster.
-	Tags ClusterTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A flag that enables in-transit encryption when set to true.
 	//
 	// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
@@ -184,7 +185,7 @@ type clusterArgs struct {
 	// The name of the subnet group to be used for the cluster.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// An array of key-value pairs to apply to this cluster.
-	Tags []ClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A flag that enables in-transit encryption when set to true.
 	//
 	// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
@@ -242,7 +243,7 @@ type ClusterArgs struct {
 	// The name of the subnet group to be used for the cluster.
 	SubnetGroupName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this cluster.
-	Tags ClusterTagArrayInput
+	Tags aws.TagArrayInput
 	// A flag that enables in-transit encryption when set to true.
 	//
 	// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
@@ -419,8 +420,8 @@ func (o ClusterOutput) SubnetGroupName() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this cluster.
-func (o ClusterOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+func (o ClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Cluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A flag that enables in-transit encryption when set to true.

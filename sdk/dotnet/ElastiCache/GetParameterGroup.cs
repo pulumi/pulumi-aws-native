@@ -53,11 +53,8 @@ namespace Pulumi.AwsNative.ElastiCache
     {
         public readonly string? Description;
         public readonly string? Id;
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ElastiCache::ParameterGroup` for more information about the expected schema for this property.
-        /// </summary>
-        public readonly object? Properties;
-        public readonly ImmutableArray<Outputs.ParameterGroupTag> Tags;
+        public readonly ImmutableDictionary<string, string>? Properties;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetParameterGroupResult(
@@ -65,9 +62,9 @@ namespace Pulumi.AwsNative.ElastiCache
 
             string? id,
 
-            object? properties,
+            ImmutableDictionary<string, string>? properties,
 
-            ImmutableArray<Outputs.ParameterGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             Id = id;

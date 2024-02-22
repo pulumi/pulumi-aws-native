@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['StreamProcessorArgs', 'StreamProcessor']
@@ -28,7 +30,7 @@ class StreamProcessorArgs:
                  notification_channel: Optional[pulumi.Input['StreamProcessorNotificationChannelArgs']] = None,
                  polygon_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]]] = None,
                  s3_destination: Optional[pulumi.Input['StreamProcessorS3DestinationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StreamProcessor resource.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.
@@ -36,7 +38,7 @@ class StreamProcessorArgs:
         :param pulumi.Input[str] kms_key_id: The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.
         :param pulumi.Input[str] name: Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]] polygon_regions_of_interest: The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
-        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "kinesis_video_stream", kinesis_video_stream)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -188,14 +190,14 @@ class StreamProcessorArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -216,7 +218,7 @@ class StreamProcessor(pulumi.CustomResource):
                  polygon_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamProcessorPointArgs']]]]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  s3_destination: Optional[pulumi.Input[pulumi.InputType['StreamProcessorS3DestinationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamProcessorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
@@ -228,7 +230,7 @@ class StreamProcessor(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamProcessorPointArgs']]]]]] polygon_regions_of_interest: The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
         :param pulumi.Input[str] role_arn: ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamProcessorTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -266,7 +268,7 @@ class StreamProcessor(pulumi.CustomResource):
                  polygon_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamProcessorPointArgs']]]]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  s3_destination: Optional[pulumi.Input[pulumi.InputType['StreamProcessorS3DestinationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamProcessorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -436,7 +438,7 @@ class StreamProcessor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StreamProcessorTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

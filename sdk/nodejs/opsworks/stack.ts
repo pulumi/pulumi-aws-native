@@ -41,10 +41,7 @@ export class Stack extends pulumi.CustomResource {
     }
 
     public readonly agentVersion!: pulumi.Output<string | undefined>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-     */
-    public readonly attributes!: pulumi.Output<any | undefined>;
+    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly chefConfiguration!: pulumi.Output<outputs.opsworks.StackChefConfiguration | undefined>;
     public readonly cloneAppIds!: pulumi.Output<string[] | undefined>;
     public readonly clonePermissions!: pulumi.Output<boolean | undefined>;
@@ -67,7 +64,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly rdsDbInstances!: pulumi.Output<outputs.opsworks.StackRdsDbInstance[] | undefined>;
     public readonly serviceRoleArn!: pulumi.Output<string>;
     public readonly sourceStackId!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.opsworks.StackTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly useCustomCookbooks!: pulumi.Output<boolean | undefined>;
     public readonly useOpsworksSecurityGroups!: pulumi.Output<boolean | undefined>;
     public readonly vpcId!: pulumi.Output<string | undefined>;
@@ -155,10 +152,7 @@ export class Stack extends pulumi.CustomResource {
  */
 export interface StackArgs {
     agentVersion?: pulumi.Input<string>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-     */
-    attributes?: any;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     chefConfiguration?: pulumi.Input<inputs.opsworks.StackChefConfigurationArgs>;
     cloneAppIds?: pulumi.Input<pulumi.Input<string>[]>;
     clonePermissions?: pulumi.Input<boolean>;
@@ -181,7 +175,7 @@ export interface StackArgs {
     rdsDbInstances?: pulumi.Input<pulumi.Input<inputs.opsworks.StackRdsDbInstanceArgs>[]>;
     serviceRoleArn: pulumi.Input<string>;
     sourceStackId?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.opsworks.StackTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     useCustomCookbooks?: pulumi.Input<boolean>;
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
     vpcId?: pulumi.Input<string>;

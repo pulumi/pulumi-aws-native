@@ -108,7 +108,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The tags that you attach to this queue.
      */
-    public readonly tags!: pulumi.Output<outputs.sqs.QueueTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
      */
@@ -237,7 +237,7 @@ export interface QueueArgs {
     /**
      * The tags that you attach to this queue.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sqs.QueueTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue. Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
      */

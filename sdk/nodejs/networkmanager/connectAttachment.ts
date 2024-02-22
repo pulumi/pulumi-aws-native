@@ -92,7 +92,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * Tags for the attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.ConnectAttachmentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Id of transport attachment
      */
@@ -189,7 +189,7 @@ export interface ConnectAttachmentArgs {
     /**
      * Tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.ConnectAttachmentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Id of transport attachment
      */

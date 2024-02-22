@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// <summary>
         /// The tags to assign to the VOD source.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VodSourceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetVodSourceResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.MediaTailor
 
             ImmutableArray<Outputs.VodSourceHttpPackageConfiguration> httpPackageConfigurations,
 
-            ImmutableArray<Outputs.VodSourceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             HttpPackageConfigurations = httpPackageConfigurations;

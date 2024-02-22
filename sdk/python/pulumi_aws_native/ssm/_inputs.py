@@ -16,8 +16,6 @@ __all__ = [
     'AssociationTargetArgs',
     'DocumentAttachmentsSourceArgs',
     'DocumentRequiresArgs',
-    'DocumentTagArgs',
-    'MaintenanceWindowTagArgs',
     'MaintenanceWindowTargetTargetsArgs',
     'MaintenanceWindowTaskCloudWatchOutputConfigArgs',
     'MaintenanceWindowTaskLoggingInfoArgs',
@@ -33,7 +31,6 @@ __all__ = [
     'PatchBaselinePatchSourceArgs',
     'PatchBaselineRuleGroupArgs',
     'PatchBaselineRuleArgs',
-    'PatchBaselineTagArgs',
     'ResourceDataSyncAwsOrganizationsSourceArgs',
     'ResourceDataSyncS3DestinationArgs',
     'ResourceDataSyncSyncSourceArgs',
@@ -216,72 +213,6 @@ class DocumentRequiresArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class DocumentTagArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] key: The name of the tag.
-        :param pulumi.Input[str] value: The value of the tag.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of the tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class MaintenanceWindowTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -917,36 +848,6 @@ class PatchBaselineRuleArgs:
     @patch_filter_group.setter
     def patch_filter_group(self, value: Optional[pulumi.Input['PatchBaselinePatchFilterGroupArgs']]):
         pulumi.set(self, "patch_filter_group", value)
-
-
-@pulumi.input_type
-class PatchBaselineTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        Metadata that you assign to your AWS resources.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

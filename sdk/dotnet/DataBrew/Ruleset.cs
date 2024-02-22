@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.DataBrew
         public Output<ImmutableArray<Outputs.RulesetRule>> Rules { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RulesetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Arn of the target resource (dataset) to apply the ruleset to
@@ -117,10 +117,10 @@ namespace Pulumi.AwsNative.DataBrew
         }
 
         [Input("tags")]
-        private InputList<Inputs.RulesetTagArgs>? _tags;
-        public InputList<Inputs.RulesetTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RulesetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

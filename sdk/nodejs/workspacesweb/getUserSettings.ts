@@ -31,7 +31,7 @@ export interface GetUserSettingsResult {
     readonly idleDisconnectTimeoutInMinutes?: number;
     readonly pasteAllowed?: enums.workspacesweb.UserSettingsEnabledType;
     readonly printAllowed?: enums.workspacesweb.UserSettingsEnabledType;
-    readonly tags?: outputs.workspacesweb.UserSettingsTag[];
+    readonly tags?: outputs.Tag[];
     readonly uploadAllowed?: enums.workspacesweb.UserSettingsEnabledType;
     readonly userSettingsArn?: string;
 }

@@ -12,12 +12,9 @@ from ._enums import *
 
 __all__ = [
     'ClusterEndpoint',
-    'ClusterTag',
-    'ControlPanelTag',
     'SafetyRuleAssertionRule',
     'SafetyRuleGatingRule',
     'SafetyRuleRuleConfig',
-    'SafetyRuleTag',
 ]
 
 @pulumi.output_type
@@ -39,44 +36,6 @@ class ClusterEndpoint(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         return pulumi.get(self, "region")
-
-
-@pulumi.output_type
-class ClusterTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ControlPanelTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -236,24 +195,5 @@ class SafetyRuleRuleConfig(dict):
     @pulumi.getter
     def type(self) -> 'SafetyRuleRuleType':
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class SafetyRuleTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

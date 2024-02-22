@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RepositoryTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// A list of upstream repositories associated with the repository.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CodeArtifact
 
             object? permissionsPolicyDocument,
 
-            ImmutableArray<Outputs.RepositoryTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> upstreams)
         {

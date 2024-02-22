@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Location
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrackerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TrackerArn;
         public readonly string? UpdateTime;
 
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Location
 
             string? pricingPlanDataSource,
 
-            ImmutableArray<Outputs.TrackerTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? trackerArn,
 

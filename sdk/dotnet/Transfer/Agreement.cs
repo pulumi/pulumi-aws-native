@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Transfer
         /// Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AgreementTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -167,14 +167,14 @@ namespace Pulumi.AwsNative.Transfer
         public Input<Pulumi.AwsNative.Transfer.AgreementStatus>? Status { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AgreementTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         /// </summary>
-        public InputList<Inputs.AgreementTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AgreementTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

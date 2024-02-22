@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,7 +47,7 @@ type Domain struct {
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A list of tags to apply to the user profile.
-	Tags DomainTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The URL to the created domain.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -132,7 +133,7 @@ type domainArgs struct {
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A list of tags to apply to the user profile.
-	Tags []DomainTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -157,7 +158,7 @@ type DomainArgs struct {
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayInput
 	// A list of tags to apply to the user profile.
-	Tags DomainTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	VpcId pulumi.StringInput
 }
@@ -274,8 +275,8 @@ func (o DomainOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // A list of tags to apply to the user profile.
-func (o DomainOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+func (o DomainOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Domain) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // The URL to the created domain.

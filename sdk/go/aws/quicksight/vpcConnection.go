@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type VpcConnection struct {
 	SecurityGroupIds   pulumi.StringArrayOutput                              `pulumi:"securityGroupIds"`
 	Status             VpcConnectionVpcConnectionResourceStatusOutput        `pulumi:"status"`
 	SubnetIds          pulumi.StringArrayOutput                              `pulumi:"subnetIds"`
-	Tags               VpcConnectionTagArrayOutput                           `pulumi:"tags"`
+	Tags               aws.TagArrayOutput                                    `pulumi:"tags"`
 	VpcConnectionId    pulumi.StringPtrOutput                                `pulumi:"vpcConnectionId"`
 	VpcId              pulumi.StringOutput                                   `pulumi:"vpcId"`
 }
@@ -84,7 +85,7 @@ type vpcConnectionArgs struct {
 	RoleArn            *string                                       `pulumi:"roleArn"`
 	SecurityGroupIds   []string                                      `pulumi:"securityGroupIds"`
 	SubnetIds          []string                                      `pulumi:"subnetIds"`
-	Tags               []VpcConnectionTag                            `pulumi:"tags"`
+	Tags               []aws.Tag                                     `pulumi:"tags"`
 	VpcConnectionId    *string                                       `pulumi:"vpcConnectionId"`
 }
 
@@ -97,7 +98,7 @@ type VpcConnectionArgs struct {
 	RoleArn            pulumi.StringPtrInput
 	SecurityGroupIds   pulumi.StringArrayInput
 	SubnetIds          pulumi.StringArrayInput
-	Tags               VpcConnectionTagArrayInput
+	Tags               aws.TagArrayInput
 	VpcConnectionId    pulumi.StringPtrInput
 }
 
@@ -188,8 +189,8 @@ func (o VpcConnectionOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o VpcConnectionOutput) Tags() VpcConnectionTagArrayOutput {
-	return o.ApplyT(func(v *VpcConnection) VpcConnectionTagArrayOutput { return v.Tags }).(VpcConnectionTagArrayOutput)
+func (o VpcConnectionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VpcConnection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o VpcConnectionOutput) VpcConnectionId() pulumi.StringPtrOutput {

@@ -12,7 +12,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ActivityTagsEntry',
     'StateMachineAliasDeploymentPreference',
     'StateMachineAliasRoutingConfigurationVersion',
     'StateMachineCloudWatchLogsLogGroup',
@@ -21,28 +20,8 @@ __all__ = [
     'StateMachineLogDestination',
     'StateMachineLoggingConfiguration',
     'StateMachineS3Location',
-    'StateMachineTagsEntry',
     'StateMachineTracingConfiguration',
 ]
-
-@pulumi.output_type
-class ActivityTagsEntry(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class StateMachineAliasDeploymentPreference(dict):
@@ -315,25 +294,6 @@ class StateMachineS3Location(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class StateMachineTagsEntry(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

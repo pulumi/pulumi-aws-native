@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Forecast
         public Output<Outputs.SchemaProperties> Schema { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TagsItemProperties>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -131,10 +131,10 @@ namespace Pulumi.AwsNative.Forecast
         public Input<Inputs.SchemaPropertiesArgs> Schema { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.TagsItemPropertiesArgs>? _tags;
-        public InputList<Inputs.TagsItemPropertiesArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TagsItemPropertiesArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

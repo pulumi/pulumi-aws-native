@@ -42,7 +42,7 @@ export class UserAccessLoggingSettings extends pulumi.CustomResource {
      * Kinesis stream ARN to which log events are published.
      */
     public readonly kinesisStreamArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.workspacesweb.UserAccessLoggingSettingsTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly userAccessLoggingSettingsArn!: pulumi.Output<string>;
 
     /**
@@ -82,5 +82,5 @@ export interface UserAccessLoggingSettingsArgs {
      * Kinesis stream ARN to which log events are published.
      */
     kinesisStreamArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.workspacesweb.UserAccessLoggingSettingsTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -64,7 +64,7 @@ export class PackagingConfiguration extends pulumi.CustomResource {
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.mediapackage.PackagingConfigurationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PackagingConfiguration resource with the given unique name, arguments, and options.
@@ -128,5 +128,5 @@ export interface PackagingConfigurationArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.mediapackage.PackagingConfigurationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

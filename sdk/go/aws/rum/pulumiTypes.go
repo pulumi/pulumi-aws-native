@@ -912,107 +912,6 @@ type AppMonitorTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AppMonitorTagInput is an input type that accepts AppMonitorTagArgs and AppMonitorTagOutput values.
-// You can construct a concrete instance of `AppMonitorTagInput` via:
-//
-//	AppMonitorTagArgs{...}
-type AppMonitorTagInput interface {
-	pulumi.Input
-
-	ToAppMonitorTagOutput() AppMonitorTagOutput
-	ToAppMonitorTagOutputWithContext(context.Context) AppMonitorTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type AppMonitorTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AppMonitorTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppMonitorTag)(nil)).Elem()
-}
-
-func (i AppMonitorTagArgs) ToAppMonitorTagOutput() AppMonitorTagOutput {
-	return i.ToAppMonitorTagOutputWithContext(context.Background())
-}
-
-func (i AppMonitorTagArgs) ToAppMonitorTagOutputWithContext(ctx context.Context) AppMonitorTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorTagOutput)
-}
-
-// AppMonitorTagArrayInput is an input type that accepts AppMonitorTagArray and AppMonitorTagArrayOutput values.
-// You can construct a concrete instance of `AppMonitorTagArrayInput` via:
-//
-//	AppMonitorTagArray{ AppMonitorTagArgs{...} }
-type AppMonitorTagArrayInput interface {
-	pulumi.Input
-
-	ToAppMonitorTagArrayOutput() AppMonitorTagArrayOutput
-	ToAppMonitorTagArrayOutputWithContext(context.Context) AppMonitorTagArrayOutput
-}
-
-type AppMonitorTagArray []AppMonitorTagInput
-
-func (AppMonitorTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppMonitorTag)(nil)).Elem()
-}
-
-func (i AppMonitorTagArray) ToAppMonitorTagArrayOutput() AppMonitorTagArrayOutput {
-	return i.ToAppMonitorTagArrayOutputWithContext(context.Background())
-}
-
-func (i AppMonitorTagArray) ToAppMonitorTagArrayOutputWithContext(ctx context.Context) AppMonitorTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type AppMonitorTagOutput struct{ *pulumi.OutputState }
-
-func (AppMonitorTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppMonitorTag)(nil)).Elem()
-}
-
-func (o AppMonitorTagOutput) ToAppMonitorTagOutput() AppMonitorTagOutput {
-	return o
-}
-
-func (o AppMonitorTagOutput) ToAppMonitorTagOutputWithContext(ctx context.Context) AppMonitorTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o AppMonitorTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AppMonitorTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o AppMonitorTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AppMonitorTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AppMonitorTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AppMonitorTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppMonitorTag)(nil)).Elem()
-}
-
-func (o AppMonitorTagArrayOutput) ToAppMonitorTagArrayOutput() AppMonitorTagArrayOutput {
-	return o
-}
-
-func (o AppMonitorTagArrayOutput) ToAppMonitorTagArrayOutputWithContext(ctx context.Context) AppMonitorTagArrayOutput {
-	return o
-}
-
-func (o AppMonitorTagArrayOutput) Index(i pulumi.IntInput) AppMonitorTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppMonitorTag {
-		return vs[0].([]AppMonitorTag)[vs[1].(int)]
-	}).(AppMonitorTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorConfigurationInput)(nil)).Elem(), AppMonitorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorConfigurationPtrInput)(nil)).Elem(), AppMonitorConfigurationArgs{})
@@ -1022,8 +921,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDefinitionArrayInput)(nil)).Elem(), AppMonitorMetricDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationInput)(nil)).Elem(), AppMonitorMetricDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationArrayInput)(nil)).Elem(), AppMonitorMetricDestinationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTagInput)(nil)).Elem(), AppMonitorTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTagArrayInput)(nil)).Elem(), AppMonitorTagArray{})
 	pulumi.RegisterOutputType(AppMonitorConfigurationOutput{})
 	pulumi.RegisterOutputType(AppMonitorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AppMonitorCustomEventsOutput{})
@@ -1032,6 +929,4 @@ func init() {
 	pulumi.RegisterOutputType(AppMonitorMetricDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDestinationOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDestinationArrayOutput{})
-	pulumi.RegisterOutputType(AppMonitorTagOutput{})
-	pulumi.RegisterOutputType(AppMonitorTagArrayOutput{})
 }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,10 +19,10 @@ import (
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	ResourceArn pulumi.StringOutput    `pulumi:"resourceArn"`
-	Tags        SnapshotTagArrayOutput `pulumi:"tags"`
-	VolumeId    pulumi.StringOutput    `pulumi:"volumeId"`
+	Name        pulumi.StringOutput `pulumi:"name"`
+	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	Tags        aws.TagArrayOutput  `pulumi:"tags"`
+	VolumeId    pulumi.StringOutput `pulumi:"volumeId"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -71,15 +72,15 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	Name     *string       `pulumi:"name"`
-	Tags     []SnapshotTag `pulumi:"tags"`
-	VolumeId string        `pulumi:"volumeId"`
+	Name     *string   `pulumi:"name"`
+	Tags     []aws.Tag `pulumi:"tags"`
+	VolumeId string    `pulumi:"volumeId"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
 	Name     pulumi.StringPtrInput
-	Tags     SnapshotTagArrayInput
+	Tags     aws.TagArrayInput
 	VolumeId pulumi.StringInput
 }
 
@@ -128,8 +129,8 @@ func (o SnapshotOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-func (o SnapshotOutput) Tags() SnapshotTagArrayOutput {
-	return o.ApplyT(func(v *Snapshot) SnapshotTagArrayOutput { return v.Tags }).(SnapshotTagArrayOutput)
+func (o SnapshotOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Snapshot) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o SnapshotOutput) VolumeId() pulumi.StringOutput {

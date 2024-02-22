@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public readonly string? ServiceRole;
         public readonly Outputs.ProjectSource? Source;
         public readonly string? SourceVersion;
-        public readonly ImmutableArray<Outputs.ProjectTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly int? TimeoutInMinutes;
         public readonly Outputs.ProjectTriggers? Triggers;
         public readonly string? Visibility;
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.CodeBuild
 
             string? sourceVersion,
 
-            ImmutableArray<Outputs.ProjectTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? timeoutInMinutes,
 

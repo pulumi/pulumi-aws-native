@@ -39,13 +39,10 @@ __all__ = [
     'ListenerTargetGroupTupleArgs',
     'LoadBalancerAttributeArgs',
     'LoadBalancerSubnetMappingArgs',
-    'LoadBalancerTagArgs',
     'TargetGroupAttributeArgs',
     'TargetGroupMatcherArgs',
-    'TargetGroupTagArgs',
     'TargetGroupTargetDescriptionArgs',
     'TrustStoreRevocationRevocationContentArgs',
-    'TrustStoreTagArgs',
 ]
 
 @pulumi.input_type
@@ -154,7 +151,7 @@ class ListenerAuthenticateCognitoConfigArgs:
                  user_pool_arn: pulumi.Input[str],
                  user_pool_client_id: pulumi.Input[str],
                  user_pool_domain: pulumi.Input[str],
-                 authentication_request_extra_params: Optional[Any] = None,
+                 authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  session_cookie_name: Optional[pulumi.Input[str]] = None,
@@ -202,11 +199,11 @@ class ListenerAuthenticateCognitoConfigArgs:
 
     @property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[Any]:
+    def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "authentication_request_extra_params")
 
     @authentication_request_extra_params.setter
-    def authentication_request_extra_params(self, value: Optional[Any]):
+    def authentication_request_extra_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @property
@@ -254,7 +251,7 @@ class ListenerAuthenticateOidcConfigArgs:
                  issuer: pulumi.Input[str],
                  token_endpoint: pulumi.Input[str],
                  user_info_endpoint: pulumi.Input[str],
-                 authentication_request_extra_params: Optional[Any] = None,
+                 authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -328,11 +325,11 @@ class ListenerAuthenticateOidcConfigArgs:
 
     @property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[Any]:
+    def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "authentication_request_extra_params")
 
     @authentication_request_extra_params.setter
-    def authentication_request_extra_params(self, value: Optional[Any]):
+    def authentication_request_extra_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "authentication_request_extra_params", value)
 
     @property
@@ -1539,34 +1536,6 @@ class LoadBalancerSubnetMappingArgs:
 
 
 @pulumi.input_type
-class LoadBalancerTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class TargetGroupAttributeArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
@@ -1642,43 +1611,6 @@ class TargetGroupMatcherArgs:
     @http_code.setter
     def http_code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_code", value)
-
-
-@pulumi.input_type
-class TargetGroupTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: The value for the tag. 
-        :param pulumi.Input[str] value: The key name of the tag. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. 
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. 
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1786,32 +1718,5 @@ class TrustStoreRevocationRevocationContentArgs:
     @s3_object_version.setter
     def s3_object_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_object_version", value)
-
-
-@pulumi.input_type
-class TrustStoreTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

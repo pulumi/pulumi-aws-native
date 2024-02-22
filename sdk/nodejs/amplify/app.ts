@@ -55,7 +55,7 @@ export class App extends pulumi.CustomResource {
     public readonly oauthToken!: pulumi.Output<string | undefined>;
     public readonly platform!: pulumi.Output<enums.amplify.AppPlatform | undefined>;
     public readonly repository!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.amplify.AppTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -131,5 +131,5 @@ export interface AppArgs {
     oauthToken?: pulumi.Input<string>;
     platform?: pulumi.Input<enums.amplify.AppPlatform>;
     repository?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.amplify.AppTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

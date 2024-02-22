@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,7 +47,7 @@ type LookupLoadBalancerResult struct {
 	SourceSecurityGroupGroupName  *string                                 `pulumi:"sourceSecurityGroupGroupName"`
 	SourceSecurityGroupOwnerAlias *string                                 `pulumi:"sourceSecurityGroupOwnerAlias"`
 	Subnets                       []string                                `pulumi:"subnets"`
-	Tags                          []LoadBalancerTag                       `pulumi:"tags"`
+	Tags                          []aws.Tag                               `pulumi:"tags"`
 }
 
 func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
@@ -166,8 +167,8 @@ func (o LookupLoadBalancerResultOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) Tags() LoadBalancerTagArrayOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) []LoadBalancerTag { return v.Tags }).(LoadBalancerTagArrayOutput)
+func (o LookupLoadBalancerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

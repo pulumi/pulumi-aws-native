@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Workspace struct {
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
 	// An array of key-value pairs to apply to this resource.
-	Tags WorkspaceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Required to identify a specific APS Workspace.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
@@ -84,7 +85,7 @@ type workspaceArgs struct {
 	KmsKeyArn            *string                        `pulumi:"kmsKeyArn"`
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []WorkspaceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -97,7 +98,7 @@ type WorkspaceArgs struct {
 	KmsKeyArn            pulumi.StringPtrInput
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags WorkspaceTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -167,8 +168,8 @@ func (o WorkspaceOutput) PrometheusEndpoint() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o WorkspaceOutput) Tags() WorkspaceTagArrayOutput {
-	return o.ApplyT(func(v *Workspace) WorkspaceTagArrayOutput { return v.Tags }).(WorkspaceTagArrayOutput)
+func (o WorkspaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Workspace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Required to identify a specific APS Workspace.

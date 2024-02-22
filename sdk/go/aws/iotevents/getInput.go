@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupInputResult struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags []InputTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupInputOutput(ctx *pulumi.Context, args LookupInputOutputArgs, opts ...pulumi.InvokeOption) LookupInputResultOutput {
@@ -85,8 +86,8 @@ func (o LookupInputResultOutput) InputDescription() pulumi.StringPtrOutput {
 // An array of key-value pairs to apply to this resource.
 //
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-func (o LookupInputResultOutput) Tags() InputTagArrayOutput {
-	return o.ApplyT(func(v LookupInputResult) []InputTag { return v.Tags }).(InputTagArrayOutput)
+func (o LookupInputResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupInputResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

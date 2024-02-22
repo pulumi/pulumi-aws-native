@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type User struct {
 	Role                  pulumi.StringOutput                  `pulumi:"role"`
 	ServerId              pulumi.StringOutput                  `pulumi:"serverId"`
 	SshPublicKeys         UserSshPublicKeyArrayOutput          `pulumi:"sshPublicKeys"`
-	Tags                  UserTagArrayOutput                   `pulumi:"tags"`
+	Tags                  aws.TagArrayOutput                   `pulumi:"tags"`
 	UserName              pulumi.StringOutput                  `pulumi:"userName"`
 }
 
@@ -90,7 +91,7 @@ type userArgs struct {
 	Role                  string                      `pulumi:"role"`
 	ServerId              string                      `pulumi:"serverId"`
 	SshPublicKeys         []UserSshPublicKey          `pulumi:"sshPublicKeys"`
-	Tags                  []UserTag                   `pulumi:"tags"`
+	Tags                  []aws.Tag                   `pulumi:"tags"`
 	UserName              *string                     `pulumi:"userName"`
 }
 
@@ -104,7 +105,7 @@ type UserArgs struct {
 	Role                  pulumi.StringInput
 	ServerId              pulumi.StringInput
 	SshPublicKeys         UserSshPublicKeyArrayInput
-	Tags                  UserTagArrayInput
+	Tags                  aws.TagArrayInput
 	UserName              pulumi.StringPtrInput
 }
 
@@ -181,8 +182,8 @@ func (o UserOutput) SshPublicKeys() UserSshPublicKeyArrayOutput {
 	return o.ApplyT(func(v *User) UserSshPublicKeyArrayOutput { return v.SshPublicKeys }).(UserSshPublicKeyArrayOutput)
 }
 
-func (o UserOutput) Tags() UserTagArrayOutput {
-	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
+func (o UserOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *User) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o UserOutput) UserName() pulumi.StringOutput {

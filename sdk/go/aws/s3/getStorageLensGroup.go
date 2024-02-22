@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupStorageLensGroupResult struct {
 	// The ARN for the Amazon S3 Storage Lens Group.
 	StorageLensGroupArn *string `pulumi:"storageLensGroupArn"`
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
-	Tags []StorageLensGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupStorageLensGroupOutput(ctx *pulumi.Context, args LookupStorageLensGroupOutputArgs, opts ...pulumi.InvokeOption) LookupStorageLensGroupResultOutput {
@@ -79,8 +80,8 @@ func (o LookupStorageLensGroupResultOutput) StorageLensGroupArn() pulumi.StringP
 }
 
 // A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
-func (o LookupStorageLensGroupResultOutput) Tags() StorageLensGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupStorageLensGroupResult) []StorageLensGroupTag { return v.Tags }).(StorageLensGroupTagArrayOutput)
+func (o LookupStorageLensGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStorageLensGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

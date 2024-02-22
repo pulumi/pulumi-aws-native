@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public readonly int? MaxDevices;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.DevicePoolRule> Rules;
-        public readonly ImmutableArray<Outputs.DevicePoolTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDevicePoolResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.DeviceFarm
 
             ImmutableArray<Outputs.DevicePoolRule> rules,
 
-            ImmutableArray<Outputs.DevicePoolTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

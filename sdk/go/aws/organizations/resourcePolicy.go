@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type ResourcePolicy struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
 	Content pulumi.AnyOutput `pulumi:"content"`
 	// A list of tags that you want to attach to the resource policy
-	Tags ResourcePolicyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -74,7 +75,7 @@ type resourcePolicyArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
 	Content interface{} `pulumi:"content"`
 	// A list of tags that you want to attach to the resource policy
-	Tags []ResourcePolicyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
@@ -84,7 +85,7 @@ type ResourcePolicyArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
 	Content pulumi.Input
 	// A list of tags that you want to attach to the resource policy
-	Tags ResourcePolicyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {
@@ -137,8 +138,8 @@ func (o ResourcePolicyOutput) Content() pulumi.AnyOutput {
 }
 
 // A list of tags that you want to attach to the resource policy
-func (o ResourcePolicyOutput) Tags() ResourcePolicyTagArrayOutput {
-	return o.ApplyT(func(v *ResourcePolicy) ResourcePolicyTagArrayOutput { return v.Tags }).(ResourcePolicyTagArrayOutput)
+func (o ResourcePolicyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ResourcePolicy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

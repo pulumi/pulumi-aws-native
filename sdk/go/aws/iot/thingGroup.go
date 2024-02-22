@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,7 +20,7 @@ type ThingGroup struct {
 	ParentGroupName pulumi.StringPtrOutput `pulumi:"parentGroupName"`
 	QueryString     pulumi.StringPtrOutput `pulumi:"queryString"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                 ThingGroupTagArrayOutput                `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput                      `pulumi:"tags"`
 	ThingGroupName       pulumi.StringPtrOutput                  `pulumi:"thingGroupName"`
 	ThingGroupProperties ThingGroupPropertiesPropertiesPtrOutput `pulumi:"thingGroupProperties"`
 }
@@ -72,7 +73,7 @@ type thingGroupArgs struct {
 	ParentGroupName *string `pulumi:"parentGroupName"`
 	QueryString     *string `pulumi:"queryString"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                 []ThingGroupTag                 `pulumi:"tags"`
+	Tags                 []aws.Tag                       `pulumi:"tags"`
 	ThingGroupName       *string                         `pulumi:"thingGroupName"`
 	ThingGroupProperties *ThingGroupPropertiesProperties `pulumi:"thingGroupProperties"`
 }
@@ -82,7 +83,7 @@ type ThingGroupArgs struct {
 	ParentGroupName pulumi.StringPtrInput
 	QueryString     pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags                 ThingGroupTagArrayInput
+	Tags                 aws.TagArrayInput
 	ThingGroupName       pulumi.StringPtrInput
 	ThingGroupProperties ThingGroupPropertiesPropertiesPtrInput
 }
@@ -137,8 +138,8 @@ func (o ThingGroupOutput) QueryString() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ThingGroupOutput) Tags() ThingGroupTagArrayOutput {
-	return o.ApplyT(func(v *ThingGroup) ThingGroupTagArrayOutput { return v.Tags }).(ThingGroupTagArrayOutput)
+func (o ThingGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ThingGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ThingGroupOutput) ThingGroupName() pulumi.StringPtrOutput {

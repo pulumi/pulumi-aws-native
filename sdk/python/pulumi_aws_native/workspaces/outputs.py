@@ -12,9 +12,7 @@ from ._enums import *
 
 __all__ = [
     'ConnectionAliasAssociation',
-    'ConnectionAliasTag',
     'WorkspaceProperties',
-    'WorkspaceTag',
 ]
 
 @pulumi.output_type
@@ -75,25 +73,6 @@ class ConnectionAliasAssociation(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
         return pulumi.get(self, "resource_id")
-
-
-@pulumi.output_type
-class ConnectionAliasTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -164,24 +143,5 @@ class WorkspaceProperties(dict):
     @pulumi.getter(name="userVolumeSizeGib")
     def user_volume_size_gib(self) -> Optional[int]:
         return pulumi.get(self, "user_volume_size_gib")
-
-
-@pulumi.output_type
-class WorkspaceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

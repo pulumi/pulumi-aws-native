@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Associate tags with the resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeviceFleetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDeviceFleetResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? roleArn,
 
-            ImmutableArray<Outputs.DeviceFleetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             OutputConfig = outputConfig;

@@ -234,7 +234,7 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The list of tags for the cluster parameter group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         /// </summary>
@@ -324,7 +324,7 @@ namespace Pulumi.AwsNative.Redshift
 
             int? snapshotCopyRetentionPeriod,
 
-            ImmutableArray<Outputs.ClusterTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

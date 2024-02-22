@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RoutingProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRoutingProfileResult(
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Connect
 
             string? routingProfileArn,
 
-            ImmutableArray<Outputs.RoutingProfileTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AgentAvailabilityTimer = agentAvailabilityTimer;
             DefaultOutboundQueueArn = defaultOutboundQueueArn;

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,7 +49,7 @@ type Endpoint struct {
 	ServerName                 pulumi.StringPtrOutput                      `pulumi:"serverName"`
 	SslMode                    pulumi.StringPtrOutput                      `pulumi:"sslMode"`
 	SybaseSettings             EndpointSybaseSettingsPtrOutput             `pulumi:"sybaseSettings"`
-	Tags                       EndpointTagArrayOutput                      `pulumi:"tags"`
+	Tags                       aws.TagArrayOutput                          `pulumi:"tags"`
 	Username                   pulumi.StringPtrOutput                      `pulumi:"username"`
 }
 
@@ -132,7 +133,7 @@ type endpointArgs struct {
 	ServerName                 *string                             `pulumi:"serverName"`
 	SslMode                    *string                             `pulumi:"sslMode"`
 	SybaseSettings             *EndpointSybaseSettings             `pulumi:"sybaseSettings"`
-	Tags                       []EndpointTag                       `pulumi:"tags"`
+	Tags                       []aws.Tag                           `pulumi:"tags"`
 	Username                   *string                             `pulumi:"username"`
 }
 
@@ -167,7 +168,7 @@ type EndpointArgs struct {
 	ServerName                 pulumi.StringPtrInput
 	SslMode                    pulumi.StringPtrInput
 	SybaseSettings             EndpointSybaseSettingsPtrInput
-	Tags                       EndpointTagArrayInput
+	Tags                       aws.TagArrayInput
 	Username                   pulumi.StringPtrInput
 }
 
@@ -328,8 +329,8 @@ func (o EndpointOutput) SybaseSettings() EndpointSybaseSettingsPtrOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointSybaseSettingsPtrOutput { return v.SybaseSettings }).(EndpointSybaseSettingsPtrOutput)
 }
 
-func (o EndpointOutput) Tags() EndpointTagArrayOutput {
-	return o.ApplyT(func(v *Endpoint) EndpointTagArrayOutput { return v.Tags }).(EndpointTagArrayOutput)
+func (o EndpointOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Endpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o EndpointOutput) Username() pulumi.StringPtrOutput {

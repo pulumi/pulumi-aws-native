@@ -27,7 +27,7 @@ export interface GetFleetResult {
     readonly creationTime?: string;
     readonly description?: string;
     readonly lastModificationTime?: string;
-    readonly tags?: outputs.iotfleetwise.FleetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::IoTFleetWise::Fleet Resource Type

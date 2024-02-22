@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.PinpointEmail
     public sealed class GetDedicatedIpPoolResult
     {
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.DedicatedIpPoolTags> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDedicatedIpPoolResult(
             string? id,
 
-            ImmutableArray<Outputs.DedicatedIpPoolTags> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Tags = tags;

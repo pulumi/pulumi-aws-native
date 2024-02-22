@@ -52,7 +52,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * An array of key-value tags to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.appconfig.ExtensionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     public /*out*/ readonly versionNumber!: pulumi.Output<number>;
 
     /**
@@ -112,5 +112,5 @@ export interface ExtensionArgs {
     /**
      * An array of key-value tags to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

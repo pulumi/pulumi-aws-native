@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupFlowResult struct {
 	// Configurations of Source connector of the flow.
 	SourceFlowConfig *FlowSourceFlowConfig `pulumi:"sourceFlowConfig"`
 	// List of Tags.
-	Tags []FlowTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// List of tasks for the flow.
 	Tasks []FlowTask `pulumi:"tasks"`
 	// Trigger settings of the flow.
@@ -115,8 +116,8 @@ func (o LookupFlowResultOutput) SourceFlowConfig() FlowSourceFlowConfigPtrOutput
 }
 
 // List of Tags.
-func (o LookupFlowResultOutput) Tags() FlowTagArrayOutput {
-	return o.ApplyT(func(v LookupFlowResult) []FlowTag { return v.Tags }).(FlowTagArrayOutput)
+func (o LookupFlowResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFlowResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // List of tasks for the flow.

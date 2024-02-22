@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetStudioResult',
@@ -117,7 +117,7 @@ class GetStudioResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.StudioTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         """

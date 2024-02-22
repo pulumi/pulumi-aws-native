@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.IoT
         public readonly Pulumi.AwsNative.IoT.DomainConfigurationDomainType? DomainType;
         public readonly Outputs.DomainConfigurationServerCertificateConfig? ServerCertificateConfig;
         public readonly ImmutableArray<Outputs.DomainConfigurationServerCertificateSummary> ServerCertificates;
-        public readonly ImmutableArray<Outputs.DomainConfigurationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.DomainConfigurationTlsConfig? TlsConfig;
 
         [OutputConstructor]
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.IoT
 
             ImmutableArray<Outputs.DomainConfigurationServerCertificateSummary> serverCertificates,
 
-            ImmutableArray<Outputs.DomainConfigurationTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.DomainConfigurationTlsConfig? tlsConfig)
         {

@@ -88,7 +88,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
      */
-    public readonly tags!: pulumi.Output<outputs.transfer.CertificateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Describing the type of certificate. With or without a private key.
      */
@@ -185,7 +185,7 @@ export interface CertificateArgs {
     /**
      * Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.transfer.CertificateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Specifies the usage type for the certificate.
      */

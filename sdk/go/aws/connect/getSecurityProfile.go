@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupSecurityProfileResult struct {
 	// The list of resources that a security profile applies tag restrictions to in Amazon Connect.
 	TagRestrictedResources []string `pulumi:"tagRestrictedResources"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags []SecurityProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSecurityProfileOutput(ctx *pulumi.Context, args LookupSecurityProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityProfileResultOutput {
@@ -104,8 +105,8 @@ func (o LookupSecurityProfileResultOutput) TagRestrictedResources() pulumi.Strin
 }
 
 // The tags used to organize, track, or control access for this resource.
-func (o LookupSecurityProfileResultOutput) Tags() SecurityProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupSecurityProfileResult) []SecurityProfileTag { return v.Tags }).(SecurityProfileTagArrayOutput)
+func (o LookupSecurityProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

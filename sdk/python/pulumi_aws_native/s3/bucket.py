@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -34,7 +36,7 @@ class BucketArgs:
                  ownership_controls: Optional[pulumi.Input['BucketOwnershipControlsArgs']] = None,
                  public_access_block_configuration: Optional[pulumi.Input['BucketPublicAccessBlockConfigurationArgs']] = None,
                  replication_configuration: Optional[pulumi.Input['BucketReplicationConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  versioning_configuration: Optional[pulumi.Input['BucketVersioningConfigurationArgs']] = None,
                  website_configuration: Optional[pulumi.Input['BucketWebsiteConfigurationArgs']] = None):
         """
@@ -54,7 +56,7 @@ class BucketArgs:
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled.
         :param pulumi.Input['BucketOwnershipControlsArgs'] ownership_controls: Specifies the container element for object ownership rules.
         :param pulumi.Input['BucketReplicationConfigurationArgs'] replication_configuration: Configuration for replicating objects in an S3 bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
         """
         if accelerate_configuration is not None:
             pulumi.set(__self__, "accelerate_configuration", accelerate_configuration)
@@ -297,14 +299,14 @@ class BucketArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this S3 bucket.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -348,7 +350,7 @@ class Bucket(pulumi.CustomResource):
                  ownership_controls: Optional[pulumi.Input[pulumi.InputType['BucketOwnershipControlsArgs']]] = None,
                  public_access_block_configuration: Optional[pulumi.Input[pulumi.InputType['BucketPublicAccessBlockConfigurationArgs']]] = None,
                  replication_configuration: Optional[pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  versioning_configuration: Optional[pulumi.Input[pulumi.InputType['BucketVersioningConfigurationArgs']]] = None,
                  website_configuration: Optional[pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationArgs']]] = None,
                  __props__=None):
@@ -372,7 +374,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled.
         :param pulumi.Input[pulumi.InputType['BucketOwnershipControlsArgs']] ownership_controls: Specifies the container element for object ownership rules.
         :param pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']] replication_configuration: Configuration for replicating objects in an S3 bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
         """
         ...
     @overload
@@ -415,7 +417,7 @@ class Bucket(pulumi.CustomResource):
                  ownership_controls: Optional[pulumi.Input[pulumi.InputType['BucketOwnershipControlsArgs']]] = None,
                  public_access_block_configuration: Optional[pulumi.Input[pulumi.InputType['BucketPublicAccessBlockConfigurationArgs']]] = None,
                  replication_configuration: Optional[pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  versioning_configuration: Optional[pulumi.Input[pulumi.InputType['BucketVersioningConfigurationArgs']]] = None,
                  website_configuration: Optional[pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationArgs']]] = None,
                  __props__=None):
@@ -667,7 +669,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.BucketTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An arbitrary set of tags (key-value pairs) for this S3 bucket.
         """

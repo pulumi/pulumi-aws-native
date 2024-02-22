@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// Specifies the tags applied to resources in the environment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.EnvironmentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Elastic Beanstalk configuration template to use with the environment.
@@ -199,14 +199,14 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public Input<string>? SolutionStackName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.EnvironmentTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Specifies the tags applied to resources in the environment.
         /// </summary>
-        public InputList<Inputs.EnvironmentTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.EnvironmentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

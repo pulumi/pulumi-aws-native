@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public readonly string? LastModificationTime;
         public readonly ImmutableArray<Outputs.CampaignSignalInformation> SignalsToCollect;
         public readonly Pulumi.AwsNative.IoTFleetWise.CampaignStatus? Status;
-        public readonly ImmutableArray<Outputs.CampaignTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCampaignResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
 
             Pulumi.AwsNative.IoTFleetWise.CampaignStatus? status,
 
-            ImmutableArray<Outputs.CampaignTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationTime = creationTime;

@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Rds
         /// The list of tags for the cluster parameter group.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DbClusterParameterGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,14 +119,14 @@ namespace Pulumi.AwsNative.Rds
         public Input<object> Parameters { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DbClusterParameterGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The list of tags for the cluster parameter group.
         /// </summary>
-        public InputList<Inputs.DbClusterParameterGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DbClusterParameterGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

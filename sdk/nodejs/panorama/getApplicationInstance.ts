@@ -31,7 +31,7 @@ export interface GetApplicationInstanceResult {
     readonly lastUpdatedTime?: number;
     readonly status?: enums.panorama.ApplicationInstanceStatus;
     readonly statusDescription?: string;
-    readonly tags?: outputs.panorama.ApplicationInstanceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Schema for ApplicationInstance CloudFormation Resource

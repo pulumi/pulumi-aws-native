@@ -35,7 +35,7 @@ export interface GetVpcConnectionResult {
     readonly roleArn?: string;
     readonly securityGroupIds?: string[];
     readonly status?: enums.quicksight.VpcConnectionVpcConnectionResourceStatus;
-    readonly tags?: outputs.quicksight.VpcConnectionTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcId?: string;
 }
 /**

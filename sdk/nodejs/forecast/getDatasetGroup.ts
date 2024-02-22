@@ -41,7 +41,7 @@ export interface GetDatasetGroupResult {
     /**
      * The tags of Application Insights application.
      */
-    readonly tags?: outputs.forecast.DatasetGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Represents a dataset group that holds a collection of related datasets

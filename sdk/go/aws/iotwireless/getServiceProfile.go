@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupServiceProfileResult struct {
 	// Name of service profile
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the service profile.
-	Tags []ServiceProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupServiceProfileOutput(ctx *pulumi.Context, args LookupServiceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupServiceProfileResultOutput {
@@ -97,8 +98,8 @@ func (o LookupServiceProfileResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the service profile.
-func (o LookupServiceProfileResultOutput) Tags() ServiceProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupServiceProfileResult) []ServiceProfileTag { return v.Tags }).(ServiceProfileTagArrayOutput)
+func (o LookupServiceProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServiceProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

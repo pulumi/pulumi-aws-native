@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type LookupWalWorkspaceArgs struct {
 
 type LookupWalWorkspaceResult struct {
 	// An array of key-value pairs to apply to this resource.
-	Tags []WalWorkspaceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupWalWorkspaceOutput(ctx *pulumi.Context, args LookupWalWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWalWorkspaceResultOutput {
@@ -69,8 +70,8 @@ func (o LookupWalWorkspaceResultOutput) ToLookupWalWorkspaceResultOutputWithCont
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupWalWorkspaceResultOutput) Tags() WalWorkspaceTagArrayOutput {
-	return o.ApplyT(func(v LookupWalWorkspaceResult) []WalWorkspaceTag { return v.Tags }).(WalWorkspaceTagArrayOutput)
+func (o LookupWalWorkspaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWalWorkspaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

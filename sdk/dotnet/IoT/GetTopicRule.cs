@@ -52,14 +52,14 @@ namespace Pulumi.AwsNative.IoT
     public sealed class GetTopicRuleResult
     {
         public readonly string? Arn;
-        public readonly ImmutableArray<Outputs.TopicRuleTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.TopicRulePayload? TopicRulePayload;
 
         [OutputConstructor]
         private GetTopicRuleResult(
             string? arn,
 
-            ImmutableArray<Outputs.TopicRuleTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.TopicRulePayload? topicRulePayload)
         {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,9 +18,9 @@ import (
 type TrafficMirrorFilter struct {
 	pulumi.CustomResourceState
 
-	Description     pulumi.StringPtrOutput            `pulumi:"description"`
-	NetworkServices pulumi.StringArrayOutput          `pulumi:"networkServices"`
-	Tags            TrafficMirrorFilterTagArrayOutput `pulumi:"tags"`
+	Description     pulumi.StringPtrOutput   `pulumi:"description"`
+	NetworkServices pulumi.StringArrayOutput `pulumi:"networkServices"`
+	Tags            aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewTrafficMirrorFilter registers a new resource with the given unique name, arguments, and options.
@@ -66,16 +67,16 @@ func (TrafficMirrorFilterState) ElementType() reflect.Type {
 }
 
 type trafficMirrorFilterArgs struct {
-	Description     *string                  `pulumi:"description"`
-	NetworkServices []string                 `pulumi:"networkServices"`
-	Tags            []TrafficMirrorFilterTag `pulumi:"tags"`
+	Description     *string   `pulumi:"description"`
+	NetworkServices []string  `pulumi:"networkServices"`
+	Tags            []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrafficMirrorFilter resource.
 type TrafficMirrorFilterArgs struct {
 	Description     pulumi.StringPtrInput
 	NetworkServices pulumi.StringArrayInput
-	Tags            TrafficMirrorFilterTagArrayInput
+	Tags            aws.TagArrayInput
 }
 
 func (TrafficMirrorFilterArgs) ElementType() reflect.Type {
@@ -123,8 +124,8 @@ func (o TrafficMirrorFilterOutput) NetworkServices() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringArrayOutput { return v.NetworkServices }).(pulumi.StringArrayOutput)
 }
 
-func (o TrafficMirrorFilterOutput) Tags() TrafficMirrorFilterTagArrayOutput {
-	return o.ApplyT(func(v *TrafficMirrorFilter) TrafficMirrorFilterTagArrayOutput { return v.Tags }).(TrafficMirrorFilterTagArrayOutput)
+func (o TrafficMirrorFilterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilter) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -48,7 +48,7 @@ export interface GetTableResult {
     /**
      * An array of key-value pairs to apply to this resource
      */
-    readonly tags?: outputs.cassandra.TableTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::Cassandra::Table

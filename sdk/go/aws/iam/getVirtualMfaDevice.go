@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,9 +28,9 @@ type LookupVirtualMfaDeviceArgs struct {
 }
 
 type LookupVirtualMfaDeviceResult struct {
-	SerialNumber *string               `pulumi:"serialNumber"`
-	Tags         []VirtualMfaDeviceTag `pulumi:"tags"`
-	Users        []string              `pulumi:"users"`
+	SerialNumber *string   `pulumi:"serialNumber"`
+	Tags         []aws.Tag `pulumi:"tags"`
+	Users        []string  `pulumi:"users"`
 }
 
 func LookupVirtualMfaDeviceOutput(ctx *pulumi.Context, args LookupVirtualMfaDeviceOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMfaDeviceResultOutput {
@@ -71,8 +72,8 @@ func (o LookupVirtualMfaDeviceResultOutput) SerialNumber() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupVirtualMfaDeviceResult) *string { return v.SerialNumber }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVirtualMfaDeviceResultOutput) Tags() VirtualMfaDeviceTagArrayOutput {
-	return o.ApplyT(func(v LookupVirtualMfaDeviceResult) []VirtualMfaDeviceTag { return v.Tags }).(VirtualMfaDeviceTagArrayOutput)
+func (o LookupVirtualMfaDeviceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVirtualMfaDeviceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupVirtualMfaDeviceResultOutput) Users() pulumi.StringArrayOutput {

@@ -43,7 +43,7 @@ export class HttpNamespace extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.servicediscovery.HttpNamespaceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a HttpNamespace resource with the given unique name, arguments, and options.
@@ -81,5 +81,5 @@ export class HttpNamespace extends pulumi.CustomResource {
 export interface HttpNamespaceArgs {
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.servicediscovery.HttpNamespaceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AgreementTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAgreementResult(
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.Transfer
 
             Pulumi.AwsNative.Transfer.AgreementStatus? status,
 
-            ImmutableArray<Outputs.AgreementTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AccessRole = accessRole;
             AgreementId = agreementId;

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +29,7 @@ class AnalysisArgs:
                  sheets: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]]] = None,
                  source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
                  status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  validation_strategy: Optional[pulumi.Input['AnalysisValidationStrategyArgs']] = None):
         """
@@ -150,11 +152,11 @@ class AnalysisArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -191,7 +193,7 @@ class Analysis(pulumi.CustomResource):
                  sheets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisSheetArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
                  status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  validation_strategy: Optional[pulumi.Input[pulumi.InputType['AnalysisValidationStrategyArgs']]] = None,
                  __props__=None):
@@ -235,7 +237,7 @@ class Analysis(pulumi.CustomResource):
                  sheets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisSheetArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
                  status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  validation_strategy: Optional[pulumi.Input[pulumi.InputType['AnalysisValidationStrategyArgs']]] = None,
                  __props__=None):
@@ -383,7 +385,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

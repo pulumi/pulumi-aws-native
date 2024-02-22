@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         public readonly ImmutableArray<string> Protocols;
         public readonly string? ResolverEndpointId;
         public readonly string? ResolverEndpointType;
-        public readonly ImmutableArray<Outputs.ResolverEndpointTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetResolverEndpointResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Route53Resolver
 
             string? resolverEndpointType,
 
-            ImmutableArray<Outputs.ResolverEndpointTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             HostVpcId = hostVpcId;

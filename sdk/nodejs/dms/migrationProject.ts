@@ -80,7 +80,7 @@ export class MigrationProject extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.dms.MigrationProjectTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The property describes target data provider descriptors for the migration project.
      */
@@ -177,7 +177,7 @@ export interface MigrationProjectArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.dms.MigrationProjectTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The property describes target data provider descriptors for the migration project.
      */

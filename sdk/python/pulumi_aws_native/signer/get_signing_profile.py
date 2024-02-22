@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetSigningProfileResult',
@@ -70,7 +70,7 @@ class GetSigningProfileResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.SigningProfileTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         A list of tags associated with the signing profile.
         """

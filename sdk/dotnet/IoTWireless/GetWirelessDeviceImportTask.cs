@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WirelessDeviceImportTaskTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetWirelessDeviceImportTaskResult(
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? statusReason,
 
-            ImmutableArray<Outputs.WirelessDeviceImportTaskTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationDate = creationDate;

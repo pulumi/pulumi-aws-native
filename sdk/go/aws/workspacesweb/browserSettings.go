@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type BrowserSettings struct {
 	BrowserPolicy               pulumi.StringPtrOutput                       `pulumi:"browserPolicy"`
 	BrowserSettingsArn          pulumi.StringOutput                          `pulumi:"browserSettingsArn"`
 	CustomerManagedKey          pulumi.StringPtrOutput                       `pulumi:"customerManagedKey"`
-	Tags                        BrowserSettingsTagArrayOutput                `pulumi:"tags"`
+	Tags                        aws.TagArrayOutput                           `pulumi:"tags"`
 }
 
 // NewBrowserSettings registers a new resource with the given unique name, arguments, and options.
@@ -71,7 +72,7 @@ type browserSettingsArgs struct {
 	AdditionalEncryptionContext *BrowserSettingsEncryptionContextMap `pulumi:"additionalEncryptionContext"`
 	BrowserPolicy               *string                              `pulumi:"browserPolicy"`
 	CustomerManagedKey          *string                              `pulumi:"customerManagedKey"`
-	Tags                        []BrowserSettingsTag                 `pulumi:"tags"`
+	Tags                        []aws.Tag                            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BrowserSettings resource.
@@ -79,7 +80,7 @@ type BrowserSettingsArgs struct {
 	AdditionalEncryptionContext BrowserSettingsEncryptionContextMapPtrInput
 	BrowserPolicy               pulumi.StringPtrInput
 	CustomerManagedKey          pulumi.StringPtrInput
-	Tags                        BrowserSettingsTagArrayInput
+	Tags                        aws.TagArrayInput
 }
 
 func (BrowserSettingsArgs) ElementType() reflect.Type {
@@ -141,8 +142,8 @@ func (o BrowserSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
-func (o BrowserSettingsOutput) Tags() BrowserSettingsTagArrayOutput {
-	return o.ApplyT(func(v *BrowserSettings) BrowserSettingsTagArrayOutput { return v.Tags }).(BrowserSettingsTagArrayOutput)
+func (o BrowserSettingsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *BrowserSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public Output<string?> Name { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ReportGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -94,10 +94,10 @@ namespace Pulumi.AwsNative.CodeBuild
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ReportGroupTagArgs>? _tags;
-        public InputList<Inputs.ReportGroupTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ReportGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

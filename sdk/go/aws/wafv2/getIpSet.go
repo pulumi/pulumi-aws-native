@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupIpSetResult struct {
 	Description      *string                `pulumi:"description"`
 	Id               *string                `pulumi:"id"`
 	IpAddressVersion *IpSetIpAddressVersion `pulumi:"ipAddressVersion"`
-	Tags             []IpSetTag             `pulumi:"tags"`
+	Tags             []aws.Tag              `pulumi:"tags"`
 }
 
 func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...pulumi.InvokeOption) LookupIpSetResultOutput {
@@ -96,8 +97,8 @@ func (o LookupIpSetResultOutput) IpAddressVersion() IpSetIpAddressVersionPtrOutp
 	return o.ApplyT(func(v LookupIpSetResult) *IpSetIpAddressVersion { return v.IpAddressVersion }).(IpSetIpAddressVersionPtrOutput)
 }
 
-func (o LookupIpSetResultOutput) Tags() IpSetTagArrayOutput {
-	return o.ApplyT(func(v LookupIpSetResult) []IpSetTag { return v.Tags }).(IpSetTagArrayOutput)
+func (o LookupIpSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIpSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

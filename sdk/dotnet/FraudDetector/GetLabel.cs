@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// Tags associated with this label.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LabelTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLabelResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.FraudDetector
 
             string? lastUpdatedTime,
 
-            ImmutableArray<Outputs.LabelTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreatedTime = createdTime;

@@ -88,13 +88,13 @@ namespace Pulumi.AwsNative.Eks
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IdentityProviderConfigTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetIdentityProviderConfigResult(
             string? identityProviderConfigArn,
 
-            ImmutableArray<Outputs.IdentityProviderConfigTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             IdentityProviderConfigArn = identityProviderConfigArn;
             Tags = tags;

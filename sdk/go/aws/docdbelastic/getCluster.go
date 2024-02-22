@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,14 +28,14 @@ type LookupClusterArgs struct {
 }
 
 type LookupClusterResult struct {
-	ClusterArn                 *string      `pulumi:"clusterArn"`
-	ClusterEndpoint            *string      `pulumi:"clusterEndpoint"`
-	PreferredMaintenanceWindow *string      `pulumi:"preferredMaintenanceWindow"`
-	ShardCapacity              *int         `pulumi:"shardCapacity"`
-	ShardCount                 *int         `pulumi:"shardCount"`
-	SubnetIds                  []string     `pulumi:"subnetIds"`
-	Tags                       []ClusterTag `pulumi:"tags"`
-	VpcSecurityGroupIds        []string     `pulumi:"vpcSecurityGroupIds"`
+	ClusterArn                 *string   `pulumi:"clusterArn"`
+	ClusterEndpoint            *string   `pulumi:"clusterEndpoint"`
+	PreferredMaintenanceWindow *string   `pulumi:"preferredMaintenanceWindow"`
+	ShardCapacity              *int      `pulumi:"shardCapacity"`
+	ShardCount                 *int      `pulumi:"shardCount"`
+	SubnetIds                  []string  `pulumi:"subnetIds"`
+	Tags                       []aws.Tag `pulumi:"tags"`
+	VpcSecurityGroupIds        []string  `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -96,8 +97,8 @@ func (o LookupClusterResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupClusterResultOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v LookupClusterResult) []ClusterTag { return v.Tags }).(ClusterTagArrayOutput)
+func (o LookupClusterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupClusterResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

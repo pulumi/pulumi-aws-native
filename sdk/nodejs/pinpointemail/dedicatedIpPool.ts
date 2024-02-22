@@ -41,7 +41,7 @@ export class DedicatedIpPool extends pulumi.CustomResource {
     }
 
     public readonly poolName!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.pinpointemail.DedicatedIpPoolTags[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DedicatedIpPool resource with the given unique name, arguments, and options.
@@ -74,5 +74,5 @@ export class DedicatedIpPool extends pulumi.CustomResource {
  */
 export interface DedicatedIpPoolArgs {
     poolName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.pinpointemail.DedicatedIpPoolTagsArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

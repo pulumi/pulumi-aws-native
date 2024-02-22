@@ -56,7 +56,7 @@ export class DatasetGroup extends pulumi.CustomResource {
     /**
      * The tags of Application Insights application.
      */
-    public readonly tags!: pulumi.Output<outputs.forecast.DatasetGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DatasetGroup resource with the given unique name, arguments, and options.
@@ -110,5 +110,5 @@ export interface DatasetGroupArgs {
     /**
      * The tags of Application Insights application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.forecast.DatasetGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

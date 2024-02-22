@@ -45,7 +45,7 @@ export interface GetProfileResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.transfer.ProfileTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Transfer::Profile

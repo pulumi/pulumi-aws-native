@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AgentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAgentResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.DataSync
 
             Pulumi.AwsNative.DataSync.AgentEndpointType? endpointType,
 
-            ImmutableArray<Outputs.AgentTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AgentArn = agentArn;
             AgentName = agentName;

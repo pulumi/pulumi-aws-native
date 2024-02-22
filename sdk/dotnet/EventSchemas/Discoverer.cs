@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.EventSchemas
         /// Tags associated with the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DiscovererTagsEntry>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -125,14 +125,14 @@ namespace Pulumi.AwsNative.EventSchemas
         public Input<string> SourceArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DiscovererTagsEntryArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags associated with the resource.
         /// </summary>
-        public InputList<Inputs.DiscovererTagsEntryArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DiscovererTagsEntryArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

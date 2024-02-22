@@ -46,7 +46,7 @@ export interface GetInstanceResult {
     readonly securityGroupIds?: string[];
     readonly sourceDestCheck?: boolean;
     readonly ssmAssociations?: outputs.ec2.InstanceSsmAssociation[];
-    readonly tags?: outputs.ec2.InstanceTag[];
+    readonly tags?: outputs.Tag[];
     readonly tenancy?: string;
     readonly userData?: string;
     readonly volumes?: outputs.ec2.InstanceVolume[];

@@ -34,7 +34,7 @@ export interface GetSubnetGroupResult {
      * The EC2 subnet IDs for the cache subnet group.
      */
     readonly subnetIds?: string[];
-    readonly tags?: outputs.elasticache.SubnetGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ElastiCache::SubnetGroup

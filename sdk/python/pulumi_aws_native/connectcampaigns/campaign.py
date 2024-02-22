@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['CampaignArgs', 'Campaign']
@@ -20,12 +22,12 @@ class CampaignArgs:
                  dialer_config: pulumi.Input['CampaignDialerConfigArgs'],
                  outbound_call_config: pulumi.Input['CampaignOutboundCallConfigArgs'],
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Campaign resource.
         :param pulumi.Input[str] connect_instance_arn: Amazon Connect Instance Arn
         :param pulumi.Input[str] name: Amazon Connect Campaign Name
-        :param pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "connect_instance_arn", connect_instance_arn)
         pulumi.set(__self__, "dialer_config", dialer_config)
@@ -79,14 +81,14 @@ class CampaignArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -99,7 +101,7 @@ class Campaign(pulumi.CustomResource):
                  dialer_config: Optional[pulumi.Input[pulumi.InputType['CampaignDialerConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_call_config: Optional[pulumi.Input[pulumi.InputType['CampaignOutboundCallConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::ConnectCampaigns::Campaign Resource Type
@@ -108,7 +110,7 @@ class Campaign(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connect_instance_arn: Amazon Connect Instance Arn
         :param pulumi.Input[str] name: Amazon Connect Campaign Name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignTagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -138,7 +140,7 @@ class Campaign(pulumi.CustomResource):
                  dialer_config: Optional[pulumi.Input[pulumi.InputType['CampaignDialerConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_call_config: Optional[pulumi.Input[pulumi.InputType['CampaignOutboundCallConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -228,7 +230,7 @@ class Campaign(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CampaignTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         One or more tags.
         """

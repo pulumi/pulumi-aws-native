@@ -64,7 +64,7 @@ export class EvaluationForm extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.EvaluationFormTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The title of the evaluation form.
      */
@@ -143,7 +143,7 @@ export interface EvaluationFormArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.EvaluationFormTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The title of the evaluation form.
      */

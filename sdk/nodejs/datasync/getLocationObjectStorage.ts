@@ -57,7 +57,7 @@ export interface GetLocationObjectStorageResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.datasync.LocationObjectStorageTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataSync::LocationObjectStorage.

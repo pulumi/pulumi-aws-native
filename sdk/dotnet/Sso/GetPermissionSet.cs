@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Sso
         /// The length of time that a user can be signed in to an AWS account.
         /// </summary>
         public readonly string? SessionDuration;
-        public readonly ImmutableArray<Outputs.PermissionSetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPermissionSetResult(
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Sso
 
             string? sessionDuration,
 
-            ImmutableArray<Outputs.PermissionSetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CustomerManagedPolicyReferences = customerManagedPolicyReferences;
             Description = description;

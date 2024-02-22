@@ -73,7 +73,7 @@ export interface GetWirelessDeviceImportTaskResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.iotwireless.WirelessDeviceImportTaskTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Wireless Device Import Tasks

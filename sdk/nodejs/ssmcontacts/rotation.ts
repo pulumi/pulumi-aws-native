@@ -54,7 +54,7 @@ export class Rotation extends pulumi.CustomResource {
      * Start time of the first shift of Oncall Schedule
      */
     public readonly startTime!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.ssmcontacts.RotationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * TimeZone Identifier for the Oncall Schedule
      */
@@ -121,7 +121,7 @@ export interface RotationArgs {
      * Start time of the first shift of Oncall Schedule
      */
     startTime: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.RotationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * TimeZone Identifier for the Oncall Schedule
      */

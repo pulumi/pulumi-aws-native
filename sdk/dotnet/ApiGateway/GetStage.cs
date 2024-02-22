@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StageTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Specifies whether active tracing with X-ray is enabled for the Stage.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.ApiGateway
 
             ImmutableArray<Outputs.StageMethodSetting> methodSettings,
 
-            ImmutableArray<Outputs.StageTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? tracingEnabled,
 

@@ -47,7 +47,7 @@ export class FhirDatastore extends pulumi.CustomResource {
     public readonly identityProviderConfiguration!: pulumi.Output<outputs.healthlake.FhirDatastoreIdentityProviderConfiguration | undefined>;
     public readonly preloadDataConfig!: pulumi.Output<outputs.healthlake.FhirDatastorePreloadDataConfig | undefined>;
     public readonly sseConfiguration!: pulumi.Output<outputs.healthlake.FhirDatastoreSseConfiguration | undefined>;
-    public readonly tags!: pulumi.Output<outputs.healthlake.FhirDatastoreTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FhirDatastore resource with the given unique name, arguments, and options.
@@ -103,5 +103,5 @@ export interface FhirDatastoreArgs {
     identityProviderConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreIdentityProviderConfigurationArgs>;
     preloadDataConfig?: pulumi.Input<inputs.healthlake.FhirDatastorePreloadDataConfigArgs>;
     sseConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreSseConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.healthlake.FhirDatastoreTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

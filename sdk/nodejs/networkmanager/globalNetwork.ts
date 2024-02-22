@@ -56,7 +56,7 @@ export class GlobalNetwork extends pulumi.CustomResource {
     /**
      * The tags for the global network.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.GlobalNetworkTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a GlobalNetwork resource with the given unique name, arguments, and options.
@@ -105,5 +105,5 @@ export interface GlobalNetworkArgs {
     /**
      * The tags for the global network.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.GlobalNetworkTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

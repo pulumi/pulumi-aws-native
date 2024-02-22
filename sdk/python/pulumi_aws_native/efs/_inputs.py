@@ -14,9 +14,7 @@ __all__ = [
     'AccessPointCreationInfoArgs',
     'AccessPointPosixUserArgs',
     'AccessPointRootDirectoryArgs',
-    'AccessPointTagArgs',
     'FileSystemBackupPolicyArgs',
-    'FileSystemElasticFileSystemTagArgs',
     'FileSystemLifecyclePolicyArgs',
     'FileSystemProtectionArgs',
     'FileSystemReplicationConfigurationArgs',
@@ -175,46 +173,6 @@ class AccessPointRootDirectoryArgs:
 
 
 @pulumi.input_type
-class AccessPointTagArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        A tag is a key-value pair attached to a file system. Allowed characters in the ``Key`` and ``Value`` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:``+ - = . _ : /``
-        :param pulumi.Input[str] key: The tag key (String). The key can't start with ``aws:``.
-        :param pulumi.Input[str] value: The value of the tag key.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The tag key (String). The key can't start with ``aws:``.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of the tag key.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class FileSystemBackupPolicyArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str]):
@@ -228,33 +186,6 @@ class FileSystemBackupPolicyArgs:
     @status.setter
     def status(self, value: pulumi.Input[str]):
         pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class FileSystemElasticFileSystemTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

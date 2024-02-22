@@ -11,73 +11,12 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'CellTag',
-    'ReadinessCheckTag',
-    'RecoveryGroupTag',
     'ResourceSetDnsTargetResource',
     'ResourceSetNlbResource',
     'ResourceSetR53ResourceRecord',
     'ResourceSetResource',
-    'ResourceSetTag',
     'ResourceSetTargetResource',
 ]
-
-@pulumi.output_type
-class CellTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ReadinessCheckTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class RecoveryGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class ResourceSetDnsTargetResource(dict):
@@ -324,25 +263,6 @@ class ResourceSetResource(dict):
         The Amazon Resource Name (ARN) of the AWS resource.
         """
         return pulumi.get(self, "resource_arn")
-
-
-@pulumi.output_type
-class ResourceSetTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

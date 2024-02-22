@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type RepositoryLink struct {
 	// The repository for which the link is being created.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
 	// Specifies the tags applied to a RepositoryLink.
-	Tags RepositoryLinkTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRepositoryLink registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +98,7 @@ type repositoryLinkArgs struct {
 	// The repository for which the link is being created.
 	RepositoryName string `pulumi:"repositoryName"`
 	// Specifies the tags applied to a RepositoryLink.
-	Tags []RepositoryLinkTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RepositoryLink resource.
@@ -111,7 +112,7 @@ type RepositoryLinkArgs struct {
 	// The repository for which the link is being created.
 	RepositoryName pulumi.StringInput
 	// Specifies the tags applied to a RepositoryLink.
-	Tags RepositoryLinkTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RepositoryLinkArgs) ElementType() reflect.Type {
@@ -187,8 +188,8 @@ func (o RepositoryLinkOutput) RepositoryName() pulumi.StringOutput {
 }
 
 // Specifies the tags applied to a RepositoryLink.
-func (o RepositoryLinkOutput) Tags() RepositoryLinkTagArrayOutput {
-	return o.ApplyT(func(v *RepositoryLink) RepositoryLinkTagArrayOutput { return v.Tags }).(RepositoryLinkTagArrayOutput)
+func (o RepositoryLinkOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RepositoryLink) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

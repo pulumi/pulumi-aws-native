@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationAzureBlobTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLocationAzureBlobResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.DataSync
 
             string? locationUri,
 
-            ImmutableArray<Outputs.LocationAzureBlobTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AgentArns = agentArns;
             AzureAccessTier = azureAccessTier;

@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AccessorTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,14 +97,14 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         public Input<Pulumi.AwsNative.ManagedBlockchain.AccessorNetworkAccessorType>? NetworkType { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AccessorTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.AccessorTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AccessorTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

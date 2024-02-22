@@ -33,7 +33,7 @@ export interface GetMembershipResult {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
      */
-    readonly tags?: outputs.cleanrooms.MembershipTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Represents an AWS account that is a part of a collaboration

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type Environment struct {
 	// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
 	SolutionStackName pulumi.StringPtrOutput `pulumi:"solutionStackName"`
 	// Specifies the tags applied to resources in the environment.
-	Tags EnvironmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the Elastic Beanstalk configuration template to use with the environment.
 	TemplateName pulumi.StringPtrOutput `pulumi:"templateName"`
 	// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
@@ -112,7 +113,7 @@ type environmentArgs struct {
 	// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
 	SolutionStackName *string `pulumi:"solutionStackName"`
 	// Specifies the tags applied to resources in the environment.
-	Tags []EnvironmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the Elastic Beanstalk configuration template to use with the environment.
 	TemplateName *string `pulumi:"templateName"`
 	// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
@@ -140,7 +141,7 @@ type EnvironmentArgs struct {
 	// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
 	SolutionStackName pulumi.StringPtrInput
 	// Specifies the tags applied to resources in the environment.
-	Tags EnvironmentTagArrayInput
+	Tags aws.TagArrayInput
 	// The name of the Elastic Beanstalk configuration template to use with the environment.
 	TemplateName pulumi.StringPtrInput
 	// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
@@ -231,8 +232,8 @@ func (o EnvironmentOutput) SolutionStackName() pulumi.StringPtrOutput {
 }
 
 // Specifies the tags applied to resources in the environment.
-func (o EnvironmentOutput) Tags() EnvironmentTagArrayOutput {
-	return o.ApplyT(func(v *Environment) EnvironmentTagArrayOutput { return v.Tags }).(EnvironmentTagArrayOutput)
+func (o EnvironmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Environment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the Elastic Beanstalk configuration template to use with the environment.

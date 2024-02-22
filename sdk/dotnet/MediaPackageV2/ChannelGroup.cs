@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public Output<string> ModifiedAt { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ChannelGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -92,10 +92,10 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public Input<string>? Description { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ChannelGroupTagArgs>? _tags;
-        public InputList<Inputs.ChannelGroupTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ChannelGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

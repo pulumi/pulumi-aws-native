@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,7 +19,7 @@ type Location struct {
 	LocationArn  pulumi.StringOutput `pulumi:"locationArn"`
 	LocationName pulumi.StringOutput `pulumi:"locationName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocation registers a new resource with the given unique name, arguments, and options.
@@ -67,14 +68,14 @@ func (LocationState) ElementType() reflect.Type {
 type locationArgs struct {
 	LocationName *string `pulumi:"locationName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Location resource.
 type LocationArgs struct {
 	LocationName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocationArgs) ElementType() reflect.Type {
@@ -123,8 +124,8 @@ func (o LocationOutput) LocationName() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationOutput) Tags() LocationTagArrayOutput {
-	return o.ApplyT(func(v *Location) LocationTagArrayOutput { return v.Tags }).(LocationTagArrayOutput)
+func (o LocationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Location) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

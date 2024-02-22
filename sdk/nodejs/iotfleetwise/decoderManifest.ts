@@ -49,7 +49,7 @@ export class DecoderManifest extends pulumi.CustomResource {
     public readonly networkInterfaces!: pulumi.Output<(outputs.iotfleetwise.DecoderManifestCanNetworkInterface | outputs.iotfleetwise.DecoderManifestObdNetworkInterface)[] | undefined>;
     public readonly signalDecoders!: pulumi.Output<(outputs.iotfleetwise.DecoderManifestCanSignalDecoder | outputs.iotfleetwise.DecoderManifestObdSignalDecoder)[] | undefined>;
     public readonly status!: pulumi.Output<enums.iotfleetwise.DecoderManifestManifestStatus | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iotfleetwise.DecoderManifestTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DecoderManifest resource with the given unique name, arguments, and options.
@@ -106,5 +106,5 @@ export interface DecoderManifestArgs {
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.DecoderManifestCanNetworkInterfaceArgs | inputs.iotfleetwise.DecoderManifestObdNetworkInterfaceArgs>[]>;
     signalDecoders?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.DecoderManifestCanSignalDecoderArgs | inputs.iotfleetwise.DecoderManifestObdSignalDecoderArgs>[]>;
     status?: pulumi.Input<enums.iotfleetwise.DecoderManifestManifestStatus>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.DecoderManifestTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

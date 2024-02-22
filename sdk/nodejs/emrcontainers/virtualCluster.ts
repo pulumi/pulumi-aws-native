@@ -49,7 +49,7 @@ export class VirtualCluster extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this virtual cluster.
      */
-    public readonly tags!: pulumi.Output<outputs.emrcontainers.VirtualClusterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a VirtualCluster resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface VirtualClusterArgs {
     /**
      * An array of key-value pairs to apply to this virtual cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.emrcontainers.VirtualClusterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

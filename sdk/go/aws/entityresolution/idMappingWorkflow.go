@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type IdMappingWorkflow struct {
 	InputSourceConfig   IdMappingWorkflowInputSourceArrayOutput    `pulumi:"inputSourceConfig"`
 	OutputSourceConfig  IdMappingWorkflowOutputSourceArrayOutput   `pulumi:"outputSourceConfig"`
 	RoleArn             pulumi.StringOutput                        `pulumi:"roleArn"`
-	Tags                IdMappingWorkflowTagArrayOutput            `pulumi:"tags"`
+	Tags                aws.TagArrayOutput                         `pulumi:"tags"`
 	UpdatedAt           pulumi.StringOutput                        `pulumi:"updatedAt"`
 	WorkflowArn         pulumi.StringOutput                        `pulumi:"workflowArn"`
 	// The name of the IdMappingWorkflow
@@ -95,7 +96,7 @@ type idMappingWorkflowArgs struct {
 	InputSourceConfig   []IdMappingWorkflowInputSource       `pulumi:"inputSourceConfig"`
 	OutputSourceConfig  []IdMappingWorkflowOutputSource      `pulumi:"outputSourceConfig"`
 	RoleArn             string                               `pulumi:"roleArn"`
-	Tags                []IdMappingWorkflowTag               `pulumi:"tags"`
+	Tags                []aws.Tag                            `pulumi:"tags"`
 	// The name of the IdMappingWorkflow
 	WorkflowName string `pulumi:"workflowName"`
 }
@@ -108,7 +109,7 @@ type IdMappingWorkflowArgs struct {
 	InputSourceConfig   IdMappingWorkflowInputSourceArrayInput
 	OutputSourceConfig  IdMappingWorkflowOutputSourceArrayInput
 	RoleArn             pulumi.StringInput
-	Tags                IdMappingWorkflowTagArrayInput
+	Tags                aws.TagArrayInput
 	// The name of the IdMappingWorkflow
 	WorkflowName pulumi.StringInput
 }
@@ -175,8 +176,8 @@ func (o IdMappingWorkflowOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdMappingWorkflow) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-func (o IdMappingWorkflowOutput) Tags() IdMappingWorkflowTagArrayOutput {
-	return o.ApplyT(func(v *IdMappingWorkflow) IdMappingWorkflowTagArrayOutput { return v.Tags }).(IdMappingWorkflowTagArrayOutput)
+func (o IdMappingWorkflowOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IdMappingWorkflow) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o IdMappingWorkflowOutput) UpdatedAt() pulumi.StringOutput {

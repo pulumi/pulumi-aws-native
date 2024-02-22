@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupDashboardResult struct {
 	LastUpdatedTime   *string                       `pulumi:"lastUpdatedTime"`
 	Name              *string                       `pulumi:"name"`
 	Permissions       []DashboardResourcePermission `pulumi:"permissions"`
-	Tags              []DashboardTag                `pulumi:"tags"`
+	Tags              []aws.Tag                     `pulumi:"tags"`
 	Version           *DashboardVersion             `pulumi:"version"`
 }
 
@@ -98,8 +99,8 @@ func (o LookupDashboardResultOutput) Permissions() DashboardResourcePermissionAr
 	return o.ApplyT(func(v LookupDashboardResult) []DashboardResourcePermission { return v.Permissions }).(DashboardResourcePermissionArrayOutput)
 }
 
-func (o LookupDashboardResultOutput) Tags() DashboardTagArrayOutput {
-	return o.ApplyT(func(v LookupDashboardResult) []DashboardTag { return v.Tags }).(DashboardTagArrayOutput)
+func (o LookupDashboardResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDashboardResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupDashboardResultOutput) Version() DashboardVersionPtrOutput {

@@ -26,7 +26,7 @@ export interface GetKeyspaceArgs {
 }
 
 export interface GetKeyspaceResult {
-    readonly tags?: outputs.cassandra.KeyspaceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::Cassandra::Keyspace

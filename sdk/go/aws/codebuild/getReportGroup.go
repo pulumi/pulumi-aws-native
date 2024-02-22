@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupReportGroupResult struct {
 	DeleteReports *bool                          `pulumi:"deleteReports"`
 	ExportConfig  *ReportGroupReportExportConfig `pulumi:"exportConfig"`
 	Id            *string                        `pulumi:"id"`
-	Tags          []ReportGroupTag               `pulumi:"tags"`
+	Tags          []aws.Tag                      `pulumi:"tags"`
 }
 
 func LookupReportGroupOutput(ctx *pulumi.Context, args LookupReportGroupOutputArgs, opts ...pulumi.InvokeOption) LookupReportGroupResultOutput {
@@ -85,8 +86,8 @@ func (o LookupReportGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReportGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupReportGroupResultOutput) Tags() ReportGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupReportGroupResult) []ReportGroupTag { return v.Tags }).(ReportGroupTagArrayOutput)
+func (o LookupReportGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReportGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

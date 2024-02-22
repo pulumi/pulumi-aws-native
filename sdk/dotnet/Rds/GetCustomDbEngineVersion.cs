@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomDbEngineVersionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCustomDbEngineVersionResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Rds
 
             Pulumi.AwsNative.Rds.CustomDbEngineVersionStatus? status,
 
-            ImmutableArray<Outputs.CustomDbEngineVersionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DbEngineVersionArn = dbEngineVersionArn;
             Description = description;

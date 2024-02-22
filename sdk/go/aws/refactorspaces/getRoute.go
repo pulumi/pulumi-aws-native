@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupRouteResult struct {
 	PathResourceToId *string `pulumi:"pathResourceToId"`
 	RouteIdentifier  *string `pulumi:"routeIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags []RouteTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...pulumi.InvokeOption) LookupRouteResultOutput {
@@ -86,8 +87,8 @@ func (o LookupRouteResultOutput) RouteIdentifier() pulumi.StringPtrOutput {
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-func (o LookupRouteResultOutput) Tags() RouteTagArrayOutput {
-	return o.ApplyT(func(v LookupRouteResult) []RouteTag { return v.Tags }).(RouteTagArrayOutput)
+func (o LookupRouteResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRouteResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

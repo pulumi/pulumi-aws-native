@@ -56,7 +56,7 @@ export class Server extends pulumi.CustomResource {
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly serverId!: pulumi.Output<string>;
     public readonly structuredLogDestinations!: pulumi.Output<outputs.transfer.ServerStructuredLogDestination[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.transfer.ServerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly workflowDetails!: pulumi.Output<outputs.transfer.ServerWorkflowDetails | undefined>;
 
     /**
@@ -135,6 +135,6 @@ export interface ServerArgs {
     s3StorageOptions?: pulumi.Input<inputs.transfer.ServerS3StorageOptionsArgs>;
     securityPolicyName?: pulumi.Input<string>;
     structuredLogDestinations?: pulumi.Input<pulumi.Input<inputs.transfer.ServerStructuredLogDestinationArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.transfer.ServerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     workflowDetails?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsArgs>;
 }

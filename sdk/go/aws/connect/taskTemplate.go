@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type TaskTemplate struct {
 	Name   pulumi.StringPtrOutput      `pulumi:"name"`
 	Status TaskTemplateStatusPtrOutput `pulumi:"status"`
 	// One or more tags.
-	Tags TaskTemplateTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewTaskTemplate registers a new resource with the given unique name, arguments, and options.
@@ -96,7 +97,7 @@ type taskTemplateArgs struct {
 	Name   *string             `pulumi:"name"`
 	Status *TaskTemplateStatus `pulumi:"status"`
 	// One or more tags.
-	Tags []TaskTemplateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TaskTemplate resource.
@@ -117,7 +118,7 @@ type TaskTemplateArgs struct {
 	Name   pulumi.StringPtrInput
 	Status TaskTemplateStatusPtrInput
 	// One or more tags.
-	Tags TaskTemplateTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (TaskTemplateArgs) ElementType() reflect.Type {
@@ -205,8 +206,8 @@ func (o TaskTemplateOutput) Status() TaskTemplateStatusPtrOutput {
 }
 
 // One or more tags.
-func (o TaskTemplateOutput) Tags() TaskTemplateTagArrayOutput {
-	return o.ApplyT(func(v *TaskTemplate) TaskTemplateTagArrayOutput { return v.Tags }).(TaskTemplateTagArrayOutput)
+func (o TaskTemplateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TaskTemplate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

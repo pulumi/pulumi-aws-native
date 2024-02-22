@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,9 +20,9 @@ type Recipe struct {
 	// Description of the recipe
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Recipe name
-	Name  pulumi.StringOutput   `pulumi:"name"`
-	Steps RecipeStepArrayOutput `pulumi:"steps"`
-	Tags  RecipeTagArrayOutput  `pulumi:"tags"`
+	Name  pulumi.StringOutput          `pulumi:"name"`
+	Steps RecipeStepArrayOutput        `pulumi:"steps"`
+	Tags  aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewRecipe registers a new resource with the given unique name, arguments, and options.
@@ -75,9 +76,9 @@ type recipeArgs struct {
 	// Description of the recipe
 	Description *string `pulumi:"description"`
 	// Recipe name
-	Name  *string      `pulumi:"name"`
-	Steps []RecipeStep `pulumi:"steps"`
-	Tags  []RecipeTag  `pulumi:"tags"`
+	Name  *string             `pulumi:"name"`
+	Steps []RecipeStep        `pulumi:"steps"`
+	Tags  []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Recipe resource.
@@ -87,7 +88,7 @@ type RecipeArgs struct {
 	// Recipe name
 	Name  pulumi.StringPtrInput
 	Steps RecipeStepArrayInput
-	Tags  RecipeTagArrayInput
+	Tags  aws.CreateOnlyTagArrayInput
 }
 
 func (RecipeArgs) ElementType() reflect.Type {
@@ -141,8 +142,8 @@ func (o RecipeOutput) Steps() RecipeStepArrayOutput {
 	return o.ApplyT(func(v *Recipe) RecipeStepArrayOutput { return v.Steps }).(RecipeStepArrayOutput)
 }
 
-func (o RecipeOutput) Tags() RecipeTagArrayOutput {
-	return o.ApplyT(func(v *Recipe) RecipeTagArrayOutput { return v.Tags }).(RecipeTagArrayOutput)
+func (o RecipeOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Recipe) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

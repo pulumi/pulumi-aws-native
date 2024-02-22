@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public readonly string? RedisEndpointPort;
         public readonly int? SnapshotRetentionLimit;
         public readonly string? SnapshotWindow;
-        public readonly ImmutableArray<Outputs.CacheClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly bool? TransitEncryptionEnabled;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.ElastiCache
 
             string? snapshotWindow,
 
-            ImmutableArray<Outputs.CacheClusterTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? transitEncryptionEnabled,
 

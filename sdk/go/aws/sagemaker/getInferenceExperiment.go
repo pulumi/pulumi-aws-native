@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupInferenceExperimentResult struct {
 	// The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
 	StatusReason *string `pulumi:"statusReason"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []InferenceExperimentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupInferenceExperimentOutput(ctx *pulumi.Context, args LookupInferenceExperimentOutputArgs, opts ...pulumi.InvokeOption) LookupInferenceExperimentResultOutput {
@@ -153,8 +154,8 @@ func (o LookupInferenceExperimentResultOutput) StatusReason() pulumi.StringPtrOu
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupInferenceExperimentResultOutput) Tags() InferenceExperimentTagArrayOutput {
-	return o.ApplyT(func(v LookupInferenceExperimentResult) []InferenceExperimentTag { return v.Tags }).(InferenceExperimentTagArrayOutput)
+func (o LookupInferenceExperimentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupInferenceExperimentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

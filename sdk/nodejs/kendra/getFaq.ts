@@ -34,7 +34,7 @@ export interface GetFaqResult {
     /**
      * Tags for labeling the FAQ
      */
-    readonly tags?: outputs.kendra.FaqTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A Kendra FAQ resource

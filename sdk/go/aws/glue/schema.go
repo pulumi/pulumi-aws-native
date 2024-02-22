@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type Schema struct {
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition pulumi.StringOutput `pulumi:"schemaDefinition"`
 	// List of tags to tag the schema
-	Tags SchemaTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -105,7 +106,7 @@ type schemaArgs struct {
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition string `pulumi:"schemaDefinition"`
 	// List of tags to tag the schema
-	Tags []SchemaTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Schema resource.
@@ -123,7 +124,7 @@ type SchemaArgs struct {
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition pulumi.StringInput
 	// List of tags to tag the schema
-	Tags SchemaTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {
@@ -207,8 +208,8 @@ func (o SchemaOutput) SchemaDefinition() pulumi.StringOutput {
 }
 
 // List of tags to tag the schema
-func (o SchemaOutput) Tags() SchemaTagArrayOutput {
-	return o.ApplyT(func(v *Schema) SchemaTagArrayOutput { return v.Tags }).(SchemaTagArrayOutput)
+func (o SchemaOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Schema) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -19,7 +19,7 @@ class AppArgs:
                  stack_id: pulumi.Input[str],
                  type: pulumi.Input[str],
                  app_source: Optional[pulumi.Input['AppSourceArgs']] = None,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['AppDataSourceArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -30,7 +30,6 @@ class AppArgs:
                  ssl_configuration: Optional[pulumi.Input['AppSslConfigurationArgs']] = None):
         """
         The set of arguments for constructing a App resource.
-        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "stack_id", stack_id)
         pulumi.set(__self__, "type", type)
@@ -84,14 +83,11 @@ class AppArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-        """
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[Any]):
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
     @property
@@ -178,7 +174,7 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_source: Optional[pulumi.Input[pulumi.InputType['AppSourceArgs']]] = None,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppDataSourceArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -195,7 +191,6 @@ class App(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -222,7 +217,7 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_source: Optional[pulumi.Input[pulumi.InputType['AppSourceArgs']]] = None,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppDataSourceArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -304,10 +299,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Output[Optional[Any]]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-        """
+    def attributes(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "attributes")
 
     @property

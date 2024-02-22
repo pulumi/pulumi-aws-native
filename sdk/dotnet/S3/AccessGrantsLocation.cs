@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.S3
         public Output<string?> LocationScope { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AccessGrantsLocationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -104,10 +104,10 @@ namespace Pulumi.AwsNative.S3
         public Input<string>? LocationScope { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AccessGrantsLocationTagArgs>? _tags;
-        public InputList<Inputs.AccessGrantsLocationTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AccessGrantsLocationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

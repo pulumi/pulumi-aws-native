@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetProfileResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Transfer
 
             string? profileId,
 
-            ImmutableArray<Outputs.ProfileTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             As2Id = as2Id;

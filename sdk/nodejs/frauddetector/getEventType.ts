@@ -48,7 +48,7 @@ export interface GetEventTypeResult {
     /**
      * Tags associated with this event type.
      */
-    readonly tags?: outputs.frauddetector.EventTypeTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A resource schema for an EventType in Amazon Fraud Detector.

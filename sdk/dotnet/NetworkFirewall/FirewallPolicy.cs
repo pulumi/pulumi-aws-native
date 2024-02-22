@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<string> FirewallPolicyName { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FirewallPolicyTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -92,10 +92,10 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Input<string>? FirewallPolicyName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.FirewallPolicyTagArgs>? _tags;
-        public InputList<Inputs.FirewallPolicyTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FirewallPolicyTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

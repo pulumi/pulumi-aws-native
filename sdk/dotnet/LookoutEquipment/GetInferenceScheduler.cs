@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.LookoutEquipment
         /// <summary>
         /// Any tags associated with the inference scheduler.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InferenceSchedulerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetInferenceSchedulerResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.LookoutEquipment
 
             string? roleArn,
 
-            ImmutableArray<Outputs.InferenceSchedulerTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DataDelayOffsetInMinutes = dataDelayOffsetInMinutes;
             DataInputConfiguration = dataInputConfiguration;

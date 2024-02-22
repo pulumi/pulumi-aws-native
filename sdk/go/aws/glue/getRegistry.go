@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupRegistryResult struct {
 	// A description of the registry. If description is not provided, there will not be any default value for this.
 	Description *string `pulumi:"description"`
 	// List of tags to tag the Registry
-	Tags []RegistryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryResultOutput {
@@ -83,8 +84,8 @@ func (o LookupRegistryResultOutput) Description() pulumi.StringPtrOutput {
 }
 
 // List of tags to tag the Registry
-func (o LookupRegistryResultOutput) Tags() RegistryTagArrayOutput {
-	return o.ApplyT(func(v LookupRegistryResult) []RegistryTag { return v.Tags }).(RegistryTagArrayOutput)
+func (o LookupRegistryResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRegistryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

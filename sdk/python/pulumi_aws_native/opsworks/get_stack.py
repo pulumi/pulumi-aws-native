@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetStackResult',
@@ -91,10 +92,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-        """
+    def attributes(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "attributes")
 
     @property
@@ -182,7 +180,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.StackTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         return pulumi.get(self, "tags")
 
     @property

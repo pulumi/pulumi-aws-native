@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -131,7 +132,7 @@ type DbCluster struct {
 	// Specifies the storage type to be associated with the DB cluster.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags DbClusterTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster is not restored to the latest restorable backup time.
 	UseLatestRestorableTime pulumi.BoolPtrOutput `pulumi:"useLatestRestorableTime"`
 	// A list of EC2 VPC security groups to associate with this DB cluster.
@@ -307,7 +308,7 @@ type dbClusterArgs struct {
 	// Specifies the storage type to be associated with the DB cluster.
 	StorageType *string `pulumi:"storageType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DbClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster is not restored to the latest restorable backup time.
 	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
 	// A list of EC2 VPC security groups to associate with this DB cluster.
@@ -427,7 +428,7 @@ type DbClusterArgs struct {
 	// Specifies the storage type to be associated with the DB cluster.
 	StorageType pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags DbClusterTagArrayInput
+	Tags aws.TagArrayInput
 	// A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster is not restored to the latest restorable backup time.
 	UseLatestRestorableTime pulumi.BoolPtrInput
 	// A list of EC2 VPC security groups to associate with this DB cluster.
@@ -754,8 +755,8 @@ func (o DbClusterOutput) StorageType() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o DbClusterOutput) Tags() DbClusterTagArrayOutput {
-	return o.ApplyT(func(v *DbCluster) DbClusterTagArrayOutput { return v.Tags }).(DbClusterTagArrayOutput)
+func (o DbClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbCluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster is not restored to the latest restorable backup time.

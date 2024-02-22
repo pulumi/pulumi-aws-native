@@ -28,7 +28,7 @@ export interface GetDatastoreResult {
     readonly fileFormatConfiguration?: outputs.iotanalytics.DatastoreFileFormatConfiguration;
     readonly id?: string;
     readonly retentionPeriod?: outputs.iotanalytics.DatastoreRetentionPeriod;
-    readonly tags?: outputs.iotanalytics.DatastoreTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::IoTAnalytics::Datastore

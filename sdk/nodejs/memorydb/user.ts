@@ -53,7 +53,7 @@ export class User extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this user.
      */
-    public readonly tags!: pulumi.Output<outputs.memorydb.UserTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the user.
      */
@@ -103,7 +103,7 @@ export interface UserArgs {
     /**
      * An array of key-value pairs to apply to this user.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.memorydb.UserTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the user.
      */

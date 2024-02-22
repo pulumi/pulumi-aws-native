@@ -47,7 +47,7 @@ export class StorageVirtualMachine extends pulumi.CustomResource {
     public readonly rootVolumeSecurityStyle!: pulumi.Output<string | undefined>;
     public /*out*/ readonly storageVirtualMachineId!: pulumi.Output<string>;
     public readonly svmAdminPassword!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.fsx.StorageVirtualMachineTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly uuid!: pulumi.Output<string>;
 
     /**
@@ -102,5 +102,5 @@ export interface StorageVirtualMachineArgs {
     name?: pulumi.Input<string>;
     rootVolumeSecurityStyle?: pulumi.Input<string>;
     svmAdminPassword?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.fsx.StorageVirtualMachineTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

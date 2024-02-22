@@ -44,7 +44,7 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
     public readonly options!: pulumi.Output<outputs.ec2.OptionsProperties | undefined>;
     public readonly removeSubnetIds!: pulumi.Output<string[] | undefined>;
     public readonly subnetIds!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayVpcAttachmentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly transitGatewayId!: pulumi.Output<string>;
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -102,7 +102,7 @@ export interface TransitGatewayVpcAttachmentArgs {
     options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs>;
     removeSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayVpcAttachmentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     transitGatewayId: pulumi.Input<string>;
     vpcId: pulumi.Input<string>;
 }

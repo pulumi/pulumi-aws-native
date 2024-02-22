@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupThingTypeResult struct {
 	DeprecateThingType *bool   `pulumi:"deprecateThingType"`
 	Id                 *string `pulumi:"id"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ThingTypeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupThingTypeOutput(ctx *pulumi.Context, args LookupThingTypeOutputArgs, opts ...pulumi.InvokeOption) LookupThingTypeResultOutput {
@@ -82,8 +83,8 @@ func (o LookupThingTypeResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupThingTypeResultOutput) Tags() ThingTypeTagArrayOutput {
-	return o.ApplyT(func(v LookupThingTypeResult) []ThingTypeTag { return v.Tags }).(ThingTypeTagArrayOutput)
+func (o LookupThingTypeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupThingTypeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,19 +19,19 @@ import (
 type ReplicationTask struct {
 	pulumi.CustomResourceState
 
-	CdcStartPosition          pulumi.StringPtrOutput        `pulumi:"cdcStartPosition"`
-	CdcStartTime              pulumi.Float64PtrOutput       `pulumi:"cdcStartTime"`
-	CdcStopPosition           pulumi.StringPtrOutput        `pulumi:"cdcStopPosition"`
-	MigrationType             pulumi.StringOutput           `pulumi:"migrationType"`
-	ReplicationInstanceArn    pulumi.StringOutput           `pulumi:"replicationInstanceArn"`
-	ReplicationTaskIdentifier pulumi.StringPtrOutput        `pulumi:"replicationTaskIdentifier"`
-	ReplicationTaskSettings   pulumi.StringPtrOutput        `pulumi:"replicationTaskSettings"`
-	ResourceIdentifier        pulumi.StringPtrOutput        `pulumi:"resourceIdentifier"`
-	SourceEndpointArn         pulumi.StringOutput           `pulumi:"sourceEndpointArn"`
-	TableMappings             pulumi.StringOutput           `pulumi:"tableMappings"`
-	Tags                      ReplicationTaskTagArrayOutput `pulumi:"tags"`
-	TargetEndpointArn         pulumi.StringOutput           `pulumi:"targetEndpointArn"`
-	TaskData                  pulumi.StringPtrOutput        `pulumi:"taskData"`
+	CdcStartPosition          pulumi.StringPtrOutput  `pulumi:"cdcStartPosition"`
+	CdcStartTime              pulumi.Float64PtrOutput `pulumi:"cdcStartTime"`
+	CdcStopPosition           pulumi.StringPtrOutput  `pulumi:"cdcStopPosition"`
+	MigrationType             pulumi.StringOutput     `pulumi:"migrationType"`
+	ReplicationInstanceArn    pulumi.StringOutput     `pulumi:"replicationInstanceArn"`
+	ReplicationTaskIdentifier pulumi.StringPtrOutput  `pulumi:"replicationTaskIdentifier"`
+	ReplicationTaskSettings   pulumi.StringPtrOutput  `pulumi:"replicationTaskSettings"`
+	ResourceIdentifier        pulumi.StringPtrOutput  `pulumi:"resourceIdentifier"`
+	SourceEndpointArn         pulumi.StringOutput     `pulumi:"sourceEndpointArn"`
+	TableMappings             pulumi.StringOutput     `pulumi:"tableMappings"`
+	Tags                      aws.TagArrayOutput      `pulumi:"tags"`
+	TargetEndpointArn         pulumi.StringOutput     `pulumi:"targetEndpointArn"`
+	TaskData                  pulumi.StringPtrOutput  `pulumi:"taskData"`
 }
 
 // NewReplicationTask registers a new resource with the given unique name, arguments, and options.
@@ -95,19 +96,19 @@ func (ReplicationTaskState) ElementType() reflect.Type {
 }
 
 type replicationTaskArgs struct {
-	CdcStartPosition          *string              `pulumi:"cdcStartPosition"`
-	CdcStartTime              *float64             `pulumi:"cdcStartTime"`
-	CdcStopPosition           *string              `pulumi:"cdcStopPosition"`
-	MigrationType             string               `pulumi:"migrationType"`
-	ReplicationInstanceArn    string               `pulumi:"replicationInstanceArn"`
-	ReplicationTaskIdentifier *string              `pulumi:"replicationTaskIdentifier"`
-	ReplicationTaskSettings   *string              `pulumi:"replicationTaskSettings"`
-	ResourceIdentifier        *string              `pulumi:"resourceIdentifier"`
-	SourceEndpointArn         string               `pulumi:"sourceEndpointArn"`
-	TableMappings             string               `pulumi:"tableMappings"`
-	Tags                      []ReplicationTaskTag `pulumi:"tags"`
-	TargetEndpointArn         string               `pulumi:"targetEndpointArn"`
-	TaskData                  *string              `pulumi:"taskData"`
+	CdcStartPosition          *string   `pulumi:"cdcStartPosition"`
+	CdcStartTime              *float64  `pulumi:"cdcStartTime"`
+	CdcStopPosition           *string   `pulumi:"cdcStopPosition"`
+	MigrationType             string    `pulumi:"migrationType"`
+	ReplicationInstanceArn    string    `pulumi:"replicationInstanceArn"`
+	ReplicationTaskIdentifier *string   `pulumi:"replicationTaskIdentifier"`
+	ReplicationTaskSettings   *string   `pulumi:"replicationTaskSettings"`
+	ResourceIdentifier        *string   `pulumi:"resourceIdentifier"`
+	SourceEndpointArn         string    `pulumi:"sourceEndpointArn"`
+	TableMappings             string    `pulumi:"tableMappings"`
+	Tags                      []aws.Tag `pulumi:"tags"`
+	TargetEndpointArn         string    `pulumi:"targetEndpointArn"`
+	TaskData                  *string   `pulumi:"taskData"`
 }
 
 // The set of arguments for constructing a ReplicationTask resource.
@@ -122,7 +123,7 @@ type ReplicationTaskArgs struct {
 	ResourceIdentifier        pulumi.StringPtrInput
 	SourceEndpointArn         pulumi.StringInput
 	TableMappings             pulumi.StringInput
-	Tags                      ReplicationTaskTagArrayInput
+	Tags                      aws.TagArrayInput
 	TargetEndpointArn         pulumi.StringInput
 	TaskData                  pulumi.StringPtrInput
 }
@@ -204,8 +205,8 @@ func (o ReplicationTaskOutput) TableMappings() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.TableMappings }).(pulumi.StringOutput)
 }
 
-func (o ReplicationTaskOutput) Tags() ReplicationTaskTagArrayOutput {
-	return o.ApplyT(func(v *ReplicationTask) ReplicationTaskTagArrayOutput { return v.Tags }).(ReplicationTaskTagArrayOutput)
+func (o ReplicationTaskOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ReplicationTask) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ReplicationTaskOutput) TargetEndpointArn() pulumi.StringOutput {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,7 +47,7 @@ type LookupBrokerResult struct {
 	OpenWireEndpoints               []string                  `pulumi:"openWireEndpoints"`
 	SecurityGroups                  []string                  `pulumi:"securityGroups"`
 	StompEndpoints                  []string                  `pulumi:"stompEndpoints"`
-	Tags                            []BrokerTagsEntry         `pulumi:"tags"`
+	Tags                            []aws.Tag                 `pulumi:"tags"`
 	Users                           []BrokerUser              `pulumi:"users"`
 	WssEndpoints                    []string                  `pulumi:"wssEndpoints"`
 }
@@ -162,8 +163,8 @@ func (o LookupBrokerResultOutput) StompEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []string { return v.StompEndpoints }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupBrokerResultOutput) Tags() BrokerTagsEntryArrayOutput {
-	return o.ApplyT(func(v LookupBrokerResult) []BrokerTagsEntry { return v.Tags }).(BrokerTagsEntryArrayOutput)
+func (o LookupBrokerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBrokerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupBrokerResultOutput) Users() BrokerUserArrayOutput {

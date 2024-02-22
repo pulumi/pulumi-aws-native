@@ -16,5 +16,3 @@ from .organization import *
 from .organizational_unit import *
 from .policy import *
 from .resource_policy import *
-from ._inputs import *
-from . import outputs

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupInferenceComponentResult struct {
 	LastModifiedTime         *string                          `pulumi:"lastModifiedTime"`
 	RuntimeConfig            *InferenceComponentRuntimeConfig `pulumi:"runtimeConfig"`
 	Specification            *InferenceComponentSpecification `pulumi:"specification"`
-	Tags                     []InferenceComponentTag          `pulumi:"tags"`
+	Tags                     []aws.Tag                        `pulumi:"tags"`
 	VariantName              *string                          `pulumi:"variantName"`
 }
 
@@ -116,8 +117,8 @@ func (o LookupInferenceComponentResultOutput) Specification() InferenceComponent
 	return o.ApplyT(func(v LookupInferenceComponentResult) *InferenceComponentSpecification { return v.Specification }).(InferenceComponentSpecificationPtrOutput)
 }
 
-func (o LookupInferenceComponentResultOutput) Tags() InferenceComponentTagArrayOutput {
-	return o.ApplyT(func(v LookupInferenceComponentResult) []InferenceComponentTag { return v.Tags }).(InferenceComponentTagArrayOutput)
+func (o LookupInferenceComponentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupInferenceComponentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupInferenceComponentResultOutput) VariantName() pulumi.StringPtrOutput {

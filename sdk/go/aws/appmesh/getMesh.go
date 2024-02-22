@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupMeshResult struct {
 	MeshOwner     *string   `pulumi:"meshOwner"`
 	ResourceOwner *string   `pulumi:"resourceOwner"`
 	Spec          *MeshSpec `pulumi:"spec"`
-	Tags          []MeshTag `pulumi:"tags"`
+	Tags          []aws.Tag `pulumi:"tags"`
 	Uid           *string   `pulumi:"uid"`
 }
 
@@ -91,8 +92,8 @@ func (o LookupMeshResultOutput) Spec() MeshSpecPtrOutput {
 	return o.ApplyT(func(v LookupMeshResult) *MeshSpec { return v.Spec }).(MeshSpecPtrOutput)
 }
 
-func (o LookupMeshResultOutput) Tags() MeshTagArrayOutput {
-	return o.ApplyT(func(v LookupMeshResult) []MeshTag { return v.Tags }).(MeshTagArrayOutput)
+func (o LookupMeshResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMeshResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupMeshResultOutput) Uid() pulumi.StringPtrOutput {

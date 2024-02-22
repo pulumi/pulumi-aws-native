@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SuiteDefinitionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSuiteDefinitionResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
 
             string? suiteDefinitionVersion,
 
-            ImmutableArray<Outputs.SuiteDefinitionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             SuiteDefinitionArn = suiteDefinitionArn;
             SuiteDefinitionConfiguration = suiteDefinitionConfiguration;

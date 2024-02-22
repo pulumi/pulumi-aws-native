@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.EmrContainers
         /// <summary>
         /// An array of key-value pairs to apply to this virtual cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetVirtualClusterResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.EmrContainers
 
             string? id,
 
-            ImmutableArray<Outputs.VirtualClusterTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Id = id;

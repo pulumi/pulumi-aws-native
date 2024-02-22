@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type EventSubscription struct {
 	// The name of the Amazon Redshift event notification subscription
 	SubscriptionName pulumi.StringOutput `pulumi:"subscriptionName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags EventSubscriptionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
@@ -108,7 +109,7 @@ type eventSubscriptionArgs struct {
 	// The name of the Amazon Redshift event notification subscription
 	SubscriptionName string `pulumi:"subscriptionName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []EventSubscriptionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
@@ -128,7 +129,7 @@ type EventSubscriptionArgs struct {
 	// The name of the Amazon Redshift event notification subscription
 	SubscriptionName pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags EventSubscriptionTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {
@@ -234,8 +235,8 @@ func (o EventSubscriptionOutput) SubscriptionName() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o EventSubscriptionOutput) Tags() EventSubscriptionTagArrayOutput {
-	return o.ApplyT(func(v *EventSubscription) EventSubscriptionTagArrayOutput { return v.Tags }).(EventSubscriptionTagArrayOutput)
+func (o EventSubscriptionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EventSubscription) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

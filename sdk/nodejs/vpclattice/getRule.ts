@@ -28,7 +28,7 @@ export interface GetRuleResult {
     readonly id?: string;
     readonly match?: outputs.vpclattice.RuleMatch;
     readonly priority?: number;
-    readonly tags?: outputs.vpclattice.RuleTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.

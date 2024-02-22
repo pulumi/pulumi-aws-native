@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public readonly ImmutableArray<Outputs.DetectorCfnFeatureConfiguration> Features;
         public readonly string? FindingPublishingFrequency;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.DetectorTagItem> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDetectorResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.GuardDuty
 
             string? id,
 
-            ImmutableArray<Outputs.DetectorTagItem> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DataSources = dataSources;
             Enable = enable;

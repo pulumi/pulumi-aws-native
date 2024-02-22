@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,11 +17,11 @@ import (
 type RoleAlias struct {
 	pulumi.CustomResourceState
 
-	CredentialDurationSeconds pulumi.IntPtrOutput     `pulumi:"credentialDurationSeconds"`
-	RoleAlias                 pulumi.StringPtrOutput  `pulumi:"roleAlias"`
-	RoleAliasArn              pulumi.StringOutput     `pulumi:"roleAliasArn"`
-	RoleArn                   pulumi.StringOutput     `pulumi:"roleArn"`
-	Tags                      RoleAliasTagArrayOutput `pulumi:"tags"`
+	CredentialDurationSeconds pulumi.IntPtrOutput    `pulumi:"credentialDurationSeconds"`
+	RoleAlias                 pulumi.StringPtrOutput `pulumi:"roleAlias"`
+	RoleAliasArn              pulumi.StringOutput    `pulumi:"roleAliasArn"`
+	RoleArn                   pulumi.StringOutput    `pulumi:"roleArn"`
+	Tags                      aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewRoleAlias registers a new resource with the given unique name, arguments, and options.
@@ -70,10 +71,10 @@ func (RoleAliasState) ElementType() reflect.Type {
 }
 
 type roleAliasArgs struct {
-	CredentialDurationSeconds *int           `pulumi:"credentialDurationSeconds"`
-	RoleAlias                 *string        `pulumi:"roleAlias"`
-	RoleArn                   string         `pulumi:"roleArn"`
-	Tags                      []RoleAliasTag `pulumi:"tags"`
+	CredentialDurationSeconds *int      `pulumi:"credentialDurationSeconds"`
+	RoleAlias                 *string   `pulumi:"roleAlias"`
+	RoleArn                   string    `pulumi:"roleArn"`
+	Tags                      []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RoleAlias resource.
@@ -81,7 +82,7 @@ type RoleAliasArgs struct {
 	CredentialDurationSeconds pulumi.IntPtrInput
 	RoleAlias                 pulumi.StringPtrInput
 	RoleArn                   pulumi.StringInput
-	Tags                      RoleAliasTagArrayInput
+	Tags                      aws.TagArrayInput
 }
 
 func (RoleAliasArgs) ElementType() reflect.Type {
@@ -137,8 +138,8 @@ func (o RoleAliasOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAlias) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-func (o RoleAliasOutput) Tags() RoleAliasTagArrayOutput {
-	return o.ApplyT(func(v *RoleAlias) RoleAliasTagArrayOutput { return v.Tags }).(RoleAliasTagArrayOutput)
+func (o RoleAliasOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RoleAlias) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

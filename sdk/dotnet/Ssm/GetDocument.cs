@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Ssm
         /// <summary>
         /// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DocumentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Specify a target type to define the kinds of resources the document can run on.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Ssm
 
             ImmutableArray<Outputs.DocumentRequires> requires,
 
-            ImmutableArray<Outputs.DocumentTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? targetType,
 

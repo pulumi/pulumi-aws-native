@@ -77,7 +77,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly sourceDestCheck!: pulumi.Output<boolean | undefined>;
     public readonly ssmAssociations!: pulumi.Output<outputs.ec2.InstanceSsmAssociation[] | undefined>;
     public readonly subnetId!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ec2.InstanceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly tenancy!: pulumi.Output<string | undefined>;
     public readonly userData!: pulumi.Output<string | undefined>;
     public readonly volumes!: pulumi.Output<outputs.ec2.InstanceVolume[] | undefined>;
@@ -230,7 +230,7 @@ export interface InstanceArgs {
     sourceDestCheck?: pulumi.Input<boolean>;
     ssmAssociations?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceSsmAssociationArgs>[]>;
     subnetId?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     tenancy?: pulumi.Input<string>;
     userData?: pulumi.Input<string>;
     volumes?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceVolumeArgs>[]>;

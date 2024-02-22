@@ -595,101 +595,6 @@ type ChannelTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
-// You can construct a concrete instance of `ChannelTagInput` via:
-//
-//	ChannelTagArgs{...}
-type ChannelTagInput interface {
-	pulumi.Input
-
-	ToChannelTagOutput() ChannelTagOutput
-	ToChannelTagOutputWithContext(context.Context) ChannelTagOutput
-}
-
-type ChannelTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ChannelTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
-}
-
-func (i ChannelTagArgs) ToChannelTagOutput() ChannelTagOutput {
-	return i.ToChannelTagOutputWithContext(context.Background())
-}
-
-func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
-}
-
-// ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
-// You can construct a concrete instance of `ChannelTagArrayInput` via:
-//
-//	ChannelTagArray{ ChannelTagArgs{...} }
-type ChannelTagArrayInput interface {
-	pulumi.Input
-
-	ToChannelTagArrayOutput() ChannelTagArrayOutput
-	ToChannelTagArrayOutputWithContext(context.Context) ChannelTagArrayOutput
-}
-
-type ChannelTagArray []ChannelTagInput
-
-func (ChannelTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
-}
-
-func (i ChannelTagArray) ToChannelTagArrayOutput() ChannelTagArrayOutput {
-	return i.ToChannelTagArrayOutputWithContext(context.Background())
-}
-
-func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
-}
-
-type ChannelTagOutput struct{ *pulumi.OutputState }
-
-func (ChannelTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
-}
-
-func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
-	return o
-}
-
-func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
-	return o
-}
-
-func (o ChannelTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ChannelTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ChannelTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ChannelTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ChannelTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ChannelTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
-}
-
-func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
-	return o
-}
-
-func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
-	return o
-}
-
-func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTag {
-		return vs[0].([]ChannelTag)[vs[1].(int)]
-	}).(ChannelTagOutput)
-}
-
 type DatasetAction struct {
 	ActionName      string                  `pulumi:"actionName"`
 	ContainerAction *DatasetContainerAction `pulumi:"containerAction"`
@@ -2981,101 +2886,6 @@ type DatasetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DatasetTagInput is an input type that accepts DatasetTagArgs and DatasetTagOutput values.
-// You can construct a concrete instance of `DatasetTagInput` via:
-//
-//	DatasetTagArgs{...}
-type DatasetTagInput interface {
-	pulumi.Input
-
-	ToDatasetTagOutput() DatasetTagOutput
-	ToDatasetTagOutputWithContext(context.Context) DatasetTagOutput
-}
-
-type DatasetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DatasetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetTag)(nil)).Elem()
-}
-
-func (i DatasetTagArgs) ToDatasetTagOutput() DatasetTagOutput {
-	return i.ToDatasetTagOutputWithContext(context.Background())
-}
-
-func (i DatasetTagArgs) ToDatasetTagOutputWithContext(ctx context.Context) DatasetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetTagOutput)
-}
-
-// DatasetTagArrayInput is an input type that accepts DatasetTagArray and DatasetTagArrayOutput values.
-// You can construct a concrete instance of `DatasetTagArrayInput` via:
-//
-//	DatasetTagArray{ DatasetTagArgs{...} }
-type DatasetTagArrayInput interface {
-	pulumi.Input
-
-	ToDatasetTagArrayOutput() DatasetTagArrayOutput
-	ToDatasetTagArrayOutputWithContext(context.Context) DatasetTagArrayOutput
-}
-
-type DatasetTagArray []DatasetTagInput
-
-func (DatasetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetTag)(nil)).Elem()
-}
-
-func (i DatasetTagArray) ToDatasetTagArrayOutput() DatasetTagArrayOutput {
-	return i.ToDatasetTagArrayOutputWithContext(context.Background())
-}
-
-func (i DatasetTagArray) ToDatasetTagArrayOutputWithContext(ctx context.Context) DatasetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetTagArrayOutput)
-}
-
-type DatasetTagOutput struct{ *pulumi.OutputState }
-
-func (DatasetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetTag)(nil)).Elem()
-}
-
-func (o DatasetTagOutput) ToDatasetTagOutput() DatasetTagOutput {
-	return o
-}
-
-func (o DatasetTagOutput) ToDatasetTagOutputWithContext(ctx context.Context) DatasetTagOutput {
-	return o
-}
-
-func (o DatasetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DatasetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DatasetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DatasetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetTag)(nil)).Elem()
-}
-
-func (o DatasetTagArrayOutput) ToDatasetTagArrayOutput() DatasetTagArrayOutput {
-	return o
-}
-
-func (o DatasetTagArrayOutput) ToDatasetTagArrayOutputWithContext(ctx context.Context) DatasetTagArrayOutput {
-	return o
-}
-
-func (o DatasetTagArrayOutput) Index(i pulumi.IntInput) DatasetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetTag {
-		return vs[0].([]DatasetTag)[vs[1].(int)]
-	}).(DatasetTagOutput)
-}
-
 type DatasetTrigger struct {
 	Schedule          *DatasetSchedule          `pulumi:"schedule"`
 	TriggeringDataset *DatasetTriggeringDataset `pulumi:"triggeringDataset"`
@@ -5320,101 +5130,6 @@ type DatastoreTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DatastoreTagInput is an input type that accepts DatastoreTagArgs and DatastoreTagOutput values.
-// You can construct a concrete instance of `DatastoreTagInput` via:
-//
-//	DatastoreTagArgs{...}
-type DatastoreTagInput interface {
-	pulumi.Input
-
-	ToDatastoreTagOutput() DatastoreTagOutput
-	ToDatastoreTagOutputWithContext(context.Context) DatastoreTagOutput
-}
-
-type DatastoreTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DatastoreTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatastoreTag)(nil)).Elem()
-}
-
-func (i DatastoreTagArgs) ToDatastoreTagOutput() DatastoreTagOutput {
-	return i.ToDatastoreTagOutputWithContext(context.Background())
-}
-
-func (i DatastoreTagArgs) ToDatastoreTagOutputWithContext(ctx context.Context) DatastoreTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastoreTagOutput)
-}
-
-// DatastoreTagArrayInput is an input type that accepts DatastoreTagArray and DatastoreTagArrayOutput values.
-// You can construct a concrete instance of `DatastoreTagArrayInput` via:
-//
-//	DatastoreTagArray{ DatastoreTagArgs{...} }
-type DatastoreTagArrayInput interface {
-	pulumi.Input
-
-	ToDatastoreTagArrayOutput() DatastoreTagArrayOutput
-	ToDatastoreTagArrayOutputWithContext(context.Context) DatastoreTagArrayOutput
-}
-
-type DatastoreTagArray []DatastoreTagInput
-
-func (DatastoreTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatastoreTag)(nil)).Elem()
-}
-
-func (i DatastoreTagArray) ToDatastoreTagArrayOutput() DatastoreTagArrayOutput {
-	return i.ToDatastoreTagArrayOutputWithContext(context.Background())
-}
-
-func (i DatastoreTagArray) ToDatastoreTagArrayOutputWithContext(ctx context.Context) DatastoreTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastoreTagArrayOutput)
-}
-
-type DatastoreTagOutput struct{ *pulumi.OutputState }
-
-func (DatastoreTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatastoreTag)(nil)).Elem()
-}
-
-func (o DatastoreTagOutput) ToDatastoreTagOutput() DatastoreTagOutput {
-	return o
-}
-
-func (o DatastoreTagOutput) ToDatastoreTagOutputWithContext(ctx context.Context) DatastoreTagOutput {
-	return o
-}
-
-func (o DatastoreTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DatastoreTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DatastoreTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DatastoreTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DatastoreTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DatastoreTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatastoreTag)(nil)).Elem()
-}
-
-func (o DatastoreTagArrayOutput) ToDatastoreTagArrayOutput() DatastoreTagArrayOutput {
-	return o
-}
-
-func (o DatastoreTagArrayOutput) ToDatastoreTagArrayOutputWithContext(ctx context.Context) DatastoreTagArrayOutput {
-	return o
-}
-
-func (o DatastoreTagArrayOutput) Index(i pulumi.IntInput) DatastoreTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatastoreTag {
-		return vs[0].([]DatastoreTag)[vs[1].(int)]
-	}).(DatastoreTagOutput)
-}
-
 type DatastoreTimestampPartition struct {
 	AttributeName   string  `pulumi:"attributeName"`
 	TimestampFormat *string `pulumi:"timestampFormat"`
@@ -7554,101 +7269,6 @@ type PipelineTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PipelineTagInput is an input type that accepts PipelineTagArgs and PipelineTagOutput values.
-// You can construct a concrete instance of `PipelineTagInput` via:
-//
-//	PipelineTagArgs{...}
-type PipelineTagInput interface {
-	pulumi.Input
-
-	ToPipelineTagOutput() PipelineTagOutput
-	ToPipelineTagOutputWithContext(context.Context) PipelineTagOutput
-}
-
-type PipelineTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PipelineTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineTag)(nil)).Elem()
-}
-
-func (i PipelineTagArgs) ToPipelineTagOutput() PipelineTagOutput {
-	return i.ToPipelineTagOutputWithContext(context.Background())
-}
-
-func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagOutput)
-}
-
-// PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
-// You can construct a concrete instance of `PipelineTagArrayInput` via:
-//
-//	PipelineTagArray{ PipelineTagArgs{...} }
-type PipelineTagArrayInput interface {
-	pulumi.Input
-
-	ToPipelineTagArrayOutput() PipelineTagArrayOutput
-	ToPipelineTagArrayOutputWithContext(context.Context) PipelineTagArrayOutput
-}
-
-type PipelineTagArray []PipelineTagInput
-
-func (PipelineTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PipelineTag)(nil)).Elem()
-}
-
-func (i PipelineTagArray) ToPipelineTagArrayOutput() PipelineTagArrayOutput {
-	return i.ToPipelineTagArrayOutputWithContext(context.Background())
-}
-
-func (i PipelineTagArray) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagArrayOutput)
-}
-
-type PipelineTagOutput struct{ *pulumi.OutputState }
-
-func (PipelineTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineTag)(nil)).Elem()
-}
-
-func (o PipelineTagOutput) ToPipelineTagOutput() PipelineTagOutput {
-	return o
-}
-
-func (o PipelineTagOutput) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
-	return o
-}
-
-func (o PipelineTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PipelineTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PipelineTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PipelineTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PipelineTag)(nil)).Elem()
-}
-
-func (o PipelineTagArrayOutput) ToPipelineTagArrayOutput() PipelineTagArrayOutput {
-	return o
-}
-
-func (o PipelineTagArrayOutput) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
-	return o
-}
-
-func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineTag {
-		return vs[0].([]PipelineTag)[vs[1].(int)]
-	}).(PipelineTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCustomerManagedS3Input)(nil)).Elem(), ChannelCustomerManagedS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCustomerManagedS3PtrInput)(nil)).Elem(), ChannelCustomerManagedS3Args{})
@@ -7658,8 +7278,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelServiceManagedS3PtrInput)(nil)).Elem(), ChannelServiceManagedS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelStorageInput)(nil)).Elem(), ChannelStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelStoragePtrInput)(nil)).Elem(), ChannelStorageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagInput)(nil)).Elem(), ChannelTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagArrayInput)(nil)).Elem(), ChannelTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetActionInput)(nil)).Elem(), DatasetActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetActionArrayInput)(nil)).Elem(), DatasetActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetContainerActionInput)(nil)).Elem(), DatasetContainerActionArgs{})
@@ -7694,8 +7312,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetS3DestinationConfigurationPtrInput)(nil)).Elem(), DatasetS3DestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetScheduleInput)(nil)).Elem(), DatasetScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSchedulePtrInput)(nil)).Elem(), DatasetScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTagInput)(nil)).Elem(), DatasetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTagArrayInput)(nil)).Elem(), DatasetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTriggerInput)(nil)).Elem(), DatasetTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTriggerArrayInput)(nil)).Elem(), DatasetTriggerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTriggeringDatasetInput)(nil)).Elem(), DatasetTriggeringDatasetArgs{})
@@ -7730,8 +7346,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreServiceManagedS3PtrInput)(nil)).Elem(), DatastoreServiceManagedS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreStorageInput)(nil)).Elem(), DatastoreStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreStoragePtrInput)(nil)).Elem(), DatastoreStorageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreTagInput)(nil)).Elem(), DatastoreTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreTagArrayInput)(nil)).Elem(), DatastoreTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreTimestampPartitionInput)(nil)).Elem(), DatastoreTimestampPartitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreTimestampPartitionPtrInput)(nil)).Elem(), DatastoreTimestampPartitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionInput)(nil)).Elem(), PartitionArgs{})
@@ -7758,8 +7372,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineRemoveAttributesPtrInput)(nil)).Elem(), PipelineRemoveAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineSelectAttributesInput)(nil)).Elem(), PipelineSelectAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineSelectAttributesPtrInput)(nil)).Elem(), PipelineSelectAttributesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagInput)(nil)).Elem(), PipelineTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagArrayInput)(nil)).Elem(), PipelineTagArray{})
 	pulumi.RegisterOutputType(ChannelCustomerManagedS3Output{})
 	pulumi.RegisterOutputType(ChannelCustomerManagedS3PtrOutput{})
 	pulumi.RegisterOutputType(ChannelRetentionPeriodOutput{})
@@ -7768,8 +7380,6 @@ func init() {
 	pulumi.RegisterOutputType(ChannelServiceManagedS3PtrOutput{})
 	pulumi.RegisterOutputType(ChannelStorageOutput{})
 	pulumi.RegisterOutputType(ChannelStoragePtrOutput{})
-	pulumi.RegisterOutputType(ChannelTagOutput{})
-	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
 	pulumi.RegisterOutputType(DatasetActionOutput{})
 	pulumi.RegisterOutputType(DatasetActionArrayOutput{})
 	pulumi.RegisterOutputType(DatasetContainerActionOutput{})
@@ -7804,8 +7414,6 @@ func init() {
 	pulumi.RegisterOutputType(DatasetS3DestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DatasetScheduleOutput{})
 	pulumi.RegisterOutputType(DatasetSchedulePtrOutput{})
-	pulumi.RegisterOutputType(DatasetTagOutput{})
-	pulumi.RegisterOutputType(DatasetTagArrayOutput{})
 	pulumi.RegisterOutputType(DatasetTriggerOutput{})
 	pulumi.RegisterOutputType(DatasetTriggerArrayOutput{})
 	pulumi.RegisterOutputType(DatasetTriggeringDatasetOutput{})
@@ -7840,8 +7448,6 @@ func init() {
 	pulumi.RegisterOutputType(DatastoreServiceManagedS3PtrOutput{})
 	pulumi.RegisterOutputType(DatastoreStorageOutput{})
 	pulumi.RegisterOutputType(DatastoreStoragePtrOutput{})
-	pulumi.RegisterOutputType(DatastoreTagOutput{})
-	pulumi.RegisterOutputType(DatastoreTagArrayOutput{})
 	pulumi.RegisterOutputType(DatastoreTimestampPartitionOutput{})
 	pulumi.RegisterOutputType(DatastoreTimestampPartitionPtrOutput{})
 	pulumi.RegisterOutputType(PartitionOutput{})
@@ -7868,6 +7474,4 @@ func init() {
 	pulumi.RegisterOutputType(PipelineRemoveAttributesPtrOutput{})
 	pulumi.RegisterOutputType(PipelineSelectAttributesOutput{})
 	pulumi.RegisterOutputType(PipelineSelectAttributesPtrOutput{})
-	pulumi.RegisterOutputType(PipelineTagOutput{})
-	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
 }

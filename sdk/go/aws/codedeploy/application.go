@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type Application struct {
 	// The compute platform that CodeDeploy deploys the application to.
 	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
 	// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
-	Tags ApplicationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +74,7 @@ type applicationArgs struct {
 	// The compute platform that CodeDeploy deploys the application to.
 	ComputePlatform *string `pulumi:"computePlatform"`
 	// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
-	Tags []ApplicationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -83,7 +84,7 @@ type ApplicationArgs struct {
 	// The compute platform that CodeDeploy deploys the application to.
 	ComputePlatform pulumi.StringPtrInput
 	// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
-	Tags ApplicationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -134,8 +135,8 @@ func (o ApplicationOutput) ComputePlatform() pulumi.StringPtrOutput {
 }
 
 // The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
-func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
-	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
+func (o ApplicationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Application) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

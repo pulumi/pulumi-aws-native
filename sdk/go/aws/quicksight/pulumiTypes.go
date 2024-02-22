@@ -66781,101 +66781,6 @@ type AnalysisTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AnalysisTagInput is an input type that accepts AnalysisTagArgs and AnalysisTagOutput values.
-// You can construct a concrete instance of `AnalysisTagInput` via:
-//
-//	AnalysisTagArgs{...}
-type AnalysisTagInput interface {
-	pulumi.Input
-
-	ToAnalysisTagOutput() AnalysisTagOutput
-	ToAnalysisTagOutputWithContext(context.Context) AnalysisTagOutput
-}
-
-type AnalysisTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AnalysisTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTag)(nil)).Elem()
-}
-
-func (i AnalysisTagArgs) ToAnalysisTagOutput() AnalysisTagOutput {
-	return i.ToAnalysisTagOutputWithContext(context.Background())
-}
-
-func (i AnalysisTagArgs) ToAnalysisTagOutputWithContext(ctx context.Context) AnalysisTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTagOutput)
-}
-
-// AnalysisTagArrayInput is an input type that accepts AnalysisTagArray and AnalysisTagArrayOutput values.
-// You can construct a concrete instance of `AnalysisTagArrayInput` via:
-//
-//	AnalysisTagArray{ AnalysisTagArgs{...} }
-type AnalysisTagArrayInput interface {
-	pulumi.Input
-
-	ToAnalysisTagArrayOutput() AnalysisTagArrayOutput
-	ToAnalysisTagArrayOutputWithContext(context.Context) AnalysisTagArrayOutput
-}
-
-type AnalysisTagArray []AnalysisTagInput
-
-func (AnalysisTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisTag)(nil)).Elem()
-}
-
-func (i AnalysisTagArray) ToAnalysisTagArrayOutput() AnalysisTagArrayOutput {
-	return i.ToAnalysisTagArrayOutputWithContext(context.Background())
-}
-
-func (i AnalysisTagArray) ToAnalysisTagArrayOutputWithContext(ctx context.Context) AnalysisTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTagArrayOutput)
-}
-
-type AnalysisTagOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTag)(nil)).Elem()
-}
-
-func (o AnalysisTagOutput) ToAnalysisTagOutput() AnalysisTagOutput {
-	return o
-}
-
-func (o AnalysisTagOutput) ToAnalysisTagOutputWithContext(ctx context.Context) AnalysisTagOutput {
-	return o
-}
-
-func (o AnalysisTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AnalysisTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AnalysisTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisTag)(nil)).Elem()
-}
-
-func (o AnalysisTagArrayOutput) ToAnalysisTagArrayOutput() AnalysisTagArrayOutput {
-	return o
-}
-
-func (o AnalysisTagArrayOutput) ToAnalysisTagArrayOutputWithContext(ctx context.Context) AnalysisTagArrayOutput {
-	return o
-}
-
-func (o AnalysisTagArrayOutput) Index(i pulumi.IntInput) AnalysisTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTag {
-		return vs[0].([]AnalysisTag)[vs[1].(int)]
-	}).(AnalysisTagOutput)
-}
-
 type AnalysisTextAreaControlDisplayOptions struct {
 	InfoIconLabelOptions *AnalysisSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
 	PlaceholderOptions   *AnalysisTextControlPlaceholderOptions    `pulumi:"placeholderOptions"`
@@ -79828,8 +79733,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableUnaggregatedFieldWellsPtrInput)(nil)).Elem(), AnalysisTableUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableVisualInput)(nil)).Elem(), AnalysisTableVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableVisualPtrInput)(nil)).Elem(), AnalysisTableVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTagInput)(nil)).Elem(), AnalysisTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTagArrayInput)(nil)).Elem(), AnalysisTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextAreaControlDisplayOptionsInput)(nil)).Elem(), AnalysisTextAreaControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextAreaControlDisplayOptionsPtrInput)(nil)).Elem(), AnalysisTextAreaControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextConditionalFormatInput)(nil)).Elem(), AnalysisTextConditionalFormatArgs{})
@@ -80822,8 +80725,6 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTableUnaggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableVisualOutput{})
 	pulumi.RegisterOutputType(AnalysisTableVisualPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTagOutput{})
-	pulumi.RegisterOutputType(AnalysisTagArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisTextAreaControlDisplayOptionsOutput{})
 	pulumi.RegisterOutputType(AnalysisTextAreaControlDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTextConditionalFormatOutput{})

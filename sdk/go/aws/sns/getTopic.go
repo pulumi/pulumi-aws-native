@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -59,7 +60,7 @@ type LookupTopicResult struct {
 	SignatureVersion *string `pulumi:"signatureVersion"`
 	// The SNS subscriptions (endpoints) for this topic.
 	Subscription []TopicSubscription `pulumi:"subscription"`
-	Tags         []TopicTag          `pulumi:"tags"`
+	Tags         []aws.Tag           `pulumi:"tags"`
 	TopicArn     *string             `pulumi:"topicArn"`
 	// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
 	TracingConfig *string `pulumi:"tracingConfig"`
@@ -156,8 +157,8 @@ func (o LookupTopicResultOutput) Subscription() TopicSubscriptionArrayOutput {
 	return o.ApplyT(func(v LookupTopicResult) []TopicSubscription { return v.Subscription }).(TopicSubscriptionArrayOutput)
 }
 
-func (o LookupTopicResultOutput) Tags() TopicTagArrayOutput {
-	return o.ApplyT(func(v LookupTopicResult) []TopicTag { return v.Tags }).(TopicTagArrayOutput)
+func (o LookupTopicResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTopicResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupTopicResultOutput) TopicArn() pulumi.StringPtrOutput {

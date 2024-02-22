@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type Detector struct {
 	Enable                     pulumi.BoolOutput                            `pulumi:"enable"`
 	Features                   DetectorCfnFeatureConfigurationArrayOutput   `pulumi:"features"`
 	FindingPublishingFrequency pulumi.StringPtrOutput                       `pulumi:"findingPublishingFrequency"`
-	Tags                       DetectorTagItemArrayOutput                   `pulumi:"tags"`
+	Tags                       aws.TagArrayOutput                           `pulumi:"tags"`
 }
 
 // NewDetector registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +71,7 @@ type detectorArgs struct {
 	Enable                     bool                                 `pulumi:"enable"`
 	Features                   []DetectorCfnFeatureConfiguration    `pulumi:"features"`
 	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
-	Tags                       []DetectorTagItem                    `pulumi:"tags"`
+	Tags                       []aws.Tag                            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Detector resource.
@@ -79,7 +80,7 @@ type DetectorArgs struct {
 	Enable                     pulumi.BoolInput
 	Features                   DetectorCfnFeatureConfigurationArrayInput
 	FindingPublishingFrequency pulumi.StringPtrInput
-	Tags                       DetectorTagItemArrayInput
+	Tags                       aws.TagArrayInput
 }
 
 func (DetectorArgs) ElementType() reflect.Type {
@@ -135,8 +136,8 @@ func (o DetectorOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringPtrOutput { return v.FindingPublishingFrequency }).(pulumi.StringPtrOutput)
 }
 
-func (o DetectorOutput) Tags() DetectorTagItemArrayOutput {
-	return o.ApplyT(func(v *Detector) DetectorTagItemArrayOutput { return v.Tags }).(DetectorTagItemArrayOutput)
+func (o DetectorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Detector) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

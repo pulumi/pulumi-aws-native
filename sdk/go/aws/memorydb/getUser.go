@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupUserResult struct {
 	// Indicates the user status. Can be "active", "modifying" or "deleting".
 	Status *string `pulumi:"status"`
 	// An array of key-value pairs to apply to this user.
-	Tags []UserTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -83,8 +84,8 @@ func (o LookupUserResultOutput) Status() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this user.
-func (o LookupUserResultOutput) Tags() UserTagArrayOutput {
-	return o.ApplyT(func(v LookupUserResult) []UserTag { return v.Tags }).(UserTagArrayOutput)
+func (o LookupUserResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -66,7 +66,7 @@ export interface GetAgreementResult {
     /**
      * Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
      */
-    readonly tags?: outputs.transfer.AgreementTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Transfer::Agreement

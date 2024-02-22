@@ -63,7 +63,7 @@ export interface GetRoleResult {
     /**
      * A list of tags that are attached to the role.
      */
-    readonly tags?: outputs.iam.RoleTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::IAM::Role

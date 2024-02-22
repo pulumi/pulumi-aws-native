@@ -36,7 +36,7 @@ export interface GetLifecyclePolicyResult {
     readonly policyDetails?: outputs.dlm.LifecyclePolicyPolicyDetails;
     readonly retainInterval?: number;
     readonly state?: string;
-    readonly tags?: outputs.dlm.LifecyclePolicyTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::DLM::LifecyclePolicy

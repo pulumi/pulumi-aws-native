@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,7 +24,7 @@ class DomainArgs:
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  single_sign_on: Optional[pulumi.Input['DomainSingleSignOnArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] domain_execution_role: The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
@@ -30,7 +32,7 @@ class DomainArgs:
         :param pulumi.Input[str] kms_key_identifier: The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
         :param pulumi.Input[str] name: The name of the Amazon DataZone domain.
         :param pulumi.Input['DomainSingleSignOnArgs'] single_sign_on: The single-sign on configuration of the Amazon DataZone domain.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: The tags specified for the Amazon DataZone domain.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags specified for the Amazon DataZone domain.
         """
         pulumi.set(__self__, "domain_execution_role", domain_execution_role)
         if description is not None:
@@ -106,14 +108,14 @@ class DomainArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags specified for the Amazon DataZone domain.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,7 +129,7 @@ class Domain(pulumi.CustomResource):
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  single_sign_on: Optional[pulumi.Input[pulumi.InputType['DomainSingleSignOnArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         A domain is an organizing entity for connecting together assets, users, and their projects
@@ -139,7 +141,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_identifier: The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
         :param pulumi.Input[str] name: The name of the Amazon DataZone domain.
         :param pulumi.Input[pulumi.InputType['DomainSingleSignOnArgs']] single_sign_on: The single-sign on configuration of the Amazon DataZone domain.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]] tags: The tags specified for the Amazon DataZone domain.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags specified for the Amazon DataZone domain.
         """
         ...
     @overload
@@ -170,7 +172,7 @@ class Domain(pulumi.CustomResource):
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  single_sign_on: Optional[pulumi.Input[pulumi.InputType['DomainSingleSignOnArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -322,7 +324,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DomainTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags specified for the Amazon DataZone domain.
         """

@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The URL of the bucket.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Lightsail
 
             ImmutableArray<string> resourcesReceivingAccess,
 
-            ImmutableArray<Outputs.BucketTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? url)
         {

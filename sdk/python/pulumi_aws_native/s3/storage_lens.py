@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -18,10 +20,10 @@ __all__ = ['StorageLensArgs', 'StorageLens']
 class StorageLensArgs:
     def __init__(__self__, *,
                  storage_lens_configuration: pulumi.Input['StorageLensConfigurationArgs'],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageLens resource.
-        :param pulumi.Input[Sequence[pulumi.Input['StorageLensTagArgs']]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         """
         pulumi.set(__self__, "storage_lens_configuration", storage_lens_configuration)
         if tags is not None:
@@ -38,14 +40,14 @@ class StorageLensArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -55,14 +57,14 @@ class StorageLens(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageLensTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageLensTagArgs']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         """
         ...
     @overload
@@ -89,7 +91,7 @@ class StorageLens(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageLensTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -138,7 +140,7 @@ class StorageLens(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StorageLensTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         """

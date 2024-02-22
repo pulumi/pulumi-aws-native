@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Iam
         /// <summary>
         /// A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
         /// </summary>
-        public readonly ImmutableArray<Outputs.UserTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetUserResult(
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Iam
 
             ImmutableArray<Outputs.UserPolicy> policies,
 
-            ImmutableArray<Outputs.UserTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Groups = groups;

@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// <summary>
         /// Specifies the tags applied to a RepositoryLink.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RepositoryLinkTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRepositoryLinkResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
 
             string? repositoryLinkId,
 
-            ImmutableArray<Outputs.RepositoryLinkTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ConnectionArn = connectionArn;
             EncryptionKeyArn = encryptionKeyArn;

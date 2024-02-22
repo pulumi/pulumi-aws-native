@@ -43,7 +43,7 @@ export interface GetRepositoryResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ecr.RepositoryTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::ECR::Repository resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html

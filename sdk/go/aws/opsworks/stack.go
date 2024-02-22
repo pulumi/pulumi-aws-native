@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,9 +19,8 @@ import (
 type Stack struct {
 	pulumi.CustomResourceState
 
-	AgentVersion pulumi.StringPtrOutput `pulumi:"agentVersion"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-	Attributes            pulumi.AnyOutput                   `pulumi:"attributes"`
+	AgentVersion          pulumi.StringPtrOutput             `pulumi:"agentVersion"`
+	Attributes            pulumi.StringMapOutput             `pulumi:"attributes"`
 	ChefConfiguration     StackChefConfigurationPtrOutput    `pulumi:"chefConfiguration"`
 	CloneAppIds           pulumi.StringArrayOutput           `pulumi:"cloneAppIds"`
 	ClonePermissions      pulumi.BoolPtrOutput               `pulumi:"clonePermissions"`
@@ -41,7 +41,7 @@ type Stack struct {
 	RdsDbInstances            StackRdsDbInstanceArrayOutput `pulumi:"rdsDbInstances"`
 	ServiceRoleArn            pulumi.StringOutput           `pulumi:"serviceRoleArn"`
 	SourceStackId             pulumi.StringPtrOutput        `pulumi:"sourceStackId"`
-	Tags                      StackTagArrayOutput           `pulumi:"tags"`
+	Tags                      aws.TagArrayOutput            `pulumi:"tags"`
 	UseCustomCookbooks        pulumi.BoolPtrOutput          `pulumi:"useCustomCookbooks"`
 	UseOpsworksSecurityGroups pulumi.BoolPtrOutput          `pulumi:"useOpsworksSecurityGroups"`
 	VpcId                     pulumi.StringPtrOutput        `pulumi:"vpcId"`
@@ -101,9 +101,8 @@ func (StackState) ElementType() reflect.Type {
 }
 
 type stackArgs struct {
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-	Attributes            interface{}                `pulumi:"attributes"`
+	AgentVersion          *string                    `pulumi:"agentVersion"`
+	Attributes            map[string]string          `pulumi:"attributes"`
 	ChefConfiguration     *StackChefConfiguration    `pulumi:"chefConfiguration"`
 	CloneAppIds           []string                   `pulumi:"cloneAppIds"`
 	ClonePermissions      *bool                      `pulumi:"clonePermissions"`
@@ -124,7 +123,7 @@ type stackArgs struct {
 	RdsDbInstances            []StackRdsDbInstance `pulumi:"rdsDbInstances"`
 	ServiceRoleArn            string               `pulumi:"serviceRoleArn"`
 	SourceStackId             *string              `pulumi:"sourceStackId"`
-	Tags                      []StackTag           `pulumi:"tags"`
+	Tags                      []aws.Tag            `pulumi:"tags"`
 	UseCustomCookbooks        *bool                `pulumi:"useCustomCookbooks"`
 	UseOpsworksSecurityGroups *bool                `pulumi:"useOpsworksSecurityGroups"`
 	VpcId                     *string              `pulumi:"vpcId"`
@@ -132,9 +131,8 @@ type stackArgs struct {
 
 // The set of arguments for constructing a Stack resource.
 type StackArgs struct {
-	AgentVersion pulumi.StringPtrInput
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-	Attributes            pulumi.Input
+	AgentVersion          pulumi.StringPtrInput
+	Attributes            pulumi.StringMapInput
 	ChefConfiguration     StackChefConfigurationPtrInput
 	CloneAppIds           pulumi.StringArrayInput
 	ClonePermissions      pulumi.BoolPtrInput
@@ -155,7 +153,7 @@ type StackArgs struct {
 	RdsDbInstances            StackRdsDbInstanceArrayInput
 	ServiceRoleArn            pulumi.StringInput
 	SourceStackId             pulumi.StringPtrInput
-	Tags                      StackTagArrayInput
+	Tags                      aws.TagArrayInput
 	UseCustomCookbooks        pulumi.BoolPtrInput
 	UseOpsworksSecurityGroups pulumi.BoolPtrInput
 	VpcId                     pulumi.StringPtrInput
@@ -202,9 +200,8 @@ func (o StackOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-func (o StackOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Stack) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+func (o StackOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o StackOutput) ChefConfiguration() StackChefConfigurationPtrOutput {
@@ -284,8 +281,8 @@ func (o StackOutput) SourceStackId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.SourceStackId }).(pulumi.StringPtrOutput)
 }
 
-func (o StackOutput) Tags() StackTagArrayOutput {
-	return o.ApplyT(func(v *Stack) StackTagArrayOutput { return v.Tags }).(StackTagArrayOutput)
+func (o StackOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Stack) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o StackOutput) UseCustomCookbooks() pulumi.BoolPtrOutput {

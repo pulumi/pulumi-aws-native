@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class FlywheelArgs:
                  data_security_config: Optional[pulumi.Input['FlywheelDataSecurityConfigArgs']] = None,
                  flywheel_name: Optional[pulumi.Input[str]] = None,
                  model_type: Optional[pulumi.Input['FlywheelModelType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlywheelTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  task_config: Optional[pulumi.Input['FlywheelTaskConfigArgs']] = None):
         """
         The set of arguments for constructing a Flywheel resource.
@@ -99,11 +101,11 @@ class FlywheelArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlywheelTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlywheelTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -127,7 +129,7 @@ class Flywheel(pulumi.CustomResource):
                  data_security_config: Optional[pulumi.Input[pulumi.InputType['FlywheelDataSecurityConfigArgs']]] = None,
                  flywheel_name: Optional[pulumi.Input[str]] = None,
                  model_type: Optional[pulumi.Input['FlywheelModelType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlywheelTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  task_config: Optional[pulumi.Input[pulumi.InputType['FlywheelTaskConfigArgs']]] = None,
                  __props__=None):
         """
@@ -166,7 +168,7 @@ class Flywheel(pulumi.CustomResource):
                  data_security_config: Optional[pulumi.Input[pulumi.InputType['FlywheelDataSecurityConfigArgs']]] = None,
                  flywheel_name: Optional[pulumi.Input[str]] = None,
                  model_type: Optional[pulumi.Input['FlywheelModelType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlywheelTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  task_config: Optional[pulumi.Input[pulumi.InputType['FlywheelTaskConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -262,7 +264,7 @@ class Flywheel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FlywheelTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

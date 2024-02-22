@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type RepositoryAssociation struct {
 	// The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
 	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// The tags associated with a repository association.
-	Tags RepositoryAssociationTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The type of repository to be associated.
 	Type RepositoryAssociationTypeOutput `pulumi:"type"`
 }
@@ -93,7 +94,7 @@ type repositoryAssociationArgs struct {
 	// The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
 	Owner *string `pulumi:"owner"`
 	// The tags associated with a repository association.
-	Tags []RepositoryAssociationTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// The type of repository to be associated.
 	Type RepositoryAssociationType `pulumi:"type"`
 }
@@ -109,7 +110,7 @@ type RepositoryAssociationArgs struct {
 	// The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
 	Owner pulumi.StringPtrInput
 	// The tags associated with a repository association.
-	Tags RepositoryAssociationTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 	// The type of repository to be associated.
 	Type RepositoryAssociationTypeInput
 }
@@ -177,8 +178,8 @@ func (o RepositoryAssociationOutput) Owner() pulumi.StringPtrOutput {
 }
 
 // The tags associated with a repository association.
-func (o RepositoryAssociationOutput) Tags() RepositoryAssociationTagArrayOutput {
-	return o.ApplyT(func(v *RepositoryAssociation) RepositoryAssociationTagArrayOutput { return v.Tags }).(RepositoryAssociationTagArrayOutput)
+func (o RepositoryAssociationOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // The type of repository to be associated.

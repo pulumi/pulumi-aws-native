@@ -11,7 +11,6 @@ from .. import _utilities
 
 __all__ = [
     'EnvironmentEc2Repository',
-    'EnvironmentEc2Tag',
 ]
 
 @pulumi.output_type
@@ -50,24 +49,5 @@ class EnvironmentEc2Repository(dict):
     @pulumi.getter(name="repositoryUrl")
     def repository_url(self) -> str:
         return pulumi.get(self, "repository_url")
-
-
-@pulumi.output_type
-class EnvironmentEc2Tag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

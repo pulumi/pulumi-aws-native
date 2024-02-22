@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public readonly string? ServiceNetworkId;
         public readonly string? ServiceNetworkName;
         public readonly Pulumi.AwsNative.VpcLattice.ServiceNetworkVpcAssociationStatus? Status;
-        public readonly ImmutableArray<Outputs.ServiceNetworkVpcAssociationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? VpcId;
 
         [OutputConstructor]
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
             Pulumi.AwsNative.VpcLattice.ServiceNetworkVpcAssociationStatus? status,
 
-            ImmutableArray<Outputs.ServiceNetworkVpcAssociationTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? vpcId)
         {

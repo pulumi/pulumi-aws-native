@@ -42,7 +42,7 @@ export class Package extends pulumi.CustomResource {
     public /*out*/ readonly packageId!: pulumi.Output<string>;
     public readonly packageName!: pulumi.Output<string>;
     public readonly storageLocation!: pulumi.Output<outputs.panorama.PackageStorageLocation | undefined>;
-    public readonly tags!: pulumi.Output<outputs.panorama.PackageTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Package resource with the given unique name, arguments, and options.
@@ -82,5 +82,5 @@ export class Package extends pulumi.CustomResource {
 export interface PackageArgs {
     packageName?: pulumi.Input<string>;
     storageLocation?: pulumi.Input<inputs.panorama.PackageStorageLocationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.panorama.PackageTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

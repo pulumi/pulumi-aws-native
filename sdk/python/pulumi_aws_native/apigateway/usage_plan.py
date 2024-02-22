@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['UsagePlanArgs', 'UsagePlan']
@@ -19,7 +21,7 @@ class UsagePlanArgs:
                  api_stages: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input['UsagePlanQuotaSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  throttle: Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']] = None,
                  usage_plan_name: Optional[pulumi.Input[str]] = None):
         """
@@ -27,7 +29,7 @@ class UsagePlanArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]] api_stages: The associated API stages of a usage plan.
         :param pulumi.Input[str] description: The description of a usage plan.
         :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota: The target maximum number of permitted requests per a given unit time interval.
-        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
         :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle: A map containing method level throttling information for API stage in a usage plan.
         :param pulumi.Input[str] usage_plan_name: The name of a usage plan.
         """
@@ -82,14 +84,14 @@ class UsagePlanArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -125,7 +127,7 @@ class UsagePlan(pulumi.CustomResource):
                  api_stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  throttle: Optional[pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']]] = None,
                  usage_plan_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -138,7 +140,7 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of a usage plan.
         :param pulumi.Input[str] description: The description of a usage plan.
         :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota: The target maximum number of permitted requests per a given unit time interval.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanTagArgs']]]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The collection of tags. Each tag element is associated with a given resource.
         :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle: A map containing method level throttling information for API stage in a usage plan.
         :param pulumi.Input[str] usage_plan_name: The name of a usage plan.
         """
@@ -170,7 +172,7 @@ class UsagePlan(pulumi.CustomResource):
                  api_stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  throttle: Optional[pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']]] = None,
                  usage_plan_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -244,7 +246,7 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UsagePlanTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,8 +19,7 @@ import (
 type Layer struct {
 	pulumi.CustomResourceState
 
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-	Attributes               pulumi.AnyOutput       `pulumi:"attributes"`
+	Attributes               pulumi.StringMapOutput `pulumi:"attributes"`
 	AutoAssignElasticIps     pulumi.BoolOutput      `pulumi:"autoAssignElasticIps"`
 	AutoAssignPublicIps      pulumi.BoolOutput      `pulumi:"autoAssignPublicIps"`
 	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
@@ -35,7 +35,7 @@ type Layer struct {
 	Packages                    pulumi.StringArrayOutput                  `pulumi:"packages"`
 	Shortname                   pulumi.StringOutput                       `pulumi:"shortname"`
 	StackId                     pulumi.StringOutput                       `pulumi:"stackId"`
-	Tags                        LayerTagArrayOutput                       `pulumi:"tags"`
+	Tags                        aws.TagArrayOutput                        `pulumi:"tags"`
 	Type                        pulumi.StringOutput                       `pulumi:"type"`
 	UseEbsOptimizedInstances    pulumi.BoolPtrOutput                      `pulumi:"useEbsOptimizedInstances"`
 	VolumeConfigurations        LayerVolumeConfigurationArrayOutput       `pulumi:"volumeConfigurations"`
@@ -104,11 +104,10 @@ func (LayerState) ElementType() reflect.Type {
 }
 
 type layerArgs struct {
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-	Attributes               interface{} `pulumi:"attributes"`
-	AutoAssignElasticIps     bool        `pulumi:"autoAssignElasticIps"`
-	AutoAssignPublicIps      bool        `pulumi:"autoAssignPublicIps"`
-	CustomInstanceProfileArn *string     `pulumi:"customInstanceProfileArn"`
+	Attributes               map[string]string `pulumi:"attributes"`
+	AutoAssignElasticIps     bool              `pulumi:"autoAssignElasticIps"`
+	AutoAssignPublicIps      bool              `pulumi:"autoAssignPublicIps"`
+	CustomInstanceProfileArn *string           `pulumi:"customInstanceProfileArn"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
 	CustomJson                  interface{}                       `pulumi:"customJson"`
 	CustomRecipes               *LayerRecipes                     `pulumi:"customRecipes"`
@@ -121,7 +120,7 @@ type layerArgs struct {
 	Packages                    []string                          `pulumi:"packages"`
 	Shortname                   string                            `pulumi:"shortname"`
 	StackId                     string                            `pulumi:"stackId"`
-	Tags                        []LayerTag                        `pulumi:"tags"`
+	Tags                        []aws.Tag                         `pulumi:"tags"`
 	Type                        string                            `pulumi:"type"`
 	UseEbsOptimizedInstances    *bool                             `pulumi:"useEbsOptimizedInstances"`
 	VolumeConfigurations        []LayerVolumeConfiguration        `pulumi:"volumeConfigurations"`
@@ -129,8 +128,7 @@ type layerArgs struct {
 
 // The set of arguments for constructing a Layer resource.
 type LayerArgs struct {
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-	Attributes               pulumi.Input
+	Attributes               pulumi.StringMapInput
 	AutoAssignElasticIps     pulumi.BoolInput
 	AutoAssignPublicIps      pulumi.BoolInput
 	CustomInstanceProfileArn pulumi.StringPtrInput
@@ -146,7 +144,7 @@ type LayerArgs struct {
 	Packages                    pulumi.StringArrayInput
 	Shortname                   pulumi.StringInput
 	StackId                     pulumi.StringInput
-	Tags                        LayerTagArrayInput
+	Tags                        aws.TagArrayInput
 	Type                        pulumi.StringInput
 	UseEbsOptimizedInstances    pulumi.BoolPtrInput
 	VolumeConfigurations        LayerVolumeConfigurationArrayInput
@@ -189,9 +187,8 @@ func (o LayerOutput) ToLayerOutputWithContext(ctx context.Context) LayerOutput {
 	return o
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-func (o LayerOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Layer) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+func (o LayerOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Layer) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o LayerOutput) AutoAssignElasticIps() pulumi.BoolOutput {
@@ -251,8 +248,8 @@ func (o LayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Layer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }
 
-func (o LayerOutput) Tags() LayerTagArrayOutput {
-	return o.ApplyT(func(v *Layer) LayerTagArrayOutput { return v.Tags }).(LayerTagArrayOutput)
+func (o LayerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Layer) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LayerOutput) Type() pulumi.StringOutput {

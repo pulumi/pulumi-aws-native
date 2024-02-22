@@ -62,7 +62,7 @@ export interface GetModelCardResult {
     /**
      * Key-value pairs used to manage metadata for model cards.
      */
-    readonly tags?: outputs.sagemaker.ModelCardTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::ModelCard.

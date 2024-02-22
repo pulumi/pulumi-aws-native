@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Volume struct {
 	OntapConfiguration   VolumeOntapConfigurationPtrOutput   `pulumi:"ontapConfiguration"`
 	OpenZfsConfiguration VolumeOpenZfsConfigurationPtrOutput `pulumi:"openZfsConfiguration"`
 	ResourceArn          pulumi.StringOutput                 `pulumi:"resourceArn"`
-	Tags                 VolumeTagArrayOutput                `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput                  `pulumi:"tags"`
 	Uuid                 pulumi.StringOutput                 `pulumi:"uuid"`
 	VolumeId             pulumi.StringOutput                 `pulumi:"volumeId"`
 	VolumeType           pulumi.StringPtrOutput              `pulumi:"volumeType"`
@@ -77,7 +78,7 @@ type volumeArgs struct {
 	Name                 *string                     `pulumi:"name"`
 	OntapConfiguration   *VolumeOntapConfiguration   `pulumi:"ontapConfiguration"`
 	OpenZfsConfiguration *VolumeOpenZfsConfiguration `pulumi:"openZfsConfiguration"`
-	Tags                 []VolumeTag                 `pulumi:"tags"`
+	Tags                 []aws.Tag                   `pulumi:"tags"`
 	VolumeType           *string                     `pulumi:"volumeType"`
 }
 
@@ -87,7 +88,7 @@ type VolumeArgs struct {
 	Name                 pulumi.StringPtrInput
 	OntapConfiguration   VolumeOntapConfigurationPtrInput
 	OpenZfsConfiguration VolumeOpenZfsConfigurationPtrInput
-	Tags                 VolumeTagArrayInput
+	Tags                 aws.TagArrayInput
 	VolumeType           pulumi.StringPtrInput
 }
 
@@ -148,8 +149,8 @@ func (o VolumeOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-func (o VolumeOutput) Tags() VolumeTagArrayOutput {
-	return o.ApplyT(func(v *Volume) VolumeTagArrayOutput { return v.Tags }).(VolumeTagArrayOutput)
+func (o VolumeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Volume) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o VolumeOutput) Uuid() pulumi.StringOutput {

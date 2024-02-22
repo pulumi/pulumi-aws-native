@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.BillingConductor
         /// Pricing rule name
         /// </summary>
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.PricingRuleTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The set of tiering configurations for the pricing rule.
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.AwsNative.BillingConductor
 
             string? name,
 
-            ImmutableArray<Outputs.PricingRuleTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.TieringProperties? tiering,
 

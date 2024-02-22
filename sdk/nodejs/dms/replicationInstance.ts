@@ -55,7 +55,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
     public /*out*/ readonly replicationInstancePublicIpAddresses!: pulumi.Output<string>;
     public readonly replicationSubnetGroupIdentifier!: pulumi.Output<string | undefined>;
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.dms.ReplicationInstanceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -134,6 +134,6 @@ export interface ReplicationInstanceArgs {
     replicationInstanceIdentifier?: pulumi.Input<string>;
     replicationSubnetGroupIdentifier?: pulumi.Input<string>;
     resourceIdentifier?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.dms.ReplicationInstanceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

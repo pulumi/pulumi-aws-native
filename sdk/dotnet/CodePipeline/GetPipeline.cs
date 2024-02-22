@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.CodePipeline
         public readonly bool? RestartExecutionOnUpdate;
         public readonly string? RoleArn;
         public readonly ImmutableArray<Outputs.PipelineStageDeclaration> Stages;
-        public readonly ImmutableArray<Outputs.PipelineTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<Outputs.PipelineTriggerDeclaration> Triggers;
         public readonly ImmutableArray<Outputs.PipelineVariableDeclaration> Variables;
         public readonly string? Version;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.CodePipeline
 
             ImmutableArray<Outputs.PipelineStageDeclaration> stages,
 
-            ImmutableArray<Outputs.PipelineTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.PipelineTriggerDeclaration> triggers,
 

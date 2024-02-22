@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,8 +44,8 @@ type Job struct {
 	ProjectName pulumi.StringPtrOutput `pulumi:"projectName"`
 	Recipe      JobRecipePtrOutput     `pulumi:"recipe"`
 	// Role arn
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	Tags    JobTagArrayOutput   `pulumi:"tags"`
+	RoleArn pulumi.StringOutput          `pulumi:"roleArn"`
+	Tags    aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// Timeout
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Job type
@@ -132,8 +133,8 @@ type jobArgs struct {
 	ProjectName *string    `pulumi:"projectName"`
 	Recipe      *JobRecipe `pulumi:"recipe"`
 	// Role arn
-	RoleArn string   `pulumi:"roleArn"`
-	Tags    []JobTag `pulumi:"tags"`
+	RoleArn string              `pulumi:"roleArn"`
+	Tags    []aws.CreateOnlyTag `pulumi:"tags"`
 	// Timeout
 	Timeout *int `pulumi:"timeout"`
 	// Job type
@@ -172,7 +173,7 @@ type JobArgs struct {
 	Recipe      JobRecipePtrInput
 	// Role arn
 	RoleArn pulumi.StringInput
-	Tags    JobTagArrayInput
+	Tags    aws.CreateOnlyTagArrayInput
 	// Timeout
 	Timeout pulumi.IntPtrInput
 	// Job type
@@ -294,8 +295,8 @@ func (o JobOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-func (o JobOutput) Tags() JobTagArrayOutput {
-	return o.ApplyT(func(v *Job) JobTagArrayOutput { return v.Tags }).(JobTagArrayOutput)
+func (o JobOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Job) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // Timeout

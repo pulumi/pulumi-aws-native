@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type RuleGroupsNamespace struct {
 	// The RuleGroupsNamespace name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags RuleGroupsNamespaceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
 	Workspace pulumi.StringOutput `pulumi:"workspace"`
 }
@@ -84,7 +85,7 @@ type ruleGroupsNamespaceArgs struct {
 	// The RuleGroupsNamespace name.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RuleGroupsNamespaceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
 	Workspace string `pulumi:"workspace"`
 }
@@ -96,7 +97,7 @@ type RuleGroupsNamespaceArgs struct {
 	// The RuleGroupsNamespace name.
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags RuleGroupsNamespaceTagArrayInput
+	Tags aws.TagArrayInput
 	// Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
 	Workspace pulumi.StringInput
 }
@@ -154,8 +155,8 @@ func (o RuleGroupsNamespaceOutput) Name() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o RuleGroupsNamespaceOutput) Tags() RuleGroupsNamespaceTagArrayOutput {
-	return o.ApplyT(func(v *RuleGroupsNamespace) RuleGroupsNamespaceTagArrayOutput { return v.Tags }).(RuleGroupsNamespaceTagArrayOutput)
+func (o RuleGroupsNamespaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RuleGroupsNamespace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.

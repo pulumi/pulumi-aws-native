@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.BrowserSettingsTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -93,10 +93,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Input<string>? CustomerManagedKey { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.BrowserSettingsTagArgs>? _tags;
-        public InputList<Inputs.BrowserSettingsTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.BrowserSettingsTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

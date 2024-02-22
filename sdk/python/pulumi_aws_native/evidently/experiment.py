@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -28,11 +30,11 @@ class ExperimentArgs:
                  running_status: Optional[pulumi.Input['ExperimentRunningStatusObjectArgs']] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
                  segment: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
         :param pulumi.Input['ExperimentRunningStatusObjectArgs'] running_status: Start Experiment. Default is False
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "metric_goals", metric_goals)
         pulumi.set(__self__, "online_ab_config", online_ab_config)
@@ -159,14 +161,14 @@ class ExperimentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -185,7 +187,7 @@ class Experiment(pulumi.CustomResource):
                  running_status: Optional[pulumi.Input[pulumi.InputType['ExperimentRunningStatusObjectArgs']]] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
                  segment: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  treatments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTreatmentObjectArgs']]]]] = None,
                  __props__=None):
         """
@@ -194,7 +196,7 @@ class Experiment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExperimentRunningStatusObjectArgs']] running_status: Start Experiment. Default is False
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -230,7 +232,7 @@ class Experiment(pulumi.CustomResource):
                  running_status: Optional[pulumi.Input[pulumi.InputType['ExperimentRunningStatusObjectArgs']]] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
                  segment: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  treatments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTreatmentObjectArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -361,7 +363,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ExperimentTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

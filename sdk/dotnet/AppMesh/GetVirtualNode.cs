@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.AppMesh
         public readonly string? Id;
         public readonly string? ResourceOwner;
         public readonly Outputs.VirtualNodeSpec? Spec;
-        public readonly ImmutableArray<Outputs.VirtualNodeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? Uid;
 
         [OutputConstructor]
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.AppMesh
 
             Outputs.VirtualNodeSpec? spec,
 
-            ImmutableArray<Outputs.VirtualNodeTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? uid)
         {

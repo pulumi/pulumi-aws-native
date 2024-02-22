@@ -52,7 +52,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The tags to assign to the channel.
      */
-    public readonly tags!: pulumi.Output<outputs.mediatailor.ChannelTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly tier!: pulumi.Output<enums.mediatailor.ChannelTier | undefined>;
     public readonly timeShiftConfiguration!: pulumi.Output<outputs.mediatailor.ChannelTimeShiftConfiguration | undefined>;
 
@@ -115,7 +115,7 @@ export interface ChannelArgs {
     /**
      * The tags to assign to the channel.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.mediatailor.ChannelTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     tier?: pulumi.Input<enums.mediatailor.ChannelTier>;
     timeShiftConfiguration?: pulumi.Input<inputs.mediatailor.ChannelTimeShiftConfigurationArgs>;
 }

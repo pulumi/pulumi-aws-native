@@ -43,7 +43,7 @@ export interface GetPipelineResult {
     /**
      * A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
      */
-    readonly pipelineTags?: outputs.datapipeline.PipelineTag[];
+    readonly pipelineTags?: outputs.Tag[];
 }
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.

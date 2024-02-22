@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupStageResult struct {
 	// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
 	MethodSettings []StageMethodSetting `pulumi:"methodSettings"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags []StageTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled *bool `pulumi:"tracingEnabled"`
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
@@ -140,8 +141,8 @@ func (o LookupStageResultOutput) MethodSettings() StageMethodSettingArrayOutput 
 }
 
 // The collection of tags. Each tag element is associated with a given resource.
-func (o LookupStageResultOutput) Tags() StageTagArrayOutput {
-	return o.ApplyT(func(v LookupStageResult) []StageTag { return v.Tags }).(StageTagArrayOutput)
+func (o LookupStageResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStageResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Specifies whether active tracing with X-ray is enabled for the Stage.

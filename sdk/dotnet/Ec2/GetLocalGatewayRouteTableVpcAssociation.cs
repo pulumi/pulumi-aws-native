@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags for the association.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocalGatewayRouteTableVpcAssociationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLocalGatewayRouteTableVpcAssociationResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? state,
 
-            ImmutableArray<Outputs.LocalGatewayRouteTableVpcAssociationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             LocalGatewayId = localGatewayId;
             LocalGatewayRouteTableVpcAssociationId = localGatewayRouteTableVpcAssociationId;

@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Rds
         /// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DbProxyTagFormat>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// VPC ID to associate with the new DB proxy.
@@ -193,14 +193,14 @@ namespace Pulumi.AwsNative.Rds
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DbProxyTagFormatArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         /// </summary>
-        public InputList<Inputs.DbProxyTagFormatArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DbProxyTagFormatArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

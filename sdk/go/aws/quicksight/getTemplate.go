@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupTemplateResult struct {
 	LastUpdatedTime *string                      `pulumi:"lastUpdatedTime"`
 	Name            *string                      `pulumi:"name"`
 	Permissions     []TemplateResourcePermission `pulumi:"permissions"`
-	Tags            []TemplateTag                `pulumi:"tags"`
+	Tags            []aws.Tag                    `pulumi:"tags"`
 	Version         *TemplateVersion             `pulumi:"version"`
 }
 
@@ -93,8 +94,8 @@ func (o LookupTemplateResultOutput) Permissions() TemplateResourcePermissionArra
 	return o.ApplyT(func(v LookupTemplateResult) []TemplateResourcePermission { return v.Permissions }).(TemplateResourcePermissionArrayOutput)
 }
 
-func (o LookupTemplateResultOutput) Tags() TemplateTagArrayOutput {
-	return o.ApplyT(func(v LookupTemplateResult) []TemplateTag { return v.Tags }).(TemplateTagArrayOutput)
+func (o LookupTemplateResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTemplateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupTemplateResultOutput) Version() TemplateVersionPtrOutput {

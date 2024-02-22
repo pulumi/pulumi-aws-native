@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DiskTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDiskResult(
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.Lightsail
 
             string? supportCode,
 
-            ImmutableArray<Outputs.DiskTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AddOns = addOns;
             AttachedTo = attachedTo;

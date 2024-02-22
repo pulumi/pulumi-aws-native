@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,7 @@ class ObjectTypeArgs:
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
                  source_last_updated_timestamp_format: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ObjectType resource.
@@ -39,7 +41,7 @@ class ObjectTypeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]] keys: A list of unique keys that can be used to map data to the profile.
         :param pulumi.Input[str] object_type_name: The name of the profile object type.
         :param pulumi.Input[str] source_last_updated_timestamp_format: The format of your sourceLastUpdatedTimestamp that was previously set up.
-        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]] tags: The tags (keys and values) associated with the integration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the integration.
         :param pulumi.Input[str] template_id: A unique identifier for the object template.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -174,14 +176,14 @@ class ObjectTypeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the integration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -211,7 +213,7 @@ class ObjectType(pulumi.CustomResource):
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeKeyMapArgs']]]]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
                  source_last_updated_timestamp_format: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -228,7 +230,7 @@ class ObjectType(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeKeyMapArgs']]]] keys: A list of unique keys that can be used to map data to the profile.
         :param pulumi.Input[str] object_type_name: The name of the profile object type.
         :param pulumi.Input[str] source_last_updated_timestamp_format: The format of your sourceLastUpdatedTimestamp that was previously set up.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeTagArgs']]]] tags: The tags (keys and values) associated with the integration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the integration.
         :param pulumi.Input[str] template_id: A unique identifier for the object template.
         """
         ...
@@ -264,7 +266,7 @@ class ObjectType(pulumi.CustomResource):
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeKeyMapArgs']]]]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
                  source_last_updated_timestamp_format: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -419,7 +421,7 @@ class ObjectType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ObjectTypeTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags (keys and values) associated with the integration.
         """

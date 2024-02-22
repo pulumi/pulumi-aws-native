@@ -52,7 +52,7 @@ export class ClusterSubnetGroup extends pulumi.CustomResource {
     /**
      * The list of tags for the cluster parameter group.
      */
-    public readonly tags!: pulumi.Output<outputs.redshift.ClusterSubnetGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ClusterSubnetGroup resource with the given unique name, arguments, and options.
@@ -101,5 +101,5 @@ export interface ClusterSubnetGroupArgs {
     /**
      * The list of tags for the cluster parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterSubnetGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupServiceResult struct {
 	DnsConfig         *ServiceDnsConfig         `pulumi:"dnsConfig"`
 	HealthCheckConfig *ServiceHealthCheckConfig `pulumi:"healthCheckConfig"`
 	Id                *string                   `pulumi:"id"`
-	Tags              []ServiceTag              `pulumi:"tags"`
+	Tags              []aws.Tag                 `pulumi:"tags"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -90,8 +91,8 @@ func (o LookupServiceResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupServiceResultOutput) Tags() ServiceTagArrayOutput {
-	return o.ApplyT(func(v LookupServiceResult) []ServiceTag { return v.Tags }).(ServiceTagArrayOutput)
+func (o LookupServiceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,7 +41,7 @@ type LookupLifecyclePolicyResult struct {
 	PolicyDetails          *LifecyclePolicyPolicyDetails          `pulumi:"policyDetails"`
 	RetainInterval         *int                                   `pulumi:"retainInterval"`
 	State                  *string                                `pulumi:"state"`
-	Tags                   []LifecyclePolicyTag                   `pulumi:"tags"`
+	Tags                   []aws.Tag                              `pulumi:"tags"`
 }
 
 func LookupLifecyclePolicyOutput(ctx *pulumi.Context, args LookupLifecyclePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupLifecyclePolicyResultOutput {
@@ -132,8 +133,8 @@ func (o LookupLifecyclePolicyResultOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLifecyclePolicyResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLifecyclePolicyResultOutput) Tags() LifecyclePolicyTagArrayOutput {
-	return o.ApplyT(func(v LookupLifecyclePolicyResult) []LifecyclePolicyTag { return v.Tags }).(LifecyclePolicyTagArrayOutput)
+func (o LookupLifecyclePolicyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLifecyclePolicyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

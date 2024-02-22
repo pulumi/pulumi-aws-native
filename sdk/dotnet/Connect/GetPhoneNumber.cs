@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PhoneNumberTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ARN of the target the phone number is claimed to.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Connect
 
             string? phoneNumberArn,
 
-            ImmutableArray<Outputs.PhoneNumberTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? targetArn)
         {

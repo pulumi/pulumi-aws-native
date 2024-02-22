@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -136,7 +137,7 @@ type Cluster struct {
 	// The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// The list of tags for the cluster parameter group.
-	Tags ClusterTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
@@ -317,7 +318,7 @@ type clusterArgs struct {
 	// The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// The list of tags for the cluster parameter group.
-	Tags []ClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -438,7 +439,7 @@ type ClusterArgs struct {
 	// The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
 	SnapshotIdentifier pulumi.StringPtrInput
 	// The list of tags for the cluster parameter group.
-	Tags ClusterTagArrayInput
+	Tags aws.TagArrayInput
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
@@ -759,8 +760,8 @@ func (o ClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 }
 
 // The list of tags for the cluster parameter group.
-func (o ClusterOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+func (o ClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Cluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.

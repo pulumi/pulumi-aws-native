@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupMonitorResult struct {
 	ProcessingStatusInfo            *string                                 `pulumi:"processingStatusInfo"`
 	Resources                       []string                                `pulumi:"resources"`
 	Status                          *MonitorConfigState                     `pulumi:"status"`
-	Tags                            []MonitorTag                            `pulumi:"tags"`
+	Tags                            []aws.Tag                               `pulumi:"tags"`
 	TrafficPercentageToMonitor      *int                                    `pulumi:"trafficPercentageToMonitor"`
 }
 
@@ -118,8 +119,8 @@ func (o LookupMonitorResultOutput) Status() MonitorConfigStatePtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *MonitorConfigState { return v.Status }).(MonitorConfigStatePtrOutput)
 }
 
-func (o LookupMonitorResultOutput) Tags() MonitorTagArrayOutput {
-	return o.ApplyT(func(v LookupMonitorResult) []MonitorTag { return v.Tags }).(MonitorTagArrayOutput)
+func (o LookupMonitorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMonitorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupMonitorResultOutput) TrafficPercentageToMonitor() pulumi.IntPtrOutput {

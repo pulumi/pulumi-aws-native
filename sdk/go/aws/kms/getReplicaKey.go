@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupReplicaKeyResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
 	KeyPolicy interface{} `pulumi:"keyPolicy"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ReplicaKeyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupReplicaKeyOutput(ctx *pulumi.Context, args LookupReplicaKeyOutputArgs, opts ...pulumi.InvokeOption) LookupReplicaKeyResultOutput {
@@ -102,8 +103,8 @@ func (o LookupReplicaKeyResultOutput) KeyPolicy() pulumi.AnyOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupReplicaKeyResultOutput) Tags() ReplicaKeyTagArrayOutput {
-	return o.ApplyT(func(v LookupReplicaKeyResult) []ReplicaKeyTag { return v.Tags }).(ReplicaKeyTagArrayOutput)
+func (o LookupReplicaKeyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReplicaKeyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

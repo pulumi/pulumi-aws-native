@@ -95,7 +95,7 @@ export class Trail extends pulumi.CustomResource {
      * Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
      */
     public readonly snsTopicName!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.cloudtrail.TrailTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly trailName!: pulumi.Output<string | undefined>;
 
     /**
@@ -220,6 +220,6 @@ export interface TrailArgs {
      * Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
      */
     snsTopicName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     trailName?: pulumi.Input<string>;
 }

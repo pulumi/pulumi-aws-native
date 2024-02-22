@@ -64,7 +64,7 @@ export class PhoneNumber extends pulumi.CustomResource {
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.PhoneNumberTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the target the phone number is claimed to.
      */
@@ -138,7 +138,7 @@ export interface PhoneNumberArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.PhoneNumberTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ARN of the target the phone number is claimed to.
      */

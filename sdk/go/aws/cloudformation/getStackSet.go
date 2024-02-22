@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupStackSetResult struct {
 	// The ID of the stack set that you're creating.
 	StackSetId *string `pulumi:"stackSetId"`
 	// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
-	Tags []StackSetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	TemplateBody *string `pulumi:"templateBody"`
 }
@@ -127,8 +128,8 @@ func (o LookupStackSetResultOutput) StackSetId() pulumi.StringPtrOutput {
 }
 
 // The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
-func (o LookupStackSetResultOutput) Tags() StackSetTagArrayOutput {
-	return o.ApplyT(func(v LookupStackSetResult) []StackSetTag { return v.Tags }).(StackSetTagArrayOutput)
+func (o LookupStackSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStackSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.

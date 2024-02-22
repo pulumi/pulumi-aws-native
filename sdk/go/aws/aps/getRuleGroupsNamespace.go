@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupRuleGroupsNamespaceResult struct {
 	// The RuleGroupsNamespace data.
 	Data *string `pulumi:"data"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RuleGroupsNamespaceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRuleGroupsNamespaceOutput(ctx *pulumi.Context, args LookupRuleGroupsNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupRuleGroupsNamespaceResultOutput {
@@ -83,8 +84,8 @@ func (o LookupRuleGroupsNamespaceResultOutput) Data() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupRuleGroupsNamespaceResultOutput) Tags() RuleGroupsNamespaceTagArrayOutput {
-	return o.ApplyT(func(v LookupRuleGroupsNamespaceResult) []RuleGroupsNamespaceTag { return v.Tags }).(RuleGroupsNamespaceTagArrayOutput)
+func (o LookupRuleGroupsNamespaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRuleGroupsNamespaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

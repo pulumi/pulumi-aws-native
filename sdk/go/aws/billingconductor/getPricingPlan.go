@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,8 +39,8 @@ type LookupPricingPlanResult struct {
 	Name             *string  `pulumi:"name"`
 	PricingRuleArns  []string `pulumi:"pricingRuleArns"`
 	// Number of associated pricing rules
-	Size *int             `pulumi:"size"`
-	Tags []PricingPlanTag `pulumi:"tags"`
+	Size *int      `pulumi:"size"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPricingPlanOutput(ctx *pulumi.Context, args LookupPricingPlanOutputArgs, opts ...pulumi.InvokeOption) LookupPricingPlanResultOutput {
@@ -110,8 +111,8 @@ func (o LookupPricingPlanResultOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupPricingPlanResult) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupPricingPlanResultOutput) Tags() PricingPlanTagArrayOutput {
-	return o.ApplyT(func(v LookupPricingPlanResult) []PricingPlanTag { return v.Tags }).(PricingPlanTagArrayOutput)
+func (o LookupPricingPlanResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPricingPlanResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

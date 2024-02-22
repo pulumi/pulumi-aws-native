@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.FSx
         public readonly string? Id;
         public readonly string? Name;
         public readonly string? ResourceArn;
-        public readonly ImmutableArray<Outputs.SnapshotTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSnapshotResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.FSx
 
             string? resourceArn,
 
-            ImmutableArray<Outputs.SnapshotTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Name = name;

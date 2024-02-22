@@ -14,7 +14,6 @@ __all__ = [
     'CustomActionTypeArtifactDetails',
     'CustomActionTypeConfigurationProperties',
     'CustomActionTypeSettings',
-    'CustomActionTypeTag',
     'PipelineActionDeclaration',
     'PipelineActionTypeId',
     'PipelineArtifactStore',
@@ -31,7 +30,6 @@ __all__ = [
     'PipelineOutputArtifact',
     'PipelineStageDeclaration',
     'PipelineStageTransition',
-    'PipelineTag',
     'PipelineTriggerDeclaration',
     'PipelineVariableDeclaration',
     'WebhookAuthConfiguration',
@@ -261,25 +259,6 @@ class CustomActionTypeSettings(dict):
         The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
         """
         return pulumi.get(self, "third_party_configuration_url")
-
-
-@pulumi.output_type
-class CustomActionTypeTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -820,25 +799,6 @@ class PipelineStageTransition(dict):
     @pulumi.getter(name="stageName")
     def stage_name(self) -> str:
         return pulumi.get(self, "stage_name")
-
-
-@pulumi.output_type
-class PipelineTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

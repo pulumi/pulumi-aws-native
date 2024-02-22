@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// The tags of Application Insights application.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
 
             bool? opsCenterEnabled,
 
-            ImmutableArray<Outputs.ApplicationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApplicationArn = applicationArn;
             AutoConfigurationEnabled = autoConfigurationEnabled;

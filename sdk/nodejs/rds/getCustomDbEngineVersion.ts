@@ -46,7 +46,7 @@ export interface GetCustomDbEngineVersionResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.rds.CustomDbEngineVersionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.

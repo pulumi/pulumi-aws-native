@@ -27,7 +27,7 @@ export interface GetCrlResult {
     readonly crlId?: string;
     readonly enabled?: boolean;
     readonly name?: string;
-    readonly tags?: outputs.rolesanywhere.CrlTag[];
+    readonly tags?: outputs.Tag[];
     readonly trustAnchorArn?: string;
 }
 /**

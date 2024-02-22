@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupDbProxyEndpointResult struct {
 	// A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
 	IsDefault *bool `pulumi:"isDefault"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
-	Tags []DbProxyEndpointTagFormat `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
 	TargetRole *DbProxyEndpointTargetRole `pulumi:"targetRole"`
 	// VPC ID to associate with the new DB proxy endpoint.
@@ -96,8 +97,8 @@ func (o LookupDbProxyEndpointResultOutput) IsDefault() pulumi.BoolPtrOutput {
 }
 
 // An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
-func (o LookupDbProxyEndpointResultOutput) Tags() DbProxyEndpointTagFormatArrayOutput {
-	return o.ApplyT(func(v LookupDbProxyEndpointResult) []DbProxyEndpointTagFormat { return v.Tags }).(DbProxyEndpointTagFormatArrayOutput)
+func (o LookupDbProxyEndpointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDbProxyEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.

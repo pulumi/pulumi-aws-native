@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,17 +19,17 @@ import (
 type MaintenanceWindow struct {
 	pulumi.CustomResourceState
 
-	AllowUnassociatedTargets pulumi.BoolOutput               `pulumi:"allowUnassociatedTargets"`
-	Cutoff                   pulumi.IntOutput                `pulumi:"cutoff"`
-	Description              pulumi.StringPtrOutput          `pulumi:"description"`
-	Duration                 pulumi.IntOutput                `pulumi:"duration"`
-	EndDate                  pulumi.StringPtrOutput          `pulumi:"endDate"`
-	Name                     pulumi.StringOutput             `pulumi:"name"`
-	Schedule                 pulumi.StringOutput             `pulumi:"schedule"`
-	ScheduleOffset           pulumi.IntPtrOutput             `pulumi:"scheduleOffset"`
-	ScheduleTimezone         pulumi.StringPtrOutput          `pulumi:"scheduleTimezone"`
-	StartDate                pulumi.StringPtrOutput          `pulumi:"startDate"`
-	Tags                     MaintenanceWindowTagArrayOutput `pulumi:"tags"`
+	AllowUnassociatedTargets pulumi.BoolOutput      `pulumi:"allowUnassociatedTargets"`
+	Cutoff                   pulumi.IntOutput       `pulumi:"cutoff"`
+	Description              pulumi.StringPtrOutput `pulumi:"description"`
+	Duration                 pulumi.IntOutput       `pulumi:"duration"`
+	EndDate                  pulumi.StringPtrOutput `pulumi:"endDate"`
+	Name                     pulumi.StringOutput    `pulumi:"name"`
+	Schedule                 pulumi.StringOutput    `pulumi:"schedule"`
+	ScheduleOffset           pulumi.IntPtrOutput    `pulumi:"scheduleOffset"`
+	ScheduleTimezone         pulumi.StringPtrOutput `pulumi:"scheduleTimezone"`
+	StartDate                pulumi.StringPtrOutput `pulumi:"startDate"`
+	Tags                     aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewMaintenanceWindow registers a new resource with the given unique name, arguments, and options.
@@ -83,17 +84,17 @@ func (MaintenanceWindowState) ElementType() reflect.Type {
 }
 
 type maintenanceWindowArgs struct {
-	AllowUnassociatedTargets bool                   `pulumi:"allowUnassociatedTargets"`
-	Cutoff                   int                    `pulumi:"cutoff"`
-	Description              *string                `pulumi:"description"`
-	Duration                 int                    `pulumi:"duration"`
-	EndDate                  *string                `pulumi:"endDate"`
-	Name                     *string                `pulumi:"name"`
-	Schedule                 string                 `pulumi:"schedule"`
-	ScheduleOffset           *int                   `pulumi:"scheduleOffset"`
-	ScheduleTimezone         *string                `pulumi:"scheduleTimezone"`
-	StartDate                *string                `pulumi:"startDate"`
-	Tags                     []MaintenanceWindowTag `pulumi:"tags"`
+	AllowUnassociatedTargets bool      `pulumi:"allowUnassociatedTargets"`
+	Cutoff                   int       `pulumi:"cutoff"`
+	Description              *string   `pulumi:"description"`
+	Duration                 int       `pulumi:"duration"`
+	EndDate                  *string   `pulumi:"endDate"`
+	Name                     *string   `pulumi:"name"`
+	Schedule                 string    `pulumi:"schedule"`
+	ScheduleOffset           *int      `pulumi:"scheduleOffset"`
+	ScheduleTimezone         *string   `pulumi:"scheduleTimezone"`
+	StartDate                *string   `pulumi:"startDate"`
+	Tags                     []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MaintenanceWindow resource.
@@ -108,7 +109,7 @@ type MaintenanceWindowArgs struct {
 	ScheduleOffset           pulumi.IntPtrInput
 	ScheduleTimezone         pulumi.StringPtrInput
 	StartDate                pulumi.StringPtrInput
-	Tags                     MaintenanceWindowTagArrayInput
+	Tags                     aws.TagArrayInput
 }
 
 func (MaintenanceWindowArgs) ElementType() reflect.Type {
@@ -188,8 +189,8 @@ func (o MaintenanceWindowOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringPtrOutput { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
-func (o MaintenanceWindowOutput) Tags() MaintenanceWindowTagArrayOutput {
-	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindowTagArrayOutput { return v.Tags }).(MaintenanceWindowTagArrayOutput)
+func (o MaintenanceWindowOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

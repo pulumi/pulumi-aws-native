@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// Tags associated with this outcome.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OutcomeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetOutcomeResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.FraudDetector
 
             string? lastUpdatedTime,
 
-            ImmutableArray<Outputs.OutcomeTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreatedTime = createdTime;

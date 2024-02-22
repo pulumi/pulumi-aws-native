@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// List of tags to be added to the resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.CollectionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<Pulumi.AwsNative.OpenSearchServerless.CollectionType?> Type { get; private set; } = null!;
@@ -136,14 +136,14 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Input<Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas>? StandbyReplicas { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.CollectionTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// List of tags to be added to the resource
         /// </summary>
-        public InputList<Inputs.CollectionTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.CollectionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

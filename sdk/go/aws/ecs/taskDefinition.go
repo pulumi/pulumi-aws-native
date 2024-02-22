@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type TaskDefinition struct {
 	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrOutput     `pulumi:"proxyConfiguration"`
 	RequiresCompatibilities pulumi.StringArrayOutput                      `pulumi:"requiresCompatibilities"`
 	RuntimePlatform         TaskDefinitionRuntimePlatformPtrOutput        `pulumi:"runtimePlatform"`
-	Tags                    TaskDefinitionTagArrayOutput                  `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                            `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the Amazon ECS task definition
 	TaskDefinitionArn pulumi.StringOutput             `pulumi:"taskDefinitionArn"`
 	TaskRoleArn       pulumi.StringPtrOutput          `pulumi:"taskRoleArn"`
@@ -109,7 +110,7 @@ type taskDefinitionArgs struct {
 	ProxyConfiguration      *TaskDefinitionProxyConfiguration    `pulumi:"proxyConfiguration"`
 	RequiresCompatibilities []string                             `pulumi:"requiresCompatibilities"`
 	RuntimePlatform         *TaskDefinitionRuntimePlatform       `pulumi:"runtimePlatform"`
-	Tags                    []TaskDefinitionTag                  `pulumi:"tags"`
+	Tags                    []aws.Tag                            `pulumi:"tags"`
 	TaskRoleArn             *string                              `pulumi:"taskRoleArn"`
 	Volumes                 []TaskDefinitionVolume               `pulumi:"volumes"`
 }
@@ -130,7 +131,7 @@ type TaskDefinitionArgs struct {
 	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrInput
 	RequiresCompatibilities pulumi.StringArrayInput
 	RuntimePlatform         TaskDefinitionRuntimePlatformPtrInput
-	Tags                    TaskDefinitionTagArrayInput
+	Tags                    aws.TagArrayInput
 	TaskRoleArn             pulumi.StringPtrInput
 	Volumes                 TaskDefinitionVolumeArrayInput
 }
@@ -228,8 +229,8 @@ func (o TaskDefinitionOutput) RuntimePlatform() TaskDefinitionRuntimePlatformPtr
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionRuntimePlatformPtrOutput { return v.RuntimePlatform }).(TaskDefinitionRuntimePlatformPtrOutput)
 }
 
-func (o TaskDefinitionOutput) Tags() TaskDefinitionTagArrayOutput {
-	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionTagArrayOutput { return v.Tags }).(TaskDefinitionTagArrayOutput)
+func (o TaskDefinitionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TaskDefinition) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon ECS task definition

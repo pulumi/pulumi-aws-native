@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Connect
         /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SecurityProfileTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -168,14 +168,14 @@ namespace Pulumi.AwsNative.Connect
         }
 
         [Input("tags")]
-        private InputList<Inputs.SecurityProfileTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags used to organize, track, or control access for this resource.
         /// </summary>
-        public InputList<Inputs.SecurityProfileTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SecurityProfileTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

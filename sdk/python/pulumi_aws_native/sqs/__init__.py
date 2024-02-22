@@ -11,5 +11,3 @@ from .get_queue_policy import *
 from .queue import *
 from .queue_inline_policy import *
 from .queue_policy import *
-from ._inputs import *
-from . import outputs

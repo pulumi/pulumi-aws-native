@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public readonly string? NetworkSettingsArn;
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly ImmutableArray<string> SubnetIds;
-        public readonly ImmutableArray<Outputs.NetworkSettingsTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? VpcId;
 
         [OutputConstructor]
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableArray<Outputs.NetworkSettingsTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? vpcId)
         {

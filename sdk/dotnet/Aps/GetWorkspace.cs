@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Aps
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WorkspaceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Required to identify a specific APS Workspace.
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Aps
 
             string? prometheusEndpoint,
 
-            ImmutableArray<Outputs.WorkspaceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? workspaceId)
         {

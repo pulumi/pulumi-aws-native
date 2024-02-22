@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Glue
         /// List of tags to tag the schema
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SchemaTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -158,14 +158,14 @@ namespace Pulumi.AwsNative.Glue
         public Input<string> SchemaDefinition { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.SchemaTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// List of tags to tag the schema
         /// </summary>
-        public InputList<Inputs.SchemaTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SchemaTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

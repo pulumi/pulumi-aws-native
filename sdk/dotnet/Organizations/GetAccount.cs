@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Organizations
         /// <summary>
         /// A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AccountTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAccountResult(
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Organizations
 
             Pulumi.AwsNative.Organizations.AccountStatus? status,
 
-            ImmutableArray<Outputs.AccountTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AccountId = accountId;
             AccountName = accountName;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,9 +44,9 @@ type LookupMissionProfileResult struct {
 	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
 	StreamsKmsKey *MissionProfileStreamsKmsKey `pulumi:"streamsKmsKey"`
 	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
-	StreamsKmsRole    *string             `pulumi:"streamsKmsRole"`
-	Tags              []MissionProfileTag `pulumi:"tags"`
-	TrackingConfigArn *string             `pulumi:"trackingConfigArn"`
+	StreamsKmsRole    *string   `pulumi:"streamsKmsRole"`
+	Tags              []aws.Tag `pulumi:"tags"`
+	TrackingConfigArn *string   `pulumi:"trackingConfigArn"`
 }
 
 func LookupMissionProfileOutput(ctx *pulumi.Context, args LookupMissionProfileOutputArgs, opts ...pulumi.InvokeOption) LookupMissionProfileResultOutput {
@@ -130,8 +131,8 @@ func (o LookupMissionProfileResultOutput) StreamsKmsRole() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupMissionProfileResult) *string { return v.StreamsKmsRole }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupMissionProfileResultOutput) Tags() MissionProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupMissionProfileResult) []MissionProfileTag { return v.Tags }).(MissionProfileTagArrayOutput)
+func (o LookupMissionProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMissionProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupMissionProfileResultOutput) TrackingConfigArn() pulumi.StringPtrOutput {

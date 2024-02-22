@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly Outputs.OptionsProperties? Options;
         public readonly ImmutableArray<string> SubnetIds;
-        public readonly ImmutableArray<Outputs.TransitGatewayAttachmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetTransitGatewayAttachmentResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableArray<Outputs.TransitGatewayAttachmentTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Options = options;

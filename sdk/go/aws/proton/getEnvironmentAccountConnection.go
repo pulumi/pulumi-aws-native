@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupEnvironmentAccountConnectionResult struct {
 	// <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags []EnvironmentAccountConnectionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEnvironmentAccountConnectionOutput(ctx *pulumi.Context, args LookupEnvironmentAccountConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentAccountConnectionResultOutput {
@@ -137,8 +138,8 @@ func (o LookupEnvironmentAccountConnectionResultOutput) Status() EnvironmentAcco
 //
 //	 <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 //	<i>Proton User Guide</i>.</p>
-func (o LookupEnvironmentAccountConnectionResultOutput) Tags() EnvironmentAccountConnectionTagArrayOutput {
-	return o.ApplyT(func(v LookupEnvironmentAccountConnectionResult) []EnvironmentAccountConnectionTag { return v.Tags }).(EnvironmentAccountConnectionTagArrayOutput)
+func (o LookupEnvironmentAccountConnectionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEnvironmentAccountConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

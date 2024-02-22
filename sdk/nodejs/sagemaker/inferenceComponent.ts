@@ -47,7 +47,7 @@ export class InferenceComponent extends pulumi.CustomResource {
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     public readonly runtimeConfig!: pulumi.Output<outputs.sagemaker.InferenceComponentRuntimeConfig>;
     public readonly specification!: pulumi.Output<outputs.sagemaker.InferenceComponentSpecification>;
-    public readonly tags!: pulumi.Output<outputs.sagemaker.InferenceComponentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly variantName!: pulumi.Output<string>;
 
     /**
@@ -113,6 +113,6 @@ export interface InferenceComponentArgs {
     inferenceComponentName?: pulumi.Input<string>;
     runtimeConfig: pulumi.Input<inputs.sagemaker.InferenceComponentRuntimeConfigArgs>;
     specification: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.InferenceComponentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     variantName: pulumi.Input<string>;
 }

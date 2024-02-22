@@ -72,7 +72,7 @@ export class Subnet extends pulumi.CustomResource {
      * The ID of the subnet
      */
     public /*out*/ readonly subnetId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.ec2.SubnetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -167,6 +167,6 @@ export interface SubnetArgs {
     mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     outpostArn?: pulumi.Input<string>;
     privateDnsNameOptionsOnLaunch?: pulumi.Input<inputs.ec2.PrivateDnsNameOptionsOnLaunchPropertiesArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.SubnetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcId: pulumi.Input<string>;
 }

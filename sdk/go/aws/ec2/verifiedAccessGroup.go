@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type VerifiedAccessGroup struct {
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification VerifiedAccessGroupSseSpecificationPtrOutput `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
-	Tags VerifiedAccessGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the Verified Access group.
 	VerifiedAccessGroupArn pulumi.StringOutput `pulumi:"verifiedAccessGroupArn"`
 	// The ID of the AWS Verified Access group.
@@ -92,7 +93,7 @@ type verifiedAccessGroupArgs struct {
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification *VerifiedAccessGroupSseSpecification `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []VerifiedAccessGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the AWS Verified Access instance.
 	VerifiedAccessInstanceId string `pulumi:"verifiedAccessInstanceId"`
 }
@@ -108,7 +109,7 @@ type VerifiedAccessGroupArgs struct {
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification VerifiedAccessGroupSseSpecificationPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags VerifiedAccessGroupTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the AWS Verified Access instance.
 	VerifiedAccessInstanceId pulumi.StringInput
 }
@@ -186,8 +187,8 @@ func (o VerifiedAccessGroupOutput) SseSpecification() VerifiedAccessGroupSseSpec
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o VerifiedAccessGroupOutput) Tags() VerifiedAccessGroupTagArrayOutput {
-	return o.ApplyT(func(v *VerifiedAccessGroup) VerifiedAccessGroupTagArrayOutput { return v.Tags }).(VerifiedAccessGroupTagArrayOutput)
+func (o VerifiedAccessGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VerifiedAccessGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the Verified Access group.

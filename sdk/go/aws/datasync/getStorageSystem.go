@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,7 +45,7 @@ type LookupStorageSystemResult struct {
 	// The type of on-premises storage system that DataSync Discovery will analyze.
 	SystemType *StorageSystemSystemType `pulumi:"systemType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []StorageSystemTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupStorageSystemOutput(ctx *pulumi.Context, args LookupStorageSystemOutputArgs, opts ...pulumi.InvokeOption) LookupStorageSystemResultOutput {
@@ -123,8 +124,8 @@ func (o LookupStorageSystemResultOutput) SystemType() StorageSystemSystemTypePtr
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupStorageSystemResultOutput) Tags() StorageSystemTagArrayOutput {
-	return o.ApplyT(func(v LookupStorageSystemResult) []StorageSystemTag { return v.Tags }).(StorageSystemTagArrayOutput)
+func (o LookupStorageSystemResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStorageSystemResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

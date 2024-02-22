@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.SsmContacts
         /// Start time of the first shift of Oncall Schedule
         /// </summary>
         public readonly string? StartTime;
-        public readonly ImmutableArray<Outputs.RotationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// TimeZone Identifier for the Oncall Schedule
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.SsmContacts
 
             string? startTime,
 
-            ImmutableArray<Outputs.RotationTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? timeZoneId)
         {

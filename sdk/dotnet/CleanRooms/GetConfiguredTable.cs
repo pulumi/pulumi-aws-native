@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConfiguredTableTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetConfiguredTableResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.CleanRooms
 
             string? name,
 
-            ImmutableArray<Outputs.ConfiguredTableTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AnalysisRules = analysisRules;
             Arn = arn;

@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.QuickConnectTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetQuickConnectResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Connect
 
             Pulumi.AwsNative.Connect.QuickConnectType? quickConnectType,
 
-            ImmutableArray<Outputs.QuickConnectTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             InstanceArn = instanceArn;

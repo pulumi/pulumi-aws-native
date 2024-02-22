@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.IoT
         public readonly bool? Enabled;
         public readonly Outputs.ProvisioningTemplateProvisioningHook? PreProvisioningHook;
         public readonly string? ProvisioningRoleArn;
-        public readonly ImmutableArray<Outputs.ProvisioningTemplateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TemplateArn;
         public readonly string? TemplateBody;
 
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? provisioningRoleArn,
 
-            ImmutableArray<Outputs.ProvisioningTemplateTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? templateArn,
 

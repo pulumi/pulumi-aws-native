@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,10 +28,10 @@ type LookupTrustStoreArgs struct {
 }
 
 type LookupTrustStoreResult struct {
-	AssociatedPortalArns []string        `pulumi:"associatedPortalArns"`
-	CertificateList      []string        `pulumi:"certificateList"`
-	Tags                 []TrustStoreTag `pulumi:"tags"`
-	TrustStoreArn        *string         `pulumi:"trustStoreArn"`
+	AssociatedPortalArns []string  `pulumi:"associatedPortalArns"`
+	CertificateList      []string  `pulumi:"certificateList"`
+	Tags                 []aws.Tag `pulumi:"tags"`
+	TrustStoreArn        *string   `pulumi:"trustStoreArn"`
 }
 
 func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreResultOutput {
@@ -76,8 +77,8 @@ func (o LookupTrustStoreResultOutput) CertificateList() pulumi.StringArrayOutput
 	return o.ApplyT(func(v LookupTrustStoreResult) []string { return v.CertificateList }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupTrustStoreResultOutput) Tags() TrustStoreTagArrayOutput {
-	return o.ApplyT(func(v LookupTrustStoreResult) []TrustStoreTag { return v.Tags }).(TrustStoreTagArrayOutput)
+func (o LookupTrustStoreResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTrustStoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupTrustStoreResultOutput) TrustStoreArn() pulumi.StringPtrOutput {

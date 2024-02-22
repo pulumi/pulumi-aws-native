@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,10 +23,10 @@ class MembershipArgs:
                  query_log_status: pulumi.Input['MembershipQueryLogStatus'],
                  default_result_configuration: Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']] = None,
                  payment_configuration: Optional[pulumi.Input['MembershipPaymentConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MembershipTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Membership resource.
-        :param pulumi.Input[Sequence[pulumi.Input['MembershipTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
         pulumi.set(__self__, "collaboration_identifier", collaboration_identifier)
         pulumi.set(__self__, "query_log_status", query_log_status)
@@ -73,14 +75,14 @@ class MembershipArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MembershipTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MembershipTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,14 +95,14 @@ class Membership(pulumi.CustomResource):
                  default_result_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipProtectedQueryResultConfigurationArgs']]] = None,
                  payment_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipPaymentConfigurationArgs']]] = None,
                  query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MembershipTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Represents an AWS account that is a part of a collaboration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MembershipTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
         ...
     @overload
@@ -130,7 +132,7 @@ class Membership(pulumi.CustomResource):
                  default_result_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipProtectedQueryResultConfigurationArgs']]] = None,
                  payment_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipPaymentConfigurationArgs']]] = None,
                  query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MembershipTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -230,7 +232,7 @@ class Membership(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MembershipTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """

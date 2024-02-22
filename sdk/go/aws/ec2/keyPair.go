@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type KeyPair struct {
 	// Plain text public key to import
 	PublicKeyMaterial pulumi.StringPtrOutput `pulumi:"publicKeyMaterial"`
 	// An array of key-value pairs to apply to this resource.
-	Tags KeyPairTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewKeyPair registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +93,7 @@ type keyPairArgs struct {
 	// Plain text public key to import
 	PublicKeyMaterial *string `pulumi:"publicKeyMaterial"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []KeyPairTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KeyPair resource.
@@ -106,7 +107,7 @@ type KeyPairArgs struct {
 	// Plain text public key to import
 	PublicKeyMaterial pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags KeyPairTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (KeyPairArgs) ElementType() reflect.Type {
@@ -177,8 +178,8 @@ func (o KeyPairOutput) PublicKeyMaterial() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o KeyPairOutput) Tags() KeyPairTagArrayOutput {
-	return o.ApplyT(func(v *KeyPair) KeyPairTagArrayOutput { return v.Tags }).(KeyPairTagArrayOutput)
+func (o KeyPairOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *KeyPair) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type UserSettings struct {
 	IdleDisconnectTimeoutInMinutes     pulumi.Float64PtrOutput                                 `pulumi:"idleDisconnectTimeoutInMinutes"`
 	PasteAllowed                       UserSettingsEnabledTypeOutput                           `pulumi:"pasteAllowed"`
 	PrintAllowed                       UserSettingsEnabledTypeOutput                           `pulumi:"printAllowed"`
-	Tags                               UserSettingsTagArrayOutput                              `pulumi:"tags"`
+	Tags                               aws.TagArrayOutput                                      `pulumi:"tags"`
 	UploadAllowed                      UserSettingsEnabledTypeOutput                           `pulumi:"uploadAllowed"`
 	UserSettingsArn                    pulumi.StringOutput                                     `pulumi:"userSettingsArn"`
 }
@@ -100,7 +101,7 @@ type userSettingsArgs struct {
 	IdleDisconnectTimeoutInMinutes     *float64                                        `pulumi:"idleDisconnectTimeoutInMinutes"`
 	PasteAllowed                       UserSettingsEnabledType                         `pulumi:"pasteAllowed"`
 	PrintAllowed                       UserSettingsEnabledType                         `pulumi:"printAllowed"`
-	Tags                               []UserSettingsTag                               `pulumi:"tags"`
+	Tags                               []aws.Tag                                       `pulumi:"tags"`
 	UploadAllowed                      UserSettingsEnabledType                         `pulumi:"uploadAllowed"`
 }
 
@@ -115,7 +116,7 @@ type UserSettingsArgs struct {
 	IdleDisconnectTimeoutInMinutes     pulumi.Float64PtrInput
 	PasteAllowed                       UserSettingsEnabledTypeInput
 	PrintAllowed                       UserSettingsEnabledTypeInput
-	Tags                               UserSettingsTagArrayInput
+	Tags                               aws.TagArrayInput
 	UploadAllowed                      UserSettingsEnabledTypeInput
 }
 
@@ -198,8 +199,8 @@ func (o UserSettingsOutput) PrintAllowed() UserSettingsEnabledTypeOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypeOutput { return v.PrintAllowed }).(UserSettingsEnabledTypeOutput)
 }
 
-func (o UserSettingsOutput) Tags() UserSettingsTagArrayOutput {
-	return o.ApplyT(func(v *UserSettings) UserSettingsTagArrayOutput { return v.Tags }).(UserSettingsTagArrayOutput)
+func (o UserSettingsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *UserSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o UserSettingsOutput) UploadAllowed() UserSettingsEnabledTypeOutput {

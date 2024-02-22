@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,10 +34,10 @@ type CustomLineItem struct {
 	CustomLineItemChargeDetails CustomLineItemChargeDetailsPtrOutput `pulumi:"customLineItemChargeDetails"`
 	Description                 pulumi.StringPtrOutput               `pulumi:"description"`
 	// Latest modified timestamp in UNIX epoch time format
-	LastModifiedTime pulumi.IntOutput             `pulumi:"lastModifiedTime"`
-	Name             pulumi.StringOutput          `pulumi:"name"`
-	ProductCode      pulumi.StringOutput          `pulumi:"productCode"`
-	Tags             CustomLineItemTagArrayOutput `pulumi:"tags"`
+	LastModifiedTime pulumi.IntOutput    `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput `pulumi:"name"`
+	ProductCode      pulumi.StringOutput `pulumi:"productCode"`
+	Tags             aws.TagArrayOutput  `pulumi:"tags"`
 }
 
 // NewCustomLineItem registers a new resource with the given unique name, arguments, and options.
@@ -98,7 +99,7 @@ type customLineItemArgs struct {
 	CustomLineItemChargeDetails *CustomLineItemChargeDetails      `pulumi:"customLineItemChargeDetails"`
 	Description                 *string                           `pulumi:"description"`
 	Name                        *string                           `pulumi:"name"`
-	Tags                        []CustomLineItemTag               `pulumi:"tags"`
+	Tags                        []aws.Tag                         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomLineItem resource.
@@ -111,7 +112,7 @@ type CustomLineItemArgs struct {
 	CustomLineItemChargeDetails CustomLineItemChargeDetailsPtrInput
 	Description                 pulumi.StringPtrInput
 	Name                        pulumi.StringPtrInput
-	Tags                        CustomLineItemTagArrayInput
+	Tags                        aws.TagArrayInput
 }
 
 func (CustomLineItemArgs) ElementType() reflect.Type {
@@ -205,8 +206,8 @@ func (o CustomLineItemOutput) ProductCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomLineItem) pulumi.StringOutput { return v.ProductCode }).(pulumi.StringOutput)
 }
 
-func (o CustomLineItemOutput) Tags() CustomLineItemTagArrayOutput {
-	return o.ApplyT(func(v *CustomLineItem) CustomLineItemTagArrayOutput { return v.Tags }).(CustomLineItemTagArrayOutput)
+func (o CustomLineItemOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CustomLineItem) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

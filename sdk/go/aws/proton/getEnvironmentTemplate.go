@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupEnvironmentTemplateResult struct {
 	// <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags []EnvironmentTemplateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEnvironmentTemplateOutput(ctx *pulumi.Context, args LookupEnvironmentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentTemplateResultOutput {
@@ -95,8 +96,8 @@ func (o LookupEnvironmentTemplateResultOutput) DisplayName() pulumi.StringPtrOut
 //
 //	 <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 //	<i>Proton User Guide</i>.</p>
-func (o LookupEnvironmentTemplateResultOutput) Tags() EnvironmentTemplateTagArrayOutput {
-	return o.ApplyT(func(v LookupEnvironmentTemplateResult) []EnvironmentTemplateTag { return v.Tags }).(EnvironmentTemplateTagArrayOutput)
+func (o LookupEnvironmentTemplateResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEnvironmentTemplateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

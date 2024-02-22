@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.TrustAnchorNotificationSetting> NotificationSettings;
         public readonly Outputs.TrustAnchorSource? Source;
-        public readonly ImmutableArray<Outputs.TrustAnchorTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TrustAnchorArn;
         public readonly string? TrustAnchorId;
 
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
             Outputs.TrustAnchorSource? source,
 
-            ImmutableArray<Outputs.TrustAnchorTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? trustAnchorArn,
 

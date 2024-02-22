@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// The EC2 subnet IDs for the cache subnet group.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        public readonly ImmutableArray<Outputs.SubnetGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSubnetGroupResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.ElastiCache
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableArray<Outputs.SubnetGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             SubnetIds = subnetIds;

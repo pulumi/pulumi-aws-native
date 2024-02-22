@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type ModelPackageGroup struct {
 	// The status of a modelpackage group job.
 	ModelPackageGroupStatus ModelPackageGroupStatusOutput `pulumi:"modelPackageGroupStatus"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ModelPackageGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewModelPackageGroup registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type modelPackageGroupArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
 	ModelPackageGroupPolicy interface{} `pulumi:"modelPackageGroupPolicy"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ModelPackageGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ModelPackageGroup resource.
@@ -88,7 +89,7 @@ type ModelPackageGroupArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
 	ModelPackageGroupPolicy pulumi.Input
 	// An array of key-value pairs to apply to this resource.
-	Tags ModelPackageGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ModelPackageGroupArgs) ElementType() reflect.Type {
@@ -156,8 +157,8 @@ func (o ModelPackageGroupOutput) ModelPackageGroupStatus() ModelPackageGroupStat
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ModelPackageGroupOutput) Tags() ModelPackageGroupTagArrayOutput {
-	return o.ApplyT(func(v *ModelPackageGroup) ModelPackageGroupTagArrayOutput { return v.Tags }).(ModelPackageGroupTagArrayOutput)
+func (o ModelPackageGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ModelPackageGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

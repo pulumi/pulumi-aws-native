@@ -56,7 +56,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.TaskDefinitionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A filter to list only the wireless gateway task definitions that use this task definition type
      */
@@ -120,7 +120,7 @@ export interface TaskDefinitionArgs {
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.TaskDefinitionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A filter to list only the wireless gateway task definitions that use this task definition type
      */

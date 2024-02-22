@@ -16,7 +16,6 @@ __all__ = [
     'InstanceAccessControlAttributeConfigurationPropertiesArgs',
     'PermissionSetCustomerManagedPolicyReferenceArgs',
     'PermissionSetPermissionsBoundaryArgs',
-    'PermissionSetTagArgs',
 ]
 
 @pulumi.input_type
@@ -136,35 +135,5 @@ class PermissionSetPermissionsBoundaryArgs:
     @managed_policy_arn.setter
     def managed_policy_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "managed_policy_arn", value)
-
-
-@pulumi.input_type
-class PermissionSetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        The metadata that you apply to the permission set to help you categorize and organize them.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

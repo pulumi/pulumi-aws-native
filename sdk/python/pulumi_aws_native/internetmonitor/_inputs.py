@@ -15,7 +15,6 @@ __all__ = [
     'MonitorInternetMeasurementsLogDeliveryArgs',
     'MonitorLocalHealthEventsConfigArgs',
     'MonitorS3ConfigArgs',
-    'MonitorTagArgs',
 ]
 
 @pulumi.input_type
@@ -168,37 +167,5 @@ class MonitorS3ConfigArgs:
     @log_delivery_status.setter
     def log_delivery_status(self, value: Optional[pulumi.Input['MonitorS3ConfigLogDeliveryStatus']]):
         pulumi.set(self, "log_delivery_status", value)
-
-
-@pulumi.input_type
-class MonitorTagArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 

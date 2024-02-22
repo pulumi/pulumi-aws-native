@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.WorkSpacesThinClient
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The timestamp in unix epoch format when environment was last updated.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AwsNative.WorkSpacesThinClient
 
             Pulumi.AwsNative.WorkSpacesThinClient.EnvironmentSoftwareSetUpdateSchedule? softwareSetUpdateSchedule,
 
-            ImmutableArray<Outputs.EnvironmentTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updatedAt)
         {

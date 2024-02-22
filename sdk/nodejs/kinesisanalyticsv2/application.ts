@@ -72,7 +72,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
      */
-    public readonly tags!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -157,5 +157,5 @@ export interface ApplicationArgs {
     /**
      * A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.kinesisanalyticsv2.ApplicationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

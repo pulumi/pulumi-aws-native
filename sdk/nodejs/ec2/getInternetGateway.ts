@@ -33,7 +33,7 @@ export interface GetInternetGatewayResult {
     /**
      * Any tags to assign to the internet gateway.
      */
-    readonly tags?: outputs.ec2.InternetGatewayTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::InternetGateway

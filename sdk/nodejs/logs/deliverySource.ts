@@ -66,7 +66,7 @@ export class DeliverySource extends pulumi.CustomResource {
     /**
      * The tags that have been assigned to this delivery source.
      */
-    public readonly tags!: pulumi.Output<outputs.logs.DeliverySourceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DeliverySource resource with the given unique name, arguments, and options.
@@ -121,5 +121,5 @@ export interface DeliverySourceArgs {
     /**
      * The tags that have been assigned to this delivery source.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.logs.DeliverySourceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

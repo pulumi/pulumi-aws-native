@@ -30,7 +30,7 @@ export interface GetStoredQueryResult {
     /**
      * The tags for the stored query.
      */
-    readonly tags?: outputs.configuration.StoredQueryTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Config::StoredQuery

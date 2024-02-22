@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type User struct {
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
 	Policies UserPolicyTypeArrayOutput `pulumi:"policies"`
 	// A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
-	Tags UserTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The friendly name identifying the user.
 	UserName pulumi.StringPtrOutput `pulumi:"userName"`
 }
@@ -92,7 +93,7 @@ type userArgs struct {
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
 	Policies []UserPolicyType `pulumi:"policies"`
 	// A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
-	Tags []UserTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The friendly name identifying the user.
 	UserName *string `pulumi:"userName"`
 }
@@ -112,7 +113,7 @@ type UserArgs struct {
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
 	Policies UserPolicyTypeArrayInput
 	// A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
-	Tags UserTagArrayInput
+	Tags aws.TagArrayInput
 	// The friendly name identifying the user.
 	UserName pulumi.StringPtrInput
 }
@@ -190,8 +191,8 @@ func (o UserOutput) Policies() UserPolicyTypeArrayOutput {
 }
 
 // A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
-func (o UserOutput) Tags() UserTagArrayOutput {
-	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
+func (o UserOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *User) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The friendly name identifying the user.

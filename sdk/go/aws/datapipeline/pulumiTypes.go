@@ -568,105 +568,6 @@ type PipelineTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PipelineTagInput is an input type that accepts PipelineTagArgs and PipelineTagOutput values.
-// You can construct a concrete instance of `PipelineTagInput` via:
-//
-//	PipelineTagArgs{...}
-type PipelineTagInput interface {
-	pulumi.Input
-
-	ToPipelineTagOutput() PipelineTagOutput
-	ToPipelineTagOutputWithContext(context.Context) PipelineTagOutput
-}
-
-type PipelineTagArgs struct {
-	// The key name of a tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value to associate with the key name.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PipelineTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineTag)(nil)).Elem()
-}
-
-func (i PipelineTagArgs) ToPipelineTagOutput() PipelineTagOutput {
-	return i.ToPipelineTagOutputWithContext(context.Background())
-}
-
-func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagOutput)
-}
-
-// PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
-// You can construct a concrete instance of `PipelineTagArrayInput` via:
-//
-//	PipelineTagArray{ PipelineTagArgs{...} }
-type PipelineTagArrayInput interface {
-	pulumi.Input
-
-	ToPipelineTagArrayOutput() PipelineTagArrayOutput
-	ToPipelineTagArrayOutputWithContext(context.Context) PipelineTagArrayOutput
-}
-
-type PipelineTagArray []PipelineTagInput
-
-func (PipelineTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PipelineTag)(nil)).Elem()
-}
-
-func (i PipelineTagArray) ToPipelineTagArrayOutput() PipelineTagArrayOutput {
-	return i.ToPipelineTagArrayOutputWithContext(context.Background())
-}
-
-func (i PipelineTagArray) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagArrayOutput)
-}
-
-type PipelineTagOutput struct{ *pulumi.OutputState }
-
-func (PipelineTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineTag)(nil)).Elem()
-}
-
-func (o PipelineTagOutput) ToPipelineTagOutput() PipelineTagOutput {
-	return o
-}
-
-func (o PipelineTagOutput) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
-	return o
-}
-
-// The key name of a tag.
-func (o PipelineTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value to associate with the key name.
-func (o PipelineTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PipelineTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PipelineTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PipelineTag)(nil)).Elem()
-}
-
-func (o PipelineTagArrayOutput) ToPipelineTagArrayOutput() PipelineTagArrayOutput {
-	return o
-}
-
-func (o PipelineTagArrayOutput) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
-	return o
-}
-
-func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineTag {
-		return vs[0].([]PipelineTag)[vs[1].(int)]
-	}).(PipelineTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFieldInput)(nil)).Elem(), PipelineFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFieldArrayInput)(nil)).Elem(), PipelineFieldArray{})
@@ -678,8 +579,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParameterObjectArrayInput)(nil)).Elem(), PipelineParameterObjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParameterValueInput)(nil)).Elem(), PipelineParameterValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParameterValueArrayInput)(nil)).Elem(), PipelineParameterValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagInput)(nil)).Elem(), PipelineTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagArrayInput)(nil)).Elem(), PipelineTagArray{})
 	pulumi.RegisterOutputType(PipelineFieldOutput{})
 	pulumi.RegisterOutputType(PipelineFieldArrayOutput{})
 	pulumi.RegisterOutputType(PipelineObjectOutput{})
@@ -690,6 +589,4 @@ func init() {
 	pulumi.RegisterOutputType(PipelineParameterObjectArrayOutput{})
 	pulumi.RegisterOutputType(PipelineParameterValueOutput{})
 	pulumi.RegisterOutputType(PipelineParameterValueArrayOutput{})
-	pulumi.RegisterOutputType(PipelineTagOutput{})
-	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
 }

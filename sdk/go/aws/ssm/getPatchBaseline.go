@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -54,7 +55,7 @@ type LookupPatchBaselineResult struct {
 	// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 	Sources []PatchBaselinePatchSource `pulumi:"sources"`
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
-	Tags []PatchBaselineTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPatchBaselineOutput(ctx *pulumi.Context, args LookupPatchBaselineOutputArgs, opts ...pulumi.InvokeOption) LookupPatchBaselineResultOutput {
@@ -160,8 +161,8 @@ func (o LookupPatchBaselineResultOutput) Sources() PatchBaselinePatchSourceArray
 }
 
 // Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
-func (o LookupPatchBaselineResultOutput) Tags() PatchBaselineTagArrayOutput {
-	return o.ApplyT(func(v LookupPatchBaselineResult) []PatchBaselineTag { return v.Tags }).(PatchBaselineTagArrayOutput)
+func (o LookupPatchBaselineResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

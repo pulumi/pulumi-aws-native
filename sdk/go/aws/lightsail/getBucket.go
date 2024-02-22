@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupBucketResult struct {
 	// The names of the Lightsail resources for which to set bucket access.
 	ResourcesReceivingAccess []string `pulumi:"resourcesReceivingAccess"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []BucketTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The URL of the bucket.
 	Url *string `pulumi:"url"`
 }
@@ -116,8 +117,8 @@ func (o LookupBucketResultOutput) ResourcesReceivingAccess() pulumi.StringArrayO
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupBucketResultOutput) Tags() BucketTagArrayOutput {
-	return o.ApplyT(func(v LookupBucketResult) []BucketTag { return v.Tags }).(BucketTagArrayOutput)
+func (o LookupBucketResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBucketResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The URL of the bucket.

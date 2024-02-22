@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type LookupIpamScopeResult struct {
 	// The number of pools that currently exist in this scope.
 	PoolCount *int `pulumi:"poolCount"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IpamScopeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIpamScopeOutput(ctx *pulumi.Context, args LookupIpamScopeOutputArgs, opts ...pulumi.InvokeOption) LookupIpamScopeResultOutput {
@@ -116,8 +117,8 @@ func (o LookupIpamScopeResultOutput) PoolCount() pulumi.IntPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupIpamScopeResultOutput) Tags() IpamScopeTagArrayOutput {
-	return o.ApplyT(func(v LookupIpamScopeResult) []IpamScopeTag { return v.Tags }).(IpamScopeTagArrayOutput)
+func (o LookupIpamScopeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIpamScopeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

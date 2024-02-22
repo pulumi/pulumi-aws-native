@@ -12,7 +12,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'IpSetTag',
     'LoggingConfigurationCondition',
     'LoggingConfigurationConditionActionConditionProperties',
     'LoggingConfigurationConditionLabelNameConditionProperties',
@@ -20,7 +19,6 @@ __all__ = [
     'LoggingConfigurationFieldToMatchSingleHeaderProperties',
     'LoggingConfigurationFilter',
     'LoggingFilterProperties',
-    'RegexPatternSetTag',
     'RuleGroupAllowAction',
     'RuleGroupAndStatement',
     'RuleGroupBlockAction',
@@ -72,7 +70,6 @@ __all__ = [
     'RuleGroupSizeConstraintStatement',
     'RuleGroupSqliMatchStatement',
     'RuleGroupStatement',
-    'RuleGroupTag',
     'RuleGroupTextTransformation',
     'RuleGroupVisibilityConfig',
     'RuleGroupXssMatchStatement',
@@ -146,32 +143,10 @@ __all__ = [
     'WebAclSizeConstraintStatement',
     'WebAclSqliMatchStatement',
     'WebAclStatement',
-    'WebAclTag',
     'WebAclTextTransformation',
     'WebAclVisibilityConfig',
     'WebAclXssMatchStatement',
 ]
-
-@pulumi.output_type
-class IpSetTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class LoggingConfigurationCondition(dict):
@@ -474,27 +449,6 @@ class LoggingFilterProperties(dict):
         The filters that you want to apply to the logs.
         """
         return pulumi.get(self, "filters")
-
-
-@pulumi.output_type
-class RegexPatternSetTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2713,27 +2667,6 @@ class RuleGroupStatement(dict):
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional['outputs.RuleGroupXssMatchStatement']:
         return pulumi.get(self, "xss_match_statement")
-
-
-@pulumi.output_type
-class RuleGroupTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -6089,27 +6022,6 @@ class WebAclStatement(dict):
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional['outputs.WebAclXssMatchStatement']:
         return pulumi.get(self, "xss_match_statement")
-
-
-@pulumi.output_type
-class WebAclTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

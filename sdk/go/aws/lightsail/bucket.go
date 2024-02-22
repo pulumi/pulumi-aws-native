@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type Bucket struct {
 	// The names of the Lightsail resources for which to set bucket access.
 	ResourcesReceivingAccess pulumi.StringArrayOutput `pulumi:"resourcesReceivingAccess"`
 	// An array of key-value pairs to apply to this resource.
-	Tags BucketTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The URL of the bucket.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
@@ -95,7 +96,7 @@ type bucketArgs struct {
 	// The names of the Lightsail resources for which to set bucket access.
 	ResourcesReceivingAccess []string `pulumi:"resourcesReceivingAccess"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []BucketTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Bucket resource.
@@ -112,7 +113,7 @@ type BucketArgs struct {
 	// The names of the Lightsail resources for which to set bucket access.
 	ResourcesReceivingAccess pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags BucketTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (BucketArgs) ElementType() reflect.Type {
@@ -191,8 +192,8 @@ func (o BucketOutput) ResourcesReceivingAccess() pulumi.StringArrayOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o BucketOutput) Tags() BucketTagArrayOutput {
-	return o.ApplyT(func(v *Bucket) BucketTagArrayOutput { return v.Tags }).(BucketTagArrayOutput)
+func (o BucketOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Bucket) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The URL of the bucket.

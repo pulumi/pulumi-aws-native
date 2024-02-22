@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Profile struct {
 	RequireInstanceProperties pulumi.BoolPtrOutput     `pulumi:"requireInstanceProperties"`
 	RoleArns                  pulumi.StringArrayOutput `pulumi:"roleArns"`
 	SessionPolicy             pulumi.StringPtrOutput   `pulumi:"sessionPolicy"`
-	Tags                      ProfileTagArrayOutput    `pulumi:"tags"`
+	Tags                      aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
@@ -71,14 +72,14 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	DurationSeconds           *float64     `pulumi:"durationSeconds"`
-	Enabled                   *bool        `pulumi:"enabled"`
-	ManagedPolicyArns         []string     `pulumi:"managedPolicyArns"`
-	Name                      *string      `pulumi:"name"`
-	RequireInstanceProperties *bool        `pulumi:"requireInstanceProperties"`
-	RoleArns                  []string     `pulumi:"roleArns"`
-	SessionPolicy             *string      `pulumi:"sessionPolicy"`
-	Tags                      []ProfileTag `pulumi:"tags"`
+	DurationSeconds           *float64  `pulumi:"durationSeconds"`
+	Enabled                   *bool     `pulumi:"enabled"`
+	ManagedPolicyArns         []string  `pulumi:"managedPolicyArns"`
+	Name                      *string   `pulumi:"name"`
+	RequireInstanceProperties *bool     `pulumi:"requireInstanceProperties"`
+	RoleArns                  []string  `pulumi:"roleArns"`
+	SessionPolicy             *string   `pulumi:"sessionPolicy"`
+	Tags                      []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Profile resource.
@@ -90,7 +91,7 @@ type ProfileArgs struct {
 	RequireInstanceProperties pulumi.BoolPtrInput
 	RoleArns                  pulumi.StringArrayInput
 	SessionPolicy             pulumi.StringPtrInput
-	Tags                      ProfileTagArrayInput
+	Tags                      aws.TagArrayInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {
@@ -166,8 +167,8 @@ func (o ProfileOutput) SessionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.SessionPolicy }).(pulumi.StringPtrOutput)
 }
 
-func (o ProfileOutput) Tags() ProfileTagArrayOutput {
-	return o.ApplyT(func(v *Profile) ProfileTagArrayOutput { return v.Tags }).(ProfileTagArrayOutput)
+func (o ProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Profile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

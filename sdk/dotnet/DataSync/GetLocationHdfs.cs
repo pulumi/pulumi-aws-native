@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationHdfsTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLocationHdfsResult(
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.DataSync
 
             string? simpleUser,
 
-            ImmutableArray<Outputs.LocationHdfsTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AgentArns = agentArns;
             AuthenticationType = authenticationType;

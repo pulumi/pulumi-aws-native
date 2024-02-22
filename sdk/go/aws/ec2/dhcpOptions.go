@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type DhcpOptions struct {
 	// The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
 	NtpServers pulumi.StringArrayOutput `pulumi:"ntpServers"`
 	// Any tags assigned to the DHCP options set.
-	Tags DhcpOptionsTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDhcpOptions registers a new resource with the given unique name, arguments, and options.
@@ -89,7 +90,7 @@ type dhcpOptionsArgs struct {
 	// The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
 	NtpServers []string `pulumi:"ntpServers"`
 	// Any tags assigned to the DHCP options set.
-	Tags []DhcpOptionsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DhcpOptions resource.
@@ -105,7 +106,7 @@ type DhcpOptionsArgs struct {
 	// The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
 	NtpServers pulumi.StringArrayInput
 	// Any tags assigned to the DHCP options set.
-	Tags DhcpOptionsTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DhcpOptionsArgs) ElementType() reflect.Type {
@@ -175,8 +176,8 @@ func (o DhcpOptionsOutput) NtpServers() pulumi.StringArrayOutput {
 }
 
 // Any tags assigned to the DHCP options set.
-func (o DhcpOptionsOutput) Tags() DhcpOptionsTagArrayOutput {
-	return o.ApplyT(func(v *DhcpOptions) DhcpOptionsTagArrayOutput { return v.Tags }).(DhcpOptionsTagArrayOutput)
+func (o DhcpOptionsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DhcpOptions) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

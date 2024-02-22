@@ -53,7 +53,7 @@ export interface GetConnectPeerResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.networkmanager.ConnectPeerTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * AWS::NetworkManager::ConnectPeer Resource Type Definition.

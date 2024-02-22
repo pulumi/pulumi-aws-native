@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -51,7 +52,7 @@ type LookupDomainResult struct {
 	// The status of the Amazon DataZone domain.
 	Status *DomainStatus `pulumi:"status"`
 	// The tags specified for the Amazon DataZone domain.
-	Tags []DomainTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -146,8 +147,8 @@ func (o LookupDomainResultOutput) Status() DomainStatusPtrOutput {
 }
 
 // The tags specified for the Amazon DataZone domain.
-func (o LookupDomainResultOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v LookupDomainResult) []DomainTag { return v.Tags }).(DomainTagArrayOutput)
+func (o LookupDomainResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

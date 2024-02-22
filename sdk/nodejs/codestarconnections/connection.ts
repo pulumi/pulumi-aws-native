@@ -64,7 +64,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * Specifies the tags applied to a connection.
      */
-    public readonly tags!: pulumi.Output<outputs.codestarconnections.ConnectionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -119,5 +119,5 @@ export interface ConnectionArgs {
     /**
      * Specifies the tags applied to a connection.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.codestarconnections.ConnectionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

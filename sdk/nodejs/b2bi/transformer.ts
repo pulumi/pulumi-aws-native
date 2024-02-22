@@ -45,7 +45,7 @@ export class Transformer extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly sampleDocument!: pulumi.Output<string | undefined>;
     public readonly status!: pulumi.Output<enums.b2bi.TransformerStatus>;
-    public readonly tags!: pulumi.Output<outputs.b2bi.TransformerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly transformerArn!: pulumi.Output<string>;
     public /*out*/ readonly transformerId!: pulumi.Output<string>;
 
@@ -112,5 +112,5 @@ export interface TransformerArgs {
     name?: pulumi.Input<string>;
     sampleDocument?: pulumi.Input<string>;
     status: pulumi.Input<enums.b2bi.TransformerStatus>;
-    tags?: pulumi.Input<pulumi.Input<inputs.b2bi.TransformerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

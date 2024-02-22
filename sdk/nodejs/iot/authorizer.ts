@@ -43,7 +43,7 @@ export class Authorizer extends pulumi.CustomResource {
     public readonly enableCachingForHttp!: pulumi.Output<boolean | undefined>;
     public readonly signingDisabled!: pulumi.Output<boolean | undefined>;
     public readonly status!: pulumi.Output<enums.iot.AuthorizerStatus | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iot.AuthorizerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly tokenKeyName!: pulumi.Output<string | undefined>;
     public readonly tokenSigningPublicKeys!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -97,7 +97,7 @@ export interface AuthorizerArgs {
     enableCachingForHttp?: pulumi.Input<boolean>;
     signingDisabled?: pulumi.Input<boolean>;
     status?: pulumi.Input<enums.iot.AuthorizerStatus>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.AuthorizerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     tokenKeyName?: pulumi.Input<string>;
     tokenSigningPublicKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

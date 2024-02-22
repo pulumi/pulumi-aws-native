@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public readonly ImmutableArray<Outputs.MatchingWorkflowOutputSource> OutputSourceConfig;
         public readonly Outputs.MatchingWorkflowResolutionTechniques? ResolutionTechniques;
         public readonly string? RoleArn;
-        public readonly ImmutableArray<Outputs.MatchingWorkflowTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UpdatedAt;
         public readonly string? WorkflowArn;
 
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.EntityResolution
 
             string? roleArn,
 
-            ImmutableArray<Outputs.MatchingWorkflowTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updatedAt,
 

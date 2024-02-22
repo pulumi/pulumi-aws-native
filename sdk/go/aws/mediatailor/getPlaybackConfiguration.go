@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -59,7 +60,7 @@ type LookupPlaybackConfigurationResult struct {
 	// The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
 	SlateAdUrl *string `pulumi:"slateAdUrl"`
 	// The tags to assign to the playback configuration.
-	Tags []PlaybackConfigurationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
 	TranscodeProfileName *string `pulumi:"transcodeProfileName"`
 	// The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
@@ -187,8 +188,8 @@ func (o LookupPlaybackConfigurationResultOutput) SlateAdUrl() pulumi.StringPtrOu
 }
 
 // The tags to assign to the playback configuration.
-func (o LookupPlaybackConfigurationResultOutput) Tags() PlaybackConfigurationTagArrayOutput {
-	return o.ApplyT(func(v LookupPlaybackConfigurationResult) []PlaybackConfigurationTag { return v.Tags }).(PlaybackConfigurationTagArrayOutput)
+func (o LookupPlaybackConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPlaybackConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.

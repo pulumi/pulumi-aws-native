@@ -39,7 +39,7 @@ export interface GetModelPackageResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.sagemaker.ModelPackageTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::ModelPackage

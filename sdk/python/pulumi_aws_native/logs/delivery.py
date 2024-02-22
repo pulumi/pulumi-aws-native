@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['DeliveryArgs', 'Delivery']
 
@@ -18,12 +18,12 @@ class DeliveryArgs:
     def __init__(__self__, *,
                  delivery_destination_arn: pulumi.Input[str],
                  delivery_source_name: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Delivery resource.
         :param pulumi.Input[str] delivery_destination_arn: The ARN of the delivery destination that is associated with this delivery.
         :param pulumi.Input[str] delivery_source_name: The name of the delivery source that is associated with this delivery.
-        :param pulumi.Input[Sequence[pulumi.Input['DeliveryTagArgs']]] tags: The tags that have been assigned to this delivery.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags that have been assigned to this delivery.
         """
         pulumi.set(__self__, "delivery_destination_arn", delivery_destination_arn)
         pulumi.set(__self__, "delivery_source_name", delivery_source_name)
@@ -56,14 +56,14 @@ class DeliveryArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags that have been assigned to this delivery.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -74,7 +74,7 @@ class Delivery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_arn: Optional[pulumi.Input[str]] = None,
                  delivery_source_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         This structure contains information about one delivery in your account.
@@ -87,7 +87,7 @@ class Delivery(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] delivery_destination_arn: The ARN of the delivery destination that is associated with this delivery.
         :param pulumi.Input[str] delivery_source_name: The name of the delivery source that is associated with this delivery.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryTagArgs']]]] tags: The tags that have been assigned to this delivery.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags that have been assigned to this delivery.
         """
         ...
     @overload
@@ -119,7 +119,7 @@ class Delivery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_arn: Optional[pulumi.Input[str]] = None,
                  delivery_source_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -213,7 +213,7 @@ class Delivery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeliveryTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags that have been assigned to this delivery.
         """

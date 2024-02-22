@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,13 +24,13 @@ class ChannelArgs:
                  channel_name: Optional[pulumi.Input[str]] = None,
                  filler_slate: Optional[pulumi.Input['ChannelSlateSourceArgs']] = None,
                  log_configuration: Optional[pulumi.Input['ChannelLogConfigurationForChannelArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tier: Optional[pulumi.Input['ChannelTier']] = None,
                  time_shift_configuration: Optional[pulumi.Input['ChannelTimeShiftConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Channel resource.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelRequestOutputItemArgs']]] outputs: <p>The channel's output properties.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]] tags: The tags to assign to the channel.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the channel.
         """
         pulumi.set(__self__, "outputs", outputs)
         pulumi.set(__self__, "playback_mode", playback_mode)
@@ -95,14 +97,14 @@ class ChannelArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to assign to the channel.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -134,7 +136,7 @@ class Channel(pulumi.CustomResource):
                  log_configuration: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationForChannelArgs']]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelRequestOutputItemArgs']]]]] = None,
                  playback_mode: Optional[pulumi.Input['ChannelPlaybackMode']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tier: Optional[pulumi.Input['ChannelTier']] = None,
                  time_shift_configuration: Optional[pulumi.Input[pulumi.InputType['ChannelTimeShiftConfigurationArgs']]] = None,
                  __props__=None):
@@ -144,7 +146,7 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelRequestOutputItemArgs']]]] outputs: <p>The channel's output properties.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]] tags: The tags to assign to the channel.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the channel.
         """
         ...
     @overload
@@ -175,7 +177,7 @@ class Channel(pulumi.CustomResource):
                  log_configuration: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationForChannelArgs']]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelRequestOutputItemArgs']]]]] = None,
                  playback_mode: Optional[pulumi.Input['ChannelPlaybackMode']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tier: Optional[pulumi.Input['ChannelTier']] = None,
                  time_shift_configuration: Optional[pulumi.Input[pulumi.InputType['ChannelTimeShiftConfigurationArgs']]] = None,
                  __props__=None):
@@ -273,7 +275,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ChannelTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags to assign to the channel.
         """

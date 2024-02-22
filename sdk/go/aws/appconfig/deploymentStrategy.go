@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,14 +19,14 @@ import (
 type DeploymentStrategy struct {
 	pulumi.CustomResourceState
 
-	DeploymentDurationInMinutes pulumi.Float64Output              `pulumi:"deploymentDurationInMinutes"`
-	Description                 pulumi.StringPtrOutput            `pulumi:"description"`
-	FinalBakeTimeInMinutes      pulumi.Float64PtrOutput           `pulumi:"finalBakeTimeInMinutes"`
-	GrowthFactor                pulumi.Float64Output              `pulumi:"growthFactor"`
-	GrowthType                  pulumi.StringPtrOutput            `pulumi:"growthType"`
-	Name                        pulumi.StringOutput               `pulumi:"name"`
-	ReplicateTo                 pulumi.StringOutput               `pulumi:"replicateTo"`
-	Tags                        DeploymentStrategyTagsArrayOutput `pulumi:"tags"`
+	DeploymentDurationInMinutes pulumi.Float64Output    `pulumi:"deploymentDurationInMinutes"`
+	Description                 pulumi.StringPtrOutput  `pulumi:"description"`
+	FinalBakeTimeInMinutes      pulumi.Float64PtrOutput `pulumi:"finalBakeTimeInMinutes"`
+	GrowthFactor                pulumi.Float64Output    `pulumi:"growthFactor"`
+	GrowthType                  pulumi.StringPtrOutput  `pulumi:"growthType"`
+	Name                        pulumi.StringOutput     `pulumi:"name"`
+	ReplicateTo                 pulumi.StringOutput     `pulumi:"replicateTo"`
+	Tags                        aws.TagArrayOutput      `pulumi:"tags"`
 }
 
 // NewDeploymentStrategy registers a new resource with the given unique name, arguments, and options.
@@ -82,14 +83,14 @@ func (DeploymentStrategyState) ElementType() reflect.Type {
 }
 
 type deploymentStrategyArgs struct {
-	DeploymentDurationInMinutes float64                  `pulumi:"deploymentDurationInMinutes"`
-	Description                 *string                  `pulumi:"description"`
-	FinalBakeTimeInMinutes      *float64                 `pulumi:"finalBakeTimeInMinutes"`
-	GrowthFactor                float64                  `pulumi:"growthFactor"`
-	GrowthType                  *string                  `pulumi:"growthType"`
-	Name                        *string                  `pulumi:"name"`
-	ReplicateTo                 string                   `pulumi:"replicateTo"`
-	Tags                        []DeploymentStrategyTags `pulumi:"tags"`
+	DeploymentDurationInMinutes float64   `pulumi:"deploymentDurationInMinutes"`
+	Description                 *string   `pulumi:"description"`
+	FinalBakeTimeInMinutes      *float64  `pulumi:"finalBakeTimeInMinutes"`
+	GrowthFactor                float64   `pulumi:"growthFactor"`
+	GrowthType                  *string   `pulumi:"growthType"`
+	Name                        *string   `pulumi:"name"`
+	ReplicateTo                 string    `pulumi:"replicateTo"`
+	Tags                        []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeploymentStrategy resource.
@@ -101,7 +102,7 @@ type DeploymentStrategyArgs struct {
 	GrowthType                  pulumi.StringPtrInput
 	Name                        pulumi.StringPtrInput
 	ReplicateTo                 pulumi.StringInput
-	Tags                        DeploymentStrategyTagsArrayInput
+	Tags                        aws.TagArrayInput
 }
 
 func (DeploymentStrategyArgs) ElementType() reflect.Type {
@@ -169,8 +170,8 @@ func (o DeploymentStrategyOutput) ReplicateTo() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.ReplicateTo }).(pulumi.StringOutput)
 }
 
-func (o DeploymentStrategyOutput) Tags() DeploymentStrategyTagsArrayOutput {
-	return o.ApplyT(func(v *DeploymentStrategy) DeploymentStrategyTagsArrayOutput { return v.Tags }).(DeploymentStrategyTagsArrayOutput)
+func (o DeploymentStrategyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

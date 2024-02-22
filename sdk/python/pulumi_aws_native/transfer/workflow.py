@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -20,13 +22,13 @@ class WorkflowArgs:
                  steps: pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
                  on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Specifies the details for the steps that are in the specified workflow.
         :param pulumi.Input[str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowTagArgs']]] tags: Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
         """
         pulumi.set(__self__, "steps", steps)
         if description is not None:
@@ -74,14 +76,14 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,7 +95,7 @@ class Workflow(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Transfer::Workflow
@@ -103,7 +105,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]] on_exception_steps: Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]] steps: Specifies the details for the steps that are in the specified workflow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowTagArgs']]]] tags: Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
         """
         ...
     @overload
@@ -132,7 +134,7 @@ class Workflow(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -216,7 +218,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.WorkflowTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
         """

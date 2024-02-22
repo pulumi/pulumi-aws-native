@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Backup
         /// Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
         /// </summary>
         [Output("reportPlanTags")]
-        public Output<ImmutableArray<Outputs.ReportPlanTag>> ReportPlanTags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> ReportPlanTags { get; private set; } = null!;
 
         /// <summary>
         /// Identifies the report template for the report. Reports are built using a report template.
@@ -119,14 +119,14 @@ namespace Pulumi.AwsNative.Backup
         public Input<string>? ReportPlanName { get; set; }
 
         [Input("reportPlanTags")]
-        private InputList<Inputs.ReportPlanTagArgs>? _reportPlanTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _reportPlanTags;
 
         /// <summary>
         /// Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
         /// </summary>
-        public InputList<Inputs.ReportPlanTagArgs> ReportPlanTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> ReportPlanTags
         {
-            get => _reportPlanTags ?? (_reportPlanTags = new InputList<Inputs.ReportPlanTagArgs>());
+            get => _reportPlanTags ?? (_reportPlanTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _reportPlanTags = value;
         }
 

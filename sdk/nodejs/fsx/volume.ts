@@ -45,7 +45,7 @@ export class Volume extends pulumi.CustomResource {
     public readonly ontapConfiguration!: pulumi.Output<outputs.fsx.VolumeOntapConfiguration | undefined>;
     public readonly openZfsConfiguration!: pulumi.Output<outputs.fsx.VolumeOpenZfsConfiguration | undefined>;
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.fsx.VolumeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly uuid!: pulumi.Output<string>;
     public /*out*/ readonly volumeId!: pulumi.Output<string>;
     public readonly volumeType!: pulumi.Output<string | undefined>;
@@ -98,6 +98,6 @@ export interface VolumeArgs {
     name?: pulumi.Input<string>;
     ontapConfiguration?: pulumi.Input<inputs.fsx.VolumeOntapConfigurationArgs>;
     openZfsConfiguration?: pulumi.Input<inputs.fsx.VolumeOpenZfsConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.fsx.VolumeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     volumeType?: pulumi.Input<string>;
 }

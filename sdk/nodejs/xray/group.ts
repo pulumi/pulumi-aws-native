@@ -50,7 +50,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly groupName!: pulumi.Output<string>;
     public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration | undefined>;
-    public readonly tags!: pulumi.Output<outputs.xray.GroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -93,5 +93,5 @@ export interface GroupArgs {
      */
     groupName?: pulumi.Input<string>;
     insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.xray.GroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

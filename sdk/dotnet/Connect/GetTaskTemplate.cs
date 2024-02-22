@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TaskTemplateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetTaskTemplateResult(
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.Connect
 
             Pulumi.AwsNative.Connect.TaskTemplateStatus? status,
 
-            ImmutableArray<Outputs.TaskTemplateTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             ClientToken = clientToken;

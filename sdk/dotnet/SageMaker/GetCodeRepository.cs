@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.SageMaker
     {
         public readonly Outputs.CodeRepositoryGitConfig? GitConfig;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.CodeRepositoryTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCodeRepositoryResult(
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? id,
 
-            ImmutableArray<Outputs.CodeRepositoryTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             GitConfig = gitConfig;
             Id = id;

@@ -44,7 +44,7 @@ export interface GetCapacityReservationResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.athena.CapacityReservationTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The number of DPUs to request to be allocated to the reservation.
      */

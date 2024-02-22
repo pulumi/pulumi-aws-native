@@ -30,7 +30,7 @@ export interface GetImageResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.sagemaker.ImageTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::Image

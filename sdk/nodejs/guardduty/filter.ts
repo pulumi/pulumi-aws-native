@@ -43,7 +43,7 @@ export class Filter extends pulumi.CustomResource {
     public readonly findingCriteria!: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly rank!: pulumi.Output<number | undefined>;
-    public readonly tags!: pulumi.Output<outputs.guardduty.FilterTagItem[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Filter resource with the given unique name, arguments, and options.
@@ -92,5 +92,5 @@ export interface FilterArgs {
     findingCriteria: pulumi.Input<inputs.guardduty.FilterFindingCriteriaArgs>;
     name?: pulumi.Input<string>;
     rank?: pulumi.Input<number>;
-    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.FilterTagItemArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

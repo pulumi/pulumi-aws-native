@@ -34,7 +34,7 @@ export interface GetServiceNetworkServiceAssociationResult {
     readonly serviceNetworkId?: string;
     readonly serviceNetworkName?: string;
     readonly status?: enums.vpclattice.ServiceNetworkServiceAssociationStatus;
-    readonly tags?: outputs.vpclattice.ServiceNetworkServiceAssociationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Associates a service with a service network.

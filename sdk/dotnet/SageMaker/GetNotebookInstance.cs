@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly string? LifecycleConfigName;
         public readonly string? RoleArn;
         public readonly string? RootAccess;
-        public readonly ImmutableArray<Outputs.NotebookInstanceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly int? VolumeSizeInGb;
 
         [OutputConstructor]
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? rootAccess,
 
-            ImmutableArray<Outputs.NotebookInstanceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? volumeSizeInGb)
         {

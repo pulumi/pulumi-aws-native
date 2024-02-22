@@ -42,7 +42,7 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
     public readonly matchPaths!: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequest[] | undefined>;
     public /*out*/ readonly networkInsightsAccessScopeArn!: pulumi.Output<string>;
     public /*out*/ readonly networkInsightsAccessScopeId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly updatedDate!: pulumi.Output<string>;
 
     /**
@@ -85,5 +85,5 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
 export interface NetworkInsightsAccessScopeArgs {
     excludePaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequestArgs>[]>;
     matchPaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequestArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

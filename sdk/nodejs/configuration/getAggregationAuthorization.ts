@@ -38,7 +38,7 @@ export interface GetAggregationAuthorizationResult {
     /**
      * The tags for the AggregationAuthorization.
      */
-    readonly tags?: outputs.configuration.AggregationAuthorizationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Config::AggregationAuthorization

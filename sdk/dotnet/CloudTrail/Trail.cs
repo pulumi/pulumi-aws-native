@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.CloudTrail
         public Output<string?> SnsTopicName { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TrailTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("trailName")]
         public Output<string?> TrailName { get; private set; } = null!;
@@ -263,10 +263,10 @@ namespace Pulumi.AwsNative.CloudTrail
         public Input<string>? SnsTopicName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TrailTagArgs>? _tags;
-        public InputList<Inputs.TrailTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TrailTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

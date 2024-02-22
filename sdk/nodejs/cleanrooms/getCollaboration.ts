@@ -30,7 +30,7 @@ export interface GetCollaborationResult {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    readonly tags?: outputs.cleanrooms.CollaborationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Represents a collaboration between AWS accounts that allows for secure data collaboration

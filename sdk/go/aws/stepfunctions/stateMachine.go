@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type StateMachine struct {
 	StateMachineName        pulumi.StringPtrOutput                       `pulumi:"stateMachineName"`
 	StateMachineRevisionId  pulumi.StringOutput                          `pulumi:"stateMachineRevisionId"`
 	StateMachineType        StateMachineTypePtrOutput                    `pulumi:"stateMachineType"`
-	Tags                    StateMachineTagsEntryArrayOutput             `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                           `pulumi:"tags"`
 	TracingConfiguration    StateMachineTracingConfigurationPtrOutput    `pulumi:"tracingConfiguration"`
 }
 
@@ -87,7 +88,7 @@ type stateMachineArgs struct {
 	RoleArn                 string                               `pulumi:"roleArn"`
 	StateMachineName        *string                              `pulumi:"stateMachineName"`
 	StateMachineType        *StateMachineType                    `pulumi:"stateMachineType"`
-	Tags                    []StateMachineTagsEntry              `pulumi:"tags"`
+	Tags                    []aws.Tag                            `pulumi:"tags"`
 	TracingConfiguration    *StateMachineTracingConfiguration    `pulumi:"tracingConfiguration"`
 }
 
@@ -101,7 +102,7 @@ type StateMachineArgs struct {
 	RoleArn                 pulumi.StringInput
 	StateMachineName        pulumi.StringPtrInput
 	StateMachineType        StateMachineTypePtrInput
-	Tags                    StateMachineTagsEntryArrayInput
+	Tags                    aws.TagArrayInput
 	TracingConfiguration    StateMachineTracingConfigurationPtrInput
 }
 
@@ -186,8 +187,8 @@ func (o StateMachineOutput) StateMachineType() StateMachineTypePtrOutput {
 	return o.ApplyT(func(v *StateMachine) StateMachineTypePtrOutput { return v.StateMachineType }).(StateMachineTypePtrOutput)
 }
 
-func (o StateMachineOutput) Tags() StateMachineTagsEntryArrayOutput {
-	return o.ApplyT(func(v *StateMachine) StateMachineTagsEntryArrayOutput { return v.Tags }).(StateMachineTagsEntryArrayOutput)
+func (o StateMachineOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *StateMachine) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o StateMachineOutput) TracingConfiguration() StateMachineTracingConfigurationPtrOutput {

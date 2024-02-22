@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags for the carrier gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.CarrierGatewayTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the VPC.
@@ -95,14 +95,14 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class CarrierGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
-        private InputList<Inputs.CarrierGatewayTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the carrier gateway.
         /// </summary>
-        public InputList<Inputs.CarrierGatewayTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.CarrierGatewayTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

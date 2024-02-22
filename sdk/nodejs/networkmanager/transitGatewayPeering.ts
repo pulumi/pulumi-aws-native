@@ -76,7 +76,7 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.networkmanager.TransitGatewayPeeringTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN (Amazon Resource Name) of the transit gateway that you will peer to a core network
      */
@@ -147,7 +147,7 @@ export interface TransitGatewayPeeringArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.TransitGatewayPeeringTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ARN (Amazon Resource Name) of the transit gateway that you will peer to a core network
      */

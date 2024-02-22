@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// <summary>
         /// Specifies the tags applied to resources in the environment.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
         /// </summary>
@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
             string? platformArn,
 
-            ImmutableArray<Outputs.EnvironmentTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.EnvironmentTier? tier,
 

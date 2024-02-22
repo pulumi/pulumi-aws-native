@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Membership struct {
 	PaymentConfiguration          MembershipPaymentConfigurationPtrOutput              `pulumi:"paymentConfiguration"`
 	QueryLogStatus                MembershipQueryLogStatusOutput                       `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
-	Tags MembershipTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewMembership registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +84,7 @@ type membershipArgs struct {
 	PaymentConfiguration       *MembershipPaymentConfiguration              `pulumi:"paymentConfiguration"`
 	QueryLogStatus             MembershipQueryLogStatus                     `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
-	Tags []MembershipTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Membership resource.
@@ -93,7 +94,7 @@ type MembershipArgs struct {
 	PaymentConfiguration       MembershipPaymentConfigurationPtrInput
 	QueryLogStatus             MembershipQueryLogStatusInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
-	Tags MembershipTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (MembershipArgs) ElementType() reflect.Type {
@@ -168,8 +169,8 @@ func (o MembershipOutput) QueryLogStatus() MembershipQueryLogStatusOutput {
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
-func (o MembershipOutput) Tags() MembershipTagArrayOutput {
-	return o.ApplyT(func(v *Membership) MembershipTagArrayOutput { return v.Tags }).(MembershipTagArrayOutput)
+func (o MembershipOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Membership) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

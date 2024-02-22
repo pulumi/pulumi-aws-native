@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// A set of tags to assign to the delivery stream.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.MetricStreamTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -209,14 +209,14 @@ namespace Pulumi.AwsNative.CloudWatch
         }
 
         [Input("tags")]
-        private InputList<Inputs.MetricStreamTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A set of tags to assign to the delivery stream.
         /// </summary>
-        public InputList<Inputs.MetricStreamTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.MetricStreamTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

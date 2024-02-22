@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,14 +23,14 @@ class ProfilingGroupArgs:
                  anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupChannelArgs']]]] = None,
                  compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
                  profiling_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ProfilingGroup resource.
         :param pulumi.Input['AgentPermissionsPropertiesArgs'] agent_permissions: The agent permissions attached to this profiling group.
         :param pulumi.Input[Sequence[pulumi.Input['ProfilingGroupChannelArgs']]] anomaly_detection_notification_configuration: Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
         :param pulumi.Input['ProfilingGroupComputePlatform'] compute_platform: The compute platform of the profiling group.
         :param pulumi.Input[str] profiling_group_name: The name of the profiling group.
-        :param pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]] tags: The tags associated with a profiling group.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with a profiling group.
         """
         if agent_permissions is not None:
             pulumi.set(__self__, "agent_permissions", agent_permissions)
@@ -91,14 +93,14 @@ class ProfilingGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags associated with a profiling group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -111,7 +113,7 @@ class ProfilingGroup(pulumi.CustomResource):
                  anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupChannelArgs']]]]] = None,
                  compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
                  profiling_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
@@ -122,7 +124,7 @@ class ProfilingGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupChannelArgs']]]] anomaly_detection_notification_configuration: Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
         :param pulumi.Input['ProfilingGroupComputePlatform'] compute_platform: The compute platform of the profiling group.
         :param pulumi.Input[str] profiling_group_name: The name of the profiling group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupTagArgs']]]] tags: The tags associated with a profiling group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags associated with a profiling group.
         """
         ...
     @overload
@@ -152,7 +154,7 @@ class ProfilingGroup(pulumi.CustomResource):
                  anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupChannelArgs']]]]] = None,
                  compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
                  profiling_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -242,7 +244,7 @@ class ProfilingGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ProfilingGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags associated with a profiling group.
         """

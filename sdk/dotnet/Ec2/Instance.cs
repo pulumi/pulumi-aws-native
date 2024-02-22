@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> SubnetId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.InstanceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("tenancy")]
         public Output<string?> Tenancy { get; private set; } = null!;
@@ -367,10 +367,10 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.InstanceTagArgs>? _tags;
-        public InputList<Inputs.InstanceTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.InstanceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

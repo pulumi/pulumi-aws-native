@@ -45,7 +45,7 @@ export interface GetScheduledAuditResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.iot.ScheduledAuditTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Which checks are performed during the scheduled audit. Checks must be enabled for your account.
      */

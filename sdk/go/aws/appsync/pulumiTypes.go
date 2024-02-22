@@ -3146,101 +3146,6 @@ type GraphQlApiTag struct {
 	Value string `pulumi:"value"`
 }
 
-// GraphQlApiTagInput is an input type that accepts GraphQlApiTagArgs and GraphQlApiTagOutput values.
-// You can construct a concrete instance of `GraphQlApiTagInput` via:
-//
-//	GraphQlApiTagArgs{...}
-type GraphQlApiTagInput interface {
-	pulumi.Input
-
-	ToGraphQlApiTagOutput() GraphQlApiTagOutput
-	ToGraphQlApiTagOutputWithContext(context.Context) GraphQlApiTagOutput
-}
-
-type GraphQlApiTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (GraphQlApiTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQlApiTag)(nil)).Elem()
-}
-
-func (i GraphQlApiTagArgs) ToGraphQlApiTagOutput() GraphQlApiTagOutput {
-	return i.ToGraphQlApiTagOutputWithContext(context.Background())
-}
-
-func (i GraphQlApiTagArgs) ToGraphQlApiTagOutputWithContext(ctx context.Context) GraphQlApiTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphQlApiTagOutput)
-}
-
-// GraphQlApiTagArrayInput is an input type that accepts GraphQlApiTagArray and GraphQlApiTagArrayOutput values.
-// You can construct a concrete instance of `GraphQlApiTagArrayInput` via:
-//
-//	GraphQlApiTagArray{ GraphQlApiTagArgs{...} }
-type GraphQlApiTagArrayInput interface {
-	pulumi.Input
-
-	ToGraphQlApiTagArrayOutput() GraphQlApiTagArrayOutput
-	ToGraphQlApiTagArrayOutputWithContext(context.Context) GraphQlApiTagArrayOutput
-}
-
-type GraphQlApiTagArray []GraphQlApiTagInput
-
-func (GraphQlApiTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GraphQlApiTag)(nil)).Elem()
-}
-
-func (i GraphQlApiTagArray) ToGraphQlApiTagArrayOutput() GraphQlApiTagArrayOutput {
-	return i.ToGraphQlApiTagArrayOutputWithContext(context.Background())
-}
-
-func (i GraphQlApiTagArray) ToGraphQlApiTagArrayOutputWithContext(ctx context.Context) GraphQlApiTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphQlApiTagArrayOutput)
-}
-
-type GraphQlApiTagOutput struct{ *pulumi.OutputState }
-
-func (GraphQlApiTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQlApiTag)(nil)).Elem()
-}
-
-func (o GraphQlApiTagOutput) ToGraphQlApiTagOutput() GraphQlApiTagOutput {
-	return o
-}
-
-func (o GraphQlApiTagOutput) ToGraphQlApiTagOutputWithContext(ctx context.Context) GraphQlApiTagOutput {
-	return o
-}
-
-func (o GraphQlApiTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GraphQlApiTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o GraphQlApiTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GraphQlApiTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type GraphQlApiTagArrayOutput struct{ *pulumi.OutputState }
-
-func (GraphQlApiTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GraphQlApiTag)(nil)).Elem()
-}
-
-func (o GraphQlApiTagArrayOutput) ToGraphQlApiTagArrayOutput() GraphQlApiTagArrayOutput {
-	return o
-}
-
-func (o GraphQlApiTagArrayOutput) ToGraphQlApiTagArrayOutputWithContext(ctx context.Context) GraphQlApiTagArrayOutput {
-	return o
-}
-
-func (o GraphQlApiTagArrayOutput) Index(i pulumi.IntInput) GraphQlApiTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphQlApiTag {
-		return vs[0].([]GraphQlApiTag)[vs[1].(int)]
-	}).(GraphQlApiTagOutput)
-}
-
 type GraphQlApiUserPoolConfig struct {
 	AppIdClientRegex *string `pulumi:"appIdClientRegex"`
 	AwsRegion        *string `pulumi:"awsRegion"`
@@ -4417,8 +4322,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiLogConfigPtrInput)(nil)).Elem(), GraphQlApiLogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiOpenIdConnectConfigInput)(nil)).Elem(), GraphQlApiOpenIdConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiOpenIdConnectConfigPtrInput)(nil)).Elem(), GraphQlApiOpenIdConnectConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiTagInput)(nil)).Elem(), GraphQlApiTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiTagArrayInput)(nil)).Elem(), GraphQlApiTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiUserPoolConfigInput)(nil)).Elem(), GraphQlApiUserPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQlApiUserPoolConfigPtrInput)(nil)).Elem(), GraphQlApiUserPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverAppSyncRuntimeInput)(nil)).Elem(), ResolverAppSyncRuntimeArgs{})
@@ -4473,8 +4376,6 @@ func init() {
 	pulumi.RegisterOutputType(GraphQlApiLogConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQlApiOpenIdConnectConfigOutput{})
 	pulumi.RegisterOutputType(GraphQlApiOpenIdConnectConfigPtrOutput{})
-	pulumi.RegisterOutputType(GraphQlApiTagOutput{})
-	pulumi.RegisterOutputType(GraphQlApiTagArrayOutput{})
 	pulumi.RegisterOutputType(GraphQlApiUserPoolConfigOutput{})
 	pulumi.RegisterOutputType(GraphQlApiUserPoolConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverAppSyncRuntimeOutput{})

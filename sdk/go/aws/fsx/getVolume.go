@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupVolumeResult struct {
 	OntapConfiguration   *VolumeOntapConfiguration   `pulumi:"ontapConfiguration"`
 	OpenZfsConfiguration *VolumeOpenZfsConfiguration `pulumi:"openZfsConfiguration"`
 	ResourceArn          *string                     `pulumi:"resourceArn"`
-	Tags                 []VolumeTag                 `pulumi:"tags"`
+	Tags                 []aws.Tag                   `pulumi:"tags"`
 	Uuid                 *string                     `pulumi:"uuid"`
 	VolumeId             *string                     `pulumi:"volumeId"`
 }
@@ -87,8 +88,8 @@ func (o LookupVolumeResultOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVolumeResultOutput) Tags() VolumeTagArrayOutput {
-	return o.ApplyT(func(v LookupVolumeResult) []VolumeTag { return v.Tags }).(VolumeTagArrayOutput)
+func (o LookupVolumeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupVolumeResultOutput) Uuid() pulumi.StringPtrOutput {

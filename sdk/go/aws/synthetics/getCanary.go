@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,8 +50,8 @@ type LookupCanaryResult struct {
 	// State of the canary
 	State *string `pulumi:"state"`
 	// Retention period of successful canary runs represented in number of days
-	SuccessRetentionPeriod *int        `pulumi:"successRetentionPeriod"`
-	Tags                   []CanaryTag `pulumi:"tags"`
+	SuccessRetentionPeriod *int      `pulumi:"successRetentionPeriod"`
+	Tags                   []aws.Tag `pulumi:"tags"`
 	// Provide VPC Configuration if enabled.
 	VpcConfig *CanaryVpcConfig `pulumi:"vpcConfig"`
 }
@@ -146,8 +147,8 @@ func (o LookupCanaryResultOutput) SuccessRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *int { return v.SuccessRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupCanaryResultOutput) Tags() CanaryTagArrayOutput {
-	return o.ApplyT(func(v LookupCanaryResult) []CanaryTag { return v.Tags }).(CanaryTagArrayOutput)
+func (o LookupCanaryResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCanaryResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Provide VPC Configuration if enabled.

@@ -28,7 +28,7 @@ export interface GetServiceNetworkResult {
     readonly createdAt?: string;
     readonly id?: string;
     readonly lastUpdatedAt?: string;
-    readonly tags?: outputs.vpclattice.ServiceNetworkTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,18 +28,18 @@ type LookupMaintenanceWindowArgs struct {
 }
 
 type LookupMaintenanceWindowResult struct {
-	AllowUnassociatedTargets *bool                  `pulumi:"allowUnassociatedTargets"`
-	Cutoff                   *int                   `pulumi:"cutoff"`
-	Description              *string                `pulumi:"description"`
-	Duration                 *int                   `pulumi:"duration"`
-	EndDate                  *string                `pulumi:"endDate"`
-	Id                       *string                `pulumi:"id"`
-	Name                     *string                `pulumi:"name"`
-	Schedule                 *string                `pulumi:"schedule"`
-	ScheduleOffset           *int                   `pulumi:"scheduleOffset"`
-	ScheduleTimezone         *string                `pulumi:"scheduleTimezone"`
-	StartDate                *string                `pulumi:"startDate"`
-	Tags                     []MaintenanceWindowTag `pulumi:"tags"`
+	AllowUnassociatedTargets *bool     `pulumi:"allowUnassociatedTargets"`
+	Cutoff                   *int      `pulumi:"cutoff"`
+	Description              *string   `pulumi:"description"`
+	Duration                 *int      `pulumi:"duration"`
+	EndDate                  *string   `pulumi:"endDate"`
+	Id                       *string   `pulumi:"id"`
+	Name                     *string   `pulumi:"name"`
+	Schedule                 *string   `pulumi:"schedule"`
+	ScheduleOffset           *int      `pulumi:"scheduleOffset"`
+	ScheduleTimezone         *string   `pulumi:"scheduleTimezone"`
+	StartDate                *string   `pulumi:"startDate"`
+	Tags                     []aws.Tag `pulumi:"tags"`
 }
 
 func LookupMaintenanceWindowOutput(ctx *pulumi.Context, args LookupMaintenanceWindowOutputArgs, opts ...pulumi.InvokeOption) LookupMaintenanceWindowResultOutput {
@@ -120,8 +121,8 @@ func (o LookupMaintenanceWindowResultOutput) StartDate() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupMaintenanceWindowResult) *string { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupMaintenanceWindowResultOutput) Tags() MaintenanceWindowTagArrayOutput {
-	return o.ApplyT(func(v LookupMaintenanceWindowResult) []MaintenanceWindowTag { return v.Tags }).(MaintenanceWindowTagArrayOutput)
+func (o LookupMaintenanceWindowResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMaintenanceWindowResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

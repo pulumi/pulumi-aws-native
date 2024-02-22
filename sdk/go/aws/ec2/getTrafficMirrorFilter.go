@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,9 +28,9 @@ type LookupTrafficMirrorFilterArgs struct {
 }
 
 type LookupTrafficMirrorFilterResult struct {
-	Id              *string                  `pulumi:"id"`
-	NetworkServices []string                 `pulumi:"networkServices"`
-	Tags            []TrafficMirrorFilterTag `pulumi:"tags"`
+	Id              *string   `pulumi:"id"`
+	NetworkServices []string  `pulumi:"networkServices"`
+	Tags            []aws.Tag `pulumi:"tags"`
 }
 
 func LookupTrafficMirrorFilterOutput(ctx *pulumi.Context, args LookupTrafficMirrorFilterOutputArgs, opts ...pulumi.InvokeOption) LookupTrafficMirrorFilterResultOutput {
@@ -75,8 +76,8 @@ func (o LookupTrafficMirrorFilterResultOutput) NetworkServices() pulumi.StringAr
 	return o.ApplyT(func(v LookupTrafficMirrorFilterResult) []string { return v.NetworkServices }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupTrafficMirrorFilterResultOutput) Tags() TrafficMirrorFilterTagArrayOutput {
-	return o.ApplyT(func(v LookupTrafficMirrorFilterResult) []TrafficMirrorFilterTag { return v.Tags }).(TrafficMirrorFilterTagArrayOutput)
+func (o LookupTrafficMirrorFilterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTrafficMirrorFilterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

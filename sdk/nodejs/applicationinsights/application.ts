@@ -80,7 +80,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The tags of Application Insights application.
      */
-    public readonly tags!: pulumi.Output<outputs.applicationinsights.ApplicationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -170,5 +170,5 @@ export interface ApplicationArgs {
     /**
      * The tags of Application Insights application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

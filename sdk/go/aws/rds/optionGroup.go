@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type OptionGroup struct {
 	// Specifies the name of the option group.
 	OptionGroupName pulumi.StringPtrOutput `pulumi:"optionGroupName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags OptionGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewOptionGroup registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +98,7 @@ type optionGroupArgs struct {
 	// Specifies the name of the option group.
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []OptionGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OptionGroup resource.
@@ -113,7 +114,7 @@ type OptionGroupArgs struct {
 	// Specifies the name of the option group.
 	OptionGroupName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags OptionGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (OptionGroupArgs) ElementType() reflect.Type {
@@ -179,8 +180,8 @@ func (o OptionGroupOutput) OptionGroupName() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o OptionGroupOutput) Tags() OptionGroupTagArrayOutput {
-	return o.ApplyT(func(v *OptionGroup) OptionGroupTagArrayOutput { return v.Tags }).(OptionGroupTagArrayOutput)
+func (o OptionGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *OptionGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

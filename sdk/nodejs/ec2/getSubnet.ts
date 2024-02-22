@@ -40,7 +40,7 @@ export interface GetSubnetResult {
      * The ID of the subnet
      */
     readonly subnetId?: string;
-    readonly tags?: outputs.ec2.SubnetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::Subnet

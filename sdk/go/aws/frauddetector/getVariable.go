@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupVariableResult struct {
 	// The time when the variable was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Tags associated with this variable.
-	Tags []VariableTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
 	VariableType *VariableType `pulumi:"variableType"`
 }
@@ -120,8 +121,8 @@ func (o LookupVariableResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 }
 
 // Tags associated with this variable.
-func (o LookupVariableResultOutput) Tags() VariableTagArrayOutput {
-	return o.ApplyT(func(v LookupVariableResult) []VariableTag { return v.Tags }).(VariableTagArrayOutput)
+func (o LookupVariableResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVariableResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types

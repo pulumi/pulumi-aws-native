@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.B2bi
         public readonly ImmutableArray<Outputs.CapabilityS3Location> InstructionsDocuments;
         public readonly string? ModifiedAt;
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.CapabilityTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCapabilityResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.B2bi
 
             string? name,
 
-            ImmutableArray<Outputs.CapabilityTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CapabilityArn = capabilityArn;
             CapabilityId = capabilityId;

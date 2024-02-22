@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,8 +28,8 @@ type LookupTrafficMirrorTargetArgs struct {
 }
 
 type LookupTrafficMirrorTargetResult struct {
-	Id   *string                  `pulumi:"id"`
-	Tags []TrafficMirrorTargetTag `pulumi:"tags"`
+	Id   *string   `pulumi:"id"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupTrafficMirrorTargetOutput(ctx *pulumi.Context, args LookupTrafficMirrorTargetOutputArgs, opts ...pulumi.InvokeOption) LookupTrafficMirrorTargetResultOutput {
@@ -70,8 +71,8 @@ func (o LookupTrafficMirrorTargetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrafficMirrorTargetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTrafficMirrorTargetResultOutput) Tags() TrafficMirrorTargetTagArrayOutput {
-	return o.ApplyT(func(v LookupTrafficMirrorTargetResult) []TrafficMirrorTargetTag { return v.Tags }).(TrafficMirrorTargetTagArrayOutput)
+func (o LookupTrafficMirrorTargetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTrafficMirrorTargetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

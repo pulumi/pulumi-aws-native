@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAssetResult(
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.MediaPackage
 
             string? sourceRoleArn,
 
-            ImmutableArray<Outputs.AssetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreatedAt = createdAt;

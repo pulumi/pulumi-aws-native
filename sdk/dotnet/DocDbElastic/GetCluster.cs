@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.DocDbElastic
         public readonly int? ShardCapacity;
         public readonly int? ShardCount;
         public readonly ImmutableArray<string> SubnetIds;
-        public readonly ImmutableArray<Outputs.ClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.DocDbElastic
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableArray<Outputs.ClusterTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public readonly bool? DeleteReports;
         public readonly Outputs.ReportGroupReportExportConfig? ExportConfig;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.ReportGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetReportGroupResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.CodeBuild
 
             string? id,
 
-            ImmutableArray<Outputs.ReportGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DeleteReports = deleteReports;

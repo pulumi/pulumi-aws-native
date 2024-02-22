@@ -43,7 +43,7 @@ export class RuleGroup extends pulumi.CustomResource {
     public /*out*/ readonly ruleGroupArn!: pulumi.Output<string>;
     public /*out*/ readonly ruleGroupId!: pulumi.Output<string>;
     public readonly ruleGroupName!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.networkfirewall.RuleGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly type!: pulumi.Output<enums.networkfirewall.RuleGroupTypeEnum>;
 
     /**
@@ -96,6 +96,6 @@ export interface RuleGroupArgs {
     description?: pulumi.Input<string>;
     ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupArgs>;
     ruleGroupName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     type: pulumi.Input<enums.networkfirewall.RuleGroupTypeEnum>;
 }

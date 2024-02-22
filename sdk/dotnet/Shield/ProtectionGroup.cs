@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Shield
         /// One or more tag key-value pairs for the Protection object.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ProtectionGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,14 +149,14 @@ namespace Pulumi.AwsNative.Shield
         public Input<Pulumi.AwsNative.Shield.ProtectionGroupResourceType>? ResourceType { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ProtectionGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// One or more tag key-value pairs for the Protection object.
         /// </summary>
-        public InputList<Inputs.ProtectionGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ProtectionGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

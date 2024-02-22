@@ -28,7 +28,7 @@ export interface GetServiceResult {
     readonly dnsConfig?: outputs.servicediscovery.ServiceDnsConfig;
     readonly healthCheckConfig?: outputs.servicediscovery.ServiceHealthCheckConfig;
     readonly id?: string;
-    readonly tags?: outputs.servicediscovery.ServiceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ServiceDiscovery::Service

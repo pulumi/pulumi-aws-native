@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type ScheduledQuery struct {
 	SqScheduledQueryExecutionRoleArn pulumi.StringOutput `pulumi:"sqScheduledQueryExecutionRoleArn"`
 	// Configuration of target store where scheduled query results are written to.
 	SqTargetConfiguration pulumi.StringOutput                        `pulumi:"sqTargetConfiguration"`
-	Tags                  ScheduledQueryTagArrayOutput               `pulumi:"tags"`
+	Tags                  aws.TagArrayOutput                         `pulumi:"tags"`
 	TargetConfiguration   ScheduledQueryTargetConfigurationPtrOutput `pulumi:"targetConfiguration"`
 }
 
@@ -120,7 +121,7 @@ type scheduledQueryArgs struct {
 	ScheduleConfiguration          ScheduledQueryScheduleConfiguration     `pulumi:"scheduleConfiguration"`
 	ScheduledQueryExecutionRoleArn string                                  `pulumi:"scheduledQueryExecutionRoleArn"`
 	ScheduledQueryName             *string                                 `pulumi:"scheduledQueryName"`
-	Tags                           []ScheduledQueryTag                     `pulumi:"tags"`
+	Tags                           []aws.Tag                               `pulumi:"tags"`
 	TargetConfiguration            *ScheduledQueryTargetConfiguration      `pulumi:"targetConfiguration"`
 }
 
@@ -134,7 +135,7 @@ type ScheduledQueryArgs struct {
 	ScheduleConfiguration          ScheduledQueryScheduleConfigurationInput
 	ScheduledQueryExecutionRoleArn pulumi.StringInput
 	ScheduledQueryName             pulumi.StringPtrInput
-	Tags                           ScheduledQueryTagArrayInput
+	Tags                           aws.TagArrayInput
 	TargetConfiguration            ScheduledQueryTargetConfigurationPtrInput
 }
 
@@ -255,8 +256,8 @@ func (o ScheduledQueryOutput) SqTargetConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.SqTargetConfiguration }).(pulumi.StringOutput)
 }
 
-func (o ScheduledQueryOutput) Tags() ScheduledQueryTagArrayOutput {
-	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryTagArrayOutput { return v.Tags }).(ScheduledQueryTagArrayOutput)
+func (o ScheduledQueryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ScheduledQuery) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ScheduledQueryOutput) TargetConfiguration() ScheduledQueryTargetConfigurationPtrOutput {

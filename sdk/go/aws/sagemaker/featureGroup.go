@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type FeatureGroup struct {
 	// Role Arn
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// An array of key-value pair to apply to this resource.
-	Tags             FeatureGroupTagArrayOutput            `pulumi:"tags"`
+	Tags             aws.CreateOnlyTagArrayOutput          `pulumi:"tags"`
 	ThroughputConfig FeatureGroupThroughputConfigPtrOutput `pulumi:"throughputConfig"`
 }
 
@@ -114,7 +115,7 @@ type featureGroupArgs struct {
 	// Role Arn
 	RoleArn *string `pulumi:"roleArn"`
 	// An array of key-value pair to apply to this resource.
-	Tags             []FeatureGroupTag             `pulumi:"tags"`
+	Tags             []aws.CreateOnlyTag           `pulumi:"tags"`
 	ThroughputConfig *FeatureGroupThroughputConfig `pulumi:"throughputConfig"`
 }
 
@@ -135,7 +136,7 @@ type FeatureGroupArgs struct {
 	// Role Arn
 	RoleArn pulumi.StringPtrInput
 	// An array of key-value pair to apply to this resource.
-	Tags             FeatureGroupTagArrayInput
+	Tags             aws.CreateOnlyTagArrayInput
 	ThroughputConfig FeatureGroupThroughputConfigPtrInput
 }
 
@@ -225,8 +226,8 @@ func (o FeatureGroupOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pair to apply to this resource.
-func (o FeatureGroupOutput) Tags() FeatureGroupTagArrayOutput {
-	return o.ApplyT(func(v *FeatureGroup) FeatureGroupTagArrayOutput { return v.Tags }).(FeatureGroupTagArrayOutput)
+func (o FeatureGroupOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *FeatureGroup) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func (o FeatureGroupOutput) ThroughputConfig() FeatureGroupThroughputConfigPtrOutput {

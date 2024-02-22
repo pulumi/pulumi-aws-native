@@ -39,7 +39,7 @@ export class TrustStore extends pulumi.CustomResource {
 
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
     public readonly certificateList!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<outputs.workspacesweb.TrustStoreTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly trustStoreArn!: pulumi.Output<string>;
 
     /**
@@ -76,5 +76,5 @@ export class TrustStore extends pulumi.CustomResource {
  */
 export interface TrustStoreArgs {
     certificateList: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.workspacesweb.TrustStoreTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

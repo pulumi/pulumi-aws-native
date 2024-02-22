@@ -44,7 +44,7 @@ export class InternetGateway extends pulumi.CustomResource {
     /**
      * Any tags to assign to the internet gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.InternetGatewayTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a InternetGateway resource with the given unique name, arguments, and options.
@@ -75,5 +75,5 @@ export interface InternetGatewayArgs {
     /**
      * Any tags to assign to the internet gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.InternetGatewayTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

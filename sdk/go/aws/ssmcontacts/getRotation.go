@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,8 +37,8 @@ type LookupRotationResult struct {
 	Name       *string                     `pulumi:"name"`
 	Recurrence *RotationRecurrenceSettings `pulumi:"recurrence"`
 	// Start time of the first shift of Oncall Schedule
-	StartTime *string       `pulumi:"startTime"`
-	Tags      []RotationTag `pulumi:"tags"`
+	StartTime *string   `pulumi:"startTime"`
+	Tags      []aws.Tag `pulumi:"tags"`
 	// TimeZone Identifier for the Oncall Schedule
 	TimeZoneId *string `pulumi:"timeZoneId"`
 }
@@ -102,8 +103,8 @@ func (o LookupRotationResultOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRotationResult) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRotationResultOutput) Tags() RotationTagArrayOutput {
-	return o.ApplyT(func(v LookupRotationResult) []RotationTag { return v.Tags }).(RotationTagArrayOutput)
+func (o LookupRotationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRotationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // TimeZone Identifier for the Oncall Schedule

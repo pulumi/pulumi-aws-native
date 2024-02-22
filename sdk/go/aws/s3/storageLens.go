@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,7 +19,7 @@ type StorageLens struct {
 
 	StorageLensConfiguration StorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
-	Tags StorageLensTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewStorageLens registers a new resource with the given unique name, arguments, and options.
@@ -70,14 +71,14 @@ func (StorageLensState) ElementType() reflect.Type {
 type storageLensArgs struct {
 	StorageLensConfiguration StorageLensConfiguration `pulumi:"storageLensConfiguration"`
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
-	Tags []StorageLensTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageLens resource.
 type StorageLensArgs struct {
 	StorageLensConfiguration StorageLensConfigurationInput
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
-	Tags StorageLensTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (StorageLensArgs) ElementType() reflect.Type {
@@ -122,8 +123,8 @@ func (o StorageLensOutput) StorageLensConfiguration() StorageLensConfigurationOu
 }
 
 // A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
-func (o StorageLensOutput) Tags() StorageLensTagArrayOutput {
-	return o.ApplyT(func(v *StorageLens) StorageLensTagArrayOutput { return v.Tags }).(StorageLensTagArrayOutput)
+func (o StorageLensOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *StorageLens) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

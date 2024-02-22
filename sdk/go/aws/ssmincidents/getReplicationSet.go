@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupReplicationSetResult struct {
 	// The ReplicationSet configuration.
 	Regions []ReplicationSetReplicationRegion `pulumi:"regions"`
 	// The tags to apply to the replication set.
-	Tags []ReplicationSetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupReplicationSetOutput(ctx *pulumi.Context, args LookupReplicationSetOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSetResultOutput {
@@ -88,8 +89,8 @@ func (o LookupReplicationSetResultOutput) Regions() ReplicationSetReplicationReg
 }
 
 // The tags to apply to the replication set.
-func (o LookupReplicationSetResultOutput) Tags() ReplicationSetTagArrayOutput {
-	return o.ApplyT(func(v LookupReplicationSetResult) []ReplicationSetTag { return v.Tags }).(ReplicationSetTagArrayOutput)
+func (o LookupReplicationSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReplicationSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

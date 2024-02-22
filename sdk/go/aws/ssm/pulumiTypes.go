@@ -637,203 +637,9 @@ type DocumentTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// DocumentTagInput is an input type that accepts DocumentTagArgs and DocumentTagOutput values.
-// You can construct a concrete instance of `DocumentTagInput` via:
-//
-//	DocumentTagArgs{...}
-type DocumentTagInput interface {
-	pulumi.Input
-
-	ToDocumentTagOutput() DocumentTagOutput
-	ToDocumentTagOutputWithContext(context.Context) DocumentTagOutput
-}
-
-type DocumentTagArgs struct {
-	// The name of the tag.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The value of the tag.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (DocumentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentTag)(nil)).Elem()
-}
-
-func (i DocumentTagArgs) ToDocumentTagOutput() DocumentTagOutput {
-	return i.ToDocumentTagOutputWithContext(context.Background())
-}
-
-func (i DocumentTagArgs) ToDocumentTagOutputWithContext(ctx context.Context) DocumentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentTagOutput)
-}
-
-// DocumentTagArrayInput is an input type that accepts DocumentTagArray and DocumentTagArrayOutput values.
-// You can construct a concrete instance of `DocumentTagArrayInput` via:
-//
-//	DocumentTagArray{ DocumentTagArgs{...} }
-type DocumentTagArrayInput interface {
-	pulumi.Input
-
-	ToDocumentTagArrayOutput() DocumentTagArrayOutput
-	ToDocumentTagArrayOutputWithContext(context.Context) DocumentTagArrayOutput
-}
-
-type DocumentTagArray []DocumentTagInput
-
-func (DocumentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DocumentTag)(nil)).Elem()
-}
-
-func (i DocumentTagArray) ToDocumentTagArrayOutput() DocumentTagArrayOutput {
-	return i.ToDocumentTagArrayOutputWithContext(context.Background())
-}
-
-func (i DocumentTagArray) ToDocumentTagArrayOutputWithContext(ctx context.Context) DocumentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentTagArrayOutput)
-}
-
-type DocumentTagOutput struct{ *pulumi.OutputState }
-
-func (DocumentTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentTag)(nil)).Elem()
-}
-
-func (o DocumentTagOutput) ToDocumentTagOutput() DocumentTagOutput {
-	return o
-}
-
-func (o DocumentTagOutput) ToDocumentTagOutputWithContext(ctx context.Context) DocumentTagOutput {
-	return o
-}
-
-// The name of the tag.
-func (o DocumentTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DocumentTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-// The value of the tag.
-func (o DocumentTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DocumentTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type DocumentTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DocumentTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DocumentTag)(nil)).Elem()
-}
-
-func (o DocumentTagArrayOutput) ToDocumentTagArrayOutput() DocumentTagArrayOutput {
-	return o
-}
-
-func (o DocumentTagArrayOutput) ToDocumentTagArrayOutputWithContext(ctx context.Context) DocumentTagArrayOutput {
-	return o
-}
-
-func (o DocumentTagArrayOutput) Index(i pulumi.IntInput) DocumentTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentTag {
-		return vs[0].([]DocumentTag)[vs[1].(int)]
-	}).(DocumentTagOutput)
-}
-
 type MaintenanceWindowTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// MaintenanceWindowTagInput is an input type that accepts MaintenanceWindowTagArgs and MaintenanceWindowTagOutput values.
-// You can construct a concrete instance of `MaintenanceWindowTagInput` via:
-//
-//	MaintenanceWindowTagArgs{...}
-type MaintenanceWindowTagInput interface {
-	pulumi.Input
-
-	ToMaintenanceWindowTagOutput() MaintenanceWindowTagOutput
-	ToMaintenanceWindowTagOutputWithContext(context.Context) MaintenanceWindowTagOutput
-}
-
-type MaintenanceWindowTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (MaintenanceWindowTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceWindowTag)(nil)).Elem()
-}
-
-func (i MaintenanceWindowTagArgs) ToMaintenanceWindowTagOutput() MaintenanceWindowTagOutput {
-	return i.ToMaintenanceWindowTagOutputWithContext(context.Background())
-}
-
-func (i MaintenanceWindowTagArgs) ToMaintenanceWindowTagOutputWithContext(ctx context.Context) MaintenanceWindowTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTagOutput)
-}
-
-// MaintenanceWindowTagArrayInput is an input type that accepts MaintenanceWindowTagArray and MaintenanceWindowTagArrayOutput values.
-// You can construct a concrete instance of `MaintenanceWindowTagArrayInput` via:
-//
-//	MaintenanceWindowTagArray{ MaintenanceWindowTagArgs{...} }
-type MaintenanceWindowTagArrayInput interface {
-	pulumi.Input
-
-	ToMaintenanceWindowTagArrayOutput() MaintenanceWindowTagArrayOutput
-	ToMaintenanceWindowTagArrayOutputWithContext(context.Context) MaintenanceWindowTagArrayOutput
-}
-
-type MaintenanceWindowTagArray []MaintenanceWindowTagInput
-
-func (MaintenanceWindowTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MaintenanceWindowTag)(nil)).Elem()
-}
-
-func (i MaintenanceWindowTagArray) ToMaintenanceWindowTagArrayOutput() MaintenanceWindowTagArrayOutput {
-	return i.ToMaintenanceWindowTagArrayOutputWithContext(context.Background())
-}
-
-func (i MaintenanceWindowTagArray) ToMaintenanceWindowTagArrayOutputWithContext(ctx context.Context) MaintenanceWindowTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTagArrayOutput)
-}
-
-type MaintenanceWindowTagOutput struct{ *pulumi.OutputState }
-
-func (MaintenanceWindowTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceWindowTag)(nil)).Elem()
-}
-
-func (o MaintenanceWindowTagOutput) ToMaintenanceWindowTagOutput() MaintenanceWindowTagOutput {
-	return o
-}
-
-func (o MaintenanceWindowTagOutput) ToMaintenanceWindowTagOutputWithContext(ctx context.Context) MaintenanceWindowTagOutput {
-	return o
-}
-
-func (o MaintenanceWindowTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v MaintenanceWindowTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o MaintenanceWindowTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v MaintenanceWindowTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type MaintenanceWindowTagArrayOutput struct{ *pulumi.OutputState }
-
-func (MaintenanceWindowTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MaintenanceWindowTag)(nil)).Elem()
-}
-
-func (o MaintenanceWindowTagArrayOutput) ToMaintenanceWindowTagArrayOutput() MaintenanceWindowTagArrayOutput {
-	return o
-}
-
-func (o MaintenanceWindowTagArrayOutput) ToMaintenanceWindowTagArrayOutputWithContext(ctx context.Context) MaintenanceWindowTagArrayOutput {
-	return o
-}
-
-func (o MaintenanceWindowTagArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaintenanceWindowTag {
-		return vs[0].([]MaintenanceWindowTag)[vs[1].(int)]
-	}).(MaintenanceWindowTagOutput)
 }
 
 type MaintenanceWindowTargetTargets struct {
@@ -3055,103 +2861,6 @@ type PatchBaselineTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PatchBaselineTagInput is an input type that accepts PatchBaselineTagArgs and PatchBaselineTagOutput values.
-// You can construct a concrete instance of `PatchBaselineTagInput` via:
-//
-//	PatchBaselineTagArgs{...}
-type PatchBaselineTagInput interface {
-	pulumi.Input
-
-	ToPatchBaselineTagOutput() PatchBaselineTagOutput
-	ToPatchBaselineTagOutputWithContext(context.Context) PatchBaselineTagOutput
-}
-
-// Metadata that you assign to your AWS resources.
-type PatchBaselineTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PatchBaselineTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchBaselineTag)(nil)).Elem()
-}
-
-func (i PatchBaselineTagArgs) ToPatchBaselineTagOutput() PatchBaselineTagOutput {
-	return i.ToPatchBaselineTagOutputWithContext(context.Background())
-}
-
-func (i PatchBaselineTagArgs) ToPatchBaselineTagOutputWithContext(ctx context.Context) PatchBaselineTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineTagOutput)
-}
-
-// PatchBaselineTagArrayInput is an input type that accepts PatchBaselineTagArray and PatchBaselineTagArrayOutput values.
-// You can construct a concrete instance of `PatchBaselineTagArrayInput` via:
-//
-//	PatchBaselineTagArray{ PatchBaselineTagArgs{...} }
-type PatchBaselineTagArrayInput interface {
-	pulumi.Input
-
-	ToPatchBaselineTagArrayOutput() PatchBaselineTagArrayOutput
-	ToPatchBaselineTagArrayOutputWithContext(context.Context) PatchBaselineTagArrayOutput
-}
-
-type PatchBaselineTagArray []PatchBaselineTagInput
-
-func (PatchBaselineTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PatchBaselineTag)(nil)).Elem()
-}
-
-func (i PatchBaselineTagArray) ToPatchBaselineTagArrayOutput() PatchBaselineTagArrayOutput {
-	return i.ToPatchBaselineTagArrayOutputWithContext(context.Background())
-}
-
-func (i PatchBaselineTagArray) ToPatchBaselineTagArrayOutputWithContext(ctx context.Context) PatchBaselineTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineTagArrayOutput)
-}
-
-// Metadata that you assign to your AWS resources.
-type PatchBaselineTagOutput struct{ *pulumi.OutputState }
-
-func (PatchBaselineTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchBaselineTag)(nil)).Elem()
-}
-
-func (o PatchBaselineTagOutput) ToPatchBaselineTagOutput() PatchBaselineTagOutput {
-	return o
-}
-
-func (o PatchBaselineTagOutput) ToPatchBaselineTagOutputWithContext(ctx context.Context) PatchBaselineTagOutput {
-	return o
-}
-
-func (o PatchBaselineTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PatchBaselineTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PatchBaselineTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PatchBaselineTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PatchBaselineTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PatchBaselineTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PatchBaselineTag)(nil)).Elem()
-}
-
-func (o PatchBaselineTagArrayOutput) ToPatchBaselineTagArrayOutput() PatchBaselineTagArrayOutput {
-	return o
-}
-
-func (o PatchBaselineTagArrayOutput) ToPatchBaselineTagArrayOutputWithContext(ctx context.Context) PatchBaselineTagArrayOutput {
-	return o
-}
-
-func (o PatchBaselineTagArrayOutput) Index(i pulumi.IntInput) PatchBaselineTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselineTag {
-		return vs[0].([]PatchBaselineTag)[vs[1].(int)]
-	}).(PatchBaselineTagOutput)
-}
-
 type ResourceDataSyncAwsOrganizationsSource struct {
 	OrganizationSourceType string   `pulumi:"organizationSourceType"`
 	OrganizationalUnits    []string `pulumi:"organizationalUnits"`
@@ -3684,10 +3393,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceArrayInput)(nil)).Elem(), DocumentAttachmentsSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentRequiresInput)(nil)).Elem(), DocumentRequiresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentRequiresArrayInput)(nil)).Elem(), DocumentRequiresArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DocumentTagInput)(nil)).Elem(), DocumentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DocumentTagArrayInput)(nil)).Elem(), DocumentTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTagInput)(nil)).Elem(), MaintenanceWindowTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTagArrayInput)(nil)).Elem(), MaintenanceWindowTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetTargetsInput)(nil)).Elem(), MaintenanceWindowTargetTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetTargetsArrayInput)(nil)).Elem(), MaintenanceWindowTargetTargetsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskCloudWatchOutputConfigInput)(nil)).Elem(), MaintenanceWindowTaskCloudWatchOutputConfigArgs{})
@@ -3718,8 +3423,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineRuleArrayInput)(nil)).Elem(), PatchBaselineRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineRuleGroupInput)(nil)).Elem(), PatchBaselineRuleGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineRuleGroupPtrInput)(nil)).Elem(), PatchBaselineRuleGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineTagInput)(nil)).Elem(), PatchBaselineTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineTagArrayInput)(nil)).Elem(), PatchBaselineTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncAwsOrganizationsSourceInput)(nil)).Elem(), ResourceDataSyncAwsOrganizationsSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncAwsOrganizationsSourcePtrInput)(nil)).Elem(), ResourceDataSyncAwsOrganizationsSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationInput)(nil)).Elem(), ResourceDataSyncS3DestinationArgs{})
@@ -3736,10 +3439,6 @@ func init() {
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceArrayOutput{})
 	pulumi.RegisterOutputType(DocumentRequiresOutput{})
 	pulumi.RegisterOutputType(DocumentRequiresArrayOutput{})
-	pulumi.RegisterOutputType(DocumentTagOutput{})
-	pulumi.RegisterOutputType(DocumentTagArrayOutput{})
-	pulumi.RegisterOutputType(MaintenanceWindowTagOutput{})
-	pulumi.RegisterOutputType(MaintenanceWindowTagArrayOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsArrayOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskCloudWatchOutputConfigOutput{})
@@ -3770,8 +3469,6 @@ func init() {
 	pulumi.RegisterOutputType(PatchBaselineRuleArrayOutput{})
 	pulumi.RegisterOutputType(PatchBaselineRuleGroupOutput{})
 	pulumi.RegisterOutputType(PatchBaselineRuleGroupPtrOutput{})
-	pulumi.RegisterOutputType(PatchBaselineTagOutput{})
-	pulumi.RegisterOutputType(PatchBaselineTagArrayOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncAwsOrganizationsSourceOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncAwsOrganizationsSourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{})

@@ -53,7 +53,7 @@ export interface GetMissionProfileResult {
      * The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
      */
     readonly streamsKmsRole?: string;
-    readonly tags?: outputs.groundstation.MissionProfileTag[];
+    readonly tags?: outputs.Tag[];
     readonly trackingConfigArn?: string;
 }
 /**

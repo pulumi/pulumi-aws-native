@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type PodIdentityAssociation struct {
 	// The Kubernetes service account that the pod identity association is created for.
 	ServiceAccount pulumi.StringOutput `pulumi:"serviceAccount"`
 	// An array of key-value pairs to apply to this resource.
-	Tags PodIdentityAssociationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPodIdentityAssociation registers a new resource with the given unique name, arguments, and options.
@@ -99,7 +100,7 @@ type podIdentityAssociationArgs struct {
 	// The Kubernetes service account that the pod identity association is created for.
 	ServiceAccount string `pulumi:"serviceAccount"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []PodIdentityAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PodIdentityAssociation resource.
@@ -113,7 +114,7 @@ type PodIdentityAssociationArgs struct {
 	// The Kubernetes service account that the pod identity association is created for.
 	ServiceAccount pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags PodIdentityAssociationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (PodIdentityAssociationArgs) ElementType() reflect.Type {
@@ -184,8 +185,8 @@ func (o PodIdentityAssociationOutput) ServiceAccount() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o PodIdentityAssociationOutput) Tags() PodIdentityAssociationTagArrayOutput {
-	return o.ApplyT(func(v *PodIdentityAssociation) PodIdentityAssociationTagArrayOutput { return v.Tags }).(PodIdentityAssociationTagArrayOutput)
+func (o PodIdentityAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PodIdentityAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

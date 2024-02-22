@@ -33,7 +33,7 @@ export interface GetMonitorResult {
     readonly processingStatusInfo?: string;
     readonly resources?: string[];
     readonly status?: enums.internetmonitor.MonitorConfigState;
-    readonly tags?: outputs.internetmonitor.MonitorTag[];
+    readonly tags?: outputs.Tag[];
     readonly trafficPercentageToMonitor?: number;
 }
 /**

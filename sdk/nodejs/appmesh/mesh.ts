@@ -45,7 +45,7 @@ export class Mesh extends pulumi.CustomResource {
     public /*out*/ readonly meshOwner!: pulumi.Output<string>;
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     public readonly spec!: pulumi.Output<outputs.appmesh.MeshSpec | undefined>;
-    public readonly tags!: pulumi.Output<outputs.appmesh.MeshTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly uid!: pulumi.Output<string>;
 
     /**
@@ -90,5 +90,5 @@ export class Mesh extends pulumi.CustomResource {
 export interface MeshArgs {
     meshName?: pulumi.Input<string>;
     spec?: pulumi.Input<inputs.appmesh.MeshSpecArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appmesh.MeshTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

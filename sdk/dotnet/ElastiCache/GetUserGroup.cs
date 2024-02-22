@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// An array of key-value pairs to apply to this user.
         /// </summary>
-        public readonly ImmutableArray<Outputs.UserGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// List of users associated to this user group.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.ElastiCache
 
             string? status,
 
-            ImmutableArray<Outputs.UserGroupTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> userIds)
         {

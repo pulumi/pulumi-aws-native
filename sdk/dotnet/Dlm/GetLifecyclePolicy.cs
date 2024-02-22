@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Dlm
         public readonly Outputs.LifecyclePolicyPolicyDetails? PolicyDetails;
         public readonly int? RetainInterval;
         public readonly string? State;
-        public readonly ImmutableArray<Outputs.LifecyclePolicyTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLifecyclePolicyResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Dlm
 
             string? state,
 
-            ImmutableArray<Outputs.LifecyclePolicyTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CopyTags = copyTags;

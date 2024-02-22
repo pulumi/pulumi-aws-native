@@ -52,7 +52,7 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * A list of tags to apply to the user profile.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.UserProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The user profile Amazon Resource Name (ARN).
      */
@@ -122,7 +122,7 @@ export interface UserProfileArgs {
     /**
      * A list of tags to apply to the user profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.UserProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * A name for the UserProfile.
      */

@@ -1589,107 +1589,6 @@ type RotationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// RotationTagInput is an input type that accepts RotationTagArgs and RotationTagOutput values.
-// You can construct a concrete instance of `RotationTagInput` via:
-//
-//	RotationTagArgs{...}
-type RotationTagInput interface {
-	pulumi.Input
-
-	ToRotationTagOutput() RotationTagOutput
-	ToRotationTagOutputWithContext(context.Context) RotationTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type RotationTagArgs struct {
-	// The key name of the tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RotationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RotationTag)(nil)).Elem()
-}
-
-func (i RotationTagArgs) ToRotationTagOutput() RotationTagOutput {
-	return i.ToRotationTagOutputWithContext(context.Background())
-}
-
-func (i RotationTagArgs) ToRotationTagOutputWithContext(ctx context.Context) RotationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RotationTagOutput)
-}
-
-// RotationTagArrayInput is an input type that accepts RotationTagArray and RotationTagArrayOutput values.
-// You can construct a concrete instance of `RotationTagArrayInput` via:
-//
-//	RotationTagArray{ RotationTagArgs{...} }
-type RotationTagArrayInput interface {
-	pulumi.Input
-
-	ToRotationTagArrayOutput() RotationTagArrayOutput
-	ToRotationTagArrayOutputWithContext(context.Context) RotationTagArrayOutput
-}
-
-type RotationTagArray []RotationTagInput
-
-func (RotationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RotationTag)(nil)).Elem()
-}
-
-func (i RotationTagArray) ToRotationTagArrayOutput() RotationTagArrayOutput {
-	return i.ToRotationTagArrayOutputWithContext(context.Background())
-}
-
-func (i RotationTagArray) ToRotationTagArrayOutputWithContext(ctx context.Context) RotationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RotationTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type RotationTagOutput struct{ *pulumi.OutputState }
-
-func (RotationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RotationTag)(nil)).Elem()
-}
-
-func (o RotationTagOutput) ToRotationTagOutput() RotationTagOutput {
-	return o
-}
-
-func (o RotationTagOutput) ToRotationTagOutputWithContext(ctx context.Context) RotationTagOutput {
-	return o
-}
-
-// The key name of the tag
-func (o RotationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RotationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag.
-func (o RotationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RotationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RotationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RotationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RotationTag)(nil)).Elem()
-}
-
-func (o RotationTagArrayOutput) ToRotationTagArrayOutput() RotationTagArrayOutput {
-	return o
-}
-
-func (o RotationTagArrayOutput) ToRotationTagArrayOutputWithContext(ctx context.Context) RotationTagArrayOutput {
-	return o
-}
-
-func (o RotationTagArrayOutput) Index(i pulumi.IntInput) RotationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RotationTag {
-		return vs[0].([]RotationTag)[vs[1].(int)]
-	}).(RotationTagOutput)
-}
-
 // DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
 type RotationWeeklySetting struct {
 	DayOfWeek   RotationDayOfWeek `pulumi:"dayOfWeek"`
@@ -1817,8 +1716,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationRecurrenceSettingsInput)(nil)).Elem(), RotationRecurrenceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationShiftCoverageInput)(nil)).Elem(), RotationShiftCoverageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationShiftCoverageArrayInput)(nil)).Elem(), RotationShiftCoverageArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RotationTagInput)(nil)).Elem(), RotationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RotationTagArrayInput)(nil)).Elem(), RotationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationWeeklySettingInput)(nil)).Elem(), RotationWeeklySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationWeeklySettingArrayInput)(nil)).Elem(), RotationWeeklySettingArray{})
 	pulumi.RegisterOutputType(ContactChannelTargetInfoOutput{})
@@ -1845,8 +1742,6 @@ func init() {
 	pulumi.RegisterOutputType(RotationRecurrenceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(RotationShiftCoverageOutput{})
 	pulumi.RegisterOutputType(RotationShiftCoverageArrayOutput{})
-	pulumi.RegisterOutputType(RotationTagOutput{})
-	pulumi.RegisterOutputType(RotationTagArrayOutput{})
 	pulumi.RegisterOutputType(RotationWeeklySettingOutput{})
 	pulumi.RegisterOutputType(RotationWeeklySettingArrayOutput{})
 }

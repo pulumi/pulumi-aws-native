@@ -11,42 +11,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'CollectionTag',
     'SecurityConfigSamlConfigOptions',
 ]
-
-@pulumi.output_type
-class CollectionTag(dict):
-    """
-    A key-value pair metadata associated with resource
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair metadata associated with resource
-        :param str key: The key in the key-value pair
-        :param str value: The value in the key-value pair
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key in the key-value pair
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value in the key-value pair
-        """
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class SecurityConfigSamlConfigOptions(dict):

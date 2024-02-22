@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.ElastiCache
     {
         public readonly string? Description;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.SecurityGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSecurityGroupResult(
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.ElastiCache
 
             string? id,
 
-            ImmutableArray<Outputs.SecurityGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             Id = id;

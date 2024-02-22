@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Ssm
         /// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DocumentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specify a target type to define the kinds of resources the document can run on.
@@ -178,14 +178,14 @@ namespace Pulumi.AwsNative.Ssm
         }
 
         [Input("tags")]
-        private InputList<Inputs.DocumentTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         /// </summary>
-        public InputList<Inputs.DocumentTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DocumentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

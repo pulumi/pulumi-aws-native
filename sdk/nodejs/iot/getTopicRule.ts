@@ -24,7 +24,7 @@ export interface GetTopicRuleArgs {
 
 export interface GetTopicRuleResult {
     readonly arn?: string;
-    readonly tags?: outputs.iot.TopicRuleTag[];
+    readonly tags?: outputs.Tag[];
     readonly topicRulePayload?: outputs.iot.TopicRulePayload;
 }
 /**

@@ -70,7 +70,7 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly serverName!: pulumi.Output<string | undefined>;
     public readonly sslMode!: pulumi.Output<string | undefined>;
     public readonly sybaseSettings!: pulumi.Output<outputs.dms.EndpointSybaseSettings | undefined>;
-    public readonly tags!: pulumi.Output<outputs.dms.EndpointTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly username!: pulumi.Output<string | undefined>;
 
     /**
@@ -198,6 +198,6 @@ export interface EndpointArgs {
     serverName?: pulumi.Input<string>;
     sslMode?: pulumi.Input<string>;
     sybaseSettings?: pulumi.Input<inputs.dms.EndpointSybaseSettingsArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.dms.EndpointTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     username?: pulumi.Input<string>;
 }

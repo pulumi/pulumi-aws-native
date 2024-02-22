@@ -19,11 +19,8 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("appSource")]
         public Output<Outputs.AppSource?> AppSource { get; private set; } = null!;
 
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-        /// </summary>
         [Output("attributes")]
-        public Output<object?> Attributes { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
         [Output("dataSources")]
         public Output<ImmutableArray<Outputs.AppDataSource>> DataSources { get; private set; } = null!;
@@ -108,11 +105,13 @@ namespace Pulumi.AwsNative.OpsWorks
         [Input("appSource")]
         public Input<Inputs.AppSourceArgs>? AppSource { get; set; }
 
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-        /// </summary>
         [Input("attributes")]
-        public Input<object>? Attributes { get; set; }
+        private InputMap<string>? _attributes;
+        public InputMap<string> Attributes
+        {
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
+        }
 
         [Input("dataSources")]
         private InputList<Inputs.AppDataSourceArgs>? _dataSources;

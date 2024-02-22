@@ -31,7 +31,7 @@ export interface GetResourceShareResult {
     readonly principals?: string[];
     readonly resourceArns?: string[];
     readonly sources?: string[];
-    readonly tags?: outputs.ram.ResourceShareTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::RAM::ResourceShare

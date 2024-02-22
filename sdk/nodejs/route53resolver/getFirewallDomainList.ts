@@ -65,7 +65,7 @@ export interface GetFirewallDomainListResult {
     /**
      * Tags
      */
-    readonly tags?: outputs.route53resolver.FirewallDomainListTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::Route53Resolver::FirewallDomainList.

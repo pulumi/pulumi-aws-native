@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,7 +19,7 @@ type Project struct {
 	Arn                      pulumi.StringOutput       `pulumi:"arn"`
 	DefaultJobTimeoutMinutes pulumi.IntPtrOutput       `pulumi:"defaultJobTimeoutMinutes"`
 	Name                     pulumi.StringOutput       `pulumi:"name"`
-	Tags                     ProjectTagArrayOutput     `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput        `pulumi:"tags"`
 	VpcConfig                ProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
@@ -64,7 +65,7 @@ func (ProjectState) ElementType() reflect.Type {
 type projectArgs struct {
 	DefaultJobTimeoutMinutes *int              `pulumi:"defaultJobTimeoutMinutes"`
 	Name                     *string           `pulumi:"name"`
-	Tags                     []ProjectTag      `pulumi:"tags"`
+	Tags                     []aws.Tag         `pulumi:"tags"`
 	VpcConfig                *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -72,7 +73,7 @@ type projectArgs struct {
 type ProjectArgs struct {
 	DefaultJobTimeoutMinutes pulumi.IntPtrInput
 	Name                     pulumi.StringPtrInput
-	Tags                     ProjectTagArrayInput
+	Tags                     aws.TagArrayInput
 	VpcConfig                ProjectVpcConfigPtrInput
 }
 
@@ -125,8 +126,8 @@ func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ProjectOutput) Tags() ProjectTagArrayOutput {
-	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+func (o ProjectOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Project) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ProjectOutput) VpcConfig() ProjectVpcConfigPtrOutput {

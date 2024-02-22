@@ -49,7 +49,7 @@ export interface GetStreamResult {
     /**
      * An array of key-value pairs associated with the Kinesis Video Stream.
      */
-    readonly tags?: outputs.kinesisvideo.StreamTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type Definition for AWS::KinesisVideo::Stream

@@ -48,7 +48,7 @@ export class VpcLink extends pulumi.CustomResource {
     /**
      * An array of arbitrary tags (key-value pairs) to associate with the stage.
      */
-    public readonly tags!: pulumi.Output<outputs.apigateway.VpcLinkTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
      */
@@ -106,7 +106,7 @@ export interface VpcLinkArgs {
     /**
      * An array of arbitrary tags (key-value pairs) to associate with the stage.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.apigateway.VpcLinkTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
      */

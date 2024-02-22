@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetServiceResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
             string? serviceIdentifier,
 
-            ImmutableArray<Outputs.ServiceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             ServiceIdentifier = serviceIdentifier;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type VerifiedAccessInstance struct {
 	// The configuration options for AWS Verified Access instances.
 	LoggingConfigurations VerifiedAccessInstanceVerifiedAccessLogsPtrOutput `pulumi:"loggingConfigurations"`
 	// An array of key-value pairs to apply to this resource.
-	Tags VerifiedAccessInstanceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the AWS Verified Access instance.
 	VerifiedAccessInstanceId pulumi.StringOutput `pulumi:"verifiedAccessInstanceId"`
 	// The IDs of the AWS Verified Access trust providers.
@@ -82,7 +83,7 @@ type verifiedAccessInstanceArgs struct {
 	// The configuration options for AWS Verified Access instances.
 	LoggingConfigurations *VerifiedAccessInstanceVerifiedAccessLogs `pulumi:"loggingConfigurations"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []VerifiedAccessInstanceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The IDs of the AWS Verified Access trust providers.
 	VerifiedAccessTrustProviderIds []string `pulumi:"verifiedAccessTrustProviderIds"`
 	// AWS Verified Access trust providers.
@@ -98,7 +99,7 @@ type VerifiedAccessInstanceArgs struct {
 	// The configuration options for AWS Verified Access instances.
 	LoggingConfigurations VerifiedAccessInstanceVerifiedAccessLogsPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags VerifiedAccessInstanceTagArrayInput
+	Tags aws.TagArrayInput
 	// The IDs of the AWS Verified Access trust providers.
 	VerifiedAccessTrustProviderIds pulumi.StringArrayInput
 	// AWS Verified Access trust providers.
@@ -170,8 +171,8 @@ func (o VerifiedAccessInstanceOutput) LoggingConfigurations() VerifiedAccessInst
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o VerifiedAccessInstanceOutput) Tags() VerifiedAccessInstanceTagArrayOutput {
-	return o.ApplyT(func(v *VerifiedAccessInstance) VerifiedAccessInstanceTagArrayOutput { return v.Tags }).(VerifiedAccessInstanceTagArrayOutput)
+func (o VerifiedAccessInstanceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the AWS Verified Access instance.

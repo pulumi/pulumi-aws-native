@@ -33,7 +33,7 @@ export interface GetCustomerGatewayResult {
     /**
      * One or more tags for the customer gateway.
      */
-    readonly tags?: outputs.ec2.CustomerGatewayTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::CustomerGateway

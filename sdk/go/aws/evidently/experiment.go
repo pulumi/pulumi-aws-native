@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Experiment struct {
 	SamplingRate  pulumi.IntPtrOutput                    `pulumi:"samplingRate"`
 	Segment       pulumi.StringPtrOutput                 `pulumi:"segment"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       ExperimentTagArrayOutput             `pulumi:"tags"`
+	Tags       aws.TagArrayOutput                   `pulumi:"tags"`
 	Treatments ExperimentTreatmentObjectArrayOutput `pulumi:"treatments"`
 }
 
@@ -102,7 +103,7 @@ type experimentArgs struct {
 	SamplingRate  *int                           `pulumi:"samplingRate"`
 	Segment       *string                        `pulumi:"segment"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []ExperimentTag             `pulumi:"tags"`
+	Tags       []aws.Tag                   `pulumi:"tags"`
 	Treatments []ExperimentTreatmentObject `pulumi:"treatments"`
 }
 
@@ -120,7 +121,7 @@ type ExperimentArgs struct {
 	SamplingRate  pulumi.IntPtrInput
 	Segment       pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags       ExperimentTagArrayInput
+	Tags       aws.TagArrayInput
 	Treatments ExperimentTreatmentObjectArrayInput
 }
 
@@ -207,8 +208,8 @@ func (o ExperimentOutput) Segment() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ExperimentOutput) Tags() ExperimentTagArrayOutput {
-	return o.ApplyT(func(v *Experiment) ExperimentTagArrayOutput { return v.Tags }).(ExperimentTagArrayOutput)
+func (o ExperimentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Experiment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ExperimentOutput) Treatments() ExperimentTreatmentObjectArrayOutput {

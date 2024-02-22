@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type Server struct {
 	ServerName                 pulumi.StringOutput              `pulumi:"serverName"`
 	ServiceRoleArn             pulumi.StringOutput              `pulumi:"serviceRoleArn"`
 	SubnetIds                  pulumi.StringArrayOutput         `pulumi:"subnetIds"`
-	Tags                       ServerTagArrayOutput             `pulumi:"tags"`
+	Tags                       aws.TagArrayOutput               `pulumi:"tags"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -128,7 +129,7 @@ type serverArgs struct {
 	ServerName                 *string                 `pulumi:"serverName"`
 	ServiceRoleArn             string                  `pulumi:"serviceRoleArn"`
 	SubnetIds                  []string                `pulumi:"subnetIds"`
-	Tags                       []ServerTag             `pulumi:"tags"`
+	Tags                       []aws.Tag               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Server resource.
@@ -153,7 +154,7 @@ type ServerArgs struct {
 	ServerName                 pulumi.StringPtrInput
 	ServiceRoleArn             pulumi.StringInput
 	SubnetIds                  pulumi.StringArrayInput
-	Tags                       ServerTagArrayInput
+	Tags                       aws.TagArrayInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {
@@ -281,8 +282,8 @@ func (o ServerOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o ServerOutput) Tags() ServerTagArrayOutput {
-	return o.ApplyT(func(v *Server) ServerTagArrayOutput { return v.Tags }).(ServerTagArrayOutput)
+func (o ServerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Server) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

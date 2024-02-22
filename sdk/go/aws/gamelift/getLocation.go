@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type LookupLocationArgs struct {
 type LookupLocationResult struct {
 	LocationArn *string `pulumi:"locationArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocationOutput(ctx *pulumi.Context, args LookupLocationOutputArgs, opts ...pulumi.InvokeOption) LookupLocationResultOutput {
@@ -72,8 +73,8 @@ func (o LookupLocationResultOutput) LocationArn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLocationResultOutput) Tags() LocationTagArrayOutput {
-	return o.ApplyT(func(v LookupLocationResult) []LocationTag { return v.Tags }).(LocationTagArrayOutput)
+func (o LookupLocationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

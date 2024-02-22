@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type List struct {
 	// The name of the list.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags associated with this list.
-	Tags ListTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The variable type of the list.
 	VariableType pulumi.StringPtrOutput `pulumi:"variableType"`
 }
@@ -84,7 +85,7 @@ type listArgs struct {
 	// The name of the list.
 	Name *string `pulumi:"name"`
 	// Tags associated with this list.
-	Tags []ListTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The variable type of the list.
 	VariableType *string `pulumi:"variableType"`
 }
@@ -98,7 +99,7 @@ type ListArgs struct {
 	// The name of the list.
 	Name pulumi.StringPtrInput
 	// Tags associated with this list.
-	Tags ListTagArrayInput
+	Tags aws.TagArrayInput
 	// The variable type of the list.
 	VariableType pulumi.StringPtrInput
 }
@@ -171,8 +172,8 @@ func (o ListOutput) Name() pulumi.StringOutput {
 }
 
 // Tags associated with this list.
-func (o ListOutput) Tags() ListTagArrayOutput {
-	return o.ApplyT(func(v *List) ListTagArrayOutput { return v.Tags }).(ListTagArrayOutput)
+func (o ListOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *List) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The variable type of the list.

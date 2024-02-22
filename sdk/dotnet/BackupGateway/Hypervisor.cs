@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.BackupGateway
         public Output<string?> Password { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.HypervisorTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
@@ -105,10 +105,10 @@ namespace Pulumi.AwsNative.BackupGateway
         public Input<string>? Password { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.HypervisorTagArgs>? _tags;
-        public InputList<Inputs.HypervisorTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.HypervisorTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

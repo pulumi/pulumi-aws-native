@@ -41,7 +41,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly preProvisioningHook!: pulumi.Output<outputs.iot.ProvisioningTemplateProvisioningHook | undefined>;
     public readonly provisioningRoleArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.iot.ProvisioningTemplateTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly templateArn!: pulumi.Output<string>;
     public readonly templateBody!: pulumi.Output<string>;
     public readonly templateName!: pulumi.Output<string | undefined>;
@@ -99,7 +99,7 @@ export interface ProvisioningTemplateArgs {
     enabled?: pulumi.Input<boolean>;
     preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplateProvisioningHookArgs>;
     provisioningRoleArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.ProvisioningTemplateTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     templateBody: pulumi.Input<string>;
     templateName?: pulumi.Input<string>;
     templateType?: pulumi.Input<enums.iot.ProvisioningTemplateTemplateType>;

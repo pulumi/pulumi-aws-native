@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Identity struct {
 	IdentityDnsRecordValue3   pulumi.StringOutput                 `pulumi:"identityDnsRecordValue3"`
 	MailFromAttributes        IdentityMailFromAttributesPtrOutput `pulumi:"mailFromAttributes"`
 	Name                      pulumi.StringOutput                 `pulumi:"name"`
-	Tags                      IdentityTagsArrayOutput             `pulumi:"tags"`
+	Tags                      aws.TagArrayOutput                  `pulumi:"tags"`
 }
 
 // NewIdentity registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type identityArgs struct {
 	FeedbackForwardingEnabled *bool                       `pulumi:"feedbackForwardingEnabled"`
 	MailFromAttributes        *IdentityMailFromAttributes `pulumi:"mailFromAttributes"`
 	Name                      *string                     `pulumi:"name"`
-	Tags                      []IdentityTags              `pulumi:"tags"`
+	Tags                      []aws.Tag                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Identity resource.
@@ -87,7 +88,7 @@ type IdentityArgs struct {
 	FeedbackForwardingEnabled pulumi.BoolPtrInput
 	MailFromAttributes        IdentityMailFromAttributesPtrInput
 	Name                      pulumi.StringPtrInput
-	Tags                      IdentityTagsArrayInput
+	Tags                      aws.TagArrayInput
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -167,8 +168,8 @@ func (o IdentityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o IdentityOutput) Tags() IdentityTagsArrayOutput {
-	return o.ApplyT(func(v *Identity) IdentityTagsArrayOutput { return v.Tags }).(IdentityTagsArrayOutput)
+func (o IdentityOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Identity) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

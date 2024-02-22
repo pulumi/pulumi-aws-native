@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// Tags for the attachment.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectAttachmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Last update time of the attachment.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? state,
 
-            ImmutableArray<Outputs.ConnectAttachmentTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updatedAt)
         {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type Disk struct {
 	// Support code to help identify any issues
 	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
 	// An array of key-value pairs to apply to this resource.
-	Tags DiskTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDisk registers a new resource with the given unique name, arguments, and options.
@@ -105,7 +106,7 @@ type diskArgs struct {
 	// Size of the Lightsail disk
 	SizeInGb int `pulumi:"sizeInGb"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DiskTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Disk resource.
@@ -120,7 +121,7 @@ type DiskArgs struct {
 	// Size of the Lightsail disk
 	SizeInGb pulumi.IntInput
 	// An array of key-value pairs to apply to this resource.
-	Tags DiskTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DiskArgs) ElementType() reflect.Type {
@@ -229,8 +230,8 @@ func (o DiskOutput) SupportCode() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o DiskOutput) Tags() DiskTagArrayOutput {
-	return o.ApplyT(func(v *Disk) DiskTagArrayOutput { return v.Tags }).(DiskTagArrayOutput)
+func (o DiskOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Disk) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

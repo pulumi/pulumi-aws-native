@@ -39,7 +39,7 @@ export class Activity extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.stepfunctions.ActivityTagsEntry[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Activity resource with the given unique name, arguments, and options.
@@ -72,5 +72,5 @@ export class Activity extends pulumi.CustomResource {
  */
 export interface ActivityArgs {
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.stepfunctions.ActivityTagsEntryArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

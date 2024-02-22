@@ -14,10 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterApplication struct {
-	AdditionalInfo interface{} `pulumi:"additionalInfo"`
-	Args           []string    `pulumi:"args"`
-	Name           *string     `pulumi:"name"`
-	Version        *string     `pulumi:"version"`
+	AdditionalInfo map[string]string `pulumi:"additionalInfo"`
+	Args           []string          `pulumi:"args"`
+	Name           *string           `pulumi:"name"`
+	Version        *string           `pulumi:"version"`
 }
 
 // ClusterApplicationInput is an input type that accepts ClusterApplicationArgs and ClusterApplicationOutput values.
@@ -32,7 +32,7 @@ type ClusterApplicationInput interface {
 }
 
 type ClusterApplicationArgs struct {
-	AdditionalInfo pulumi.Input            `pulumi:"additionalInfo"`
+	AdditionalInfo pulumi.StringMapInput   `pulumi:"additionalInfo"`
 	Args           pulumi.StringArrayInput `pulumi:"args"`
 	Name           pulumi.StringPtrInput   `pulumi:"name"`
 	Version        pulumi.StringPtrInput   `pulumi:"version"`
@@ -89,8 +89,8 @@ func (o ClusterApplicationOutput) ToClusterApplicationOutputWithContext(ctx cont
 	return o
 }
 
-func (o ClusterApplicationOutput) AdditionalInfo() pulumi.AnyOutput {
-	return o.ApplyT(func(v ClusterApplication) interface{} { return v.AdditionalInfo }).(pulumi.AnyOutput)
+func (o ClusterApplicationOutput) AdditionalInfo() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterApplication) map[string]string { return v.AdditionalInfo }).(pulumi.StringMapOutput)
 }
 
 func (o ClusterApplicationOutput) Args() pulumi.StringArrayOutput {
@@ -800,7 +800,7 @@ func (o ClusterComputeLimitsPtrOutput) UnitType() pulumi.StringPtrOutput {
 
 type ClusterConfiguration struct {
 	Classification          *string                `pulumi:"classification"`
-	ConfigurationProperties interface{}            `pulumi:"configurationProperties"`
+	ConfigurationProperties map[string]string      `pulumi:"configurationProperties"`
 	Configurations          []ClusterConfiguration `pulumi:"configurations"`
 }
 
@@ -817,7 +817,7 @@ type ClusterConfigurationInput interface {
 
 type ClusterConfigurationArgs struct {
 	Classification          pulumi.StringPtrInput          `pulumi:"classification"`
-	ConfigurationProperties pulumi.Input                   `pulumi:"configurationProperties"`
+	ConfigurationProperties pulumi.StringMapInput          `pulumi:"configurationProperties"`
 	Configurations          ClusterConfigurationArrayInput `pulumi:"configurations"`
 }
 
@@ -876,8 +876,8 @@ func (o ClusterConfigurationOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterConfigurationOutput) ConfigurationProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v ClusterConfiguration) interface{} { return v.ConfigurationProperties }).(pulumi.AnyOutput)
+func (o ClusterConfigurationOutput) ConfigurationProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterConfiguration) map[string]string { return v.ConfigurationProperties }).(pulumi.StringMapOutput)
 }
 
 func (o ClusterConfigurationOutput) Configurations() ClusterConfigurationArrayOutput {
@@ -4039,101 +4039,6 @@ type ClusterTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ClusterTagInput is an input type that accepts ClusterTagArgs and ClusterTagOutput values.
-// You can construct a concrete instance of `ClusterTagInput` via:
-//
-//	ClusterTagArgs{...}
-type ClusterTagInput interface {
-	pulumi.Input
-
-	ToClusterTagOutput() ClusterTagOutput
-	ToClusterTagOutputWithContext(context.Context) ClusterTagOutput
-}
-
-type ClusterTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ClusterTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterTag)(nil)).Elem()
-}
-
-func (i ClusterTagArgs) ToClusterTagOutput() ClusterTagOutput {
-	return i.ToClusterTagOutputWithContext(context.Background())
-}
-
-func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagOutput)
-}
-
-// ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
-// You can construct a concrete instance of `ClusterTagArrayInput` via:
-//
-//	ClusterTagArray{ ClusterTagArgs{...} }
-type ClusterTagArrayInput interface {
-	pulumi.Input
-
-	ToClusterTagArrayOutput() ClusterTagArrayOutput
-	ToClusterTagArrayOutputWithContext(context.Context) ClusterTagArrayOutput
-}
-
-type ClusterTagArray []ClusterTagInput
-
-func (ClusterTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterTag)(nil)).Elem()
-}
-
-func (i ClusterTagArray) ToClusterTagArrayOutput() ClusterTagArrayOutput {
-	return i.ToClusterTagArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterTagArray) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagArrayOutput)
-}
-
-type ClusterTagOutput struct{ *pulumi.OutputState }
-
-func (ClusterTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterTag)(nil)).Elem()
-}
-
-func (o ClusterTagOutput) ToClusterTagOutput() ClusterTagOutput {
-	return o
-}
-
-func (o ClusterTagOutput) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
-	return o
-}
-
-func (o ClusterTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ClusterTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ClusterTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ClusterTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterTag)(nil)).Elem()
-}
-
-func (o ClusterTagArrayOutput) ToClusterTagArrayOutput() ClusterTagArrayOutput {
-	return o
-}
-
-func (o ClusterTagArrayOutput) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
-	return o
-}
-
-func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterTag {
-		return vs[0].([]ClusterTag)[vs[1].(int)]
-	}).(ClusterTagOutput)
-}
-
 type ClusterVolumeSpecification struct {
 	Iops       *int   `pulumi:"iops"`
 	SizeInGb   int    `pulumi:"sizeInGb"`
@@ -4203,7 +4108,7 @@ func (o ClusterVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {
 
 type InstanceFleetConfigConfiguration struct {
 	Classification          *string                            `pulumi:"classification"`
-	ConfigurationProperties interface{}                        `pulumi:"configurationProperties"`
+	ConfigurationProperties map[string]string                  `pulumi:"configurationProperties"`
 	Configurations          []InstanceFleetConfigConfiguration `pulumi:"configurations"`
 }
 
@@ -4220,7 +4125,7 @@ type InstanceFleetConfigConfigurationInput interface {
 
 type InstanceFleetConfigConfigurationArgs struct {
 	Classification          pulumi.StringPtrInput                      `pulumi:"classification"`
-	ConfigurationProperties pulumi.Input                               `pulumi:"configurationProperties"`
+	ConfigurationProperties pulumi.StringMapInput                      `pulumi:"configurationProperties"`
 	Configurations          InstanceFleetConfigConfigurationArrayInput `pulumi:"configurations"`
 }
 
@@ -4279,8 +4184,8 @@ func (o InstanceFleetConfigConfigurationOutput) Classification() pulumi.StringPt
 	return o.ApplyT(func(v InstanceFleetConfigConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
-func (o InstanceFleetConfigConfigurationOutput) ConfigurationProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceFleetConfigConfiguration) interface{} { return v.ConfigurationProperties }).(pulumi.AnyOutput)
+func (o InstanceFleetConfigConfigurationOutput) ConfigurationProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceFleetConfigConfiguration) map[string]string { return v.ConfigurationProperties }).(pulumi.StringMapOutput)
 }
 
 func (o InstanceFleetConfigConfigurationOutput) Configurations() InstanceFleetConfigConfigurationArrayOutput {
@@ -5474,7 +5379,7 @@ func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) Unit() pulumi.String
 
 type InstanceGroupConfigConfiguration struct {
 	Classification          *string                            `pulumi:"classification"`
-	ConfigurationProperties interface{}                        `pulumi:"configurationProperties"`
+	ConfigurationProperties map[string]string                  `pulumi:"configurationProperties"`
 	Configurations          []InstanceGroupConfigConfiguration `pulumi:"configurations"`
 }
 
@@ -5491,7 +5396,7 @@ type InstanceGroupConfigConfigurationInput interface {
 
 type InstanceGroupConfigConfigurationArgs struct {
 	Classification          pulumi.StringPtrInput                      `pulumi:"classification"`
-	ConfigurationProperties pulumi.Input                               `pulumi:"configurationProperties"`
+	ConfigurationProperties pulumi.StringMapInput                      `pulumi:"configurationProperties"`
 	Configurations          InstanceGroupConfigConfigurationArrayInput `pulumi:"configurations"`
 }
 
@@ -5550,8 +5455,8 @@ func (o InstanceGroupConfigConfigurationOutput) Classification() pulumi.StringPt
 	return o.ApplyT(func(v InstanceGroupConfigConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
-func (o InstanceGroupConfigConfigurationOutput) ConfigurationProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceGroupConfigConfiguration) interface{} { return v.ConfigurationProperties }).(pulumi.AnyOutput)
+func (o InstanceGroupConfigConfigurationOutput) ConfigurationProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceGroupConfigConfiguration) map[string]string { return v.ConfigurationProperties }).(pulumi.StringMapOutput)
 }
 
 func (o InstanceGroupConfigConfigurationOutput) Configurations() InstanceGroupConfigConfigurationArrayOutput {
@@ -6601,214 +6506,12 @@ type StudioTag struct {
 	Value string `pulumi:"value"`
 }
 
-// StudioTagInput is an input type that accepts StudioTagArgs and StudioTagOutput values.
-// You can construct a concrete instance of `StudioTagInput` via:
-//
-//	StudioTagArgs{...}
-type StudioTagInput interface {
-	pulumi.Input
-
-	ToStudioTagOutput() StudioTagOutput
-	ToStudioTagOutputWithContext(context.Context) StudioTagOutput
-}
-
-// An arbitrary set of tags (key-value pairs) for this EMR Studio.
-type StudioTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StudioTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioTag)(nil)).Elem()
-}
-
-func (i StudioTagArgs) ToStudioTagOutput() StudioTagOutput {
-	return i.ToStudioTagOutputWithContext(context.Background())
-}
-
-func (i StudioTagArgs) ToStudioTagOutputWithContext(ctx context.Context) StudioTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioTagOutput)
-}
-
-// StudioTagArrayInput is an input type that accepts StudioTagArray and StudioTagArrayOutput values.
-// You can construct a concrete instance of `StudioTagArrayInput` via:
-//
-//	StudioTagArray{ StudioTagArgs{...} }
-type StudioTagArrayInput interface {
-	pulumi.Input
-
-	ToStudioTagArrayOutput() StudioTagArrayOutput
-	ToStudioTagArrayOutputWithContext(context.Context) StudioTagArrayOutput
-}
-
-type StudioTagArray []StudioTagInput
-
-func (StudioTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StudioTag)(nil)).Elem()
-}
-
-func (i StudioTagArray) ToStudioTagArrayOutput() StudioTagArrayOutput {
-	return i.ToStudioTagArrayOutputWithContext(context.Background())
-}
-
-func (i StudioTagArray) ToStudioTagArrayOutputWithContext(ctx context.Context) StudioTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioTagArrayOutput)
-}
-
-// An arbitrary set of tags (key-value pairs) for this EMR Studio.
-type StudioTagOutput struct{ *pulumi.OutputState }
-
-func (StudioTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioTag)(nil)).Elem()
-}
-
-func (o StudioTagOutput) ToStudioTagOutput() StudioTagOutput {
-	return o
-}
-
-func (o StudioTagOutput) ToStudioTagOutputWithContext(ctx context.Context) StudioTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o StudioTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StudioTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o StudioTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StudioTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StudioTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StudioTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StudioTag)(nil)).Elem()
-}
-
-func (o StudioTagArrayOutput) ToStudioTagArrayOutput() StudioTagArrayOutput {
-	return o
-}
-
-func (o StudioTagArrayOutput) ToStudioTagArrayOutputWithContext(ctx context.Context) StudioTagArrayOutput {
-	return o
-}
-
-func (o StudioTagArrayOutput) Index(i pulumi.IntInput) StudioTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StudioTag {
-		return vs[0].([]StudioTag)[vs[1].(int)]
-	}).(StudioTagOutput)
-}
-
 // A key-value pair to associate with a resource.
 type WalWorkspaceTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// WalWorkspaceTagInput is an input type that accepts WalWorkspaceTagArgs and WalWorkspaceTagOutput values.
-// You can construct a concrete instance of `WalWorkspaceTagInput` via:
-//
-//	WalWorkspaceTagArgs{...}
-type WalWorkspaceTagInput interface {
-	pulumi.Input
-
-	ToWalWorkspaceTagOutput() WalWorkspaceTagOutput
-	ToWalWorkspaceTagOutputWithContext(context.Context) WalWorkspaceTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type WalWorkspaceTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (WalWorkspaceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WalWorkspaceTag)(nil)).Elem()
-}
-
-func (i WalWorkspaceTagArgs) ToWalWorkspaceTagOutput() WalWorkspaceTagOutput {
-	return i.ToWalWorkspaceTagOutputWithContext(context.Background())
-}
-
-func (i WalWorkspaceTagArgs) ToWalWorkspaceTagOutputWithContext(ctx context.Context) WalWorkspaceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WalWorkspaceTagOutput)
-}
-
-// WalWorkspaceTagArrayInput is an input type that accepts WalWorkspaceTagArray and WalWorkspaceTagArrayOutput values.
-// You can construct a concrete instance of `WalWorkspaceTagArrayInput` via:
-//
-//	WalWorkspaceTagArray{ WalWorkspaceTagArgs{...} }
-type WalWorkspaceTagArrayInput interface {
-	pulumi.Input
-
-	ToWalWorkspaceTagArrayOutput() WalWorkspaceTagArrayOutput
-	ToWalWorkspaceTagArrayOutputWithContext(context.Context) WalWorkspaceTagArrayOutput
-}
-
-type WalWorkspaceTagArray []WalWorkspaceTagInput
-
-func (WalWorkspaceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WalWorkspaceTag)(nil)).Elem()
-}
-
-func (i WalWorkspaceTagArray) ToWalWorkspaceTagArrayOutput() WalWorkspaceTagArrayOutput {
-	return i.ToWalWorkspaceTagArrayOutputWithContext(context.Background())
-}
-
-func (i WalWorkspaceTagArray) ToWalWorkspaceTagArrayOutputWithContext(ctx context.Context) WalWorkspaceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WalWorkspaceTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type WalWorkspaceTagOutput struct{ *pulumi.OutputState }
-
-func (WalWorkspaceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WalWorkspaceTag)(nil)).Elem()
-}
-
-func (o WalWorkspaceTagOutput) ToWalWorkspaceTagOutput() WalWorkspaceTagOutput {
-	return o
-}
-
-func (o WalWorkspaceTagOutput) ToWalWorkspaceTagOutputWithContext(ctx context.Context) WalWorkspaceTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o WalWorkspaceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v WalWorkspaceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o WalWorkspaceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v WalWorkspaceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type WalWorkspaceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (WalWorkspaceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WalWorkspaceTag)(nil)).Elem()
-}
-
-func (o WalWorkspaceTagArrayOutput) ToWalWorkspaceTagArrayOutput() WalWorkspaceTagArrayOutput {
-	return o
-}
-
-func (o WalWorkspaceTagArrayOutput) ToWalWorkspaceTagArrayOutputWithContext(ctx context.Context) WalWorkspaceTagArrayOutput {
-	return o
-}
-
-func (o WalWorkspaceTagArrayOutput) Index(i pulumi.IntInput) WalWorkspaceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WalWorkspaceTag {
-		return vs[0].([]WalWorkspaceTag)[vs[1].(int)]
-	}).(WalWorkspaceTagOutput)
 }
 
 func init() {
@@ -6867,8 +6570,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotProvisioningSpecificationPtrInput)(nil)).Elem(), ClusterSpotProvisioningSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStepConfigInput)(nil)).Elem(), ClusterStepConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStepConfigArrayInput)(nil)).Elem(), ClusterStepConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagArrayInput)(nil)).Elem(), ClusterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVolumeSpecificationInput)(nil)).Elem(), ClusterVolumeSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigConfigurationInput)(nil)).Elem(), InstanceFleetConfigConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigConfigurationArrayInput)(nil)).Elem(), InstanceFleetConfigConfigurationArray{})
@@ -6907,10 +6608,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StepHadoopJarStepConfigInput)(nil)).Elem(), StepHadoopJarStepConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueInput)(nil)).Elem(), StepKeyValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueArrayInput)(nil)).Elem(), StepKeyValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioTagInput)(nil)).Elem(), StudioTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioTagArrayInput)(nil)).Elem(), StudioTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WalWorkspaceTagInput)(nil)).Elem(), WalWorkspaceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WalWorkspaceTagArrayInput)(nil)).Elem(), WalWorkspaceTagArray{})
 	pulumi.RegisterOutputType(ClusterApplicationOutput{})
 	pulumi.RegisterOutputType(ClusterApplicationArrayOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingPolicyOutput{})
@@ -6967,8 +6664,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterSpotProvisioningSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterStepConfigOutput{})
 	pulumi.RegisterOutputType(ClusterStepConfigArrayOutput{})
-	pulumi.RegisterOutputType(ClusterTagOutput{})
-	pulumi.RegisterOutputType(ClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(ClusterVolumeSpecificationOutput{})
 	pulumi.RegisterOutputType(InstanceFleetConfigConfigurationOutput{})
 	pulumi.RegisterOutputType(InstanceFleetConfigConfigurationArrayOutput{})
@@ -7007,8 +6702,4 @@ func init() {
 	pulumi.RegisterOutputType(StepHadoopJarStepConfigOutput{})
 	pulumi.RegisterOutputType(StepKeyValueOutput{})
 	pulumi.RegisterOutputType(StepKeyValueArrayOutput{})
-	pulumi.RegisterOutputType(StudioTagOutput{})
-	pulumi.RegisterOutputType(StudioTagArrayOutput{})
-	pulumi.RegisterOutputType(WalWorkspaceTagOutput{})
-	pulumi.RegisterOutputType(WalWorkspaceTagArrayOutput{})
 }

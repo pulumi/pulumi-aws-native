@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['VolumeArgs', 'Volume']
@@ -20,7 +22,7 @@ class VolumeArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  ontap_configuration: Optional[pulumi.Input['VolumeOntapConfigurationArgs']] = None,
                  open_zfs_configuration: Optional[pulumi.Input['VolumeOpenZfsConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Volume resource.
@@ -76,11 +78,11 @@ class VolumeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -107,7 +109,7 @@ class Volume(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  ontap_configuration: Optional[pulumi.Input[pulumi.InputType['VolumeOntapConfigurationArgs']]] = None,
                  open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['VolumeOpenZfsConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -144,7 +146,7 @@ class Volume(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  ontap_configuration: Optional[pulumi.Input[pulumi.InputType['VolumeOntapConfigurationArgs']]] = None,
                  open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['VolumeOpenZfsConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Volume is deprecated: Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -227,7 +229,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VolumeTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

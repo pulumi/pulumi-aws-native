@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type TaskDefinition struct {
 	// The name of the new resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags TaskDefinitionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A filter to list only the wireless gateway task definitions that use this task definition type
 	TaskDefinitionType TaskDefinitionTypePtrOutput `pulumi:"taskDefinitionType"`
 	// Information about the gateways to update.
@@ -82,7 +83,7 @@ type taskDefinitionArgs struct {
 	// The name of the new resource.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags []TaskDefinitionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A filter to list only the wireless gateway task definitions that use this task definition type
 	TaskDefinitionType *TaskDefinitionType `pulumi:"taskDefinitionType"`
 	// Information about the gateways to update.
@@ -98,7 +99,7 @@ type TaskDefinitionArgs struct {
 	// The name of the new resource.
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags TaskDefinitionTagArrayInput
+	Tags aws.TagArrayInput
 	// A filter to list only the wireless gateway task definitions that use this task definition type
 	TaskDefinitionType TaskDefinitionTypePtrInput
 	// Information about the gateways to update.
@@ -165,8 +166,8 @@ func (o TaskDefinitionOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the destination.
-func (o TaskDefinitionOutput) Tags() TaskDefinitionTagArrayOutput {
-	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionTagArrayOutput { return v.Tags }).(TaskDefinitionTagArrayOutput)
+func (o TaskDefinitionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TaskDefinition) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A filter to list only the wireless gateway task definitions that use this task definition type

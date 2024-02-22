@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -51,7 +52,7 @@ type LookupFirewallRuleGroupAssociationResult struct {
 	// FirewallDomainListAssociationStatus
 	StatusMessage *string `pulumi:"statusMessage"`
 	// Tags
-	Tags []FirewallRuleGroupAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args LookupFirewallRuleGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallRuleGroupAssociationResultOutput {
@@ -148,8 +149,8 @@ func (o LookupFirewallRuleGroupAssociationResultOutput) StatusMessage() pulumi.S
 }
 
 // Tags
-func (o LookupFirewallRuleGroupAssociationResultOutput) Tags() FirewallRuleGroupAssociationTagArrayOutput {
-	return o.ApplyT(func(v LookupFirewallRuleGroupAssociationResult) []FirewallRuleGroupAssociationTag { return v.Tags }).(FirewallRuleGroupAssociationTagArrayOutput)
+func (o LookupFirewallRuleGroupAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFirewallRuleGroupAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -27,7 +27,7 @@ export interface GetVirtualRouterResult {
     readonly id?: string;
     readonly resourceOwner?: string;
     readonly spec?: outputs.appmesh.VirtualRouterSpec;
-    readonly tags?: outputs.appmesh.VirtualRouterTag[];
+    readonly tags?: outputs.Tag[];
     readonly uid?: string;
 }
 /**

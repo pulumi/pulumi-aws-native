@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type View struct {
 	// The name of the view.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more tags.
-	Tags ViewTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The template of the view as JSON.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
@@ -96,7 +97,7 @@ type viewArgs struct {
 	// The name of the view.
 	Name *string `pulumi:"name"`
 	// One or more tags.
-	Tags []ViewTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The template of the view as JSON.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
@@ -114,7 +115,7 @@ type ViewArgs struct {
 	// The name of the view.
 	Name pulumi.StringPtrInput
 	// One or more tags.
-	Tags ViewTagArrayInput
+	Tags aws.TagArrayInput
 	// The template of the view as JSON.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
@@ -179,8 +180,8 @@ func (o ViewOutput) Name() pulumi.StringOutput {
 }
 
 // One or more tags.
-func (o ViewOutput) Tags() ViewTagArrayOutput {
-	return o.ApplyT(func(v *View) ViewTagArrayOutput { return v.Tags }).(ViewTagArrayOutput)
+func (o ViewOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *View) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The template of the view as JSON.

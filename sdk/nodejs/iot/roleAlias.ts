@@ -41,7 +41,7 @@ export class RoleAlias extends pulumi.CustomResource {
     public readonly roleAlias!: pulumi.Output<string | undefined>;
     public /*out*/ readonly roleAliasArn!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.iot.RoleAliasTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RoleAlias resource with the given unique name, arguments, and options.
@@ -83,5 +83,5 @@ export interface RoleAliasArgs {
     credentialDurationSeconds?: pulumi.Input<number>;
     roleAlias?: pulumi.Input<string>;
     roleArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.RoleAliasTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

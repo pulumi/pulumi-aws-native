@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['AccessPointArgs', 'AccessPoint']
@@ -17,14 +19,14 @@ __all__ = ['AccessPointArgs', 'AccessPoint']
 class AccessPointArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
-                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointTagArgs']]]] = None,
+                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
                  posix_user: Optional[pulumi.Input['AccessPointPosixUserArgs']] = None,
                  root_directory: Optional[pulumi.Input['AccessPointRootDirectoryArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessPointTagArgs']]] access_point_tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] access_point_tags: An array of key-value pairs to apply to this resource.
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         :param pulumi.Input[str] client_token: The opaque string specified in the request to ensure idempotent creation.
         :param pulumi.Input['AccessPointPosixUserArgs'] posix_user: The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
@@ -54,7 +56,7 @@ class AccessPointArgs:
 
     @property
     @pulumi.getter(name="accessPointTags")
-    def access_point_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointTagArgs']]]]:
+    def access_point_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
          For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
@@ -62,7 +64,7 @@ class AccessPointArgs:
         return pulumi.get(self, "access_point_tags")
 
     @access_point_tags.setter
-    def access_point_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointTagArgs']]]]):
+    def access_point_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "access_point_tags", value)
 
     @property
@@ -107,7 +109,7 @@ class AccessPoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessPointTagArgs']]]]] = None,
+                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  posix_user: Optional[pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']]] = None,
@@ -119,7 +121,7 @@ class AccessPoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessPointTagArgs']]]] access_point_tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] access_point_tags: An array of key-value pairs to apply to this resource.
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         :param pulumi.Input[str] client_token: The opaque string specified in the request to ensure idempotent creation.
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
@@ -151,7 +153,7 @@ class AccessPoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessPointTagArgs']]]]] = None,
+                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  posix_user: Optional[pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']]] = None,
@@ -214,7 +216,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPointTags")
-    def access_point_tags(self) -> pulumi.Output[Optional[Sequence['outputs.AccessPointTag']]]:
+    def access_point_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
          For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).

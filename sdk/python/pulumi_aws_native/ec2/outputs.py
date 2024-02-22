@@ -17,7 +17,6 @@ __all__ = [
     'CapacityReservationFleetTagSpecification',
     'CapacityReservationTag',
     'CapacityReservationTagSpecification',
-    'CarrierGatewayTag',
     'ClientVpnEndpointCertificateAuthenticationRequest',
     'ClientVpnEndpointClientAuthenticationRequest',
     'ClientVpnEndpointClientConnectOptions',
@@ -28,9 +27,7 @@ __all__ = [
     'ClientVpnEndpointFederatedAuthenticationRequest',
     'ClientVpnEndpointTag',
     'ClientVpnEndpointTagSpecification',
-    'CustomerGatewayTag',
     'DestinationOptionsProperties',
-    'DhcpOptionsTag',
     'Ec2FleetAcceleratorCountRequest',
     'Ec2FleetAcceleratorTotalMemoryMiBRequest',
     'Ec2FleetBaselineEbsBandwidthMbpsRequest',
@@ -53,11 +50,8 @@ __all__ = [
     'Ec2FleetTargetCapacitySpecificationRequest',
     'Ec2FleetTotalLocalStorageGbRequest',
     'Ec2FleetVCpuCountRangeRequest',
-    'EipTag',
-    'FlowLogTag',
     'InstanceAssociationParameter',
     'InstanceBlockDeviceMapping',
-    'InstanceConnectEndpointTag',
     'InstanceCpuOptions',
     'InstanceCreditSpecification',
     'InstanceEbs',
@@ -73,19 +67,12 @@ __all__ = [
     'InstancePrivateDnsNameOptions',
     'InstancePrivateIpAddressSpecification',
     'InstanceSsmAssociation',
-    'InstanceTag',
     'InstanceVolume',
-    'InternetGatewayTag',
     'IpamOperatingRegion',
     'IpamPoolProvisionedCidr',
     'IpamPoolSourceResource',
     'IpamPoolTag',
-    'IpamResourceDiscoveryAssociationTag',
     'IpamResourceDiscoveryIpamOperatingRegion',
-    'IpamResourceDiscoveryTag',
-    'IpamScopeTag',
-    'IpamTag',
-    'KeyPairTag',
     'LaunchTemplateAcceleratorCount',
     'LaunchTemplateAcceleratorTotalMemoryMiB',
     'LaunchTemplateBaselineEbsBandwidthMbps',
@@ -126,19 +113,12 @@ __all__ = [
     'LaunchTemplateTagSpecification',
     'LaunchTemplateTotalLocalStorageGb',
     'LaunchTemplateVCpuCount',
-    'LocalGatewayRouteTableTag',
-    'LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag',
-    'LocalGatewayRouteTableVpcAssociationTag',
-    'NatGatewayTag',
     'NetworkAclEntryIcmp',
     'NetworkAclEntryPortRange',
-    'NetworkAclTag',
     'NetworkInsightsAccessScopeAccessScopePathRequest',
-    'NetworkInsightsAccessScopeAnalysisTag',
     'NetworkInsightsAccessScopePacketHeaderStatementRequest',
     'NetworkInsightsAccessScopePathStatementRequest',
     'NetworkInsightsAccessScopeResourceStatementRequest',
-    'NetworkInsightsAccessScopeTag',
     'NetworkInsightsAccessScopeThroughResourcesStatementRequest',
     'NetworkInsightsAnalysisAdditionalDetail',
     'NetworkInsightsAnalysisAlternatePathHint',
@@ -152,26 +132,19 @@ __all__ = [
     'NetworkInsightsAnalysisExplanation',
     'NetworkInsightsAnalysisPathComponent',
     'NetworkInsightsAnalysisPortRange',
-    'NetworkInsightsAnalysisTag',
     'NetworkInsightsAnalysisTransitGatewayRouteTableRoute',
     'NetworkInsightsPathFilterPortRange',
     'NetworkInsightsPathPathFilter',
-    'NetworkInsightsPathTag',
     'NetworkInterfaceConnectionTrackingSpecification',
     'NetworkInterfaceInstanceIpv6Address',
     'NetworkInterfaceIpv4PrefixSpecification',
     'NetworkInterfaceIpv6PrefixSpecification',
     'NetworkInterfacePrivateIpAddressSpecification',
-    'NetworkInterfaceTag',
     'OptionsProperties',
-    'PlacementGroupTag',
     'PrefixListEntry',
-    'PrefixListTag',
     'PrivateDnsNameOptionsOnLaunchProperties',
-    'RouteTableTag',
     'SecurityGroupEgress',
     'SecurityGroupIngress',
-    'SecurityGroupTag',
     'SpotFleetAcceleratorCountRequest',
     'SpotFleetAcceleratorTotalMemoryMiBRequest',
     'SpotFleetBaselineEbsBandwidthMbpsRequest',
@@ -206,28 +179,14 @@ __all__ = [
     'SpotFleetTotalLocalStorageGbRequest',
     'SpotFleetVCpuCountRangeRequest',
     'SseSpecificationProperties',
-    'SubnetTag',
     'TagSpecification',
     'TrafficMirrorFilterRuleTrafficMirrorPortRange',
-    'TrafficMirrorFilterTag',
-    'TrafficMirrorSessionTag',
-    'TrafficMirrorTargetTag',
-    'TransitGatewayAttachmentTag',
     'TransitGatewayConnectOptions',
-    'TransitGatewayConnectTag',
-    'TransitGatewayMulticastDomainTag',
     'TransitGatewayPeeringAttachmentPeeringAttachmentStatus',
-    'TransitGatewayPeeringAttachmentTag',
-    'TransitGatewayRouteTableTag',
-    'TransitGatewayTag',
-    'TransitGatewayVpcAttachmentTag',
     'VerifiedAccessEndpointLoadBalancerOptions',
     'VerifiedAccessEndpointNetworkInterfaceOptions',
     'VerifiedAccessEndpointSseSpecification',
-    'VerifiedAccessEndpointTag',
     'VerifiedAccessGroupSseSpecification',
-    'VerifiedAccessGroupTag',
-    'VerifiedAccessInstanceTag',
     'VerifiedAccessInstanceVerifiedAccessLogs',
     'VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties',
     'VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties',
@@ -235,13 +194,7 @@ __all__ = [
     'VerifiedAccessInstanceVerifiedAccessTrustProvider',
     'VerifiedAccessTrustProviderDeviceOptions',
     'VerifiedAccessTrustProviderOidcOptions',
-    'VerifiedAccessTrustProviderTag',
-    'VolumeTag',
-    'VpcPeeringConnectionTag',
-    'VpcTag',
-    'VpnConnectionTag',
     'VpnConnectionVpnTunnelOptionsSpecification',
-    'VpnGatewayTag',
 ]
 
 @pulumi.output_type
@@ -442,27 +395,6 @@ class CapacityReservationTagSpecification(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.CapacityReservationTag']]:
         return pulumi.get(self, "tags")
-
-
-@pulumi.output_type
-class CarrierGatewayTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -809,25 +741,6 @@ class ClientVpnEndpointTagSpecification(dict):
 
 
 @pulumi.output_type
-class CustomerGatewayTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class DestinationOptionsProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -872,25 +785,6 @@ class DestinationOptionsProperties(dict):
     @pulumi.getter(name="perHourPartition")
     def per_hour_partition(self) -> bool:
         return pulumi.get(self, "per_hour_partition")
-
-
-@pulumi.output_type
-class DhcpOptionsTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2016,44 +1910,6 @@ class Ec2FleetVCpuCountRangeRequest(dict):
 
 
 @pulumi.output_type
-class EipTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class FlowLogTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class InstanceAssociationParameter(dict):
     def __init__(__self__, *,
                  key: str,
@@ -2127,31 +1983,6 @@ class InstanceBlockDeviceMapping(dict):
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_name")
-
-
-@pulumi.output_type
-class InstanceConnectEndpointTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2752,25 +2583,6 @@ class InstanceSsmAssociation(dict):
 
 
 @pulumi.output_type
-class InstanceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class InstanceVolume(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2804,25 +2616,6 @@ class InstanceVolume(dict):
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> str:
         return pulumi.get(self, "volume_id")
-
-
-@pulumi.output_type
-class InternetGatewayTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2978,39 +2771,6 @@ class IpamPoolTag(dict):
 
 
 @pulumi.output_type
-class IpamResourceDiscoveryAssociationTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class IpamResourceDiscoveryIpamOperatingRegion(dict):
     """
     The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
@@ -3047,138 +2807,6 @@ class IpamResourceDiscoveryIpamOperatingRegion(dict):
         The name of the region.
         """
         return pulumi.get(self, "region_name")
-
-
-@pulumi.output_type
-class IpamResourceDiscoveryTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class IpamScopeTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class IpamTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class KeyPairTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -6054,102 +5682,6 @@ class LaunchTemplateVCpuCount(dict):
 
 
 @pulumi.output_type
-class LocalGatewayRouteTableTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class LocalGatewayRouteTableVpcAssociationTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class NatGatewayTag(dict):
-    """
-    Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
-        :param str key: The tag key.
-        :param str value: The tag value.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The tag key.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The tag value.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class NetworkAclEntryIcmp(dict):
     def __init__(__self__, *,
                  code: Optional[int] = None,
@@ -6209,25 +5741,6 @@ class NetworkAclEntryPortRange(dict):
 
 
 @pulumi.output_type
-class NetworkAclTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class NetworkInsightsAccessScopeAccessScopePathRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6271,26 +5784,6 @@ class NetworkInsightsAccessScopeAccessScopePathRequest(dict):
     @pulumi.getter(name="throughResources")
     def through_resources(self) -> Optional[Sequence['outputs.NetworkInsightsAccessScopeThroughResourcesStatementRequest']]:
         return pulumi.get(self, "through_resources")
-
-
-@pulumi.output_type
-class NetworkInsightsAccessScopeAnalysisTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -6457,26 +5950,6 @@ class NetworkInsightsAccessScopeResourceStatementRequest(dict):
     @pulumi.getter
     def resources(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "resources")
-
-
-@pulumi.output_type
-class NetworkInsightsAccessScopeTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -7791,26 +7264,6 @@ class NetworkInsightsAnalysisPortRange(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class NetworkInsightsAnalysisTransitGatewayRouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7999,26 +7452,6 @@ class NetworkInsightsPathPathFilter(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsPathTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class NetworkInterfaceConnectionTrackingSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8192,25 +7625,6 @@ class NetworkInterfacePrivateIpAddressSpecification(dict):
 
 
 @pulumi.output_type
-class NetworkInterfaceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class OptionsProperties(dict):
     """
     The options for the transit gateway vpc attachment.
@@ -8279,39 +7693,6 @@ class OptionsProperties(dict):
 
 
 @pulumi.output_type
-class PlacementGroupTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class PrefixListEntry(dict):
     def __init__(__self__, *,
                  cidr: str,
@@ -8329,26 +7710,6 @@ class PrefixListEntry(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
-
-
-@pulumi.output_type
-class PrefixListTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -8399,25 +7760,6 @@ class PrivateDnsNameOptionsOnLaunchProperties(dict):
     @pulumi.getter(name="hostnameType")
     def hostname_type(self) -> Optional[str]:
         return pulumi.get(self, "hostname_type")
-
-
-@pulumi.output_type
-class RouteTableTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -8632,25 +7974,6 @@ class SecurityGroupIngress(dict):
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[int]:
         return pulumi.get(self, "to_port")
-
-
-@pulumi.output_type
-class SecurityGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -10436,25 +9759,6 @@ class SseSpecificationProperties(dict):
 
 
 @pulumi.output_type
-class SubnetTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class TagSpecification(dict):
     """
     Specifies the tags to apply to a resource when the resource is created for the launch template.
@@ -10545,82 +9849,6 @@ class TrafficMirrorFilterRuleTrafficMirrorPortRange(dict):
 
 
 @pulumi.output_type
-class TrafficMirrorFilterTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TrafficMirrorSessionTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TrafficMirrorTargetTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TransitGatewayAttachmentTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class TransitGatewayConnectOptions(dict):
     def __init__(__self__, *,
                  protocol: Optional[str] = None):
@@ -10637,68 +9865,6 @@ class TransitGatewayConnectOptions(dict):
         The tunnel protocol.
         """
         return pulumi.get(self, "protocol")
-
-
-@pulumi.output_type
-class TransitGatewayConnectTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        :param str key: The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
-        :param str value: The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        """
-        The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TransitGatewayMulticastDomainTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        :param str key: The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
-        :param str value: The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        """
-        The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -10730,104 +9896,6 @@ class TransitGatewayPeeringAttachmentPeeringAttachmentStatus(dict):
         The status message, if applicable.
         """
         return pulumi.get(self, "message")
-
-
-@pulumi.output_type
-class TransitGatewayPeeringAttachmentTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        :param str key: The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
-        :param str value: The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        """
-        The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TransitGatewayRouteTableTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: The key of the associated tag key-value pair
-        :param str value: The value of the associated tag key-value pair
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key of the associated tag key-value pair
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value of the associated tag key-value pair
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TransitGatewayTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TransitGatewayVpcAttachmentTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -11027,39 +10095,6 @@ class VerifiedAccessEndpointSseSpecification(dict):
 
 
 @pulumi.output_type
-class VerifiedAccessEndpointTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class VerifiedAccessGroupSseSpecification(dict):
     """
     The configuration options for customer provided KMS encryption.
@@ -11111,72 +10146,6 @@ class VerifiedAccessGroupSseSpecification(dict):
         KMS Key Arn used to encrypt the group policy
         """
         return pulumi.get(self, "kms_key_arn")
-
-
-@pulumi.output_type
-class VerifiedAccessGroupTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VerifiedAccessInstanceTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -11724,153 +10693,6 @@ class VerifiedAccessTrustProviderOidcOptions(dict):
 
 
 @pulumi.output_type
-class VerifiedAccessTrustProviderTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VolumeTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VpcPeeringConnectionTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VpcTag(dict):
-    """
-    Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
-        :param str key: The tag key.
-        :param str value: The tag value.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The tag key.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The tag value.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VpnConnectionTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class VpnConnectionVpnTunnelOptionsSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11908,24 +10730,5 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
     @pulumi.getter(name="tunnelInsideCidr")
     def tunnel_inside_cidr(self) -> Optional[str]:
         return pulumi.get(self, "tunnel_inside_cidr")
-
-
-@pulumi.output_type
-class VpnGatewayTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

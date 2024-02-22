@@ -50,7 +50,7 @@ export interface GetAddonResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.eks.AddonTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Schema for AWS::EKS::Addon

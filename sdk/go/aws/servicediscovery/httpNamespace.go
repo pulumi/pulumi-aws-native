@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,10 +18,10 @@ import (
 type HttpNamespace struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput         `pulumi:"arn"`
-	Description pulumi.StringPtrOutput      `pulumi:"description"`
-	Name        pulumi.StringOutput         `pulumi:"name"`
-	Tags        HttpNamespaceTagArrayOutput `pulumi:"tags"`
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Tags        aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewHttpNamespace registers a new resource with the given unique name, arguments, and options.
@@ -67,16 +68,16 @@ func (HttpNamespaceState) ElementType() reflect.Type {
 }
 
 type httpNamespaceArgs struct {
-	Description *string            `pulumi:"description"`
-	Name        *string            `pulumi:"name"`
-	Tags        []HttpNamespaceTag `pulumi:"tags"`
+	Description *string   `pulumi:"description"`
+	Name        *string   `pulumi:"name"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HttpNamespace resource.
 type HttpNamespaceArgs struct {
 	Description pulumi.StringPtrInput
 	Name        pulumi.StringPtrInput
-	Tags        HttpNamespaceTagArrayInput
+	Tags        aws.TagArrayInput
 }
 
 func (HttpNamespaceArgs) ElementType() reflect.Type {
@@ -128,8 +129,8 @@ func (o HttpNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o HttpNamespaceOutput) Tags() HttpNamespaceTagArrayOutput {
-	return o.ApplyT(func(v *HttpNamespace) HttpNamespaceTagArrayOutput { return v.Tags }).(HttpNamespaceTagArrayOutput)
+func (o HttpNamespaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *HttpNamespace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

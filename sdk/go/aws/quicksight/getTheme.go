@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupThemeResult struct {
 	LastUpdatedTime *string                   `pulumi:"lastUpdatedTime"`
 	Name            *string                   `pulumi:"name"`
 	Permissions     []ThemeResourcePermission `pulumi:"permissions"`
-	Tags            []ThemeTag                `pulumi:"tags"`
+	Tags            []aws.Tag                 `pulumi:"tags"`
 	Type            *ThemeType                `pulumi:"type"`
 	Version         *ThemeVersion             `pulumi:"version"`
 }
@@ -94,8 +95,8 @@ func (o LookupThemeResultOutput) Permissions() ThemeResourcePermissionArrayOutpu
 	return o.ApplyT(func(v LookupThemeResult) []ThemeResourcePermission { return v.Permissions }).(ThemeResourcePermissionArrayOutput)
 }
 
-func (o LookupThemeResultOutput) Tags() ThemeTagArrayOutput {
-	return o.ApplyT(func(v LookupThemeResult) []ThemeTag { return v.Tags }).(ThemeTagArrayOutput)
+func (o LookupThemeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupThemeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupThemeResultOutput) Type() ThemeTypePtrOutput {

@@ -27,7 +27,7 @@ export interface GetFlywheelResult {
     readonly arn?: string;
     readonly dataAccessRoleArn?: string;
     readonly dataSecurityConfig?: outputs.comprehend.FlywheelDataSecurityConfig;
-    readonly tags?: outputs.comprehend.FlywheelTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.

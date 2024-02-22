@@ -686,107 +686,6 @@ type ConnectPeerTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ConnectPeerTagInput is an input type that accepts ConnectPeerTagArgs and ConnectPeerTagOutput values.
-// You can construct a concrete instance of `ConnectPeerTagInput` via:
-//
-//	ConnectPeerTagArgs{...}
-type ConnectPeerTagInput interface {
-	pulumi.Input
-
-	ToConnectPeerTagOutput() ConnectPeerTagOutput
-	ToConnectPeerTagOutputWithContext(context.Context) ConnectPeerTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ConnectPeerTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ConnectPeerTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectPeerTag)(nil)).Elem()
-}
-
-func (i ConnectPeerTagArgs) ToConnectPeerTagOutput() ConnectPeerTagOutput {
-	return i.ToConnectPeerTagOutputWithContext(context.Background())
-}
-
-func (i ConnectPeerTagArgs) ToConnectPeerTagOutputWithContext(ctx context.Context) ConnectPeerTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerTagOutput)
-}
-
-// ConnectPeerTagArrayInput is an input type that accepts ConnectPeerTagArray and ConnectPeerTagArrayOutput values.
-// You can construct a concrete instance of `ConnectPeerTagArrayInput` via:
-//
-//	ConnectPeerTagArray{ ConnectPeerTagArgs{...} }
-type ConnectPeerTagArrayInput interface {
-	pulumi.Input
-
-	ToConnectPeerTagArrayOutput() ConnectPeerTagArrayOutput
-	ToConnectPeerTagArrayOutputWithContext(context.Context) ConnectPeerTagArrayOutput
-}
-
-type ConnectPeerTagArray []ConnectPeerTagInput
-
-func (ConnectPeerTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectPeerTag)(nil)).Elem()
-}
-
-func (i ConnectPeerTagArray) ToConnectPeerTagArrayOutput() ConnectPeerTagArrayOutput {
-	return i.ToConnectPeerTagArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectPeerTagArray) ToConnectPeerTagArrayOutputWithContext(ctx context.Context) ConnectPeerTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ConnectPeerTagOutput struct{ *pulumi.OutputState }
-
-func (ConnectPeerTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectPeerTag)(nil)).Elem()
-}
-
-func (o ConnectPeerTagOutput) ToConnectPeerTagOutput() ConnectPeerTagOutput {
-	return o
-}
-
-func (o ConnectPeerTagOutput) ToConnectPeerTagOutputWithContext(ctx context.Context) ConnectPeerTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ConnectPeerTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectPeerTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ConnectPeerTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectPeerTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ConnectPeerTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ConnectPeerTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectPeerTag)(nil)).Elem()
-}
-
-func (o ConnectPeerTagArrayOutput) ToConnectPeerTagArrayOutput() ConnectPeerTagArrayOutput {
-	return o
-}
-
-func (o ConnectPeerTagArrayOutput) ToConnectPeerTagArrayOutputWithContext(ctx context.Context) ConnectPeerTagArrayOutput {
-	return o
-}
-
-func (o ConnectPeerTagArrayOutput) Index(i pulumi.IntInput) ConnectPeerTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectPeerTag {
-		return vs[0].([]ConnectPeerTag)[vs[1].(int)]
-	}).(ConnectPeerTagOutput)
-}
-
 type CoreNetworkEdge struct {
 	// The ASN of a core network edge.
 	Asn *float64 `pulumi:"asn"`
@@ -903,107 +802,6 @@ type CoreNetworkTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// CoreNetworkTagInput is an input type that accepts CoreNetworkTagArgs and CoreNetworkTagOutput values.
-// You can construct a concrete instance of `CoreNetworkTagInput` via:
-//
-//	CoreNetworkTagArgs{...}
-type CoreNetworkTagInput interface {
-	pulumi.Input
-
-	ToCoreNetworkTagOutput() CoreNetworkTagOutput
-	ToCoreNetworkTagOutputWithContext(context.Context) CoreNetworkTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type CoreNetworkTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CoreNetworkTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CoreNetworkTag)(nil)).Elem()
-}
-
-func (i CoreNetworkTagArgs) ToCoreNetworkTagOutput() CoreNetworkTagOutput {
-	return i.ToCoreNetworkTagOutputWithContext(context.Background())
-}
-
-func (i CoreNetworkTagArgs) ToCoreNetworkTagOutputWithContext(ctx context.Context) CoreNetworkTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkTagOutput)
-}
-
-// CoreNetworkTagArrayInput is an input type that accepts CoreNetworkTagArray and CoreNetworkTagArrayOutput values.
-// You can construct a concrete instance of `CoreNetworkTagArrayInput` via:
-//
-//	CoreNetworkTagArray{ CoreNetworkTagArgs{...} }
-type CoreNetworkTagArrayInput interface {
-	pulumi.Input
-
-	ToCoreNetworkTagArrayOutput() CoreNetworkTagArrayOutput
-	ToCoreNetworkTagArrayOutputWithContext(context.Context) CoreNetworkTagArrayOutput
-}
-
-type CoreNetworkTagArray []CoreNetworkTagInput
-
-func (CoreNetworkTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CoreNetworkTag)(nil)).Elem()
-}
-
-func (i CoreNetworkTagArray) ToCoreNetworkTagArrayOutput() CoreNetworkTagArrayOutput {
-	return i.ToCoreNetworkTagArrayOutputWithContext(context.Background())
-}
-
-func (i CoreNetworkTagArray) ToCoreNetworkTagArrayOutputWithContext(ctx context.Context) CoreNetworkTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type CoreNetworkTagOutput struct{ *pulumi.OutputState }
-
-func (CoreNetworkTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CoreNetworkTag)(nil)).Elem()
-}
-
-func (o CoreNetworkTagOutput) ToCoreNetworkTagOutput() CoreNetworkTagOutput {
-	return o
-}
-
-func (o CoreNetworkTagOutput) ToCoreNetworkTagOutputWithContext(ctx context.Context) CoreNetworkTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CoreNetworkTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CoreNetworkTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o CoreNetworkTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CoreNetworkTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CoreNetworkTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CoreNetworkTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CoreNetworkTag)(nil)).Elem()
-}
-
-func (o CoreNetworkTagArrayOutput) ToCoreNetworkTagArrayOutput() CoreNetworkTagArrayOutput {
-	return o
-}
-
-func (o CoreNetworkTagArrayOutput) ToCoreNetworkTagArrayOutputWithContext(ctx context.Context) CoreNetworkTagArrayOutput {
-	return o
-}
-
-func (o CoreNetworkTagArrayOutput) Index(i pulumi.IntInput) CoreNetworkTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CoreNetworkTag {
-		return vs[0].([]CoreNetworkTag)[vs[1].(int)]
-	}).(CoreNetworkTagOutput)
 }
 
 // The Amazon Web Services location of the device, if applicable.
@@ -1351,214 +1149,12 @@ type DeviceTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DeviceTagInput is an input type that accepts DeviceTagArgs and DeviceTagOutput values.
-// You can construct a concrete instance of `DeviceTagInput` via:
-//
-//	DeviceTagArgs{...}
-type DeviceTagInput interface {
-	pulumi.Input
-
-	ToDeviceTagOutput() DeviceTagOutput
-	ToDeviceTagOutputWithContext(context.Context) DeviceTagOutput
-}
-
-// A key-value pair to associate with a device resource.
-type DeviceTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DeviceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceTag)(nil)).Elem()
-}
-
-func (i DeviceTagArgs) ToDeviceTagOutput() DeviceTagOutput {
-	return i.ToDeviceTagOutputWithContext(context.Background())
-}
-
-func (i DeviceTagArgs) ToDeviceTagOutputWithContext(ctx context.Context) DeviceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceTagOutput)
-}
-
-// DeviceTagArrayInput is an input type that accepts DeviceTagArray and DeviceTagArrayOutput values.
-// You can construct a concrete instance of `DeviceTagArrayInput` via:
-//
-//	DeviceTagArray{ DeviceTagArgs{...} }
-type DeviceTagArrayInput interface {
-	pulumi.Input
-
-	ToDeviceTagArrayOutput() DeviceTagArrayOutput
-	ToDeviceTagArrayOutputWithContext(context.Context) DeviceTagArrayOutput
-}
-
-type DeviceTagArray []DeviceTagInput
-
-func (DeviceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeviceTag)(nil)).Elem()
-}
-
-func (i DeviceTagArray) ToDeviceTagArrayOutput() DeviceTagArrayOutput {
-	return i.ToDeviceTagArrayOutputWithContext(context.Background())
-}
-
-func (i DeviceTagArray) ToDeviceTagArrayOutputWithContext(ctx context.Context) DeviceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceTagArrayOutput)
-}
-
-// A key-value pair to associate with a device resource.
-type DeviceTagOutput struct{ *pulumi.OutputState }
-
-func (DeviceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceTag)(nil)).Elem()
-}
-
-func (o DeviceTagOutput) ToDeviceTagOutput() DeviceTagOutput {
-	return o
-}
-
-func (o DeviceTagOutput) ToDeviceTagOutputWithContext(ctx context.Context) DeviceTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DeviceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DeviceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DeviceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DeviceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DeviceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DeviceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeviceTag)(nil)).Elem()
-}
-
-func (o DeviceTagArrayOutput) ToDeviceTagArrayOutput() DeviceTagArrayOutput {
-	return o
-}
-
-func (o DeviceTagArrayOutput) ToDeviceTagArrayOutputWithContext(ctx context.Context) DeviceTagArrayOutput {
-	return o
-}
-
-func (o DeviceTagArrayOutput) Index(i pulumi.IntInput) DeviceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceTag {
-		return vs[0].([]DeviceTag)[vs[1].(int)]
-	}).(DeviceTagOutput)
-}
-
 // A key-value pair to associate with a global network resource.
 type GlobalNetworkTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// GlobalNetworkTagInput is an input type that accepts GlobalNetworkTagArgs and GlobalNetworkTagOutput values.
-// You can construct a concrete instance of `GlobalNetworkTagInput` via:
-//
-//	GlobalNetworkTagArgs{...}
-type GlobalNetworkTagInput interface {
-	pulumi.Input
-
-	ToGlobalNetworkTagOutput() GlobalNetworkTagOutput
-	ToGlobalNetworkTagOutputWithContext(context.Context) GlobalNetworkTagOutput
-}
-
-// A key-value pair to associate with a global network resource.
-type GlobalNetworkTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (GlobalNetworkTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalNetworkTag)(nil)).Elem()
-}
-
-func (i GlobalNetworkTagArgs) ToGlobalNetworkTagOutput() GlobalNetworkTagOutput {
-	return i.ToGlobalNetworkTagOutputWithContext(context.Background())
-}
-
-func (i GlobalNetworkTagArgs) ToGlobalNetworkTagOutputWithContext(ctx context.Context) GlobalNetworkTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalNetworkTagOutput)
-}
-
-// GlobalNetworkTagArrayInput is an input type that accepts GlobalNetworkTagArray and GlobalNetworkTagArrayOutput values.
-// You can construct a concrete instance of `GlobalNetworkTagArrayInput` via:
-//
-//	GlobalNetworkTagArray{ GlobalNetworkTagArgs{...} }
-type GlobalNetworkTagArrayInput interface {
-	pulumi.Input
-
-	ToGlobalNetworkTagArrayOutput() GlobalNetworkTagArrayOutput
-	ToGlobalNetworkTagArrayOutputWithContext(context.Context) GlobalNetworkTagArrayOutput
-}
-
-type GlobalNetworkTagArray []GlobalNetworkTagInput
-
-func (GlobalNetworkTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GlobalNetworkTag)(nil)).Elem()
-}
-
-func (i GlobalNetworkTagArray) ToGlobalNetworkTagArrayOutput() GlobalNetworkTagArrayOutput {
-	return i.ToGlobalNetworkTagArrayOutputWithContext(context.Background())
-}
-
-func (i GlobalNetworkTagArray) ToGlobalNetworkTagArrayOutputWithContext(ctx context.Context) GlobalNetworkTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalNetworkTagArrayOutput)
-}
-
-// A key-value pair to associate with a global network resource.
-type GlobalNetworkTagOutput struct{ *pulumi.OutputState }
-
-func (GlobalNetworkTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalNetworkTag)(nil)).Elem()
-}
-
-func (o GlobalNetworkTagOutput) ToGlobalNetworkTagOutput() GlobalNetworkTagOutput {
-	return o
-}
-
-func (o GlobalNetworkTagOutput) ToGlobalNetworkTagOutputWithContext(ctx context.Context) GlobalNetworkTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o GlobalNetworkTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GlobalNetworkTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o GlobalNetworkTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GlobalNetworkTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type GlobalNetworkTagArrayOutput struct{ *pulumi.OutputState }
-
-func (GlobalNetworkTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GlobalNetworkTag)(nil)).Elem()
-}
-
-func (o GlobalNetworkTagArrayOutput) ToGlobalNetworkTagArrayOutput() GlobalNetworkTagArrayOutput {
-	return o
-}
-
-func (o GlobalNetworkTagArrayOutput) ToGlobalNetworkTagArrayOutputWithContext(ctx context.Context) GlobalNetworkTagArrayOutput {
-	return o
-}
-
-func (o GlobalNetworkTagArrayOutput) Index(i pulumi.IntInput) GlobalNetworkTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalNetworkTag {
-		return vs[0].([]GlobalNetworkTag)[vs[1].(int)]
-	}).(GlobalNetworkTagOutput)
 }
 
 // The bandwidth for the link.
@@ -1675,107 +1271,6 @@ type LinkTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// LinkTagInput is an input type that accepts LinkTagArgs and LinkTagOutput values.
-// You can construct a concrete instance of `LinkTagInput` via:
-//
-//	LinkTagArgs{...}
-type LinkTagInput interface {
-	pulumi.Input
-
-	ToLinkTagOutput() LinkTagOutput
-	ToLinkTagOutputWithContext(context.Context) LinkTagOutput
-}
-
-// A key-value pair to associate with a link resource.
-type LinkTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (LinkTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkTag)(nil)).Elem()
-}
-
-func (i LinkTagArgs) ToLinkTagOutput() LinkTagOutput {
-	return i.ToLinkTagOutputWithContext(context.Background())
-}
-
-func (i LinkTagArgs) ToLinkTagOutputWithContext(ctx context.Context) LinkTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkTagOutput)
-}
-
-// LinkTagArrayInput is an input type that accepts LinkTagArray and LinkTagArrayOutput values.
-// You can construct a concrete instance of `LinkTagArrayInput` via:
-//
-//	LinkTagArray{ LinkTagArgs{...} }
-type LinkTagArrayInput interface {
-	pulumi.Input
-
-	ToLinkTagArrayOutput() LinkTagArrayOutput
-	ToLinkTagArrayOutputWithContext(context.Context) LinkTagArrayOutput
-}
-
-type LinkTagArray []LinkTagInput
-
-func (LinkTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkTag)(nil)).Elem()
-}
-
-func (i LinkTagArray) ToLinkTagArrayOutput() LinkTagArrayOutput {
-	return i.ToLinkTagArrayOutputWithContext(context.Background())
-}
-
-func (i LinkTagArray) ToLinkTagArrayOutputWithContext(ctx context.Context) LinkTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkTagArrayOutput)
-}
-
-// A key-value pair to associate with a link resource.
-type LinkTagOutput struct{ *pulumi.OutputState }
-
-func (LinkTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkTag)(nil)).Elem()
-}
-
-func (o LinkTagOutput) ToLinkTagOutput() LinkTagOutput {
-	return o
-}
-
-func (o LinkTagOutput) ToLinkTagOutputWithContext(ctx context.Context) LinkTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o LinkTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o LinkTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LinkTagArrayOutput struct{ *pulumi.OutputState }
-
-func (LinkTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkTag)(nil)).Elem()
-}
-
-func (o LinkTagArrayOutput) ToLinkTagArrayOutput() LinkTagArrayOutput {
-	return o
-}
-
-func (o LinkTagArrayOutput) ToLinkTagArrayOutputWithContext(ctx context.Context) LinkTagArrayOutput {
-	return o
-}
-
-func (o LinkTagArrayOutput) Index(i pulumi.IntInput) LinkTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkTag {
-		return vs[0].([]LinkTag)[vs[1].(int)]
-	}).(LinkTagOutput)
 }
 
 // The location of the site
@@ -1962,107 +1457,6 @@ type SiteTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// SiteTagInput is an input type that accepts SiteTagArgs and SiteTagOutput values.
-// You can construct a concrete instance of `SiteTagInput` via:
-//
-//	SiteTagArgs{...}
-type SiteTagInput interface {
-	pulumi.Input
-
-	ToSiteTagOutput() SiteTagOutput
-	ToSiteTagOutputWithContext(context.Context) SiteTagOutput
-}
-
-// A key-value pair to associate with a site resource.
-type SiteTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SiteTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteTag)(nil)).Elem()
-}
-
-func (i SiteTagArgs) ToSiteTagOutput() SiteTagOutput {
-	return i.ToSiteTagOutputWithContext(context.Background())
-}
-
-func (i SiteTagArgs) ToSiteTagOutputWithContext(ctx context.Context) SiteTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteTagOutput)
-}
-
-// SiteTagArrayInput is an input type that accepts SiteTagArray and SiteTagArrayOutput values.
-// You can construct a concrete instance of `SiteTagArrayInput` via:
-//
-//	SiteTagArray{ SiteTagArgs{...} }
-type SiteTagArrayInput interface {
-	pulumi.Input
-
-	ToSiteTagArrayOutput() SiteTagArrayOutput
-	ToSiteTagArrayOutputWithContext(context.Context) SiteTagArrayOutput
-}
-
-type SiteTagArray []SiteTagInput
-
-func (SiteTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SiteTag)(nil)).Elem()
-}
-
-func (i SiteTagArray) ToSiteTagArrayOutput() SiteTagArrayOutput {
-	return i.ToSiteTagArrayOutputWithContext(context.Background())
-}
-
-func (i SiteTagArray) ToSiteTagArrayOutputWithContext(ctx context.Context) SiteTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteTagArrayOutput)
-}
-
-// A key-value pair to associate with a site resource.
-type SiteTagOutput struct{ *pulumi.OutputState }
-
-func (SiteTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteTag)(nil)).Elem()
-}
-
-func (o SiteTagOutput) ToSiteTagOutput() SiteTagOutput {
-	return o
-}
-
-func (o SiteTagOutput) ToSiteTagOutputWithContext(ctx context.Context) SiteTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o SiteTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SiteTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o SiteTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SiteTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type SiteTagArrayOutput struct{ *pulumi.OutputState }
-
-func (SiteTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SiteTag)(nil)).Elem()
-}
-
-func (o SiteTagArrayOutput) ToSiteTagArrayOutput() SiteTagArrayOutput {
-	return o
-}
-
-func (o SiteTagArrayOutput) ToSiteTagArrayOutputWithContext(ctx context.Context) SiteTagArrayOutput {
-	return o
-}
-
-func (o SiteTagArrayOutput) Index(i pulumi.IntInput) SiteTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SiteTag {
-		return vs[0].([]SiteTag)[vs[1].(int)]
-	}).(SiteTagOutput)
 }
 
 // The attachment to move from one segment to another.
@@ -2358,107 +1752,6 @@ type TransitGatewayPeeringTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// TransitGatewayPeeringTagInput is an input type that accepts TransitGatewayPeeringTagArgs and TransitGatewayPeeringTagOutput values.
-// You can construct a concrete instance of `TransitGatewayPeeringTagInput` via:
-//
-//	TransitGatewayPeeringTagArgs{...}
-type TransitGatewayPeeringTagInput interface {
-	pulumi.Input
-
-	ToTransitGatewayPeeringTagOutput() TransitGatewayPeeringTagOutput
-	ToTransitGatewayPeeringTagOutputWithContext(context.Context) TransitGatewayPeeringTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type TransitGatewayPeeringTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TransitGatewayPeeringTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayPeeringTag)(nil)).Elem()
-}
-
-func (i TransitGatewayPeeringTagArgs) ToTransitGatewayPeeringTagOutput() TransitGatewayPeeringTagOutput {
-	return i.ToTransitGatewayPeeringTagOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayPeeringTagArgs) ToTransitGatewayPeeringTagOutputWithContext(ctx context.Context) TransitGatewayPeeringTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringTagOutput)
-}
-
-// TransitGatewayPeeringTagArrayInput is an input type that accepts TransitGatewayPeeringTagArray and TransitGatewayPeeringTagArrayOutput values.
-// You can construct a concrete instance of `TransitGatewayPeeringTagArrayInput` via:
-//
-//	TransitGatewayPeeringTagArray{ TransitGatewayPeeringTagArgs{...} }
-type TransitGatewayPeeringTagArrayInput interface {
-	pulumi.Input
-
-	ToTransitGatewayPeeringTagArrayOutput() TransitGatewayPeeringTagArrayOutput
-	ToTransitGatewayPeeringTagArrayOutputWithContext(context.Context) TransitGatewayPeeringTagArrayOutput
-}
-
-type TransitGatewayPeeringTagArray []TransitGatewayPeeringTagInput
-
-func (TransitGatewayPeeringTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransitGatewayPeeringTag)(nil)).Elem()
-}
-
-func (i TransitGatewayPeeringTagArray) ToTransitGatewayPeeringTagArrayOutput() TransitGatewayPeeringTagArrayOutput {
-	return i.ToTransitGatewayPeeringTagArrayOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayPeeringTagArray) ToTransitGatewayPeeringTagArrayOutputWithContext(ctx context.Context) TransitGatewayPeeringTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type TransitGatewayPeeringTagOutput struct{ *pulumi.OutputState }
-
-func (TransitGatewayPeeringTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayPeeringTag)(nil)).Elem()
-}
-
-func (o TransitGatewayPeeringTagOutput) ToTransitGatewayPeeringTagOutput() TransitGatewayPeeringTagOutput {
-	return o
-}
-
-func (o TransitGatewayPeeringTagOutput) ToTransitGatewayPeeringTagOutputWithContext(ctx context.Context) TransitGatewayPeeringTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o TransitGatewayPeeringTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TransitGatewayPeeringTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o TransitGatewayPeeringTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TransitGatewayPeeringTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TransitGatewayPeeringTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TransitGatewayPeeringTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransitGatewayPeeringTag)(nil)).Elem()
-}
-
-func (o TransitGatewayPeeringTagArrayOutput) ToTransitGatewayPeeringTagArrayOutput() TransitGatewayPeeringTagArrayOutput {
-	return o
-}
-
-func (o TransitGatewayPeeringTagArrayOutput) ToTransitGatewayPeeringTagArrayOutputWithContext(ctx context.Context) TransitGatewayPeeringTagArrayOutput {
-	return o
-}
-
-func (o TransitGatewayPeeringTagArrayOutput) Index(i pulumi.IntInput) TransitGatewayPeeringTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayPeeringTag {
-		return vs[0].([]TransitGatewayPeeringTag)[vs[1].(int)]
-	}).(TransitGatewayPeeringTagOutput)
 }
 
 // The attachment to move from one segment to another.
@@ -3206,31 +2499,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentTagArrayInput)(nil)).Elem(), ConnectAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsPtrInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerTagInput)(nil)).Elem(), ConnectPeerTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerTagArrayInput)(nil)).Elem(), ConnectPeerTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkTagInput)(nil)).Elem(), CoreNetworkTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkTagArrayInput)(nil)).Elem(), CoreNetworkTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationPtrInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationPtrInput)(nil)).Elem(), DeviceLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTagInput)(nil)).Elem(), DeviceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTagArrayInput)(nil)).Elem(), DeviceTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalNetworkTagInput)(nil)).Elem(), GlobalNetworkTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalNetworkTagArrayInput)(nil)).Elem(), GlobalNetworkTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthInput)(nil)).Elem(), LinkBandwidthArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkTagInput)(nil)).Elem(), LinkTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkTagArrayInput)(nil)).Elem(), LinkTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationInput)(nil)).Elem(), SiteLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationPtrInput)(nil)).Elem(), SiteLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteTagInput)(nil)).Elem(), SiteTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteTagArrayInput)(nil)).Elem(), SiteTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentProposedSegmentChangeInput)(nil)).Elem(), SiteToSiteVpnAttachmentProposedSegmentChangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), SiteToSiteVpnAttachmentProposedSegmentChangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagArrayInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringTagInput)(nil)).Elem(), TransitGatewayPeeringTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringTagArrayInput)(nil)).Elem(), TransitGatewayPeeringTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedSegmentChangeInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentTagInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentTagArgs{})
@@ -3252,36 +2531,22 @@ func init() {
 	pulumi.RegisterOutputType(ConnectPeerBgpOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectPeerConfigurationOutput{})
 	pulumi.RegisterOutputType(ConnectPeerConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ConnectPeerTagOutput{})
-	pulumi.RegisterOutputType(ConnectPeerTagArrayOutput{})
 	pulumi.RegisterOutputType(CoreNetworkEdgeOutput{})
 	pulumi.RegisterOutputType(CoreNetworkEdgeArrayOutput{})
 	pulumi.RegisterOutputType(CoreNetworkSegmentOutput{})
 	pulumi.RegisterOutputType(CoreNetworkSegmentArrayOutput{})
-	pulumi.RegisterOutputType(CoreNetworkTagOutput{})
-	pulumi.RegisterOutputType(CoreNetworkTagArrayOutput{})
 	pulumi.RegisterOutputType(DeviceAwsLocationOutput{})
 	pulumi.RegisterOutputType(DeviceAwsLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceLocationOutput{})
 	pulumi.RegisterOutputType(DeviceLocationPtrOutput{})
-	pulumi.RegisterOutputType(DeviceTagOutput{})
-	pulumi.RegisterOutputType(DeviceTagArrayOutput{})
-	pulumi.RegisterOutputType(GlobalNetworkTagOutput{})
-	pulumi.RegisterOutputType(GlobalNetworkTagArrayOutput{})
 	pulumi.RegisterOutputType(LinkBandwidthOutput{})
 	pulumi.RegisterOutputType(LinkBandwidthPtrOutput{})
-	pulumi.RegisterOutputType(LinkTagOutput{})
-	pulumi.RegisterOutputType(LinkTagArrayOutput{})
 	pulumi.RegisterOutputType(SiteLocationOutput{})
 	pulumi.RegisterOutputType(SiteLocationPtrOutput{})
-	pulumi.RegisterOutputType(SiteTagOutput{})
-	pulumi.RegisterOutputType(SiteTagArrayOutput{})
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentProposedSegmentChangeOutput{})
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput{})
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentTagOutput{})
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentTagArrayOutput{})
-	pulumi.RegisterOutputType(TransitGatewayPeeringTagOutput{})
-	pulumi.RegisterOutputType(TransitGatewayPeeringTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTableAttachmentTagOutput{})

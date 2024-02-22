@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Metadata that can be used to manage the dimension.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DimensionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDimensionResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoT
 
             ImmutableArray<string> stringValues,
 
-            ImmutableArray<Outputs.DimensionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             StringValues = stringValues;

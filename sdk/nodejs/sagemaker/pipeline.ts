@@ -55,7 +55,7 @@ export class Pipeline extends pulumi.CustomResource {
      * Role Arn
      */
     public readonly roleArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.sagemaker.PipelineTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -119,5 +119,5 @@ export interface PipelineArgs {
      * Role Arn
      */
     roleArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.PipelineTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -64,7 +64,7 @@ export class Secret extends pulumi.CustomResource {
     /**
      * The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
      */
-    public readonly tags!: pulumi.Output<outputs.secretsmanager.SecretTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Secret resource with the given unique name, arguments, and options.
@@ -131,5 +131,5 @@ export interface SecretArgs {
     /**
      * The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.secretsmanager.SecretTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

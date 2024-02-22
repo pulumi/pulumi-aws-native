@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type Channel struct {
 	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 	RecordingConfigurationArn pulumi.StringPtrOutput `pulumi:"recordingConfigurationArn"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags ChannelTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
 	Type ChannelTypePtrOutput `pulumi:"type"`
 }
@@ -92,7 +93,7 @@ type channelArgs struct {
 	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 	RecordingConfigurationArn *string `pulumi:"recordingConfigurationArn"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags []ChannelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
 	Type *ChannelType `pulumi:"type"`
 }
@@ -112,7 +113,7 @@ type ChannelArgs struct {
 	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 	RecordingConfigurationArn pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags ChannelTagArrayInput
+	Tags aws.TagArrayInput
 	// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
 	Type ChannelTypePtrInput
 }
@@ -200,8 +201,8 @@ func (o ChannelOutput) RecordingConfigurationArn() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the asset model.
-func (o ChannelOutput) Tags() ChannelTagArrayOutput {
-	return o.ApplyT(func(v *Channel) ChannelTagArrayOutput { return v.Tags }).(ChannelTagArrayOutput)
+func (o ChannelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Channel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.

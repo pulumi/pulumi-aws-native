@@ -87,7 +87,7 @@ export interface GetPlaybackConfigurationResult {
     /**
      * The tags to assign to the playback configuration.
      */
-    readonly tags?: outputs.mediatailor.PlaybackConfigurationTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
      */

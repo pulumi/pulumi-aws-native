@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public readonly bool? FirewallPolicyChangeProtection;
         public readonly bool? SubnetChangeProtection;
         public readonly ImmutableArray<Outputs.FirewallSubnetMapping> SubnetMappings;
-        public readonly ImmutableArray<Outputs.FirewallTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFirewallResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
             ImmutableArray<Outputs.FirewallSubnetMapping> subnetMappings,
 
-            ImmutableArray<Outputs.FirewallTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DeleteProtection = deleteProtection;
             Description = description;

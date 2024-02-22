@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,9 +38,9 @@ type LookupRegexPatternSetResult struct {
 	// Description of the entity.
 	Description *string `pulumi:"description"`
 	// Id of the RegexPatternSet
-	Id                    *string              `pulumi:"id"`
-	RegularExpressionList []string             `pulumi:"regularExpressionList"`
-	Tags                  []RegexPatternSetTag `pulumi:"tags"`
+	Id                    *string   `pulumi:"id"`
+	RegularExpressionList []string  `pulumi:"regularExpressionList"`
+	Tags                  []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRegexPatternSetOutput(ctx *pulumi.Context, args LookupRegexPatternSetOutputArgs, opts ...pulumi.InvokeOption) LookupRegexPatternSetResultOutput {
@@ -101,8 +102,8 @@ func (o LookupRegexPatternSetResultOutput) RegularExpressionList() pulumi.String
 	return o.ApplyT(func(v LookupRegexPatternSetResult) []string { return v.RegularExpressionList }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupRegexPatternSetResultOutput) Tags() RegexPatternSetTagArrayOutput {
-	return o.ApplyT(func(v LookupRegexPatternSetResult) []RegexPatternSetTag { return v.Tags }).(RegexPatternSetTagArrayOutput)
+func (o LookupRegexPatternSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRegexPatternSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

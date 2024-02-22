@@ -203,7 +203,7 @@ export interface GetClusterResult {
     /**
      * The list of tags for the cluster parameter group.
      */
-    readonly tags?: outputs.redshift.ClusterTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type FlowLog struct {
 	// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
 	ResourceType FlowLogResourceTypeOutput `pulumi:"resourceType"`
 	// The tags to apply to the flow logs.
-	Tags FlowLogTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
 	TrafficType FlowLogTrafficTypePtrOutput `pulumi:"trafficType"`
 }
@@ -121,7 +122,7 @@ type flowLogArgs struct {
 	// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
 	ResourceType FlowLogResourceType `pulumi:"resourceType"`
 	// The tags to apply to the flow logs.
-	Tags []FlowLogTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
 	TrafficType *FlowLogTrafficType `pulumi:"trafficType"`
 }
@@ -148,7 +149,7 @@ type FlowLogArgs struct {
 	// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
 	ResourceType FlowLogResourceTypeInput
 	// The tags to apply to the flow logs.
-	Tags FlowLogTagArrayInput
+	Tags aws.TagArrayInput
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
 	TrafficType FlowLogTrafficTypePtrInput
 }
@@ -240,8 +241,8 @@ func (o FlowLogOutput) ResourceType() FlowLogResourceTypeOutput {
 }
 
 // The tags to apply to the flow logs.
-func (o FlowLogOutput) Tags() FlowLogTagArrayOutput {
-	return o.ApplyT(func(v *FlowLog) FlowLogTagArrayOutput { return v.Tags }).(FlowLogTagArrayOutput)
+func (o FlowLogOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FlowLog) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.

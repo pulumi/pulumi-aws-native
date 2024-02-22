@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,7 +20,7 @@ type ClientCertificate struct {
 	// The description of the client certificate.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags ClientCertificateTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewClientCertificate registers a new resource with the given unique name, arguments, and options.
@@ -65,7 +66,7 @@ type clientCertificateArgs struct {
 	// The description of the client certificate.
 	Description *string `pulumi:"description"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags []ClientCertificateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClientCertificate resource.
@@ -73,7 +74,7 @@ type ClientCertificateArgs struct {
 	// The description of the client certificate.
 	Description pulumi.StringPtrInput
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags ClientCertificateTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ClientCertificateArgs) ElementType() reflect.Type {
@@ -123,8 +124,8 @@ func (o ClientCertificateOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The collection of tags. Each tag element is associated with a given resource.
-func (o ClientCertificateOutput) Tags() ClientCertificateTagArrayOutput {
-	return o.ApplyT(func(v *ClientCertificate) ClientCertificateTagArrayOutput { return v.Tags }).(ClientCertificateTagArrayOutput)
+func (o ClientCertificateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ClientCertificate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

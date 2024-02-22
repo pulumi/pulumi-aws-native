@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupClusterResult struct {
 	ManagedScalingPolicy  *ClusterManagedScalingPolicy   `pulumi:"managedScalingPolicy"`
 	MasterPublicDns       *string                        `pulumi:"masterPublicDns"`
 	StepConcurrencyLevel  *int                           `pulumi:"stepConcurrencyLevel"`
-	Tags                  []ClusterTag                   `pulumi:"tags"`
+	Tags                  []aws.Tag                      `pulumi:"tags"`
 	VisibleToAllUsers     *bool                          `pulumi:"visibleToAllUsers"`
 }
 
@@ -96,8 +97,8 @@ func (o LookupClusterResultOutput) StepConcurrencyLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *int { return v.StepConcurrencyLevel }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupClusterResultOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v LookupClusterResult) []ClusterTag { return v.Tags }).(ClusterTagArrayOutput)
+func (o LookupClusterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupClusterResultOutput) VisibleToAllUsers() pulumi.BoolPtrOutput {

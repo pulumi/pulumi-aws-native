@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// A tag to associate with the parameters for a resource set.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ResourceSetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -124,14 +124,14 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         }
 
         [Input("tags")]
-        private InputList<Inputs.ResourceSetTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A tag to associate with the parameters for a resource set.
         /// </summary>
-        public InputList<Inputs.ResourceSetTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ResourceSetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Dms
         public Output<string?> ResourceIdentifier { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ReplicationInstanceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -159,10 +159,10 @@ namespace Pulumi.AwsNative.Dms
         public Input<string>? ResourceIdentifier { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ReplicationInstanceTagArgs>? _tags;
-        public InputList<Inputs.ReplicationInstanceTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ReplicationInstanceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

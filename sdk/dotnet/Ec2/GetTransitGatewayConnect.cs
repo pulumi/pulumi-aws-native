@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags for the attachment.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TransitGatewayConnectTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The ID of the Connect attachment.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? state,
 
-            ImmutableArray<Outputs.TransitGatewayConnectTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? transitGatewayAttachmentId,
 

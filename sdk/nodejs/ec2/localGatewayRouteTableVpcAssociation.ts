@@ -56,7 +56,7 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
     /**
      * The tags for the association.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.LocalGatewayRouteTableVpcAssociationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC.
      */
@@ -111,7 +111,7 @@ export interface LocalGatewayRouteTableVpcAssociationArgs {
     /**
      * The tags for the association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.LocalGatewayRouteTableVpcAssociationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the VPC.
      */

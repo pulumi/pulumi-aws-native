@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupOutcomeResult struct {
 	// The timestamp when the outcome was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Tags associated with this outcome.
-	Tags []OutcomeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupOutcomeOutput(ctx *pulumi.Context, args LookupOutcomeOutputArgs, opts ...pulumi.InvokeOption) LookupOutcomeResultOutput {
@@ -97,8 +98,8 @@ func (o LookupOutcomeResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 }
 
 // Tags associated with this outcome.
-func (o LookupOutcomeResultOutput) Tags() OutcomeTagArrayOutput {
-	return o.ApplyT(func(v LookupOutcomeResult) []OutcomeTag { return v.Tags }).(OutcomeTagArrayOutput)
+func (o LookupOutcomeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupOutcomeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

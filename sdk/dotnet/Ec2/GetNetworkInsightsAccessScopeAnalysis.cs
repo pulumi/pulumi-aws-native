@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly string? StartDate;
         public readonly Pulumi.AwsNative.Ec2.NetworkInsightsAccessScopeAnalysisStatus? Status;
         public readonly string? StatusMessage;
-        public readonly ImmutableArray<Outputs.NetworkInsightsAccessScopeAnalysisTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetNetworkInsightsAccessScopeAnalysisResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? statusMessage,
 
-            ImmutableArray<Outputs.NetworkInsightsAccessScopeAnalysisTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AnalyzedEniCount = analyzedEniCount;
             EndDate = endDate;

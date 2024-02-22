@@ -41,7 +41,7 @@ export interface GetDbProxyEndpointResult {
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
      */
-    readonly tags?: outputs.rds.DbProxyEndpointTagFormat[];
+    readonly tags?: outputs.Tag[];
     /**
      * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
      */

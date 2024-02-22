@@ -60,7 +60,7 @@ export class WirelessGateway extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.WirelessGatewayTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
      */
@@ -130,7 +130,7 @@ export interface WirelessGatewayArgs {
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.WirelessGatewayTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
      */

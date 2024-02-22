@@ -25,7 +25,7 @@ export interface GetCertificateArgs {
 export interface GetCertificateResult {
     readonly certificateTransparencyLoggingPreference?: string;
     readonly id?: string;
-    readonly tags?: outputs.certificatemanager.CertificateTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::CertificateManager::Certificate

@@ -27,7 +27,7 @@ export interface GetTrafficMirrorSessionResult {
     readonly id?: string;
     readonly packetLength?: number;
     readonly sessionNumber?: number;
-    readonly tags?: outputs.ec2.TrafficMirrorSessionTag[];
+    readonly tags?: outputs.Tag[];
     readonly trafficMirrorFilterId?: string;
     readonly trafficMirrorTargetId?: string;
     readonly virtualNetworkId?: number;

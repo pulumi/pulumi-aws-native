@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// <summary>
         /// The tags to assign to the playback configuration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PlaybackConfigurationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AwsNative.MediaTailor
 
             string? slateAdUrl,
 
-            ImmutableArray<Outputs.PlaybackConfigurationTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? transcodeProfileName,
 

@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// Tags associated with this outcome.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.OutcomeTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -113,14 +113,14 @@ namespace Pulumi.AwsNative.FraudDetector
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.OutcomeTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags associated with this outcome.
         /// </summary>
-        public InputList<Inputs.OutcomeTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.OutcomeTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

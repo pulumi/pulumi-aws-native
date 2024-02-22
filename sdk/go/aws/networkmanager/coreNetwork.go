@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type CoreNetwork struct {
 	// The state of core network
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the global network.
-	Tags CoreNetworkTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCoreNetwork registers a new resource with the given unique name, arguments, and options.
@@ -98,7 +99,7 @@ type coreNetworkArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The tags for the global network.
-	Tags []CoreNetworkTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CoreNetwork resource.
@@ -112,7 +113,7 @@ type CoreNetworkArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The tags for the global network.
-	Tags CoreNetworkTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (CoreNetworkArgs) ElementType() reflect.Type {
@@ -205,8 +206,8 @@ func (o CoreNetworkOutput) State() pulumi.StringOutput {
 }
 
 // The tags for the global network.
-func (o CoreNetworkOutput) Tags() CoreNetworkTagArrayOutput {
-	return o.ApplyT(func(v *CoreNetwork) CoreNetworkTagArrayOutput { return v.Tags }).(CoreNetworkTagArrayOutput)
+func (o CoreNetworkOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CoreNetwork) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

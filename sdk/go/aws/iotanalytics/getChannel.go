@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type LookupChannelResult struct {
 	ChannelStorage  *ChannelStorage         `pulumi:"channelStorage"`
 	Id              *string                 `pulumi:"id"`
 	RetentionPeriod *ChannelRetentionPeriod `pulumi:"retentionPeriod"`
-	Tags            []ChannelTag            `pulumi:"tags"`
+	Tags            []aws.Tag               `pulumi:"tags"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -80,8 +81,8 @@ func (o LookupChannelResultOutput) RetentionPeriod() ChannelRetentionPeriodPtrOu
 	return o.ApplyT(func(v LookupChannelResult) *ChannelRetentionPeriod { return v.RetentionPeriod }).(ChannelRetentionPeriodPtrOutput)
 }
 
-func (o LookupChannelResultOutput) Tags() ChannelTagArrayOutput {
-	return o.ApplyT(func(v LookupChannelResult) []ChannelTag { return v.Tags }).(ChannelTagArrayOutput)
+func (o LookupChannelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

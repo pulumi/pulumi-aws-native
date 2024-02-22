@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DataIntegrationArgs', 'DataIntegration']
@@ -23,7 +25,7 @@ class DataIntegrationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  object_configuration: Optional[pulumi.Input['DataIntegrationObjectConfigurationArgs']] = None,
                  schedule_config: Optional[pulumi.Input['DataIntegrationScheduleConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataIntegration resource.
         :param pulumi.Input[str] kms_key: The KMS key of the data integration.
@@ -33,7 +35,7 @@ class DataIntegrationArgs:
         :param pulumi.Input[str] name: The name of the data integration.
         :param pulumi.Input['DataIntegrationObjectConfigurationArgs'] object_configuration: The configuration for what data should be pulled from the source.
         :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: The name of the data and how often it should be pulled from the source.
-        :param pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]] tags: The tags (keys and values) associated with the data integration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the data integration.
         """
         pulumi.set(__self__, "kms_key", kms_key)
         pulumi.set(__self__, "source_uri", source_uri)
@@ -136,14 +138,14 @@ class DataIntegrationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the data integration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -159,7 +161,7 @@ class DataIntegration(pulumi.CustomResource):
                  object_configuration: Optional[pulumi.Input[pulumi.InputType['DataIntegrationObjectConfigurationArgs']]] = None,
                  schedule_config: Optional[pulumi.Input[pulumi.InputType['DataIntegrationScheduleConfigArgs']]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataIntegrationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppIntegrations::DataIntegration
@@ -173,7 +175,7 @@ class DataIntegration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DataIntegrationObjectConfigurationArgs']] object_configuration: The configuration for what data should be pulled from the source.
         :param pulumi.Input[pulumi.InputType['DataIntegrationScheduleConfigArgs']] schedule_config: The name of the data and how often it should be pulled from the source.
         :param pulumi.Input[str] source_uri: The URI of the data source.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataIntegrationTagArgs']]]] tags: The tags (keys and values) associated with the data integration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the data integration.
         """
         ...
     @overload
@@ -206,7 +208,7 @@ class DataIntegration(pulumi.CustomResource):
                  object_configuration: Optional[pulumi.Input[pulumi.InputType['DataIntegrationObjectConfigurationArgs']]] = None,
                  schedule_config: Optional[pulumi.Input[pulumi.InputType['DataIntegrationScheduleConfigArgs']]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataIntegrationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -330,7 +332,7 @@ class DataIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DataIntegrationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags (keys and values) associated with the data integration.
         """

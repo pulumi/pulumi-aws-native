@@ -84,7 +84,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    public readonly tags!: pulumi.Output<outputs.apigateway.StageTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies whether active tracing with X-ray is enabled for the Stage.
      */
@@ -196,7 +196,7 @@ export interface StageArgs {
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.apigateway.StageTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Specifies whether active tracing with X-ray is enabled for the Stage.
      */

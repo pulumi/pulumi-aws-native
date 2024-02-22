@@ -89,7 +89,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
      */
-    public readonly tags!: pulumi.Output<outputs.cloudformation.StackSetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
      */
@@ -206,7 +206,7 @@ export interface StackSetArgs {
     /**
      * The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackSetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
      */

@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.&lt;/p&gt;
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DataSourceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<Pulumi.AwsNative.QuickSight.DataSourceType?> Type { get; private set; } = null!;
@@ -200,14 +200,14 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<Inputs.DataSourceSslPropertiesArgs>? SslProperties { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DataSourceTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.&lt;/p&gt;
         /// </summary>
-        public InputList<Inputs.DataSourceTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DataSourceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -68,7 +68,7 @@ export class SecurityProfile extends pulumi.CustomResource {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.connect.SecurityProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SecurityProfile resource with the given unique name, arguments, and options.
@@ -140,5 +140,5 @@ export interface SecurityProfileArgs {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type Assistant struct {
 	Description                       pulumi.StringPtrOutput                              `pulumi:"description"`
 	Name                              pulumi.StringOutput                                 `pulumi:"name"`
 	ServerSideEncryptionConfiguration AssistantServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
-	Tags                              AssistantTagArrayOutput                             `pulumi:"tags"`
+	Tags                              aws.CreateOnlyTagArrayOutput                        `pulumi:"tags"`
 	Type                              AssistantTypeOutput                                 `pulumi:"type"`
 }
 
@@ -79,7 +80,7 @@ type assistantArgs struct {
 	Description                       *string                                     `pulumi:"description"`
 	Name                              *string                                     `pulumi:"name"`
 	ServerSideEncryptionConfiguration *AssistantServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	Tags                              []AssistantTag                              `pulumi:"tags"`
+	Tags                              []aws.CreateOnlyTag                         `pulumi:"tags"`
 	Type                              AssistantType                               `pulumi:"type"`
 }
 
@@ -88,7 +89,7 @@ type AssistantArgs struct {
 	Description                       pulumi.StringPtrInput
 	Name                              pulumi.StringPtrInput
 	ServerSideEncryptionConfiguration AssistantServerSideEncryptionConfigurationPtrInput
-	Tags                              AssistantTagArrayInput
+	Tags                              aws.CreateOnlyTagArrayInput
 	Type                              AssistantTypeInput
 }
 
@@ -151,8 +152,8 @@ func (o AssistantOutput) ServerSideEncryptionConfiguration() AssistantServerSide
 	}).(AssistantServerSideEncryptionConfigurationPtrOutput)
 }
 
-func (o AssistantOutput) Tags() AssistantTagArrayOutput {
-	return o.ApplyT(func(v *Assistant) AssistantTagArrayOutput { return v.Tags }).(AssistantTagArrayOutput)
+func (o AssistantOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Assistant) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func (o AssistantOutput) Type() AssistantTypeOutput {

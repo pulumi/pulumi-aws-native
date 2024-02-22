@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoT
         /// Metadata that can be used to manage the JobTemplate.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.JobTemplateTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the amount of time each device has to finish its execution of the job.
@@ -210,14 +210,14 @@ namespace Pulumi.AwsNative.IoT
         public Input<Inputs.PresignedUrlConfigPropertiesArgs>? PresignedUrlConfig { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.JobTemplateTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// Metadata that can be used to manage the JobTemplate.
         /// </summary>
-        public InputList<Inputs.JobTemplateTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.JobTemplateTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamOpenXJsonSerDe
     {
         public readonly bool? CaseInsensitive;
-        public readonly object? ColumnToJsonKeyMappings;
+        public readonly ImmutableDictionary<string, string>? ColumnToJsonKeyMappings;
         public readonly bool? ConvertDotsInJsonKeysToUnderscores;
 
         [OutputConstructor]
         private DeliveryStreamOpenXJsonSerDe(
             bool? caseInsensitive,
 
-            object? columnToJsonKeyMappings,
+            ImmutableDictionary<string, string>? columnToJsonKeyMappings,
 
             bool? convertDotsInJsonKeysToUnderscores)
         {

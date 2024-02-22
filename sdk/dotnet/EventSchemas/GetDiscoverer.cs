@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.EventSchemas
         /// <summary>
         /// Tags associated with the resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DiscovererTagsEntry> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDiscovererResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.EventSchemas
 
             string? state,
 
-            ImmutableArray<Outputs.DiscovererTagsEntry> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CrossAccount = crossAccount;
             Description = description;

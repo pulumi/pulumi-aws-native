@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string> RoleArn { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RoleAliasTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,10 +89,10 @@ namespace Pulumi.AwsNative.IoT
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.RoleAliasTagArgs>? _tags;
-        public InputList<Inputs.RoleAliasTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RoleAliasTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

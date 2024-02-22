@@ -55,7 +55,7 @@ export interface GetPolicyResult {
     /**
      * A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
      */
-    readonly tags?: outputs.organizations.PolicyTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
      */

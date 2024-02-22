@@ -84,7 +84,7 @@ export class Portal extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the portal.
      */
-    public readonly tags!: pulumi.Output<outputs.iotsitewise.PortalTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Portal resource with the given unique name, arguments, and options.
@@ -171,5 +171,5 @@ export interface PortalArgs {
     /**
      * A list of key-value pairs that contain metadata for the portal.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotsitewise.PortalTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

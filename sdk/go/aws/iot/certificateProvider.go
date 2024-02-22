@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type CertificateProvider struct {
 	CertificateProviderName     pulumi.StringPtrOutput                  `pulumi:"certificateProviderName"`
 	LambdaFunctionArn           pulumi.StringOutput                     `pulumi:"lambdaFunctionArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags CertificateProviderTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCertificateProvider registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type certificateProviderArgs struct {
 	CertificateProviderName     *string                        `pulumi:"certificateProviderName"`
 	LambdaFunctionArn           string                         `pulumi:"lambdaFunctionArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []CertificateProviderTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CertificateProvider resource.
@@ -87,7 +88,7 @@ type CertificateProviderArgs struct {
 	CertificateProviderName     pulumi.StringPtrInput
 	LambdaFunctionArn           pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags CertificateProviderTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (CertificateProviderArgs) ElementType() reflect.Type {
@@ -146,8 +147,8 @@ func (o CertificateProviderOutput) LambdaFunctionArn() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o CertificateProviderOutput) Tags() CertificateProviderTagArrayOutput {
-	return o.ApplyT(func(v *CertificateProvider) CertificateProviderTagArrayOutput { return v.Tags }).(CertificateProviderTagArrayOutput)
+func (o CertificateProviderOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CertificateProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

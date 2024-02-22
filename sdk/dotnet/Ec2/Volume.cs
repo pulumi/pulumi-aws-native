@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags to apply to the volume during creation.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VolumeTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The throughput that the volume supports, in MiB/s.
@@ -190,14 +190,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? SnapshotId { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.VolumeTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags to apply to the volume during creation.
         /// </summary>
-        public InputList<Inputs.VolumeTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VolumeTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

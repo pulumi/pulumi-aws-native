@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Iam
         /// </summary>
         public readonly string? Arn;
         public readonly ImmutableArray<string> ClientIdList;
-        public readonly ImmutableArray<Outputs.OidcProviderTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<string> ThumbprintList;
 
         [OutputConstructor]
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Iam
 
             ImmutableArray<string> clientIdList,
 
-            ImmutableArray<Outputs.OidcProviderTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> thumbprintList)
         {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type RecordingConfiguration struct {
 	// Recording Configuration State.
 	State RecordingConfigurationStateEnumOutput `pulumi:"state"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags                   RecordingConfigurationTagArrayOutput                  `pulumi:"tags"`
+	Tags                   aws.TagArrayOutput                                    `pulumi:"tags"`
 	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationPtrOutput `pulumi:"thumbnailConfiguration"`
 }
 
@@ -89,7 +90,7 @@ type recordingConfigurationArgs struct {
 	RecordingReconnectWindowSeconds *int                                          `pulumi:"recordingReconnectWindowSeconds"`
 	RenditionConfiguration          *RecordingConfigurationRenditionConfiguration `pulumi:"renditionConfiguration"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags                   []RecordingConfigurationTag                   `pulumi:"tags"`
+	Tags                   []aws.Tag                                     `pulumi:"tags"`
 	ThumbnailConfiguration *RecordingConfigurationThumbnailConfiguration `pulumi:"thumbnailConfiguration"`
 }
 
@@ -102,7 +103,7 @@ type RecordingConfigurationArgs struct {
 	RecordingReconnectWindowSeconds pulumi.IntPtrInput
 	RenditionConfiguration          RecordingConfigurationRenditionConfigurationPtrInput
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags                   RecordingConfigurationTagArrayInput
+	Tags                   aws.TagArrayInput
 	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationPtrInput
 }
 
@@ -176,8 +177,8 @@ func (o RecordingConfigurationOutput) State() RecordingConfigurationStateEnumOut
 }
 
 // A list of key-value pairs that contain metadata for the asset model.
-func (o RecordingConfigurationOutput) Tags() RecordingConfigurationTagArrayOutput {
-	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationTagArrayOutput { return v.Tags }).(RecordingConfigurationTagArrayOutput)
+func (o RecordingConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RecordingConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o RecordingConfigurationOutput) ThumbnailConfiguration() RecordingConfigurationThumbnailConfigurationPtrOutput {

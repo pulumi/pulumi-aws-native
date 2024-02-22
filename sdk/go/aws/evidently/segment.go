@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type Segment struct {
 	Name        pulumi.StringOutput    `pulumi:"name"`
 	Pattern     pulumi.StringPtrOutput `pulumi:"pattern"`
 	// An array of key-value pairs to apply to this resource.
-	Tags SegmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSegment registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +68,7 @@ type segmentArgs struct {
 	Name        *string `pulumi:"name"`
 	Pattern     *string `pulumi:"pattern"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []SegmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Segment resource.
@@ -76,7 +77,7 @@ type SegmentArgs struct {
 	Name        pulumi.StringPtrInput
 	Pattern     pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags SegmentTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SegmentArgs) ElementType() reflect.Type {
@@ -133,8 +134,8 @@ func (o SegmentOutput) Pattern() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o SegmentOutput) Tags() SegmentTagArrayOutput {
-	return o.ApplyT(func(v *Segment) SegmentTagArrayOutput { return v.Tags }).(SegmentTagArrayOutput)
+func (o SegmentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Segment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

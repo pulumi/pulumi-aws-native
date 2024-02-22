@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,9 +31,9 @@ type MissionProfile struct {
 	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
 	StreamsKmsKey MissionProfileStreamsKmsKeyPtrOutput `pulumi:"streamsKmsKey"`
 	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
-	StreamsKmsRole    pulumi.StringPtrOutput       `pulumi:"streamsKmsRole"`
-	Tags              MissionProfileTagArrayOutput `pulumi:"tags"`
-	TrackingConfigArn pulumi.StringOutput          `pulumi:"trackingConfigArn"`
+	StreamsKmsRole    pulumi.StringPtrOutput `pulumi:"streamsKmsRole"`
+	Tags              aws.TagArrayOutput     `pulumi:"tags"`
+	TrackingConfigArn pulumi.StringOutput    `pulumi:"trackingConfigArn"`
 }
 
 // NewMissionProfile registers a new resource with the given unique name, arguments, and options.
@@ -96,9 +97,9 @@ type missionProfileArgs struct {
 	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
 	StreamsKmsKey *MissionProfileStreamsKmsKey `pulumi:"streamsKmsKey"`
 	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
-	StreamsKmsRole    *string             `pulumi:"streamsKmsRole"`
-	Tags              []MissionProfileTag `pulumi:"tags"`
-	TrackingConfigArn string              `pulumi:"trackingConfigArn"`
+	StreamsKmsRole    *string   `pulumi:"streamsKmsRole"`
+	Tags              []aws.Tag `pulumi:"tags"`
+	TrackingConfigArn string    `pulumi:"trackingConfigArn"`
 }
 
 // The set of arguments for constructing a MissionProfile resource.
@@ -116,7 +117,7 @@ type MissionProfileArgs struct {
 	StreamsKmsKey MissionProfileStreamsKmsKeyPtrInput
 	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
 	StreamsKmsRole    pulumi.StringPtrInput
-	Tags              MissionProfileTagArrayInput
+	Tags              aws.TagArrayInput
 	TrackingConfigArn pulumi.StringInput
 }
 
@@ -199,8 +200,8 @@ func (o MissionProfileOutput) StreamsKmsRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MissionProfile) pulumi.StringPtrOutput { return v.StreamsKmsRole }).(pulumi.StringPtrOutput)
 }
 
-func (o MissionProfileOutput) Tags() MissionProfileTagArrayOutput {
-	return o.ApplyT(func(v *MissionProfile) MissionProfileTagArrayOutput { return v.Tags }).(MissionProfileTagArrayOutput)
+func (o MissionProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *MissionProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o MissionProfileOutput) TrackingConfigArn() pulumi.StringOutput {

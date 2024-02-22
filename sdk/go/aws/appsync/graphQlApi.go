@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,7 +41,7 @@ type GraphQlApi struct {
 	RealtimeDns               pulumi.StringOutput                       `pulumi:"realtimeDns"`
 	RealtimeUrl               pulumi.StringOutput                       `pulumi:"realtimeUrl"`
 	ResolverCountLimit        pulumi.IntPtrOutput                       `pulumi:"resolverCountLimit"`
-	Tags                      GraphQlApiTagArrayOutput                  `pulumi:"tags"`
+	Tags                      aws.TagArrayOutput                        `pulumi:"tags"`
 	UserPoolConfig            GraphQlApiUserPoolConfigPtrOutput         `pulumi:"userPoolConfig"`
 	Visibility                pulumi.StringPtrOutput                    `pulumi:"visibility"`
 	XrayEnabled               pulumi.BoolPtrOutput                      `pulumi:"xrayEnabled"`
@@ -104,7 +105,7 @@ type graphQlApiArgs struct {
 	OwnerContact              *string                           `pulumi:"ownerContact"`
 	QueryDepthLimit           *int                              `pulumi:"queryDepthLimit"`
 	ResolverCountLimit        *int                              `pulumi:"resolverCountLimit"`
-	Tags                      []GraphQlApiTag                   `pulumi:"tags"`
+	Tags                      []aws.Tag                         `pulumi:"tags"`
 	UserPoolConfig            *GraphQlApiUserPoolConfig         `pulumi:"userPoolConfig"`
 	Visibility                *string                           `pulumi:"visibility"`
 	XrayEnabled               *bool                             `pulumi:"xrayEnabled"`
@@ -127,7 +128,7 @@ type GraphQlApiArgs struct {
 	OwnerContact              pulumi.StringPtrInput
 	QueryDepthLimit           pulumi.IntPtrInput
 	ResolverCountLimit        pulumi.IntPtrInput
-	Tags                      GraphQlApiTagArrayInput
+	Tags                      aws.TagArrayInput
 	UserPoolConfig            GraphQlApiUserPoolConfigPtrInput
 	Visibility                pulumi.StringPtrInput
 	XrayEnabled               pulumi.BoolPtrInput
@@ -257,8 +258,8 @@ func (o GraphQlApiOutput) ResolverCountLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQlApi) pulumi.IntPtrOutput { return v.ResolverCountLimit }).(pulumi.IntPtrOutput)
 }
 
-func (o GraphQlApiOutput) Tags() GraphQlApiTagArrayOutput {
-	return o.ApplyT(func(v *GraphQlApi) GraphQlApiTagArrayOutput { return v.Tags }).(GraphQlApiTagArrayOutput)
+func (o GraphQlApiOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *GraphQlApi) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o GraphQlApiOutput) UserPoolConfig() GraphQlApiUserPoolConfigPtrOutput {

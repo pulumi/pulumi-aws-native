@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['MulticastGroupArgs', 'MulticastGroup']
@@ -21,7 +23,7 @@ class MulticastGroupArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MulticastGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MulticastGroup resource.
         :param pulumi.Input['MulticastGroupLoRaWanArgs'] lo_ra_wan: Multicast group LoRaWAN
@@ -29,7 +31,7 @@ class MulticastGroupArgs:
         :param pulumi.Input[str] description: Multicast group description
         :param pulumi.Input[str] disassociate_wireless_device: Wireless device to disassociate. Only for update request.
         :param pulumi.Input[str] name: Name of Multicast group
-        :param pulumi.Input[Sequence[pulumi.Input['MulticastGroupTagArgs']]] tags: A list of key-value pairs that contain metadata for the Multicast group.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the Multicast group.
         """
         pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
         if associate_wireless_device is not None:
@@ -105,14 +107,14 @@ class MulticastGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MulticastGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the Multicast group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MulticastGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -126,7 +128,7 @@ class MulticastGroup(pulumi.CustomResource):
                  disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['MulticastGroupLoRaWanArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MulticastGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Create and manage Multicast groups.
@@ -138,7 +140,7 @@ class MulticastGroup(pulumi.CustomResource):
         :param pulumi.Input[str] disassociate_wireless_device: Wireless device to disassociate. Only for update request.
         :param pulumi.Input[pulumi.InputType['MulticastGroupLoRaWanArgs']] lo_ra_wan: Multicast group LoRaWAN
         :param pulumi.Input[str] name: Name of Multicast group
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MulticastGroupTagArgs']]]] tags: A list of key-value pairs that contain metadata for the Multicast group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the Multicast group.
         """
         ...
     @overload
@@ -169,7 +171,7 @@ class MulticastGroup(pulumi.CustomResource):
                  disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['MulticastGroupLoRaWanArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MulticastGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,7 +281,7 @@ class MulticastGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MulticastGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the Multicast group.
         """

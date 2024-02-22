@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type SecurityProfile struct {
 	// The list of resources that a security profile applies tag restrictions to in Amazon Connect.
 	TagRestrictedResources pulumi.StringArrayOutput `pulumi:"tagRestrictedResources"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags SecurityProfileTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSecurityProfile registers a new resource with the given unique name, arguments, and options.
@@ -95,7 +96,7 @@ type securityProfileArgs struct {
 	// The list of resources that a security profile applies tag restrictions to in Amazon Connect.
 	TagRestrictedResources []string `pulumi:"tagRestrictedResources"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags []SecurityProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SecurityProfile resource.
@@ -113,7 +114,7 @@ type SecurityProfileArgs struct {
 	// The list of resources that a security profile applies tag restrictions to in Amazon Connect.
 	TagRestrictedResources pulumi.StringArrayInput
 	// The tags used to organize, track, or control access for this resource.
-	Tags SecurityProfileTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SecurityProfileArgs) ElementType() reflect.Type {
@@ -189,8 +190,8 @@ func (o SecurityProfileOutput) TagRestrictedResources() pulumi.StringArrayOutput
 }
 
 // The tags used to organize, track, or control access for this resource.
-func (o SecurityProfileOutput) Tags() SecurityProfileTagArrayOutput {
-	return o.ApplyT(func(v *SecurityProfile) SecurityProfileTagArrayOutput { return v.Tags }).(SecurityProfileTagArrayOutput)
+func (o SecurityProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SecurityProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

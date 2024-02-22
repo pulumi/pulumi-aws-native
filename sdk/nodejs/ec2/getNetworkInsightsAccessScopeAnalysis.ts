@@ -31,7 +31,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisResult {
     readonly startDate?: string;
     readonly status?: enums.ec2.NetworkInsightsAccessScopeAnalysisStatus;
     readonly statusMessage?: string;
-    readonly tags?: outputs.ec2.NetworkInsightsAccessScopeAnalysisTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis

@@ -81,7 +81,7 @@ export interface GetTrailResult {
      * Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
      */
     readonly snsTopicName?: string;
-    readonly tags?: outputs.cloudtrail.TrailTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.

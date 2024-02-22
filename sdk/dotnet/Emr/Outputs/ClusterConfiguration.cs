@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.Emr.Outputs
     public sealed class ClusterConfiguration
     {
         public readonly string? Classification;
-        public readonly object? ConfigurationProperties;
+        public readonly ImmutableDictionary<string, string>? ConfigurationProperties;
         public readonly ImmutableArray<Outputs.ClusterConfiguration> Configurations;
 
         [OutputConstructor]
         private ClusterConfiguration(
             string? classification,
 
-            object? configurationProperties,
+            ImmutableDictionary<string, string>? configurationProperties,
 
             ImmutableArray<Outputs.ClusterConfiguration> configurations)
         {

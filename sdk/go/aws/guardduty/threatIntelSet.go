@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,12 +17,12 @@ import (
 type ThreatIntelSet struct {
 	pulumi.CustomResourceState
 
-	Activate   pulumi.BoolPtrOutput             `pulumi:"activate"`
-	DetectorId pulumi.StringPtrOutput           `pulumi:"detectorId"`
-	Format     pulumi.StringOutput              `pulumi:"format"`
-	Location   pulumi.StringOutput              `pulumi:"location"`
-	Name       pulumi.StringPtrOutput           `pulumi:"name"`
-	Tags       ThreatIntelSetTagItemArrayOutput `pulumi:"tags"`
+	Activate   pulumi.BoolPtrOutput   `pulumi:"activate"`
+	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
+	Format     pulumi.StringOutput    `pulumi:"format"`
+	Location   pulumi.StringOutput    `pulumi:"location"`
+	Name       pulumi.StringPtrOutput `pulumi:"name"`
+	Tags       aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewThreatIntelSet registers a new resource with the given unique name, arguments, and options.
@@ -75,12 +76,12 @@ func (ThreatIntelSetState) ElementType() reflect.Type {
 }
 
 type threatIntelSetArgs struct {
-	Activate   *bool                   `pulumi:"activate"`
-	DetectorId *string                 `pulumi:"detectorId"`
-	Format     string                  `pulumi:"format"`
-	Location   string                  `pulumi:"location"`
-	Name       *string                 `pulumi:"name"`
-	Tags       []ThreatIntelSetTagItem `pulumi:"tags"`
+	Activate   *bool     `pulumi:"activate"`
+	DetectorId *string   `pulumi:"detectorId"`
+	Format     string    `pulumi:"format"`
+	Location   string    `pulumi:"location"`
+	Name       *string   `pulumi:"name"`
+	Tags       []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ThreatIntelSet resource.
@@ -90,7 +91,7 @@ type ThreatIntelSetArgs struct {
 	Format     pulumi.StringInput
 	Location   pulumi.StringInput
 	Name       pulumi.StringPtrInput
-	Tags       ThreatIntelSetTagItemArrayInput
+	Tags       aws.TagArrayInput
 }
 
 func (ThreatIntelSetArgs) ElementType() reflect.Type {
@@ -150,8 +151,8 @@ func (o ThreatIntelSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o ThreatIntelSetOutput) Tags() ThreatIntelSetTagItemArrayOutput {
-	return o.ApplyT(func(v *ThreatIntelSet) ThreatIntelSetTagItemArrayOutput { return v.Tags }).(ThreatIntelSetTagItemArrayOutput)
+func (o ThreatIntelSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

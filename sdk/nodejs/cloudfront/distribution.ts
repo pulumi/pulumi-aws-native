@@ -39,7 +39,7 @@ export class Distribution extends pulumi.CustomResource {
 
     public readonly distributionConfig!: pulumi.Output<outputs.cloudfront.DistributionConfig>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.cloudfront.DistributionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Distribution resource with the given unique name, arguments, and options.
@@ -73,5 +73,5 @@ export class Distribution extends pulumi.CustomResource {
  */
 export interface DistributionArgs {
     distributionConfig: pulumi.Input<inputs.cloudfront.DistributionConfigArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

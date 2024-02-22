@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,7 +49,7 @@ type LookupFleetMetricResult struct {
 	// The version of a Fleet Indexing query used by a fleet metric
 	QueryVersion *string `pulumi:"queryVersion"`
 	// An array of key-value pairs to apply to this resource
-	Tags []FleetMetricTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The unit of data points emitted by a fleet metric
 	Unit *string `pulumi:"unit"`
 	// The version of a fleet metric
@@ -141,8 +142,8 @@ func (o LookupFleetMetricResultOutput) QueryVersion() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource
-func (o LookupFleetMetricResultOutput) Tags() FleetMetricTagArrayOutput {
-	return o.ApplyT(func(v LookupFleetMetricResult) []FleetMetricTag { return v.Tags }).(FleetMetricTagArrayOutput)
+func (o LookupFleetMetricResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFleetMetricResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The unit of data points emitted by a fleet metric

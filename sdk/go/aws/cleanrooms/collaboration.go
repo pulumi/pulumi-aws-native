@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Collaboration struct {
 	Name                        pulumi.StringOutput                          `pulumi:"name"`
 	QueryLogStatus              CollaborationQueryLogStatusOutput            `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags CollaborationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCollaboration registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +104,7 @@ type collaborationArgs struct {
 	Name                        *string                              `pulumi:"name"`
 	QueryLogStatus              CollaborationQueryLogStatus          `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags []CollaborationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Collaboration resource.
@@ -117,7 +118,7 @@ type CollaborationArgs struct {
 	Name                        pulumi.StringPtrInput
 	QueryLogStatus              CollaborationQueryLogStatusInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags CollaborationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (CollaborationArgs) ElementType() reflect.Type {
@@ -200,8 +201,8 @@ func (o CollaborationOutput) QueryLogStatus() CollaborationQueryLogStatusOutput 
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-func (o CollaborationOutput) Tags() CollaborationTagArrayOutput {
-	return o.ApplyT(func(v *Collaboration) CollaborationTagArrayOutput { return v.Tags }).(CollaborationTagArrayOutput)
+func (o CollaborationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Collaboration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

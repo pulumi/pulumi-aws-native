@@ -1093,107 +1093,6 @@ type ScheduleGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ScheduleGroupTagInput is an input type that accepts ScheduleGroupTagArgs and ScheduleGroupTagOutput values.
-// You can construct a concrete instance of `ScheduleGroupTagInput` via:
-//
-//	ScheduleGroupTagArgs{...}
-type ScheduleGroupTagInput interface {
-	pulumi.Input
-
-	ToScheduleGroupTagOutput() ScheduleGroupTagOutput
-	ToScheduleGroupTagOutputWithContext(context.Context) ScheduleGroupTagOutput
-}
-
-// Tag to associate with the resource.
-type ScheduleGroupTagArgs struct {
-	// Key for the tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// Value for the tag
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ScheduleGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleGroupTag)(nil)).Elem()
-}
-
-func (i ScheduleGroupTagArgs) ToScheduleGroupTagOutput() ScheduleGroupTagOutput {
-	return i.ToScheduleGroupTagOutputWithContext(context.Background())
-}
-
-func (i ScheduleGroupTagArgs) ToScheduleGroupTagOutputWithContext(ctx context.Context) ScheduleGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleGroupTagOutput)
-}
-
-// ScheduleGroupTagArrayInput is an input type that accepts ScheduleGroupTagArray and ScheduleGroupTagArrayOutput values.
-// You can construct a concrete instance of `ScheduleGroupTagArrayInput` via:
-//
-//	ScheduleGroupTagArray{ ScheduleGroupTagArgs{...} }
-type ScheduleGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToScheduleGroupTagArrayOutput() ScheduleGroupTagArrayOutput
-	ToScheduleGroupTagArrayOutputWithContext(context.Context) ScheduleGroupTagArrayOutput
-}
-
-type ScheduleGroupTagArray []ScheduleGroupTagInput
-
-func (ScheduleGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleGroupTag)(nil)).Elem()
-}
-
-func (i ScheduleGroupTagArray) ToScheduleGroupTagArrayOutput() ScheduleGroupTagArrayOutput {
-	return i.ToScheduleGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i ScheduleGroupTagArray) ToScheduleGroupTagArrayOutputWithContext(ctx context.Context) ScheduleGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleGroupTagArrayOutput)
-}
-
-// Tag to associate with the resource.
-type ScheduleGroupTagOutput struct{ *pulumi.OutputState }
-
-func (ScheduleGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleGroupTag)(nil)).Elem()
-}
-
-func (o ScheduleGroupTagOutput) ToScheduleGroupTagOutput() ScheduleGroupTagOutput {
-	return o
-}
-
-func (o ScheduleGroupTagOutput) ToScheduleGroupTagOutputWithContext(ctx context.Context) ScheduleGroupTagOutput {
-	return o
-}
-
-// Key for the tag
-func (o ScheduleGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Value for the tag
-func (o ScheduleGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ScheduleGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ScheduleGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleGroupTag)(nil)).Elem()
-}
-
-func (o ScheduleGroupTagArrayOutput) ToScheduleGroupTagArrayOutput() ScheduleGroupTagArrayOutput {
-	return o
-}
-
-func (o ScheduleGroupTagArrayOutput) ToScheduleGroupTagArrayOutputWithContext(ctx context.Context) ScheduleGroupTagArrayOutput {
-	return o
-}
-
-func (o ScheduleGroupTagArrayOutput) Index(i pulumi.IntInput) ScheduleGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleGroupTag {
-		return vs[0].([]ScheduleGroupTag)[vs[1].(int)]
-	}).(ScheduleGroupTagOutput)
-}
-
 // The custom parameter you can use to control the shard to which EventBridge Scheduler sends the event.
 type ScheduleKinesisParameters struct {
 	// The custom parameter used as the Kinesis partition key. For more information, see Amazon Kinesis Streams Key Concepts in the Amazon Kinesis Streams Developer Guide.
@@ -2564,8 +2463,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEventBridgeParametersInput)(nil)).Elem(), ScheduleEventBridgeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleEventBridgeParametersPtrInput)(nil)).Elem(), ScheduleEventBridgeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleFlexibleTimeWindowInput)(nil)).Elem(), ScheduleFlexibleTimeWindowArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleGroupTagInput)(nil)).Elem(), ScheduleGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleGroupTagArrayInput)(nil)).Elem(), ScheduleGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleKinesisParametersInput)(nil)).Elem(), ScheduleKinesisParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleKinesisParametersPtrInput)(nil)).Elem(), ScheduleKinesisParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleNetworkConfigurationInput)(nil)).Elem(), ScheduleNetworkConfigurationArgs{})
@@ -2597,8 +2494,6 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleEventBridgeParametersPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleFlexibleTimeWindowOutput{})
 	pulumi.RegisterOutputType(ScheduleFlexibleTimeWindowPtrOutput{})
-	pulumi.RegisterOutputType(ScheduleGroupTagOutput{})
-	pulumi.RegisterOutputType(ScheduleGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleKinesisParametersOutput{})
 	pulumi.RegisterOutputType(ScheduleKinesisParametersPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleNetworkConfigurationOutput{})

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,7 +24,7 @@ class FhirDatastoreArgs:
                  identity_provider_configuration: Optional[pulumi.Input['FhirDatastoreIdentityProviderConfigurationArgs']] = None,
                  preload_data_config: Optional[pulumi.Input['FhirDatastorePreloadDataConfigArgs']] = None,
                  sse_configuration: Optional[pulumi.Input['FhirDatastoreSseConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FhirDatastoreTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FhirDatastore resource.
         """
@@ -85,11 +87,11 @@ class FhirDatastoreArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FhirDatastoreTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FhirDatastoreTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -103,7 +105,7 @@ class FhirDatastore(pulumi.CustomResource):
                  identity_provider_configuration: Optional[pulumi.Input[pulumi.InputType['FhirDatastoreIdentityProviderConfigurationArgs']]] = None,
                  preload_data_config: Optional[pulumi.Input[pulumi.InputType['FhirDatastorePreloadDataConfigArgs']]] = None,
                  sse_configuration: Optional[pulumi.Input[pulumi.InputType['FhirDatastoreSseConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirDatastoreTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         HealthLake FHIR Datastore
@@ -140,7 +142,7 @@ class FhirDatastore(pulumi.CustomResource):
                  identity_provider_configuration: Optional[pulumi.Input[pulumi.InputType['FhirDatastoreIdentityProviderConfigurationArgs']]] = None,
                  preload_data_config: Optional[pulumi.Input[pulumi.InputType['FhirDatastorePreloadDataConfigArgs']]] = None,
                  sse_configuration: Optional[pulumi.Input[pulumi.InputType['FhirDatastoreSseConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirDatastoreTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -252,6 +254,6 @@ class FhirDatastore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FhirDatastoreTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// Metadata that can be used to manage the security profile.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SecurityProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// A set of target ARNs that the security profile is attached to.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? securityProfileDescription,
 
-            ImmutableArray<Outputs.SecurityProfileTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> targetArns)
         {

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetResourceSetResult',
@@ -48,7 +49,7 @@ class GetResourceSetResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ResourceSetTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         A tag to associate with the parameters for a resource set.
         """

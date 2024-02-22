@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The tags for the transit gateway multicast domain.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TransitGatewayMulticastDomainTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the transit gateway multicast domain.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? state,
 
-            ImmutableArray<Outputs.TransitGatewayMulticastDomainTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? transitGatewayMulticastDomainArn,
 

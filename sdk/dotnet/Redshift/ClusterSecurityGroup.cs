@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Redshift
         public Output<string> Description { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ClusterSecurityGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -75,10 +75,10 @@ namespace Pulumi.AwsNative.Redshift
         public Input<string> Description { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.ClusterSecurityGroupTagArgs>? _tags;
-        public InputList<Inputs.ClusterSecurityGroupTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ClusterSecurityGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -46,7 +46,7 @@ export class Model extends pulumi.CustomResource {
     public readonly inferenceExecutionConfig!: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig | undefined>;
     public readonly modelName!: pulumi.Output<string | undefined>;
     public readonly primaryContainer!: pulumi.Output<outputs.sagemaker.ModelContainerDefinition | undefined>;
-    public readonly tags!: pulumi.Output<outputs.sagemaker.ModelTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcConfig!: pulumi.Output<outputs.sagemaker.ModelVpcConfig | undefined>;
 
     /**
@@ -97,6 +97,6 @@ export interface ModelArgs {
     inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfigArgs>;
     modelName?: pulumi.Input<string>;
     primaryContainer?: pulumi.Input<inputs.sagemaker.ModelContainerDefinitionArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfigArgs>;
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupPartnerAccountResult struct {
 	// The Sidewalk account credentials.
 	SidewalkResponse *PartnerAccountSidewalkAccountInfoWithFingerprint `pulumi:"sidewalkResponse"`
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags []PartnerAccountTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPartnerAccountOutput(ctx *pulumi.Context, args LookupPartnerAccountOutputArgs, opts ...pulumi.InvokeOption) LookupPartnerAccountResultOutput {
@@ -106,8 +107,8 @@ func (o LookupPartnerAccountResultOutput) SidewalkResponse() PartnerAccountSidew
 }
 
 // A list of key-value pairs that contain metadata for the destination.
-func (o LookupPartnerAccountResultOutput) Tags() PartnerAccountTagArrayOutput {
-	return o.ApplyT(func(v LookupPartnerAccountResult) []PartnerAccountTag { return v.Tags }).(PartnerAccountTagArrayOutput)
+func (o LookupPartnerAccountResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPartnerAccountResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

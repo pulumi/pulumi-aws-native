@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['StorageVirtualMachineArgs', 'StorageVirtualMachine']
@@ -21,7 +23,7 @@ class StorageVirtualMachineArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  root_volume_security_style: Optional[pulumi.Input[str]] = None,
                  svm_admin_password: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageVirtualMachineTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageVirtualMachine resource.
         """
@@ -84,11 +86,11 @@ class StorageVirtualMachineArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageVirtualMachineTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageVirtualMachineTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -107,7 +109,7 @@ class StorageVirtualMachine(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  root_volume_security_style: Optional[pulumi.Input[str]] = None,
                  svm_admin_password: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageVirtualMachineTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::FSx::StorageVirtualMachine
@@ -144,7 +146,7 @@ class StorageVirtualMachine(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  root_volume_security_style: Optional[pulumi.Input[str]] = None,
                  svm_admin_password: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageVirtualMachineTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""StorageVirtualMachine is deprecated: StorageVirtualMachine is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -238,7 +240,7 @@ class StorageVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StorageVirtualMachineTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

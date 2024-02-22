@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupLocationFSxOpenZfsResult struct {
 	// The URL of the FSx OpenZFS that was described.
 	LocationUri *string `pulumi:"locationUri"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationFSxOpenZfsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocationFSxOpenZfsOutput(ctx *pulumi.Context, args LookupLocationFSxOpenZfsOutputArgs, opts ...pulumi.InvokeOption) LookupLocationFSxOpenZfsResultOutput {
@@ -83,8 +84,8 @@ func (o LookupLocationFSxOpenZfsResultOutput) LocationUri() pulumi.StringPtrOutp
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLocationFSxOpenZfsResultOutput) Tags() LocationFSxOpenZfsTagArrayOutput {
-	return o.ApplyT(func(v LookupLocationFSxOpenZfsResult) []LocationFSxOpenZfsTag { return v.Tags }).(LocationFSxOpenZfsTagArrayOutput)
+func (o LookupLocationFSxOpenZfsResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocationFSxOpenZfsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

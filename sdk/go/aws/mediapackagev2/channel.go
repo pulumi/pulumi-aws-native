@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Channel struct {
 	Description      pulumi.StringPtrOutput           `pulumi:"description"`
 	IngestEndpoints  ChannelIngestEndpointArrayOutput `pulumi:"ingestEndpoints"`
 	ModifiedAt       pulumi.StringOutput              `pulumi:"modifiedAt"`
-	Tags             ChannelTagArrayOutput            `pulumi:"tags"`
+	Tags             aws.TagArrayOutput               `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -70,10 +71,10 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
-	ChannelGroupName *string      `pulumi:"channelGroupName"`
-	ChannelName      *string      `pulumi:"channelName"`
-	Description      *string      `pulumi:"description"`
-	Tags             []ChannelTag `pulumi:"tags"`
+	ChannelGroupName *string   `pulumi:"channelGroupName"`
+	ChannelName      *string   `pulumi:"channelName"`
+	Description      *string   `pulumi:"description"`
+	Tags             []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -81,7 +82,7 @@ type ChannelArgs struct {
 	ChannelGroupName pulumi.StringPtrInput
 	ChannelName      pulumi.StringPtrInput
 	Description      pulumi.StringPtrInput
-	Tags             ChannelTagArrayInput
+	Tags             aws.TagArrayInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -149,8 +150,8 @@ func (o ChannelOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
-func (o ChannelOutput) Tags() ChannelTagArrayOutput {
-	return o.ApplyT(func(v *Channel) ChannelTagArrayOutput { return v.Tags }).(ChannelTagArrayOutput)
+func (o ChannelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Channel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

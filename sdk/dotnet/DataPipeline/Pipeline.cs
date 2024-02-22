@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.DataPipeline
         /// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
         /// </summary>
         [Output("pipelineTags")]
-        public Output<ImmutableArray<Outputs.PipelineTag>> PipelineTags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> PipelineTags { get; private set; } = null!;
 
 
         /// <summary>
@@ -165,14 +165,14 @@ namespace Pulumi.AwsNative.DataPipeline
         }
 
         [Input("pipelineTags")]
-        private InputList<Inputs.PipelineTagArgs>? _pipelineTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _pipelineTags;
 
         /// <summary>
         /// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
         /// </summary>
-        public InputList<Inputs.PipelineTagArgs> PipelineTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> PipelineTags
         {
-            get => _pipelineTags ?? (_pipelineTags = new InputList<Inputs.PipelineTagArgs>());
+            get => _pipelineTags ?? (_pipelineTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _pipelineTags = value;
         }
 

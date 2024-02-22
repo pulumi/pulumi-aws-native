@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -20,7 +22,7 @@ class TaskDefinitionArgs:
                  auto_create_tasks: pulumi.Input[bool],
                  lo_ra_wan_update_gateway_task_entry: Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  task_definition_type: Optional[pulumi.Input['TaskDefinitionType']] = None,
                  update: Optional[pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']] = None):
         """
@@ -28,7 +30,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input[bool] auto_create_tasks: Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
         :param pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs'] lo_ra_wan_update_gateway_task_entry: The list of task definitions.
         :param pulumi.Input[str] name: The name of the new resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
         :param pulumi.Input['TaskDefinitionType'] task_definition_type: A filter to list only the wireless gateway task definitions that use this task definition type
         :param pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs'] update: Information about the gateways to update.
         """
@@ -82,14 +84,14 @@ class TaskDefinitionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the destination.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -125,7 +127,7 @@ class TaskDefinition(pulumi.CustomResource):
                  auto_create_tasks: Optional[pulumi.Input[bool]] = None,
                  lo_ra_wan_update_gateway_task_entry: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  task_definition_type: Optional[pulumi.Input['TaskDefinitionType']] = None,
                  update: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']]] = None,
                  __props__=None):
@@ -137,7 +139,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_create_tasks: Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
         :param pulumi.Input[pulumi.InputType['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs']] lo_ra_wan_update_gateway_task_entry: The list of task definitions.
         :param pulumi.Input[str] name: The name of the new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionTagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
         :param pulumi.Input['TaskDefinitionType'] task_definition_type: A filter to list only the wireless gateway task definitions that use this task definition type
         :param pulumi.Input[pulumi.InputType['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']] update: Information about the gateways to update.
         """
@@ -168,7 +170,7 @@ class TaskDefinition(pulumi.CustomResource):
                  auto_create_tasks: Optional[pulumi.Input[bool]] = None,
                  lo_ra_wan_update_gateway_task_entry: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  task_definition_type: Optional[pulumi.Input['TaskDefinitionType']] = None,
                  update: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']]] = None,
                  __props__=None):
@@ -254,7 +256,7 @@ class TaskDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TaskDefinitionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the destination.
         """

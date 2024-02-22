@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,7 +47,7 @@ type Instance struct {
 	// Support code to help identify any issues
 	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
 	// An array of key-value pairs to apply to this resource.
-	Tags InstanceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Username of the  Lightsail instance.
@@ -123,7 +124,7 @@ type instanceArgs struct {
 	Networking  *InstanceNetworking `pulumi:"networking"`
 	State       *InstanceStateType  `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []InstanceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
 	UserData *string `pulumi:"userData"`
 }
@@ -147,7 +148,7 @@ type InstanceArgs struct {
 	Networking  InstanceNetworkingPtrInput
 	State       InstanceStateTypePtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags InstanceTagArrayInput
+	Tags aws.TagArrayInput
 	// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
 	UserData pulumi.StringPtrInput
 }
@@ -270,8 +271,8 @@ func (o InstanceOutput) SupportCode() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o InstanceOutput) Tags() InstanceTagArrayOutput {
-	return o.ApplyT(func(v *Instance) InstanceTagArrayOutput { return v.Tags }).(InstanceTagArrayOutput)
+func (o InstanceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Instance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.

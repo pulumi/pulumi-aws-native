@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type CarrierGateway struct {
 	// The state of the carrier gateway.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the carrier gateway.
-	Tags CarrierGatewayTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -76,7 +77,7 @@ func (CarrierGatewayState) ElementType() reflect.Type {
 
 type carrierGatewayArgs struct {
 	// The tags for the carrier gateway.
-	Tags []CarrierGatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -84,7 +85,7 @@ type carrierGatewayArgs struct {
 // The set of arguments for constructing a CarrierGateway resource.
 type CarrierGatewayArgs struct {
 	// The tags for the carrier gateway.
-	Tags CarrierGatewayTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the VPC.
 	VpcId pulumi.StringInput
 }
@@ -142,8 +143,8 @@ func (o CarrierGatewayOutput) State() pulumi.StringOutput {
 }
 
 // The tags for the carrier gateway.
-func (o CarrierGatewayOutput) Tags() CarrierGatewayTagArrayOutput {
-	return o.ApplyT(func(v *CarrierGateway) CarrierGatewayTagArrayOutput { return v.Tags }).(CarrierGatewayTagArrayOutput)
+func (o CarrierGatewayOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CarrierGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the VPC.

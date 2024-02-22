@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type Application struct {
 	SapInstanceNumber pulumi.StringPtrOutput           `pulumi:"sapInstanceNumber"`
 	Sid               pulumi.StringPtrOutput           `pulumi:"sid"`
 	// The tags of a SystemsManagerSAP application.
-	Tags ApplicationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +89,7 @@ type applicationArgs struct {
 	SapInstanceNumber *string                 `pulumi:"sapInstanceNumber"`
 	Sid               *string                 `pulumi:"sid"`
 	// The tags of a SystemsManagerSAP application.
-	Tags []ApplicationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -100,7 +101,7 @@ type ApplicationArgs struct {
 	SapInstanceNumber pulumi.StringPtrInput
 	Sid               pulumi.StringPtrInput
 	// The tags of a SystemsManagerSAP application.
-	Tags ApplicationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -170,8 +171,8 @@ func (o ApplicationOutput) Sid() pulumi.StringPtrOutput {
 }
 
 // The tags of a SystemsManagerSAP application.
-func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
-	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
+func (o ApplicationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Application) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -92,7 +93,7 @@ type DbCluster struct {
 	// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
 	// The tags assigned to this cluster.
-	Tags DbClusterTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
@@ -225,7 +226,7 @@ type dbClusterArgs struct {
 	// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// The tags assigned to this cluster.
-	Tags []DbClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
@@ -307,7 +308,7 @@ type DbClusterArgs struct {
 	// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
 	StorageEncrypted pulumi.BoolPtrInput
 	// The tags assigned to this cluster.
-	Tags DbClusterTagArrayInput
+	Tags aws.TagArrayInput
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
@@ -512,8 +513,8 @@ func (o DbClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 }
 
 // The tags assigned to this cluster.
-func (o DbClusterOutput) Tags() DbClusterTagArrayOutput {
-	return o.ApplyT(func(v *DbCluster) DbClusterTagArrayOutput { return v.Tags }).(DbClusterTagArrayOutput)
+func (o DbClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbCluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Creates a new DB cluster from a DB snapshot or DB cluster snapshot.

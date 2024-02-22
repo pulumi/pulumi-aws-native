@@ -56,7 +56,7 @@ export interface GetScheduledQueryResult {
      * Configuration of target store where scheduled query results are written to.
      */
     readonly sqTargetConfiguration?: string;
-    readonly tags?: outputs.timestream.ScheduledQueryTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.

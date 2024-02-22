@@ -27,7 +27,7 @@ export interface GetVirtualServiceResult {
     readonly id?: string;
     readonly resourceOwner?: string;
     readonly spec?: outputs.appmesh.VirtualServiceSpec;
-    readonly tags?: outputs.appmesh.VirtualServiceTag[];
+    readonly tags?: outputs.Tag[];
     readonly uid?: string;
 }
 /**

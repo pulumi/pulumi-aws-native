@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationObjectStorageTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLocationObjectStorageResult(
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.DataSync
 
             Pulumi.AwsNative.DataSync.LocationObjectStorageServerProtocol? serverProtocol,
 
-            ImmutableArray<Outputs.LocationObjectStorageTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AccessKey = accessKey;
             AgentArns = agentArns;

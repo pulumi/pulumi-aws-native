@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type DeviceFleet struct {
 	// Role associated with the device fleet
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Associate tags with the resource
-	Tags DeviceFleetTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDeviceFleet registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +88,7 @@ type deviceFleetArgs struct {
 	// Role associated with the device fleet
 	RoleArn string `pulumi:"roleArn"`
 	// Associate tags with the resource
-	Tags []DeviceFleetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeviceFleet resource.
@@ -101,7 +102,7 @@ type DeviceFleetArgs struct {
 	// Role associated with the device fleet
 	RoleArn pulumi.StringInput
 	// Associate tags with the resource
-	Tags DeviceFleetTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DeviceFleetArgs) ElementType() reflect.Type {
@@ -162,8 +163,8 @@ func (o DeviceFleetOutput) RoleArn() pulumi.StringOutput {
 }
 
 // Associate tags with the resource
-func (o DeviceFleetOutput) Tags() DeviceFleetTagArrayOutput {
-	return o.ApplyT(func(v *DeviceFleet) DeviceFleetTagArrayOutput { return v.Tags }).(DeviceFleetTagArrayOutput)
+func (o DeviceFleetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DeviceFleet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

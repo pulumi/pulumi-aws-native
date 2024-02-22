@@ -18,7 +18,6 @@ __all__ = [
     'LoadBalancerLbCookieStickinessPolicy',
     'LoadBalancerListeners',
     'LoadBalancerPolicies',
-    'LoadBalancerTag',
 ]
 
 @pulumi.output_type
@@ -401,24 +400,5 @@ class LoadBalancerPolicies(dict):
     @pulumi.getter(name="loadBalancerPorts")
     def load_balancer_ports(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "load_balancer_ports")
-
-
-@pulumi.output_type
-class LoadBalancerTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

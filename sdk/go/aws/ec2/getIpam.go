@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,7 +49,7 @@ type LookupIpamResult struct {
 	// The number of scopes that currently exist in this IPAM.
 	ScopeCount *int `pulumi:"scopeCount"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IpamTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The tier of the IPAM.
 	Tier *IpamTier `pulumi:"tier"`
 }
@@ -139,8 +140,8 @@ func (o LookupIpamResultOutput) ScopeCount() pulumi.IntPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupIpamResultOutput) Tags() IpamTagArrayOutput {
-	return o.ApplyT(func(v LookupIpamResult) []IpamTag { return v.Tags }).(IpamTagArrayOutput)
+func (o LookupIpamResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIpamResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The tier of the IPAM.

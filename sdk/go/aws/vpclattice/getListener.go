@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupListenerResult struct {
 	Id            *string                `pulumi:"id"`
 	ServiceArn    *string                `pulumi:"serviceArn"`
 	ServiceId     *string                `pulumi:"serviceId"`
-	Tags          []ListenerTag          `pulumi:"tags"`
+	Tags          []aws.Tag              `pulumi:"tags"`
 }
 
 func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, opts ...pulumi.InvokeOption) LookupListenerResultOutput {
@@ -90,8 +91,8 @@ func (o LookupListenerResultOutput) ServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupListenerResultOutput) Tags() ListenerTagArrayOutput {
-	return o.ApplyT(func(v LookupListenerResult) []ListenerTag { return v.Tags }).(ListenerTagArrayOutput)
+func (o LookupListenerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupListenerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

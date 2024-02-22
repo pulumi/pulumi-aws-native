@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.MemoryDb
         /// <summary>
         /// An array of key-value pairs to apply to this cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AclTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// List of users associated to this acl.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.MemoryDb
 
             string? status,
 
-            ImmutableArray<Outputs.AclTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> userNames)
         {

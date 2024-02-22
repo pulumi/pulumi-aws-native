@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The tags for the association.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.LocalGatewayRouteTableVpcAssociationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the VPC.
@@ -108,14 +108,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string> LocalGatewayRouteTableId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.LocalGatewayRouteTableVpcAssociationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags for the association.
         /// </summary>
-        public InputList<Inputs.LocalGatewayRouteTableVpcAssociationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.LocalGatewayRouteTableVpcAssociationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

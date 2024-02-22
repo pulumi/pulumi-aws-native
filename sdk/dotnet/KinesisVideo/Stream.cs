@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// An array of key-value pairs associated with the Kinesis Video Stream.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.StreamTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -137,14 +137,14 @@ namespace Pulumi.AwsNative.KinesisVideo
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.StreamTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs associated with the Kinesis Video Stream.
         /// </summary>
-        public InputList<Inputs.StreamTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.StreamTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

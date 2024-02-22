@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The ID of the subnet
         /// </summary>
         public readonly string? SubnetId;
-        public readonly ImmutableArray<Outputs.SubnetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSubnetResult(
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? subnetId,
 
-            ImmutableArray<Outputs.SubnetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AssignIpv6AddressOnCreation = assignIpv6AddressOnCreation;
             EnableDns64 = enableDns64;

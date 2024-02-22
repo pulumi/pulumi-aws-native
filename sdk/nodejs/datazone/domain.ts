@@ -84,7 +84,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The tags specified for the Amazon DataZone domain.
      */
-    public readonly tags!: pulumi.Output<outputs.datazone.DomainTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -160,5 +160,5 @@ export interface DomainArgs {
     /**
      * The tags specified for the Amazon DataZone domain.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.datazone.DomainTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

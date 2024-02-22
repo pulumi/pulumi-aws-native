@@ -12,13 +12,9 @@ from ._enums import *
 
 __all__ = [
     'ApplicationApiGatewayProxyInputArgs',
-    'ApplicationTagArgs',
-    'EnvironmentTagArgs',
     'RouteDefaultRouteInputArgs',
-    'RouteTagArgs',
     'RouteUriPathRouteInputArgs',
     'ServiceLambdaEndpointInputArgs',
-    'ServiceTagArgs',
     'ServiceUrlEndpointInputArgs',
 ]
 
@@ -52,82 +48,6 @@ class ApplicationApiGatewayProxyInputArgs:
 
 
 @pulumi.input_type
-class ApplicationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A label for tagging Environment resource
-        :param pulumi.Input[str] key: A string used to identify this tag
-        :param pulumi.Input[str] value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class EnvironmentTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A label for tagging Environment resource
-        :param pulumi.Input[str] key: A string used to identify this tag
-        :param pulumi.Input[str] value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class RouteDefaultRouteInputArgs:
     def __init__(__self__, *,
                  activation_state: pulumi.Input['RouteActivationState']):
@@ -141,44 +61,6 @@ class RouteDefaultRouteInputArgs:
     @activation_state.setter
     def activation_state(self, value: pulumi.Input['RouteActivationState']):
         pulumi.set(self, "activation_state", value)
-
-
-@pulumi.input_type
-class RouteTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A label for tagging Environment resource
-        :param pulumi.Input[str] key: A string used to identify this tag
-        :param pulumi.Input[str] value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -259,44 +141,6 @@ class ServiceLambdaEndpointInputArgs:
     @arn.setter
     def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
-
-
-@pulumi.input_type
-class ServiceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A label for tagging Environment resource
-        :param pulumi.Input[str] key: A string used to identify this tag
-        :param pulumi.Input[str] value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

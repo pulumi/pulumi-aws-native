@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Listener struct {
 	ServiceArn        pulumi.StringOutput         `pulumi:"serviceArn"`
 	ServiceId         pulumi.StringOutput         `pulumi:"serviceId"`
 	ServiceIdentifier pulumi.StringPtrOutput      `pulumi:"serviceIdentifier"`
-	Tags              ListenerTagArrayOutput      `pulumi:"tags"`
+	Tags              aws.TagArrayOutput          `pulumi:"tags"`
 }
 
 // NewListener registers a new resource with the given unique name, arguments, and options.
@@ -85,7 +86,7 @@ type listenerArgs struct {
 	Port              *int                  `pulumi:"port"`
 	Protocol          ListenerProtocol      `pulumi:"protocol"`
 	ServiceIdentifier *string               `pulumi:"serviceIdentifier"`
-	Tags              []ListenerTag         `pulumi:"tags"`
+	Tags              []aws.Tag             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Listener resource.
@@ -95,7 +96,7 @@ type ListenerArgs struct {
 	Port              pulumi.IntPtrInput
 	Protocol          ListenerProtocolInput
 	ServiceIdentifier pulumi.StringPtrInput
-	Tags              ListenerTagArrayInput
+	Tags              aws.TagArrayInput
 }
 
 func (ListenerArgs) ElementType() reflect.Type {
@@ -167,8 +168,8 @@ func (o ListenerOutput) ServiceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o ListenerOutput) Tags() ListenerTagArrayOutput {
-	return o.ApplyT(func(v *Listener) ListenerTagArrayOutput { return v.Tags }).(ListenerTagArrayOutput)
+func (o ListenerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Listener) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

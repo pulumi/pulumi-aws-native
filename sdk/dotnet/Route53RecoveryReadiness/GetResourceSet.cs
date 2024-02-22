@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// A tag to associate with the parameters for a resource set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceSetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetResourceSetResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
 
             ImmutableArray<Outputs.ResourceSetResource> resources,
 
-            ImmutableArray<Outputs.ResourceSetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ResourceSetArn = resourceSetArn;
             Resources = resources;

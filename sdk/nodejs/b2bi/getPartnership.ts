@@ -29,7 +29,7 @@ export interface GetPartnershipResult {
     readonly name?: string;
     readonly partnershipArn?: string;
     readonly partnershipId?: string;
-    readonly tags?: outputs.b2bi.PartnershipTag[];
+    readonly tags?: outputs.Tag[];
     readonly tradingPartnerId?: string;
 }
 /**

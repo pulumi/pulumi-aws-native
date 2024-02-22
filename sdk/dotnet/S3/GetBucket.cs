@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this S3 bucket.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.BucketVersioningConfiguration? VersioningConfiguration;
         public readonly Outputs.BucketWebsiteConfiguration? WebsiteConfiguration;
         /// <summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.S3
 
             Outputs.BucketReplicationConfiguration? replicationConfiguration,
 
-            ImmutableArray<Outputs.BucketTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.BucketVersioningConfiguration? versioningConfiguration,
 

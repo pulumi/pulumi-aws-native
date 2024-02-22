@@ -168,101 +168,6 @@ type KeyspaceTag struct {
 	Value string `pulumi:"value"`
 }
 
-// KeyspaceTagInput is an input type that accepts KeyspaceTagArgs and KeyspaceTagOutput values.
-// You can construct a concrete instance of `KeyspaceTagInput` via:
-//
-//	KeyspaceTagArgs{...}
-type KeyspaceTagInput interface {
-	pulumi.Input
-
-	ToKeyspaceTagOutput() KeyspaceTagOutput
-	ToKeyspaceTagOutputWithContext(context.Context) KeyspaceTagOutput
-}
-
-type KeyspaceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (KeyspaceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyspaceTag)(nil)).Elem()
-}
-
-func (i KeyspaceTagArgs) ToKeyspaceTagOutput() KeyspaceTagOutput {
-	return i.ToKeyspaceTagOutputWithContext(context.Background())
-}
-
-func (i KeyspaceTagArgs) ToKeyspaceTagOutputWithContext(ctx context.Context) KeyspaceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceTagOutput)
-}
-
-// KeyspaceTagArrayInput is an input type that accepts KeyspaceTagArray and KeyspaceTagArrayOutput values.
-// You can construct a concrete instance of `KeyspaceTagArrayInput` via:
-//
-//	KeyspaceTagArray{ KeyspaceTagArgs{...} }
-type KeyspaceTagArrayInput interface {
-	pulumi.Input
-
-	ToKeyspaceTagArrayOutput() KeyspaceTagArrayOutput
-	ToKeyspaceTagArrayOutputWithContext(context.Context) KeyspaceTagArrayOutput
-}
-
-type KeyspaceTagArray []KeyspaceTagInput
-
-func (KeyspaceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyspaceTag)(nil)).Elem()
-}
-
-func (i KeyspaceTagArray) ToKeyspaceTagArrayOutput() KeyspaceTagArrayOutput {
-	return i.ToKeyspaceTagArrayOutputWithContext(context.Background())
-}
-
-func (i KeyspaceTagArray) ToKeyspaceTagArrayOutputWithContext(ctx context.Context) KeyspaceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceTagArrayOutput)
-}
-
-type KeyspaceTagOutput struct{ *pulumi.OutputState }
-
-func (KeyspaceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyspaceTag)(nil)).Elem()
-}
-
-func (o KeyspaceTagOutput) ToKeyspaceTagOutput() KeyspaceTagOutput {
-	return o
-}
-
-func (o KeyspaceTagOutput) ToKeyspaceTagOutputWithContext(ctx context.Context) KeyspaceTagOutput {
-	return o
-}
-
-func (o KeyspaceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyspaceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o KeyspaceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyspaceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type KeyspaceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (KeyspaceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyspaceTag)(nil)).Elem()
-}
-
-func (o KeyspaceTagArrayOutput) ToKeyspaceTagArrayOutput() KeyspaceTagArrayOutput {
-	return o
-}
-
-func (o KeyspaceTagArrayOutput) ToKeyspaceTagArrayOutputWithContext(ctx context.Context) KeyspaceTagArrayOutput {
-	return o
-}
-
-func (o KeyspaceTagArrayOutput) Index(i pulumi.IntInput) KeyspaceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyspaceTag {
-		return vs[0].([]KeyspaceTag)[vs[1].(int)]
-	}).(KeyspaceTagOutput)
-}
-
 // Represents configuration for auto scaling.
 type TableAutoScalingSetting struct {
 	AutoScalingDisabled *bool               `pulumi:"autoScalingDisabled"`
@@ -1498,103 +1403,6 @@ type TableTag struct {
 	Value string `pulumi:"value"`
 }
 
-// TableTagInput is an input type that accepts TableTagArgs and TableTagOutput values.
-// You can construct a concrete instance of `TableTagInput` via:
-//
-//	TableTagArgs{...}
-type TableTagInput interface {
-	pulumi.Input
-
-	ToTableTagOutput() TableTagOutput
-	ToTableTagOutputWithContext(context.Context) TableTagOutput
-}
-
-// A key-value pair to apply to the resource
-type TableTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TableTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableTag)(nil)).Elem()
-}
-
-func (i TableTagArgs) ToTableTagOutput() TableTagOutput {
-	return i.ToTableTagOutputWithContext(context.Background())
-}
-
-func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTagOutput)
-}
-
-// TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
-// You can construct a concrete instance of `TableTagArrayInput` via:
-//
-//	TableTagArray{ TableTagArgs{...} }
-type TableTagArrayInput interface {
-	pulumi.Input
-
-	ToTableTagArrayOutput() TableTagArrayOutput
-	ToTableTagArrayOutputWithContext(context.Context) TableTagArrayOutput
-}
-
-type TableTagArray []TableTagInput
-
-func (TableTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
-}
-
-func (i TableTagArray) ToTableTagArrayOutput() TableTagArrayOutput {
-	return i.ToTableTagArrayOutputWithContext(context.Background())
-}
-
-func (i TableTagArray) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTagArrayOutput)
-}
-
-// A key-value pair to apply to the resource
-type TableTagOutput struct{ *pulumi.OutputState }
-
-func (TableTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableTag)(nil)).Elem()
-}
-
-func (o TableTagOutput) ToTableTagOutput() TableTagOutput {
-	return o
-}
-
-func (o TableTagOutput) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
-	return o
-}
-
-func (o TableTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TableTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o TableTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TableTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TableTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TableTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
-}
-
-func (o TableTagArrayOutput) ToTableTagArrayOutput() TableTagArrayOutput {
-	return o
-}
-
-func (o TableTagArrayOutput) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
-	return o
-}
-
-func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableTag {
-		return vs[0].([]TableTag)[vs[1].(int)]
-	}).(TableTagOutput)
-}
-
 // Represents configuration for target tracking scaling policy.
 type TableTargetTrackingScalingPolicyConfiguration struct {
 	DisableScaleIn   *bool `pulumi:"disableScaleIn"`
@@ -1779,8 +1587,6 @@ func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationInput)(nil)).Elem(), KeyspaceReplicationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationPtrInput)(nil)).Elem(), KeyspaceReplicationSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceTagInput)(nil)).Elem(), KeyspaceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceTagArrayInput)(nil)).Elem(), KeyspaceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoScalingSettingInput)(nil)).Elem(), TableAutoScalingSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoScalingSettingPtrInput)(nil)).Elem(), TableAutoScalingSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoScalingSpecificationInput)(nil)).Elem(), TableAutoScalingSpecificationArgs{})
@@ -1799,14 +1605,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableReplicaSpecificationArrayInput)(nil)).Elem(), TableReplicaSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableScalingPolicyInput)(nil)).Elem(), TableScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableScalingPolicyPtrInput)(nil)).Elem(), TableScalingPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTargetTrackingScalingPolicyConfigurationInput)(nil)).Elem(), TableTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTargetTrackingScalingPolicyConfigurationPtrInput)(nil)).Elem(), TableTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationOutput{})
 	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationPtrOutput{})
-	pulumi.RegisterOutputType(KeyspaceTagOutput{})
-	pulumi.RegisterOutputType(KeyspaceTagArrayOutput{})
 	pulumi.RegisterOutputType(TableAutoScalingSettingOutput{})
 	pulumi.RegisterOutputType(TableAutoScalingSettingPtrOutput{})
 	pulumi.RegisterOutputType(TableAutoScalingSpecificationOutput{})
@@ -1825,8 +1627,6 @@ func init() {
 	pulumi.RegisterOutputType(TableReplicaSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(TableScalingPolicyOutput{})
 	pulumi.RegisterOutputType(TableScalingPolicyPtrOutput{})
-	pulumi.RegisterOutputType(TableTagOutput{})
-	pulumi.RegisterOutputType(TableTagArrayOutput{})
 	pulumi.RegisterOutputType(TableTargetTrackingScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(TableTargetTrackingScalingPolicyConfigurationPtrOutput{})
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupStorageVirtualMachineResult struct {
 	ResourceArn                  *string                                            `pulumi:"resourceArn"`
 	StorageVirtualMachineId      *string                                            `pulumi:"storageVirtualMachineId"`
 	SvmAdminPassword             *string                                            `pulumi:"svmAdminPassword"`
-	Tags                         []StorageVirtualMachineTag                         `pulumi:"tags"`
+	Tags                         []aws.Tag                                          `pulumi:"tags"`
 	Uuid                         *string                                            `pulumi:"uuid"`
 }
 
@@ -88,8 +89,8 @@ func (o LookupStorageVirtualMachineResultOutput) SvmAdminPassword() pulumi.Strin
 	return o.ApplyT(func(v LookupStorageVirtualMachineResult) *string { return v.SvmAdminPassword }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupStorageVirtualMachineResultOutput) Tags() StorageVirtualMachineTagArrayOutput {
-	return o.ApplyT(func(v LookupStorageVirtualMachineResult) []StorageVirtualMachineTag { return v.Tags }).(StorageVirtualMachineTagArrayOutput)
+func (o LookupStorageVirtualMachineResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStorageVirtualMachineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupStorageVirtualMachineResultOutput) Uuid() pulumi.StringPtrOutput {

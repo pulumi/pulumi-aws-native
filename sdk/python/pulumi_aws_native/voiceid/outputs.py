@@ -11,7 +11,6 @@ from .. import _utilities
 
 __all__ = [
     'DomainServerSideEncryptionConfiguration',
-    'DomainTag',
 ]
 
 @pulumi.output_type
@@ -41,24 +40,5 @@ class DomainServerSideEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         return pulumi.get(self, "kms_key_id")
-
-
-@pulumi.output_type
-class DomainTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

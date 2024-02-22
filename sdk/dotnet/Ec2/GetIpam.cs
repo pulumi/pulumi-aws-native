@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpamTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The tier of the IPAM.
         /// </summary>
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.Ec2
 
             int? scopeCount,
 
-            ImmutableArray<Outputs.IpamTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.Ec2.IpamTier? tier)
         {

@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public readonly string? Name;
         public readonly bool? PackageCleanup;
         public readonly bool? RebootAfterUse;
-        public readonly ImmutableArray<Outputs.InstanceProfileTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetInstanceProfileResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.DeviceFarm
 
             bool? rebootAfterUse,
 
-            ImmutableArray<Outputs.InstanceProfileTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

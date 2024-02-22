@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The tags for the global network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CoreNetworkTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCoreNetworkResult(
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? state,
 
-            ImmutableArray<Outputs.CoreNetworkTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CoreNetworkArn = coreNetworkArn;
             CoreNetworkId = coreNetworkId;

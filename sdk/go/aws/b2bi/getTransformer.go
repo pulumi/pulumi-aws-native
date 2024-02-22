@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupTransformerResult struct {
 	Name            *string                       `pulumi:"name"`
 	SampleDocument  *string                       `pulumi:"sampleDocument"`
 	Status          *TransformerStatus            `pulumi:"status"`
-	Tags            []TransformerTag              `pulumi:"tags"`
+	Tags            []aws.Tag                     `pulumi:"tags"`
 	TransformerArn  *string                       `pulumi:"transformerArn"`
 	TransformerId   *string                       `pulumi:"transformerId"`
 }
@@ -107,8 +108,8 @@ func (o LookupTransformerResultOutput) Status() TransformerStatusPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *TransformerStatus { return v.Status }).(TransformerStatusPtrOutput)
 }
 
-func (o LookupTransformerResultOutput) Tags() TransformerTagArrayOutput {
-	return o.ApplyT(func(v LookupTransformerResult) []TransformerTag { return v.Tags }).(TransformerTagArrayOutput)
+func (o LookupTransformerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTransformerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupTransformerResultOutput) TransformerArn() pulumi.StringPtrOutput {

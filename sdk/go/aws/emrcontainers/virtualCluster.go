@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type VirtualCluster struct {
 	// Name of the virtual cluster.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of key-value pairs to apply to this virtual cluster.
-	Tags VirtualClusterTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewVirtualCluster registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type virtualClusterArgs struct {
 	// Name of the virtual cluster.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this virtual cluster.
-	Tags []VirtualClusterTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualCluster resource.
@@ -88,7 +89,7 @@ type VirtualClusterArgs struct {
 	// Name of the virtual cluster.
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this virtual cluster.
-	Tags VirtualClusterTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (VirtualClusterArgs) ElementType() reflect.Type {
@@ -143,8 +144,8 @@ func (o VirtualClusterOutput) Name() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this virtual cluster.
-func (o VirtualClusterOutput) Tags() VirtualClusterTagArrayOutput {
-	return o.ApplyT(func(v *VirtualCluster) VirtualClusterTagArrayOutput { return v.Tags }).(VirtualClusterTagArrayOutput)
+func (o VirtualClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VirtualCluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

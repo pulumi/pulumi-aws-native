@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['DatasetGroupArgs', 'DatasetGroup']
 
@@ -20,13 +20,13 @@ class DatasetGroupArgs:
                  domain: pulumi.Input['DatasetGroupDomain'],
                  dataset_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dataset_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetGroup resource.
         :param pulumi.Input['DatasetGroupDomain'] domain: The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dataset_arns: An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
         :param pulumi.Input[str] dataset_group_name: A name for the dataset group.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetGroupTagArgs']]] tags: The tags of Application Insights application.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags of Application Insights application.
         """
         pulumi.set(__self__, "domain", domain)
         if dataset_arns is not None:
@@ -74,14 +74,14 @@ class DatasetGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags of Application Insights application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,7 +93,7 @@ class DatasetGroup(pulumi.CustomResource):
                  dataset_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dataset_group_name: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input['DatasetGroupDomain']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Represents a dataset group that holds a collection of related datasets
@@ -103,7 +103,7 @@ class DatasetGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dataset_arns: An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
         :param pulumi.Input[str] dataset_group_name: A name for the dataset group.
         :param pulumi.Input['DatasetGroupDomain'] domain: The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetGroupTagArgs']]]] tags: The tags of Application Insights application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags of Application Insights application.
         """
         ...
     @overload
@@ -132,7 +132,7 @@ class DatasetGroup(pulumi.CustomResource):
                  dataset_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dataset_group_name: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input['DatasetGroupDomain']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,7 +214,7 @@ class DatasetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags of Application Insights application.
         """

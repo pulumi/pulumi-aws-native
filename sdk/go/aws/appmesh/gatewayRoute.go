@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,15 +19,15 @@ import (
 type GatewayRoute struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput        `pulumi:"arn"`
-	GatewayRouteName   pulumi.StringPtrOutput     `pulumi:"gatewayRouteName"`
-	MeshName           pulumi.StringOutput        `pulumi:"meshName"`
-	MeshOwner          pulumi.StringPtrOutput     `pulumi:"meshOwner"`
-	ResourceOwner      pulumi.StringOutput        `pulumi:"resourceOwner"`
-	Spec               GatewayRouteSpecOutput     `pulumi:"spec"`
-	Tags               GatewayRouteTagArrayOutput `pulumi:"tags"`
-	Uid                pulumi.StringOutput        `pulumi:"uid"`
-	VirtualGatewayName pulumi.StringOutput        `pulumi:"virtualGatewayName"`
+	Arn                pulumi.StringOutput    `pulumi:"arn"`
+	GatewayRouteName   pulumi.StringPtrOutput `pulumi:"gatewayRouteName"`
+	MeshName           pulumi.StringOutput    `pulumi:"meshName"`
+	MeshOwner          pulumi.StringPtrOutput `pulumi:"meshOwner"`
+	ResourceOwner      pulumi.StringOutput    `pulumi:"resourceOwner"`
+	Spec               GatewayRouteSpecOutput `pulumi:"spec"`
+	Tags               aws.TagArrayOutput     `pulumi:"tags"`
+	Uid                pulumi.StringOutput    `pulumi:"uid"`
+	VirtualGatewayName pulumi.StringOutput    `pulumi:"virtualGatewayName"`
 }
 
 // NewGatewayRoute registers a new resource with the given unique name, arguments, and options.
@@ -85,12 +86,12 @@ func (GatewayRouteState) ElementType() reflect.Type {
 }
 
 type gatewayRouteArgs struct {
-	GatewayRouteName   *string           `pulumi:"gatewayRouteName"`
-	MeshName           string            `pulumi:"meshName"`
-	MeshOwner          *string           `pulumi:"meshOwner"`
-	Spec               GatewayRouteSpec  `pulumi:"spec"`
-	Tags               []GatewayRouteTag `pulumi:"tags"`
-	VirtualGatewayName string            `pulumi:"virtualGatewayName"`
+	GatewayRouteName   *string          `pulumi:"gatewayRouteName"`
+	MeshName           string           `pulumi:"meshName"`
+	MeshOwner          *string          `pulumi:"meshOwner"`
+	Spec               GatewayRouteSpec `pulumi:"spec"`
+	Tags               []aws.Tag        `pulumi:"tags"`
+	VirtualGatewayName string           `pulumi:"virtualGatewayName"`
 }
 
 // The set of arguments for constructing a GatewayRoute resource.
@@ -99,7 +100,7 @@ type GatewayRouteArgs struct {
 	MeshName           pulumi.StringInput
 	MeshOwner          pulumi.StringPtrInput
 	Spec               GatewayRouteSpecInput
-	Tags               GatewayRouteTagArrayInput
+	Tags               aws.TagArrayInput
 	VirtualGatewayName pulumi.StringInput
 }
 
@@ -164,8 +165,8 @@ func (o GatewayRouteOutput) Spec() GatewayRouteSpecOutput {
 	return o.ApplyT(func(v *GatewayRoute) GatewayRouteSpecOutput { return v.Spec }).(GatewayRouteSpecOutput)
 }
 
-func (o GatewayRouteOutput) Tags() GatewayRouteTagArrayOutput {
-	return o.ApplyT(func(v *GatewayRoute) GatewayRouteTagArrayOutput { return v.Tags }).(GatewayRouteTagArrayOutput)
+func (o GatewayRouteOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *GatewayRoute) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o GatewayRouteOutput) Uid() pulumi.StringOutput {

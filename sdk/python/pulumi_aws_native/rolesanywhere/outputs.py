@@ -12,52 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'CrlTag',
-    'ProfileTag',
     'TrustAnchorNotificationSetting',
     'TrustAnchorSource',
     'TrustAnchorSourceData0Properties',
     'TrustAnchorSourceData1Properties',
-    'TrustAnchorTag',
 ]
-
-@pulumi.output_type
-class CrlTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ProfileTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class TrustAnchorNotificationSetting(dict):
@@ -190,24 +149,5 @@ class TrustAnchorSourceData1Properties(dict):
     @pulumi.getter(name="acmPcaArn")
     def acm_pca_arn(self) -> str:
         return pulumi.get(self, "acm_pca_arn")
-
-
-@pulumi.output_type
-class TrustAnchorTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Iam
         /// </summary>
         public readonly string? Arn;
         public readonly string? Path;
-        public readonly ImmutableArray<Outputs.ServerCertificateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetServerCertificateResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Iam
 
             string? path,
 
-            ImmutableArray<Outputs.ServerCertificateTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Path = path;

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type Portal struct {
 	// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the portal.
-	Tags PortalTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPortal registers a new resource with the given unique name, arguments, and options.
@@ -107,7 +108,7 @@ type portalArgs struct {
 	// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the portal.
-	Tags []PortalTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Portal resource.
@@ -127,7 +128,7 @@ type PortalArgs struct {
 	// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 	RoleArn pulumi.StringInput
 	// A list of key-value pairs that contain metadata for the portal.
-	Tags PortalTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (PortalArgs) ElementType() reflect.Type {
@@ -223,8 +224,8 @@ func (o PortalOutput) RoleArn() pulumi.StringOutput {
 }
 
 // A list of key-value pairs that contain metadata for the portal.
-func (o PortalOutput) Tags() PortalTagArrayOutput {
-	return o.ApplyT(func(v *Portal) PortalTagArrayOutput { return v.Tags }).(PortalTagArrayOutput)
+func (o PortalOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Portal) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Rds
     {
         public readonly ImmutableArray<Outputs.DbSecurityGroupIngress> DbSecurityGroupIngress;
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.DbSecurityGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDbSecurityGroupResult(
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Rds
 
             string? id,
 
-            ImmutableArray<Outputs.DbSecurityGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DbSecurityGroupIngress = dbSecurityGroupIngress;
             Id = id;

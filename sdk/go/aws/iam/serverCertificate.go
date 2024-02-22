@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,13 +17,13 @@ type ServerCertificate struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the server certificate
-	Arn                   pulumi.StringOutput             `pulumi:"arn"`
-	CertificateBody       pulumi.StringPtrOutput          `pulumi:"certificateBody"`
-	CertificateChain      pulumi.StringPtrOutput          `pulumi:"certificateChain"`
-	Path                  pulumi.StringPtrOutput          `pulumi:"path"`
-	PrivateKey            pulumi.StringPtrOutput          `pulumi:"privateKey"`
-	ServerCertificateName pulumi.StringPtrOutput          `pulumi:"serverCertificateName"`
-	Tags                  ServerCertificateTagArrayOutput `pulumi:"tags"`
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	CertificateBody       pulumi.StringPtrOutput `pulumi:"certificateBody"`
+	CertificateChain      pulumi.StringPtrOutput `pulumi:"certificateChain"`
+	Path                  pulumi.StringPtrOutput `pulumi:"path"`
+	PrivateKey            pulumi.StringPtrOutput `pulumi:"privateKey"`
+	ServerCertificateName pulumi.StringPtrOutput `pulumi:"serverCertificateName"`
+	Tags                  aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewServerCertificate registers a new resource with the given unique name, arguments, and options.
@@ -72,12 +73,12 @@ func (ServerCertificateState) ElementType() reflect.Type {
 }
 
 type serverCertificateArgs struct {
-	CertificateBody       *string                `pulumi:"certificateBody"`
-	CertificateChain      *string                `pulumi:"certificateChain"`
-	Path                  *string                `pulumi:"path"`
-	PrivateKey            *string                `pulumi:"privateKey"`
-	ServerCertificateName *string                `pulumi:"serverCertificateName"`
-	Tags                  []ServerCertificateTag `pulumi:"tags"`
+	CertificateBody       *string   `pulumi:"certificateBody"`
+	CertificateChain      *string   `pulumi:"certificateChain"`
+	Path                  *string   `pulumi:"path"`
+	PrivateKey            *string   `pulumi:"privateKey"`
+	ServerCertificateName *string   `pulumi:"serverCertificateName"`
+	Tags                  []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServerCertificate resource.
@@ -87,7 +88,7 @@ type ServerCertificateArgs struct {
 	Path                  pulumi.StringPtrInput
 	PrivateKey            pulumi.StringPtrInput
 	ServerCertificateName pulumi.StringPtrInput
-	Tags                  ServerCertificateTagArrayInput
+	Tags                  aws.TagArrayInput
 }
 
 func (ServerCertificateArgs) ElementType() reflect.Type {
@@ -152,8 +153,8 @@ func (o ServerCertificateOutput) ServerCertificateName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.ServerCertificateName }).(pulumi.StringPtrOutput)
 }
 
-func (o ServerCertificateOutput) Tags() ServerCertificateTagArrayOutput {
-	return o.ApplyT(func(v *ServerCertificate) ServerCertificateTagArrayOutput { return v.Tags }).(ServerCertificateTagArrayOutput)
+func (o ServerCertificateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ServerCertificate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

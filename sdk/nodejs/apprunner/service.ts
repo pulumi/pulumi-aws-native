@@ -67,7 +67,7 @@ export class Service extends pulumi.CustomResource {
      * AppRunner Service status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.apprunner.ServiceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -136,5 +136,5 @@ export interface ServiceArgs {
      */
     serviceName?: pulumi.Input<string>;
     sourceConfiguration: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.apprunner.ServiceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

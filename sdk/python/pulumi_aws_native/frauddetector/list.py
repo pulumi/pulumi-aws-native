@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['ListArgs', 'List']
 
@@ -19,14 +19,14 @@ class ListArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ListTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  variable_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a List resource.
         :param pulumi.Input[str] description: The description of the list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] elements: The elements in this list.
         :param pulumi.Input[str] name: The name of the list.
-        :param pulumi.Input[Sequence[pulumi.Input['ListTagArgs']]] tags: Tags associated with this list.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with this list.
         :param pulumi.Input[str] variable_type: The variable type of the list.
         """
         if description is not None:
@@ -78,14 +78,14 @@ class ListArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags associated with this list.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -109,7 +109,7 @@ class List(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  variable_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -120,7 +120,7 @@ class List(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] elements: The elements in this list.
         :param pulumi.Input[str] name: The name of the list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListTagArgs']]]] tags: Tags associated with this list.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with this list.
         :param pulumi.Input[str] variable_type: The variable type of the list.
         """
         ...
@@ -150,7 +150,7 @@ class List(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  variable_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -253,7 +253,7 @@ class List(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ListTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Tags associated with this list.
         """

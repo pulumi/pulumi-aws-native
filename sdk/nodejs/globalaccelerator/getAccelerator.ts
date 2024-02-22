@@ -62,7 +62,7 @@ export interface GetAcceleratorResult {
      * Name of accelerator.
      */
     readonly name?: string;
-    readonly tags?: outputs.globalaccelerator.AcceleratorTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::GlobalAccelerator::Accelerator

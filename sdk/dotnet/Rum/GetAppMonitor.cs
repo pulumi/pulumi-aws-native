@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Rum
         /// The unique ID of the new app monitor.
         /// </summary>
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.AppMonitorTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAppMonitorResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Rum
 
             string? id,
 
-            ImmutableArray<Outputs.AppMonitorTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AppMonitorConfiguration = appMonitorConfiguration;
             CustomEvents = customEvents;

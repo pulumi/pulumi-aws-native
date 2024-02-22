@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomMetricTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCustomMetricResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? metricArn,
 
-            ImmutableArray<Outputs.CustomMetricTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DisplayName = displayName;
             MetricArn = metricArn;

@@ -28,7 +28,7 @@ export interface GetUserAccessLoggingSettingsResult {
      * Kinesis stream ARN to which log events are published.
      */
     readonly kinesisStreamArn?: string;
-    readonly tags?: outputs.workspacesweb.UserAccessLoggingSettingsTag[];
+    readonly tags?: outputs.Tag[];
     readonly userAccessLoggingSettingsArn?: string;
 }
 /**

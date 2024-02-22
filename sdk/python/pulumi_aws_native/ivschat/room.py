@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,14 +24,14 @@ class RoomArgs:
                  maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
                  message_review_handler: Optional[pulumi.Input['RoomMessageReviewHandlerArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoomTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Room resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logging_configuration_identifiers: Array of logging configuration identifiers attached to the room.
         :param pulumi.Input[int] maximum_message_length: The maximum number of characters in a single message.
         :param pulumi.Input[int] maximum_message_rate_per_second: The maximum number of messages per second that can be sent to the room.
         :param pulumi.Input[str] name: The name of the room. The value does not need to be unique.
-        :param pulumi.Input[Sequence[pulumi.Input['RoomTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if logging_configuration_identifiers is not None:
             pulumi.set(__self__, "logging_configuration_identifiers", logging_configuration_identifiers)
@@ -103,14 +105,14 @@ class RoomArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoomTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoomTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -124,7 +126,7 @@ class Room(pulumi.CustomResource):
                  maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
                  message_review_handler: Optional[pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoomTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::IVSChat::Room.
@@ -135,7 +137,7 @@ class Room(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_message_length: The maximum number of characters in a single message.
         :param pulumi.Input[int] maximum_message_rate_per_second: The maximum number of messages per second that can be sent to the room.
         :param pulumi.Input[str] name: The name of the room. The value does not need to be unique.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoomTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -166,7 +168,7 @@ class Room(pulumi.CustomResource):
                  maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
                  message_review_handler: Optional[pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoomTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -261,7 +263,7 @@ class Room(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RoomTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

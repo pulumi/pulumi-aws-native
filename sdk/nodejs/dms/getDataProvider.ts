@@ -53,7 +53,7 @@ export interface GetDataProviderResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.dms.DataProviderTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DMS::DataProvider

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type Certificate struct {
 	// A status description for the certificate.
 	Status CertificateStatusOutput `pulumi:"status"`
 	// Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
-	Tags CertificateTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Describing the type of certificate. With or without a private key.
 	Type CertificateTypeOutput `pulumi:"type"`
 	// Specifies the usage type for the certificate.
@@ -113,7 +114,7 @@ type certificateArgs struct {
 	// Specifies the private key for the certificate.
 	PrivateKey *string `pulumi:"privateKey"`
 	// Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
-	Tags []CertificateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies the usage type for the certificate.
 	Usage CertificateUsage `pulumi:"usage"`
 }
@@ -133,7 +134,7 @@ type CertificateArgs struct {
 	// Specifies the private key for the certificate.
 	PrivateKey pulumi.StringPtrInput
 	// Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
-	Tags CertificateTagArrayInput
+	Tags aws.TagArrayInput
 	// Specifies the usage type for the certificate.
 	Usage CertificateUsageInput
 }
@@ -236,8 +237,8 @@ func (o CertificateOutput) Status() CertificateStatusOutput {
 }
 
 // Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
-func (o CertificateOutput) Tags() CertificateTagArrayOutput {
-	return o.ApplyT(func(v *Certificate) CertificateTagArrayOutput { return v.Tags }).(CertificateTagArrayOutput)
+func (o CertificateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Certificate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Describing the type of certificate. With or without a private key.

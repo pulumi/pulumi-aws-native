@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type PatchBaseline struct {
 	// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 	Sources PatchBaselinePatchSourceArrayOutput `pulumi:"sources"`
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
-	Tags PatchBaselineTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPatchBaseline registers a new resource with the given unique name, arguments, and options.
@@ -114,7 +115,7 @@ type patchBaselineArgs struct {
 	// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 	Sources []PatchBaselinePatchSource `pulumi:"sources"`
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
-	Tags []PatchBaselineTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PatchBaseline resource.
@@ -145,7 +146,7 @@ type PatchBaselineArgs struct {
 	// Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 	Sources PatchBaselinePatchSourceArrayInput
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
-	Tags PatchBaselineTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (PatchBaselineArgs) ElementType() reflect.Type {
@@ -252,8 +253,8 @@ func (o PatchBaselineOutput) Sources() PatchBaselinePatchSourceArrayOutput {
 }
 
 // Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
-func (o PatchBaselineOutput) Tags() PatchBaselineTagArrayOutput {
-	return o.ApplyT(func(v *PatchBaseline) PatchBaselineTagArrayOutput { return v.Tags }).(PatchBaselineTagArrayOutput)
+func (o PatchBaselineOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PatchBaseline) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

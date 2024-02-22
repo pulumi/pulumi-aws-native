@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.IoTFleetHub
         /// <summary>
         /// A list of key-value pairs that contain metadata for the application.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.IoTFleetHub
 
             string? ssoClientId,
 
-            ImmutableArray<Outputs.ApplicationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApplicationArn = applicationArn;
             ApplicationCreationDate = applicationCreationDate;

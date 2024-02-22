@@ -76,7 +76,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.rds.CustomDbEngineVersionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CustomDbEngineVersion resource with the given unique name, arguments, and options.
@@ -166,5 +166,5 @@ export interface CustomDbEngineVersionArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.rds.CustomDbEngineVersionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

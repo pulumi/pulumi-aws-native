@@ -61,7 +61,7 @@ export interface GetGraphResult {
     /**
      * The tags associated with this graph.
      */
-    readonly tags?: outputs.neptunegraph.GraphTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.

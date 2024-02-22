@@ -50,7 +50,7 @@ export interface GetEnvironmentResult {
     /**
      * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    readonly tags?: outputs.appconfig.EnvironmentTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::AppConfig::Environment

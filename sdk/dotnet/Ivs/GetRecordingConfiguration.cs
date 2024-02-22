@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Ivs
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RecordingConfigurationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRecordingConfigurationResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Ivs
 
             Pulumi.AwsNative.Ivs.RecordingConfigurationState? state,
 
-            ImmutableArray<Outputs.RecordingConfigurationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             State = state;

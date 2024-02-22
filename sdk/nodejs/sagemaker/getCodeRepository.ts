@@ -25,7 +25,7 @@ export interface GetCodeRepositoryArgs {
 export interface GetCodeRepositoryResult {
     readonly gitConfig?: outputs.sagemaker.CodeRepositoryGitConfig;
     readonly id?: string;
-    readonly tags?: outputs.sagemaker.CodeRepositoryTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::CodeRepository

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,15 +19,15 @@ import (
 type Configuration struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput               `pulumi:"arn"`
-	AuthenticationStrategy pulumi.StringPtrOutput            `pulumi:"authenticationStrategy"`
-	Data                   pulumi.StringOutput               `pulumi:"data"`
-	Description            pulumi.StringPtrOutput            `pulumi:"description"`
-	EngineType             pulumi.StringOutput               `pulumi:"engineType"`
-	EngineVersion          pulumi.StringOutput               `pulumi:"engineVersion"`
-	Name                   pulumi.StringOutput               `pulumi:"name"`
-	Revision               pulumi.IntOutput                  `pulumi:"revision"`
-	Tags                   ConfigurationTagsEntryArrayOutput `pulumi:"tags"`
+	Arn                    pulumi.StringOutput    `pulumi:"arn"`
+	AuthenticationStrategy pulumi.StringPtrOutput `pulumi:"authenticationStrategy"`
+	Data                   pulumi.StringOutput    `pulumi:"data"`
+	Description            pulumi.StringPtrOutput `pulumi:"description"`
+	EngineType             pulumi.StringOutput    `pulumi:"engineType"`
+	EngineVersion          pulumi.StringOutput    `pulumi:"engineVersion"`
+	Name                   pulumi.StringOutput    `pulumi:"name"`
+	Revision               pulumi.IntOutput       `pulumi:"revision"`
+	Tags                   aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -85,13 +86,13 @@ func (ConfigurationState) ElementType() reflect.Type {
 }
 
 type configurationArgs struct {
-	AuthenticationStrategy *string                  `pulumi:"authenticationStrategy"`
-	Data                   string                   `pulumi:"data"`
-	Description            *string                  `pulumi:"description"`
-	EngineType             string                   `pulumi:"engineType"`
-	EngineVersion          string                   `pulumi:"engineVersion"`
-	Name                   *string                  `pulumi:"name"`
-	Tags                   []ConfigurationTagsEntry `pulumi:"tags"`
+	AuthenticationStrategy *string   `pulumi:"authenticationStrategy"`
+	Data                   string    `pulumi:"data"`
+	Description            *string   `pulumi:"description"`
+	EngineType             string    `pulumi:"engineType"`
+	EngineVersion          string    `pulumi:"engineVersion"`
+	Name                   *string   `pulumi:"name"`
+	Tags                   []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Configuration resource.
@@ -102,7 +103,7 @@ type ConfigurationArgs struct {
 	EngineType             pulumi.StringInput
 	EngineVersion          pulumi.StringInput
 	Name                   pulumi.StringPtrInput
-	Tags                   ConfigurationTagsEntryArrayInput
+	Tags                   aws.TagArrayInput
 }
 
 func (ConfigurationArgs) ElementType() reflect.Type {
@@ -174,8 +175,8 @@ func (o ConfigurationOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.IntOutput { return v.Revision }).(pulumi.IntOutput)
 }
 
-func (o ConfigurationOutput) Tags() ConfigurationTagsEntryArrayOutput {
-	return o.ApplyT(func(v *Configuration) ConfigurationTagsEntryArrayOutput { return v.Tags }).(ConfigurationTagsEntryArrayOutput)
+func (o ConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Configuration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

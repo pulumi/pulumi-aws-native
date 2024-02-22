@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Kendra
         /// <summary>
         /// Tags for labeling the index
         /// </summary>
-        public readonly ImmutableArray<Outputs.IndexTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Pulumi.AwsNative.Kendra.IndexUserContextPolicy? UserContextPolicy;
         public readonly ImmutableArray<Outputs.IndexUserTokenConfiguration> UserTokenConfigurations;
 
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Kendra
 
             string? roleArn,
 
-            ImmutableArray<Outputs.IndexTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.Kendra.IndexUserContextPolicy? userContextPolicy,
 

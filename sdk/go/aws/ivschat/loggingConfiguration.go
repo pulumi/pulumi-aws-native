@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type LoggingConfiguration struct {
 	// The state of the logging configuration. When the state is ACTIVE, the configuration is ready to log chat content.
 	State LoggingConfigurationStateEnumOutput `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LoggingConfigurationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLoggingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -74,7 +75,7 @@ type loggingConfigurationArgs struct {
 	// The name of the logging configuration. The value does not need to be unique.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LoggingConfigurationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoggingConfiguration resource.
@@ -83,7 +84,7 @@ type LoggingConfigurationArgs struct {
 	// The name of the logging configuration. The value does not need to be unique.
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LoggingConfigurationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LoggingConfigurationArgs) ElementType() reflect.Type {
@@ -145,8 +146,8 @@ func (o LoggingConfigurationOutput) State() LoggingConfigurationStateEnumOutput 
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LoggingConfigurationOutput) Tags() LoggingConfigurationTagArrayOutput {
-	return o.ApplyT(func(v *LoggingConfiguration) LoggingConfigurationTagArrayOutput { return v.Tags }).(LoggingConfigurationTagArrayOutput)
+func (o LoggingConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

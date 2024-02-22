@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The tags for the global network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GlobalNetworkTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetGlobalNetworkResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? state,
 
-            ImmutableArray<Outputs.GlobalNetworkTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreatedAt = createdAt;

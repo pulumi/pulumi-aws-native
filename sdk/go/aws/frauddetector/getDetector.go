@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,7 +48,7 @@ type LookupDetectorResult struct {
 	RuleExecutionMode *DetectorRuleExecutionMode `pulumi:"ruleExecutionMode"`
 	Rules             []DetectorRule             `pulumi:"rules"`
 	// Tags associated with this detector.
-	Tags []DetectorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorResultOutput {
@@ -135,8 +136,8 @@ func (o LookupDetectorResultOutput) Rules() DetectorRuleArrayOutput {
 }
 
 // Tags associated with this detector.
-func (o LookupDetectorResultOutput) Tags() DetectorTagArrayOutput {
-	return o.ApplyT(func(v LookupDetectorResult) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
+func (o LookupDetectorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDetectorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

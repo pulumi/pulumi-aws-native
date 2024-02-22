@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type DeploymentGroup struct {
 	OnPremisesTagSet                 DeploymentGroupOnPremisesTagSetPtrOutput                 `pulumi:"onPremisesTagSet"`
 	OutdatedInstancesStrategy        pulumi.StringPtrOutput                                   `pulumi:"outdatedInstancesStrategy"`
 	ServiceRoleArn                   pulumi.StringOutput                                      `pulumi:"serviceRoleArn"`
-	Tags                             DeploymentGroupTagArrayOutput                            `pulumi:"tags"`
+	Tags                             aws.TagArrayOutput                                       `pulumi:"tags"`
 	TerminationHookEnabled           pulumi.BoolPtrOutput                                     `pulumi:"terminationHookEnabled"`
 	TriggerConfigurations            DeploymentGroupTriggerConfigArrayOutput                  `pulumi:"triggerConfigurations"`
 }
@@ -108,7 +109,7 @@ type deploymentGroupArgs struct {
 	OnPremisesTagSet                 *DeploymentGroupOnPremisesTagSet                 `pulumi:"onPremisesTagSet"`
 	OutdatedInstancesStrategy        *string                                          `pulumi:"outdatedInstancesStrategy"`
 	ServiceRoleArn                   string                                           `pulumi:"serviceRoleArn"`
-	Tags                             []DeploymentGroupTag                             `pulumi:"tags"`
+	Tags                             []aws.Tag                                        `pulumi:"tags"`
 	TerminationHookEnabled           *bool                                            `pulumi:"terminationHookEnabled"`
 	TriggerConfigurations            []DeploymentGroupTriggerConfig                   `pulumi:"triggerConfigurations"`
 }
@@ -132,7 +133,7 @@ type DeploymentGroupArgs struct {
 	OnPremisesTagSet                 DeploymentGroupOnPremisesTagSetPtrInput
 	OutdatedInstancesStrategy        pulumi.StringPtrInput
 	ServiceRoleArn                   pulumi.StringInput
-	Tags                             DeploymentGroupTagArrayInput
+	Tags                             aws.TagArrayInput
 	TerminationHookEnabled           pulumi.BoolPtrInput
 	TriggerConfigurations            DeploymentGroupTriggerConfigArrayInput
 }
@@ -246,8 +247,8 @@ func (o DeploymentGroupOutput) ServiceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringOutput { return v.ServiceRoleArn }).(pulumi.StringOutput)
 }
 
-func (o DeploymentGroupOutput) Tags() DeploymentGroupTagArrayOutput {
-	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupTagArrayOutput { return v.Tags }).(DeploymentGroupTagArrayOutput)
+func (o DeploymentGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o DeploymentGroupOutput) TerminationHookEnabled() pulumi.BoolPtrOutput {

@@ -42,7 +42,7 @@ export class BrowserSettings extends pulumi.CustomResource {
     public readonly browserPolicy!: pulumi.Output<string | undefined>;
     public /*out*/ readonly browserSettingsArn!: pulumi.Output<string>;
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.workspacesweb.BrowserSettingsTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a BrowserSettings resource with the given unique name, arguments, and options.
@@ -83,5 +83,5 @@ export interface BrowserSettingsArgs {
     additionalEncryptionContext?: pulumi.Input<inputs.workspacesweb.BrowserSettingsEncryptionContextMapArgs>;
     browserPolicy?: pulumi.Input<string>;
     customerManagedKey?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.workspacesweb.BrowserSettingsTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

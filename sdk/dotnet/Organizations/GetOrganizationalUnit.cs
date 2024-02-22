@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Organizations
         /// <summary>
         /// A list of tags that you want to attach to the newly created OU.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OrganizationalUnitTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetOrganizationalUnitResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Organizations
 
             string? name,
 
-            ImmutableArray<Outputs.OrganizationalUnitTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Id = id;

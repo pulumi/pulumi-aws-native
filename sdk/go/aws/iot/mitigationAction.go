@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type MitigationAction struct {
 	MitigationActionId  pulumi.StringOutput                `pulumi:"mitigationActionId"`
 	RoleArn             pulumi.StringOutput                `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags MitigationActionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewMitigationAction registers a new resource with the given unique name, arguments, and options.
@@ -81,7 +82,7 @@ type mitigationActionArgs struct {
 	ActionParams MitigationActionActionParams `pulumi:"actionParams"`
 	RoleArn      string                       `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []MitigationActionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MitigationAction resource.
@@ -91,7 +92,7 @@ type MitigationActionArgs struct {
 	ActionParams MitigationActionActionParamsInput
 	RoleArn      pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags MitigationActionTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (MitigationActionArgs) ElementType() reflect.Type {
@@ -153,8 +154,8 @@ func (o MitigationActionOutput) RoleArn() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o MitigationActionOutput) Tags() MitigationActionTagArrayOutput {
-	return o.ApplyT(func(v *MitigationAction) MitigationActionTagArrayOutput { return v.Tags }).(MitigationActionTagArrayOutput)
+func (o MitigationActionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *MitigationAction) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

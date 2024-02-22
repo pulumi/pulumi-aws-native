@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LocationFSxWindows struct {
 	// A subdirectory in the location's path.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationFSxWindowsTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The user who has the permissions to access files and folders in the FSx for Windows file system.
 	User pulumi.StringOutput `pulumi:"user"`
 }
@@ -102,7 +103,7 @@ type locationFSxWindowsArgs struct {
 	// A subdirectory in the location's path.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationFSxWindowsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The user who has the permissions to access files and folders in the FSx for Windows file system.
 	User string `pulumi:"user"`
 }
@@ -120,7 +121,7 @@ type LocationFSxWindowsArgs struct {
 	// A subdirectory in the location's path.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationFSxWindowsTagArrayInput
+	Tags aws.TagArrayInput
 	// The user who has the permissions to access files and folders in the FSx for Windows file system.
 	User pulumi.StringInput
 }
@@ -198,8 +199,8 @@ func (o LocationFSxWindowsOutput) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationFSxWindowsOutput) Tags() LocationFSxWindowsTagArrayOutput {
-	return o.ApplyT(func(v *LocationFSxWindows) LocationFSxWindowsTagArrayOutput { return v.Tags }).(LocationFSxWindowsTagArrayOutput)
+func (o LocationFSxWindowsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The user who has the permissions to access files and folders in the FSx for Windows file system.

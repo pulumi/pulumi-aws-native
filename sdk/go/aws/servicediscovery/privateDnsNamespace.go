@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type PrivateDnsNamespace struct {
 	HostedZoneId pulumi.StringOutput                    `pulumi:"hostedZoneId"`
 	Name         pulumi.StringOutput                    `pulumi:"name"`
 	Properties   PrivateDnsNamespacePropertiesPtrOutput `pulumi:"properties"`
-	Tags         PrivateDnsNamespaceTagArrayOutput      `pulumi:"tags"`
+	Tags         aws.TagArrayOutput                     `pulumi:"tags"`
 	Vpc          pulumi.StringOutput                    `pulumi:"vpc"`
 }
 
@@ -78,7 +79,7 @@ type privateDnsNamespaceArgs struct {
 	Description *string                        `pulumi:"description"`
 	Name        *string                        `pulumi:"name"`
 	Properties  *PrivateDnsNamespaceProperties `pulumi:"properties"`
-	Tags        []PrivateDnsNamespaceTag       `pulumi:"tags"`
+	Tags        []aws.Tag                      `pulumi:"tags"`
 	Vpc         string                         `pulumi:"vpc"`
 }
 
@@ -87,7 +88,7 @@ type PrivateDnsNamespaceArgs struct {
 	Description pulumi.StringPtrInput
 	Name        pulumi.StringPtrInput
 	Properties  PrivateDnsNamespacePropertiesPtrInput
-	Tags        PrivateDnsNamespaceTagArrayInput
+	Tags        aws.TagArrayInput
 	Vpc         pulumi.StringInput
 }
 
@@ -148,8 +149,8 @@ func (o PrivateDnsNamespaceOutput) Properties() PrivateDnsNamespacePropertiesPtr
 	return o.ApplyT(func(v *PrivateDnsNamespace) PrivateDnsNamespacePropertiesPtrOutput { return v.Properties }).(PrivateDnsNamespacePropertiesPtrOutput)
 }
 
-func (o PrivateDnsNamespaceOutput) Tags() PrivateDnsNamespaceTagArrayOutput {
-	return o.ApplyT(func(v *PrivateDnsNamespace) PrivateDnsNamespaceTagArrayOutput { return v.Tags }).(PrivateDnsNamespaceTagArrayOutput)
+func (o PrivateDnsNamespaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PrivateDnsNamespace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o PrivateDnsNamespaceOutput) Vpc() pulumi.StringOutput {

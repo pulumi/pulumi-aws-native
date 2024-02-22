@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Discoverer struct {
 	// Defines the current state of the discoverer.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Tags associated with the resource.
-	Tags DiscovererTagsEntryArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDiscoverer registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +87,7 @@ type discovererArgs struct {
 	// The ARN of the event bus.
 	SourceArn string `pulumi:"sourceArn"`
 	// Tags associated with the resource.
-	Tags []DiscovererTagsEntry `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Discoverer resource.
@@ -98,7 +99,7 @@ type DiscovererArgs struct {
 	// The ARN of the event bus.
 	SourceArn pulumi.StringInput
 	// Tags associated with the resource.
-	Tags DiscovererTagsEntryArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DiscovererArgs) ElementType() reflect.Type {
@@ -169,8 +170,8 @@ func (o DiscovererOutput) State() pulumi.StringOutput {
 }
 
 // Tags associated with the resource.
-func (o DiscovererOutput) Tags() DiscovererTagsEntryArrayOutput {
-	return o.ApplyT(func(v *Discoverer) DiscovererTagsEntryArrayOutput { return v.Tags }).(DiscovererTagsEntryArrayOutput)
+func (o DiscovererOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Discoverer) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -27,7 +27,7 @@ export interface GetTrustAnchorResult {
     readonly name?: string;
     readonly notificationSettings?: outputs.rolesanywhere.TrustAnchorNotificationSetting[];
     readonly source?: outputs.rolesanywhere.TrustAnchorSource;
-    readonly tags?: outputs.rolesanywhere.TrustAnchorTag[];
+    readonly tags?: outputs.Tag[];
     readonly trustAnchorArn?: string;
     readonly trustAnchorId?: string;
 }

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -49,7 +50,7 @@ class GetRulesetResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.RulesetTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         return pulumi.get(self, "tags")
 
 

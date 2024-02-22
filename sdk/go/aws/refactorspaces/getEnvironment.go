@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,8 +31,8 @@ type LookupEnvironmentResult struct {
 	Arn                   *string `pulumi:"arn"`
 	EnvironmentIdentifier *string `pulumi:"environmentIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags             []EnvironmentTag `pulumi:"tags"`
-	TransitGatewayId *string          `pulumi:"transitGatewayId"`
+	Tags             []aws.Tag `pulumi:"tags"`
+	TransitGatewayId *string   `pulumi:"transitGatewayId"`
 }
 
 func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentResultOutput {
@@ -78,8 +79,8 @@ func (o LookupEnvironmentResultOutput) EnvironmentIdentifier() pulumi.StringPtrO
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-func (o LookupEnvironmentResultOutput) Tags() EnvironmentTagArrayOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentTag { return v.Tags }).(EnvironmentTagArrayOutput)
+func (o LookupEnvironmentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupEnvironmentResultOutput) TransitGatewayId() pulumi.StringPtrOutput {

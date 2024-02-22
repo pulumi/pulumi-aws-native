@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -61,7 +62,7 @@ type IpamPool struct {
 	// An explanation of how the pool arrived at it current state.
 	StateMessage pulumi.StringOutput `pulumi:"stateMessage"`
 	// An array of key-value pairs to apply to this resource.
-	Tags IpamPoolTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewIpamPool registers a new resource with the given unique name, arguments, and options.
@@ -150,7 +151,7 @@ type ipamPoolArgs struct {
 	SourceIpamPoolId *string                 `pulumi:"sourceIpamPoolId"`
 	SourceResource   *IpamPoolSourceResource `pulumi:"sourceResource"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IpamPoolTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpamPool resource.
@@ -184,7 +185,7 @@ type IpamPoolArgs struct {
 	SourceIpamPoolId pulumi.StringPtrInput
 	SourceResource   IpamPoolSourceResourcePtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags IpamPoolTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (IpamPoolArgs) ElementType() reflect.Type {
@@ -338,8 +339,8 @@ func (o IpamPoolOutput) StateMessage() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o IpamPoolOutput) Tags() IpamPoolTagArrayOutput {
-	return o.ApplyT(func(v *IpamPool) IpamPoolTagArrayOutput { return v.Tags }).(IpamPoolTagArrayOutput)
+func (o IpamPoolOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IpamPool) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

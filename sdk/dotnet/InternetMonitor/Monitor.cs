@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.InternetMonitor
         public Output<Pulumi.AwsNative.InternetMonitor.MonitorConfigState?> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.MonitorTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("trafficPercentageToMonitor")]
         public Output<int?> TrafficPercentageToMonitor { get; private set; } = null!;
@@ -149,10 +149,10 @@ namespace Pulumi.AwsNative.InternetMonitor
         public Input<Pulumi.AwsNative.InternetMonitor.MonitorConfigState>? Status { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.MonitorTagArgs>? _tags;
-        public InputList<Inputs.MonitorTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.MonitorTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

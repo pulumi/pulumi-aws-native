@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,16 +28,16 @@ type LookupProfileArgs struct {
 }
 
 type LookupProfileResult struct {
-	DurationSeconds           *float64     `pulumi:"durationSeconds"`
-	Enabled                   *bool        `pulumi:"enabled"`
-	ManagedPolicyArns         []string     `pulumi:"managedPolicyArns"`
-	Name                      *string      `pulumi:"name"`
-	ProfileArn                *string      `pulumi:"profileArn"`
-	ProfileId                 *string      `pulumi:"profileId"`
-	RequireInstanceProperties *bool        `pulumi:"requireInstanceProperties"`
-	RoleArns                  []string     `pulumi:"roleArns"`
-	SessionPolicy             *string      `pulumi:"sessionPolicy"`
-	Tags                      []ProfileTag `pulumi:"tags"`
+	DurationSeconds           *float64  `pulumi:"durationSeconds"`
+	Enabled                   *bool     `pulumi:"enabled"`
+	ManagedPolicyArns         []string  `pulumi:"managedPolicyArns"`
+	Name                      *string   `pulumi:"name"`
+	ProfileArn                *string   `pulumi:"profileArn"`
+	ProfileId                 *string   `pulumi:"profileId"`
+	RequireInstanceProperties *bool     `pulumi:"requireInstanceProperties"`
+	RoleArns                  []string  `pulumi:"roleArns"`
+	SessionPolicy             *string   `pulumi:"sessionPolicy"`
+	Tags                      []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProfileOutput(ctx *pulumi.Context, args LookupProfileOutputArgs, opts ...pulumi.InvokeOption) LookupProfileResultOutput {
@@ -110,8 +111,8 @@ func (o LookupProfileResultOutput) SessionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.SessionPolicy }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupProfileResultOutput) Tags() ProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupProfileResult) []ProfileTag { return v.Tags }).(ProfileTagArrayOutput)
+func (o LookupProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

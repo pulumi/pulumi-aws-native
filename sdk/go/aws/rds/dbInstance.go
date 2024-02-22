@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -177,7 +178,7 @@ type DbInstance struct {
 	// Specifies the storage type to be associated with the DB instance.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// Tags to assign to the DB instance.
-	Tags DbInstanceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN from the key store with which to associate the instance for TDE encryption.
 	TdeCredentialArn pulumi.StringPtrOutput `pulumi:"tdeCredentialArn"`
 	// The password for the given ARN from the key store in order to access the device.
@@ -404,7 +405,7 @@ type dbInstanceArgs struct {
 	// Specifies the storage type to be associated with the DB instance.
 	StorageType *string `pulumi:"storageType"`
 	// Tags to assign to the DB instance.
-	Tags []DbInstanceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN from the key store with which to associate the instance for TDE encryption.
 	TdeCredentialArn *string `pulumi:"tdeCredentialArn"`
 	// The password for the given ARN from the key store in order to access the device.
@@ -577,7 +578,7 @@ type DbInstanceArgs struct {
 	// Specifies the storage type to be associated with the DB instance.
 	StorageType pulumi.StringPtrInput
 	// Tags to assign to the DB instance.
-	Tags DbInstanceTagArrayInput
+	Tags aws.TagArrayInput
 	// The ARN from the key store with which to associate the instance for TDE encryption.
 	TdeCredentialArn pulumi.StringPtrInput
 	// The password for the given ARN from the key store in order to access the device.
@@ -1007,8 +1008,8 @@ func (o DbInstanceOutput) StorageType() pulumi.StringPtrOutput {
 }
 
 // Tags to assign to the DB instance.
-func (o DbInstanceOutput) Tags() DbInstanceTagArrayOutput {
-	return o.ApplyT(func(v *DbInstance) DbInstanceTagArrayOutput { return v.Tags }).(DbInstanceTagArrayOutput)
+func (o DbInstanceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbInstance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN from the key store with which to associate the instance for TDE encryption.

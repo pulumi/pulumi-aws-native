@@ -51,10 +51,7 @@ namespace Pulumi.AwsNative.OpsWorks
     [OutputType]
     public sealed class GetLayerResult
     {
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-        /// </summary>
-        public readonly object? Attributes;
+        public readonly ImmutableDictionary<string, string>? Attributes;
         public readonly bool? AutoAssignElasticIps;
         public readonly bool? AutoAssignPublicIps;
         public readonly string? CustomInstanceProfileArn;
@@ -72,13 +69,13 @@ namespace Pulumi.AwsNative.OpsWorks
         public readonly string? Name;
         public readonly ImmutableArray<string> Packages;
         public readonly string? Shortname;
-        public readonly ImmutableArray<Outputs.LayerTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly bool? UseEbsOptimizedInstances;
         public readonly ImmutableArray<Outputs.LayerVolumeConfiguration> VolumeConfigurations;
 
         [OutputConstructor]
         private GetLayerResult(
-            object? attributes,
+            ImmutableDictionary<string, string>? attributes,
 
             bool? autoAssignElasticIps,
 
@@ -108,7 +105,7 @@ namespace Pulumi.AwsNative.OpsWorks
 
             string? shortname,
 
-            ImmutableArray<Outputs.LayerTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? useEbsOptimizedInstances,
 

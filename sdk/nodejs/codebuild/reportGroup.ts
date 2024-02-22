@@ -44,7 +44,7 @@ export class ReportGroup extends pulumi.CustomResource {
     public readonly deleteReports!: pulumi.Output<boolean | undefined>;
     public readonly exportConfig!: pulumi.Output<outputs.codebuild.ReportGroupReportExportConfig>;
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.codebuild.ReportGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -94,6 +94,6 @@ export interface ReportGroupArgs {
     deleteReports?: pulumi.Input<boolean>;
     exportConfig: pulumi.Input<inputs.codebuild.ReportGroupReportExportConfigArgs>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.codebuild.ReportGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     type: pulumi.Input<string>;
 }

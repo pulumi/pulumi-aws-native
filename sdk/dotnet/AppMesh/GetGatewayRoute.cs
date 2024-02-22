@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.AppMesh
         public readonly string? Id;
         public readonly string? ResourceOwner;
         public readonly Outputs.GatewayRouteSpec? Spec;
-        public readonly ImmutableArray<Outputs.GatewayRouteTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? Uid;
 
         [OutputConstructor]
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.AppMesh
 
             Outputs.GatewayRouteSpec? spec,
 
-            ImmutableArray<Outputs.GatewayRouteTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? uid)
         {

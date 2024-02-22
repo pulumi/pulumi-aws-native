@@ -13,5 +13,3 @@ from .get_schema import *
 from .registry import *
 from .registry_policy import *
 from .schema import *
-from ._inputs import *
-from . import outputs

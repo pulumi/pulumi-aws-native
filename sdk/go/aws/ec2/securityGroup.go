@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type SecurityGroup struct {
 	GroupName            pulumi.StringPtrOutput              `pulumi:"groupName"`
 	SecurityGroupEgress  SecurityGroupEgressTypeArrayOutput  `pulumi:"securityGroupEgress"`
 	SecurityGroupIngress SecurityGroupIngressTypeArrayOutput `pulumi:"securityGroupIngress"`
-	Tags                 SecurityGroupTagArrayOutput         `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput                  `pulumi:"tags"`
 	VpcId                pulumi.StringPtrOutput              `pulumi:"vpcId"`
 }
 
@@ -78,7 +79,7 @@ type securityGroupArgs struct {
 	GroupName            *string                    `pulumi:"groupName"`
 	SecurityGroupEgress  []SecurityGroupEgressType  `pulumi:"securityGroupEgress"`
 	SecurityGroupIngress []SecurityGroupIngressType `pulumi:"securityGroupIngress"`
-	Tags                 []SecurityGroupTag         `pulumi:"tags"`
+	Tags                 []aws.Tag                  `pulumi:"tags"`
 	VpcId                *string                    `pulumi:"vpcId"`
 }
 
@@ -88,7 +89,7 @@ type SecurityGroupArgs struct {
 	GroupName            pulumi.StringPtrInput
 	SecurityGroupEgress  SecurityGroupEgressTypeArrayInput
 	SecurityGroupIngress SecurityGroupIngressTypeArrayInput
-	Tags                 SecurityGroupTagArrayInput
+	Tags                 aws.TagArrayInput
 	VpcId                pulumi.StringPtrInput
 }
 
@@ -149,8 +150,8 @@ func (o SecurityGroupOutput) SecurityGroupIngress() SecurityGroupIngressTypeArra
 	return o.ApplyT(func(v *SecurityGroup) SecurityGroupIngressTypeArrayOutput { return v.SecurityGroupIngress }).(SecurityGroupIngressTypeArrayOutput)
 }
 
-func (o SecurityGroupOutput) Tags() SecurityGroupTagArrayOutput {
-	return o.ApplyT(func(v *SecurityGroup) SecurityGroupTagArrayOutput { return v.Tags }).(SecurityGroupTagArrayOutput)
+func (o SecurityGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SecurityGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o SecurityGroupOutput) VpcId() pulumi.StringPtrOutput {

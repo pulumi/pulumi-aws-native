@@ -384,101 +384,6 @@ type ContainerTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ContainerTagInput is an input type that accepts ContainerTagArgs and ContainerTagOutput values.
-// You can construct a concrete instance of `ContainerTagInput` via:
-//
-//	ContainerTagArgs{...}
-type ContainerTagInput interface {
-	pulumi.Input
-
-	ToContainerTagOutput() ContainerTagOutput
-	ToContainerTagOutputWithContext(context.Context) ContainerTagOutput
-}
-
-type ContainerTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ContainerTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerTag)(nil)).Elem()
-}
-
-func (i ContainerTagArgs) ToContainerTagOutput() ContainerTagOutput {
-	return i.ToContainerTagOutputWithContext(context.Background())
-}
-
-func (i ContainerTagArgs) ToContainerTagOutputWithContext(ctx context.Context) ContainerTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerTagOutput)
-}
-
-// ContainerTagArrayInput is an input type that accepts ContainerTagArray and ContainerTagArrayOutput values.
-// You can construct a concrete instance of `ContainerTagArrayInput` via:
-//
-//	ContainerTagArray{ ContainerTagArgs{...} }
-type ContainerTagArrayInput interface {
-	pulumi.Input
-
-	ToContainerTagArrayOutput() ContainerTagArrayOutput
-	ToContainerTagArrayOutputWithContext(context.Context) ContainerTagArrayOutput
-}
-
-type ContainerTagArray []ContainerTagInput
-
-func (ContainerTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ContainerTag)(nil)).Elem()
-}
-
-func (i ContainerTagArray) ToContainerTagArrayOutput() ContainerTagArrayOutput {
-	return i.ToContainerTagArrayOutputWithContext(context.Background())
-}
-
-func (i ContainerTagArray) ToContainerTagArrayOutputWithContext(ctx context.Context) ContainerTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerTagArrayOutput)
-}
-
-type ContainerTagOutput struct{ *pulumi.OutputState }
-
-func (ContainerTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerTag)(nil)).Elem()
-}
-
-func (o ContainerTagOutput) ToContainerTagOutput() ContainerTagOutput {
-	return o
-}
-
-func (o ContainerTagOutput) ToContainerTagOutputWithContext(ctx context.Context) ContainerTagOutput {
-	return o
-}
-
-func (o ContainerTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ContainerTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ContainerTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ContainerTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ContainerTag)(nil)).Elem()
-}
-
-func (o ContainerTagArrayOutput) ToContainerTagArrayOutput() ContainerTagArrayOutput {
-	return o
-}
-
-func (o ContainerTagArrayOutput) ToContainerTagArrayOutputWithContext(ctx context.Context) ContainerTagArrayOutput {
-	return o
-}
-
-func (o ContainerTagArrayOutput) Index(i pulumi.IntInput) ContainerTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerTag {
-		return vs[0].([]ContainerTag)[vs[1].(int)]
-	}).(ContainerTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerCorsRuleInput)(nil)).Elem(), ContainerCorsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerCorsRuleArrayInput)(nil)).Elem(), ContainerCorsRuleArray{})
@@ -486,14 +391,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerMetricPolicyPtrInput)(nil)).Elem(), ContainerMetricPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerMetricPolicyRuleInput)(nil)).Elem(), ContainerMetricPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerMetricPolicyRuleArrayInput)(nil)).Elem(), ContainerMetricPolicyRuleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTagInput)(nil)).Elem(), ContainerTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTagArrayInput)(nil)).Elem(), ContainerTagArray{})
 	pulumi.RegisterOutputType(ContainerCorsRuleOutput{})
 	pulumi.RegisterOutputType(ContainerCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(ContainerMetricPolicyOutput{})
 	pulumi.RegisterOutputType(ContainerMetricPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ContainerMetricPolicyRuleOutput{})
 	pulumi.RegisterOutputType(ContainerMetricPolicyRuleArrayOutput{})
-	pulumi.RegisterOutputType(ContainerTagOutput{})
-	pulumi.RegisterOutputType(ContainerTagArrayOutput{})
 }

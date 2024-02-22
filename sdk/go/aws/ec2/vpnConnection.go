@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type VpnConnection struct {
 	// Indicates whether the VPN connection uses static routes only.
 	StaticRoutesOnly pulumi.BoolPtrOutput `pulumi:"staticRoutesOnly"`
 	// Any tags assigned to the VPN connection.
-	Tags VpnConnectionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the transit gateway associated with the VPN connection.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// The type of VPN connection.
@@ -94,7 +95,7 @@ type vpnConnectionArgs struct {
 	// Indicates whether the VPN connection uses static routes only.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
 	// Any tags assigned to the VPN connection.
-	Tags []VpnConnectionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the transit gateway associated with the VPN connection.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// The type of VPN connection.
@@ -112,7 +113,7 @@ type VpnConnectionArgs struct {
 	// Indicates whether the VPN connection uses static routes only.
 	StaticRoutesOnly pulumi.BoolPtrInput
 	// Any tags assigned to the VPN connection.
-	Tags VpnConnectionTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the transit gateway associated with the VPN connection.
 	TransitGatewayId pulumi.StringPtrInput
 	// The type of VPN connection.
@@ -171,8 +172,8 @@ func (o VpnConnectionOutput) StaticRoutesOnly() pulumi.BoolPtrOutput {
 }
 
 // Any tags assigned to the VPN connection.
-func (o VpnConnectionOutput) Tags() VpnConnectionTagArrayOutput {
-	return o.ApplyT(func(v *VpnConnection) VpnConnectionTagArrayOutput { return v.Tags }).(VpnConnectionTagArrayOutput)
+func (o VpnConnectionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VpnConnection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the transit gateway associated with the VPN connection.

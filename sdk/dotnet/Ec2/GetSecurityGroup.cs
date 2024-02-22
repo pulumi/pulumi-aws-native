@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly string? Id;
         public readonly ImmutableArray<Outputs.SecurityGroupEgress> SecurityGroupEgress;
         public readonly ImmutableArray<Outputs.SecurityGroupIngress> SecurityGroupIngress;
-        public readonly ImmutableArray<Outputs.SecurityGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSecurityGroupResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<Outputs.SecurityGroupIngress> securityGroupIngress,
 
-            ImmutableArray<Outputs.SecurityGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             GroupId = groupId;
             Id = id;

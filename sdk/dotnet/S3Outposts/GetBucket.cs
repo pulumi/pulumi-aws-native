@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BucketTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetBucketResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.S3Outposts
 
             Outputs.BucketLifecycleConfiguration? lifecycleConfiguration,
 
-            ImmutableArray<Outputs.BucketTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             LifecycleConfiguration = lifecycleConfiguration;

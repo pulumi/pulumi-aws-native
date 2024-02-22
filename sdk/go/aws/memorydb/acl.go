@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Acl struct {
 	// Indicates acl status. Can be "creating", "active", "modifying", "deleting".
 	Status pulumi.StringOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this cluster.
-	Tags AclTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// List of users associated to this acl.
 	UserNames pulumi.StringArrayOutput `pulumi:"userNames"`
 }
@@ -74,7 +75,7 @@ type aclArgs struct {
 	// The name of the acl.
 	AclName *string `pulumi:"aclName"`
 	// An array of key-value pairs to apply to this cluster.
-	Tags []AclTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// List of users associated to this acl.
 	UserNames []string `pulumi:"userNames"`
 }
@@ -84,7 +85,7 @@ type AclArgs struct {
 	// The name of the acl.
 	AclName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this cluster.
-	Tags AclTagArrayInput
+	Tags aws.TagArrayInput
 	// List of users associated to this acl.
 	UserNames pulumi.StringArrayInput
 }
@@ -142,8 +143,8 @@ func (o AclOutput) Status() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this cluster.
-func (o AclOutput) Tags() AclTagArrayOutput {
-	return o.ApplyT(func(v *Acl) AclTagArrayOutput { return v.Tags }).(AclTagArrayOutput)
+func (o AclOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Acl) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // List of users associated to this acl.

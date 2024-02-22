@@ -52,7 +52,7 @@ export class DbInstance extends pulumi.CustomResource {
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     public /*out*/ readonly port!: pulumi.Output<string>;
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.neptune.DbInstanceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbInstance resource with the given unique name, arguments, and options.
@@ -119,5 +119,5 @@ export interface DbInstanceArgs {
     dbSnapshotIdentifier?: pulumi.Input<string>;
     dbSubnetGroupName?: pulumi.Input<string>;
     preferredMaintenanceWindow?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.neptune.DbInstanceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

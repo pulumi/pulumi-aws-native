@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,8 +21,8 @@ type Schedule struct {
 	CronExpression pulumi.StringOutput      `pulumi:"cronExpression"`
 	JobNames       pulumi.StringArrayOutput `pulumi:"jobNames"`
 	// Schedule Name
-	Name pulumi.StringOutput    `pulumi:"name"`
-	Tags ScheduleTagArrayOutput `pulumi:"tags"`
+	Name pulumi.StringOutput          `pulumi:"name"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
@@ -76,8 +77,8 @@ type scheduleArgs struct {
 	CronExpression string   `pulumi:"cronExpression"`
 	JobNames       []string `pulumi:"jobNames"`
 	// Schedule Name
-	Name *string       `pulumi:"name"`
-	Tags []ScheduleTag `pulumi:"tags"`
+	Name *string             `pulumi:"name"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Schedule resource.
@@ -87,7 +88,7 @@ type ScheduleArgs struct {
 	JobNames       pulumi.StringArrayInput
 	// Schedule Name
 	Name pulumi.StringPtrInput
-	Tags ScheduleTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ScheduleArgs) ElementType() reflect.Type {
@@ -141,8 +142,8 @@ func (o ScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ScheduleOutput) Tags() ScheduleTagArrayOutput {
-	return o.ApplyT(func(v *Schedule) ScheduleTagArrayOutput { return v.Tags }).(ScheduleTagArrayOutput)
+func (o ScheduleOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Schedule) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

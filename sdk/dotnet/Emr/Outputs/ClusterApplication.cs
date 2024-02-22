@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.Emr.Outputs
     [OutputType]
     public sealed class ClusterApplication
     {
-        public readonly object? AdditionalInfo;
+        public readonly ImmutableDictionary<string, string>? AdditionalInfo;
         public readonly ImmutableArray<string> Args;
         public readonly string? Name;
         public readonly string? Version;
 
         [OutputConstructor]
         private ClusterApplication(
-            object? additionalInfo,
+            ImmutableDictionary<string, string>? additionalInfo,
 
             ImmutableArray<string> args,
 

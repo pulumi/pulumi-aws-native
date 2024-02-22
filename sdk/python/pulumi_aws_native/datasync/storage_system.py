@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,14 +25,14 @@ class StorageSystemArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_credentials: Optional[pulumi.Input['StorageSystemServerCredentialsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageSystemTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageSystem resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
         :param pulumi.Input['StorageSystemSystemType'] system_type: The type of on-premises storage system that DataSync Discovery will analyze.
         :param pulumi.Input[str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
         :param pulumi.Input[str] name: A familiar name for the on-premises storage system.
-        :param pulumi.Input[Sequence[pulumi.Input['StorageSystemTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "server_configuration", server_configuration)
@@ -112,14 +114,14 @@ class StorageSystemArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageSystemTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageSystemTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -134,7 +136,7 @@ class StorageSystem(pulumi.CustomResource):
                  server_configuration: Optional[pulumi.Input[pulumi.InputType['StorageSystemServerConfigurationArgs']]] = None,
                  server_credentials: Optional[pulumi.Input[pulumi.InputType['StorageSystemServerCredentialsArgs']]] = None,
                  system_type: Optional[pulumi.Input['StorageSystemSystemType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageSystemTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::StorageSystem.
@@ -145,7 +147,7 @@ class StorageSystem(pulumi.CustomResource):
         :param pulumi.Input[str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
         :param pulumi.Input[str] name: A familiar name for the on-premises storage system.
         :param pulumi.Input['StorageSystemSystemType'] system_type: The type of on-premises storage system that DataSync Discovery will analyze.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageSystemTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -177,7 +179,7 @@ class StorageSystem(pulumi.CustomResource):
                  server_configuration: Optional[pulumi.Input[pulumi.InputType['StorageSystemServerConfigurationArgs']]] = None,
                  server_credentials: Optional[pulumi.Input[pulumi.InputType['StorageSystemServerCredentialsArgs']]] = None,
                  system_type: Optional[pulumi.Input['StorageSystemSystemType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageSystemTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -305,7 +307,7 @@ class StorageSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StorageSystemTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

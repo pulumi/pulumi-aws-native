@@ -69,7 +69,7 @@ export class LocationSmb extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.datasync.LocationSmbTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The user who can mount the share, has the permissions to access files and folders in the SMB share.
      */
@@ -149,7 +149,7 @@ export interface LocationSmbArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.datasync.LocationSmbTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The user who can mount the share, has the permissions to access files and folders in the SMB share.
      */

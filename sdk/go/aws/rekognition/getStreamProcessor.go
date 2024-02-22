@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupStreamProcessorResult struct {
 	// Detailed status message about the stream processor.
 	StatusMessage *string `pulumi:"statusMessage"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []StreamProcessorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupStreamProcessorOutput(ctx *pulumi.Context, args LookupStreamProcessorOutputArgs, opts ...pulumi.InvokeOption) LookupStreamProcessorResultOutput {
@@ -88,8 +89,8 @@ func (o LookupStreamProcessorResultOutput) StatusMessage() pulumi.StringPtrOutpu
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupStreamProcessorResultOutput) Tags() StreamProcessorTagArrayOutput {
-	return o.ApplyT(func(v LookupStreamProcessorResult) []StreamProcessorTag { return v.Tags }).(StreamProcessorTagArrayOutput)
+func (o LookupStreamProcessorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupStreamProcessorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

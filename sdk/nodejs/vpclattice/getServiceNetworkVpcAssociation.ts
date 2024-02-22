@@ -31,7 +31,7 @@ export interface GetServiceNetworkVpcAssociationResult {
     readonly serviceNetworkId?: string;
     readonly serviceNetworkName?: string;
     readonly status?: enums.vpclattice.ServiceNetworkVpcAssociationStatus;
-    readonly tags?: outputs.vpclattice.ServiceNetworkVpcAssociationTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcId?: string;
 }
 /**

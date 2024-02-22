@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.S3
         /// An arbitrary set of tags (key-value pairs) for this S3 bucket.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.BucketTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("versioningConfiguration")]
         public Output<Outputs.BucketVersioningConfiguration?> VersioningConfiguration { get; private set; } = null!;
@@ -324,14 +324,14 @@ namespace Pulumi.AwsNative.S3
         public Input<Inputs.BucketReplicationConfigurationArgs>? ReplicationConfiguration { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.BucketTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this S3 bucket.
         /// </summary>
-        public InputList<Inputs.BucketTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.BucketTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

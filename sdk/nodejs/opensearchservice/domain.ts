@@ -65,7 +65,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
-    public readonly tags!: pulumi.Output<outputs.opensearchservice.DomainTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcOptions!: pulumi.Output<outputs.opensearchservice.DomainVpcOptions | undefined>;
 
     /**
@@ -162,6 +162,6 @@ export interface DomainArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.opensearchservice.DomainTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcOptions?: pulumi.Input<inputs.opensearchservice.DomainVpcOptionsArgs>;
 }

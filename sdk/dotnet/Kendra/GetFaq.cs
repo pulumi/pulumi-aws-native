@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.Kendra
         /// <summary>
         /// Tags for labeling the FAQ
         /// </summary>
-        public readonly ImmutableArray<Outputs.FaqTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFaqResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Kendra
 
             string? languageCode,
 
-            ImmutableArray<Outputs.FaqTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Id = id;

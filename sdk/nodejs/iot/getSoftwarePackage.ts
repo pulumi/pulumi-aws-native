@@ -28,7 +28,7 @@ export interface GetSoftwarePackageResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.iot.SoftwarePackageTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * resource definition

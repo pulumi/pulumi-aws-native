@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.Backup
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
         [Output("frameworkTags")]
-        public Output<ImmutableArray<Outputs.FrameworkTag>> FrameworkTags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> FrameworkTags { get; private set; } = null!;
 
 
         /// <summary>
@@ -145,14 +145,14 @@ namespace Pulumi.AwsNative.Backup
         public Input<string>? FrameworkName { get; set; }
 
         [Input("frameworkTags")]
-        private InputList<Inputs.FrameworkTagArgs>? _frameworkTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _frameworkTags;
 
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
-        public InputList<Inputs.FrameworkTagArgs> FrameworkTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> FrameworkTags
         {
-            get => _frameworkTags ?? (_frameworkTags = new InputList<Inputs.FrameworkTagArgs>());
+            get => _frameworkTags ?? (_frameworkTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _frameworkTags = value;
         }
 

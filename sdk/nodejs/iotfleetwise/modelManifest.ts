@@ -48,7 +48,7 @@ export class ModelManifest extends pulumi.CustomResource {
     public readonly nodes!: pulumi.Output<string[] | undefined>;
     public readonly signalCatalogArn!: pulumi.Output<string>;
     public readonly status!: pulumi.Output<enums.iotfleetwise.ModelManifestManifestStatus | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iotfleetwise.ModelManifestTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ModelManifest resource with the given unique name, arguments, and options.
@@ -102,5 +102,5 @@ export interface ModelManifestArgs {
     nodes?: pulumi.Input<pulumi.Input<string>[]>;
     signalCatalogArn: pulumi.Input<string>;
     status?: pulumi.Input<enums.iotfleetwise.ModelManifestManifestStatus>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.ModelManifestTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

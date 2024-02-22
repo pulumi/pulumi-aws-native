@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.UserTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The Amazon Resource Name (ARN) for the user.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Connect
 
             ImmutableArray<string> securityProfileArns,
 
-            ImmutableArray<Outputs.UserTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? userArn,
 

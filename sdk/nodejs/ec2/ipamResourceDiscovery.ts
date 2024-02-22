@@ -69,7 +69,7 @@ export class IpamResourceDiscovery extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.IpamResourceDiscoveryTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IpamResourceDiscovery resource with the given unique name, arguments, and options.
@@ -119,5 +119,5 @@ export interface IpamResourceDiscoveryArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.IpamResourceDiscoveryTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

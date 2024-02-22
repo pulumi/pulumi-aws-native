@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Theme struct {
 	LastUpdatedTime    pulumi.StringOutput                `pulumi:"lastUpdatedTime"`
 	Name               pulumi.StringOutput                `pulumi:"name"`
 	Permissions        ThemeResourcePermissionArrayOutput `pulumi:"permissions"`
-	Tags               ThemeTagArrayOutput                `pulumi:"tags"`
+	Tags               aws.TagArrayOutput                 `pulumi:"tags"`
 	ThemeId            pulumi.StringOutput                `pulumi:"themeId"`
 	Type               ThemeTypeOutput                    `pulumi:"type"`
 	Version            ThemeVersionOutput                 `pulumi:"version"`
@@ -93,7 +94,7 @@ type themeArgs struct {
 	Configuration      ThemeConfiguration        `pulumi:"configuration"`
 	Name               *string                   `pulumi:"name"`
 	Permissions        []ThemeResourcePermission `pulumi:"permissions"`
-	Tags               []ThemeTag                `pulumi:"tags"`
+	Tags               []aws.Tag                 `pulumi:"tags"`
 	ThemeId            string                    `pulumi:"themeId"`
 	VersionDescription *string                   `pulumi:"versionDescription"`
 }
@@ -105,7 +106,7 @@ type ThemeArgs struct {
 	Configuration      ThemeConfigurationInput
 	Name               pulumi.StringPtrInput
 	Permissions        ThemeResourcePermissionArrayInput
-	Tags               ThemeTagArrayInput
+	Tags               aws.TagArrayInput
 	ThemeId            pulumi.StringInput
 	VersionDescription pulumi.StringPtrInput
 }
@@ -179,8 +180,8 @@ func (o ThemeOutput) Permissions() ThemeResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemeResourcePermissionArrayOutput { return v.Permissions }).(ThemeResourcePermissionArrayOutput)
 }
 
-func (o ThemeOutput) Tags() ThemeTagArrayOutput {
-	return o.ApplyT(func(v *Theme) ThemeTagArrayOutput { return v.Tags }).(ThemeTagArrayOutput)
+func (o ThemeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Theme) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ThemeOutput) ThemeId() pulumi.StringOutput {

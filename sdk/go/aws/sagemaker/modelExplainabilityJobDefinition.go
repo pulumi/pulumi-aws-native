@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type ModelExplainabilityJobDefinition struct {
 	RoleArn           pulumi.StringOutput                                        `pulumi:"roleArn"`
 	StoppingCondition ModelExplainabilityJobDefinitionStoppingConditionPtrOutput `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ModelExplainabilityJobDefinitionTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewModelExplainabilityJobDefinition registers a new resource with the given unique name, arguments, and options.
@@ -116,7 +117,7 @@ type modelExplainabilityJobDefinitionArgs struct {
 	RoleArn           string                                             `pulumi:"roleArn"`
 	StoppingCondition *ModelExplainabilityJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ModelExplainabilityJobDefinitionTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ModelExplainabilityJobDefinition resource.
@@ -133,7 +134,7 @@ type ModelExplainabilityJobDefinitionArgs struct {
 	RoleArn           pulumi.StringInput
 	StoppingCondition ModelExplainabilityJobDefinitionStoppingConditionPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ModelExplainabilityJobDefinitionTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ModelExplainabilityJobDefinitionArgs) ElementType() reflect.Type {
@@ -239,10 +240,8 @@ func (o ModelExplainabilityJobDefinitionOutput) StoppingCondition() ModelExplain
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ModelExplainabilityJobDefinitionOutput) Tags() ModelExplainabilityJobDefinitionTagArrayOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionTagArrayOutput {
-		return v.Tags
-	}).(ModelExplainabilityJobDefinitionTagArrayOutput)
+func (o ModelExplainabilityJobDefinitionOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

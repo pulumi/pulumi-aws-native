@@ -40,10 +40,7 @@ export class Layer extends pulumi.CustomResource {
         return obj['__pulumiType'] === Layer.__pulumiType;
     }
 
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-     */
-    public readonly attributes!: pulumi.Output<any | undefined>;
+    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly autoAssignElasticIps!: pulumi.Output<boolean>;
     public readonly autoAssignPublicIps!: pulumi.Output<boolean>;
     public readonly customInstanceProfileArn!: pulumi.Output<string | undefined>;
@@ -61,7 +58,7 @@ export class Layer extends pulumi.CustomResource {
     public readonly packages!: pulumi.Output<string[] | undefined>;
     public readonly shortname!: pulumi.Output<string>;
     public readonly stackId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.opsworks.LayerTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly type!: pulumi.Output<string>;
     public readonly useEbsOptimizedInstances!: pulumi.Output<boolean | undefined>;
     public readonly volumeConfigurations!: pulumi.Output<outputs.opsworks.LayerVolumeConfiguration[] | undefined>;
@@ -148,10 +145,7 @@ export class Layer extends pulumi.CustomResource {
  * The set of arguments for constructing a Layer resource.
  */
 export interface LayerArgs {
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-     */
-    attributes?: any;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     autoAssignElasticIps: pulumi.Input<boolean>;
     autoAssignPublicIps: pulumi.Input<boolean>;
     customInstanceProfileArn?: pulumi.Input<string>;
@@ -169,7 +163,7 @@ export interface LayerArgs {
     packages?: pulumi.Input<pulumi.Input<string>[]>;
     shortname: pulumi.Input<string>;
     stackId: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.opsworks.LayerTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     type: pulumi.Input<string>;
     useEbsOptimizedInstances?: pulumi.Input<boolean>;
     volumeConfigurations?: pulumi.Input<pulumi.Input<inputs.opsworks.LayerVolumeConfigurationArgs>[]>;

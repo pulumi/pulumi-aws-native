@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type LookupKeyspaceArgs struct {
 }
 
 type LookupKeyspaceResult struct {
-	Tags []KeyspaceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupKeyspaceOutput(ctx *pulumi.Context, args LookupKeyspaceOutputArgs, opts ...pulumi.InvokeOption) LookupKeyspaceResultOutput {
@@ -67,8 +68,8 @@ func (o LookupKeyspaceResultOutput) ToLookupKeyspaceResultOutputWithContext(ctx 
 	return o
 }
 
-func (o LookupKeyspaceResultOutput) Tags() KeyspaceTagArrayOutput {
-	return o.ApplyT(func(v LookupKeyspaceResult) []KeyspaceTag { return v.Tags }).(KeyspaceTagArrayOutput)
+func (o LookupKeyspaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupKeyspaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

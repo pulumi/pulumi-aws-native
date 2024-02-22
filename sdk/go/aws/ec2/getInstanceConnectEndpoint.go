@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupInstanceConnectEndpointResult struct {
 	// The id of the instance connect endpoint
 	Id *string `pulumi:"id"`
 	// The tags of the instance connect endpoint.
-	Tags []InstanceConnectEndpointTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupInstanceConnectEndpointOutput(ctx *pulumi.Context, args LookupInstanceConnectEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceConnectEndpointResultOutput {
@@ -76,8 +77,8 @@ func (o LookupInstanceConnectEndpointResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The tags of the instance connect endpoint.
-func (o LookupInstanceConnectEndpointResultOutput) Tags() InstanceConnectEndpointTagArrayOutput {
-	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) []InstanceConnectEndpointTag { return v.Tags }).(InstanceConnectEndpointTagArrayOutput)
+func (o LookupInstanceConnectEndpointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

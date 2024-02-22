@@ -75,7 +75,7 @@ export class PartnerAccount extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.PartnerAccountTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PartnerAccount resource with the given unique name, arguments, and options.
@@ -148,5 +148,5 @@ export interface PartnerAccountArgs {
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.PartnerAccountTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

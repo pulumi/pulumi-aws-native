@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// The tags associated with this graph.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.GraphTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Vector Search Configuration
@@ -189,14 +189,14 @@ namespace Pulumi.AwsNative.NeptuneGraph
         public Input<int>? ReplicaCount { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.GraphTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags associated with this graph.
         /// </summary>
-        public InputList<Inputs.GraphTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.GraphTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

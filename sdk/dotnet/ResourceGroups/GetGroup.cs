@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ResourceGroups
         public readonly string? Description;
         public readonly Outputs.GroupResourceQuery? ResourceQuery;
         public readonly ImmutableArray<string> Resources;
-        public readonly ImmutableArray<Outputs.GroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetGroupResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.ResourceGroups
 
             ImmutableArray<string> resources,
 
-            ImmutableArray<Outputs.GroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Configuration = configuration;

@@ -250,199 +250,9 @@ type CapacityReservationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// CapacityReservationTagInput is an input type that accepts CapacityReservationTagArgs and CapacityReservationTagOutput values.
-// You can construct a concrete instance of `CapacityReservationTagInput` via:
-//
-//	CapacityReservationTagArgs{...}
-type CapacityReservationTagInput interface {
-	pulumi.Input
-
-	ToCapacityReservationTagOutput() CapacityReservationTagOutput
-	ToCapacityReservationTagOutputWithContext(context.Context) CapacityReservationTagOutput
-}
-
-type CapacityReservationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CapacityReservationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityReservationTag)(nil)).Elem()
-}
-
-func (i CapacityReservationTagArgs) ToCapacityReservationTagOutput() CapacityReservationTagOutput {
-	return i.ToCapacityReservationTagOutputWithContext(context.Background())
-}
-
-func (i CapacityReservationTagArgs) ToCapacityReservationTagOutputWithContext(ctx context.Context) CapacityReservationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagOutput)
-}
-
-// CapacityReservationTagArrayInput is an input type that accepts CapacityReservationTagArray and CapacityReservationTagArrayOutput values.
-// You can construct a concrete instance of `CapacityReservationTagArrayInput` via:
-//
-//	CapacityReservationTagArray{ CapacityReservationTagArgs{...} }
-type CapacityReservationTagArrayInput interface {
-	pulumi.Input
-
-	ToCapacityReservationTagArrayOutput() CapacityReservationTagArrayOutput
-	ToCapacityReservationTagArrayOutputWithContext(context.Context) CapacityReservationTagArrayOutput
-}
-
-type CapacityReservationTagArray []CapacityReservationTagInput
-
-func (CapacityReservationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CapacityReservationTag)(nil)).Elem()
-}
-
-func (i CapacityReservationTagArray) ToCapacityReservationTagArrayOutput() CapacityReservationTagArrayOutput {
-	return i.ToCapacityReservationTagArrayOutputWithContext(context.Background())
-}
-
-func (i CapacityReservationTagArray) ToCapacityReservationTagArrayOutputWithContext(ctx context.Context) CapacityReservationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagArrayOutput)
-}
-
-type CapacityReservationTagOutput struct{ *pulumi.OutputState }
-
-func (CapacityReservationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityReservationTag)(nil)).Elem()
-}
-
-func (o CapacityReservationTagOutput) ToCapacityReservationTagOutput() CapacityReservationTagOutput {
-	return o
-}
-
-func (o CapacityReservationTagOutput) ToCapacityReservationTagOutputWithContext(ctx context.Context) CapacityReservationTagOutput {
-	return o
-}
-
-func (o CapacityReservationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v CapacityReservationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o CapacityReservationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CapacityReservationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CapacityReservationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (CapacityReservationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CapacityReservationTag)(nil)).Elem()
-}
-
-func (o CapacityReservationTagArrayOutput) ToCapacityReservationTagArrayOutput() CapacityReservationTagArrayOutput {
-	return o
-}
-
-func (o CapacityReservationTagArrayOutput) ToCapacityReservationTagArrayOutputWithContext(ctx context.Context) CapacityReservationTagArrayOutput {
-	return o
-}
-
-func (o CapacityReservationTagArrayOutput) Index(i pulumi.IntInput) CapacityReservationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityReservationTag {
-		return vs[0].([]CapacityReservationTag)[vs[1].(int)]
-	}).(CapacityReservationTagOutput)
-}
-
 type DataCatalogTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// DataCatalogTagInput is an input type that accepts DataCatalogTagArgs and DataCatalogTagOutput values.
-// You can construct a concrete instance of `DataCatalogTagInput` via:
-//
-//	DataCatalogTagArgs{...}
-type DataCatalogTagInput interface {
-	pulumi.Input
-
-	ToDataCatalogTagOutput() DataCatalogTagOutput
-	ToDataCatalogTagOutputWithContext(context.Context) DataCatalogTagOutput
-}
-
-type DataCatalogTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DataCatalogTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogTag)(nil)).Elem()
-}
-
-func (i DataCatalogTagArgs) ToDataCatalogTagOutput() DataCatalogTagOutput {
-	return i.ToDataCatalogTagOutputWithContext(context.Background())
-}
-
-func (i DataCatalogTagArgs) ToDataCatalogTagOutputWithContext(ctx context.Context) DataCatalogTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagOutput)
-}
-
-// DataCatalogTagArrayInput is an input type that accepts DataCatalogTagArray and DataCatalogTagArrayOutput values.
-// You can construct a concrete instance of `DataCatalogTagArrayInput` via:
-//
-//	DataCatalogTagArray{ DataCatalogTagArgs{...} }
-type DataCatalogTagArrayInput interface {
-	pulumi.Input
-
-	ToDataCatalogTagArrayOutput() DataCatalogTagArrayOutput
-	ToDataCatalogTagArrayOutputWithContext(context.Context) DataCatalogTagArrayOutput
-}
-
-type DataCatalogTagArray []DataCatalogTagInput
-
-func (DataCatalogTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataCatalogTag)(nil)).Elem()
-}
-
-func (i DataCatalogTagArray) ToDataCatalogTagArrayOutput() DataCatalogTagArrayOutput {
-	return i.ToDataCatalogTagArrayOutputWithContext(context.Background())
-}
-
-func (i DataCatalogTagArray) ToDataCatalogTagArrayOutputWithContext(ctx context.Context) DataCatalogTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagArrayOutput)
-}
-
-type DataCatalogTagOutput struct{ *pulumi.OutputState }
-
-func (DataCatalogTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogTag)(nil)).Elem()
-}
-
-func (o DataCatalogTagOutput) ToDataCatalogTagOutput() DataCatalogTagOutput {
-	return o
-}
-
-func (o DataCatalogTagOutput) ToDataCatalogTagOutputWithContext(ctx context.Context) DataCatalogTagOutput {
-	return o
-}
-
-func (o DataCatalogTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DataCatalogTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DataCatalogTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DataCatalogTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DataCatalogTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DataCatalogTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataCatalogTag)(nil)).Elem()
-}
-
-func (o DataCatalogTagArrayOutput) ToDataCatalogTagArrayOutput() DataCatalogTagArrayOutput {
-	return o
-}
-
-func (o DataCatalogTagArrayOutput) ToDataCatalogTagArrayOutputWithContext(ctx context.Context) DataCatalogTagArrayOutput {
-	return o
-}
-
-func (o DataCatalogTagArrayOutput) Index(i pulumi.IntInput) DataCatalogTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataCatalogTag {
-		return vs[0].([]DataCatalogTag)[vs[1].(int)]
-	}).(DataCatalogTagOutput)
 }
 
 // Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results
@@ -1995,110 +1805,11 @@ type WorkGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// WorkGroupTagInput is an input type that accepts WorkGroupTagArgs and WorkGroupTagOutput values.
-// You can construct a concrete instance of `WorkGroupTagInput` via:
-//
-//	WorkGroupTagArgs{...}
-type WorkGroupTagInput interface {
-	pulumi.Input
-
-	ToWorkGroupTagOutput() WorkGroupTagOutput
-	ToWorkGroupTagOutputWithContext(context.Context) WorkGroupTagOutput
-}
-
-type WorkGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (WorkGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkGroupTag)(nil)).Elem()
-}
-
-func (i WorkGroupTagArgs) ToWorkGroupTagOutput() WorkGroupTagOutput {
-	return i.ToWorkGroupTagOutputWithContext(context.Background())
-}
-
-func (i WorkGroupTagArgs) ToWorkGroupTagOutputWithContext(ctx context.Context) WorkGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupTagOutput)
-}
-
-// WorkGroupTagArrayInput is an input type that accepts WorkGroupTagArray and WorkGroupTagArrayOutput values.
-// You can construct a concrete instance of `WorkGroupTagArrayInput` via:
-//
-//	WorkGroupTagArray{ WorkGroupTagArgs{...} }
-type WorkGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToWorkGroupTagArrayOutput() WorkGroupTagArrayOutput
-	ToWorkGroupTagArrayOutputWithContext(context.Context) WorkGroupTagArrayOutput
-}
-
-type WorkGroupTagArray []WorkGroupTagInput
-
-func (WorkGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkGroupTag)(nil)).Elem()
-}
-
-func (i WorkGroupTagArray) ToWorkGroupTagArrayOutput() WorkGroupTagArrayOutput {
-	return i.ToWorkGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i WorkGroupTagArray) ToWorkGroupTagArrayOutputWithContext(ctx context.Context) WorkGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupTagArrayOutput)
-}
-
-type WorkGroupTagOutput struct{ *pulumi.OutputState }
-
-func (WorkGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkGroupTag)(nil)).Elem()
-}
-
-func (o WorkGroupTagOutput) ToWorkGroupTagOutput() WorkGroupTagOutput {
-	return o
-}
-
-func (o WorkGroupTagOutput) ToWorkGroupTagOutputWithContext(ctx context.Context) WorkGroupTagOutput {
-	return o
-}
-
-func (o WorkGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o WorkGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type WorkGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (WorkGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkGroupTag)(nil)).Elem()
-}
-
-func (o WorkGroupTagArrayOutput) ToWorkGroupTagArrayOutput() WorkGroupTagArrayOutput {
-	return o
-}
-
-func (o WorkGroupTagArrayOutput) ToWorkGroupTagArrayOutputWithContext(ctx context.Context) WorkGroupTagArrayOutput {
-	return o
-}
-
-func (o WorkGroupTagArrayOutput) Index(i pulumi.IntInput) WorkGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkGroupTag {
-		return vs[0].([]WorkGroupTag)[vs[1].(int)]
-	}).(WorkGroupTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationCapacityAssignmentInput)(nil)).Elem(), CapacityReservationCapacityAssignmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationCapacityAssignmentArrayInput)(nil)).Elem(), CapacityReservationCapacityAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationCapacityAssignmentConfigurationInput)(nil)).Elem(), CapacityReservationCapacityAssignmentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationCapacityAssignmentConfigurationPtrInput)(nil)).Elem(), CapacityReservationCapacityAssignmentConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTagInput)(nil)).Elem(), CapacityReservationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTagArrayInput)(nil)).Elem(), CapacityReservationTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTagInput)(nil)).Elem(), DataCatalogTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTagArrayInput)(nil)).Elem(), DataCatalogTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupAclConfigurationInput)(nil)).Elem(), WorkGroupAclConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupAclConfigurationPtrInput)(nil)).Elem(), WorkGroupAclConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationInput)(nil)).Elem(), WorkGroupConfigurationArgs{})
@@ -2115,16 +1826,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationPtrInput)(nil)).Elem(), WorkGroupResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationUpdatesInput)(nil)).Elem(), WorkGroupResultConfigurationUpdatesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationUpdatesPtrInput)(nil)).Elem(), WorkGroupResultConfigurationUpdatesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupTagInput)(nil)).Elem(), WorkGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupTagArrayInput)(nil)).Elem(), WorkGroupTagArray{})
 	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentOutput{})
 	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentConfigurationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(CapacityReservationTagOutput{})
-	pulumi.RegisterOutputType(CapacityReservationTagArrayOutput{})
-	pulumi.RegisterOutputType(DataCatalogTagOutput{})
-	pulumi.RegisterOutputType(DataCatalogTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkGroupAclConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupAclConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupConfigurationOutput{})
@@ -2141,6 +1846,4 @@ func init() {
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationUpdatesOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationUpdatesPtrOutput{})
-	pulumi.RegisterOutputType(WorkGroupTagOutput{})
-	pulumi.RegisterOutputType(WorkGroupTagArrayOutput{})
 }

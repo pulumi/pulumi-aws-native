@@ -27,19 +27,13 @@ __all__ = [
     'GameServerGroupAutoScalingPolicy',
     'GameServerGroupInstanceDefinition',
     'GameServerGroupLaunchTemplate',
-    'GameServerGroupTag',
     'GameServerGroupTargetTrackingConfiguration',
     'GameSessionQueueDestination',
     'GameSessionQueueFilterConfiguration',
     'GameSessionQueuePlayerLatencyPolicy',
     'GameSessionQueuePriorityConfiguration',
-    'GameSessionQueueTag',
-    'LocationTag',
     'MatchmakingConfigurationGameProperty',
-    'MatchmakingConfigurationTag',
-    'MatchmakingRuleSetTag',
     'ScriptS3Location',
-    'ScriptTag',
 ]
 
 @pulumi.output_type
@@ -983,37 +977,6 @@ class GameServerGroupLaunchTemplate(dict):
 
 
 @pulumi.output_type
-class GameServerGroupTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        :param str key: The key for a developer-defined key:value pair for tagging an AWS resource.
-        :param str value: The value for a developer-defined key:value pair for tagging an AWS resource.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        """
-        The key for a developer-defined key:value pair for tagging an AWS resource.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value for a developer-defined key:value pair for tagging an AWS resource.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class GameServerGroupTargetTrackingConfiguration(dict):
     """
     Settings for a target-based scaling policy applied to Auto Scaling group.
@@ -1209,72 +1172,6 @@ class GameSessionQueuePriorityConfiguration(dict):
 
 
 @pulumi.output_type
-class GameSessionQueueTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        :param str value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class LocationTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class MatchmakingConfigurationGameProperty(dict):
     """
     A key-value pair that contains information about a game session.
@@ -1303,72 +1200,6 @@ class MatchmakingConfigurationGameProperty(dict):
     def value(self) -> str:
         """
         The game property value.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class MatchmakingConfigurationTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class MatchmakingRuleSetTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        :param str value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -1442,38 +1273,5 @@ class ScriptS3Location(dict):
         The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
         """
         return pulumi.get(self, "object_version")
-
-
-@pulumi.output_type
-class ScriptTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
-        """
-        return pulumi.get(self, "value")
 
 

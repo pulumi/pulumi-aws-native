@@ -24,7 +24,7 @@ export interface GetCapacityProviderArgs {
 
 export interface GetCapacityProviderResult {
     readonly autoScalingGroupProvider?: outputs.ecs.CapacityProviderAutoScalingGroupProvider;
-    readonly tags?: outputs.ecs.CapacityProviderTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ECS::CapacityProvider.

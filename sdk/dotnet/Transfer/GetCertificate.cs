@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CertificateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Describing the type of certificate. With or without a private key.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.Transfer
 
             Pulumi.AwsNative.Transfer.CertificateStatus? status,
 
-            ImmutableArray<Outputs.CertificateTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.Transfer.CertificateType? type,
 

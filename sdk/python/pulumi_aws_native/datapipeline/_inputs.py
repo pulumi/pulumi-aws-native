@@ -15,7 +15,6 @@ __all__ = [
     'PipelineParameterAttributeArgs',
     'PipelineParameterObjectArgs',
     'PipelineParameterValueArgs',
-    'PipelineTagArgs',
 ]
 
 @pulumi.input_type
@@ -233,42 +232,5 @@ class PipelineParameterValueArgs:
     @string_value.setter
     def string_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "string_value", value)
-
-
-@pulumi.input_type
-class PipelineTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: The key name of a tag.
-        :param pulumi.Input[str] value: The value to associate with the key name.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        The key name of a tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value to associate with the key name.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

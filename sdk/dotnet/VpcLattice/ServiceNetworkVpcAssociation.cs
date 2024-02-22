@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<Pulumi.AwsNative.VpcLattice.ServiceNetworkVpcAssociationStatus> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ServiceNetworkVpcAssociationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -110,10 +110,10 @@ namespace Pulumi.AwsNative.VpcLattice
         public Input<string>? ServiceNetworkIdentifier { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ServiceNetworkVpcAssociationTagArgs>? _tags;
-        public InputList<Inputs.ServiceNetworkVpcAssociationTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ServiceNetworkVpcAssociationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

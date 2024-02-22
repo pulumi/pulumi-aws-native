@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,7 +24,7 @@ class StreamArgs:
                  shard_count: Optional[pulumi.Input[int]] = None,
                  stream_encryption: Optional[pulumi.Input['StreamEncryptionArgs']] = None,
                  stream_mode_details: Optional[pulumi.Input['StreamModeDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
         :param pulumi.Input[str] name: The name of the Kinesis stream.
@@ -30,7 +32,7 @@ class StreamArgs:
         :param pulumi.Input[int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         :param pulumi.Input['StreamEncryptionArgs'] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         :param pulumi.Input['StreamModeDetailsArgs'] stream_mode_details: The mode in which the stream is running.
-        :param pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -107,14 +109,14 @@ class StreamArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -128,7 +130,7 @@ class Stream(pulumi.CustomResource):
                  shard_count: Optional[pulumi.Input[int]] = None,
                  stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamEncryptionArgs']]] = None,
                  stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamModeDetailsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Kinesis::Stream
@@ -140,7 +142,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         :param pulumi.Input[pulumi.InputType['StreamEncryptionArgs']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         :param pulumi.Input[pulumi.InputType['StreamModeDetailsArgs']] stream_mode_details: The mode in which the stream is running.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         ...
     @overload
@@ -171,7 +173,7 @@ class Stream(pulumi.CustomResource):
                  shard_count: Optional[pulumi.Input[int]] = None,
                  stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamEncryptionArgs']]] = None,
                  stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamModeDetailsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -271,7 +273,7 @@ class Stream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StreamTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """

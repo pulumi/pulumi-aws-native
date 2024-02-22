@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// The tags of Application Insights application.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ApplicationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -204,14 +204,14 @@ namespace Pulumi.AwsNative.ApplicationInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.ApplicationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags of Application Insights application.
         /// </summary>
-        public InputList<Inputs.ApplicationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ApplicationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

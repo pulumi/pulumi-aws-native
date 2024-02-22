@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LogGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLogGroupResult(
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.Logs
 
             int? retentionInDays,
 
-            ImmutableArray<Outputs.LogGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DataProtectionPolicy = dataProtectionPolicy;

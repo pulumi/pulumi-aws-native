@@ -60,7 +60,7 @@ export class EntityType extends pulumi.CustomResource {
     /**
      * Tags associated with this entity type.
      */
-    public readonly tags!: pulumi.Output<outputs.frauddetector.EntityTypeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EntityType resource with the given unique name, arguments, and options.
@@ -109,5 +109,5 @@ export interface EntityTypeArgs {
     /**
      * Tags associated with this entity type.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.EntityTypeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

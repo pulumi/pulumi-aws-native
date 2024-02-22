@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupFrameworkResult struct {
 	// `UNAVAILABLE` when AWS Backup is unable to validate recording status at this time.
 	FrameworkStatus *string `pulumi:"frameworkStatus"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	FrameworkTags []FrameworkTag `pulumi:"frameworkTags"`
+	FrameworkTags []aws.Tag `pulumi:"frameworkTags"`
 }
 
 func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, opts ...pulumi.InvokeOption) LookupFrameworkResultOutput {
@@ -127,8 +128,8 @@ func (o LookupFrameworkResultOutput) FrameworkStatus() pulumi.StringPtrOutput {
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-func (o LookupFrameworkResultOutput) FrameworkTags() FrameworkTagArrayOutput {
-	return o.ApplyT(func(v LookupFrameworkResult) []FrameworkTag { return v.FrameworkTags }).(FrameworkTagArrayOutput)
+func (o LookupFrameworkResultOutput) FrameworkTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) []aws.Tag { return v.FrameworkTags }).(aws.TagArrayOutput)
 }
 
 func init() {

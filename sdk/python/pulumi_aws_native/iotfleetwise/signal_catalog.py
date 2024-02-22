@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,7 +23,7 @@ class SignalCatalogArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  node_counts: Optional[pulumi.Input['SignalCatalogNodeCountsArgs']] = None,
                  nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalCatalogNode0PropertiesArgs', 'SignalCatalogNode1PropertiesArgs', 'SignalCatalogNode2PropertiesArgs', 'SignalCatalogNode3PropertiesArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SignalCatalogTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SignalCatalog resource.
         """
@@ -74,11 +76,11 @@ class SignalCatalogArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignalCatalogTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignalCatalogTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -96,7 +98,7 @@ class SignalCatalog(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  node_counts: Optional[pulumi.Input[pulumi.InputType['SignalCatalogNodeCountsArgs']]] = None,
                  nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['SignalCatalogNode0PropertiesArgs'], pulumi.InputType['SignalCatalogNode1PropertiesArgs'], pulumi.InputType['SignalCatalogNode2PropertiesArgs'], pulumi.InputType['SignalCatalogNode3PropertiesArgs']]]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalCatalogTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::IoTFleetWise::SignalCatalog Resource Type
@@ -132,7 +134,7 @@ class SignalCatalog(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  node_counts: Optional[pulumi.Input[pulumi.InputType['SignalCatalogNodeCountsArgs']]] = None,
                  nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['SignalCatalogNode0PropertiesArgs'], pulumi.InputType['SignalCatalogNode1PropertiesArgs'], pulumi.InputType['SignalCatalogNode2PropertiesArgs'], pulumi.InputType['SignalCatalogNode3PropertiesArgs']]]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalCatalogTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""SignalCatalog is deprecated: SignalCatalog is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -222,6 +224,6 @@ class SignalCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SignalCatalogTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 

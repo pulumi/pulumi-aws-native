@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupThingGroupResult struct {
 	Id          *string `pulumi:"id"`
 	QueryString *string `pulumi:"queryString"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                 []ThingGroupTag                 `pulumi:"tags"`
+	Tags                 []aws.Tag                       `pulumi:"tags"`
 	ThingGroupProperties *ThingGroupPropertiesProperties `pulumi:"thingGroupProperties"`
 }
 
@@ -83,8 +84,8 @@ func (o LookupThingGroupResultOutput) QueryString() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupThingGroupResultOutput) Tags() ThingGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupThingGroupResult) []ThingGroupTag { return v.Tags }).(ThingGroupTagArrayOutput)
+func (o LookupThingGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupThingGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupThingGroupResultOutput) ThingGroupProperties() ThingGroupPropertiesPropertiesPtrOutput {

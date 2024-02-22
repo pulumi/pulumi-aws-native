@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type Channel struct {
 	// The configuration parameters for egress access logging.
 	IngressAccessLogs ChannelLogConfigurationPtrOutput `pulumi:"ingressAccessLogs"`
 	// A collection of tags associated with a resource
-	Tags ChannelTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +83,7 @@ type channelArgs struct {
 	// The configuration parameters for egress access logging.
 	IngressAccessLogs *ChannelLogConfiguration `pulumi:"ingressAccessLogs"`
 	// A collection of tags associated with a resource
-	Tags []ChannelTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -96,7 +97,7 @@ type ChannelArgs struct {
 	// The configuration parameters for egress access logging.
 	IngressAccessLogs ChannelLogConfigurationPtrInput
 	// A collection of tags associated with a resource
-	Tags ChannelTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -162,8 +163,8 @@ func (o ChannelOutput) IngressAccessLogs() ChannelLogConfigurationPtrOutput {
 }
 
 // A collection of tags associated with a resource
-func (o ChannelOutput) Tags() ChannelTagArrayOutput {
-	return o.ApplyT(func(v *Channel) ChannelTagArrayOutput { return v.Tags }).(ChannelTagArrayOutput)
+func (o ChannelOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Channel) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

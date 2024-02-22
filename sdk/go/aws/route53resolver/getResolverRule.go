@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupResolverRuleResult struct {
 	// The ID of the endpoint that the rule is associated with.
 	ResolverRuleId *string `pulumi:"resolverRuleId"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ResolverRuleTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
 	TargetIps []ResolverRuleTargetAddress `pulumi:"targetIps"`
 }
@@ -106,8 +107,8 @@ func (o LookupResolverRuleResultOutput) ResolverRuleId() pulumi.StringPtrOutput 
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupResolverRuleResultOutput) Tags() ResolverRuleTagArrayOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) []ResolverRuleTag { return v.Tags }).(ResolverRuleTagArrayOutput)
+func (o LookupResolverRuleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.

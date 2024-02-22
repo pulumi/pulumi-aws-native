@@ -80,7 +80,7 @@ export class InstanceProfile extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.dms.InstanceProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The property describes vps security groups for the instance profile.
      */
@@ -167,7 +167,7 @@ export interface InstanceProfileArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.dms.InstanceProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The property describes vps security groups for the instance profile.
      */

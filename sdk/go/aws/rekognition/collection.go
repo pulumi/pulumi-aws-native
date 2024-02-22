@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,7 +20,7 @@ type Collection struct {
 	Arn          pulumi.StringOutput `pulumi:"arn"`
 	CollectionId pulumi.StringOutput `pulumi:"collectionId"`
 	// An array of key-value pairs to apply to this resource.
-	Tags CollectionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCollection registers a new resource with the given unique name, arguments, and options.
@@ -71,14 +72,14 @@ func (CollectionState) ElementType() reflect.Type {
 type collectionArgs struct {
 	CollectionId string `pulumi:"collectionId"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []CollectionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Collection resource.
 type CollectionArgs struct {
 	CollectionId pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags CollectionTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (CollectionArgs) ElementType() reflect.Type {
@@ -127,8 +128,8 @@ func (o CollectionOutput) CollectionId() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o CollectionOutput) Tags() CollectionTagArrayOutput {
-	return o.ApplyT(func(v *Collection) CollectionTagArrayOutput { return v.Tags }).(CollectionTagArrayOutput)
+func (o CollectionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Collection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

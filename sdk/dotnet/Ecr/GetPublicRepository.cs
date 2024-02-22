@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Ecr
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PublicRepositoryTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPublicRepositoryResult(
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.Ecr
 
             object? repositoryPolicyText,
 
-            ImmutableArray<Outputs.PublicRepositoryTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             RepositoryCatalogData = repositoryCatalogData;

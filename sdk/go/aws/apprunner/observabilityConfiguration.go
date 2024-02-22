@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type ObservabilityConfiguration struct {
 	// The revision of this observability configuration. It's unique among all the active configurations ('Status': 'ACTIVE') that share the same ObservabilityConfigurationName.
 	ObservabilityConfigurationRevision pulumi.IntOutput `pulumi:"observabilityConfigurationRevision"`
 	// A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
-	Tags ObservabilityConfigurationTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
 	TraceConfiguration ObservabilityConfigurationTraceConfigurationPtrOutput `pulumi:"traceConfiguration"`
 }
@@ -78,7 +79,7 @@ type observabilityConfigurationArgs struct {
 	// A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
 	ObservabilityConfigurationName *string `pulumi:"observabilityConfigurationName"`
 	// A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
-	Tags []ObservabilityConfigurationTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
 	TraceConfiguration *ObservabilityConfigurationTraceConfiguration `pulumi:"traceConfiguration"`
 }
@@ -88,7 +89,7 @@ type ObservabilityConfigurationArgs struct {
 	// A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
 	ObservabilityConfigurationName pulumi.StringPtrInput
 	// A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
-	Tags ObservabilityConfigurationTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 	// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
 	TraceConfiguration ObservabilityConfigurationTraceConfigurationPtrInput
 }
@@ -151,8 +152,8 @@ func (o ObservabilityConfigurationOutput) ObservabilityConfigurationRevision() p
 }
 
 // A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
-func (o ObservabilityConfigurationOutput) Tags() ObservabilityConfigurationTagArrayOutput {
-	return o.ApplyT(func(v *ObservabilityConfiguration) ObservabilityConfigurationTagArrayOutput { return v.Tags }).(ObservabilityConfigurationTagArrayOutput)
+func (o ObservabilityConfigurationOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *ObservabilityConfiguration) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.

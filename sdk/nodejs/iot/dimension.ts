@@ -52,7 +52,7 @@ export class Dimension extends pulumi.CustomResource {
     /**
      * Metadata that can be used to manage the dimension.
      */
-    public readonly tags!: pulumi.Output<outputs.iot.DimensionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies the type of the dimension.
      */
@@ -109,7 +109,7 @@ export interface DimensionArgs {
     /**
      * Metadata that can be used to manage the dimension.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.DimensionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Specifies the type of the dimension.
      */

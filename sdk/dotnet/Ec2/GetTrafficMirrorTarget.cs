@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetTrafficMirrorTargetResult
     {
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.TrafficMirrorTargetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetTrafficMirrorTargetResult(
             string? id,
 
-            ImmutableArray<Outputs.TrafficMirrorTargetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Tags = tags;

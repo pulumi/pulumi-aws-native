@@ -43,7 +43,7 @@ export class DevicePool extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly projectArn!: pulumi.Output<string>;
     public readonly rules!: pulumi.Output<outputs.devicefarm.DevicePoolRule[]>;
-    public readonly tags!: pulumi.Output<outputs.devicefarm.DevicePoolTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DevicePool resource with the given unique name, arguments, and options.
@@ -94,5 +94,5 @@ export interface DevicePoolArgs {
     name?: pulumi.Input<string>;
     projectArn: pulumi.Input<string>;
     rules: pulumi.Input<pulumi.Input<inputs.devicefarm.DevicePoolRuleArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.devicefarm.DevicePoolTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

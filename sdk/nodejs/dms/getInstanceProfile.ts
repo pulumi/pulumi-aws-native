@@ -65,7 +65,7 @@ export interface GetInstanceProfileResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.dms.InstanceProfileTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The property describes vps security groups for the instance profile.
      */

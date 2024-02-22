@@ -44,7 +44,7 @@ export class Flywheel extends pulumi.CustomResource {
     public readonly dataSecurityConfig!: pulumi.Output<outputs.comprehend.FlywheelDataSecurityConfig | undefined>;
     public readonly flywheelName!: pulumi.Output<string>;
     public readonly modelType!: pulumi.Output<enums.comprehend.FlywheelModelType | undefined>;
-    public readonly tags!: pulumi.Output<outputs.comprehend.FlywheelTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly taskConfig!: pulumi.Output<outputs.comprehend.FlywheelTaskConfig | undefined>;
 
     /**
@@ -101,6 +101,6 @@ export interface FlywheelArgs {
     dataSecurityConfig?: pulumi.Input<inputs.comprehend.FlywheelDataSecurityConfigArgs>;
     flywheelName?: pulumi.Input<string>;
     modelType?: pulumi.Input<enums.comprehend.FlywheelModelType>;
-    tags?: pulumi.Input<pulumi.Input<inputs.comprehend.FlywheelTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     taskConfig?: pulumi.Input<inputs.comprehend.FlywheelTaskConfigArgs>;
 }

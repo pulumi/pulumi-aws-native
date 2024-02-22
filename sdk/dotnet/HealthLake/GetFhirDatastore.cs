@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.HealthLake
         public readonly string? DatastoreEndpoint;
         public readonly string? DatastoreId;
         public readonly Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreStatus? DatastoreStatus;
-        public readonly ImmutableArray<Outputs.FhirDatastoreTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFhirDatastoreResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.HealthLake
 
             Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreStatus? datastoreStatus,
 
-            ImmutableArray<Outputs.FhirDatastoreTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreatedAt = createdAt;
             DatastoreArn = datastoreArn;

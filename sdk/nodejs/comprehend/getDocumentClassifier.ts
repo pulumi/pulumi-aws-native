@@ -25,7 +25,7 @@ export interface GetDocumentClassifierArgs {
 export interface GetDocumentClassifierResult {
     readonly arn?: string;
     readonly modelPolicy?: string;
-    readonly tags?: outputs.comprehend.DocumentClassifierTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Document Classifier enables training document classifier models.

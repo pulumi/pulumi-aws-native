@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Evidently
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExperimentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<Outputs.ExperimentTreatmentObject> Treatments;
 
         [OutputConstructor]
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Evidently
 
             string? segment,
 
-            ImmutableArray<Outputs.ExperimentTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.ExperimentTreatmentObject> treatments)
         {

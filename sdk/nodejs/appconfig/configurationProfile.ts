@@ -72,7 +72,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     /**
      * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    public readonly tags!: pulumi.Output<outputs.appconfig.ConfigurationProfileTags[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
      */
@@ -161,7 +161,7 @@ export interface ConfigurationProfileArgs {
     /**
      * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileTagsArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
      */

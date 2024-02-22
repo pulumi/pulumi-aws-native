@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupWorkspaceResult struct {
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []WorkspaceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Required to identify a specific APS Workspace.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
@@ -104,8 +105,8 @@ func (o LookupWorkspaceResultOutput) PrometheusEndpoint() pulumi.StringPtrOutput
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupWorkspaceResultOutput) Tags() WorkspaceTagArrayOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) []WorkspaceTag { return v.Tags }).(WorkspaceTagArrayOutput)
+func (o LookupWorkspaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Required to identify a specific APS Workspace.

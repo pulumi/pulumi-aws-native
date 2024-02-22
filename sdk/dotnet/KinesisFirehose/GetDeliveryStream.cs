@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration? S3DestinationConfiguration;
         public readonly Outputs.DeliveryStreamSnowflakeDestinationConfiguration? SnowflakeDestinationConfiguration;
         public readonly Outputs.DeliveryStreamSplunkDestinationConfiguration? SplunkDestinationConfiguration;
-        public readonly ImmutableArray<Outputs.DeliveryStreamTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDeliveryStreamResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
             Outputs.DeliveryStreamSplunkDestinationConfiguration? splunkDestinationConfiguration,
 
-            ImmutableArray<Outputs.DeliveryStreamTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AmazonOpenSearchServerlessDestinationConfiguration = amazonOpenSearchServerlessDestinationConfiguration;
             AmazonopensearchserviceDestinationConfiguration = amazonopensearchserviceDestinationConfiguration;

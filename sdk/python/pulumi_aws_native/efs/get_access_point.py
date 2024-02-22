@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetAccessPointResult',
@@ -37,7 +37,7 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter(name="accessPointTags")
-    def access_point_tags(self) -> Optional[Sequence['outputs.AccessPointTag']]:
+    def access_point_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         An array of key-value pairs to apply to this resource.
          For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).

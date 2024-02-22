@@ -61,7 +61,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * The tags (keys and values) associated with the integration
      */
-    public readonly tags!: pulumi.Output<outputs.customerprofiles.IntegrationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The URI of the S3 bucket or any other type of data source.
      */
@@ -126,7 +126,7 @@ export interface IntegrationArgs {
     /**
      * The tags (keys and values) associated with the integration
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.customerprofiles.IntegrationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The URI of the S3 bucket or any other type of data source.
      */

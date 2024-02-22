@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,9 +39,9 @@ type Subnet struct {
 	OutpostArn                    pulumi.StringPtrOutput                           `pulumi:"outpostArn"`
 	PrivateDnsNameOptionsOnLaunch PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput `pulumi:"privateDnsNameOptionsOnLaunch"`
 	// The ID of the subnet
-	SubnetId pulumi.StringOutput  `pulumi:"subnetId"`
-	Tags     SubnetTagArrayOutput `pulumi:"tags"`
-	VpcId    pulumi.StringOutput  `pulumi:"vpcId"`
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	Tags     aws.TagArrayOutput  `pulumi:"tags"`
+	VpcId    pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
@@ -118,7 +119,7 @@ type subnetArgs struct {
 	MapPublicIpOnLaunch           *bool                                    `pulumi:"mapPublicIpOnLaunch"`
 	OutpostArn                    *string                                  `pulumi:"outpostArn"`
 	PrivateDnsNameOptionsOnLaunch *PrivateDnsNameOptionsOnLaunchProperties `pulumi:"privateDnsNameOptionsOnLaunch"`
-	Tags                          []SubnetTag                              `pulumi:"tags"`
+	Tags                          []aws.Tag                                `pulumi:"tags"`
 	VpcId                         string                                   `pulumi:"vpcId"`
 }
 
@@ -143,7 +144,7 @@ type SubnetArgs struct {
 	MapPublicIpOnLaunch           pulumi.BoolPtrInput
 	OutpostArn                    pulumi.StringPtrInput
 	PrivateDnsNameOptionsOnLaunch PrivateDnsNameOptionsOnLaunchPropertiesPtrInput
-	Tags                          SubnetTagArrayInput
+	Tags                          aws.TagArrayInput
 	VpcId                         pulumi.StringInput
 }
 
@@ -260,8 +261,8 @@ func (o SubnetOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-func (o SubnetOutput) Tags() SubnetTagArrayOutput {
-	return o.ApplyT(func(v *Subnet) SubnetTagArrayOutput { return v.Tags }).(SubnetTagArrayOutput)
+func (o SubnetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Subnet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o SubnetOutput) VpcId() pulumi.StringOutput {

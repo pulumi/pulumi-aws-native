@@ -52,7 +52,7 @@ export class DeviceProfile extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the device profile.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.DeviceProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DeviceProfile resource with the given unique name, arguments, and options.
@@ -95,5 +95,5 @@ export interface DeviceProfileArgs {
     /**
      * A list of key-value pairs that contain metadata for the device profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.DeviceProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

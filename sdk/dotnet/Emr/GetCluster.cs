@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Emr
         public readonly Outputs.ClusterManagedScalingPolicy? ManagedScalingPolicy;
         public readonly string? MasterPublicDns;
         public readonly int? StepConcurrencyLevel;
-        public readonly ImmutableArray<Outputs.ClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly bool? VisibleToAllUsers;
 
         [OutputConstructor]
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Emr
 
             int? stepConcurrencyLevel,
 
-            ImmutableArray<Outputs.ClusterTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             bool? visibleToAllUsers)
         {

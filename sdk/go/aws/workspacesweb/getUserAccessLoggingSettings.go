@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,9 +30,9 @@ type LookupUserAccessLoggingSettingsArgs struct {
 type LookupUserAccessLoggingSettingsResult struct {
 	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
 	// Kinesis stream ARN to which log events are published.
-	KinesisStreamArn             *string                        `pulumi:"kinesisStreamArn"`
-	Tags                         []UserAccessLoggingSettingsTag `pulumi:"tags"`
-	UserAccessLoggingSettingsArn *string                        `pulumi:"userAccessLoggingSettingsArn"`
+	KinesisStreamArn             *string   `pulumi:"kinesisStreamArn"`
+	Tags                         []aws.Tag `pulumi:"tags"`
+	UserAccessLoggingSettingsArn *string   `pulumi:"userAccessLoggingSettingsArn"`
 }
 
 func LookupUserAccessLoggingSettingsOutput(ctx *pulumi.Context, args LookupUserAccessLoggingSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupUserAccessLoggingSettingsResultOutput {
@@ -78,8 +79,8 @@ func (o LookupUserAccessLoggingSettingsResultOutput) KinesisStreamArn() pulumi.S
 	return o.ApplyT(func(v LookupUserAccessLoggingSettingsResult) *string { return v.KinesisStreamArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupUserAccessLoggingSettingsResultOutput) Tags() UserAccessLoggingSettingsTagArrayOutput {
-	return o.ApplyT(func(v LookupUserAccessLoggingSettingsResult) []UserAccessLoggingSettingsTag { return v.Tags }).(UserAccessLoggingSettingsTagArrayOutput)
+func (o LookupUserAccessLoggingSettingsResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupUserAccessLoggingSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupUserAccessLoggingSettingsResultOutput) UserAccessLoggingSettingsArn() pulumi.StringPtrOutput {

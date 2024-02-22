@@ -52,7 +52,6 @@ __all__ = [
     'DataSourceServiceNowServiceCatalogConfiguration',
     'DataSourceSharePointConfiguration',
     'DataSourceSqlConfiguration',
-    'DataSourceTag',
     'DataSourceToIndexFieldMapping',
     'DataSourceVpcConfiguration',
     'DataSourceWebCrawlerAuthenticationConfiguration',
@@ -63,7 +62,6 @@ __all__ = [
     'DataSourceWebCrawlerUrls',
     'DataSourceWorkDocsConfiguration',
     'FaqS3Path',
-    'FaqTag',
     'IndexCapacityUnitsConfiguration',
     'IndexDocumentMetadataConfiguration',
     'IndexJsonTokenTypeConfiguration',
@@ -71,7 +69,6 @@ __all__ = [
     'IndexRelevance',
     'IndexSearch',
     'IndexServerSideEncryptionConfiguration',
-    'IndexTag',
     'IndexUserTokenConfiguration',
     'IndexValueImportanceItem',
 ]
@@ -2461,39 +2458,6 @@ class DataSourceSqlConfiguration(dict):
 
 
 @pulumi.output_type
-class DataSourceTag(dict):
-    """
-    A label for tagging Kendra resources
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A label for tagging Kendra resources
-        :param str key: A string used to identify this tag
-        :param str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class DataSourceToIndexFieldMapping(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2949,39 +2913,6 @@ class FaqS3Path(dict):
 
 
 @pulumi.output_type
-class FaqTag(dict):
-    """
-    A label for tagging Kendra resources
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A label for tagging Kendra resources
-        :param str key: A string used to identify this tag
-        :param str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class IndexCapacityUnitsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3306,39 +3237,6 @@ class IndexServerSideEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
-
-
-@pulumi.output_type
-class IndexTag(dict):
-    """
-    A label for tagging Kendra resources
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A label for tagging Kendra resources
-        :param str key: A string used to identify this tag
-        :param str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -64094,101 +64094,6 @@ type DashboardTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DashboardTagInput is an input type that accepts DashboardTagArgs and DashboardTagOutput values.
-// You can construct a concrete instance of `DashboardTagInput` via:
-//
-//	DashboardTagArgs{...}
-type DashboardTagInput interface {
-	pulumi.Input
-
-	ToDashboardTagOutput() DashboardTagOutput
-	ToDashboardTagOutputWithContext(context.Context) DashboardTagOutput
-}
-
-type DashboardTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DashboardTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardTag)(nil)).Elem()
-}
-
-func (i DashboardTagArgs) ToDashboardTagOutput() DashboardTagOutput {
-	return i.ToDashboardTagOutputWithContext(context.Background())
-}
-
-func (i DashboardTagArgs) ToDashboardTagOutputWithContext(ctx context.Context) DashboardTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardTagOutput)
-}
-
-// DashboardTagArrayInput is an input type that accepts DashboardTagArray and DashboardTagArrayOutput values.
-// You can construct a concrete instance of `DashboardTagArrayInput` via:
-//
-//	DashboardTagArray{ DashboardTagArgs{...} }
-type DashboardTagArrayInput interface {
-	pulumi.Input
-
-	ToDashboardTagArrayOutput() DashboardTagArrayOutput
-	ToDashboardTagArrayOutputWithContext(context.Context) DashboardTagArrayOutput
-}
-
-type DashboardTagArray []DashboardTagInput
-
-func (DashboardTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardTag)(nil)).Elem()
-}
-
-func (i DashboardTagArray) ToDashboardTagArrayOutput() DashboardTagArrayOutput {
-	return i.ToDashboardTagArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardTagArray) ToDashboardTagArrayOutputWithContext(ctx context.Context) DashboardTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardTagArrayOutput)
-}
-
-type DashboardTagOutput struct{ *pulumi.OutputState }
-
-func (DashboardTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardTag)(nil)).Elem()
-}
-
-func (o DashboardTagOutput) ToDashboardTagOutput() DashboardTagOutput {
-	return o
-}
-
-func (o DashboardTagOutput) ToDashboardTagOutputWithContext(ctx context.Context) DashboardTagOutput {
-	return o
-}
-
-func (o DashboardTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DashboardTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DashboardTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardTag)(nil)).Elem()
-}
-
-func (o DashboardTagArrayOutput) ToDashboardTagArrayOutput() DashboardTagArrayOutput {
-	return o
-}
-
-func (o DashboardTagArrayOutput) ToDashboardTagArrayOutputWithContext(ctx context.Context) DashboardTagArrayOutput {
-	return o
-}
-
-func (o DashboardTagArrayOutput) Index(i pulumi.IntInput) DashboardTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardTag {
-		return vs[0].([]DashboardTag)[vs[1].(int)]
-	}).(DashboardTagOutput)
-}
-
 type DashboardTextAreaControlDisplayOptions struct {
 	InfoIconLabelOptions *DashboardSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
 	PlaceholderOptions   *DashboardTextControlPlaceholderOptions    `pulumi:"placeholderOptions"`
@@ -76778,111 +76683,6 @@ type DataSetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DataSetTagInput is an input type that accepts DataSetTagArgs and DataSetTagOutput values.
-// You can construct a concrete instance of `DataSetTagInput` via:
-//
-//	DataSetTagArgs{...}
-type DataSetTagInput interface {
-	pulumi.Input
-
-	ToDataSetTagOutput() DataSetTagOutput
-	ToDataSetTagOutputWithContext(context.Context) DataSetTagOutput
-}
-
-// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//
-//	resource.</p>
-type DataSetTagArgs struct {
-	// <p>Tag key.</p>
-	Key pulumi.StringInput `pulumi:"key"`
-	// <p>Tag value.</p>
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DataSetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetTag)(nil)).Elem()
-}
-
-func (i DataSetTagArgs) ToDataSetTagOutput() DataSetTagOutput {
-	return i.ToDataSetTagOutputWithContext(context.Background())
-}
-
-func (i DataSetTagArgs) ToDataSetTagOutputWithContext(ctx context.Context) DataSetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetTagOutput)
-}
-
-// DataSetTagArrayInput is an input type that accepts DataSetTagArray and DataSetTagArrayOutput values.
-// You can construct a concrete instance of `DataSetTagArrayInput` via:
-//
-//	DataSetTagArray{ DataSetTagArgs{...} }
-type DataSetTagArrayInput interface {
-	pulumi.Input
-
-	ToDataSetTagArrayOutput() DataSetTagArrayOutput
-	ToDataSetTagArrayOutputWithContext(context.Context) DataSetTagArrayOutput
-}
-
-type DataSetTagArray []DataSetTagInput
-
-func (DataSetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetTag)(nil)).Elem()
-}
-
-func (i DataSetTagArray) ToDataSetTagArrayOutput() DataSetTagArrayOutput {
-	return i.ToDataSetTagArrayOutputWithContext(context.Background())
-}
-
-func (i DataSetTagArray) ToDataSetTagArrayOutputWithContext(ctx context.Context) DataSetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetTagArrayOutput)
-}
-
-// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-//
-//	resource.</p>
-type DataSetTagOutput struct{ *pulumi.OutputState }
-
-func (DataSetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetTag)(nil)).Elem()
-}
-
-func (o DataSetTagOutput) ToDataSetTagOutput() DataSetTagOutput {
-	return o
-}
-
-func (o DataSetTagOutput) ToDataSetTagOutputWithContext(ctx context.Context) DataSetTagOutput {
-	return o
-}
-
-// <p>Tag key.</p>
-func (o DataSetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// <p>Tag value.</p>
-func (o DataSetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DataSetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DataSetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetTag)(nil)).Elem()
-}
-
-func (o DataSetTagArrayOutput) ToDataSetTagArrayOutput() DataSetTagArrayOutput {
-	return o
-}
-
-func (o DataSetTagArrayOutput) ToDataSetTagArrayOutputWithContext(ctx context.Context) DataSetTagArrayOutput {
-	return o
-}
-
-func (o DataSetTagArrayOutput) Index(i pulumi.IntInput) DataSetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetTag {
-		return vs[0].([]DataSetTag)[vs[1].(int)]
-	}).(DataSetTagOutput)
-}
-
 // <p>The dataset usage configuration for the dataset.</p>
 type DataSetUsageConfiguration struct {
 	DisableUseAsDirectQuerySource *bool `pulumi:"disableUseAsDirectQuerySource"`
@@ -79533,8 +79333,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableUnaggregatedFieldWellsPtrInput)(nil)).Elem(), DashboardTableUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableVisualInput)(nil)).Elem(), DashboardTableVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableVisualPtrInput)(nil)).Elem(), DashboardTableVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTagInput)(nil)).Elem(), DashboardTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTagArrayInput)(nil)).Elem(), DashboardTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTextAreaControlDisplayOptionsInput)(nil)).Elem(), DashboardTextAreaControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTextAreaControlDisplayOptionsPtrInput)(nil)).Elem(), DashboardTextAreaControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTextConditionalFormatInput)(nil)).Elem(), DashboardTextConditionalFormatArgs{})
@@ -79688,8 +79486,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStringDatasetParameterPtrInput)(nil)).Elem(), DataSetStringDatasetParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStringDatasetParameterDefaultValuesInput)(nil)).Elem(), DataSetStringDatasetParameterDefaultValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStringDatasetParameterDefaultValuesPtrInput)(nil)).Elem(), DataSetStringDatasetParameterDefaultValuesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTagInput)(nil)).Elem(), DataSetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTagArrayInput)(nil)).Elem(), DataSetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUsageConfigurationInput)(nil)).Elem(), DataSetUsageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUsageConfigurationPtrInput)(nil)).Elem(), DataSetUsageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAmazonElasticsearchParametersInput)(nil)).Elem(), DataSourceAmazonElasticsearchParametersArgs{})
@@ -80523,8 +80319,6 @@ func init() {
 	pulumi.RegisterOutputType(DashboardTableUnaggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardTableVisualOutput{})
 	pulumi.RegisterOutputType(DashboardTableVisualPtrOutput{})
-	pulumi.RegisterOutputType(DashboardTagOutput{})
-	pulumi.RegisterOutputType(DashboardTagArrayOutput{})
 	pulumi.RegisterOutputType(DashboardTextAreaControlDisplayOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardTextAreaControlDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardTextConditionalFormatOutput{})
@@ -80682,8 +80476,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSetStringDatasetParameterPtrOutput{})
 	pulumi.RegisterOutputType(DataSetStringDatasetParameterDefaultValuesOutput{})
 	pulumi.RegisterOutputType(DataSetStringDatasetParameterDefaultValuesPtrOutput{})
-	pulumi.RegisterOutputType(DataSetTagOutput{})
-	pulumi.RegisterOutputType(DataSetTagArrayOutput{})
 	pulumi.RegisterOutputType(DataSetUsageConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSetUsageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAmazonElasticsearchParametersOutput{})

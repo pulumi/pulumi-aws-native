@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,7 +18,7 @@ type TlsInspectionConfiguration struct {
 	pulumi.CustomResourceState
 
 	Description                    pulumi.StringPtrOutput                                     `pulumi:"description"`
-	Tags                           TlsInspectionConfigurationTagArrayOutput                   `pulumi:"tags"`
+	Tags                           aws.TagArrayOutput                                         `pulumi:"tags"`
 	TlsInspectionConfiguration     TlsInspectionConfigurationTlsInspectionConfigurationOutput `pulumi:"tlsInspectionConfiguration"`
 	TlsInspectionConfigurationArn  pulumi.StringOutput                                        `pulumi:"tlsInspectionConfigurationArn"`
 	TlsInspectionConfigurationId   pulumi.StringOutput                                        `pulumi:"tlsInspectionConfigurationId"`
@@ -72,7 +73,7 @@ func (TlsInspectionConfigurationState) ElementType() reflect.Type {
 
 type tlsInspectionConfigurationArgs struct {
 	Description                    *string                                              `pulumi:"description"`
-	Tags                           []TlsInspectionConfigurationTag                      `pulumi:"tags"`
+	Tags                           []aws.Tag                                            `pulumi:"tags"`
 	TlsInspectionConfiguration     TlsInspectionConfigurationTlsInspectionConfiguration `pulumi:"tlsInspectionConfiguration"`
 	TlsInspectionConfigurationName *string                                              `pulumi:"tlsInspectionConfigurationName"`
 }
@@ -80,7 +81,7 @@ type tlsInspectionConfigurationArgs struct {
 // The set of arguments for constructing a TlsInspectionConfiguration resource.
 type TlsInspectionConfigurationArgs struct {
 	Description                    pulumi.StringPtrInput
-	Tags                           TlsInspectionConfigurationTagArrayInput
+	Tags                           aws.TagArrayInput
 	TlsInspectionConfiguration     TlsInspectionConfigurationTlsInspectionConfigurationInput
 	TlsInspectionConfigurationName pulumi.StringPtrInput
 }
@@ -126,8 +127,8 @@ func (o TlsInspectionConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o TlsInspectionConfigurationOutput) Tags() TlsInspectionConfigurationTagArrayOutput {
-	return o.ApplyT(func(v *TlsInspectionConfiguration) TlsInspectionConfigurationTagArrayOutput { return v.Tags }).(TlsInspectionConfigurationTagArrayOutput)
+func (o TlsInspectionConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TlsInspectionConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TlsInspectionConfigurationOutput) TlsInspectionConfiguration() TlsInspectionConfigurationTlsInspectionConfigurationOutput {

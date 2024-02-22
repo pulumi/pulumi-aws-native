@@ -64,7 +64,7 @@ export class Discoverer extends pulumi.CustomResource {
     /**
      * Tags associated with the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.eventschemas.DiscovererTagsEntry[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Discoverer resource with the given unique name, arguments, and options.
@@ -122,5 +122,5 @@ export interface DiscovererArgs {
     /**
      * Tags associated with the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.eventschemas.DiscovererTagsEntryArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

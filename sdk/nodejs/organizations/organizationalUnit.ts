@@ -52,7 +52,7 @@ export class OrganizationalUnit extends pulumi.CustomResource {
     /**
      * A list of tags that you want to attach to the newly created OU.
      */
-    public readonly tags!: pulumi.Output<outputs.organizations.OrganizationalUnitTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a OrganizationalUnit resource with the given unique name, arguments, and options.
@@ -100,5 +100,5 @@ export interface OrganizationalUnitArgs {
     /**
      * A list of tags that you want to attach to the newly created OU.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationalUnitTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

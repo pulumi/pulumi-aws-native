@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -55,7 +56,7 @@ type Instance struct {
 	SourceDestCheck                   pulumi.BoolPtrOutput                           `pulumi:"sourceDestCheck"`
 	SsmAssociations                   InstanceSsmAssociationArrayOutput              `pulumi:"ssmAssociations"`
 	SubnetId                          pulumi.StringPtrOutput                         `pulumi:"subnetId"`
-	Tags                              InstanceTagArrayOutput                         `pulumi:"tags"`
+	Tags                              aws.TagArrayOutput                             `pulumi:"tags"`
 	Tenancy                           pulumi.StringPtrOutput                         `pulumi:"tenancy"`
 	UserData                          pulumi.StringPtrOutput                         `pulumi:"userData"`
 	Volumes                           InstanceVolumeArrayOutput                      `pulumi:"volumes"`
@@ -158,7 +159,7 @@ type instanceArgs struct {
 	SourceDestCheck                   *bool                                 `pulumi:"sourceDestCheck"`
 	SsmAssociations                   []InstanceSsmAssociation              `pulumi:"ssmAssociations"`
 	SubnetId                          *string                               `pulumi:"subnetId"`
-	Tags                              []InstanceTag                         `pulumi:"tags"`
+	Tags                              []aws.Tag                             `pulumi:"tags"`
 	Tenancy                           *string                               `pulumi:"tenancy"`
 	UserData                          *string                               `pulumi:"userData"`
 	Volumes                           []InstanceVolume                      `pulumi:"volumes"`
@@ -202,7 +203,7 @@ type InstanceArgs struct {
 	SourceDestCheck                   pulumi.BoolPtrInput
 	SsmAssociations                   InstanceSsmAssociationArrayInput
 	SubnetId                          pulumi.StringPtrInput
-	Tags                              InstanceTagArrayInput
+	Tags                              aws.TagArrayInput
 	Tenancy                           pulumi.StringPtrInput
 	UserData                          pulumi.StringPtrInput
 	Volumes                           InstanceVolumeArrayInput
@@ -407,8 +408,8 @@ func (o InstanceOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-func (o InstanceOutput) Tags() InstanceTagArrayOutput {
-	return o.ApplyT(func(v *Instance) InstanceTagArrayOutput { return v.Tags }).(InstanceTagArrayOutput)
+func (o InstanceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Instance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o InstanceOutput) Tenancy() pulumi.StringPtrOutput {

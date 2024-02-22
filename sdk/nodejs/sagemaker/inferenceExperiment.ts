@@ -89,7 +89,7 @@ export class InferenceExperiment extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.InferenceExperimentTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the inference experiment that you want to run.
      */
@@ -202,7 +202,7 @@ export interface InferenceExperimentArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.InferenceExperimentTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of the inference experiment that you want to run.
      */

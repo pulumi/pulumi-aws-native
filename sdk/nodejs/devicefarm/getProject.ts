@@ -26,7 +26,7 @@ export interface GetProjectResult {
     readonly arn?: string;
     readonly defaultJobTimeoutMinutes?: number;
     readonly name?: string;
-    readonly tags?: outputs.devicefarm.ProjectTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcConfig?: outputs.devicefarm.ProjectVpcConfig;
 }
 /**

@@ -38,7 +38,7 @@ export interface GetStreamProcessorResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.rekognition.StreamProcessorTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.

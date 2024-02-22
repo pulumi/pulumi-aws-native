@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetApiKeyResult',
@@ -78,7 +79,7 @@ class GetApiKeyResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ApiKeyTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
         """

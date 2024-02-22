@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public readonly string? SupportDescription;
         public readonly string? SupportEmail;
         public readonly string? SupportUrl;
-        public readonly ImmutableArray<Outputs.CloudFormationProductTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCloudFormationProductResult(
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
             string? supportUrl,
 
-            ImmutableArray<Outputs.CloudFormationProductTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AcceptLanguage = acceptLanguage;
             Description = description;

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Transformer struct {
 	Name            pulumi.StringOutput                `pulumi:"name"`
 	SampleDocument  pulumi.StringPtrOutput             `pulumi:"sampleDocument"`
 	Status          TransformerStatusOutput            `pulumi:"status"`
-	Tags            TransformerTagArrayOutput          `pulumi:"tags"`
+	Tags            aws.TagArrayOutput                 `pulumi:"tags"`
 	TransformerArn  pulumi.StringOutput                `pulumi:"transformerArn"`
 	TransformerId   pulumi.StringOutput                `pulumi:"transformerId"`
 }
@@ -88,7 +89,7 @@ type transformerArgs struct {
 	Name            *string                      `pulumi:"name"`
 	SampleDocument  *string                      `pulumi:"sampleDocument"`
 	Status          TransformerStatus            `pulumi:"status"`
-	Tags            []TransformerTag             `pulumi:"tags"`
+	Tags            []aws.Tag                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Transformer resource.
@@ -100,7 +101,7 @@ type TransformerArgs struct {
 	Name            pulumi.StringPtrInput
 	SampleDocument  pulumi.StringPtrInput
 	Status          TransformerStatusInput
-	Tags            TransformerTagArrayInput
+	Tags            aws.TagArrayInput
 }
 
 func (TransformerArgs) ElementType() reflect.Type {
@@ -172,8 +173,8 @@ func (o TransformerOutput) Status() TransformerStatusOutput {
 	return o.ApplyT(func(v *Transformer) TransformerStatusOutput { return v.Status }).(TransformerStatusOutput)
 }
 
-func (o TransformerOutput) Tags() TransformerTagArrayOutput {
-	return o.ApplyT(func(v *Transformer) TransformerTagArrayOutput { return v.Tags }).(TransformerTagArrayOutput)
+func (o TransformerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Transformer) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TransformerOutput) TransformerArn() pulumi.StringOutput {

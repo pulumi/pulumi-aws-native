@@ -48,7 +48,7 @@ export class VpcConnector extends pulumi.CustomResource {
     /**
      * A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.apprunner.VpcConnectorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of this VPC connector.
      */
@@ -112,7 +112,7 @@ export interface VpcConnectorArgs {
     /**
      * A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.apprunner.VpcConnectorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * A name for the VPC connector. If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
      */

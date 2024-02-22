@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.CodePipeline
         /// Any tags assigned to the custom action.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.CustomActionTypeTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The version identifier of the custom action.
@@ -161,14 +161,14 @@ namespace Pulumi.AwsNative.CodePipeline
         public Input<Inputs.CustomActionTypeSettingsArgs>? Settings { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.CustomActionTypeTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Any tags assigned to the custom action.
         /// </summary>
-        public InputList<Inputs.CustomActionTypeTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.CustomActionTypeTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

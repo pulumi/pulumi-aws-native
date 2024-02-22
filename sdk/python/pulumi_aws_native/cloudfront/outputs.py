@@ -49,7 +49,6 @@ __all__ = [
     'DistributionRestrictions',
     'DistributionS3OriginConfig',
     'DistributionStatusCodes',
-    'DistributionTag',
     'DistributionViewerCertificate',
     'FunctionConfig',
     'FunctionKeyValueStoreAssociation',
@@ -87,7 +86,6 @@ __all__ = [
     'StreamingDistributionConfig',
     'StreamingDistributionLogging',
     'StreamingDistributionS3Origin',
-    'StreamingDistributionTag',
     'StreamingDistributionTrustedSigners',
 ]
 
@@ -2176,25 +2174,6 @@ class DistributionStatusCodes(dict):
 
 
 @pulumi.output_type
-class DistributionTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class DistributionViewerCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3622,25 +3601,6 @@ class StreamingDistributionS3Origin(dict):
     @pulumi.getter(name="originAccessIdentity")
     def origin_access_identity(self) -> str:
         return pulumi.get(self, "origin_access_identity")
-
-
-@pulumi.output_type
-class StreamingDistributionTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

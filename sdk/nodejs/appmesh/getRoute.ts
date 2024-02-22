@@ -27,7 +27,7 @@ export interface GetRouteResult {
     readonly id?: string;
     readonly resourceOwner?: string;
     readonly spec?: outputs.appmesh.RouteSpec;
-    readonly tags?: outputs.appmesh.RouteTag[];
+    readonly tags?: outputs.Tag[];
     readonly uid?: string;
 }
 /**

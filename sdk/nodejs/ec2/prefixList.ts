@@ -68,7 +68,7 @@ export class PrefixList extends pulumi.CustomResource {
     /**
      * Tags for Prefix List
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.PrefixListTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Version of Prefix List.
      */
@@ -136,5 +136,5 @@ export interface PrefixListArgs {
     /**
      * Tags for Prefix List
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.PrefixListTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

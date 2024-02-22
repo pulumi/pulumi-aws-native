@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<int?> Rank { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FilterTagItem>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -105,10 +105,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public Input<int>? Rank { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.FilterTagItemArgs>? _tags;
-        public InputList<Inputs.FilterTagItemArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FilterTagItemArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

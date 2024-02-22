@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type Model struct {
 	InferenceExecutionConfig ModelInferenceExecutionConfigPtrOutput `pulumi:"inferenceExecutionConfig"`
 	ModelName                pulumi.StringPtrOutput                 `pulumi:"modelName"`
 	PrimaryContainer         ModelContainerDefinitionPtrOutput      `pulumi:"primaryContainer"`
-	Tags                     ModelTagArrayOutput                    `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                     `pulumi:"tags"`
 	VpcConfig                ModelVpcConfigPtrOutput                `pulumi:"vpcConfig"`
 }
 
@@ -83,7 +84,7 @@ type modelArgs struct {
 	InferenceExecutionConfig *ModelInferenceExecutionConfig `pulumi:"inferenceExecutionConfig"`
 	ModelName                *string                        `pulumi:"modelName"`
 	PrimaryContainer         *ModelContainerDefinition      `pulumi:"primaryContainer"`
-	Tags                     []ModelTag                     `pulumi:"tags"`
+	Tags                     []aws.Tag                      `pulumi:"tags"`
 	VpcConfig                *ModelVpcConfig                `pulumi:"vpcConfig"`
 }
 
@@ -95,7 +96,7 @@ type ModelArgs struct {
 	InferenceExecutionConfig ModelInferenceExecutionConfigPtrInput
 	ModelName                pulumi.StringPtrInput
 	PrimaryContainer         ModelContainerDefinitionPtrInput
-	Tags                     ModelTagArrayInput
+	Tags                     aws.TagArrayInput
 	VpcConfig                ModelVpcConfigPtrInput
 }
 
@@ -160,8 +161,8 @@ func (o ModelOutput) PrimaryContainer() ModelContainerDefinitionPtrOutput {
 	return o.ApplyT(func(v *Model) ModelContainerDefinitionPtrOutput { return v.PrimaryContainer }).(ModelContainerDefinitionPtrOutput)
 }
 
-func (o ModelOutput) Tags() ModelTagArrayOutput {
-	return o.ApplyT(func(v *Model) ModelTagArrayOutput { return v.Tags }).(ModelTagArrayOutput)
+func (o ModelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Model) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ModelOutput) VpcConfig() ModelVpcConfigPtrOutput {

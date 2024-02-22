@@ -56,7 +56,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
      */
-    public readonly tags!: pulumi.Output<outputs.transfer.WorkflowTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A unique identifier for the workflow.
      */
@@ -116,5 +116,5 @@ export interface WorkflowArgs {
     /**
      * Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

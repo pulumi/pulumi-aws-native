@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type DbCluster struct {
 	SourceDbClusterIdentifier   pulumi.StringPtrOutput   `pulumi:"sourceDbClusterIdentifier"`
 	StorageEncrypted            pulumi.BoolPtrOutput     `pulumi:"storageEncrypted"`
 	StorageType                 pulumi.StringPtrOutput   `pulumi:"storageType"`
-	Tags                        DbClusterTagArrayOutput  `pulumi:"tags"`
+	Tags                        aws.TagArrayOutput       `pulumi:"tags"`
 	UseLatestRestorableTime     pulumi.BoolPtrOutput     `pulumi:"useLatestRestorableTime"`
 	VpcSecurityGroupIds         pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
@@ -97,30 +98,30 @@ func (DbClusterState) ElementType() reflect.Type {
 }
 
 type dbClusterArgs struct {
-	AvailabilityZones           []string       `pulumi:"availabilityZones"`
-	BackupRetentionPeriod       *int           `pulumi:"backupRetentionPeriod"`
-	CopyTagsToSnapshot          *bool          `pulumi:"copyTagsToSnapshot"`
-	DbClusterIdentifier         *string        `pulumi:"dbClusterIdentifier"`
-	DbClusterParameterGroupName *string        `pulumi:"dbClusterParameterGroupName"`
-	DbSubnetGroupName           *string        `pulumi:"dbSubnetGroupName"`
-	DeletionProtection          *bool          `pulumi:"deletionProtection"`
-	EnableCloudwatchLogsExports []string       `pulumi:"enableCloudwatchLogsExports"`
-	EngineVersion               *string        `pulumi:"engineVersion"`
-	KmsKeyId                    *string        `pulumi:"kmsKeyId"`
-	MasterUserPassword          *string        `pulumi:"masterUserPassword"`
-	MasterUsername              *string        `pulumi:"masterUsername"`
-	Port                        *int           `pulumi:"port"`
-	PreferredBackupWindow       *string        `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  *string        `pulumi:"preferredMaintenanceWindow"`
-	RestoreToTime               *string        `pulumi:"restoreToTime"`
-	RestoreType                 *string        `pulumi:"restoreType"`
-	SnapshotIdentifier          *string        `pulumi:"snapshotIdentifier"`
-	SourceDbClusterIdentifier   *string        `pulumi:"sourceDbClusterIdentifier"`
-	StorageEncrypted            *bool          `pulumi:"storageEncrypted"`
-	StorageType                 *string        `pulumi:"storageType"`
-	Tags                        []DbClusterTag `pulumi:"tags"`
-	UseLatestRestorableTime     *bool          `pulumi:"useLatestRestorableTime"`
-	VpcSecurityGroupIds         []string       `pulumi:"vpcSecurityGroupIds"`
+	AvailabilityZones           []string  `pulumi:"availabilityZones"`
+	BackupRetentionPeriod       *int      `pulumi:"backupRetentionPeriod"`
+	CopyTagsToSnapshot          *bool     `pulumi:"copyTagsToSnapshot"`
+	DbClusterIdentifier         *string   `pulumi:"dbClusterIdentifier"`
+	DbClusterParameterGroupName *string   `pulumi:"dbClusterParameterGroupName"`
+	DbSubnetGroupName           *string   `pulumi:"dbSubnetGroupName"`
+	DeletionProtection          *bool     `pulumi:"deletionProtection"`
+	EnableCloudwatchLogsExports []string  `pulumi:"enableCloudwatchLogsExports"`
+	EngineVersion               *string   `pulumi:"engineVersion"`
+	KmsKeyId                    *string   `pulumi:"kmsKeyId"`
+	MasterUserPassword          *string   `pulumi:"masterUserPassword"`
+	MasterUsername              *string   `pulumi:"masterUsername"`
+	Port                        *int      `pulumi:"port"`
+	PreferredBackupWindow       *string   `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow  *string   `pulumi:"preferredMaintenanceWindow"`
+	RestoreToTime               *string   `pulumi:"restoreToTime"`
+	RestoreType                 *string   `pulumi:"restoreType"`
+	SnapshotIdentifier          *string   `pulumi:"snapshotIdentifier"`
+	SourceDbClusterIdentifier   *string   `pulumi:"sourceDbClusterIdentifier"`
+	StorageEncrypted            *bool     `pulumi:"storageEncrypted"`
+	StorageType                 *string   `pulumi:"storageType"`
+	Tags                        []aws.Tag `pulumi:"tags"`
+	UseLatestRestorableTime     *bool     `pulumi:"useLatestRestorableTime"`
+	VpcSecurityGroupIds         []string  `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a DbCluster resource.
@@ -146,7 +147,7 @@ type DbClusterArgs struct {
 	SourceDbClusterIdentifier   pulumi.StringPtrInput
 	StorageEncrypted            pulumi.BoolPtrInput
 	StorageType                 pulumi.StringPtrInput
-	Tags                        DbClusterTagArrayInput
+	Tags                        aws.TagArrayInput
 	UseLatestRestorableTime     pulumi.BoolPtrInput
 	VpcSecurityGroupIds         pulumi.StringArrayInput
 }
@@ -284,8 +285,8 @@ func (o DbClusterOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
-func (o DbClusterOutput) Tags() DbClusterTagArrayOutput {
-	return o.ApplyT(func(v *DbCluster) DbClusterTagArrayOutput { return v.Tags }).(DbClusterTagArrayOutput)
+func (o DbClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbCluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o DbClusterOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {

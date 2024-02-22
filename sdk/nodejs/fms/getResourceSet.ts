@@ -28,7 +28,7 @@ export interface GetResourceSetResult {
     readonly name?: string;
     readonly resourceTypeList?: string[];
     readonly resources?: string[];
-    readonly tags?: outputs.fms.ResourceSetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Creates an AWS Firewall Manager resource set.

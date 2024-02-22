@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type LookupProtectionGroupResult struct {
 	// The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.
 	ResourceType *ProtectionGroupResourceType `pulumi:"resourceType"`
 	// One or more tag key-value pairs for the Protection object.
-	Tags []ProtectionGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProtectionGroupOutput(ctx *pulumi.Context, args LookupProtectionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionGroupResultOutput {
@@ -110,8 +111,8 @@ func (o LookupProtectionGroupResultOutput) ResourceType() ProtectionGroupResourc
 }
 
 // One or more tag key-value pairs for the Protection object.
-func (o LookupProtectionGroupResultOutput) Tags() ProtectionGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupProtectionGroupResult) []ProtectionGroupTag { return v.Tags }).(ProtectionGroupTagArrayOutput)
+func (o LookupProtectionGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProtectionGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

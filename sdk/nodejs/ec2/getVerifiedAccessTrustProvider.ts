@@ -46,7 +46,7 @@ export interface GetVerifiedAccessTrustProviderResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ec2.VerifiedAccessTrustProviderTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ID of the Amazon Web Services Verified Access trust provider.
      */

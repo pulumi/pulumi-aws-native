@@ -26,7 +26,7 @@ export interface GetHttpNamespaceResult {
     readonly arn?: string;
     readonly description?: string;
     readonly id?: string;
-    readonly tags?: outputs.servicediscovery.HttpNamespaceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ServiceDiscovery::HttpNamespace

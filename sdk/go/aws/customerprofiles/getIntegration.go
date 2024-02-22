@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupIntegrationResult struct {
 	// The mapping between 3rd party event types and ObjectType names
 	ObjectTypeNames []IntegrationObjectTypeMapping `pulumi:"objectTypeNames"`
 	// The tags (keys and values) associated with the integration
-	Tags []IntegrationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIntegrationOutput(ctx *pulumi.Context, args LookupIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationResultOutput {
@@ -101,8 +102,8 @@ func (o LookupIntegrationResultOutput) ObjectTypeNames() IntegrationObjectTypeMa
 }
 
 // The tags (keys and values) associated with the integration
-func (o LookupIntegrationResultOutput) Tags() IntegrationTagArrayOutput {
-	return o.ApplyT(func(v LookupIntegrationResult) []IntegrationTag { return v.Tags }).(IntegrationTagArrayOutput)
+func (o LookupIntegrationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIntegrationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

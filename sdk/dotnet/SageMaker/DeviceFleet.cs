@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// Associate tags with the resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DeviceFleetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,14 +119,14 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DeviceFleetTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Associate tags with the resource
         /// </summary>
-        public InputList<Inputs.DeviceFleetTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DeviceFleetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

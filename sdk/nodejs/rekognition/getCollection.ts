@@ -27,7 +27,7 @@ export interface GetCollectionResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.rekognition.CollectionTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group

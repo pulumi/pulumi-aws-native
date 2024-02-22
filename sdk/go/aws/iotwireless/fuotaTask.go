@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type FuotaTask struct {
 	// Name of FUOTA task
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the FUOTA task.
-	Tags FuotaTaskTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFuotaTask registers a new resource with the given unique name, arguments, and options.
@@ -110,7 +111,7 @@ type fuotaTaskArgs struct {
 	// Name of FUOTA task
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the FUOTA task.
-	Tags []FuotaTaskTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FuotaTask resource.
@@ -134,7 +135,7 @@ type FuotaTaskArgs struct {
 	// Name of FUOTA task
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the FUOTA task.
-	Tags FuotaTaskTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (FuotaTaskArgs) ElementType() reflect.Type {
@@ -230,8 +231,8 @@ func (o FuotaTaskOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the FUOTA task.
-func (o FuotaTaskOutput) Tags() FuotaTaskTagArrayOutput {
-	return o.ApplyT(func(v *FuotaTask) FuotaTaskTagArrayOutput { return v.Tags }).(FuotaTaskTagArrayOutput)
+func (o FuotaTaskOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FuotaTask) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

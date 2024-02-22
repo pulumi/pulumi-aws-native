@@ -88,7 +88,7 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * A list of labels to assign to the new game server group resource.
      */
-    public readonly tags!: pulumi.Output<outputs.gamelift.GameServerGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
      */
@@ -193,7 +193,7 @@ export interface GameServerGroupArgs {
     /**
      * A list of labels to assign to the new game server group resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.gamelift.GameServerGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
      */

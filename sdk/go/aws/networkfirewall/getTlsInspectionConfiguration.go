@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type LookupTlsInspectionConfigurationArgs struct {
 
 type LookupTlsInspectionConfigurationResult struct {
 	Description                   *string                                               `pulumi:"description"`
-	Tags                          []TlsInspectionConfigurationTag                       `pulumi:"tags"`
+	Tags                          []aws.Tag                                             `pulumi:"tags"`
 	TlsInspectionConfiguration    *TlsInspectionConfigurationTlsInspectionConfiguration `pulumi:"tlsInspectionConfiguration"`
 	TlsInspectionConfigurationArn *string                                               `pulumi:"tlsInspectionConfigurationArn"`
 	TlsInspectionConfigurationId  *string                                               `pulumi:"tlsInspectionConfigurationId"`
@@ -73,8 +74,8 @@ func (o LookupTlsInspectionConfigurationResultOutput) Description() pulumi.Strin
 	return o.ApplyT(func(v LookupTlsInspectionConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupTlsInspectionConfigurationResultOutput) Tags() TlsInspectionConfigurationTagArrayOutput {
-	return o.ApplyT(func(v LookupTlsInspectionConfigurationResult) []TlsInspectionConfigurationTag { return v.Tags }).(TlsInspectionConfigurationTagArrayOutput)
+func (o LookupTlsInspectionConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTlsInspectionConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupTlsInspectionConfigurationResultOutput) TlsInspectionConfiguration() TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput {

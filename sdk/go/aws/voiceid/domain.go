@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type Domain struct {
 	DomainId                          pulumi.StringOutput                           `pulumi:"domainId"`
 	Name                              pulumi.StringOutput                           `pulumi:"name"`
 	ServerSideEncryptionConfiguration DomainServerSideEncryptionConfigurationOutput `pulumi:"serverSideEncryptionConfiguration"`
-	Tags                              DomainTagArrayOutput                          `pulumi:"tags"`
+	Tags                              aws.TagArrayOutput                            `pulumi:"tags"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -69,7 +70,7 @@ type domainArgs struct {
 	Description                       *string                                 `pulumi:"description"`
 	Name                              *string                                 `pulumi:"name"`
 	ServerSideEncryptionConfiguration DomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	Tags                              []DomainTag                             `pulumi:"tags"`
+	Tags                              []aws.Tag                               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -77,7 +78,7 @@ type DomainArgs struct {
 	Description                       pulumi.StringPtrInput
 	Name                              pulumi.StringPtrInput
 	ServerSideEncryptionConfiguration DomainServerSideEncryptionConfigurationInput
-	Tags                              DomainTagArrayInput
+	Tags                              aws.TagArrayInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -135,8 +136,8 @@ func (o DomainOutput) ServerSideEncryptionConfiguration() DomainServerSideEncryp
 	}).(DomainServerSideEncryptionConfigurationOutput)
 }
 
-func (o DomainOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
+func (o DomainOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Domain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

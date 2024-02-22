@@ -50,7 +50,7 @@ export class ReplicationTask extends pulumi.CustomResource {
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
     public readonly sourceEndpointArn!: pulumi.Output<string>;
     public readonly tableMappings!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.dms.ReplicationTaskTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly targetEndpointArn!: pulumi.Output<string>;
     public readonly taskData!: pulumi.Output<string | undefined>;
 
@@ -131,7 +131,7 @@ export interface ReplicationTaskArgs {
     resourceIdentifier?: pulumi.Input<string>;
     sourceEndpointArn: pulumi.Input<string>;
     tableMappings: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.dms.ReplicationTaskTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     targetEndpointArn: pulumi.Input<string>;
     taskData?: pulumi.Input<string>;
 }

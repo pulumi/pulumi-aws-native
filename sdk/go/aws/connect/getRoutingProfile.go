@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupRoutingProfileResult struct {
 	// The Amazon Resource Name (ARN) of the routing profile.
 	RoutingProfileArn *string `pulumi:"routingProfileArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RoutingProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRoutingProfileOutput(ctx *pulumi.Context, args LookupRoutingProfileOutputArgs, opts ...pulumi.InvokeOption) LookupRoutingProfileResultOutput {
@@ -127,8 +128,8 @@ func (o LookupRoutingProfileResultOutput) RoutingProfileArn() pulumi.StringPtrOu
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupRoutingProfileResultOutput) Tags() RoutingProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupRoutingProfileResult) []RoutingProfileTag { return v.Tags }).(RoutingProfileTagArrayOutput)
+func (o LookupRoutingProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRoutingProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

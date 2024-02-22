@@ -58,7 +58,7 @@ export interface GetOriginEndpointResult {
     /**
      * A collection of tags associated with a resource
      */
-    readonly tags?: outputs.mediapackage.OriginEndpointTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
      */

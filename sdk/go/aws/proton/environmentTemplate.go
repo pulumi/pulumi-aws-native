@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type EnvironmentTemplate struct {
 	// <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags EnvironmentTemplateTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewEnvironmentTemplate registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +89,7 @@ type environmentTemplateArgs struct {
 	// <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags []EnvironmentTemplateTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EnvironmentTemplate resource.
@@ -104,7 +105,7 @@ type EnvironmentTemplateArgs struct {
 	// <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
 	//          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 	//         <i>Proton User Guide</i>.</p>
-	Tags EnvironmentTemplateTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (EnvironmentTemplateArgs) ElementType() reflect.Type {
@@ -176,8 +177,8 @@ func (o EnvironmentTemplateOutput) Provisioning() EnvironmentTemplateProvisionin
 //
 //	 <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
 //	<i>Proton User Guide</i>.</p>
-func (o EnvironmentTemplateOutput) Tags() EnvironmentTemplateTagArrayOutput {
-	return o.ApplyT(func(v *EnvironmentTemplate) EnvironmentTemplateTagArrayOutput { return v.Tags }).(EnvironmentTemplateTagArrayOutput)
+func (o EnvironmentTemplateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EnvironmentTemplate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

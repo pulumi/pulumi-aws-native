@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,14 +23,14 @@ class MultiplexArgs:
                  multiplex_settings: pulumi.Input['MultiplexSettingsArgs'],
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input['MultiplexOutputDestinationArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MultiplexTagsArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Multiplex resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones for the multiplex.
         :param pulumi.Input['MultiplexSettingsArgs'] multiplex_settings: Configuration for a multiplex event.
         :param pulumi.Input[Sequence[pulumi.Input['MultiplexOutputDestinationArgs']]] destinations: A list of the multiplex output destinations.
         :param pulumi.Input[str] name: Name of multiplex.
-        :param pulumi.Input[Sequence[pulumi.Input['MultiplexTagsArgs']]] tags: A collection of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of key-value pairs.
         """
         pulumi.set(__self__, "availability_zones", availability_zones)
         pulumi.set(__self__, "multiplex_settings", multiplex_settings)
@@ -89,14 +91,14 @@ class MultiplexArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultiplexTagsArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of key-value pairs.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MultiplexTagsArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -109,7 +111,7 @@ class Multiplex(pulumi.CustomResource):
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexOutputDestinationArgs']]]]] = None,
                  multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexSettingsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexTagsArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaLive::Multiplex
@@ -120,7 +122,7 @@ class Multiplex(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexOutputDestinationArgs']]]] destinations: A list of the multiplex output destinations.
         :param pulumi.Input[pulumi.InputType['MultiplexSettingsArgs']] multiplex_settings: Configuration for a multiplex event.
         :param pulumi.Input[str] name: Name of multiplex.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexTagsArgs']]]] tags: A collection of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of key-value pairs.
         """
         ...
     @overload
@@ -150,7 +152,7 @@ class Multiplex(pulumi.CustomResource):
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexOutputDestinationArgs']]]]] = None,
                  multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexSettingsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiplexTagsArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -271,7 +273,7 @@ class Multiplex(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MultiplexTags']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A collection of key-value pairs.
         """

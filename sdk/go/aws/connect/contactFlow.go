@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type ContactFlow struct {
 	// The state of the contact flow.
 	State ContactFlowStateEnumPtrOutput `pulumi:"state"`
 	// One or more tags.
-	Tags ContactFlowTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of the contact flow.
 	Type ContactFlowTypeOutput `pulumi:"type"`
 }
@@ -98,7 +99,7 @@ type contactFlowArgs struct {
 	// The state of the contact flow.
 	State *ContactFlowStateEnum `pulumi:"state"`
 	// One or more tags.
-	Tags []ContactFlowTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the contact flow.
 	Type ContactFlowType `pulumi:"type"`
 }
@@ -116,7 +117,7 @@ type ContactFlowArgs struct {
 	// The state of the contact flow.
 	State ContactFlowStateEnumPtrInput
 	// One or more tags.
-	Tags ContactFlowTagArrayInput
+	Tags aws.TagArrayInput
 	// The type of the contact flow.
 	Type ContactFlowTypeInput
 }
@@ -189,8 +190,8 @@ func (o ContactFlowOutput) State() ContactFlowStateEnumPtrOutput {
 }
 
 // One or more tags.
-func (o ContactFlowOutput) Tags() ContactFlowTagArrayOutput {
-	return o.ApplyT(func(v *ContactFlow) ContactFlowTagArrayOutput { return v.Tags }).(ContactFlowTagArrayOutput)
+func (o ContactFlowOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ContactFlow) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of the contact flow.

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -21,7 +23,7 @@ class AccessEntryArgs:
                  principal_arn: pulumi.Input[str],
                  access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AccessEntryAccessPolicyArgs']]]] = None,
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessEntryTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
@@ -30,7 +32,7 @@ class AccessEntryArgs:
         :param pulumi.Input[str] principal_arn: The principal ARN that the access entry is created for.
         :param pulumi.Input[Sequence[pulumi.Input['AccessEntryAccessPolicyArgs']]] access_policies: An array of access policies that are associated with the access entry.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kubernetes_groups: The Kubernetes groups that the access entry is associated with.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessEntryTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] type: The node type to associate with the access entry.
         :param pulumi.Input[str] username: The Kubernetes user that the access entry is associated with.
         """
@@ -97,14 +99,14 @@ class AccessEntryArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessEntryTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessEntryTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -141,7 +143,7 @@ class AccessEntry(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessEntryTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -154,7 +156,7 @@ class AccessEntry(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The cluster that the access entry is created for.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kubernetes_groups: The Kubernetes groups that the access entry is associated with.
         :param pulumi.Input[str] principal_arn: The principal ARN that the access entry is created for.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessEntryTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] type: The node type to associate with the access entry.
         :param pulumi.Input[str] username: The Kubernetes user that the access entry is associated with.
         """
@@ -186,7 +188,7 @@ class AccessEntry(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessEntryTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -286,7 +288,7 @@ class AccessEntry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AccessEntryTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

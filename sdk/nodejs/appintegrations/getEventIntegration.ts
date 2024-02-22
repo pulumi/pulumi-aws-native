@@ -37,7 +37,7 @@ export interface GetEventIntegrationResult {
     /**
      * The tags (keys and values) associated with the event integration.
      */
-    readonly tags?: outputs.appintegrations.EventIntegrationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::AppIntegrations::EventIntegration

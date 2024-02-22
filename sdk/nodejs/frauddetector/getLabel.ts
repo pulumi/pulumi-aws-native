@@ -45,7 +45,7 @@ export interface GetLabelResult {
     /**
      * Tags associated with this label.
      */
-    readonly tags?: outputs.frauddetector.LabelTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * An label for fraud detector.

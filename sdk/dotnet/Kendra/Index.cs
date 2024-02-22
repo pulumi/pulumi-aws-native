@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Kendra
         /// Tags for labeling the index
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.IndexTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("userContextPolicy")]
         public Output<Pulumi.AwsNative.Kendra.IndexUserContextPolicy?> UserContextPolicy { get; private set; } = null!;
@@ -153,14 +153,14 @@ namespace Pulumi.AwsNative.Kendra
         public Input<Inputs.IndexServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.IndexTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags for labeling the index
         /// </summary>
-        public InputList<Inputs.IndexTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.IndexTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -41,7 +41,7 @@ export interface GetFleetResult {
     readonly platform?: string;
     readonly sessionScriptS3Location?: outputs.appstream.FleetS3Location;
     readonly streamView?: string;
-    readonly tags?: outputs.appstream.FleetTag[];
+    readonly tags?: outputs.Tag[];
     readonly usbDeviceFilterStrings?: string[];
     readonly vpcConfig?: outputs.appstream.FleetVpcConfig;
 }

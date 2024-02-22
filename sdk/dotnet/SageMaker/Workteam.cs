@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Outputs.WorkteamNotificationConfiguration?> NotificationConfiguration { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.WorkteamTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("workforceName")]
         public Output<string?> WorkforceName { get; private set; } = null!;
@@ -99,10 +99,10 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.WorkteamNotificationConfigurationArgs>? NotificationConfiguration { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.WorkteamTagArgs>? _tags;
-        public InputList<Inputs.WorkteamTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.WorkteamTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

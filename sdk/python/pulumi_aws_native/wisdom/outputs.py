@@ -13,14 +13,11 @@ from ._enums import *
 
 __all__ = [
     'AssistantAssociationAssociationData',
-    'AssistantAssociationTag',
     'AssistantServerSideEncryptionConfiguration',
-    'AssistantTag',
     'KnowledgeBaseAppIntegrationsConfiguration',
     'KnowledgeBaseRenderingConfiguration',
     'KnowledgeBaseServerSideEncryptionConfiguration',
     'KnowledgeBaseSourceConfiguration',
-    'KnowledgeBaseTag',
 ]
 
 @pulumi.output_type
@@ -53,25 +50,6 @@ class AssistantAssociationAssociationData(dict):
 
 
 @pulumi.output_type
-class AssistantAssociationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class AssistantServerSideEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -99,25 +77,6 @@ class AssistantServerSideEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
-
-
-@pulumi.output_type
-class AssistantTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -247,24 +206,5 @@ class KnowledgeBaseSourceConfiguration(dict):
     @pulumi.getter(name="appIntegrations")
     def app_integrations(self) -> Optional['outputs.KnowledgeBaseAppIntegrationsConfiguration']:
         return pulumi.get(self, "app_integrations")
-
-
-@pulumi.output_type
-class KnowledgeBaseTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupResolverEndpointResult struct {
 	Protocols            []string                           `pulumi:"protocols"`
 	ResolverEndpointId   *string                            `pulumi:"resolverEndpointId"`
 	ResolverEndpointType *string                            `pulumi:"resolverEndpointType"`
-	Tags                 []ResolverEndpointTag              `pulumi:"tags"`
+	Tags                 []aws.Tag                          `pulumi:"tags"`
 }
 
 func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverEndpointResultOutput {
@@ -105,8 +106,8 @@ func (o LookupResolverEndpointResultOutput) ResolverEndpointType() pulumi.String
 	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.ResolverEndpointType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverEndpointResultOutput) Tags() ResolverEndpointTagArrayOutput {
-	return o.ApplyT(func(v LookupResolverEndpointResult) []ResolverEndpointTag { return v.Tags }).(ResolverEndpointTagArrayOutput)
+func (o LookupResolverEndpointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

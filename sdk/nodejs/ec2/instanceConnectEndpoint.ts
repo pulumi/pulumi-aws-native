@@ -56,7 +56,7 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
     /**
      * The tags of the instance connect endpoint.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.InstanceConnectEndpointTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a InstanceConnectEndpoint resource with the given unique name, arguments, and options.
@@ -114,5 +114,5 @@ export interface InstanceConnectEndpointArgs {
     /**
      * The tags of the instance connect endpoint.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceConnectEndpointTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

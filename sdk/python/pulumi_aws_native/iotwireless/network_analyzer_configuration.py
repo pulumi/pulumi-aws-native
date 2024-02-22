@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -19,7 +21,7 @@ class NetworkAnalyzerConfigurationArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAnalyzerConfigurationTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
                  trace_content: Optional[pulumi.Input['TraceContentPropertiesArgs']] = None,
                  wireless_devices: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -27,7 +29,7 @@ class NetworkAnalyzerConfigurationArgs:
         The set of arguments for constructing a NetworkAnalyzerConfiguration resource.
         :param pulumi.Input[str] description: The description of the new resource
         :param pulumi.Input[str] name: Name of the network analyzer configuration
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkAnalyzerConfigurationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['TraceContentPropertiesArgs'] trace_content: Trace content for your wireless gateway and wireless device resources
         :param pulumi.Input[Sequence[pulumi.Input[str]]] wireless_devices: List of wireless gateway resources that have been added to the network analyzer configuration
         :param pulumi.Input[Sequence[pulumi.Input[str]]] wireless_gateways: List of wireless gateway resources that have been added to the network analyzer configuration
@@ -71,14 +73,14 @@ class NetworkAnalyzerConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAnalyzerConfigurationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAnalyzerConfigurationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -125,7 +127,7 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAnalyzerConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  trace_content: Optional[pulumi.Input[pulumi.InputType['TraceContentPropertiesArgs']]] = None,
                  wireless_devices: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -137,7 +139,7 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the new resource
         :param pulumi.Input[str] name: Name of the network analyzer configuration
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAnalyzerConfigurationTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[pulumi.InputType['TraceContentPropertiesArgs']] trace_content: Trace content for your wireless gateway and wireless device resources
         :param pulumi.Input[Sequence[pulumi.Input[str]]] wireless_devices: List of wireless gateway resources that have been added to the network analyzer configuration
         :param pulumi.Input[Sequence[pulumi.Input[str]]] wireless_gateways: List of wireless gateway resources that have been added to the network analyzer configuration
@@ -168,7 +170,7 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAnalyzerConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  trace_content: Optional[pulumi.Input[pulumi.InputType['TraceContentPropertiesArgs']]] = None,
                  wireless_devices: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -247,7 +249,7 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkAnalyzerConfigurationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

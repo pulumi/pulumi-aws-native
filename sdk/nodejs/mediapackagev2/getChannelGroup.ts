@@ -28,7 +28,7 @@ export interface GetChannelGroupResult {
     readonly description?: string;
     readonly egressDomain?: string;
     readonly modifiedAt?: string;
-    readonly tags?: outputs.mediapackagev2.ChannelGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::MediaPackageV2::ChannelGroup Resource Type

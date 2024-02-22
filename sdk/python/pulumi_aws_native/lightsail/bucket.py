@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['BucketArgs', 'Bucket']
@@ -22,7 +24,7 @@ class BucketArgs:
                  object_versioning: Optional[pulumi.Input[bool]] = None,
                  read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
         :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket.
@@ -30,7 +32,7 @@ class BucketArgs:
         :param pulumi.Input[bool] object_versioning: Specifies whether to enable or disable versioning of objects in the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_access_accounts: An array of strings to specify the AWS account IDs that can access the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources_receiving_access: The names of the Lightsail resources for which to set bucket access.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
         if access_rules is not None:
@@ -117,14 +119,14 @@ class BucketArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -139,7 +141,7 @@ class Bucket(pulumi.CustomResource):
                  object_versioning: Optional[pulumi.Input[bool]] = None,
                  read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Bucket
@@ -151,7 +153,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[bool] object_versioning: Specifies whether to enable or disable versioning of objects in the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_access_accounts: An array of strings to specify the AWS account IDs that can access the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources_receiving_access: The names of the Lightsail resources for which to set bucket access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -183,7 +185,7 @@ class Bucket(pulumi.CustomResource):
                  object_versioning: Optional[pulumi.Input[bool]] = None,
                  read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,7 +303,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.BucketTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

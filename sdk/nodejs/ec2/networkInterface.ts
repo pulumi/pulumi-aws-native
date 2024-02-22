@@ -113,7 +113,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * An arbitrary set of tags (key-value pairs) for this network interface.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.NetworkInterfaceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -246,5 +246,5 @@ export interface NetworkInterfaceArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this network interface.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

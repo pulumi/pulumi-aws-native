@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public readonly string? Id;
         public readonly string? PortfolioName;
         public readonly string? ProviderName;
-        public readonly ImmutableArray<Outputs.PortfolioTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPortfolioResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
             string? providerName,
 
-            ImmutableArray<Outputs.PortfolioTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AcceptLanguage = acceptLanguage;
             Description = description;

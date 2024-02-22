@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// A collection of tags associated with a resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ReadinessCheckTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetReadinessCheckResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
 
             string? resourceSetName,
 
-            ImmutableArray<Outputs.ReadinessCheckTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ReadinessCheckArn = readinessCheckArn;
             ResourceSetName = resourceSetName;

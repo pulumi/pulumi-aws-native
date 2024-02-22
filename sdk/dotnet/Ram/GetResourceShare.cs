@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Ram
         public readonly ImmutableArray<string> Principals;
         public readonly ImmutableArray<string> ResourceArns;
         public readonly ImmutableArray<string> Sources;
-        public readonly ImmutableArray<Outputs.ResourceShareTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetResourceShareResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Ram
 
             ImmutableArray<string> sources,
 
-            ImmutableArray<Outputs.ResourceShareTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllowExternalPrincipals = allowExternalPrincipals;
             Arn = arn;

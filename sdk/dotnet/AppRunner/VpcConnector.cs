@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AppRunner
         /// A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VpcConnectorTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of this VPC connector.
@@ -128,14 +128,14 @@ namespace Pulumi.AwsNative.AppRunner
         }
 
         [Input("tags")]
-        private InputList<Inputs.VpcConnectorTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
         /// </summary>
-        public InputList<Inputs.VpcConnectorTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VpcConnectorTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

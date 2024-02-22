@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CertificateProviderTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCertificateProviderResult(
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.IoT
 
             string? lambdaFunctionArn,
 
-            ImmutableArray<Outputs.CertificateProviderTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AccountDefaultForOperations = accountDefaultForOperations;
             Arn = arn;

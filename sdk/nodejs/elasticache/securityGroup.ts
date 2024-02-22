@@ -41,7 +41,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     }
 
     public readonly description!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.elasticache.SecurityGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SecurityGroup resource with the given unique name, arguments, and options.
@@ -75,5 +75,5 @@ export class SecurityGroup extends pulumi.CustomResource {
  */
 export interface SecurityGroupArgs {
     description: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticache.SecurityGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

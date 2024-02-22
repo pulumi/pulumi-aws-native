@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Ecs
         public readonly ImmutableArray<Outputs.ClusterSettings> ClusterSettings;
         public readonly Outputs.ClusterConfiguration? Configuration;
         public readonly ImmutableArray<Outputs.ClusterCapacityProviderStrategyItem> DefaultCapacityProviderStrategy;
-        public readonly ImmutableArray<Outputs.ClusterTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Ecs
 
             ImmutableArray<Outputs.ClusterCapacityProviderStrategyItem> defaultCapacityProviderStrategy,
 
-            ImmutableArray<Outputs.ClusterTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CapacityProviders = capacityProviders;

@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.AmazonMq
         public readonly ImmutableArray<string> OpenWireEndpoints;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly ImmutableArray<string> StompEndpoints;
-        public readonly ImmutableArray<Outputs.BrokerTagsEntry> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<Outputs.BrokerUser> Users;
         public readonly ImmutableArray<string> WssEndpoints;
 
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.AmazonMq
 
             ImmutableArray<string> stompEndpoints,
 
-            ImmutableArray<Outputs.BrokerTagsEntry> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.BrokerUser> users,
 

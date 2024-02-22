@@ -50,7 +50,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * A list of tags that you want to attach to the resource policy
      */
-    public readonly tags!: pulumi.Output<outputs.organizations.ResourcePolicyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -92,5 +92,5 @@ export interface ResourcePolicyArgs {
     /**
      * A list of tags that you want to attach to the resource policy
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.organizations.ResourcePolicyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class KnowledgeBaseArgs:
                  rendering_configuration: Optional[pulumi.Input['KnowledgeBaseRenderingConfigurationArgs']] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs']] = None,
                  source_configuration: Optional[pulumi.Input['KnowledgeBaseSourceConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a KnowledgeBase resource.
         """
@@ -97,11 +99,11 @@ class KnowledgeBaseArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -116,7 +118,7 @@ class KnowledgeBase(pulumi.CustomResource):
                  rendering_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseRenderingConfigurationArgs']]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseServerSideEncryptionConfigurationArgs']]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseSourceConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KnowledgeBaseTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::KnowledgeBase Resource Type
@@ -154,7 +156,7 @@ class KnowledgeBase(pulumi.CustomResource):
                  rendering_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseRenderingConfigurationArgs']]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseServerSideEncryptionConfigurationArgs']]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['KnowledgeBaseSourceConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KnowledgeBaseTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -252,6 +254,6 @@ class KnowledgeBase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.KnowledgeBaseTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         return pulumi.get(self, "tags")
 

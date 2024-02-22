@@ -34,7 +34,7 @@ export interface GetBranchResult {
     readonly framework?: string;
     readonly pullRequestEnvironmentName?: string;
     readonly stage?: enums.amplify.BranchStage;
-    readonly tags?: outputs.amplify.BranchTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::Amplify::Branch resource creates a new branch within an app.

@@ -19,103 +19,6 @@ type DatabaseTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// DatabaseTagInput is an input type that accepts DatabaseTagArgs and DatabaseTagOutput values.
-// You can construct a concrete instance of `DatabaseTagInput` via:
-//
-//	DatabaseTagArgs{...}
-type DatabaseTagInput interface {
-	pulumi.Input
-
-	ToDatabaseTagOutput() DatabaseTagOutput
-	ToDatabaseTagOutputWithContext(context.Context) DatabaseTagOutput
-}
-
-// You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-type DatabaseTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (DatabaseTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseTag)(nil)).Elem()
-}
-
-func (i DatabaseTagArgs) ToDatabaseTagOutput() DatabaseTagOutput {
-	return i.ToDatabaseTagOutputWithContext(context.Background())
-}
-
-func (i DatabaseTagArgs) ToDatabaseTagOutputWithContext(ctx context.Context) DatabaseTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagOutput)
-}
-
-// DatabaseTagArrayInput is an input type that accepts DatabaseTagArray and DatabaseTagArrayOutput values.
-// You can construct a concrete instance of `DatabaseTagArrayInput` via:
-//
-//	DatabaseTagArray{ DatabaseTagArgs{...} }
-type DatabaseTagArrayInput interface {
-	pulumi.Input
-
-	ToDatabaseTagArrayOutput() DatabaseTagArrayOutput
-	ToDatabaseTagArrayOutputWithContext(context.Context) DatabaseTagArrayOutput
-}
-
-type DatabaseTagArray []DatabaseTagInput
-
-func (DatabaseTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseTag)(nil)).Elem()
-}
-
-func (i DatabaseTagArray) ToDatabaseTagArrayOutput() DatabaseTagArrayOutput {
-	return i.ToDatabaseTagArrayOutputWithContext(context.Background())
-}
-
-func (i DatabaseTagArray) ToDatabaseTagArrayOutputWithContext(ctx context.Context) DatabaseTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagArrayOutput)
-}
-
-// You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-type DatabaseTagOutput struct{ *pulumi.OutputState }
-
-func (DatabaseTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseTag)(nil)).Elem()
-}
-
-func (o DatabaseTagOutput) ToDatabaseTagOutput() DatabaseTagOutput {
-	return o
-}
-
-func (o DatabaseTagOutput) ToDatabaseTagOutputWithContext(ctx context.Context) DatabaseTagOutput {
-	return o
-}
-
-func (o DatabaseTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o DatabaseTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type DatabaseTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DatabaseTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseTag)(nil)).Elem()
-}
-
-func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutput() DatabaseTagArrayOutput {
-	return o
-}
-
-func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutputWithContext(ctx context.Context) DatabaseTagArrayOutput {
-	return o
-}
-
-func (o DatabaseTagArrayOutput) Index(i pulumi.IntInput) DatabaseTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseTag {
-		return vs[0].([]DatabaseTag)[vs[1].(int)]
-	}).(DatabaseTagOutput)
-}
-
 // The properties that determine whether magnetic store writes are enabled.
 type MagneticStoreWritePropertiesProperties struct {
 	// Boolean flag indicating whether magnetic store writes are enabled.
@@ -1555,103 +1458,6 @@ type ScheduledQueryTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ScheduledQueryTagInput is an input type that accepts ScheduledQueryTagArgs and ScheduledQueryTagOutput values.
-// You can construct a concrete instance of `ScheduledQueryTagInput` via:
-//
-//	ScheduledQueryTagArgs{...}
-type ScheduledQueryTagInput interface {
-	pulumi.Input
-
-	ToScheduledQueryTagOutput() ScheduledQueryTagOutput
-	ToScheduledQueryTagOutputWithContext(context.Context) ScheduledQueryTagOutput
-}
-
-// A key-value pair to label the scheduled query.
-type ScheduledQueryTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ScheduledQueryTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryTag)(nil)).Elem()
-}
-
-func (i ScheduledQueryTagArgs) ToScheduledQueryTagOutput() ScheduledQueryTagOutput {
-	return i.ToScheduledQueryTagOutputWithContext(context.Background())
-}
-
-func (i ScheduledQueryTagArgs) ToScheduledQueryTagOutputWithContext(ctx context.Context) ScheduledQueryTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTagOutput)
-}
-
-// ScheduledQueryTagArrayInput is an input type that accepts ScheduledQueryTagArray and ScheduledQueryTagArrayOutput values.
-// You can construct a concrete instance of `ScheduledQueryTagArrayInput` via:
-//
-//	ScheduledQueryTagArray{ ScheduledQueryTagArgs{...} }
-type ScheduledQueryTagArrayInput interface {
-	pulumi.Input
-
-	ToScheduledQueryTagArrayOutput() ScheduledQueryTagArrayOutput
-	ToScheduledQueryTagArrayOutputWithContext(context.Context) ScheduledQueryTagArrayOutput
-}
-
-type ScheduledQueryTagArray []ScheduledQueryTagInput
-
-func (ScheduledQueryTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduledQueryTag)(nil)).Elem()
-}
-
-func (i ScheduledQueryTagArray) ToScheduledQueryTagArrayOutput() ScheduledQueryTagArrayOutput {
-	return i.ToScheduledQueryTagArrayOutputWithContext(context.Background())
-}
-
-func (i ScheduledQueryTagArray) ToScheduledQueryTagArrayOutputWithContext(ctx context.Context) ScheduledQueryTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTagArrayOutput)
-}
-
-// A key-value pair to label the scheduled query.
-type ScheduledQueryTagOutput struct{ *pulumi.OutputState }
-
-func (ScheduledQueryTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryTag)(nil)).Elem()
-}
-
-func (o ScheduledQueryTagOutput) ToScheduledQueryTagOutput() ScheduledQueryTagOutput {
-	return o
-}
-
-func (o ScheduledQueryTagOutput) ToScheduledQueryTagOutputWithContext(ctx context.Context) ScheduledQueryTagOutput {
-	return o
-}
-
-func (o ScheduledQueryTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ScheduledQueryTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ScheduledQueryTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ScheduledQueryTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduledQueryTag)(nil)).Elem()
-}
-
-func (o ScheduledQueryTagArrayOutput) ToScheduledQueryTagArrayOutput() ScheduledQueryTagArrayOutput {
-	return o
-}
-
-func (o ScheduledQueryTagArrayOutput) ToScheduledQueryTagArrayOutputWithContext(ctx context.Context) ScheduledQueryTagArrayOutput {
-	return o
-}
-
-func (o ScheduledQueryTagArrayOutput) Index(i pulumi.IntInput) ScheduledQueryTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryTag {
-		return vs[0].([]ScheduledQueryTag)[vs[1].(int)]
-	}).(ScheduledQueryTagOutput)
-}
-
 // Configuration of target store where scheduled query results are written to.
 type ScheduledQueryTargetConfiguration struct {
 	TimestreamConfiguration ScheduledQueryTimestreamConfiguration `pulumi:"timestreamConfiguration"`
@@ -2273,106 +2079,7 @@ type TableTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// TableTagInput is an input type that accepts TableTagArgs and TableTagOutput values.
-// You can construct a concrete instance of `TableTagInput` via:
-//
-//	TableTagArgs{...}
-type TableTagInput interface {
-	pulumi.Input
-
-	ToTableTagOutput() TableTagOutput
-	ToTableTagOutputWithContext(context.Context) TableTagOutput
-}
-
-// You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-type TableTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TableTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableTag)(nil)).Elem()
-}
-
-func (i TableTagArgs) ToTableTagOutput() TableTagOutput {
-	return i.ToTableTagOutputWithContext(context.Background())
-}
-
-func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTagOutput)
-}
-
-// TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
-// You can construct a concrete instance of `TableTagArrayInput` via:
-//
-//	TableTagArray{ TableTagArgs{...} }
-type TableTagArrayInput interface {
-	pulumi.Input
-
-	ToTableTagArrayOutput() TableTagArrayOutput
-	ToTableTagArrayOutputWithContext(context.Context) TableTagArrayOutput
-}
-
-type TableTagArray []TableTagInput
-
-func (TableTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
-}
-
-func (i TableTagArray) ToTableTagArrayOutput() TableTagArrayOutput {
-	return i.ToTableTagArrayOutputWithContext(context.Background())
-}
-
-func (i TableTagArray) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTagArrayOutput)
-}
-
-// You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-type TableTagOutput struct{ *pulumi.OutputState }
-
-func (TableTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableTag)(nil)).Elem()
-}
-
-func (o TableTagOutput) ToTableTagOutput() TableTagOutput {
-	return o
-}
-
-func (o TableTagOutput) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
-	return o
-}
-
-func (o TableTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TableTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TableTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TableTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
-}
-
-func (o TableTagArrayOutput) ToTableTagArrayOutput() TableTagArrayOutput {
-	return o
-}
-
-func (o TableTagArrayOutput) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
-	return o
-}
-
-func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableTag {
-		return vs[0].([]TableTag)[vs[1].(int)]
-	}).(TableTagOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagInput)(nil)).Elem(), DatabaseTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagArrayInput)(nil)).Elem(), DatabaseTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesPtrInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs{})
@@ -2394,8 +2101,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryS3ConfigurationInput)(nil)).Elem(), ScheduledQueryS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryScheduleConfigurationInput)(nil)).Elem(), ScheduledQueryScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQuerySnsConfigurationInput)(nil)).Elem(), ScheduledQuerySnsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTagInput)(nil)).Elem(), ScheduledQueryTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTagArrayInput)(nil)).Elem(), ScheduledQueryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTargetConfigurationInput)(nil)).Elem(), ScheduledQueryTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTargetConfigurationPtrInput)(nil)).Elem(), ScheduledQueryTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTimestreamConfigurationInput)(nil)).Elem(), ScheduledQueryTimestreamConfigurationArgs{})
@@ -2404,10 +2109,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPropertiesPtrInput)(nil)).Elem(), SchemaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyInput)(nil)).Elem(), TablePartitionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyArrayInput)(nil)).Elem(), TablePartitionKeyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
-	pulumi.RegisterOutputType(DatabaseTagOutput{})
-	pulumi.RegisterOutputType(DatabaseTagArrayOutput{})
 	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput{})
@@ -2429,8 +2130,6 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledQueryS3ConfigurationOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryScheduleConfigurationOutput{})
 	pulumi.RegisterOutputType(ScheduledQuerySnsConfigurationOutput{})
-	pulumi.RegisterOutputType(ScheduledQueryTagOutput{})
-	pulumi.RegisterOutputType(ScheduledQueryTagArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryTimestreamConfigurationOutput{})
@@ -2439,6 +2138,4 @@ func init() {
 	pulumi.RegisterOutputType(SchemaPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TablePartitionKeyOutput{})
 	pulumi.RegisterOutputType(TablePartitionKeyArrayOutput{})
-	pulumi.RegisterOutputType(TableTagOutput{})
-	pulumi.RegisterOutputType(TableTagArrayOutput{})
 }

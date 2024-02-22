@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public readonly string? Description;
         public readonly ImmutableArray<Outputs.ChannelIngestEndpoint> IngestEndpoints;
         public readonly string? ModifiedAt;
-        public readonly ImmutableArray<Outputs.ChannelTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetChannelResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             string? modifiedAt,
 
-            ImmutableArray<Outputs.ChannelTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreatedAt = createdAt;

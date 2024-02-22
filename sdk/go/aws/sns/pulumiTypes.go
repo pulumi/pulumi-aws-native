@@ -244,116 +244,13 @@ type TopicTag struct {
 	Value string `pulumi:"value"`
 }
 
-// TopicTagInput is an input type that accepts TopicTagArgs and TopicTagOutput values.
-// You can construct a concrete instance of `TopicTagInput` via:
-//
-//	TopicTagArgs{...}
-type TopicTagInput interface {
-	pulumi.Input
-
-	ToTopicTagOutput() TopicTagOutput
-	ToTopicTagOutputWithContext(context.Context) TopicTagOutput
-}
-
-type TopicTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_`, `.`, `/`, `=`, `+`, and `-`.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 characters in length.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TopicTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicTag)(nil)).Elem()
-}
-
-func (i TopicTagArgs) ToTopicTagOutput() TopicTagOutput {
-	return i.ToTopicTagOutputWithContext(context.Background())
-}
-
-func (i TopicTagArgs) ToTopicTagOutputWithContext(ctx context.Context) TopicTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicTagOutput)
-}
-
-// TopicTagArrayInput is an input type that accepts TopicTagArray and TopicTagArrayOutput values.
-// You can construct a concrete instance of `TopicTagArrayInput` via:
-//
-//	TopicTagArray{ TopicTagArgs{...} }
-type TopicTagArrayInput interface {
-	pulumi.Input
-
-	ToTopicTagArrayOutput() TopicTagArrayOutput
-	ToTopicTagArrayOutputWithContext(context.Context) TopicTagArrayOutput
-}
-
-type TopicTagArray []TopicTagInput
-
-func (TopicTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TopicTag)(nil)).Elem()
-}
-
-func (i TopicTagArray) ToTopicTagArrayOutput() TopicTagArrayOutput {
-	return i.ToTopicTagArrayOutputWithContext(context.Background())
-}
-
-func (i TopicTagArray) ToTopicTagArrayOutputWithContext(ctx context.Context) TopicTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicTagArrayOutput)
-}
-
-type TopicTagOutput struct{ *pulumi.OutputState }
-
-func (TopicTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicTag)(nil)).Elem()
-}
-
-func (o TopicTagOutput) ToTopicTagOutput() TopicTagOutput {
-	return o
-}
-
-func (o TopicTagOutput) ToTopicTagOutputWithContext(ctx context.Context) TopicTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_`, `.`, `/`, `=`, `+`, and `-`.
-func (o TopicTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 characters in length.
-func (o TopicTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TopicTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TopicTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TopicTag)(nil)).Elem()
-}
-
-func (o TopicTagArrayOutput) ToTopicTagArrayOutput() TopicTagArrayOutput {
-	return o
-}
-
-func (o TopicTagArrayOutput) ToTopicTagArrayOutputWithContext(ctx context.Context) TopicTagArrayOutput {
-	return o
-}
-
-func (o TopicTagArrayOutput) Index(i pulumi.IntInput) TopicTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicTag {
-		return vs[0].([]TopicTag)[vs[1].(int)]
-	}).(TopicTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicLoggingConfigInput)(nil)).Elem(), TopicLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicLoggingConfigArrayInput)(nil)).Elem(), TopicLoggingConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSubscriptionInput)(nil)).Elem(), TopicSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSubscriptionArrayInput)(nil)).Elem(), TopicSubscriptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicTagInput)(nil)).Elem(), TopicTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicTagArrayInput)(nil)).Elem(), TopicTagArray{})
 	pulumi.RegisterOutputType(TopicLoggingConfigOutput{})
 	pulumi.RegisterOutputType(TopicLoggingConfigArrayOutput{})
 	pulumi.RegisterOutputType(TopicSubscriptionOutput{})
 	pulumi.RegisterOutputType(TopicSubscriptionArrayOutput{})
-	pulumi.RegisterOutputType(TopicTagOutput{})
-	pulumi.RegisterOutputType(TopicTagArrayOutput{})
 }

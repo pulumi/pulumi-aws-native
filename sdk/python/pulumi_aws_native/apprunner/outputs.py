@@ -12,8 +12,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AutoScalingConfigurationTag',
-    'ObservabilityConfigurationTag',
     'ObservabilityConfigurationTraceConfiguration',
     'ServiceAuthenticationConfiguration',
     'ServiceCodeConfiguration',
@@ -31,53 +29,8 @@ __all__ = [
     'ServiceObservabilityConfiguration',
     'ServiceSourceCodeVersion',
     'ServiceSourceConfiguration',
-    'ServiceTag',
-    'VpcConnectorTag',
     'VpcIngressConnectionIngressVpcConfiguration',
-    'VpcIngressConnectionTag',
 ]
-
-@pulumi.output_type
-class AutoScalingConfigurationTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ObservabilityConfigurationTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class ObservabilityConfigurationTraceConfiguration(dict):
@@ -1050,48 +1003,6 @@ class ServiceSourceConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VpcConnectorTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class VpcIngressConnectionIngressVpcConfiguration(dict):
     """
     The configuration of customer’s VPC and related VPC endpoint
@@ -1141,26 +1052,5 @@ class VpcIngressConnectionIngressVpcConfiguration(dict):
         The ID of the VPC that the VPC endpoint is used in.
         """
         return pulumi.get(self, "vpc_id")
-
-
-@pulumi.output_type
-class VpcIngressConnectionTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 

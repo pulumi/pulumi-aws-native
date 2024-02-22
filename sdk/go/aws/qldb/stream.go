@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Stream struct {
 	RoleArn              pulumi.StringOutput              `pulumi:"roleArn"`
 	StreamName           pulumi.StringOutput              `pulumi:"streamName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags StreamTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewStream registers a new resource with the given unique name, arguments, and options.
@@ -95,7 +96,7 @@ type streamArgs struct {
 	RoleArn              string                     `pulumi:"roleArn"`
 	StreamName           *string                    `pulumi:"streamName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []StreamTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stream resource.
@@ -107,7 +108,7 @@ type StreamArgs struct {
 	RoleArn              pulumi.StringInput
 	StreamName           pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags StreamTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {
@@ -176,8 +177,8 @@ func (o StreamOutput) StreamName() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o StreamOutput) Tags() StreamTagArrayOutput {
-	return o.ApplyT(func(v *Stream) StreamTagArrayOutput { return v.Tags }).(StreamTagArrayOutput)
+func (o StreamOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Stream) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

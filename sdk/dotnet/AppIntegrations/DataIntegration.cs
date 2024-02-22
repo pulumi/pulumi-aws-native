@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// The tags (keys and values) associated with the data integration.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DataIntegrationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -163,14 +163,14 @@ namespace Pulumi.AwsNative.AppIntegrations
         public Input<string> SourceUri { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DataIntegrationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags (keys and values) associated with the data integration.
         /// </summary>
-        public InputList<Inputs.DataIntegrationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DataIntegrationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

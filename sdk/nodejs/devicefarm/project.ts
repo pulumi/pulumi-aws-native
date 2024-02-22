@@ -40,7 +40,7 @@ export class Project extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly defaultJobTimeoutMinutes!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.devicefarm.ProjectTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcConfig!: pulumi.Output<outputs.devicefarm.ProjectVpcConfig | undefined>;
 
     /**
@@ -77,6 +77,6 @@ export class Project extends pulumi.CustomResource {
 export interface ProjectArgs {
     defaultJobTimeoutMinutes?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.devicefarm.ProjectTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcConfig?: pulumi.Input<inputs.devicefarm.ProjectVpcConfigArgs>;
 }

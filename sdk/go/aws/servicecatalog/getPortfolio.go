@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,13 +28,13 @@ type LookupPortfolioArgs struct {
 }
 
 type LookupPortfolioResult struct {
-	AcceptLanguage *string        `pulumi:"acceptLanguage"`
-	Description    *string        `pulumi:"description"`
-	DisplayName    *string        `pulumi:"displayName"`
-	Id             *string        `pulumi:"id"`
-	PortfolioName  *string        `pulumi:"portfolioName"`
-	ProviderName   *string        `pulumi:"providerName"`
-	Tags           []PortfolioTag `pulumi:"tags"`
+	AcceptLanguage *string   `pulumi:"acceptLanguage"`
+	Description    *string   `pulumi:"description"`
+	DisplayName    *string   `pulumi:"displayName"`
+	Id             *string   `pulumi:"id"`
+	PortfolioName  *string   `pulumi:"portfolioName"`
+	ProviderName   *string   `pulumi:"providerName"`
+	Tags           []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPortfolioOutput(ctx *pulumi.Context, args LookupPortfolioOutputArgs, opts ...pulumi.InvokeOption) LookupPortfolioResultOutput {
@@ -95,8 +96,8 @@ func (o LookupPortfolioResultOutput) ProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPortfolioResultOutput) Tags() PortfolioTagArrayOutput {
-	return o.ApplyT(func(v LookupPortfolioResult) []PortfolioTag { return v.Tags }).(PortfolioTagArrayOutput)
+func (o LookupPortfolioResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

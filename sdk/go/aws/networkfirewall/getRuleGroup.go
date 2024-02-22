@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupRuleGroupResult struct {
 	RuleGroup    *RuleGroupType `pulumi:"ruleGroup"`
 	RuleGroupArn *string        `pulumi:"ruleGroupArn"`
 	RuleGroupId  *string        `pulumi:"ruleGroupId"`
-	Tags         []RuleGroupTag `pulumi:"tags"`
+	Tags         []aws.Tag      `pulumi:"tags"`
 }
 
 func LookupRuleGroupOutput(ctx *pulumi.Context, args LookupRuleGroupOutputArgs, opts ...pulumi.InvokeOption) LookupRuleGroupResultOutput {
@@ -85,8 +86,8 @@ func (o LookupRuleGroupResultOutput) RuleGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.RuleGroupId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRuleGroupResultOutput) Tags() RuleGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupRuleGroupResult) []RuleGroupTag { return v.Tags }).(RuleGroupTagArrayOutput)
+func (o LookupRuleGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRuleGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

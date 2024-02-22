@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public readonly Pulumi.AwsNative.WorkSpacesWeb.PortalRendererType? RendererType;
         public readonly string? ServiceProviderSamlMetadata;
         public readonly string? StatusReason;
-        public readonly ImmutableArray<Outputs.PortalTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TrustStoreArn;
         public readonly string? UserAccessLoggingSettingsArn;
         public readonly string? UserSettingsArn;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             string? statusReason,
 
-            ImmutableArray<Outputs.PortalTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? trustStoreArn,
 

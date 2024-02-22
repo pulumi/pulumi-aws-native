@@ -199,7 +199,7 @@ namespace Pulumi.AwsNative.Neptune
         /// The tags assigned to this cluster.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DbClusterTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
@@ -450,14 +450,14 @@ namespace Pulumi.AwsNative.Neptune
         public Input<bool>? StorageEncrypted { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DbClusterTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags assigned to this cluster.
         /// </summary>
-        public InputList<Inputs.DbClusterTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DbClusterTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

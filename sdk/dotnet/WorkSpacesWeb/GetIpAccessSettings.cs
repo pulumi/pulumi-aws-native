@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public readonly string? DisplayName;
         public readonly string? IpAccessSettingsArn;
         public readonly ImmutableArray<Outputs.IpAccessSettingsIpRule> IpRules;
-        public readonly ImmutableArray<Outputs.IpAccessSettingsTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetIpAccessSettingsResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             ImmutableArray<Outputs.IpAccessSettingsIpRule> ipRules,
 
-            ImmutableArray<Outputs.IpAccessSettingsTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AssociatedPortalArns = associatedPortalArns;
             CreationDate = creationDate;

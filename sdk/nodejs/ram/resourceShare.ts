@@ -47,7 +47,7 @@ export class ResourceShare extends pulumi.CustomResource {
     public readonly principals!: pulumi.Output<string[] | undefined>;
     public readonly resourceArns!: pulumi.Output<string[] | undefined>;
     public readonly sources!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ram.ResourceShareTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResourceShare resource with the given unique name, arguments, and options.
@@ -95,5 +95,5 @@ export interface ResourceShareArgs {
     principals?: pulumi.Input<pulumi.Input<string>[]>;
     resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
     sources?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ram.ResourceShareTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

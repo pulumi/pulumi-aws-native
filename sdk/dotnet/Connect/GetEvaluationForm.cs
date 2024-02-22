@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// One or more tags.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EvaluationFormTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The title of the evaluation form.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Connect
 
             Pulumi.AwsNative.Connect.EvaluationFormStatus? status,
 
-            ImmutableArray<Outputs.EvaluationFormTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? title)
         {

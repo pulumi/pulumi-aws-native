@@ -19,7 +19,6 @@ __all__ = [
     'ConfigurationTemplateConfigurationOptionSetting',
     'ConfigurationTemplateSourceConfiguration',
     'EnvironmentOptionSetting',
-    'EnvironmentTag',
     'EnvironmentTier',
 ]
 
@@ -483,35 +482,6 @@ class EnvironmentOptionSetting(dict):
     def value(self) -> Optional[str]:
         """
         The current value for the configuration option.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class EnvironmentTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: The key name of the tag.
-        :param str value: The value for the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag.
         """
         return pulumi.get(self, "value")
 

@@ -24,7 +24,7 @@ export interface GetClusterSecurityGroupArgs {
 
 export interface GetClusterSecurityGroupResult {
     readonly id?: string;
-    readonly tags?: outputs.redshift.ClusterSecurityGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Redshift::ClusterSecurityGroup

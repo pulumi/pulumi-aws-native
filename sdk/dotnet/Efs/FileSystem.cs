@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Efs
         public Output<Outputs.FileSystemProtection?> FileSystemProtection { get; private set; } = null!;
 
         [Output("fileSystemTags")]
-        public Output<ImmutableArray<Outputs.FileSystemElasticFileSystemTag>> FileSystemTags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> FileSystemTags { get; private set; } = null!;
 
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
@@ -143,10 +143,10 @@ namespace Pulumi.AwsNative.Efs
         public Input<Inputs.FileSystemProtectionArgs>? FileSystemProtection { get; set; }
 
         [Input("fileSystemTags")]
-        private InputList<Inputs.FileSystemElasticFileSystemTagArgs>? _fileSystemTags;
-        public InputList<Inputs.FileSystemElasticFileSystemTagArgs> FileSystemTags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _fileSystemTags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> FileSystemTags
         {
-            get => _fileSystemTags ?? (_fileSystemTags = new InputList<Inputs.FileSystemElasticFileSystemTagArgs>());
+            get => _fileSystemTags ?? (_fileSystemTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _fileSystemTags = value;
         }
 

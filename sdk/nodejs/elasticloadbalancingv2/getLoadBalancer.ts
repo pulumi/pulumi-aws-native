@@ -73,7 +73,7 @@ export interface GetLoadBalancerResult {
     /**
      * The tags to assign to the load balancer.
      */
-    readonly tags?: outputs.elasticloadbalancingv2.LoadBalancerTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer

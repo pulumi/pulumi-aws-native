@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LookupEnvironmentResult struct {
 	// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
 	PlatformArn *string `pulumi:"platformArn"`
 	// Specifies the tags applied to resources in the environment.
-	Tags []EnvironmentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
 	Tier *EnvironmentTier `pulumi:"tier"`
 	// The name of the application version to deploy.
@@ -99,8 +100,8 @@ func (o LookupEnvironmentResultOutput) PlatformArn() pulumi.StringPtrOutput {
 }
 
 // Specifies the tags applied to resources in the environment.
-func (o LookupEnvironmentResultOutput) Tags() EnvironmentTagArrayOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentTag { return v.Tags }).(EnvironmentTagArrayOutput)
+func (o LookupEnvironmentResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.

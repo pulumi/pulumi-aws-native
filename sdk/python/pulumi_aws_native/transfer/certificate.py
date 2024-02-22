@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['CertificateArgs', 'Certificate']
 
@@ -24,7 +24,7 @@ class CertificateArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  inactive_date: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] certificate: Specifies the certificate body to be imported.
@@ -34,7 +34,7 @@ class CertificateArgs:
         :param pulumi.Input[str] description: A textual description for the certificate.
         :param pulumi.Input[str] inactive_date: Specifies the inactive date for the certificate.
         :param pulumi.Input[str] private_key: Specifies the private key for the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]] tags: Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "usage", usage)
@@ -137,14 +137,14 @@ class CertificateArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -159,7 +159,7 @@ class Certificate(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  inactive_date: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  usage: Optional[pulumi.Input['CertificateUsage']] = None,
                  __props__=None):
         """
@@ -173,7 +173,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] description: A textual description for the certificate.
         :param pulumi.Input[str] inactive_date: Specifies the inactive date for the certificate.
         :param pulumi.Input[str] private_key: Specifies the private key for the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateTagArgs']]]] tags: Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
         :param pulumi.Input['CertificateUsage'] usage: Specifies the usage type for the certificate.
         """
         ...
@@ -206,7 +206,7 @@ class Certificate(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  inactive_date: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  usage: Optional[pulumi.Input['CertificateUsage']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -375,7 +375,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
         """

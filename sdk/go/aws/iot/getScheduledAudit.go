@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupScheduledAuditResult struct {
 	// The ARN (Amazon resource name) of the scheduled audit.
 	ScheduledAuditArn *string `pulumi:"scheduledAuditArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ScheduledAuditTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Which checks are performed during the scheduled audit. Checks must be enabled for your account.
 	TargetCheckNames []string `pulumi:"targetCheckNames"`
 }
@@ -99,8 +100,8 @@ func (o LookupScheduledAuditResultOutput) ScheduledAuditArn() pulumi.StringPtrOu
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupScheduledAuditResultOutput) Tags() ScheduledAuditTagArrayOutput {
-	return o.ApplyT(func(v LookupScheduledAuditResult) []ScheduledAuditTag { return v.Tags }).(ScheduledAuditTagArrayOutput)
+func (o LookupScheduledAuditResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupScheduledAuditResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Which checks are performed during the scheduled audit. Checks must be enabled for your account.

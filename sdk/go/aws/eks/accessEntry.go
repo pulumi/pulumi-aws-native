@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type AccessEntry struct {
 	// The principal ARN that the access entry is created for.
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags AccessEntryTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The node type to associate with the access entry.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// The Kubernetes user that the access entry is associated with.
@@ -95,7 +96,7 @@ type accessEntryArgs struct {
 	// The principal ARN that the access entry is created for.
 	PrincipalArn string `pulumi:"principalArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []AccessEntryTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The node type to associate with the access entry.
 	Type *string `pulumi:"type"`
 	// The Kubernetes user that the access entry is associated with.
@@ -113,7 +114,7 @@ type AccessEntryArgs struct {
 	// The principal ARN that the access entry is created for.
 	PrincipalArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags AccessEntryTagArrayInput
+	Tags aws.TagArrayInput
 	// The node type to associate with the access entry.
 	Type pulumi.StringPtrInput
 	// The Kubernetes user that the access entry is associated with.
@@ -183,8 +184,8 @@ func (o AccessEntryOutput) PrincipalArn() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o AccessEntryOutput) Tags() AccessEntryTagArrayOutput {
-	return o.ApplyT(func(v *AccessEntry) AccessEntryTagArrayOutput { return v.Tags }).(AccessEntryTagArrayOutput)
+func (o AccessEntryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AccessEntry) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The node type to associate with the access entry.

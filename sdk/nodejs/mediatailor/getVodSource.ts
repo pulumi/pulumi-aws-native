@@ -36,7 +36,7 @@ export interface GetVodSourceResult {
     /**
      * The tags to assign to the VOD source.
      */
-    readonly tags?: outputs.mediatailor.VodSourceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::MediaTailor::VodSource Resource Type

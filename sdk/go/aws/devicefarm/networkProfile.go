@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,19 +17,19 @@ import (
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput          `pulumi:"arn"`
-	Description           pulumi.StringPtrOutput       `pulumi:"description"`
-	DownlinkBandwidthBits pulumi.IntPtrOutput          `pulumi:"downlinkBandwidthBits"`
-	DownlinkDelayMs       pulumi.IntPtrOutput          `pulumi:"downlinkDelayMs"`
-	DownlinkJitterMs      pulumi.IntPtrOutput          `pulumi:"downlinkJitterMs"`
-	DownlinkLossPercent   pulumi.IntPtrOutput          `pulumi:"downlinkLossPercent"`
-	Name                  pulumi.StringOutput          `pulumi:"name"`
-	ProjectArn            pulumi.StringOutput          `pulumi:"projectArn"`
-	Tags                  NetworkProfileTagArrayOutput `pulumi:"tags"`
-	UplinkBandwidthBits   pulumi.IntPtrOutput          `pulumi:"uplinkBandwidthBits"`
-	UplinkDelayMs         pulumi.IntPtrOutput          `pulumi:"uplinkDelayMs"`
-	UplinkJitterMs        pulumi.IntPtrOutput          `pulumi:"uplinkJitterMs"`
-	UplinkLossPercent     pulumi.IntPtrOutput          `pulumi:"uplinkLossPercent"`
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	DownlinkBandwidthBits pulumi.IntPtrOutput    `pulumi:"downlinkBandwidthBits"`
+	DownlinkDelayMs       pulumi.IntPtrOutput    `pulumi:"downlinkDelayMs"`
+	DownlinkJitterMs      pulumi.IntPtrOutput    `pulumi:"downlinkJitterMs"`
+	DownlinkLossPercent   pulumi.IntPtrOutput    `pulumi:"downlinkLossPercent"`
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	ProjectArn            pulumi.StringOutput    `pulumi:"projectArn"`
+	Tags                  aws.TagArrayOutput     `pulumi:"tags"`
+	UplinkBandwidthBits   pulumi.IntPtrOutput    `pulumi:"uplinkBandwidthBits"`
+	UplinkDelayMs         pulumi.IntPtrOutput    `pulumi:"uplinkDelayMs"`
+	UplinkJitterMs        pulumi.IntPtrOutput    `pulumi:"uplinkJitterMs"`
+	UplinkLossPercent     pulumi.IntPtrOutput    `pulumi:"uplinkLossPercent"`
 }
 
 // NewNetworkProfile registers a new resource with the given unique name, arguments, and options.
@@ -78,18 +79,18 @@ func (NetworkProfileState) ElementType() reflect.Type {
 }
 
 type networkProfileArgs struct {
-	Description           *string             `pulumi:"description"`
-	DownlinkBandwidthBits *int                `pulumi:"downlinkBandwidthBits"`
-	DownlinkDelayMs       *int                `pulumi:"downlinkDelayMs"`
-	DownlinkJitterMs      *int                `pulumi:"downlinkJitterMs"`
-	DownlinkLossPercent   *int                `pulumi:"downlinkLossPercent"`
-	Name                  *string             `pulumi:"name"`
-	ProjectArn            string              `pulumi:"projectArn"`
-	Tags                  []NetworkProfileTag `pulumi:"tags"`
-	UplinkBandwidthBits   *int                `pulumi:"uplinkBandwidthBits"`
-	UplinkDelayMs         *int                `pulumi:"uplinkDelayMs"`
-	UplinkJitterMs        *int                `pulumi:"uplinkJitterMs"`
-	UplinkLossPercent     *int                `pulumi:"uplinkLossPercent"`
+	Description           *string   `pulumi:"description"`
+	DownlinkBandwidthBits *int      `pulumi:"downlinkBandwidthBits"`
+	DownlinkDelayMs       *int      `pulumi:"downlinkDelayMs"`
+	DownlinkJitterMs      *int      `pulumi:"downlinkJitterMs"`
+	DownlinkLossPercent   *int      `pulumi:"downlinkLossPercent"`
+	Name                  *string   `pulumi:"name"`
+	ProjectArn            string    `pulumi:"projectArn"`
+	Tags                  []aws.Tag `pulumi:"tags"`
+	UplinkBandwidthBits   *int      `pulumi:"uplinkBandwidthBits"`
+	UplinkDelayMs         *int      `pulumi:"uplinkDelayMs"`
+	UplinkJitterMs        *int      `pulumi:"uplinkJitterMs"`
+	UplinkLossPercent     *int      `pulumi:"uplinkLossPercent"`
 }
 
 // The set of arguments for constructing a NetworkProfile resource.
@@ -101,7 +102,7 @@ type NetworkProfileArgs struct {
 	DownlinkLossPercent   pulumi.IntPtrInput
 	Name                  pulumi.StringPtrInput
 	ProjectArn            pulumi.StringInput
-	Tags                  NetworkProfileTagArrayInput
+	Tags                  aws.TagArrayInput
 	UplinkBandwidthBits   pulumi.IntPtrInput
 	UplinkDelayMs         pulumi.IntPtrInput
 	UplinkJitterMs        pulumi.IntPtrInput
@@ -177,8 +178,8 @@ func (o NetworkProfileOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
-func (o NetworkProfileOutput) Tags() NetworkProfileTagArrayOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfileTagArrayOutput { return v.Tags }).(NetworkProfileTagArrayOutput)
+func (o NetworkProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *NetworkProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o NetworkProfileOutput) UplinkBandwidthBits() pulumi.IntPtrOutput {

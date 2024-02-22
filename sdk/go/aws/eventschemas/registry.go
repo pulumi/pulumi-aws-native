@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Registry struct {
 	// The name of the schema registry.
 	RegistryName pulumi.StringPtrOutput `pulumi:"registryName"`
 	// Tags associated with the resource.
-	Tags RegistryTagsEntryArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -74,7 +75,7 @@ type registryArgs struct {
 	// The name of the schema registry.
 	RegistryName *string `pulumi:"registryName"`
 	// Tags associated with the resource.
-	Tags []RegistryTagsEntry `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
@@ -84,7 +85,7 @@ type RegistryArgs struct {
 	// The name of the schema registry.
 	RegistryName pulumi.StringPtrInput
 	// Tags associated with the resource.
-	Tags RegistryTagsEntryArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {
@@ -140,8 +141,8 @@ func (o RegistryOutput) RegistryName() pulumi.StringPtrOutput {
 }
 
 // Tags associated with the resource.
-func (o RegistryOutput) Tags() RegistryTagsEntryArrayOutput {
-	return o.ApplyT(func(v *Registry) RegistryTagsEntryArrayOutput { return v.Tags }).(RegistryTagsEntryArrayOutput)
+func (o RegistryOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Registry) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

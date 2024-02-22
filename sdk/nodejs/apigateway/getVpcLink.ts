@@ -37,7 +37,7 @@ export interface GetVpcLinkResult {
     /**
      * An array of arbitrary tags (key-value pairs) to associate with the stage.
      */
-    readonly tags?: outputs.apigateway.VpcLinkTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ID of the instance that backs VPC link.
      */

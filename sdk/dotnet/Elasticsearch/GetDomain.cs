@@ -55,10 +55,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? AccessPolicies;
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-        /// </summary>
-        public readonly object? AdvancedOptions;
+        public readonly ImmutableDictionary<string, string>? AdvancedOptions;
         public readonly Outputs.DomainAdvancedSecurityOptionsInput? AdvancedSecurityOptions;
         public readonly string? Arn;
         public readonly Outputs.DomainCognitoOptions? CognitoOptions;
@@ -70,20 +67,17 @@ namespace Pulumi.AwsNative.Elasticsearch
         public readonly string? ElasticsearchVersion;
         public readonly Outputs.DomainEncryptionAtRestOptions? EncryptionAtRestOptions;
         public readonly string? Id;
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-        /// </summary>
-        public readonly object? LogPublishingOptions;
+        public readonly ImmutableDictionary<string, Outputs.DomainLogPublishingOption>? LogPublishingOptions;
         public readonly Outputs.DomainNodeToNodeEncryptionOptions? NodeToNodeEncryptionOptions;
         public readonly Outputs.DomainSnapshotOptions? SnapshotOptions;
-        public readonly ImmutableArray<Outputs.DomainTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.DomainVpcOptions? VpcOptions;
 
         [OutputConstructor]
         private GetDomainResult(
             object? accessPolicies,
 
-            object? advancedOptions,
+            ImmutableDictionary<string, string>? advancedOptions,
 
             Outputs.DomainAdvancedSecurityOptionsInput? advancedSecurityOptions,
 
@@ -107,13 +101,13 @@ namespace Pulumi.AwsNative.Elasticsearch
 
             string? id,
 
-            object? logPublishingOptions,
+            ImmutableDictionary<string, Outputs.DomainLogPublishingOption>? logPublishingOptions,
 
             Outputs.DomainNodeToNodeEncryptionOptions? nodeToNodeEncryptionOptions,
 
             Outputs.DomainSnapshotOptions? snapshotOptions,
 
-            ImmutableArray<Outputs.DomainTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.DomainVpcOptions? vpcOptions)
         {

@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Ram
         public Output<string> ResourceType { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PermissionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Version of the permission.
@@ -128,10 +128,10 @@ namespace Pulumi.AwsNative.Ram
         public Input<string> ResourceType { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.PermissionTagArgs>? _tags;
-        public InputList<Inputs.PermissionTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PermissionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type Policy struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput       `pulumi:"policyDocument"`
 	PolicyName     pulumi.StringPtrOutput `pulumi:"policyName"`
-	Tags           PolicyTagArrayOutput   `pulumi:"tags"`
+	Tags           aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +74,7 @@ type policyArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	PolicyName     *string     `pulumi:"policyName"`
-	Tags           []PolicyTag `pulumi:"tags"`
+	Tags           []aws.Tag   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
@@ -81,7 +82,7 @@ type PolicyArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	PolicyName     pulumi.StringPtrInput
-	Tags           PolicyTagArrayInput
+	Tags           aws.TagArrayInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
@@ -134,8 +135,8 @@ func (o PolicyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
-func (o PolicyOutput) Tags() PolicyTagArrayOutput {
-	return o.ApplyT(func(v *Policy) PolicyTagArrayOutput { return v.Tags }).(PolicyTagArrayOutput)
+func (o PolicyOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Policy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

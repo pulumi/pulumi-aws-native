@@ -544,107 +544,6 @@ type DataRepositoryAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DataRepositoryAssociationTagInput is an input type that accepts DataRepositoryAssociationTagArgs and DataRepositoryAssociationTagOutput values.
-// You can construct a concrete instance of `DataRepositoryAssociationTagInput` via:
-//
-//	DataRepositoryAssociationTagArgs{...}
-type DataRepositoryAssociationTagInput interface {
-	pulumi.Input
-
-	ToDataRepositoryAssociationTagOutput() DataRepositoryAssociationTagOutput
-	ToDataRepositoryAssociationTagOutputWithContext(context.Context) DataRepositoryAssociationTagOutput
-}
-
-// Specifies a key-value pair for a resource tag.
-type DataRepositoryAssociationTagArgs struct {
-	// A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
-	Key pulumi.StringInput `pulumi:"key"`
-	// A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DataRepositoryAssociationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataRepositoryAssociationTag)(nil)).Elem()
-}
-
-func (i DataRepositoryAssociationTagArgs) ToDataRepositoryAssociationTagOutput() DataRepositoryAssociationTagOutput {
-	return i.ToDataRepositoryAssociationTagOutputWithContext(context.Background())
-}
-
-func (i DataRepositoryAssociationTagArgs) ToDataRepositoryAssociationTagOutputWithContext(ctx context.Context) DataRepositoryAssociationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationTagOutput)
-}
-
-// DataRepositoryAssociationTagArrayInput is an input type that accepts DataRepositoryAssociationTagArray and DataRepositoryAssociationTagArrayOutput values.
-// You can construct a concrete instance of `DataRepositoryAssociationTagArrayInput` via:
-//
-//	DataRepositoryAssociationTagArray{ DataRepositoryAssociationTagArgs{...} }
-type DataRepositoryAssociationTagArrayInput interface {
-	pulumi.Input
-
-	ToDataRepositoryAssociationTagArrayOutput() DataRepositoryAssociationTagArrayOutput
-	ToDataRepositoryAssociationTagArrayOutputWithContext(context.Context) DataRepositoryAssociationTagArrayOutput
-}
-
-type DataRepositoryAssociationTagArray []DataRepositoryAssociationTagInput
-
-func (DataRepositoryAssociationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataRepositoryAssociationTag)(nil)).Elem()
-}
-
-func (i DataRepositoryAssociationTagArray) ToDataRepositoryAssociationTagArrayOutput() DataRepositoryAssociationTagArrayOutput {
-	return i.ToDataRepositoryAssociationTagArrayOutputWithContext(context.Background())
-}
-
-func (i DataRepositoryAssociationTagArray) ToDataRepositoryAssociationTagArrayOutputWithContext(ctx context.Context) DataRepositoryAssociationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationTagArrayOutput)
-}
-
-// Specifies a key-value pair for a resource tag.
-type DataRepositoryAssociationTagOutput struct{ *pulumi.OutputState }
-
-func (DataRepositoryAssociationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataRepositoryAssociationTag)(nil)).Elem()
-}
-
-func (o DataRepositoryAssociationTagOutput) ToDataRepositoryAssociationTagOutput() DataRepositoryAssociationTagOutput {
-	return o
-}
-
-func (o DataRepositoryAssociationTagOutput) ToDataRepositoryAssociationTagOutputWithContext(ctx context.Context) DataRepositoryAssociationTagOutput {
-	return o
-}
-
-// A value that specifies the “TagKey“, the name of the tag. Tag keys must be unique for the resource to which they are attached.
-func (o DataRepositoryAssociationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DataRepositoryAssociationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A value that specifies the “TagValue“, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of “finances : April“ and also of “payroll : April“.
-func (o DataRepositoryAssociationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DataRepositoryAssociationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DataRepositoryAssociationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DataRepositoryAssociationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataRepositoryAssociationTag)(nil)).Elem()
-}
-
-func (o DataRepositoryAssociationTagArrayOutput) ToDataRepositoryAssociationTagArrayOutput() DataRepositoryAssociationTagArrayOutput {
-	return o
-}
-
-func (o DataRepositoryAssociationTagArrayOutput) ToDataRepositoryAssociationTagArrayOutputWithContext(ctx context.Context) DataRepositoryAssociationTagArrayOutput {
-	return o
-}
-
-func (o DataRepositoryAssociationTagArrayOutput) Index(i pulumi.IntInput) DataRepositoryAssociationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataRepositoryAssociationTag {
-		return vs[0].([]DataRepositoryAssociationTag)[vs[1].(int)]
-	}).(DataRepositoryAssociationTagOutput)
-}
-
 type FileSystemAuditLogConfiguration struct {
 	AuditLogDestination          *string `pulumi:"auditLogDestination"`
 	FileAccessAuditLogLevel      string  `pulumi:"fileAccessAuditLogLevel"`
@@ -2488,101 +2387,6 @@ type FileSystemTag struct {
 	Value string `pulumi:"value"`
 }
 
-// FileSystemTagInput is an input type that accepts FileSystemTagArgs and FileSystemTagOutput values.
-// You can construct a concrete instance of `FileSystemTagInput` via:
-//
-//	FileSystemTagArgs{...}
-type FileSystemTagInput interface {
-	pulumi.Input
-
-	ToFileSystemTagOutput() FileSystemTagOutput
-	ToFileSystemTagOutputWithContext(context.Context) FileSystemTagOutput
-}
-
-type FileSystemTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FileSystemTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemTag)(nil)).Elem()
-}
-
-func (i FileSystemTagArgs) ToFileSystemTagOutput() FileSystemTagOutput {
-	return i.ToFileSystemTagOutputWithContext(context.Background())
-}
-
-func (i FileSystemTagArgs) ToFileSystemTagOutputWithContext(ctx context.Context) FileSystemTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemTagOutput)
-}
-
-// FileSystemTagArrayInput is an input type that accepts FileSystemTagArray and FileSystemTagArrayOutput values.
-// You can construct a concrete instance of `FileSystemTagArrayInput` via:
-//
-//	FileSystemTagArray{ FileSystemTagArgs{...} }
-type FileSystemTagArrayInput interface {
-	pulumi.Input
-
-	ToFileSystemTagArrayOutput() FileSystemTagArrayOutput
-	ToFileSystemTagArrayOutputWithContext(context.Context) FileSystemTagArrayOutput
-}
-
-type FileSystemTagArray []FileSystemTagInput
-
-func (FileSystemTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FileSystemTag)(nil)).Elem()
-}
-
-func (i FileSystemTagArray) ToFileSystemTagArrayOutput() FileSystemTagArrayOutput {
-	return i.ToFileSystemTagArrayOutputWithContext(context.Background())
-}
-
-func (i FileSystemTagArray) ToFileSystemTagArrayOutputWithContext(ctx context.Context) FileSystemTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemTagArrayOutput)
-}
-
-type FileSystemTagOutput struct{ *pulumi.OutputState }
-
-func (FileSystemTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemTag)(nil)).Elem()
-}
-
-func (o FileSystemTagOutput) ToFileSystemTagOutput() FileSystemTagOutput {
-	return o
-}
-
-func (o FileSystemTagOutput) ToFileSystemTagOutputWithContext(ctx context.Context) FileSystemTagOutput {
-	return o
-}
-
-func (o FileSystemTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSystemTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o FileSystemTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSystemTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FileSystemTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FileSystemTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FileSystemTag)(nil)).Elem()
-}
-
-func (o FileSystemTagArrayOutput) ToFileSystemTagArrayOutput() FileSystemTagArrayOutput {
-	return o
-}
-
-func (o FileSystemTagArrayOutput) ToFileSystemTagArrayOutputWithContext(ctx context.Context) FileSystemTagArrayOutput {
-	return o
-}
-
-func (o FileSystemTagArrayOutput) Index(i pulumi.IntInput) FileSystemTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemTag {
-		return vs[0].([]FileSystemTag)[vs[1].(int)]
-	}).(FileSystemTagOutput)
-}
-
 type FileSystemUserAndGroupQuotas struct {
 	Id                      *int    `pulumi:"id"`
 	StorageCapacityQuotaGiB *int    `pulumi:"storageCapacityQuotaGiB"`
@@ -2998,101 +2802,6 @@ type SnapshotTag struct {
 	Value string `pulumi:"value"`
 }
 
-// SnapshotTagInput is an input type that accepts SnapshotTagArgs and SnapshotTagOutput values.
-// You can construct a concrete instance of `SnapshotTagInput` via:
-//
-//	SnapshotTagArgs{...}
-type SnapshotTagInput interface {
-	pulumi.Input
-
-	ToSnapshotTagOutput() SnapshotTagOutput
-	ToSnapshotTagOutputWithContext(context.Context) SnapshotTagOutput
-}
-
-type SnapshotTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SnapshotTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotTag)(nil)).Elem()
-}
-
-func (i SnapshotTagArgs) ToSnapshotTagOutput() SnapshotTagOutput {
-	return i.ToSnapshotTagOutputWithContext(context.Background())
-}
-
-func (i SnapshotTagArgs) ToSnapshotTagOutputWithContext(ctx context.Context) SnapshotTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotTagOutput)
-}
-
-// SnapshotTagArrayInput is an input type that accepts SnapshotTagArray and SnapshotTagArrayOutput values.
-// You can construct a concrete instance of `SnapshotTagArrayInput` via:
-//
-//	SnapshotTagArray{ SnapshotTagArgs{...} }
-type SnapshotTagArrayInput interface {
-	pulumi.Input
-
-	ToSnapshotTagArrayOutput() SnapshotTagArrayOutput
-	ToSnapshotTagArrayOutputWithContext(context.Context) SnapshotTagArrayOutput
-}
-
-type SnapshotTagArray []SnapshotTagInput
-
-func (SnapshotTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SnapshotTag)(nil)).Elem()
-}
-
-func (i SnapshotTagArray) ToSnapshotTagArrayOutput() SnapshotTagArrayOutput {
-	return i.ToSnapshotTagArrayOutputWithContext(context.Background())
-}
-
-func (i SnapshotTagArray) ToSnapshotTagArrayOutputWithContext(ctx context.Context) SnapshotTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotTagArrayOutput)
-}
-
-type SnapshotTagOutput struct{ *pulumi.OutputState }
-
-func (SnapshotTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotTag)(nil)).Elem()
-}
-
-func (o SnapshotTagOutput) ToSnapshotTagOutput() SnapshotTagOutput {
-	return o
-}
-
-func (o SnapshotTagOutput) ToSnapshotTagOutputWithContext(ctx context.Context) SnapshotTagOutput {
-	return o
-}
-
-func (o SnapshotTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o SnapshotTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type SnapshotTagArrayOutput struct{ *pulumi.OutputState }
-
-func (SnapshotTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SnapshotTag)(nil)).Elem()
-}
-
-func (o SnapshotTagArrayOutput) ToSnapshotTagArrayOutput() SnapshotTagArrayOutput {
-	return o
-}
-
-func (o SnapshotTagArrayOutput) ToSnapshotTagArrayOutputWithContext(ctx context.Context) SnapshotTagArrayOutput {
-	return o
-}
-
-func (o SnapshotTagArrayOutput) Index(i pulumi.IntInput) SnapshotTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotTag {
-		return vs[0].([]SnapshotTag)[vs[1].(int)]
-	}).(SnapshotTagOutput)
-}
-
 type StorageVirtualMachineActiveDirectoryConfiguration struct {
 	NetBiosName                             *string                                                       `pulumi:"netBiosName"`
 	SelfManagedActiveDirectoryConfiguration *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration `pulumi:"selfManagedActiveDirectoryConfiguration"`
@@ -3458,101 +3167,6 @@ func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) U
 type StorageVirtualMachineTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// StorageVirtualMachineTagInput is an input type that accepts StorageVirtualMachineTagArgs and StorageVirtualMachineTagOutput values.
-// You can construct a concrete instance of `StorageVirtualMachineTagInput` via:
-//
-//	StorageVirtualMachineTagArgs{...}
-type StorageVirtualMachineTagInput interface {
-	pulumi.Input
-
-	ToStorageVirtualMachineTagOutput() StorageVirtualMachineTagOutput
-	ToStorageVirtualMachineTagOutputWithContext(context.Context) StorageVirtualMachineTagOutput
-}
-
-type StorageVirtualMachineTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StorageVirtualMachineTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageVirtualMachineTag)(nil)).Elem()
-}
-
-func (i StorageVirtualMachineTagArgs) ToStorageVirtualMachineTagOutput() StorageVirtualMachineTagOutput {
-	return i.ToStorageVirtualMachineTagOutputWithContext(context.Background())
-}
-
-func (i StorageVirtualMachineTagArgs) ToStorageVirtualMachineTagOutputWithContext(ctx context.Context) StorageVirtualMachineTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineTagOutput)
-}
-
-// StorageVirtualMachineTagArrayInput is an input type that accepts StorageVirtualMachineTagArray and StorageVirtualMachineTagArrayOutput values.
-// You can construct a concrete instance of `StorageVirtualMachineTagArrayInput` via:
-//
-//	StorageVirtualMachineTagArray{ StorageVirtualMachineTagArgs{...} }
-type StorageVirtualMachineTagArrayInput interface {
-	pulumi.Input
-
-	ToStorageVirtualMachineTagArrayOutput() StorageVirtualMachineTagArrayOutput
-	ToStorageVirtualMachineTagArrayOutputWithContext(context.Context) StorageVirtualMachineTagArrayOutput
-}
-
-type StorageVirtualMachineTagArray []StorageVirtualMachineTagInput
-
-func (StorageVirtualMachineTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageVirtualMachineTag)(nil)).Elem()
-}
-
-func (i StorageVirtualMachineTagArray) ToStorageVirtualMachineTagArrayOutput() StorageVirtualMachineTagArrayOutput {
-	return i.ToStorageVirtualMachineTagArrayOutputWithContext(context.Background())
-}
-
-func (i StorageVirtualMachineTagArray) ToStorageVirtualMachineTagArrayOutputWithContext(ctx context.Context) StorageVirtualMachineTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineTagArrayOutput)
-}
-
-type StorageVirtualMachineTagOutput struct{ *pulumi.OutputState }
-
-func (StorageVirtualMachineTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageVirtualMachineTag)(nil)).Elem()
-}
-
-func (o StorageVirtualMachineTagOutput) ToStorageVirtualMachineTagOutput() StorageVirtualMachineTagOutput {
-	return o
-}
-
-func (o StorageVirtualMachineTagOutput) ToStorageVirtualMachineTagOutputWithContext(ctx context.Context) StorageVirtualMachineTagOutput {
-	return o
-}
-
-func (o StorageVirtualMachineTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageVirtualMachineTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o StorageVirtualMachineTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageVirtualMachineTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StorageVirtualMachineTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StorageVirtualMachineTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageVirtualMachineTag)(nil)).Elem()
-}
-
-func (o StorageVirtualMachineTagArrayOutput) ToStorageVirtualMachineTagArrayOutput() StorageVirtualMachineTagArrayOutput {
-	return o
-}
-
-func (o StorageVirtualMachineTagArrayOutput) ToStorageVirtualMachineTagArrayOutputWithContext(ctx context.Context) StorageVirtualMachineTagArrayOutput {
-	return o
-}
-
-func (o StorageVirtualMachineTagArrayOutput) Index(i pulumi.IntInput) StorageVirtualMachineTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageVirtualMachineTag {
-		return vs[0].([]StorageVirtualMachineTag)[vs[1].(int)]
-	}).(StorageVirtualMachineTagOutput)
 }
 
 type VolumeAggregateConfiguration struct {
@@ -5313,101 +4927,6 @@ type VolumeTag struct {
 	Value string `pulumi:"value"`
 }
 
-// VolumeTagInput is an input type that accepts VolumeTagArgs and VolumeTagOutput values.
-// You can construct a concrete instance of `VolumeTagInput` via:
-//
-//	VolumeTagArgs{...}
-type VolumeTagInput interface {
-	pulumi.Input
-
-	ToVolumeTagOutput() VolumeTagOutput
-	ToVolumeTagOutputWithContext(context.Context) VolumeTagOutput
-}
-
-type VolumeTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VolumeTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeTag)(nil)).Elem()
-}
-
-func (i VolumeTagArgs) ToVolumeTagOutput() VolumeTagOutput {
-	return i.ToVolumeTagOutputWithContext(context.Background())
-}
-
-func (i VolumeTagArgs) ToVolumeTagOutputWithContext(ctx context.Context) VolumeTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeTagOutput)
-}
-
-// VolumeTagArrayInput is an input type that accepts VolumeTagArray and VolumeTagArrayOutput values.
-// You can construct a concrete instance of `VolumeTagArrayInput` via:
-//
-//	VolumeTagArray{ VolumeTagArgs{...} }
-type VolumeTagArrayInput interface {
-	pulumi.Input
-
-	ToVolumeTagArrayOutput() VolumeTagArrayOutput
-	ToVolumeTagArrayOutputWithContext(context.Context) VolumeTagArrayOutput
-}
-
-type VolumeTagArray []VolumeTagInput
-
-func (VolumeTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VolumeTag)(nil)).Elem()
-}
-
-func (i VolumeTagArray) ToVolumeTagArrayOutput() VolumeTagArrayOutput {
-	return i.ToVolumeTagArrayOutputWithContext(context.Background())
-}
-
-func (i VolumeTagArray) ToVolumeTagArrayOutputWithContext(ctx context.Context) VolumeTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeTagArrayOutput)
-}
-
-type VolumeTagOutput struct{ *pulumi.OutputState }
-
-func (VolumeTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeTag)(nil)).Elem()
-}
-
-func (o VolumeTagOutput) ToVolumeTagOutput() VolumeTagOutput {
-	return o
-}
-
-func (o VolumeTagOutput) ToVolumeTagOutputWithContext(ctx context.Context) VolumeTagOutput {
-	return o
-}
-
-func (o VolumeTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumeTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VolumeTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumeTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VolumeTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VolumeTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VolumeTag)(nil)).Elem()
-}
-
-func (o VolumeTagArrayOutput) ToVolumeTagArrayOutput() VolumeTagArrayOutput {
-	return o
-}
-
-func (o VolumeTagArrayOutput) ToVolumeTagArrayOutputWithContext(ctx context.Context) VolumeTagArrayOutput {
-	return o
-}
-
-func (o VolumeTagArrayOutput) Index(i pulumi.IntInput) VolumeTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeTag {
-		return vs[0].([]VolumeTag)[vs[1].(int)]
-	}).(VolumeTagOutput)
-}
-
 type VolumeTieringPolicy struct {
 	CoolingPeriod *int    `pulumi:"coolingPeriod"`
 	Name          *string `pulumi:"name"`
@@ -5669,8 +5188,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationAutoImportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationAutoImportPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3Input)(nil)).Elem(), DataRepositoryAssociationS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3PtrInput)(nil)).Elem(), DataRepositoryAssociationS3Args{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationTagInput)(nil)).Elem(), DataRepositoryAssociationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationTagArrayInput)(nil)).Elem(), DataRepositoryAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAuditLogConfigurationInput)(nil)).Elem(), FileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAuditLogConfigurationPtrInput)(nil)).Elem(), FileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemClientConfigurationsInput)(nil)).Elem(), FileSystemClientConfigurationsArgs{})
@@ -5689,20 +5206,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemRootVolumeConfigurationPtrInput)(nil)).Elem(), FileSystemRootVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSelfManagedActiveDirectoryConfigurationInput)(nil)).Elem(), FileSystemSelfManagedActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), FileSystemSelfManagedActiveDirectoryConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemTagInput)(nil)).Elem(), FileSystemTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemTagArrayInput)(nil)).Elem(), FileSystemTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemUserAndGroupQuotasInput)(nil)).Elem(), FileSystemUserAndGroupQuotasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemUserAndGroupQuotasArrayInput)(nil)).Elem(), FileSystemUserAndGroupQuotasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemWindowsConfigurationInput)(nil)).Elem(), FileSystemWindowsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemWindowsConfigurationPtrInput)(nil)).Elem(), FileSystemWindowsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotTagInput)(nil)).Elem(), SnapshotTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotTagArrayInput)(nil)).Elem(), SnapshotTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfigurationInput)(nil)).Elem(), StorageVirtualMachineActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StorageVirtualMachineActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput)(nil)).Elem(), StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineTagInput)(nil)).Elem(), StorageVirtualMachineTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineTagArrayInput)(nil)).Elem(), StorageVirtualMachineTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAggregateConfigurationInput)(nil)).Elem(), VolumeAggregateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAggregateConfigurationPtrInput)(nil)).Elem(), VolumeAggregateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAutocommitPeriodInput)(nil)).Elem(), VolumeAutocommitPeriodArgs{})
@@ -5723,8 +5234,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockConfigurationPtrInput)(nil)).Elem(), VolumeSnaplockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockRetentionPeriodInput)(nil)).Elem(), VolumeSnaplockRetentionPeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockRetentionPeriodPtrInput)(nil)).Elem(), VolumeSnaplockRetentionPeriodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagInput)(nil)).Elem(), VolumeTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagArrayInput)(nil)).Elem(), VolumeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTieringPolicyInput)(nil)).Elem(), VolumeTieringPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTieringPolicyPtrInput)(nil)).Elem(), VolumeTieringPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeUserAndGroupQuotasInput)(nil)).Elem(), VolumeUserAndGroupQuotasArgs{})
@@ -5735,8 +5244,6 @@ func init() {
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoImportPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3Output{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3PtrOutput{})
-	pulumi.RegisterOutputType(DataRepositoryAssociationTagOutput{})
-	pulumi.RegisterOutputType(DataRepositoryAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemAuditLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemClientConfigurationsOutput{})
@@ -5755,20 +5262,14 @@ func init() {
 	pulumi.RegisterOutputType(FileSystemRootVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemSelfManagedActiveDirectoryConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(FileSystemTagOutput{})
-	pulumi.RegisterOutputType(FileSystemTagArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemUserAndGroupQuotasOutput{})
 	pulumi.RegisterOutputType(FileSystemUserAndGroupQuotasArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemWindowsConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemWindowsConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(SnapshotTagOutput{})
-	pulumi.RegisterOutputType(SnapshotTagArrayOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineActiveDirectoryConfigurationOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(StorageVirtualMachineTagOutput{})
-	pulumi.RegisterOutputType(StorageVirtualMachineTagArrayOutput{})
 	pulumi.RegisterOutputType(VolumeAggregateConfigurationOutput{})
 	pulumi.RegisterOutputType(VolumeAggregateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeAutocommitPeriodOutput{})
@@ -5789,8 +5290,6 @@ func init() {
 	pulumi.RegisterOutputType(VolumeSnaplockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeSnaplockRetentionPeriodOutput{})
 	pulumi.RegisterOutputType(VolumeSnaplockRetentionPeriodPtrOutput{})
-	pulumi.RegisterOutputType(VolumeTagOutput{})
-	pulumi.RegisterOutputType(VolumeTagArrayOutput{})
 	pulumi.RegisterOutputType(VolumeTieringPolicyOutput{})
 	pulumi.RegisterOutputType(VolumeTieringPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumeUserAndGroupQuotasOutput{})

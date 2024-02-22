@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -50,7 +51,7 @@ type LookupReplicationConfigResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
 	TableMappings interface{} `pulumi:"tableMappings"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	Tags []ReplicationConfigTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
 	TargetEndpointArn *string `pulumi:"targetEndpointArn"`
 }
@@ -137,8 +138,8 @@ func (o LookupReplicationConfigResultOutput) TableMappings() pulumi.AnyOutput {
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-func (o LookupReplicationConfigResultOutput) Tags() ReplicationConfigTagArrayOutput {
-	return o.ApplyT(func(v LookupReplicationConfigResult) []ReplicationConfigTag { return v.Tags }).(ReplicationConfigTagArrayOutput)
+func (o LookupReplicationConfigResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReplicationConfigResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration

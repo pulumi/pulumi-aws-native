@@ -72,7 +72,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * List of Tags.
      */
-    public readonly tags!: pulumi.Output<outputs.appflow.FlowTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * List of tasks for the flow.
      */
@@ -171,7 +171,7 @@ export interface FlowArgs {
     /**
      * List of Tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.appflow.FlowTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * List of tasks for the flow.
      */

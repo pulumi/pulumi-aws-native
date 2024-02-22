@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,26 +29,24 @@ type LookupDomainArgs struct {
 
 type LookupDomainResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-	AccessPolicies interface{} `pulumi:"accessPolicies"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-	AdvancedOptions            interface{}                         `pulumi:"advancedOptions"`
-	AdvancedSecurityOptions    *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
-	Arn                        *string                             `pulumi:"arn"`
-	CognitoOptions             *DomainCognitoOptions               `pulumi:"cognitoOptions"`
-	DomainArn                  *string                             `pulumi:"domainArn"`
-	DomainEndpoint             *string                             `pulumi:"domainEndpoint"`
-	DomainEndpointOptions      *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
-	EbsOptions                 *DomainEbsOptions                   `pulumi:"ebsOptions"`
-	ElasticsearchClusterConfig *DomainElasticsearchClusterConfig   `pulumi:"elasticsearchClusterConfig"`
-	ElasticsearchVersion       *string                             `pulumi:"elasticsearchVersion"`
-	EncryptionAtRestOptions    *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
-	Id                         *string                             `pulumi:"id"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-	LogPublishingOptions        interface{}                        `pulumi:"logPublishingOptions"`
-	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions `pulumi:"nodeToNodeEncryptionOptions"`
-	SnapshotOptions             *DomainSnapshotOptions             `pulumi:"snapshotOptions"`
-	Tags                        []DomainTag                        `pulumi:"tags"`
-	VpcOptions                  *DomainVpcOptions                  `pulumi:"vpcOptions"`
+	AccessPolicies              interface{}                          `pulumi:"accessPolicies"`
+	AdvancedOptions             map[string]string                    `pulumi:"advancedOptions"`
+	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput  `pulumi:"advancedSecurityOptions"`
+	Arn                         *string                              `pulumi:"arn"`
+	CognitoOptions              *DomainCognitoOptions                `pulumi:"cognitoOptions"`
+	DomainArn                   *string                              `pulumi:"domainArn"`
+	DomainEndpoint              *string                              `pulumi:"domainEndpoint"`
+	DomainEndpointOptions       *DomainEndpointOptions               `pulumi:"domainEndpointOptions"`
+	EbsOptions                  *DomainEbsOptions                    `pulumi:"ebsOptions"`
+	ElasticsearchClusterConfig  *DomainElasticsearchClusterConfig    `pulumi:"elasticsearchClusterConfig"`
+	ElasticsearchVersion        *string                              `pulumi:"elasticsearchVersion"`
+	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions       `pulumi:"encryptionAtRestOptions"`
+	Id                          *string                              `pulumi:"id"`
+	LogPublishingOptions        map[string]DomainLogPublishingOption `pulumi:"logPublishingOptions"`
+	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions   `pulumi:"nodeToNodeEncryptionOptions"`
+	SnapshotOptions             *DomainSnapshotOptions               `pulumi:"snapshotOptions"`
+	Tags                        []aws.Tag                            `pulumi:"tags"`
+	VpcOptions                  *DomainVpcOptions                    `pulumi:"vpcOptions"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -90,9 +89,8 @@ func (o LookupDomainResultOutput) AccessPolicies() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.AccessPolicies }).(pulumi.AnyOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-func (o LookupDomainResultOutput) AdvancedOptions() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.AdvancedOptions }).(pulumi.AnyOutput)
+func (o LookupDomainResultOutput) AdvancedOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.AdvancedOptions }).(pulumi.StringMapOutput)
 }
 
 func (o LookupDomainResultOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInputPtrOutput {
@@ -139,9 +137,8 @@ func (o LookupDomainResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-func (o LookupDomainResultOutput) LogPublishingOptions() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.LogPublishingOptions }).(pulumi.AnyOutput)
+func (o LookupDomainResultOutput) LogPublishingOptions() DomainLogPublishingOptionMapOutput {
+	return o.ApplyT(func(v LookupDomainResult) map[string]DomainLogPublishingOption { return v.LogPublishingOptions }).(DomainLogPublishingOptionMapOutput)
 }
 
 func (o LookupDomainResultOutput) NodeToNodeEncryptionOptions() DomainNodeToNodeEncryptionOptionsPtrOutput {
@@ -152,8 +149,8 @@ func (o LookupDomainResultOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutp
 	return o.ApplyT(func(v LookupDomainResult) *DomainSnapshotOptions { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
 }
 
-func (o LookupDomainResultOutput) Tags() DomainTagArrayOutput {
-	return o.ApplyT(func(v LookupDomainResult) []DomainTag { return v.Tags }).(DomainTagArrayOutput)
+func (o LookupDomainResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupDomainResultOutput) VpcOptions() DomainVpcOptionsPtrOutput {

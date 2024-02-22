@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type DataRepositoryAssociation struct {
 	S3 DataRepositoryAssociationS3PtrOutput `pulumi:"s3"`
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags DataRepositoryAssociationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataRepositoryAssociation registers a new resource with the given unique name, arguments, and options.
@@ -113,7 +114,7 @@ type dataRepositoryAssociationArgs struct {
 	S3 *DataRepositoryAssociationS3 `pulumi:"s3"`
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags []DataRepositoryAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataRepositoryAssociation resource.
@@ -135,7 +136,7 @@ type DataRepositoryAssociationArgs struct {
 	S3 DataRepositoryAssociationS3PtrInput
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags DataRepositoryAssociationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DataRepositoryAssociationArgs) ElementType() reflect.Type {
@@ -221,8 +222,8 @@ func (o DataRepositoryAssociationOutput) S3() DataRepositoryAssociationS3PtrOutp
 // An array of key-value pairs to apply to this resource.
 //
 //	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-func (o DataRepositoryAssociationOutput) Tags() DataRepositoryAssociationTagArrayOutput {
-	return o.ApplyT(func(v *DataRepositoryAssociation) DataRepositoryAssociationTagArrayOutput { return v.Tags }).(DataRepositoryAssociationTagArrayOutput)
+func (o DataRepositoryAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

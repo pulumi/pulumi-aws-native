@@ -64,7 +64,7 @@ export class SigningProfile extends pulumi.CustomResource {
     /**
      * A list of tags associated with the signing profile.
      */
-    public readonly tags!: pulumi.Output<outputs.signer.SigningProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SigningProfile resource with the given unique name, arguments, and options.
@@ -118,5 +118,5 @@ export interface SigningProfileArgs {
     /**
      * A list of tags associated with the signing profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.signer.SigningProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

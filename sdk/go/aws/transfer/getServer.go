@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupServerResult struct {
 	SecurityPolicyName            *string                          `pulumi:"securityPolicyName"`
 	ServerId                      *string                          `pulumi:"serverId"`
 	StructuredLogDestinations     []ServerStructuredLogDestination `pulumi:"structuredLogDestinations"`
-	Tags                          []ServerTag                      `pulumi:"tags"`
+	Tags                          []aws.Tag                        `pulumi:"tags"`
 	WorkflowDetails               *ServerWorkflowDetails           `pulumi:"workflowDetails"`
 }
 
@@ -136,8 +137,8 @@ func (o LookupServerResultOutput) StructuredLogDestinations() ServerStructuredLo
 	return o.ApplyT(func(v LookupServerResult) []ServerStructuredLogDestination { return v.StructuredLogDestinations }).(ServerStructuredLogDestinationArrayOutput)
 }
 
-func (o LookupServerResultOutput) Tags() ServerTagArrayOutput {
-	return o.ApplyT(func(v LookupServerResult) []ServerTag { return v.Tags }).(ServerTagArrayOutput)
+func (o LookupServerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupServerResultOutput) WorkflowDetails() ServerWorkflowDetailsPtrOutput {

@@ -42,7 +42,6 @@ __all__ = [
     'ClusterSimpleScalingPolicyConfiguration',
     'ClusterSpotProvisioningSpecification',
     'ClusterStepConfig',
-    'ClusterTag',
     'ClusterVolumeSpecification',
     'InstanceFleetConfigConfiguration',
     'InstanceFleetConfigEbsBlockDeviceConfig',
@@ -66,8 +65,6 @@ __all__ = [
     'InstanceGroupConfigVolumeSpecification',
     'StepHadoopJarStepConfig',
     'StepKeyValue',
-    'StudioTag',
-    'WalWorkspaceTag',
 ]
 
 @pulumi.output_type
@@ -90,7 +87,7 @@ class ClusterApplication(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 additional_info: Optional[Any] = None,
+                 additional_info: Optional[Mapping[str, str]] = None,
                  args: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  version: Optional[str] = None):
@@ -105,7 +102,7 @@ class ClusterApplication(dict):
 
     @property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Optional[Any]:
+    def additional_info(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "additional_info")
 
     @property
@@ -391,7 +388,7 @@ class ClusterConfiguration(dict):
 
     def __init__(__self__, *,
                  classification: Optional[str] = None,
-                 configuration_properties: Optional[Any] = None,
+                 configuration_properties: Optional[Mapping[str, str]] = None,
                  configurations: Optional[Sequence['outputs.ClusterConfiguration']] = None):
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -407,7 +404,7 @@ class ClusterConfiguration(dict):
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[Any]:
+    def configuration_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "configuration_properties")
 
     @property
@@ -1590,25 +1587,6 @@ class ClusterStepConfig(dict):
 
 
 @pulumi.output_type
-class ClusterTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ClusterVolumeSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1683,7 +1661,7 @@ class InstanceFleetConfigConfiguration(dict):
 
     def __init__(__self__, *,
                  classification: Optional[str] = None,
-                 configuration_properties: Optional[Any] = None,
+                 configuration_properties: Optional[Mapping[str, str]] = None,
                  configurations: Optional[Sequence['outputs.InstanceFleetConfigConfiguration']] = None):
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -1699,7 +1677,7 @@ class InstanceFleetConfigConfiguration(dict):
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[Any]:
+    def configuration_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "configuration_properties")
 
     @property
@@ -2189,7 +2167,7 @@ class InstanceGroupConfigConfiguration(dict):
 
     def __init__(__self__, *,
                  classification: Optional[str] = None,
-                 configuration_properties: Optional[Any] = None,
+                 configuration_properties: Optional[Mapping[str, str]] = None,
                  configurations: Optional[Sequence['outputs.InstanceGroupConfigConfiguration']] = None):
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -2205,7 +2183,7 @@ class InstanceGroupConfigConfiguration(dict):
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[Any]:
+    def configuration_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "configuration_properties")
 
     @property
@@ -2626,72 +2604,6 @@ class StepKeyValue(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class StudioTag(dict):
-    """
-    An arbitrary set of tags (key-value pairs) for this EMR Studio.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        An arbitrary set of tags (key-value pairs) for this EMR Studio.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param str value: The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class WalWorkspaceTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
         return pulumi.get(self, "value")
 
 

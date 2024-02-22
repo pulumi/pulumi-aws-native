@@ -48,7 +48,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Any tags assigned to the VPN connection.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.VpnConnectionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the transit gateway associated with the VPN connection.
      */
@@ -127,7 +127,7 @@ export interface VpnConnectionArgs {
     /**
      * Any tags assigned to the VPN connection.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the transit gateway associated with the VPN connection.
      */

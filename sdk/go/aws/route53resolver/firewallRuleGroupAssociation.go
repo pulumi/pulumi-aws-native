@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type FirewallRuleGroupAssociation struct {
 	// FirewallDomainListAssociationStatus
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// Tags
-	Tags FirewallRuleGroupAssociationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// VpcId
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -107,7 +108,7 @@ type firewallRuleGroupAssociationArgs struct {
 	// Priority
 	Priority int `pulumi:"priority"`
 	// Tags
-	Tags []FirewallRuleGroupAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// VpcId
 	VpcId string `pulumi:"vpcId"`
 }
@@ -123,7 +124,7 @@ type FirewallRuleGroupAssociationArgs struct {
 	// Priority
 	Priority pulumi.IntInput
 	// Tags
-	Tags FirewallRuleGroupAssociationTagArrayInput
+	Tags aws.TagArrayInput
 	// VpcId
 	VpcId pulumi.StringInput
 }
@@ -223,8 +224,8 @@ func (o FirewallRuleGroupAssociationOutput) StatusMessage() pulumi.StringOutput 
 }
 
 // Tags
-func (o FirewallRuleGroupAssociationOutput) Tags() FirewallRuleGroupAssociationTagArrayOutput {
-	return o.ApplyT(func(v *FirewallRuleGroupAssociation) FirewallRuleGroupAssociationTagArrayOutput { return v.Tags }).(FirewallRuleGroupAssociationTagArrayOutput)
+func (o FirewallRuleGroupAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // VpcId

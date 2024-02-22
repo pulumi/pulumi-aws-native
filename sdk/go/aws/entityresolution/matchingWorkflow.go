@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type MatchingWorkflow struct {
 	OutputSourceConfig   MatchingWorkflowOutputSourceArrayOutput    `pulumi:"outputSourceConfig"`
 	ResolutionTechniques MatchingWorkflowResolutionTechniquesOutput `pulumi:"resolutionTechniques"`
 	RoleArn              pulumi.StringOutput                        `pulumi:"roleArn"`
-	Tags                 MatchingWorkflowTagArrayOutput             `pulumi:"tags"`
+	Tags                 aws.TagArrayOutput                         `pulumi:"tags"`
 	UpdatedAt            pulumi.StringOutput                        `pulumi:"updatedAt"`
 	WorkflowArn          pulumi.StringOutput                        `pulumi:"workflowArn"`
 	// The name of the MatchingWorkflow
@@ -95,7 +96,7 @@ type matchingWorkflowArgs struct {
 	OutputSourceConfig   []MatchingWorkflowOutputSource       `pulumi:"outputSourceConfig"`
 	ResolutionTechniques MatchingWorkflowResolutionTechniques `pulumi:"resolutionTechniques"`
 	RoleArn              string                               `pulumi:"roleArn"`
-	Tags                 []MatchingWorkflowTag                `pulumi:"tags"`
+	Tags                 []aws.Tag                            `pulumi:"tags"`
 	// The name of the MatchingWorkflow
 	WorkflowName string `pulumi:"workflowName"`
 }
@@ -108,7 +109,7 @@ type MatchingWorkflowArgs struct {
 	OutputSourceConfig   MatchingWorkflowOutputSourceArrayInput
 	ResolutionTechniques MatchingWorkflowResolutionTechniquesInput
 	RoleArn              pulumi.StringInput
-	Tags                 MatchingWorkflowTagArrayInput
+	Tags                 aws.TagArrayInput
 	// The name of the MatchingWorkflow
 	WorkflowName pulumi.StringInput
 }
@@ -175,8 +176,8 @@ func (o MatchingWorkflowOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-func (o MatchingWorkflowOutput) Tags() MatchingWorkflowTagArrayOutput {
-	return o.ApplyT(func(v *MatchingWorkflow) MatchingWorkflowTagArrayOutput { return v.Tags }).(MatchingWorkflowTagArrayOutput)
+func (o MatchingWorkflowOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *MatchingWorkflow) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o MatchingWorkflowOutput) UpdatedAt() pulumi.StringOutput {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupIpAccessSettingsResult struct {
 	DisplayName          *string                  `pulumi:"displayName"`
 	IpAccessSettingsArn  *string                  `pulumi:"ipAccessSettingsArn"`
 	IpRules              []IpAccessSettingsIpRule `pulumi:"ipRules"`
-	Tags                 []IpAccessSettingsTag    `pulumi:"tags"`
+	Tags                 []aws.Tag                `pulumi:"tags"`
 }
 
 func LookupIpAccessSettingsOutput(ctx *pulumi.Context, args LookupIpAccessSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupIpAccessSettingsResultOutput {
@@ -95,8 +96,8 @@ func (o LookupIpAccessSettingsResultOutput) IpRules() IpAccessSettingsIpRuleArra
 	return o.ApplyT(func(v LookupIpAccessSettingsResult) []IpAccessSettingsIpRule { return v.IpRules }).(IpAccessSettingsIpRuleArrayOutput)
 }
 
-func (o LookupIpAccessSettingsResultOutput) Tags() IpAccessSettingsTagArrayOutput {
-	return o.ApplyT(func(v LookupIpAccessSettingsResult) []IpAccessSettingsTag { return v.Tags }).(IpAccessSettingsTagArrayOutput)
+func (o LookupIpAccessSettingsResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIpAccessSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

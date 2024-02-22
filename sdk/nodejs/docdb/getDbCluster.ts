@@ -40,7 +40,7 @@ export interface GetDbClusterResult {
     readonly restoreToTime?: string;
     readonly restoreType?: string;
     readonly storageType?: string;
-    readonly tags?: outputs.docdb.DbClusterTag[];
+    readonly tags?: outputs.Tag[];
     readonly useLatestRestorableTime?: boolean;
     readonly vpcSecurityGroupIds?: string[];
 }

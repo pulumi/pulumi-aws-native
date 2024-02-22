@@ -29,7 +29,7 @@ export interface GetStateMachineResult {
     readonly name?: string;
     readonly roleArn?: string;
     readonly stateMachineRevisionId?: string;
-    readonly tags?: outputs.stepfunctions.StateMachineTagsEntry[];
+    readonly tags?: outputs.Tag[];
     readonly tracingConfiguration?: outputs.stepfunctions.StateMachineTracingConfiguration;
 }
 /**

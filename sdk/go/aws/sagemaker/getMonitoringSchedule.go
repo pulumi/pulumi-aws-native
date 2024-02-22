@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupMonitoringScheduleResult struct {
 	// The status of a schedule job.
 	MonitoringScheduleStatus *MonitoringScheduleStatus `pulumi:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []MonitoringScheduleTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupMonitoringScheduleOutput(ctx *pulumi.Context, args LookupMonitoringScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupMonitoringScheduleResultOutput {
@@ -123,8 +124,8 @@ func (o LookupMonitoringScheduleResultOutput) MonitoringScheduleStatus() Monitor
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupMonitoringScheduleResultOutput) Tags() MonitoringScheduleTagArrayOutput {
-	return o.ApplyT(func(v LookupMonitoringScheduleResult) []MonitoringScheduleTag { return v.Tags }).(MonitoringScheduleTagArrayOutput)
+func (o LookupMonitoringScheduleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMonitoringScheduleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

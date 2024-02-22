@@ -43,7 +43,7 @@ export class TargetGroup extends pulumi.CustomResource {
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.TargetGroupStatus>;
-    public readonly tags!: pulumi.Output<outputs.vpclattice.TargetGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly targets!: pulumi.Output<outputs.vpclattice.TargetGroupTarget[] | undefined>;
     public readonly type!: pulumi.Output<enums.vpclattice.TargetGroupType>;
 
@@ -94,7 +94,7 @@ export class TargetGroup extends pulumi.CustomResource {
 export interface TargetGroupArgs {
     config?: pulumi.Input<inputs.vpclattice.TargetGroupConfigArgs>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.vpclattice.TargetGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     targets?: pulumi.Input<pulumi.Input<inputs.vpclattice.TargetGroupTargetArgs>[]>;
     type: pulumi.Input<enums.vpclattice.TargetGroupType>;
 }

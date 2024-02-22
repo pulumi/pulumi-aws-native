@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type PackagingConfiguration struct {
 	// The ID of a PackagingGroup.
 	PackagingGroupId pulumi.StringOutput `pulumi:"packagingGroupId"`
 	// A collection of tags associated with a resource
-	Tags PackagingConfigurationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPackagingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +87,7 @@ type packagingConfigurationArgs struct {
 	// The ID of a PackagingGroup.
 	PackagingGroupId string `pulumi:"packagingGroupId"`
 	// A collection of tags associated with a resource
-	Tags []PackagingConfigurationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PackagingConfiguration resource.
@@ -102,7 +103,7 @@ type PackagingConfigurationArgs struct {
 	// The ID of a PackagingGroup.
 	PackagingGroupId pulumi.StringInput
 	// A collection of tags associated with a resource
-	Tags PackagingConfigurationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (PackagingConfigurationArgs) ElementType() reflect.Type {
@@ -173,8 +174,8 @@ func (o PackagingConfigurationOutput) PackagingGroupId() pulumi.StringOutput {
 }
 
 // A collection of tags associated with a resource
-func (o PackagingConfigurationOutput) Tags() PackagingConfigurationTagArrayOutput {
-	return o.ApplyT(func(v *PackagingConfiguration) PackagingConfigurationTagArrayOutput { return v.Tags }).(PackagingConfigurationTagArrayOutput)
+func (o PackagingConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PackagingConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

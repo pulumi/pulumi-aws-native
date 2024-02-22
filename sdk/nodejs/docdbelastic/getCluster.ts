@@ -29,7 +29,7 @@ export interface GetClusterResult {
     readonly shardCapacity?: number;
     readonly shardCount?: number;
     readonly subnetIds?: string[];
-    readonly tags?: outputs.docdbelastic.ClusterTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcSecurityGroupIds?: string[];
 }
 /**

@@ -10,48 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'HttpNamespaceTagArgs',
     'PrivateDnsNamespacePrivateDnsPropertiesMutableArgs',
     'PrivateDnsNamespacePropertiesArgs',
     'PrivateDnsNamespaceSoaArgs',
-    'PrivateDnsNamespaceTagArgs',
     'PublicDnsNamespacePropertiesArgs',
     'PublicDnsNamespacePublicDnsPropertiesMutableArgs',
     'PublicDnsNamespaceSoaArgs',
-    'PublicDnsNamespaceTagArgs',
     'ServiceDnsConfigArgs',
     'ServiceDnsRecordArgs',
     'ServiceHealthCheckConfigArgs',
     'ServiceHealthCheckCustomConfigArgs',
-    'ServiceTagArgs',
 ]
-
-@pulumi.input_type
-class HttpNamespaceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
 
 @pulumi.input_type
 class PrivateDnsNamespacePrivateDnsPropertiesMutableArgs:
@@ -105,33 +74,6 @@ class PrivateDnsNamespaceSoaArgs:
 
 
 @pulumi.input_type
-class PrivateDnsNamespaceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class PublicDnsNamespacePropertiesArgs:
     def __init__(__self__, *,
                  dns_properties: Optional[pulumi.Input['PublicDnsNamespacePublicDnsPropertiesMutableArgs']] = None):
@@ -180,33 +122,6 @@ class PublicDnsNamespaceSoaArgs:
     @ttl.setter
     def ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "ttl", value)
-
-
-@pulumi.input_type
-class PublicDnsNamespaceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -331,32 +246,5 @@ class ServiceHealthCheckCustomConfigArgs:
     @failure_threshold.setter
     def failure_threshold(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "failure_threshold", value)
-
-
-@pulumi.input_type
-class ServiceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

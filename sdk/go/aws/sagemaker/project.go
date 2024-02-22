@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type Project struct {
 	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesOutput `pulumi:"serviceCatalogProvisioningDetails"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ProjectTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -89,7 +90,7 @@ type projectArgs struct {
 	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsProperties `pulumi:"serviceCatalogProvisioningDetails"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ProjectTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -101,7 +102,7 @@ type ProjectArgs struct {
 	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ProjectTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -182,8 +183,8 @@ func (o ProjectOutput) ServiceCatalogProvisioningDetails() ServiceCatalogProvisi
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ProjectOutput) Tags() ProjectTagArrayOutput {
-	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+func (o ProjectOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Project) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.Emr
         /// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.StudioTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
@@ -272,14 +272,14 @@ namespace Pulumi.AwsNative.Emr
         }
 
         [Input("tags")]
-        private InputList<Inputs.StudioTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         /// </summary>
-        public InputList<Inputs.StudioTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.StudioTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

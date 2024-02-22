@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,7 +19,7 @@ type CapacityProvider struct {
 
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
 	Name                     pulumi.StringPtrOutput                         `pulumi:"name"`
-	Tags                     CapacityProviderTagArrayOutput                 `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                             `pulumi:"tags"`
 }
 
 // NewCapacityProvider registers a new resource with the given unique name, arguments, and options.
@@ -71,14 +72,14 @@ func (CapacityProviderState) ElementType() reflect.Type {
 type capacityProviderArgs struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	Name                     *string                                  `pulumi:"name"`
-	Tags                     []CapacityProviderTag                    `pulumi:"tags"`
+	Tags                     []aws.Tag                                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CapacityProvider resource.
 type CapacityProviderArgs struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
 	Name                     pulumi.StringPtrInput
-	Tags                     CapacityProviderTagArrayInput
+	Tags                     aws.TagArrayInput
 }
 
 func (CapacityProviderArgs) ElementType() reflect.Type {
@@ -128,8 +129,8 @@ func (o CapacityProviderOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o CapacityProviderOutput) Tags() CapacityProviderTagArrayOutput {
-	return o.ApplyT(func(v *CapacityProvider) CapacityProviderTagArrayOutput { return v.Tags }).(CapacityProviderTagArrayOutput)
+func (o CapacityProviderOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CapacityProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

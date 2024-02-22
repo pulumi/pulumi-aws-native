@@ -40,7 +40,7 @@ export class Channel extends pulumi.CustomResource {
     public readonly channelName!: pulumi.Output<string | undefined>;
     public readonly channelStorage!: pulumi.Output<outputs.iotanalytics.ChannelStorage | undefined>;
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.ChannelRetentionPeriod | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iotanalytics.ChannelTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -77,5 +77,5 @@ export interface ChannelArgs {
     channelName?: pulumi.Input<string>;
     channelStorage?: pulumi.Input<inputs.iotanalytics.ChannelStorageArgs>;
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.ChannelRetentionPeriodArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iotanalytics.ChannelTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

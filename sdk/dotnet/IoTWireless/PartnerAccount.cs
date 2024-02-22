@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// A list of key-value pairs that contain metadata for the destination.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PartnerAccountTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -156,14 +156,14 @@ namespace Pulumi.AwsNative.IoTWireless
         public Input<Inputs.PartnerAccountSidewalkUpdateAccountArgs>? SidewalkUpdate { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.PartnerAccountTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the destination.
         /// </summary>
-        public InputList<Inputs.PartnerAccountTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PartnerAccountTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type ExecutionPlan struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Name        pulumi.StringOutput    `pulumi:"name"`
 	// Tags for labeling the execution plan
-	Tags ExecutionPlanTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewExecutionPlan registers a new resource with the given unique name, arguments, and options.
@@ -71,7 +72,7 @@ type executionPlanArgs struct {
 	Description *string `pulumi:"description"`
 	Name        *string `pulumi:"name"`
 	// Tags for labeling the execution plan
-	Tags []ExecutionPlanTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ExecutionPlan resource.
@@ -82,7 +83,7 @@ type ExecutionPlanArgs struct {
 	Description pulumi.StringPtrInput
 	Name        pulumi.StringPtrInput
 	// Tags for labeling the execution plan
-	Tags ExecutionPlanTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ExecutionPlanArgs) ElementType() reflect.Type {
@@ -141,8 +142,8 @@ func (o ExecutionPlanOutput) Name() pulumi.StringOutput {
 }
 
 // Tags for labeling the execution plan
-func (o ExecutionPlanOutput) Tags() ExecutionPlanTagArrayOutput {
-	return o.ApplyT(func(v *ExecutionPlan) ExecutionPlanTagArrayOutput { return v.Tags }).(ExecutionPlanTagArrayOutput)
+func (o ExecutionPlanOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ExecutionPlan) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

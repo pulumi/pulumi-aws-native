@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,13 +28,13 @@ type LookupDeploymentStrategyArgs struct {
 }
 
 type LookupDeploymentStrategyResult struct {
-	DeploymentDurationInMinutes *float64                 `pulumi:"deploymentDurationInMinutes"`
-	Description                 *string                  `pulumi:"description"`
-	FinalBakeTimeInMinutes      *float64                 `pulumi:"finalBakeTimeInMinutes"`
-	GrowthFactor                *float64                 `pulumi:"growthFactor"`
-	GrowthType                  *string                  `pulumi:"growthType"`
-	Id                          *string                  `pulumi:"id"`
-	Tags                        []DeploymentStrategyTags `pulumi:"tags"`
+	DeploymentDurationInMinutes *float64  `pulumi:"deploymentDurationInMinutes"`
+	Description                 *string   `pulumi:"description"`
+	FinalBakeTimeInMinutes      *float64  `pulumi:"finalBakeTimeInMinutes"`
+	GrowthFactor                *float64  `pulumi:"growthFactor"`
+	GrowthType                  *string   `pulumi:"growthType"`
+	Id                          *string   `pulumi:"id"`
+	Tags                        []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDeploymentStrategyOutput(ctx *pulumi.Context, args LookupDeploymentStrategyOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentStrategyResultOutput {
@@ -95,8 +96,8 @@ func (o LookupDeploymentStrategyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentStrategyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDeploymentStrategyResultOutput) Tags() DeploymentStrategyTagsArrayOutput {
-	return o.ApplyT(func(v LookupDeploymentStrategyResult) []DeploymentStrategyTags { return v.Tags }).(DeploymentStrategyTagsArrayOutput)
+func (o LookupDeploymentStrategyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDeploymentStrategyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -27,7 +27,7 @@ export interface GetDbSubnetGroupResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.rds.DbSubnetGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.

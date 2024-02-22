@@ -31,7 +31,6 @@ __all__ = [
     'AlarmModelSimpleRuleArgs',
     'AlarmModelSnsArgs',
     'AlarmModelSqsArgs',
-    'AlarmModelTagArgs',
     'DetectorModelActionArgs',
     'DetectorModelAssetPropertyTimestampArgs',
     'DetectorModelAssetPropertyValueArgs',
@@ -56,11 +55,9 @@ __all__ = [
     'DetectorModelSnsArgs',
     'DetectorModelSqsArgs',
     'DetectorModelStateArgs',
-    'DetectorModelTagArgs',
     'DetectorModelTransitionEventArgs',
     'InputAttributeArgs',
     'InputDefinitionArgs',
-    'InputTagArgs',
 ]
 
 @pulumi.input_type
@@ -1113,44 +1110,6 @@ class AlarmModelSqsArgs:
     @use_base64.setter
     def use_base64(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_base64", value)
-
-
-@pulumi.input_type
-class AlarmModelTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        Tags to be applied to Input.
-        :param pulumi.Input[str] key: Key of the Tag.
-        :param pulumi.Input[str] value: Value of the Tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        Key of the Tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Value of the Tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -2456,44 +2415,6 @@ class DetectorModelStateArgs:
 
 
 @pulumi.input_type
-class DetectorModelTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        Tags to be applied to Input.
-        :param pulumi.Input[str] key: Key of the Tag.
-        :param pulumi.Input[str] value: Value of the Tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        Key of the Tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Value of the Tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class DetectorModelTransitionEventArgs:
     def __init__(__self__, *,
                  condition: pulumi.Input[str],
@@ -2610,43 +2531,5 @@ class InputDefinitionArgs:
     @attributes.setter
     def attributes(self, value: pulumi.Input[Sequence[pulumi.Input['InputAttributeArgs']]]):
         pulumi.set(self, "attributes", value)
-
-
-@pulumi.input_type
-class InputTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        Tags to be applied to Input.
-        :param pulumi.Input[str] key: Key of the Tag.
-        :param pulumi.Input[str] value: Value of the Tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        Key of the Tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Value of the Tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

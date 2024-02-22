@@ -17,10 +17,8 @@ __all__ = [
     'ChannelLogConfigurationForChannel',
     'ChannelRequestOutputItem',
     'ChannelSlateSource',
-    'ChannelTag',
     'ChannelTimeShiftConfiguration',
     'LiveSourceHttpPackageConfiguration',
-    'LiveSourceTag',
     'PlaybackConfigurationAdMarkerPassthrough',
     'PlaybackConfigurationAvailSuppression',
     'PlaybackConfigurationBumper',
@@ -29,15 +27,12 @@ __all__ = [
     'PlaybackConfigurationHlsConfiguration',
     'PlaybackConfigurationLivePreRollConfiguration',
     'PlaybackConfigurationManifestProcessingRules',
-    'PlaybackConfigurationTag',
     'SourceLocationAccessConfiguration',
     'SourceLocationDefaultSegmentDeliveryConfiguration',
     'SourceLocationHttpConfiguration',
     'SourceLocationSecretsManagerAccessTokenConfiguration',
     'SourceLocationSegmentDeliveryConfiguration',
-    'SourceLocationTag',
     'VodSourceHttpPackageConfiguration',
-    'VodSourceTag',
 ]
 
 @pulumi.output_type
@@ -343,25 +338,6 @@ class ChannelSlateSource(dict):
 
 
 @pulumi.output_type
-class ChannelTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ChannelTimeShiftConfiguration(dict):
     """
     <p>The configuration for time-shifted viewing.</p>
@@ -455,25 +431,6 @@ class LiveSourceHttpPackageConfiguration(dict):
     @pulumi.getter
     def type(self) -> 'LiveSourceType':
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class LiveSourceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -841,25 +798,6 @@ class PlaybackConfigurationManifestProcessingRules(dict):
 
 
 @pulumi.output_type
-class PlaybackConfigurationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class SourceLocationAccessConfiguration(dict):
     """
     <p>Access configuration parameters.</p>
@@ -1105,25 +1043,6 @@ class SourceLocationSegmentDeliveryConfiguration(dict):
 
 
 @pulumi.output_type
-class SourceLocationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class VodSourceHttpPackageConfiguration(dict):
     """
     <p>The HTTP package configuration properties for the requested VOD source.</p>
@@ -1178,24 +1097,5 @@ class VodSourceHttpPackageConfiguration(dict):
     @pulumi.getter
     def type(self) -> 'VodSourceType':
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class VodSourceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

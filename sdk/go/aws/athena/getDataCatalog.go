@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupDataCatalogResult struct {
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
 	Parameters map[string]string `pulumi:"parameters"`
 	// A list of comma separated tags to add to the data catalog that is created.
-	Tags []DataCatalogTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
 	Type *DataCatalogType `pulumi:"type"`
 }
@@ -85,8 +86,8 @@ func (o LookupDataCatalogResultOutput) Parameters() pulumi.StringMapOutput {
 }
 
 // A list of comma separated tags to add to the data catalog that is created.
-func (o LookupDataCatalogResultOutput) Tags() DataCatalogTagArrayOutput {
-	return o.ApplyT(func(v LookupDataCatalogResult) []DataCatalogTag { return v.Tags }).(DataCatalogTagArrayOutput)
+func (o LookupDataCatalogResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDataCatalogResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.

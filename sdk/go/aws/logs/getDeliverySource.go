@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupDeliverySourceResult struct {
 	// The AWS service that is sending logs.
 	Service *string `pulumi:"service"`
 	// The tags that have been assigned to this delivery source.
-	Tags []DeliverySourceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDeliverySourceOutput(ctx *pulumi.Context, args LookupDeliverySourceOutputArgs, opts ...pulumi.InvokeOption) LookupDeliverySourceResultOutput {
@@ -99,8 +100,8 @@ func (o LookupDeliverySourceResultOutput) Service() pulumi.StringPtrOutput {
 }
 
 // The tags that have been assigned to this delivery source.
-func (o LookupDeliverySourceResultOutput) Tags() DeliverySourceTagArrayOutput {
-	return o.ApplyT(func(v LookupDeliverySourceResult) []DeliverySourceTag { return v.Tags }).(DeliverySourceTagArrayOutput)
+func (o LookupDeliverySourceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDeliverySourceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

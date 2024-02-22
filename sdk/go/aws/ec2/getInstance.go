@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -50,7 +51,7 @@ type LookupInstanceResult struct {
 	SecurityGroupIds                  []string                       `pulumi:"securityGroupIds"`
 	SourceDestCheck                   *bool                          `pulumi:"sourceDestCheck"`
 	SsmAssociations                   []InstanceSsmAssociation       `pulumi:"ssmAssociations"`
-	Tags                              []InstanceTag                  `pulumi:"tags"`
+	Tags                              []aws.Tag                      `pulumi:"tags"`
 	Tenancy                           *string                        `pulumi:"tenancy"`
 	UserData                          *string                        `pulumi:"userData"`
 	Volumes                           []InstanceVolume               `pulumi:"volumes"`
@@ -183,8 +184,8 @@ func (o LookupInstanceResultOutput) SsmAssociations() InstanceSsmAssociationArra
 	return o.ApplyT(func(v LookupInstanceResult) []InstanceSsmAssociation { return v.SsmAssociations }).(InstanceSsmAssociationArrayOutput)
 }
 
-func (o LookupInstanceResultOutput) Tags() InstanceTagArrayOutput {
-	return o.ApplyT(func(v LookupInstanceResult) []InstanceTag { return v.Tags }).(InstanceTagArrayOutput)
+func (o LookupInstanceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupInstanceResultOutput) Tenancy() pulumi.StringPtrOutput {

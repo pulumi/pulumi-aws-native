@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ProjectArgs', 'Project']
@@ -35,7 +37,7 @@ class ProjectArgs:
                  secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSourceVersionArgs']]]] = None,
                  secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSourceArgs']]]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  triggers: Optional[pulumi.Input['ProjectTriggersArgs']] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
@@ -261,11 +263,11 @@ class ProjectArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -334,7 +336,7 @@ class Project(pulumi.CustomResource):
                  service_role: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  triggers: Optional[pulumi.Input[pulumi.InputType['ProjectTriggersArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
@@ -389,7 +391,7 @@ class Project(pulumi.CustomResource):
                  service_role: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  triggers: Optional[pulumi.Input[pulumi.InputType['ProjectTriggersArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
@@ -590,7 +592,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

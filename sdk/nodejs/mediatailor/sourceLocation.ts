@@ -52,7 +52,7 @@ export class SourceLocation extends pulumi.CustomResource {
     /**
      * The tags to assign to the source location.
      */
-    public readonly tags!: pulumi.Output<outputs.mediatailor.SourceLocationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SourceLocation resource with the given unique name, arguments, and options.
@@ -106,5 +106,5 @@ export interface SourceLocationArgs {
     /**
      * The tags to assign to the source location.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.mediatailor.SourceLocationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

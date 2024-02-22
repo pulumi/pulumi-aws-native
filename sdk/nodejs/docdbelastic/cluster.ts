@@ -48,7 +48,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly shardCapacity!: pulumi.Output<number>;
     public readonly shardCount!: pulumi.Output<number>;
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.docdbelastic.ClusterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -122,6 +122,6 @@ export interface ClusterArgs {
     shardCapacity: pulumi.Input<number>;
     shardCount: pulumi.Input<number>;
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.docdbelastic.ClusterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

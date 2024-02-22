@@ -31,7 +31,7 @@ export interface GetStorageLensGroupResult {
     /**
      * A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
      */
-    readonly tags?: outputs.s3.StorageLensGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.

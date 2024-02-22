@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupTransitGatewayConnectResult struct {
 	// The state of the attachment.
 	State *string `pulumi:"state"`
 	// The tags for the attachment.
-	Tags []TransitGatewayConnectTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the Connect attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the transit gateway.
@@ -87,8 +88,8 @@ func (o LookupTransitGatewayConnectResultOutput) State() pulumi.StringPtrOutput 
 }
 
 // The tags for the attachment.
-func (o LookupTransitGatewayConnectResultOutput) Tags() TransitGatewayConnectTagArrayOutput {
-	return o.ApplyT(func(v LookupTransitGatewayConnectResult) []TransitGatewayConnectTag { return v.Tags }).(TransitGatewayConnectTagArrayOutput)
+func (o LookupTransitGatewayConnectResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayConnectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the Connect attachment.

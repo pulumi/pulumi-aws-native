@@ -93,7 +93,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.lightsail.InstanceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
      */
@@ -204,7 +204,7 @@ export interface InstanceArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.lightsail.InstanceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
      */

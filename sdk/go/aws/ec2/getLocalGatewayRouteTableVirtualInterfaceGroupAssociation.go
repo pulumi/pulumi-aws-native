@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult struct {
 	// The state of the local gateway route table virtual interface group association.
 	State *string `pulumi:"state"`
 	// The tags for the local gateway route table virtual interface group association.
-	Tags []LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput(ctx *pulumi.Context, args LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput {
@@ -110,10 +111,8 @@ func (o LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput
 }
 
 // The tags for the local gateway route table virtual interface group association.
-func (o LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput) Tags() LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput {
-	return o.ApplyT(func(v LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult) []LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag {
-		return v.Tags
-	}).(LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput)
+func (o LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

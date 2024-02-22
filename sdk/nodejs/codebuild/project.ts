@@ -60,7 +60,7 @@ export class Project extends pulumi.CustomResource {
     public readonly serviceRole!: pulumi.Output<string>;
     public readonly source!: pulumi.Output<outputs.codebuild.ProjectSource>;
     public readonly sourceVersion!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.codebuild.ProjectTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly timeoutInMinutes!: pulumi.Output<number | undefined>;
     public readonly triggers!: pulumi.Output<outputs.codebuild.ProjectTriggers | undefined>;
     public readonly visibility!: pulumi.Output<string | undefined>;
@@ -173,7 +173,7 @@ export interface ProjectArgs {
     serviceRole: pulumi.Input<string>;
     source: pulumi.Input<inputs.codebuild.ProjectSourceArgs>;
     sourceVersion?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     timeoutInMinutes?: pulumi.Input<number>;
     triggers?: pulumi.Input<inputs.codebuild.ProjectTriggersArgs>;
     visibility?: pulumi.Input<string>;

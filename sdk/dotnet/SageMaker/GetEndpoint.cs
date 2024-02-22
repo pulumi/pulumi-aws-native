@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly string? Id;
         public readonly bool? RetainAllVariantProperties;
         public readonly bool? RetainDeploymentConfig;
-        public readonly ImmutableArray<Outputs.EndpointTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEndpointResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             bool? retainDeploymentConfig,
 
-            ImmutableArray<Outputs.EndpointTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DeploymentConfig = deploymentConfig;
             EndpointConfigName = endpointConfigName;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupPolicyResult struct {
 	// Name of the Policy
 	Name *string `pulumi:"name"`
 	// A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
-	Tags []PolicyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
 	TargetIds []string `pulumi:"targetIds"`
 }
@@ -117,8 +118,8 @@ func (o LookupPolicyResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
-func (o LookupPolicyResultOutput) Tags() PolicyTagArrayOutput {
-	return o.ApplyT(func(v LookupPolicyResult) []PolicyTag { return v.Tags }).(PolicyTagArrayOutput)
+func (o LookupPolicyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to

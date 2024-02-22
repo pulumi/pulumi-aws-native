@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,7 +20,7 @@ type RouteTable struct {
 	// The route table ID.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
 	// Any tags assigned to the route table.
-	Tags RouteTableTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -72,7 +73,7 @@ func (RouteTableState) ElementType() reflect.Type {
 
 type routeTableArgs struct {
 	// Any tags assigned to the route table.
-	Tags []RouteTableTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -80,7 +81,7 @@ type routeTableArgs struct {
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
 	// Any tags assigned to the route table.
-	Tags RouteTableTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the VPC.
 	VpcId pulumi.StringInput
 }
@@ -128,8 +129,8 @@ func (o RouteTableOutput) RouteTableId() pulumi.StringOutput {
 }
 
 // Any tags assigned to the route table.
-func (o RouteTableOutput) Tags() RouteTableTagArrayOutput {
-	return o.ApplyT(func(v *RouteTable) RouteTableTagArrayOutput { return v.Tags }).(RouteTableTagArrayOutput)
+func (o RouteTableOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RouteTable) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the VPC.

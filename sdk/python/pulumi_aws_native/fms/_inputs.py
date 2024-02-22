@@ -16,9 +16,7 @@ __all__ = [
     'PolicyOptionArgs',
     'PolicyResourceTagArgs',
     'PolicySecurityServicePolicyDataArgs',
-    'PolicyTagArgs',
     'PolicyThirdPartyFirewallPolicyArgs',
-    'ResourceSetTagArgs',
 ]
 
 @pulumi.input_type
@@ -179,36 +177,6 @@ class PolicySecurityServicePolicyDataArgs:
 
 
 @pulumi.input_type
-class PolicyTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A policy tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class PolicyThirdPartyFirewallPolicyArgs:
     def __init__(__self__, *,
                  firewall_deployment_model: pulumi.Input['PolicyFirewallDeploymentModel']):
@@ -225,35 +193,5 @@ class PolicyThirdPartyFirewallPolicyArgs:
     @firewall_deployment_model.setter
     def firewall_deployment_model(self, value: pulumi.Input['PolicyFirewallDeploymentModel']):
         pulumi.set(self, "firewall_deployment_model", value)
-
-
-@pulumi.input_type
-class ResourceSetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

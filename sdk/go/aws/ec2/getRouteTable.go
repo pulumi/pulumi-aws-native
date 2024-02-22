@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupRouteTableResult struct {
 	// The route table ID.
 	RouteTableId *string `pulumi:"routeTableId"`
 	// Any tags assigned to the route table.
-	Tags []RouteTableTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRouteTableOutput(ctx *pulumi.Context, args LookupRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupRouteTableResultOutput {
@@ -76,8 +77,8 @@ func (o LookupRouteTableResultOutput) RouteTableId() pulumi.StringPtrOutput {
 }
 
 // Any tags assigned to the route table.
-func (o LookupRouteTableResultOutput) Tags() RouteTableTagArrayOutput {
-	return o.ApplyT(func(v LookupRouteTableResult) []RouteTableTag { return v.Tags }).(RouteTableTagArrayOutput)
+func (o LookupRouteTableResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

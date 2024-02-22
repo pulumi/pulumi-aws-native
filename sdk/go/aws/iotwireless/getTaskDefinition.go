@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupTaskDefinitionResult struct {
 	// The name of the new resource.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags []TaskDefinitionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A filter to list only the wireless gateway task definitions that use this task definition type
 	TaskDefinitionType *TaskDefinitionType `pulumi:"taskDefinitionType"`
 	// Information about the gateways to update.
@@ -110,8 +111,8 @@ func (o LookupTaskDefinitionResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the destination.
-func (o LookupTaskDefinitionResultOutput) Tags() TaskDefinitionTagArrayOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) []TaskDefinitionTag { return v.Tags }).(TaskDefinitionTagArrayOutput)
+func (o LookupTaskDefinitionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A filter to list only the wireless gateway task definitions that use this task definition type

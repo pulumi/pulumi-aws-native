@@ -16,7 +16,12 @@ namespace Pulumi.AwsNative.Emr.Inputs
         public Input<string>? Classification { get; set; }
 
         [Input("configurationProperties")]
-        public Input<object>? ConfigurationProperties { get; set; }
+        private InputMap<string>? _configurationProperties;
+        public InputMap<string> ConfigurationProperties
+        {
+            get => _configurationProperties ?? (_configurationProperties = new InputMap<string>());
+            set => _configurationProperties = value;
+        }
 
         [Input("configurations")]
         private InputList<Inputs.InstanceGroupConfigConfigurationArgs>? _configurations;

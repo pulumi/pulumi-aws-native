@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,8 +28,8 @@ type LookupVpcPeeringConnectionArgs struct {
 }
 
 type LookupVpcPeeringConnectionResult struct {
-	Id   *string                   `pulumi:"id"`
-	Tags []VpcPeeringConnectionTag `pulumi:"tags"`
+	Id   *string   `pulumi:"id"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupVpcPeeringConnectionOutput(ctx *pulumi.Context, args LookupVpcPeeringConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcPeeringConnectionResultOutput {
@@ -70,8 +71,8 @@ func (o LookupVpcPeeringConnectionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpcPeeringConnectionResultOutput) Tags() VpcPeeringConnectionTagArrayOutput {
-	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []VpcPeeringConnectionTag { return v.Tags }).(VpcPeeringConnectionTagArrayOutput)
+func (o LookupVpcPeeringConnectionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

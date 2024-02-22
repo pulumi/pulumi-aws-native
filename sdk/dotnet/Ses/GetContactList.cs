@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Ses
         /// <summary>
         /// The tags (keys and values) associated with the contact list.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContactListTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The topics associated with the contact list.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Ses
         private GetContactListResult(
             string? description,
 
-            ImmutableArray<Outputs.ContactListTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.ContactListTopic> topics)
         {

@@ -13,12 +13,10 @@ from ._enums import *
 __all__ = [
     'AnalysisTemplateAnalysisParameterArgs',
     'AnalysisTemplateAnalysisSourceArgs',
-    'AnalysisTemplateTagArgs',
     'CollaborationDataEncryptionMetadataArgs',
     'CollaborationMemberSpecificationArgs',
     'CollaborationPaymentConfigurationArgs',
     'CollaborationQueryComputePaymentConfigArgs',
-    'CollaborationTagArgs',
     'ConfiguredTableAggregateColumnArgs',
     'ConfiguredTableAggregationConstraintArgs',
     'ConfiguredTableAnalysisRuleAggregationArgs',
@@ -29,16 +27,13 @@ __all__ = [
     'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs',
     'ConfiguredTableAnalysisRulePolicyArgs',
     'ConfiguredTableAnalysisRuleArgs',
-    'ConfiguredTableAssociationTagArgs',
     'ConfiguredTableGlueTableReferenceArgs',
     'ConfiguredTableTableReferenceArgs',
-    'ConfiguredTableTagArgs',
     'MembershipPaymentConfigurationArgs',
     'MembershipProtectedQueryOutputConfigurationArgs',
     'MembershipProtectedQueryResultConfigurationArgs',
     'MembershipProtectedQueryS3OutputConfigurationArgs',
     'MembershipQueryComputePaymentConfigArgs',
-    'MembershipTagArgs',
 ]
 
 @pulumi.input_type
@@ -94,33 +89,6 @@ class AnalysisTemplateAnalysisSourceArgs:
     @text.setter
     def text(self, value: pulumi.Input[str]):
         pulumi.set(self, "text", value)
-
-
-@pulumi.input_type
-class AnalysisTemplateTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -252,33 +220,6 @@ class CollaborationQueryComputePaymentConfigArgs:
     @is_responsible.setter
     def is_responsible(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_responsible", value)
-
-
-@pulumi.input_type
-class CollaborationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -589,33 +530,6 @@ class ConfiguredTableAnalysisRuleArgs:
 
 
 @pulumi.input_type
-class ConfiguredTableAssociationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ConfiguredTableGlueTableReferenceArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
@@ -656,33 +570,6 @@ class ConfiguredTableTableReferenceArgs:
     @glue.setter
     def glue(self, value: pulumi.Input['ConfiguredTableGlueTableReferenceArgs']):
         pulumi.set(self, "glue", value)
-
-
-@pulumi.input_type
-class ConfiguredTableTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -798,32 +685,5 @@ class MembershipQueryComputePaymentConfigArgs:
     @is_responsible.setter
     def is_responsible(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_responsible", value)
-
-
-@pulumi.input_type
-class MembershipTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type RuleGroup struct {
 	RuleGroupArn  pulumi.StringOutput     `pulumi:"ruleGroupArn"`
 	RuleGroupId   pulumi.StringOutput     `pulumi:"ruleGroupId"`
 	RuleGroupName pulumi.StringOutput     `pulumi:"ruleGroupName"`
-	Tags          RuleGroupTagArrayOutput `pulumi:"tags"`
+	Tags          aws.TagArrayOutput      `pulumi:"tags"`
 	Type          RuleGroupTypeEnumOutput `pulumi:"type"`
 }
 
@@ -82,7 +83,7 @@ type ruleGroupArgs struct {
 	Description   *string           `pulumi:"description"`
 	RuleGroup     *RuleGroupType    `pulumi:"ruleGroup"`
 	RuleGroupName *string           `pulumi:"ruleGroupName"`
-	Tags          []RuleGroupTag    `pulumi:"tags"`
+	Tags          []aws.Tag         `pulumi:"tags"`
 	Type          RuleGroupTypeEnum `pulumi:"type"`
 }
 
@@ -92,7 +93,7 @@ type RuleGroupArgs struct {
 	Description   pulumi.StringPtrInput
 	RuleGroup     RuleGroupTypePtrInput
 	RuleGroupName pulumi.StringPtrInput
-	Tags          RuleGroupTagArrayInput
+	Tags          aws.TagArrayInput
 	Type          RuleGroupTypeEnumInput
 }
 
@@ -157,8 +158,8 @@ func (o RuleGroupOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.RuleGroupName }).(pulumi.StringOutput)
 }
 
-func (o RuleGroupOutput) Tags() RuleGroupTagArrayOutput {
-	return o.ApplyT(func(v *RuleGroup) RuleGroupTagArrayOutput { return v.Tags }).(RuleGroupTagArrayOutput)
+func (o RuleGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RuleGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o RuleGroupOutput) Type() RuleGroupTypeEnumOutput {

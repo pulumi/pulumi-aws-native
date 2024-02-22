@@ -41,7 +41,7 @@ export interface GetSubnetGroupResult {
     /**
      * An array of key-value pairs to apply to this subnet group.
      */
-    readonly tags?: outputs.memorydb.SubnetGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.

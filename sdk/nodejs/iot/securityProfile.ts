@@ -68,7 +68,7 @@ export class SecurityProfile extends pulumi.CustomResource {
     /**
      * Metadata that can be used to manage the security profile.
      */
-    public readonly tags!: pulumi.Output<outputs.iot.SecurityProfileTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A set of target ARNs that the security profile is attached to.
      */
@@ -143,7 +143,7 @@ export interface SecurityProfileArgs {
     /**
      * Metadata that can be used to manage the security profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A set of target ARNs that the security profile is attached to.
      */

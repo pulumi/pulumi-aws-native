@@ -29,7 +29,7 @@ export interface GetDomainConfigurationResult {
     readonly domainType?: enums.iot.DomainConfigurationDomainType;
     readonly serverCertificateConfig?: outputs.iot.DomainConfigurationServerCertificateConfig;
     readonly serverCertificates?: outputs.iot.DomainConfigurationServerCertificateSummary[];
-    readonly tags?: outputs.iot.DomainConfigurationTag[];
+    readonly tags?: outputs.Tag[];
     readonly tlsConfig?: outputs.iot.DomainConfigurationTlsConfig;
 }
 /**

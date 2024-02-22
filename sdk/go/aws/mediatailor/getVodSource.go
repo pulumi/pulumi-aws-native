@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupVodSourceResult struct {
 	// <p>A list of HTTP package configuration parameters for this VOD source.</p>
 	HttpPackageConfigurations []VodSourceHttpPackageConfiguration `pulumi:"httpPackageConfigurations"`
 	// The tags to assign to the VOD source.
-	Tags []VodSourceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupVodSourceOutput(ctx *pulumi.Context, args LookupVodSourceOutputArgs, opts ...pulumi.InvokeOption) LookupVodSourceResultOutput {
@@ -83,8 +84,8 @@ func (o LookupVodSourceResultOutput) HttpPackageConfigurations() VodSourceHttpPa
 }
 
 // The tags to assign to the VOD source.
-func (o LookupVodSourceResultOutput) Tags() VodSourceTagArrayOutput {
-	return o.ApplyT(func(v LookupVodSourceResult) []VodSourceTag { return v.Tags }).(VodSourceTagArrayOutput)
+func (o LookupVodSourceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVodSourceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

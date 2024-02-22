@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type EntityType struct {
 	// The name of the entity type.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags associated with this entity type.
-	Tags EntityTypeTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewEntityType registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type entityTypeArgs struct {
 	// The name of the entity type.
 	Name *string `pulumi:"name"`
 	// Tags associated with this entity type.
-	Tags []EntityTypeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EntityType resource.
@@ -88,7 +89,7 @@ type EntityTypeArgs struct {
 	// The name of the entity type.
 	Name pulumi.StringPtrInput
 	// Tags associated with this entity type.
-	Tags EntityTypeTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (EntityTypeArgs) ElementType() reflect.Type {
@@ -154,8 +155,8 @@ func (o EntityTypeOutput) Name() pulumi.StringOutput {
 }
 
 // Tags associated with this entity type.
-func (o EntityTypeOutput) Tags() EntityTypeTagArrayOutput {
-	return o.ApplyT(func(v *EntityType) EntityTypeTagArrayOutput { return v.Tags }).(EntityTypeTagArrayOutput)
+func (o EntityTypeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EntityType) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

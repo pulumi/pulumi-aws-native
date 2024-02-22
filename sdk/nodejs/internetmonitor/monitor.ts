@@ -50,7 +50,7 @@ export class Monitor extends pulumi.CustomResource {
     public readonly resourcesToAdd!: pulumi.Output<string[] | undefined>;
     public readonly resourcesToRemove!: pulumi.Output<string[] | undefined>;
     public readonly status!: pulumi.Output<enums.internetmonitor.MonitorConfigState | undefined>;
-    public readonly tags!: pulumi.Output<outputs.internetmonitor.MonitorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly trafficPercentageToMonitor!: pulumi.Output<number | undefined>;
 
     /**
@@ -115,6 +115,6 @@ export interface MonitorArgs {
     resourcesToAdd?: pulumi.Input<pulumi.Input<string>[]>;
     resourcesToRemove?: pulumi.Input<pulumi.Input<string>[]>;
     status?: pulumi.Input<enums.internetmonitor.MonitorConfigState>;
-    tags?: pulumi.Input<pulumi.Input<inputs.internetmonitor.MonitorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     trafficPercentageToMonitor?: pulumi.Input<number>;
 }

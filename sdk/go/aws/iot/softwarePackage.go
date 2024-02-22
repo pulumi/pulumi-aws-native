@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,7 +20,7 @@ type SoftwarePackage struct {
 	PackageArn  pulumi.StringOutput    `pulumi:"packageArn"`
 	PackageName pulumi.StringPtrOutput `pulumi:"packageName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags SoftwarePackageTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSoftwarePackage registers a new resource with the given unique name, arguments, and options.
@@ -69,7 +70,7 @@ type softwarePackageArgs struct {
 	Description *string `pulumi:"description"`
 	PackageName *string `pulumi:"packageName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []SoftwarePackageTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SoftwarePackage resource.
@@ -77,7 +78,7 @@ type SoftwarePackageArgs struct {
 	Description pulumi.StringPtrInput
 	PackageName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags SoftwarePackageTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (SoftwarePackageArgs) ElementType() reflect.Type {
@@ -130,8 +131,8 @@ func (o SoftwarePackageOutput) PackageName() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o SoftwarePackageOutput) Tags() SoftwarePackageTagArrayOutput {
-	return o.ApplyT(func(v *SoftwarePackage) SoftwarePackageTagArrayOutput { return v.Tags }).(SoftwarePackageTagArrayOutput)
+func (o SoftwarePackageOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SoftwarePackage) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

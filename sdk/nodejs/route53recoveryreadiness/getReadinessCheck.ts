@@ -37,7 +37,7 @@ export interface GetReadinessCheckResult {
     /**
      * A collection of tags associated with a resource.
      */
-    readonly tags?: outputs.route53recoveryreadiness.ReadinessCheckTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Aws Route53 Recovery Readiness Check Schema and API specification.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LookupSuiteDefinitionResult struct {
 	// The suite definition version of a test suite.
 	SuiteDefinitionVersion *string `pulumi:"suiteDefinitionVersion"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []SuiteDefinitionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSuiteDefinitionOutput(ctx *pulumi.Context, args LookupSuiteDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupSuiteDefinitionResultOutput {
@@ -97,8 +98,8 @@ func (o LookupSuiteDefinitionResultOutput) SuiteDefinitionVersion() pulumi.Strin
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupSuiteDefinitionResultOutput) Tags() SuiteDefinitionTagArrayOutput {
-	return o.ApplyT(func(v LookupSuiteDefinitionResult) []SuiteDefinitionTag { return v.Tags }).(SuiteDefinitionTagArrayOutput)
+func (o LookupSuiteDefinitionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSuiteDefinitionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

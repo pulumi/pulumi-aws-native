@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupServiceNetworkServiceAssociationResult struct {
 	ServiceNetworkId   *string                                   `pulumi:"serviceNetworkId"`
 	ServiceNetworkName *string                                   `pulumi:"serviceNetworkName"`
 	Status             *ServiceNetworkServiceAssociationStatus   `pulumi:"status"`
-	Tags               []ServiceNetworkServiceAssociationTag     `pulumi:"tags"`
+	Tags               []aws.Tag                                 `pulumi:"tags"`
 }
 
 func LookupServiceNetworkServiceAssociationOutput(ctx *pulumi.Context, args LookupServiceNetworkServiceAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupServiceNetworkServiceAssociationResultOutput {
@@ -124,10 +125,8 @@ func (o LookupServiceNetworkServiceAssociationResultOutput) Status() ServiceNetw
 	}).(ServiceNetworkServiceAssociationStatusPtrOutput)
 }
 
-func (o LookupServiceNetworkServiceAssociationResultOutput) Tags() ServiceNetworkServiceAssociationTagArrayOutput {
-	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) []ServiceNetworkServiceAssociationTag {
-		return v.Tags
-	}).(ServiceNetworkServiceAssociationTagArrayOutput)
+func (o LookupServiceNetworkServiceAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

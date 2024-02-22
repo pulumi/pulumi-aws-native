@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.FSx
         public Output<string?> SvmAdminPassword { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.StorageVirtualMachineTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("uuid")]
         public Output<string> Uuid { get; private set; } = null!;
@@ -110,10 +110,10 @@ namespace Pulumi.AwsNative.FSx
         public Input<string>? SvmAdminPassword { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.StorageVirtualMachineTagArgs>? _tags;
-        public InputList<Inputs.StorageVirtualMachineTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.StorageVirtualMachineTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -50,7 +50,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     public readonly scheduleOffset!: pulumi.Output<number | undefined>;
     public readonly scheduleTimezone!: pulumi.Output<string | undefined>;
     public readonly startDate!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ssm.MaintenanceWindowTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MaintenanceWindow resource with the given unique name, arguments, and options.
@@ -120,5 +120,5 @@ export interface MaintenanceWindowArgs {
     scheduleOffset?: pulumi.Input<number>;
     scheduleTimezone?: pulumi.Input<string>;
     startDate?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

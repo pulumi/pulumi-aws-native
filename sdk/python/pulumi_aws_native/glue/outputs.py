@@ -56,9 +56,7 @@ __all__ = [
     'PartitionSerdeInfo',
     'PartitionSkewedInfo',
     'PartitionStorageDescriptor',
-    'RegistryTag',
     'SchemaRegistry',
-    'SchemaTag',
     'SchemaVersion',
     'SchemaVersionSchema',
     'SecurityConfigurationCloudWatchEncryption',
@@ -2230,35 +2228,6 @@ class PartitionStorageDescriptor(dict):
 
 
 @pulumi.output_type
-class RegistryTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: A key to identify the tag.
-        :param str value: Corresponding tag value for the key.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A key to identify the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Corresponding tag value for the key.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class SchemaRegistry(dict):
     """
     Identifier for the registry which the schema is part of.
@@ -2291,35 +2260,6 @@ class SchemaRegistry(dict):
         Name of the registry in which the schema will be created.
         """
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class SchemaTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: A key to identify the tag.
-        :param str value: Corresponding tag value for the key.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A key to identify the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Corresponding tag value for the key.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetProfilingGroupResult',
@@ -59,7 +60,7 @@ class GetProfilingGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ProfilingGroupTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The tags associated with a profiling group.
         """

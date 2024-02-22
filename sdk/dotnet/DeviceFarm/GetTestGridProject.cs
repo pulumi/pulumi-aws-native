@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public readonly string? Arn;
         public readonly string? Description;
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.TestGridProjectTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetTestGridProjectResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.DeviceFarm
 
             string? name,
 
-            ImmutableArray<Outputs.TestGridProjectTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

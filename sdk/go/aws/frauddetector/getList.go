@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupListResult struct {
 	// The time when the list was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Tags associated with this list.
-	Tags []ListTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The variable type of the list.
 	VariableType *string `pulumi:"variableType"`
 }
@@ -106,8 +107,8 @@ func (o LookupListResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 }
 
 // Tags associated with this list.
-func (o LookupListResultOutput) Tags() ListTagArrayOutput {
-	return o.ApplyT(func(v LookupListResult) []ListTag { return v.Tags }).(ListTagArrayOutput)
+func (o LookupListResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupListResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The variable type of the list.

@@ -54,7 +54,7 @@ export interface GetPricingRuleResult {
      * Pricing rule name
      */
     readonly name?: string;
-    readonly tags?: outputs.billingconductor.PricingRuleTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The set of tiering configurations for the pricing rule.
      */

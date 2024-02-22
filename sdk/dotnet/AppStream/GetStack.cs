@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.AppStream
         public readonly string? RedirectUrl;
         public readonly ImmutableArray<Outputs.StackStorageConnector> StorageConnectors;
         public readonly Outputs.StackStreamingExperienceSettings? StreamingExperienceSettings;
-        public readonly ImmutableArray<Outputs.StackTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<Outputs.StackUserSetting> UserSettings;
 
         [OutputConstructor]
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.AppStream
 
             Outputs.StackStreamingExperienceSettings? streamingExperienceSettings,
 
-            ImmutableArray<Outputs.StackTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.StackUserSetting> userSettings)
         {

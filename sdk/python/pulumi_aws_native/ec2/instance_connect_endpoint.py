@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['InstanceConnectEndpointArgs', 'InstanceConnectEndpoint']
 
@@ -20,14 +20,14 @@ class InstanceConnectEndpointArgs:
                  client_token: Optional[pulumi.Input[str]] = None,
                  preserve_client_ip: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceConnectEndpointTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InstanceConnectEndpoint resource.
         :param pulumi.Input[str] subnet_id: The subnet id of the instance connect endpoint
         :param pulumi.Input[str] client_token: The client token of the instance connect endpoint.
         :param pulumi.Input[bool] preserve_client_ip: If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the instance connect endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceConnectEndpointTagArgs']]] tags: The tags of the instance connect endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags of the instance connect endpoint.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if client_token is not None:
@@ -89,14 +89,14 @@ class InstanceConnectEndpointArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceConnectEndpointTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags of the instance connect endpoint.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceConnectEndpointTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -109,7 +109,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  preserve_client_ip: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::InstanceConnectEndpoint
@@ -120,7 +120,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] preserve_client_ip: If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the instance connect endpoint.
         :param pulumi.Input[str] subnet_id: The subnet id of the instance connect endpoint
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTagArgs']]]] tags: The tags of the instance connect endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags of the instance connect endpoint.
         """
         ...
     @overload
@@ -150,7 +150,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  preserve_client_ip: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,7 +232,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceConnectEndpointTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags of the instance connect endpoint.
         """

@@ -29,7 +29,7 @@ export interface GetApplicationResult {
     /**
      * The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
      */
-    readonly tags?: outputs.codedeploy.ApplicationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application

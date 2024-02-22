@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ConnectAttachmentArgs', 'ConnectAttachment']
@@ -21,7 +23,7 @@ class ConnectAttachmentArgs:
                  options: pulumi.Input['ConnectAttachmentOptionsArgs'],
                  transport_attachment_id: pulumi.Input[str],
                  proposed_segment_change: Optional[pulumi.Input['ConnectAttachmentProposedSegmentChangeArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectAttachment resource.
         :param pulumi.Input[str] core_network_id: ID of the CoreNetwork that the attachment will be attached to.
@@ -29,7 +31,7 @@ class ConnectAttachmentArgs:
         :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Protocol options for connect attachment
         :param pulumi.Input[str] transport_attachment_id: Id of transport attachment
         :param pulumi.Input['ConnectAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
-        :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]] tags: Tags for the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the attachment.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "edge_location", edge_location)
@@ -102,14 +104,14 @@ class ConnectAttachmentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags for the attachment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -122,7 +124,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  edge_location: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']]] = None,
                  proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentProposedSegmentChangeArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectAttachmentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -134,7 +136,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] edge_location: Edge location of the attachment.
         :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Protocol options for connect attachment
         :param pulumi.Input[pulumi.InputType['ConnectAttachmentProposedSegmentChangeArgs']] proposed_segment_change: The attachment to move from one segment to another.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectAttachmentTagArgs']]]] tags: Tags for the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for the attachment.
         :param pulumi.Input[str] transport_attachment_id: Id of transport attachment
         """
         ...
@@ -165,7 +167,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  edge_location: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']]] = None,
                  proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentProposedSegmentChangeArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectAttachmentTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -348,7 +350,7 @@ class ConnectAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ConnectAttachmentTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Tags for the attachment.
         """

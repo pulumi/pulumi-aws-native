@@ -64,7 +64,7 @@ export class Stream extends pulumi.CustomResource {
     /**
      * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
      */
-    public readonly tags!: pulumi.Output<outputs.kinesis.StreamTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -127,5 +127,5 @@ export interface StreamArgs {
     /**
      * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.kinesis.StreamTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

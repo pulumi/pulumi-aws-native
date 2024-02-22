@@ -77,7 +77,7 @@ export class Vpc extends pulumi.CustomResource {
     /**
      * The tags for the VPC.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.VpcTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -162,5 +162,5 @@ export interface VpcArgs {
     /**
      * The tags for the VPC.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.VpcTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

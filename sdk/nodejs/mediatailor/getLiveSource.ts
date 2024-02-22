@@ -36,7 +36,7 @@ export interface GetLiveSourceResult {
     /**
      * The tags to assign to the live source.
      */
-    readonly tags?: outputs.mediatailor.LiveSourceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::MediaTailor::LiveSource Resource Type

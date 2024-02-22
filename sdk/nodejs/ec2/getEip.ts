@@ -50,7 +50,7 @@ export interface GetEipResult {
     /**
      * Any tags assigned to the EIP.
      */
-    readonly tags?: outputs.ec2.EipTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::EIP

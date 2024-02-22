@@ -64,13 +64,13 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// Any tags assigned to the route table.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RouteTableTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRouteTableResult(
             string? routeTableId,
 
-            ImmutableArray<Outputs.RouteTableTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             RouteTableId = routeTableId;
             Tags = tags;

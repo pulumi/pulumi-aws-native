@@ -21,107 +21,6 @@ type AggregationAuthorizationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AggregationAuthorizationTagInput is an input type that accepts AggregationAuthorizationTagArgs and AggregationAuthorizationTagOutput values.
-// You can construct a concrete instance of `AggregationAuthorizationTagInput` via:
-//
-//	AggregationAuthorizationTagArgs{...}
-type AggregationAuthorizationTagInput interface {
-	pulumi.Input
-
-	ToAggregationAuthorizationTagOutput() AggregationAuthorizationTagOutput
-	ToAggregationAuthorizationTagOutputWithContext(context.Context) AggregationAuthorizationTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type AggregationAuthorizationTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AggregationAuthorizationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AggregationAuthorizationTag)(nil)).Elem()
-}
-
-func (i AggregationAuthorizationTagArgs) ToAggregationAuthorizationTagOutput() AggregationAuthorizationTagOutput {
-	return i.ToAggregationAuthorizationTagOutputWithContext(context.Background())
-}
-
-func (i AggregationAuthorizationTagArgs) ToAggregationAuthorizationTagOutputWithContext(ctx context.Context) AggregationAuthorizationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AggregationAuthorizationTagOutput)
-}
-
-// AggregationAuthorizationTagArrayInput is an input type that accepts AggregationAuthorizationTagArray and AggregationAuthorizationTagArrayOutput values.
-// You can construct a concrete instance of `AggregationAuthorizationTagArrayInput` via:
-//
-//	AggregationAuthorizationTagArray{ AggregationAuthorizationTagArgs{...} }
-type AggregationAuthorizationTagArrayInput interface {
-	pulumi.Input
-
-	ToAggregationAuthorizationTagArrayOutput() AggregationAuthorizationTagArrayOutput
-	ToAggregationAuthorizationTagArrayOutputWithContext(context.Context) AggregationAuthorizationTagArrayOutput
-}
-
-type AggregationAuthorizationTagArray []AggregationAuthorizationTagInput
-
-func (AggregationAuthorizationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AggregationAuthorizationTag)(nil)).Elem()
-}
-
-func (i AggregationAuthorizationTagArray) ToAggregationAuthorizationTagArrayOutput() AggregationAuthorizationTagArrayOutput {
-	return i.ToAggregationAuthorizationTagArrayOutputWithContext(context.Background())
-}
-
-func (i AggregationAuthorizationTagArray) ToAggregationAuthorizationTagArrayOutputWithContext(ctx context.Context) AggregationAuthorizationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AggregationAuthorizationTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type AggregationAuthorizationTagOutput struct{ *pulumi.OutputState }
-
-func (AggregationAuthorizationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AggregationAuthorizationTag)(nil)).Elem()
-}
-
-func (o AggregationAuthorizationTagOutput) ToAggregationAuthorizationTagOutput() AggregationAuthorizationTagOutput {
-	return o
-}
-
-func (o AggregationAuthorizationTagOutput) ToAggregationAuthorizationTagOutputWithContext(ctx context.Context) AggregationAuthorizationTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o AggregationAuthorizationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AggregationAuthorizationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o AggregationAuthorizationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AggregationAuthorizationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AggregationAuthorizationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AggregationAuthorizationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AggregationAuthorizationTag)(nil)).Elem()
-}
-
-func (o AggregationAuthorizationTagArrayOutput) ToAggregationAuthorizationTagArrayOutput() AggregationAuthorizationTagArrayOutput {
-	return o
-}
-
-func (o AggregationAuthorizationTagArrayOutput) ToAggregationAuthorizationTagArrayOutputWithContext(ctx context.Context) AggregationAuthorizationTagArrayOutput {
-	return o
-}
-
-func (o AggregationAuthorizationTagArrayOutput) Index(i pulumi.IntInput) AggregationAuthorizationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AggregationAuthorizationTag {
-		return vs[0].([]AggregationAuthorizationTag)[vs[1].(int)]
-	}).(AggregationAuthorizationTagOutput)
-}
-
 // Compliance details of the Config rule
 type ComplianceProperties struct {
 	// Compliance type determined by the Config rule
@@ -1276,107 +1175,6 @@ type ConfigurationAggregatorTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// ConfigurationAggregatorTagInput is an input type that accepts ConfigurationAggregatorTagArgs and ConfigurationAggregatorTagOutput values.
-// You can construct a concrete instance of `ConfigurationAggregatorTagInput` via:
-//
-//	ConfigurationAggregatorTagArgs{...}
-type ConfigurationAggregatorTagInput interface {
-	pulumi.Input
-
-	ToConfigurationAggregatorTagOutput() ConfigurationAggregatorTagOutput
-	ToConfigurationAggregatorTagOutputWithContext(context.Context) ConfigurationAggregatorTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ConfigurationAggregatorTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ConfigurationAggregatorTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAggregatorTag)(nil)).Elem()
-}
-
-func (i ConfigurationAggregatorTagArgs) ToConfigurationAggregatorTagOutput() ConfigurationAggregatorTagOutput {
-	return i.ToConfigurationAggregatorTagOutputWithContext(context.Background())
-}
-
-func (i ConfigurationAggregatorTagArgs) ToConfigurationAggregatorTagOutputWithContext(ctx context.Context) ConfigurationAggregatorTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorTagOutput)
-}
-
-// ConfigurationAggregatorTagArrayInput is an input type that accepts ConfigurationAggregatorTagArray and ConfigurationAggregatorTagArrayOutput values.
-// You can construct a concrete instance of `ConfigurationAggregatorTagArrayInput` via:
-//
-//	ConfigurationAggregatorTagArray{ ConfigurationAggregatorTagArgs{...} }
-type ConfigurationAggregatorTagArrayInput interface {
-	pulumi.Input
-
-	ToConfigurationAggregatorTagArrayOutput() ConfigurationAggregatorTagArrayOutput
-	ToConfigurationAggregatorTagArrayOutputWithContext(context.Context) ConfigurationAggregatorTagArrayOutput
-}
-
-type ConfigurationAggregatorTagArray []ConfigurationAggregatorTagInput
-
-func (ConfigurationAggregatorTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationAggregatorTag)(nil)).Elem()
-}
-
-func (i ConfigurationAggregatorTagArray) ToConfigurationAggregatorTagArrayOutput() ConfigurationAggregatorTagArrayOutput {
-	return i.ToConfigurationAggregatorTagArrayOutputWithContext(context.Background())
-}
-
-func (i ConfigurationAggregatorTagArray) ToConfigurationAggregatorTagArrayOutputWithContext(ctx context.Context) ConfigurationAggregatorTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ConfigurationAggregatorTagOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationAggregatorTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAggregatorTag)(nil)).Elem()
-}
-
-func (o ConfigurationAggregatorTagOutput) ToConfigurationAggregatorTagOutput() ConfigurationAggregatorTagOutput {
-	return o
-}
-
-func (o ConfigurationAggregatorTagOutput) ToConfigurationAggregatorTagOutputWithContext(ctx context.Context) ConfigurationAggregatorTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ConfigurationAggregatorTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ConfigurationAggregatorTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ConfigurationAggregatorTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationAggregatorTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationAggregatorTag)(nil)).Elem()
-}
-
-func (o ConfigurationAggregatorTagArrayOutput) ToConfigurationAggregatorTagArrayOutput() ConfigurationAggregatorTagArrayOutput {
-	return o
-}
-
-func (o ConfigurationAggregatorTagArrayOutput) ToConfigurationAggregatorTagArrayOutputWithContext(ctx context.Context) ConfigurationAggregatorTagArrayOutput {
-	return o
-}
-
-func (o ConfigurationAggregatorTagArrayOutput) Index(i pulumi.IntInput) ConfigurationAggregatorTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationAggregatorTag {
-		return vs[0].([]ConfigurationAggregatorTag)[vs[1].(int)]
-	}).(ConfigurationAggregatorTagOutput)
 }
 
 type ConfigurationRecorderExclusionByResourceTypes struct {
@@ -3516,107 +3314,6 @@ type StoredQueryTag struct {
 	Value string `pulumi:"value"`
 }
 
-// StoredQueryTagInput is an input type that accepts StoredQueryTagArgs and StoredQueryTagOutput values.
-// You can construct a concrete instance of `StoredQueryTagInput` via:
-//
-//	StoredQueryTagArgs{...}
-type StoredQueryTagInput interface {
-	pulumi.Input
-
-	ToStoredQueryTagOutput() StoredQueryTagOutput
-	ToStoredQueryTagOutputWithContext(context.Context) StoredQueryTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type StoredQueryTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StoredQueryTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoredQueryTag)(nil)).Elem()
-}
-
-func (i StoredQueryTagArgs) ToStoredQueryTagOutput() StoredQueryTagOutput {
-	return i.ToStoredQueryTagOutputWithContext(context.Background())
-}
-
-func (i StoredQueryTagArgs) ToStoredQueryTagOutputWithContext(ctx context.Context) StoredQueryTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StoredQueryTagOutput)
-}
-
-// StoredQueryTagArrayInput is an input type that accepts StoredQueryTagArray and StoredQueryTagArrayOutput values.
-// You can construct a concrete instance of `StoredQueryTagArrayInput` via:
-//
-//	StoredQueryTagArray{ StoredQueryTagArgs{...} }
-type StoredQueryTagArrayInput interface {
-	pulumi.Input
-
-	ToStoredQueryTagArrayOutput() StoredQueryTagArrayOutput
-	ToStoredQueryTagArrayOutputWithContext(context.Context) StoredQueryTagArrayOutput
-}
-
-type StoredQueryTagArray []StoredQueryTagInput
-
-func (StoredQueryTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StoredQueryTag)(nil)).Elem()
-}
-
-func (i StoredQueryTagArray) ToStoredQueryTagArrayOutput() StoredQueryTagArrayOutput {
-	return i.ToStoredQueryTagArrayOutputWithContext(context.Background())
-}
-
-func (i StoredQueryTagArray) ToStoredQueryTagArrayOutputWithContext(ctx context.Context) StoredQueryTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StoredQueryTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type StoredQueryTagOutput struct{ *pulumi.OutputState }
-
-func (StoredQueryTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoredQueryTag)(nil)).Elem()
-}
-
-func (o StoredQueryTagOutput) ToStoredQueryTagOutput() StoredQueryTagOutput {
-	return o
-}
-
-func (o StoredQueryTagOutput) ToStoredQueryTagOutputWithContext(ctx context.Context) StoredQueryTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o StoredQueryTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StoredQueryTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o StoredQueryTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StoredQueryTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StoredQueryTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StoredQueryTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StoredQueryTag)(nil)).Elem()
-}
-
-func (o StoredQueryTagArrayOutput) ToStoredQueryTagArrayOutput() StoredQueryTagArrayOutput {
-	return o
-}
-
-func (o StoredQueryTagArrayOutput) ToStoredQueryTagArrayOutputWithContext(ctx context.Context) StoredQueryTagArrayOutput {
-	return o
-}
-
-func (o StoredQueryTagArrayOutput) Index(i pulumi.IntInput) StoredQueryTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StoredQueryTag {
-		return vs[0].([]StoredQueryTag)[vs[1].(int)]
-	}).(StoredQueryTagOutput)
-}
-
 // The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
 type TemplateSsmDocumentDetailsProperties struct {
 	DocumentName    *string `pulumi:"documentName"`
@@ -3769,8 +3466,6 @@ func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) DocumentVersion() pulumi.
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AggregationAuthorizationTagInput)(nil)).Elem(), AggregationAuthorizationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AggregationAuthorizationTagArrayInput)(nil)).Elem(), AggregationAuthorizationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompliancePropertiesInput)(nil)).Elem(), CompliancePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompliancePropertiesPtrInput)(nil)).Elem(), CompliancePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleCustomPolicyDetailsInput)(nil)).Elem(), ConfigRuleCustomPolicyDetailsArgs{})
@@ -3786,8 +3481,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorAccountAggregationSourceArrayInput)(nil)).Elem(), ConfigurationAggregatorAccountAggregationSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorOrganizationAggregationSourceInput)(nil)).Elem(), ConfigurationAggregatorOrganizationAggregationSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorOrganizationAggregationSourcePtrInput)(nil)).Elem(), ConfigurationAggregatorOrganizationAggregationSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorTagInput)(nil)).Elem(), ConfigurationAggregatorTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorTagArrayInput)(nil)).Elem(), ConfigurationAggregatorTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypesInput)(nil)).Elem(), ConfigurationRecorderExclusionByResourceTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypesPtrInput)(nil)).Elem(), ConfigurationRecorderExclusionByResourceTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingGroupInput)(nil)).Elem(), ConfigurationRecorderRecordingGroupArgs{})
@@ -3814,12 +3507,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsPtrInput)(nil)).Elem(), RemediationConfigurationExecutionControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationSsmControlsInput)(nil)).Elem(), RemediationConfigurationSsmControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationSsmControlsPtrInput)(nil)).Elem(), RemediationConfigurationSsmControlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StoredQueryTagInput)(nil)).Elem(), StoredQueryTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StoredQueryTagArrayInput)(nil)).Elem(), StoredQueryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSsmDocumentDetailsPropertiesInput)(nil)).Elem(), TemplateSsmDocumentDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSsmDocumentDetailsPropertiesPtrInput)(nil)).Elem(), TemplateSsmDocumentDetailsPropertiesArgs{})
-	pulumi.RegisterOutputType(AggregationAuthorizationTagOutput{})
-	pulumi.RegisterOutputType(AggregationAuthorizationTagArrayOutput{})
 	pulumi.RegisterOutputType(CompliancePropertiesOutput{})
 	pulumi.RegisterOutputType(CompliancePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigRuleCustomPolicyDetailsOutput{})
@@ -3836,8 +3525,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourceOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput{})
-	pulumi.RegisterOutputType(ConfigurationAggregatorTagOutput{})
-	pulumi.RegisterOutputType(ConfigurationAggregatorTagArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderExclusionByResourceTypesOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderExclusionByResourceTypesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupOutput{})
@@ -3864,8 +3551,6 @@ func init() {
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsPtrOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationSsmControlsOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationSsmControlsPtrOutput{})
-	pulumi.RegisterOutputType(StoredQueryTagOutput{})
-	pulumi.RegisterOutputType(StoredQueryTagArrayOutput{})
 	pulumi.RegisterOutputType(TemplateSsmDocumentDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(TemplateSsmDocumentDetailsPropertiesPtrOutput{})
 }

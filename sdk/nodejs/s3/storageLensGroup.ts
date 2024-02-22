@@ -46,7 +46,7 @@ export class StorageLensGroup extends pulumi.CustomResource {
     /**
      * A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
      */
-    public readonly tags!: pulumi.Output<outputs.s3.StorageLensGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a StorageLensGroup resource with the given unique name, arguments, and options.
@@ -88,5 +88,5 @@ export interface StorageLensGroupArgs {
     /**
      * A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.s3.StorageLensGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

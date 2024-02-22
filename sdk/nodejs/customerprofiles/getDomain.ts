@@ -52,7 +52,7 @@ export interface GetDomainResult {
     /**
      * The tags (keys and values) associated with the domain
      */
-    readonly tags?: outputs.customerprofiles.DomainTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A domain defined for 3rd party data source in Profile Service

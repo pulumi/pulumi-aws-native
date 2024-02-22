@@ -57,7 +57,7 @@ export interface GetUserResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.UserTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The Amazon Resource Name (ARN) for the user.
      */

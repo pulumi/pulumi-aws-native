@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type TargetGroup struct {
 	LastUpdatedAt pulumi.StringOutput          `pulumi:"lastUpdatedAt"`
 	Name          pulumi.StringPtrOutput       `pulumi:"name"`
 	Status        TargetGroupStatusOutput      `pulumi:"status"`
-	Tags          TargetGroupTagArrayOutput    `pulumi:"tags"`
+	Tags          aws.TagArrayOutput           `pulumi:"tags"`
 	Targets       TargetGroupTargetArrayOutput `pulumi:"targets"`
 	Type          TargetGroupTypeOutput        `pulumi:"type"`
 }
@@ -83,7 +84,7 @@ func (TargetGroupState) ElementType() reflect.Type {
 type targetGroupArgs struct {
 	Config  *TargetGroupConfig  `pulumi:"config"`
 	Name    *string             `pulumi:"name"`
-	Tags    []TargetGroupTag    `pulumi:"tags"`
+	Tags    []aws.Tag           `pulumi:"tags"`
 	Targets []TargetGroupTarget `pulumi:"targets"`
 	Type    TargetGroupType     `pulumi:"type"`
 }
@@ -92,7 +93,7 @@ type targetGroupArgs struct {
 type TargetGroupArgs struct {
 	Config  TargetGroupConfigPtrInput
 	Name    pulumi.StringPtrInput
-	Tags    TargetGroupTagArrayInput
+	Tags    aws.TagArrayInput
 	Targets TargetGroupTargetArrayInput
 	Type    TargetGroupTypeInput
 }
@@ -158,8 +159,8 @@ func (o TargetGroupOutput) Status() TargetGroupStatusOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupStatusOutput { return v.Status }).(TargetGroupStatusOutput)
 }
 
-func (o TargetGroupOutput) Tags() TargetGroupTagArrayOutput {
-	return o.ApplyT(func(v *TargetGroup) TargetGroupTagArrayOutput { return v.Tags }).(TargetGroupTagArrayOutput)
+func (o TargetGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TargetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TargetGroupOutput) Targets() TargetGroupTargetArrayOutput {

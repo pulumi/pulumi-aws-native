@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.AllowListTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAllowListResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Macie
 
             Pulumi.AwsNative.Macie.AllowListStatus? status,
 
-            ImmutableArray<Outputs.AllowListTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Criteria = criteria;

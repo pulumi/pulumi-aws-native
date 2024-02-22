@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.StageTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether active tracing with X-ray is enabled for the Stage.
@@ -222,14 +222,14 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? StageName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.StageTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
-        public InputList<Inputs.StageTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.StageTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

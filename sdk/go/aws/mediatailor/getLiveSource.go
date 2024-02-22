@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupLiveSourceResult struct {
 	// <p>A list of HTTP package configuration parameters for this live source.</p>
 	HttpPackageConfigurations []LiveSourceHttpPackageConfiguration `pulumi:"httpPackageConfigurations"`
 	// The tags to assign to the live source.
-	Tags []LiveSourceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLiveSourceOutput(ctx *pulumi.Context, args LookupLiveSourceOutputArgs, opts ...pulumi.InvokeOption) LookupLiveSourceResultOutput {
@@ -85,8 +86,8 @@ func (o LookupLiveSourceResultOutput) HttpPackageConfigurations() LiveSourceHttp
 }
 
 // The tags to assign to the live source.
-func (o LookupLiveSourceResultOutput) Tags() LiveSourceTagArrayOutput {
-	return o.ApplyT(func(v LookupLiveSourceResult) []LiveSourceTag { return v.Tags }).(LiveSourceTagArrayOutput)
+func (o LookupLiveSourceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLiveSourceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

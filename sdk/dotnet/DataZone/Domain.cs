@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The tags specified for the Amazon DataZone domain.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DomainTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -167,14 +167,14 @@ namespace Pulumi.AwsNative.DataZone
         public Input<Inputs.DomainSingleSignOnArgs>? SingleSignOn { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DomainTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags specified for the Amazon DataZone domain.
         /// </summary>
-        public InputList<Inputs.DomainTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DomainTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

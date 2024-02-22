@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['ReadinessCheckArgs', 'ReadinessCheck']
 
@@ -18,12 +18,12 @@ class ReadinessCheckArgs:
     def __init__(__self__, *,
                  readiness_check_name: Optional[pulumi.Input[str]] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReadinessCheckTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReadinessCheck resource.
         :param pulumi.Input[str] readiness_check_name: Name of the ReadinessCheck to create.
         :param pulumi.Input[str] resource_set_name: The name of the resource set to check.
-        :param pulumi.Input[Sequence[pulumi.Input['ReadinessCheckTagArgs']]] tags: A collection of tags associated with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource.
         """
         if readiness_check_name is not None:
             pulumi.set(__self__, "readiness_check_name", readiness_check_name)
@@ -58,14 +58,14 @@ class ReadinessCheckArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReadinessCheckTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReadinessCheckTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -76,7 +76,7 @@ class ReadinessCheck(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  readiness_check_name: Optional[pulumi.Input[str]] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReadinessCheckTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Aws Route53 Recovery Readiness Check Schema and API specification.
@@ -85,7 +85,7 @@ class ReadinessCheck(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] readiness_check_name: Name of the ReadinessCheck to create.
         :param pulumi.Input[str] resource_set_name: The name of the resource set to check.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReadinessCheckTagArgs']]]] tags: A collection of tags associated with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource.
         """
         ...
     @overload
@@ -113,7 +113,7 @@ class ReadinessCheck(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  readiness_check_name: Optional[pulumi.Input[str]] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReadinessCheckTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -183,7 +183,7 @@ class ReadinessCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ReadinessCheckTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A collection of tags associated with a resource.
         """

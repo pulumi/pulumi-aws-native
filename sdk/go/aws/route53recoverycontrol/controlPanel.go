@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type ControlPanel struct {
 	// The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 	Status ControlPanelStatusOutput `pulumi:"status"`
 	// A collection of tags associated with a resource
-	Tags ControlPanelTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewControlPanel registers a new resource with the given unique name, arguments, and options.
@@ -81,7 +82,7 @@ type controlPanelArgs struct {
 	// The name of the control panel. You can use any non-white space character in the name.
 	Name *string `pulumi:"name"`
 	// A collection of tags associated with a resource
-	Tags []ControlPanelTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ControlPanel resource.
@@ -91,7 +92,7 @@ type ControlPanelArgs struct {
 	// The name of the control panel. You can use any non-white space character in the name.
 	Name pulumi.StringPtrInput
 	// A collection of tags associated with a resource
-	Tags ControlPanelTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ControlPanelArgs) ElementType() reflect.Type {
@@ -162,8 +163,8 @@ func (o ControlPanelOutput) Status() ControlPanelStatusOutput {
 }
 
 // A collection of tags associated with a resource
-func (o ControlPanelOutput) Tags() ControlPanelTagArrayOutput {
-	return o.ApplyT(func(v *ControlPanel) ControlPanelTagArrayOutput { return v.Tags }).(ControlPanelTagArrayOutput)
+func (o ControlPanelOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *ControlPanel) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

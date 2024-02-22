@@ -58,14 +58,14 @@ namespace Pulumi.AwsNative.Efs
         /// An array of key-value pairs to apply to this resource.
         ///  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         /// </summary>
-        public readonly ImmutableArray<Outputs.AccessPointTag> AccessPointTags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> AccessPointTags;
         public readonly string? Arn;
 
         [OutputConstructor]
         private GetAccessPointResult(
             string? accessPointId,
 
-            ImmutableArray<Outputs.AccessPointTag> accessPointTags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> accessPointTags,
 
             string? arn)
         {

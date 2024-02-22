@@ -44,7 +44,7 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * Any tags assigned to the virtual private gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.VpnGatewayTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of VPN connection the virtual private gateway supports.
      */
@@ -96,7 +96,7 @@ export interface VpnGatewayArgs {
     /**
      * Any tags assigned to the virtual private gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.VpnGatewayTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of VPN connection the virtual private gateway supports.
      */

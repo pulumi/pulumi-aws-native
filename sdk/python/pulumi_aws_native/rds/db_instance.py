@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -86,7 +88,7 @@ class DbInstanceArgs:
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tde_credential_arn: Optional[pulumi.Input[str]] = None,
                  tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -181,7 +183,7 @@ class DbInstanceArgs:
         :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
         :param pulumi.Input[int] storage_throughput: Specifies the storage throughput for the DB instance.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]] tags: Tags to assign to the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the DB instance.
         :param pulumi.Input[str] tde_credential_arn: The ARN from the key store with which to associate the instance for TDE encryption.
         :param pulumi.Input[str] tde_credential_password: The password for the given ARN from the key store in order to access the device.
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
@@ -1189,14 +1191,14 @@ class DbInstanceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to assign to the DB instance.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -1346,7 +1348,7 @@ class DbInstance(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tde_credential_arn: Optional[pulumi.Input[str]] = None,
                  tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -1445,7 +1447,7 @@ class DbInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
         :param pulumi.Input[int] storage_throughput: Specifies the storage throughput for the DB instance.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceTagArgs']]]] tags: Tags to assign to the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags to assign to the DB instance.
         :param pulumi.Input[str] tde_credential_arn: The ARN from the key store with which to associate the instance for TDE encryption.
         :param pulumi.Input[str] tde_credential_password: The password for the given ARN from the key store in order to access the device.
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
@@ -1546,7 +1548,7 @@ class DbInstance(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tde_credential_arn: Optional[pulumi.Input[str]] = None,
                  tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -2341,7 +2343,7 @@ class DbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DbInstanceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Tags to assign to the DB instance.
         """

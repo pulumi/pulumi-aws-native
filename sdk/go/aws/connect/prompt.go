@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Prompt struct {
 	// S3 URI of the customer's audio file for creating prompts resource..
 	S3Uri pulumi.StringPtrOutput `pulumi:"s3Uri"`
 	// An array of key-value pairs to apply to this resource.
-	Tags PromptTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPrompt registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +83,7 @@ type promptArgs struct {
 	// S3 URI of the customer's audio file for creating prompts resource..
 	S3Uri *string `pulumi:"s3Uri"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []PromptTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Prompt resource.
@@ -96,7 +97,7 @@ type PromptArgs struct {
 	// S3 URI of the customer's audio file for creating prompts resource..
 	S3Uri pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags PromptTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (PromptArgs) ElementType() reflect.Type {
@@ -162,8 +163,8 @@ func (o PromptOutput) S3Uri() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o PromptOutput) Tags() PromptTagArrayOutput {
-	return o.ApplyT(func(v *Prompt) PromptTagArrayOutput { return v.Tags }).(PromptTagArrayOutput)
+func (o PromptOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Prompt) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

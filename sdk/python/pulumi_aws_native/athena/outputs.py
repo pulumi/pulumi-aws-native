@@ -14,8 +14,6 @@ from ._enums import *
 __all__ = [
     'CapacityReservationCapacityAssignment',
     'CapacityReservationCapacityAssignmentConfiguration',
-    'CapacityReservationTag',
-    'DataCatalogTag',
     'WorkGroupAclConfiguration',
     'WorkGroupConfiguration',
     'WorkGroupConfigurationUpdates',
@@ -24,7 +22,6 @@ __all__ = [
     'WorkGroupEngineVersion',
     'WorkGroupResultConfiguration',
     'WorkGroupResultConfigurationUpdates',
-    'WorkGroupTag',
 ]
 
 @pulumi.output_type
@@ -89,44 +86,6 @@ class CapacityReservationCapacityAssignmentConfiguration(dict):
     @pulumi.getter(name="capacityAssignments")
     def capacity_assignments(self) -> Sequence['outputs.CapacityReservationCapacityAssignment']:
         return pulumi.get(self, "capacity_assignments")
-
-
-@pulumi.output_type
-class CapacityReservationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class DataCatalogTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -706,24 +665,5 @@ class WorkGroupResultConfigurationUpdates(dict):
     @pulumi.getter(name="removeOutputLocation")
     def remove_output_location(self) -> Optional[bool]:
         return pulumi.get(self, "remove_output_location")
-
-
-@pulumi.output_type
-class WorkGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

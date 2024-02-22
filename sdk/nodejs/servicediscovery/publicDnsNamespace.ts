@@ -45,7 +45,7 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<outputs.servicediscovery.PublicDnsNamespaceProperties | undefined>;
-    public readonly tags!: pulumi.Output<outputs.servicediscovery.PublicDnsNamespaceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PublicDnsNamespace resource with the given unique name, arguments, and options.
@@ -88,5 +88,5 @@ export interface PublicDnsNamespaceArgs {
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     properties?: pulumi.Input<inputs.servicediscovery.PublicDnsNamespacePropertiesArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.servicediscovery.PublicDnsNamespaceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

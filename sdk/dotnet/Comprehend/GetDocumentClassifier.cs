@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Comprehend
     {
         public readonly string? Arn;
         public readonly string? ModelPolicy;
-        public readonly ImmutableArray<Outputs.DocumentClassifierTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDocumentClassifierResult(
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Comprehend
 
             string? modelPolicy,
 
-            ImmutableArray<Outputs.DocumentClassifierTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             ModelPolicy = modelPolicy;

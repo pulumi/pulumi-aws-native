@@ -46,7 +46,7 @@ export class EventSubscription extends pulumi.CustomResource {
     public readonly sourceIds!: pulumi.Output<string[] | undefined>;
     public readonly sourceType!: pulumi.Output<string | undefined>;
     public readonly subscriptionName!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.dms.EventSubscriptionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EventSubscription resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface EventSubscriptionArgs {
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     sourceType?: pulumi.Input<string>;
     subscriptionName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.dms.EventSubscriptionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

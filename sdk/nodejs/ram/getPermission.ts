@@ -29,7 +29,7 @@ export interface GetPermissionResult {
      */
     readonly isResourceTypeDefault?: boolean;
     readonly permissionType?: string;
-    readonly tags?: outputs.ram.PermissionTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * Version of the permission.
      */

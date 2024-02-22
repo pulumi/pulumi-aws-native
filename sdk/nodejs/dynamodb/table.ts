@@ -55,7 +55,7 @@ export class Table extends pulumi.CustomResource {
     public readonly streamSpecification!: pulumi.Output<outputs.dynamodb.TableStreamSpecification | undefined>;
     public readonly tableClass!: pulumi.Output<string | undefined>;
     public readonly tableName!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.dynamodb.TableTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly timeToLiveSpecification!: pulumi.Output<outputs.dynamodb.TableTimeToLiveSpecification | undefined>;
 
     /**
@@ -141,6 +141,6 @@ export interface TableArgs {
     streamSpecification?: pulumi.Input<inputs.dynamodb.TableStreamSpecificationArgs>;
     tableClass?: pulumi.Input<string>;
     tableName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.TableTimeToLiveSpecificationArgs>;
 }

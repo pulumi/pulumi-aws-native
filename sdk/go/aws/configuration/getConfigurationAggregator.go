@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupConfigurationAggregatorResult struct {
 	ConfigurationAggregatorArn    *string                                               `pulumi:"configurationAggregatorArn"`
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
 	// The tags for the configuration aggregator.
-	Tags []ConfigurationAggregatorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupConfigurationAggregatorOutput(ctx *pulumi.Context, args LookupConfigurationAggregatorOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationAggregatorResultOutput {
@@ -90,8 +91,8 @@ func (o LookupConfigurationAggregatorResultOutput) OrganizationAggregationSource
 }
 
 // The tags for the configuration aggregator.
-func (o LookupConfigurationAggregatorResultOutput) Tags() ConfigurationAggregatorTagArrayOutput {
-	return o.ApplyT(func(v LookupConfigurationAggregatorResult) []ConfigurationAggregatorTag { return v.Tags }).(ConfigurationAggregatorTagArrayOutput)
+func (o LookupConfigurationAggregatorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationAggregatorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

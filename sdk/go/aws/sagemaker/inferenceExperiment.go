@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,7 +45,7 @@ type InferenceExperiment struct {
 	// The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
 	StatusReason pulumi.StringPtrOutput `pulumi:"statusReason"`
 	// An array of key-value pairs to apply to this resource.
-	Tags InferenceExperimentTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of the inference experiment that you want to run.
 	Type InferenceExperimentTypeOutput `pulumi:"type"`
 }
@@ -128,7 +129,7 @@ type inferenceExperimentArgs struct {
 	// The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
 	StatusReason *string `pulumi:"statusReason"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []InferenceExperimentTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the inference experiment that you want to run.
 	Type InferenceExperimentType `pulumi:"type"`
 }
@@ -154,7 +155,7 @@ type InferenceExperimentArgs struct {
 	// The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
 	StatusReason pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags InferenceExperimentTagArrayInput
+	Tags aws.TagArrayInput
 	// The type of the inference experiment that you want to run.
 	Type InferenceExperimentTypeInput
 }
@@ -272,8 +273,8 @@ func (o InferenceExperimentOutput) StatusReason() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o InferenceExperimentOutput) Tags() InferenceExperimentTagArrayOutput {
-	return o.ApplyT(func(v *InferenceExperiment) InferenceExperimentTagArrayOutput { return v.Tags }).(InferenceExperimentTagArrayOutput)
+func (o InferenceExperimentOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *InferenceExperiment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of the inference experiment that you want to run.

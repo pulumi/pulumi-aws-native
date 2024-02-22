@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Organizations
         /// A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AccountTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -151,14 +151,14 @@ namespace Pulumi.AwsNative.Organizations
         public Input<string>? RoleName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AccountTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
         /// </summary>
-        public InputList<Inputs.AccountTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AccountTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

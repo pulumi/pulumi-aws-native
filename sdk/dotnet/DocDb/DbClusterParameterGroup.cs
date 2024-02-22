@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.DocDb
         public Output<object> Parameters { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DbClusterParameterGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -101,10 +101,10 @@ namespace Pulumi.AwsNative.DocDb
         public Input<object> Parameters { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DbClusterParameterGroupTagArgs>? _tags;
-        public InputList<Inputs.DbClusterParameterGroupTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DbClusterParameterGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

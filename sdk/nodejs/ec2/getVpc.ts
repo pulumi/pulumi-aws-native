@@ -49,7 +49,7 @@ export interface GetVpcResult {
     /**
      * The tags for the VPC.
      */
-    readonly tags?: outputs.ec2.VpcTag[];
+    readonly tags?: outputs.Tag[];
     readonly vpcId?: string;
 }
 /**

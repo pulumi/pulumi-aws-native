@@ -28,7 +28,7 @@ export interface GetDevicePoolResult {
     readonly maxDevices?: number;
     readonly name?: string;
     readonly rules?: outputs.devicefarm.DevicePoolRule[];
-    readonly tags?: outputs.devicefarm.DevicePoolTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project

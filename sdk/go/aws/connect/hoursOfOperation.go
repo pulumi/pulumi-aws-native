@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type HoursOfOperation struct {
 	// The name of the hours of operation.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more tags.
-	Tags HoursOfOperationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The time zone of the hours of operation.
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 }
@@ -90,7 +91,7 @@ type hoursOfOperationArgs struct {
 	// The name of the hours of operation.
 	Name *string `pulumi:"name"`
 	// One or more tags.
-	Tags []HoursOfOperationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The time zone of the hours of operation.
 	TimeZone string `pulumi:"timeZone"`
 }
@@ -106,7 +107,7 @@ type HoursOfOperationArgs struct {
 	// The name of the hours of operation.
 	Name pulumi.StringPtrInput
 	// One or more tags.
-	Tags HoursOfOperationTagArrayInput
+	Tags aws.TagArrayInput
 	// The time zone of the hours of operation.
 	TimeZone pulumi.StringInput
 }
@@ -174,8 +175,8 @@ func (o HoursOfOperationOutput) Name() pulumi.StringOutput {
 }
 
 // One or more tags.
-func (o HoursOfOperationOutput) Tags() HoursOfOperationTagArrayOutput {
-	return o.ApplyT(func(v *HoursOfOperation) HoursOfOperationTagArrayOutput { return v.Tags }).(HoursOfOperationTagArrayOutput)
+func (o HoursOfOperationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *HoursOfOperation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The time zone of the hours of operation.

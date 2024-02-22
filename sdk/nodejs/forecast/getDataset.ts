@@ -38,7 +38,7 @@ export interface GetDatasetResult {
     readonly domain?: enums.forecast.DatasetDomain;
     readonly encryptionConfig?: outputs.forecast.EncryptionConfigProperties;
     readonly schema?: outputs.forecast.SchemaProperties;
-    readonly tags?: outputs.forecast.TagsItemProperties[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type Definition for AWS::Forecast::Dataset

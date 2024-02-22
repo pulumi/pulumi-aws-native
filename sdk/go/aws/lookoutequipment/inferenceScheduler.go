@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type InferenceScheduler struct {
 	// Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment.
 	ServerSideKmsKeyId pulumi.StringPtrOutput `pulumi:"serverSideKmsKeyId"`
 	// Any tags associated with the inference scheduler.
-	Tags InferenceSchedulerTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewInferenceScheduler registers a new resource with the given unique name, arguments, and options.
@@ -118,7 +119,7 @@ type inferenceSchedulerArgs struct {
 	// Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment.
 	ServerSideKmsKeyId *string `pulumi:"serverSideKmsKeyId"`
 	// Any tags associated with the inference scheduler.
-	Tags []InferenceSchedulerTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InferenceScheduler resource.
@@ -140,7 +141,7 @@ type InferenceSchedulerArgs struct {
 	// Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment.
 	ServerSideKmsKeyId pulumi.StringPtrInput
 	// Any tags associated with the inference scheduler.
-	Tags InferenceSchedulerTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (InferenceSchedulerArgs) ElementType() reflect.Type {
@@ -226,8 +227,8 @@ func (o InferenceSchedulerOutput) ServerSideKmsKeyId() pulumi.StringPtrOutput {
 }
 
 // Any tags associated with the inference scheduler.
-func (o InferenceSchedulerOutput) Tags() InferenceSchedulerTagArrayOutput {
-	return o.ApplyT(func(v *InferenceScheduler) InferenceSchedulerTagArrayOutput { return v.Tags }).(InferenceSchedulerTagArrayOutput)
+func (o InferenceSchedulerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *InferenceScheduler) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

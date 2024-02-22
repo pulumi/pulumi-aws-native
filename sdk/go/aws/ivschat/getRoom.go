@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type LookupRoomResult struct {
 	// The name of the room. The value does not need to be unique.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []RoomTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRoomOutput(ctx *pulumi.Context, args LookupRoomOutputArgs, opts ...pulumi.InvokeOption) LookupRoomResultOutput {
@@ -116,8 +117,8 @@ func (o LookupRoomResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupRoomResultOutput) Tags() RoomTagArrayOutput {
-	return o.ApplyT(func(v LookupRoomResult) []RoomTag { return v.Tags }).(RoomTagArrayOutput)
+func (o LookupRoomResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRoomResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

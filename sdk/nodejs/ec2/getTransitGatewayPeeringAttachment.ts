@@ -41,7 +41,7 @@ export interface GetTransitGatewayPeeringAttachmentResult {
     /**
      * The tags for the transit gateway peering attachment.
      */
-    readonly tags?: outputs.ec2.TransitGatewayPeeringAttachmentTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ID of the transit gateway peering attachment.
      */

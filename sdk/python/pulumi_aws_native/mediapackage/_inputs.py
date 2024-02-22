@@ -12,11 +12,9 @@ from ._enums import *
 
 __all__ = [
     'AssetEgressEndpointArgs',
-    'AssetTagArgs',
     'ChannelHlsIngestArgs',
     'ChannelIngestEndpointArgs',
     'ChannelLogConfigurationArgs',
-    'ChannelTagArgs',
     'OriginEndpointAuthorizationArgs',
     'OriginEndpointCmafEncryptionArgs',
     'OriginEndpointCmafPackageArgs',
@@ -30,7 +28,6 @@ __all__ = [
     'OriginEndpointMssPackageArgs',
     'OriginEndpointSpekeKeyProviderArgs',
     'OriginEndpointStreamSelectionArgs',
-    'OriginEndpointTagArgs',
     'PackagingConfigurationCmafEncryptionArgs',
     'PackagingConfigurationCmafPackageArgs',
     'PackagingConfigurationDashEncryptionArgs',
@@ -45,10 +42,8 @@ __all__ = [
     'PackagingConfigurationMssPackageArgs',
     'PackagingConfigurationSpekeKeyProviderArgs',
     'PackagingConfigurationStreamSelectionArgs',
-    'PackagingConfigurationTagArgs',
     'PackagingGroupAuthorizationArgs',
     'PackagingGroupLogConfigurationArgs',
-    'PackagingGroupTagArgs',
 ]
 
 @pulumi.input_type
@@ -87,33 +82,6 @@ class AssetEgressEndpointArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
-
-
-@pulumi.input_type
-class AssetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -229,33 +197,6 @@ class ChannelLogConfigurationArgs:
     @log_group_name.setter
     def log_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_group_name", value)
-
-
-@pulumi.input_type
-class ChannelTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1438,33 +1379,6 @@ class OriginEndpointStreamSelectionArgs:
 
 
 @pulumi.input_type
-class OriginEndpointTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class PackagingConfigurationCmafEncryptionArgs:
     def __init__(__self__, *,
                  speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']):
@@ -2252,33 +2166,6 @@ class PackagingConfigurationStreamSelectionArgs:
 
 
 @pulumi.input_type
-class PackagingConfigurationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class PackagingGroupAuthorizationArgs:
     def __init__(__self__, *,
                  cdn_identifier_secret: pulumi.Input[str],
@@ -2336,32 +2223,5 @@ class PackagingGroupLogConfigurationArgs:
     @log_group_name.setter
     def log_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_group_name", value)
-
-
-@pulumi.input_type
-class PackagingGroupTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

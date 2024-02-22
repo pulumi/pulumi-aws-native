@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type DeviceProfile struct {
 	// Name of service profile
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device profile.
-	Tags DeviceProfileTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDeviceProfile registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +71,7 @@ type deviceProfileArgs struct {
 	// Name of service profile
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device profile.
-	Tags []DeviceProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeviceProfile resource.
@@ -80,7 +81,7 @@ type DeviceProfileArgs struct {
 	// Name of service profile
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the device profile.
-	Tags DeviceProfileTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DeviceProfileArgs) ElementType() reflect.Type {
@@ -136,8 +137,8 @@ func (o DeviceProfileOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the device profile.
-func (o DeviceProfileOutput) Tags() DeviceProfileTagArrayOutput {
-	return o.ApplyT(func(v *DeviceProfile) DeviceProfileTagArrayOutput { return v.Tags }).(DeviceProfileTagArrayOutput)
+func (o DeviceProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DeviceProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupDataRepositoryAssociationResult struct {
 	S3 *DataRepositoryAssociationS3 `pulumi:"s3"`
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	Tags []DataRepositoryAssociationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDataRepositoryAssociationOutput(ctx *pulumi.Context, args LookupDataRepositoryAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupDataRepositoryAssociationResultOutput {
@@ -99,8 +100,8 @@ func (o LookupDataRepositoryAssociationResultOutput) S3() DataRepositoryAssociat
 // An array of key-value pairs to apply to this resource.
 //
 //	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-func (o LookupDataRepositoryAssociationResultOutput) Tags() DataRepositoryAssociationTagArrayOutput {
-	return o.ApplyT(func(v LookupDataRepositoryAssociationResult) []DataRepositoryAssociationTag { return v.Tags }).(DataRepositoryAssociationTagArrayOutput)
+func (o LookupDataRepositoryAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDataRepositoryAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

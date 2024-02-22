@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.DeviceFarm
     {
         public readonly string? Arn;
         public readonly string? ServiceDnsName;
-        public readonly ImmutableArray<Outputs.VpceConfigurationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? VpceConfigurationDescription;
         public readonly string? VpceConfigurationName;
         public readonly string? VpceServiceName;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.DeviceFarm
 
             string? serviceDnsName,
 
-            ImmutableArray<Outputs.VpceConfigurationTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? vpceConfigurationDescription,
 

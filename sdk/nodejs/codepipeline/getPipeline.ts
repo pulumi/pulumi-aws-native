@@ -32,7 +32,7 @@ export interface GetPipelineResult {
     readonly restartExecutionOnUpdate?: boolean;
     readonly roleArn?: string;
     readonly stages?: outputs.codepipeline.PipelineStageDeclaration[];
-    readonly tags?: outputs.codepipeline.PipelineTag[];
+    readonly tags?: outputs.Tag[];
     readonly triggers?: outputs.codepipeline.PipelineTriggerDeclaration[];
     readonly variables?: outputs.codepipeline.PipelineVariableDeclaration[];
     readonly version?: string;

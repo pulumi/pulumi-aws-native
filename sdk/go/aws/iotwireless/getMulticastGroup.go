@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,7 +46,7 @@ type LookupMulticastGroupResult struct {
 	// Multicast group status. Returned after successful read.
 	Status *string `pulumi:"status"`
 	// A list of key-value pairs that contain metadata for the Multicast group.
-	Tags []MulticastGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupMulticastGroupOutput(ctx *pulumi.Context, args LookupMulticastGroupOutputArgs, opts ...pulumi.InvokeOption) LookupMulticastGroupResultOutput {
@@ -125,8 +126,8 @@ func (o LookupMulticastGroupResultOutput) Status() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the Multicast group.
-func (o LookupMulticastGroupResultOutput) Tags() MulticastGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupMulticastGroupResult) []MulticastGroupTag { return v.Tags }).(MulticastGroupTagArrayOutput)
+func (o LookupMulticastGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMulticastGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['EventIntegrationArgs', 'EventIntegration']
@@ -20,14 +22,14 @@ class EventIntegrationArgs:
                  event_filter: pulumi.Input['EventIntegrationEventFilterArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventIntegration resource.
         :param pulumi.Input[str] event_bridge_bus: The Amazon Eventbridge bus for the event integration.
         :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: The EventFilter (source) associated with the event integration.
         :param pulumi.Input[str] description: The event integration description.
         :param pulumi.Input[str] name: The name of the event integration.
-        :param pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]] tags: The tags (keys and values) associated with the event integration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the event integration.
         """
         pulumi.set(__self__, "event_bridge_bus", event_bridge_bus)
         pulumi.set(__self__, "event_filter", event_filter)
@@ -88,14 +90,14 @@ class EventIntegrationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the event integration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -108,7 +110,7 @@ class EventIntegration(pulumi.CustomResource):
                  event_bridge_bus: Optional[pulumi.Input[str]] = None,
                  event_filter: Optional[pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventIntegrationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppIntegrations::EventIntegration
@@ -119,7 +121,7 @@ class EventIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] event_bridge_bus: The Amazon Eventbridge bus for the event integration.
         :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: The EventFilter (source) associated with the event integration.
         :param pulumi.Input[str] name: The name of the event integration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventIntegrationTagArgs']]]] tags: The tags (keys and values) associated with the event integration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the event integration.
         """
         ...
     @overload
@@ -149,7 +151,7 @@ class EventIntegration(pulumi.CustomResource):
                  event_bridge_bus: Optional[pulumi.Input[str]] = None,
                  event_filter: Optional[pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventIntegrationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -243,7 +245,7 @@ class EventIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EventIntegrationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags (keys and values) associated with the event integration.
         """

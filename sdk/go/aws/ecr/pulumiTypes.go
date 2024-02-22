@@ -21,107 +21,6 @@ type PublicRepositoryTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PublicRepositoryTagInput is an input type that accepts PublicRepositoryTagArgs and PublicRepositoryTagOutput values.
-// You can construct a concrete instance of `PublicRepositoryTagInput` via:
-//
-//	PublicRepositoryTagArgs{...}
-type PublicRepositoryTagInput interface {
-	pulumi.Input
-
-	ToPublicRepositoryTagOutput() PublicRepositoryTagOutput
-	ToPublicRepositoryTagOutputWithContext(context.Context) PublicRepositoryTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type PublicRepositoryTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PublicRepositoryTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicRepositoryTag)(nil)).Elem()
-}
-
-func (i PublicRepositoryTagArgs) ToPublicRepositoryTagOutput() PublicRepositoryTagOutput {
-	return i.ToPublicRepositoryTagOutputWithContext(context.Background())
-}
-
-func (i PublicRepositoryTagArgs) ToPublicRepositoryTagOutputWithContext(ctx context.Context) PublicRepositoryTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicRepositoryTagOutput)
-}
-
-// PublicRepositoryTagArrayInput is an input type that accepts PublicRepositoryTagArray and PublicRepositoryTagArrayOutput values.
-// You can construct a concrete instance of `PublicRepositoryTagArrayInput` via:
-//
-//	PublicRepositoryTagArray{ PublicRepositoryTagArgs{...} }
-type PublicRepositoryTagArrayInput interface {
-	pulumi.Input
-
-	ToPublicRepositoryTagArrayOutput() PublicRepositoryTagArrayOutput
-	ToPublicRepositoryTagArrayOutputWithContext(context.Context) PublicRepositoryTagArrayOutput
-}
-
-type PublicRepositoryTagArray []PublicRepositoryTagInput
-
-func (PublicRepositoryTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PublicRepositoryTag)(nil)).Elem()
-}
-
-func (i PublicRepositoryTagArray) ToPublicRepositoryTagArrayOutput() PublicRepositoryTagArrayOutput {
-	return i.ToPublicRepositoryTagArrayOutputWithContext(context.Background())
-}
-
-func (i PublicRepositoryTagArray) ToPublicRepositoryTagArrayOutputWithContext(ctx context.Context) PublicRepositoryTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicRepositoryTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type PublicRepositoryTagOutput struct{ *pulumi.OutputState }
-
-func (PublicRepositoryTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicRepositoryTag)(nil)).Elem()
-}
-
-func (o PublicRepositoryTagOutput) ToPublicRepositoryTagOutput() PublicRepositoryTagOutput {
-	return o
-}
-
-func (o PublicRepositoryTagOutput) ToPublicRepositoryTagOutputWithContext(ctx context.Context) PublicRepositoryTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o PublicRepositoryTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PublicRepositoryTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o PublicRepositoryTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PublicRepositoryTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PublicRepositoryTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PublicRepositoryTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PublicRepositoryTag)(nil)).Elem()
-}
-
-func (o PublicRepositoryTagArrayOutput) ToPublicRepositoryTagArrayOutput() PublicRepositoryTagArrayOutput {
-	return o
-}
-
-func (o PublicRepositoryTagArrayOutput) ToPublicRepositoryTagArrayOutputWithContext(ctx context.Context) PublicRepositoryTagArrayOutput {
-	return o
-}
-
-func (o PublicRepositoryTagArrayOutput) Index(i pulumi.IntInput) PublicRepositoryTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicRepositoryTag {
-		return vs[0].([]PublicRepositoryTag)[vs[1].(int)]
-	}).(PublicRepositoryTagOutput)
-}
-
 // An object representing the replication configuration for a registry.
 type ReplicationConfigurationType struct {
 	// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
@@ -1186,110 +1085,7 @@ type RepositoryTag struct {
 	Value string `pulumi:"value"`
 }
 
-// RepositoryTagInput is an input type that accepts RepositoryTagArgs and RepositoryTagOutput values.
-// You can construct a concrete instance of `RepositoryTagInput` via:
-//
-//	RepositoryTagArgs{...}
-type RepositoryTagInput interface {
-	pulumi.Input
-
-	ToRepositoryTagOutput() RepositoryTagOutput
-	ToRepositoryTagOutputWithContext(context.Context) RepositoryTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type RepositoryTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RepositoryTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryTag)(nil)).Elem()
-}
-
-func (i RepositoryTagArgs) ToRepositoryTagOutput() RepositoryTagOutput {
-	return i.ToRepositoryTagOutputWithContext(context.Background())
-}
-
-func (i RepositoryTagArgs) ToRepositoryTagOutputWithContext(ctx context.Context) RepositoryTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagOutput)
-}
-
-// RepositoryTagArrayInput is an input type that accepts RepositoryTagArray and RepositoryTagArrayOutput values.
-// You can construct a concrete instance of `RepositoryTagArrayInput` via:
-//
-//	RepositoryTagArray{ RepositoryTagArgs{...} }
-type RepositoryTagArrayInput interface {
-	pulumi.Input
-
-	ToRepositoryTagArrayOutput() RepositoryTagArrayOutput
-	ToRepositoryTagArrayOutputWithContext(context.Context) RepositoryTagArrayOutput
-}
-
-type RepositoryTagArray []RepositoryTagInput
-
-func (RepositoryTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryTag)(nil)).Elem()
-}
-
-func (i RepositoryTagArray) ToRepositoryTagArrayOutput() RepositoryTagArrayOutput {
-	return i.ToRepositoryTagArrayOutputWithContext(context.Background())
-}
-
-func (i RepositoryTagArray) ToRepositoryTagArrayOutputWithContext(ctx context.Context) RepositoryTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type RepositoryTagOutput struct{ *pulumi.OutputState }
-
-func (RepositoryTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryTag)(nil)).Elem()
-}
-
-func (o RepositoryTagOutput) ToRepositoryTagOutput() RepositoryTagOutput {
-	return o
-}
-
-func (o RepositoryTagOutput) ToRepositoryTagOutputWithContext(ctx context.Context) RepositoryTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o RepositoryTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o RepositoryTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RepositoryTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RepositoryTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryTag)(nil)).Elem()
-}
-
-func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutput() RepositoryTagArrayOutput {
-	return o
-}
-
-func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutputWithContext(ctx context.Context) RepositoryTagArrayOutput {
-	return o
-}
-
-func (o RepositoryTagArrayOutput) Index(i pulumi.IntInput) RepositoryTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryTag {
-		return vs[0].([]RepositoryTag)[vs[1].(int)]
-	}).(RepositoryTagOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicRepositoryTagInput)(nil)).Elem(), PublicRepositoryTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicRepositoryTagArrayInput)(nil)).Elem(), PublicRepositoryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTypeInput)(nil)).Elem(), ReplicationConfigurationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationDestinationInput)(nil)).Elem(), ReplicationConfigurationReplicationDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationDestinationArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationDestinationArray{})
@@ -1305,10 +1101,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationPtrInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryLifecyclePolicyInput)(nil)).Elem(), RepositoryLifecyclePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryLifecyclePolicyPtrInput)(nil)).Elem(), RepositoryLifecyclePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTagInput)(nil)).Elem(), RepositoryTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTagArrayInput)(nil)).Elem(), RepositoryTagArray{})
-	pulumi.RegisterOutputType(PublicRepositoryTagOutput{})
-	pulumi.RegisterOutputType(PublicRepositoryTagArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationOutput{})
@@ -1325,6 +1117,4 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(RepositoryLifecyclePolicyPtrOutput{})
-	pulumi.RegisterOutputType(RepositoryTagOutput{})
-	pulumi.RegisterOutputType(RepositoryTagArrayOutput{})
 }

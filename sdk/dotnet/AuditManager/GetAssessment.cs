@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.AuditManager
         /// <summary>
         /// The tags associated with the assessment.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssessmentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAssessmentResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.AuditManager
 
             Pulumi.AwsNative.AuditManager.AssessmentStatus? status,
 
-            ImmutableArray<Outputs.AssessmentTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AssessmentId = assessmentId;

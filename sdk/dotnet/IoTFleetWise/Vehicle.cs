@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Output<string> Name { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VehicleTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -108,10 +108,10 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.VehicleTagArgs>? _tags;
-        public InputList<Inputs.VehicleTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VehicleTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

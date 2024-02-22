@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.EventSchemas
         /// <summary>
         /// Tags associated with the resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RegistryTagsEntry> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRegistryResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.EventSchemas
 
             string? registryArn,
 
-            ImmutableArray<Outputs.RegistryTagsEntry> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             RegistryArn = registryArn;

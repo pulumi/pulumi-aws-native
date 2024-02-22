@@ -16,11 +16,8 @@ __all__ = [
     'CloudFormationProductConnectionParameters',
     'CloudFormationProductProvisioningArtifactProperties',
     'CloudFormationProductSourceConnection',
-    'CloudFormationProductTag',
     'CloudFormationProvisionedProductProvisioningParameter',
     'CloudFormationProvisionedProductProvisioningPreferences',
-    'CloudFormationProvisionedProductTag',
-    'PortfolioTag',
     'ServiceActionDefinitionParameter',
 ]
 
@@ -204,25 +201,6 @@ class CloudFormationProductSourceConnection(dict):
 
 
 @pulumi.output_type
-class CloudFormationProductTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class CloudFormationProvisionedProductProvisioningParameter(dict):
     def __init__(__self__, *,
                  key: str,
@@ -329,44 +307,6 @@ class CloudFormationProvisionedProductProvisioningPreferences(dict):
     @pulumi.getter(name="stackSetRegions")
     def stack_set_regions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "stack_set_regions")
-
-
-@pulumi.output_type
-class CloudFormationProvisionedProductTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class PortfolioTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

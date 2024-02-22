@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// The tags (keys and values) associated with the data integration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataIntegrationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDataIntegrationResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.AppIntegrations
 
             Outputs.DataIntegrationObjectConfiguration? objectConfiguration,
 
-            ImmutableArray<Outputs.DataIntegrationTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DataIntegrationArn = dataIntegrationArn;
             Description = description;

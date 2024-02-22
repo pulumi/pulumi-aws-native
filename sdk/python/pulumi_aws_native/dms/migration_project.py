@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['MigrationProjectArgs', 'MigrationProject']
@@ -25,7 +27,7 @@ class MigrationProjectArgs:
                  migration_project_name: Optional[pulumi.Input[str]] = None,
                  schema_conversion_application_attributes: Optional[pulumi.Input['SchemaConversionApplicationAttributesPropertiesArgs']] = None,
                  source_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  target_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]] = None,
                  transformation_rules: Optional[pulumi.Input[str]] = None):
         """
@@ -39,7 +41,7 @@ class MigrationProjectArgs:
         :param pulumi.Input[str] migration_project_name: The property describes a name to identify the migration project.
         :param pulumi.Input['SchemaConversionApplicationAttributesPropertiesArgs'] schema_conversion_application_attributes: The property describes schema conversion application attributes for the migration project.
         :param pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]] source_data_provider_descriptors: The property describes source data provider descriptors for the migration project.
-        :param pulumi.Input[Sequence[pulumi.Input['MigrationProjectTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]] target_data_provider_descriptors: The property describes target data provider descriptors for the migration project.
         :param pulumi.Input[str] transformation_rules: The property describes transformation rules for the migration project.
         """
@@ -178,14 +180,14 @@ class MigrationProjectArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -227,7 +229,7 @@ class MigrationProject(pulumi.CustomResource):
                  migration_project_name: Optional[pulumi.Input[str]] = None,
                  schema_conversion_application_attributes: Optional[pulumi.Input[pulumi.InputType['SchemaConversionApplicationAttributesPropertiesArgs']]] = None,
                  source_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]]] = None,
                  transformation_rules: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -245,7 +247,7 @@ class MigrationProject(pulumi.CustomResource):
         :param pulumi.Input[str] migration_project_name: The property describes a name to identify the migration project.
         :param pulumi.Input[pulumi.InputType['SchemaConversionApplicationAttributesPropertiesArgs']] schema_conversion_application_attributes: The property describes schema conversion application attributes for the migration project.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]] source_data_provider_descriptors: The property describes source data provider descriptors for the migration project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]] target_data_provider_descriptors: The property describes target data provider descriptors for the migration project.
         :param pulumi.Input[str] transformation_rules: The property describes transformation rules for the migration project.
         """
@@ -282,7 +284,7 @@ class MigrationProject(pulumi.CustomResource):
                  migration_project_name: Optional[pulumi.Input[str]] = None,
                  schema_conversion_application_attributes: Optional[pulumi.Input[pulumi.InputType['SchemaConversionApplicationAttributesPropertiesArgs']]] = None,
                  source_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  target_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MigrationProjectDataProviderDescriptorArgs']]]]] = None,
                  transformation_rules: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -426,7 +428,7 @@ class MigrationProject(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MigrationProjectTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.Ssm
         /// <summary>
         /// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PatchBaselineTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPatchBaselineResult(
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.Ssm
 
             ImmutableArray<Outputs.PatchBaselinePatchSource> sources,
 
-            ImmutableArray<Outputs.PatchBaselineTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApprovalRules = approvalRules;
             ApprovedPatches = approvedPatches;

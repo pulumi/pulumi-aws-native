@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupDeviceFleetResult struct {
 	// Role associated with the device fleet
 	RoleArn *string `pulumi:"roleArn"`
 	// Associate tags with the resource
-	Tags []DeviceFleetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDeviceFleetOutput(ctx *pulumi.Context, args LookupDeviceFleetOutputArgs, opts ...pulumi.InvokeOption) LookupDeviceFleetResultOutput {
@@ -90,8 +91,8 @@ func (o LookupDeviceFleetResultOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // Associate tags with the resource
-func (o LookupDeviceFleetResultOutput) Tags() DeviceFleetTagArrayOutput {
-	return o.ApplyT(func(v LookupDeviceFleetResult) []DeviceFleetTag { return v.Tags }).(DeviceFleetTagArrayOutput)
+func (o LookupDeviceFleetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDeviceFleetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

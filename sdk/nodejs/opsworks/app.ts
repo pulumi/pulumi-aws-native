@@ -41,10 +41,7 @@ export class App extends pulumi.CustomResource {
     }
 
     public readonly appSource!: pulumi.Output<outputs.opsworks.AppSource | undefined>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-     */
-    public readonly attributes!: pulumi.Output<any | undefined>;
+    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly dataSources!: pulumi.Output<outputs.opsworks.AppDataSource[] | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly domains!: pulumi.Output<string[] | undefined>;
@@ -113,10 +110,7 @@ export class App extends pulumi.CustomResource {
  */
 export interface AppArgs {
     appSource?: pulumi.Input<inputs.opsworks.AppSourceArgs>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-     */
-    attributes?: any;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     dataSources?: pulumi.Input<pulumi.Input<inputs.opsworks.AppDataSourceArgs>[]>;
     description?: pulumi.Input<string>;
     domains?: pulumi.Input<pulumi.Input<string>[]>;

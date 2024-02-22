@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// An array of key-value pair to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FeatureGroupTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         [Output("throughputConfig")]
         public Output<Outputs.FeatureGroupThroughputConfig?> ThroughputConfig { get; private set; } = null!;
@@ -183,14 +183,14 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.FeatureGroupTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pair to apply to this resource.
         /// </summary>
-        public InputList<Inputs.FeatureGroupTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FeatureGroupTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

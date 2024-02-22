@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,7 +26,7 @@ type CustomMetric struct {
 	// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
 	MetricType CustomMetricMetricTypeOutput `pulumi:"metricType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags CustomMetricTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCustomMetric registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +84,7 @@ type customMetricArgs struct {
 	// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
 	MetricType CustomMetricMetricType `pulumi:"metricType"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []CustomMetricTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomMetric resource.
@@ -95,7 +96,7 @@ type CustomMetricArgs struct {
 	// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
 	MetricType CustomMetricMetricTypeInput
 	// An array of key-value pairs to apply to this resource.
-	Tags CustomMetricTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (CustomMetricArgs) ElementType() reflect.Type {
@@ -156,8 +157,8 @@ func (o CustomMetricOutput) MetricType() CustomMetricMetricTypeOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o CustomMetricOutput) Tags() CustomMetricTagArrayOutput {
-	return o.ApplyT(func(v *CustomMetric) CustomMetricTagArrayOutput { return v.Tags }).(CustomMetricTagArrayOutput)
+func (o CustomMetricOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CustomMetric) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

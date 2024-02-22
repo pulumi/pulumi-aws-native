@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.Transfer
         public readonly Outputs.UserPosixProfile? PosixProfile;
         public readonly string? Role;
         public readonly ImmutableArray<Outputs.UserSshPublicKey> SshPublicKeys;
-        public readonly ImmutableArray<Outputs.UserTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetUserResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Transfer
 
             ImmutableArray<Outputs.UserSshPublicKey> sshPublicKeys,
 
-            ImmutableArray<Outputs.UserTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             HomeDirectory = homeDirectory;

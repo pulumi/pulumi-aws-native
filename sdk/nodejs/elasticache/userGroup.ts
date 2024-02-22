@@ -52,7 +52,7 @@ export class UserGroup extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this user.
      */
-    public readonly tags!: pulumi.Output<outputs.elasticache.UserGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the user group.
      */
@@ -114,7 +114,7 @@ export interface UserGroupArgs {
     /**
      * An array of key-value pairs to apply to this user.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.elasticache.UserGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the user group.
      */

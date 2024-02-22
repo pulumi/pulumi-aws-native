@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.ThemeResourcePermission>> Permissions { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ThemeTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("themeId")]
         public Output<string> ThemeId { get; private set; } = null!;
@@ -125,10 +125,10 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         [Input("tags")]
-        private InputList<Inputs.ThemeTagArgs>? _tags;
-        public InputList<Inputs.ThemeTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ThemeTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

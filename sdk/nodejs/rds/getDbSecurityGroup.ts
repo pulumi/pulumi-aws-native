@@ -25,7 +25,7 @@ export interface GetDbSecurityGroupArgs {
 export interface GetDbSecurityGroupResult {
     readonly dbSecurityGroupIngress?: outputs.rds.DbSecurityGroupIngress[];
     readonly id?: string;
-    readonly tags?: outputs.rds.DbSecurityGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::RDS::DBSecurityGroup

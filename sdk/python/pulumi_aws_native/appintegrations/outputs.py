@@ -13,9 +13,7 @@ __all__ = [
     'DataIntegrationFileConfiguration',
     'DataIntegrationObjectConfiguration',
     'DataIntegrationScheduleConfig',
-    'DataIntegrationTag',
     'EventIntegrationEventFilter',
-    'EventIntegrationTag',
 ]
 
 @pulumi.output_type
@@ -126,39 +124,6 @@ class DataIntegrationScheduleConfig(dict):
 
 
 @pulumi.output_type
-class DataIntegrationTag(dict):
-    """
-    A label for tagging DataIntegration resources
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A label for tagging DataIntegration resources
-        :param str key: A key to identify the tag.
-        :param str value: Corresponding tag value for the key.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A key to identify the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Corresponding tag value for the key.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class EventIntegrationEventFilter(dict):
     def __init__(__self__, *,
                  source: str):
@@ -174,34 +139,5 @@ class EventIntegrationEventFilter(dict):
         The source of the events.
         """
         return pulumi.get(self, "source")
-
-
-@pulumi.output_type
-class EventIntegrationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: A key to identify the tag.
-        :param str value: Corresponding tag value for the key.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A key to identify the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Corresponding tag value for the key.
-        """
-        return pulumi.get(self, "value")
 
 

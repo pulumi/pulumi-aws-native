@@ -24,7 +24,7 @@ export interface GetVirtualMfaDeviceArgs {
 
 export interface GetVirtualMfaDeviceResult {
     readonly serialNumber?: string;
-    readonly tags?: outputs.iam.VirtualMfaDeviceTag[];
+    readonly tags?: outputs.Tag[];
     readonly users?: string[];
 }
 /**

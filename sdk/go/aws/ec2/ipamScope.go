@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type IpamScope struct {
 	// The number of pools that currently exist in this scope.
 	PoolCount pulumi.IntOutput `pulumi:"poolCount"`
 	// An array of key-value pairs to apply to this resource.
-	Tags IpamScopeTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewIpamScope registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +87,7 @@ type ipamScopeArgs struct {
 	// The Id of the IPAM this scope is a part of.
 	IpamId string `pulumi:"ipamId"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IpamScopeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpamScope resource.
@@ -95,7 +96,7 @@ type IpamScopeArgs struct {
 	// The Id of the IPAM this scope is a part of.
 	IpamId pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags IpamScopeTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (IpamScopeArgs) ElementType() reflect.Type {
@@ -175,8 +176,8 @@ func (o IpamScopeOutput) PoolCount() pulumi.IntOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o IpamScopeOutput) Tags() IpamScopeTagArrayOutput {
-	return o.ApplyT(func(v *IpamScope) IpamScopeTagArrayOutput { return v.Tags }).(IpamScopeTagArrayOutput)
+func (o IpamScopeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IpamScope) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

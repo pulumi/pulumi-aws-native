@@ -46,7 +46,7 @@ export interface GetLoggingConfigurationResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ivschat.LoggingConfigurationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource type definition for AWS::IVSChat::LoggingConfiguration.

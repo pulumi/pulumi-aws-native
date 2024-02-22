@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// Tags for the attachment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ConnectAttachmentTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Id of transport attachment
@@ -188,14 +188,14 @@ namespace Pulumi.AwsNative.NetworkManager
         public Input<Inputs.ConnectAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ConnectAttachmentTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags for the attachment.
         /// </summary>
-        public InputList<Inputs.ConnectAttachmentTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ConnectAttachmentTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

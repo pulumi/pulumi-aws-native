@@ -19,10 +19,30 @@ import (
 )
 
 const packageName = "aws-native"
+const globalTagToken = "aws-native:index:Tag"
+const globalCreateOnlyTagToken = "aws-native:index:CreateOnlyTag"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema,
 	genAll bool, semanticsDocument *SemanticsSpecDocument) (*pschema.PackageSpec, *CloudAPIMetadata, *Reports, error) {
+	globalTagType := pschema.ObjectTypeSpec{
+		Type:        "object",
+		Description: "A set of tags to apply to the resource.",
+		Properties: map[string]pschema.PropertySpec{
+			"key":   {TypeSpec: primitiveTypeSpec("String"), Description: "The key name of the tag"},
+			"value": {TypeSpec: primitiveTypeSpec("String"), Description: "The value of the tag"},
+		},
+		Required: []string{"key", "value"},
+	}
+	globalCreateOnlyTagType := pschema.ObjectTypeSpec{
+		Type:        "object",
+		Description: "A set of tags to apply to the resource.",
+		Properties: map[string]pschema.PropertySpec{
+			"key":   {TypeSpec: primitiveTypeSpec("String"), Description: "The key name of the tag", ReplaceOnChanges: true},
+			"value": {TypeSpec: primitiveTypeSpec("String"), Description: "The value of the tag", ReplaceOnChanges: true},
+		},
+		Required: []string{"key", "value"},
+	}
 	p := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
@@ -336,7 +356,14 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				"region",
 			},
 		},
-		Types: map[string]pschema.ComplexTypeSpec{},
+		Types: map[string]pschema.ComplexTypeSpec{
+			globalTagToken: {
+				ObjectTypeSpec: globalTagType,
+			},
+			globalCreateOnlyTagToken: {
+				ObjectTypeSpec: globalCreateOnlyTagType,
+			},
+		},
 		Resources: map[string]pschema.ResourceSpec{
 			ExtensionResourceToken: {
 				ObjectTypeSpec: pschema.ObjectTypeSpec{
@@ -426,7 +453,16 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				CreateOnly: []string{"type", "properties"},
 			},
 		},
-		Types:     map[string]CloudAPIType{},
+		Types: map[string]CloudAPIType{
+			globalTagToken: {
+				Type:       "object",
+				Properties: globalTagType.Properties,
+			},
+			globalCreateOnlyTagToken: {
+				Type:       "object",
+				Properties: globalCreateOnlyTagType.Properties,
+			},
+		},
 		Functions: map[string]CloudAPIFunction{},
 	}
 
@@ -652,13 +688,13 @@ func (ctx *context) markCreateOnlyProperty(propPath []string, property *pschema.
 		return ctx.markCreateOnlyProperty(propPath[1:], property)
 	}
 
-	// Default to next path component is ref to object
-	if len(property.Ref) != 0 {
+	// Default to next path component is ref to object, but exclude global types
+	if len(property.Ref) != 0 && !strings.HasPrefix(property.Ref, "#/types/aws-native:index") {
 		return ctx.markCreateOnlyPropertyOnType(propPath[0], property.Ref, propPath[1:])
 	}
 
 	// Next try looking at it as an array of objects
-	if property.Items != nil && len(property.Items.Ref) != 0 {
+	if property.Items != nil && len(property.Items.Ref) != 0 && !strings.HasPrefix(property.Items.Ref, "#/types/aws-native:index") {
 		typeRef := property.Items.Ref
 		if len(typeRef) == 0 {
 			return errors.Errorf("Property does not reference an array: %v", property)
@@ -781,6 +817,9 @@ func readPropNames(resourceSpec *jsschema.Schema, listName string) []string {
 }
 
 func readPropSdkNames(resourceSpec *jsschema.Schema, listName string) codegen.StringSet {
+	if resourceSpec == nil {
+		return codegen.NewStringSet()
+	}
 	output := codegen.NewStringSet()
 	if p, ok := resourceSpec.Extras[listName]; ok {
 		pSlice := p.([]interface{})
@@ -950,12 +989,20 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 	}
 
 	if tagsProp, hasCustomTagsProp := GetTagsProperty(spec); propName == "Tags" || (hasCustomTagsProp && propName == tagsProp) {
-		switch ctx.GetTagsStyle(typeSpec, spec) {
+		switch ctx.GetTagsStyle(propName, typeSpec) {
 		case TagsStyleUntyped:
 		case TagsStyleStringMap:
 			// Nothing to do
 		case TagsStyleKeyValueArray:
 			// Swap referenced type to shared definition and remove custom type.
+			oldRef := propertySpec.TypeSpec.Items.Ref
+			propertySpec.TypeSpec.Items.Ref = "#/types/" + globalTagToken
+			delete(ctx.pkg.Types, oldRef)
+		case TagsStyleKeyValueCreateOnlyArray:
+			// Swap referenced type to shared definition and remove custom type.
+			oldRef := propertySpec.TypeSpec.Items.Ref
+			propertySpec.TypeSpec.Items.Ref = "#/types/" + globalCreateOnlyTagToken
+			delete(ctx.pkg.Types, oldRef)
 		default: // Unknown
 			ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
 		}
@@ -1118,7 +1165,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 	}
 
 	var mapType *jsschema.Schema
-	if propSchema.AdditionalProperties != nil {
+	if propSchema.AdditionalProperties != nil && propSchema.AdditionalProperties.Schema != nil {
 		mapType = propSchema.AdditionalProperties.Schema
 	} else if propSchema.PatternProperties != nil && len(propSchema.PatternProperties) == 1 {
 		// TODO: Capture pattern add add to documentation or even provider metadata for early validation feedback.

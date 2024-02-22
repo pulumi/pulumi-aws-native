@@ -26,7 +26,7 @@ export interface GetSnapshotResult {
     readonly id?: string;
     readonly name?: string;
     readonly resourceArn?: string;
-    readonly tags?: outputs.fsx.SnapshotTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::FSx::Snapshot

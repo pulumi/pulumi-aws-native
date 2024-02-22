@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,7 +41,7 @@ type NatGateway struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// The tags for the NAT gateway.
-	Tags NatGatewayTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewNatGateway registers a new resource with the given unique name, arguments, and options.
@@ -112,7 +113,7 @@ type natGatewayArgs struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId string `pulumi:"subnetId"`
 	// The tags for the NAT gateway.
-	Tags []NatGatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NatGateway resource.
@@ -136,7 +137,7 @@ type NatGatewayArgs struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId pulumi.StringInput
 	// The tags for the NAT gateway.
-	Tags NatGatewayTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (NatGatewayArgs) ElementType() reflect.Type {
@@ -225,8 +226,8 @@ func (o NatGatewayOutput) SubnetId() pulumi.StringOutput {
 }
 
 // The tags for the NAT gateway.
-func (o NatGatewayOutput) Tags() NatGatewayTagArrayOutput {
-	return o.ApplyT(func(v *NatGateway) NatGatewayTagArrayOutput { return v.Tags }).(NatGatewayTagArrayOutput)
+func (o NatGatewayOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *NatGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

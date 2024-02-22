@@ -62,7 +62,7 @@ export class Asset extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the asset.
      */
-    public readonly tags!: pulumi.Output<outputs.iotsitewise.AssetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Asset resource with the given unique name, arguments, and options.
@@ -122,5 +122,5 @@ export interface AssetArgs {
     /**
      * A list of key-value pairs that contain metadata for the asset.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

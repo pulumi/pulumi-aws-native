@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Efs
         ///  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         /// </summary>
         [Output("accessPointTags")]
-        public Output<ImmutableArray<Outputs.AccessPointTag>> AccessPointTags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> AccessPointTags { get; private set; } = null!;
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -106,15 +106,15 @@ namespace Pulumi.AwsNative.Efs
     public sealed class AccessPointArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPointTags")]
-        private InputList<Inputs.AccessPointTagArgs>? _accessPointTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _accessPointTags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         ///  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         /// </summary>
-        public InputList<Inputs.AccessPointTagArgs> AccessPointTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> AccessPointTags
         {
-            get => _accessPointTags ?? (_accessPointTags = new InputList<Inputs.AccessPointTagArgs>());
+            get => _accessPointTags ?? (_accessPointTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _accessPointTags = value;
         }
 

@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.EmrServerless
         /// Tag map with key and value
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ApplicationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the application
@@ -215,14 +215,14 @@ namespace Pulumi.AwsNative.EmrServerless
         }
 
         [Input("tags")]
-        private InputList<Inputs.ApplicationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tag map with key and value
         /// </summary>
-        public InputList<Inputs.ApplicationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ApplicationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

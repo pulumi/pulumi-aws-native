@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type ConnectionAlias struct {
 	Associations         ConnectionAliasAssociationArrayOutput `pulumi:"associations"`
 	ConnectionAliasState ConnectionAliasStateEnumOutput        `pulumi:"connectionAliasState"`
 	ConnectionString     pulumi.StringOutput                   `pulumi:"connectionString"`
-	Tags                 ConnectionAliasTagArrayOutput         `pulumi:"tags"`
+	Tags                 aws.CreateOnlyTagArrayOutput          `pulumi:"tags"`
 }
 
 // NewConnectionAlias registers a new resource with the given unique name, arguments, and options.
@@ -71,14 +72,14 @@ func (ConnectionAliasState) ElementType() reflect.Type {
 }
 
 type connectionAliasArgs struct {
-	ConnectionString string               `pulumi:"connectionString"`
-	Tags             []ConnectionAliasTag `pulumi:"tags"`
+	ConnectionString string              `pulumi:"connectionString"`
+	Tags             []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectionAlias resource.
 type ConnectionAliasArgs struct {
 	ConnectionString pulumi.StringInput
-	Tags             ConnectionAliasTagArrayInput
+	Tags             aws.CreateOnlyTagArrayInput
 }
 
 func (ConnectionAliasArgs) ElementType() reflect.Type {
@@ -134,8 +135,8 @@ func (o ConnectionAliasOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-func (o ConnectionAliasOutput) Tags() ConnectionAliasTagArrayOutput {
-	return o.ApplyT(func(v *ConnectionAlias) ConnectionAliasTagArrayOutput { return v.Tags }).(ConnectionAliasTagArrayOutput)
+func (o ConnectionAliasOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *ConnectionAlias) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

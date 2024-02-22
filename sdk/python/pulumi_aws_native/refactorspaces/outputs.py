@@ -12,13 +12,9 @@ from ._enums import *
 
 __all__ = [
     'ApplicationApiGatewayProxyInput',
-    'ApplicationTag',
-    'EnvironmentTag',
     'RouteDefaultRouteInput',
-    'RouteTag',
     'RouteUriPathRouteInput',
     'ServiceLambdaEndpointInput',
-    'ServiceTag',
     'ServiceUrlEndpointInput',
 ]
 
@@ -63,72 +59,6 @@ class ApplicationApiGatewayProxyInput(dict):
 
 
 @pulumi.output_type
-class ApplicationTag(dict):
-    """
-    A label for tagging Environment resource
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A label for tagging Environment resource
-        :param str key: A string used to identify this tag
-        :param str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class EnvironmentTag(dict):
-    """
-    A label for tagging Environment resource
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A label for tagging Environment resource
-        :param str key: A string used to identify this tag
-        :param str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class RouteDefaultRouteInput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -155,39 +85,6 @@ class RouteDefaultRouteInput(dict):
     @pulumi.getter(name="activationState")
     def activation_state(self) -> 'RouteActivationState':
         return pulumi.get(self, "activation_state")
-
-
-@pulumi.output_type
-class RouteTag(dict):
-    """
-    A label for tagging Environment resource
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A label for tagging Environment resource
-        :param str key: A string used to identify this tag
-        :param str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -267,39 +164,6 @@ class ServiceLambdaEndpointInput(dict):
     @pulumi.getter
     def arn(self) -> str:
         return pulumi.get(self, "arn")
-
-
-@pulumi.output_type
-class ServiceTag(dict):
-    """
-    A label for tagging Environment resource
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A label for tagging Environment resource
-        :param str key: A string used to identify this tag
-        :param str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

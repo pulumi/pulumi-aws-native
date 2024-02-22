@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.BillingConductor
         public readonly int? LastModifiedTime;
         public readonly string? Name;
         public readonly string? ProductCode;
-        public readonly ImmutableArray<Outputs.CustomLineItemTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCustomLineItemResult(
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.BillingConductor
 
             string? productCode,
 
-            ImmutableArray<Outputs.CustomLineItemTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AssociationSize = associationSize;

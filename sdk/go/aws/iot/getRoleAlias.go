@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,10 +28,10 @@ type LookupRoleAliasArgs struct {
 }
 
 type LookupRoleAliasResult struct {
-	CredentialDurationSeconds *int           `pulumi:"credentialDurationSeconds"`
-	RoleAliasArn              *string        `pulumi:"roleAliasArn"`
-	RoleArn                   *string        `pulumi:"roleArn"`
-	Tags                      []RoleAliasTag `pulumi:"tags"`
+	CredentialDurationSeconds *int      `pulumi:"credentialDurationSeconds"`
+	RoleAliasArn              *string   `pulumi:"roleAliasArn"`
+	RoleArn                   *string   `pulumi:"roleArn"`
+	Tags                      []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRoleAliasOutput(ctx *pulumi.Context, args LookupRoleAliasOutputArgs, opts ...pulumi.InvokeOption) LookupRoleAliasResultOutput {
@@ -80,8 +81,8 @@ func (o LookupRoleAliasResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRoleAliasResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRoleAliasResultOutput) Tags() RoleAliasTagArrayOutput {
-	return o.ApplyT(func(v LookupRoleAliasResult) []RoleAliasTag { return v.Tags }).(RoleAliasTagArrayOutput)
+func (o LookupRoleAliasResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRoleAliasResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

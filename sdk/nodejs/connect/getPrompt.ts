@@ -45,7 +45,7 @@ export interface GetPromptResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.connect.PromptTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Connect::Prompt

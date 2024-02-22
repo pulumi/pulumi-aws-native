@@ -17,10 +17,10 @@ __all__ = [
     'DomainElasticsearchClusterConfigArgs',
     'DomainEncryptionAtRestOptionsArgs',
     'DomainEndpointOptionsArgs',
+    'DomainLogPublishingOptionArgs',
     'DomainMasterUserOptionsArgs',
     'DomainNodeToNodeEncryptionOptionsArgs',
     'DomainSnapshotOptionsArgs',
-    'DomainTagArgs',
     'DomainVpcOptionsArgs',
     'DomainZoneAwarenessConfigArgs',
 ]
@@ -433,6 +433,35 @@ class DomainEndpointOptionsArgs:
 
 
 @pulumi.input_type
+class DomainLogPublishingOptionArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs_log_group_arn: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        if cloud_watch_logs_log_group_arn is not None:
+            pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsLogGroupArn")
+    def cloud_watch_logs_log_group_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cloud_watch_logs_log_group_arn")
+
+    @cloud_watch_logs_log_group_arn.setter
+    def cloud_watch_logs_log_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloud_watch_logs_log_group_arn", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
 class DomainMasterUserOptionsArgs:
     def __init__(__self__, *,
                  master_user_arn: Optional[pulumi.Input[str]] = None,
@@ -505,33 +534,6 @@ class DomainSnapshotOptionsArgs:
     @automated_snapshot_start_hour.setter
     def automated_snapshot_start_hour(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "automated_snapshot_start_hour", value)
-
-
-@pulumi.input_type
-class DomainTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Comprehend
         public Output<Pulumi.AwsNative.Comprehend.FlywheelModelType?> ModelType { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FlywheelTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("taskConfig")]
         public Output<Outputs.FlywheelTaskConfig?> TaskConfig { get; private set; } = null!;
@@ -113,10 +113,10 @@ namespace Pulumi.AwsNative.Comprehend
         public Input<Pulumi.AwsNative.Comprehend.FlywheelModelType>? ModelType { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.FlywheelTagArgs>? _tags;
-        public InputList<Inputs.FlywheelTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FlywheelTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

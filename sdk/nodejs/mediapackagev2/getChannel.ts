@@ -28,7 +28,7 @@ export interface GetChannelResult {
     readonly description?: string;
     readonly ingestEndpoints?: outputs.mediapackagev2.ChannelIngestEndpoint[];
     readonly modifiedAt?: string;
-    readonly tags?: outputs.mediapackagev2.ChannelTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::MediaPackageV2::Channel Resource Type

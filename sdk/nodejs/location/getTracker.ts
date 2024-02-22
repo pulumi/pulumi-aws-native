@@ -34,7 +34,7 @@ export interface GetTrackerResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.location.TrackerTag[];
+    readonly tags?: outputs.Tag[];
     readonly trackerArn?: string;
     readonly updateTime?: string;
 }

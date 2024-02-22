@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupServiceResult struct {
 	PropagateTags                 *ServicePropagateTags                 `pulumi:"propagateTags"`
 	ServiceArn                    *string                               `pulumi:"serviceArn"`
 	ServiceRegistries             []ServiceRegistry                     `pulumi:"serviceRegistries"`
-	Tags                          []ServiceTag                          `pulumi:"tags"`
+	Tags                          []aws.Tag                             `pulumi:"tags"`
 	TaskDefinition                *string                               `pulumi:"taskDefinition"`
 }
 
@@ -143,8 +144,8 @@ func (o LookupServiceResultOutput) ServiceRegistries() ServiceRegistryArrayOutpu
 	return o.ApplyT(func(v LookupServiceResult) []ServiceRegistry { return v.ServiceRegistries }).(ServiceRegistryArrayOutput)
 }
 
-func (o LookupServiceResultOutput) Tags() ServiceTagArrayOutput {
-	return o.ApplyT(func(v LookupServiceResult) []ServiceTag { return v.Tags }).(ServiceTagArrayOutput)
+func (o LookupServiceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupServiceResultOutput) TaskDefinition() pulumi.StringPtrOutput {

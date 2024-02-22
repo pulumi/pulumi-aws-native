@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupConfiguredTableResult struct {
 	Description               *string                       `pulumi:"description"`
 	Name                      *string                       `pulumi:"name"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-	Tags []ConfiguredTableTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupConfiguredTableOutput(ctx *pulumi.Context, args LookupConfiguredTableOutputArgs, opts ...pulumi.InvokeOption) LookupConfiguredTableResultOutput {
@@ -92,8 +93,8 @@ func (o LookupConfiguredTableResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
-func (o LookupConfiguredTableResultOutput) Tags() ConfiguredTableTagArrayOutput {
-	return o.ApplyT(func(v LookupConfiguredTableResult) []ConfiguredTableTag { return v.Tags }).(ConfiguredTableTagArrayOutput)
+func (o LookupConfiguredTableResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConfiguredTableResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

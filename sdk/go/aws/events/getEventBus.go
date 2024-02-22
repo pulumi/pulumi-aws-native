@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupEventBusResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// Any tags assigned to the event bus.
-	Tags []EventBusTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
@@ -87,8 +88,8 @@ func (o LookupEventBusResultOutput) Policy() pulumi.AnyOutput {
 }
 
 // Any tags assigned to the event bus.
-func (o LookupEventBusResultOutput) Tags() EventBusTagArrayOutput {
-	return o.ApplyT(func(v LookupEventBusResult) []EventBusTag { return v.Tags }).(EventBusTagArrayOutput)
+func (o LookupEventBusResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEventBusResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

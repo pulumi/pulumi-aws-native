@@ -53,7 +53,7 @@ export interface GetQuickConnectResult {
     /**
      * One or more tags.
      */
-    readonly tags?: outputs.connect.QuickConnectTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Connect::QuickConnect

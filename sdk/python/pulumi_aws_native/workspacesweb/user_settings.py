@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +29,7 @@ class UserSettingsArgs:
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a UserSettings resource.
         """
@@ -141,11 +143,11 @@ class UserSettingsArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -163,7 +165,7 @@ class UserSettings(pulumi.CustomResource):
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  paste_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  print_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSettingsTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  __props__=None):
         """
@@ -205,7 +207,7 @@ class UserSettings(pulumi.CustomResource):
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  paste_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  print_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserSettingsTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -330,7 +332,7 @@ class UserSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UserSettingsTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

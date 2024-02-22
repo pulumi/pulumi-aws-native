@@ -45,7 +45,7 @@ export interface GetServiceProfileResult {
     /**
      * A list of key-value pairs that contain metadata for the service profile.
      */
-    readonly tags?: outputs.iotwireless.ServiceProfileTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.

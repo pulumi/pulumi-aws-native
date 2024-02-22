@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.XRay
         public Output<Outputs.SamplingRuleUpdate?> SamplingRuleUpdate { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SamplingRuleTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -96,10 +96,10 @@ namespace Pulumi.AwsNative.XRay
         public Input<Inputs.SamplingRuleUpdateArgs>? SamplingRuleUpdate { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.SamplingRuleTagArgs>? _tags;
-        public InputList<Inputs.SamplingRuleTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SamplingRuleTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

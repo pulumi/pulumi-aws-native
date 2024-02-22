@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     {
         public readonly ImmutableArray<string> AssociatedPortalArns;
         public readonly ImmutableArray<string> CertificateList;
-        public readonly ImmutableArray<Outputs.TrustStoreTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? TrustStoreArn;
 
         [OutputConstructor]
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             ImmutableArray<string> certificateList,
 
-            ImmutableArray<Outputs.TrustStoreTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? trustStoreArn)
         {

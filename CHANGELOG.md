@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- **BREAKING CHANGE**: [De-duplicate types for simple arrays of tags](https://github.com/pulumi/pulumi-aws-native/pull/1348)
+  - See PR for a complete list of resources affected (512)
+
 ## 0.97.0 (2024-02-21)
 
 - [Fix types which are maps](https://github.com/pulumi/pulumi-aws-native/pull/1342)

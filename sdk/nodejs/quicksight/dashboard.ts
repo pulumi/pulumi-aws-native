@@ -50,7 +50,7 @@ export class Dashboard extends pulumi.CustomResource {
     public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters | undefined>;
     public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardResourcePermission[] | undefined>;
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
-    public readonly tags!: pulumi.Output<outputs.quicksight.DashboardTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly themeArn!: pulumi.Output<string | undefined>;
     public readonly validationStrategy!: pulumi.Output<outputs.quicksight.DashboardValidationStrategy | undefined>;
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.DashboardVersion>;
@@ -131,7 +131,7 @@ export interface DashboardArgs {
     parameters?: pulumi.Input<inputs.quicksight.DashboardParametersArgs>;
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardResourcePermissionArgs>[]>;
     sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntityArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     themeArn?: pulumi.Input<string>;
     validationStrategy?: pulumi.Input<inputs.quicksight.DashboardValidationStrategyArgs>;
     versionDescription?: pulumi.Input<string>;

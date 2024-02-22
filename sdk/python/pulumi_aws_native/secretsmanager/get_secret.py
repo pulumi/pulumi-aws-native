@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetSecretResult',
@@ -70,7 +71,7 @@ class GetSecretResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.SecretTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         """

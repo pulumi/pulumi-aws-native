@@ -34,7 +34,7 @@ export interface GetDeliveryStreamResult {
     readonly s3DestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
     readonly snowflakeDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration;
     readonly splunkDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration;
-    readonly tags?: outputs.kinesisfirehose.DeliveryStreamTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::KinesisFirehose::DeliveryStream

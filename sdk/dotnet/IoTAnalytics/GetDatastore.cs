@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public readonly Outputs.DatastoreFileFormatConfiguration? FileFormatConfiguration;
         public readonly string? Id;
         public readonly Outputs.DatastoreRetentionPeriod? RetentionPeriod;
-        public readonly ImmutableArray<Outputs.DatastoreTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDatastoreResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
             Outputs.DatastoreRetentionPeriod? retentionPeriod,
 
-            ImmutableArray<Outputs.DatastoreTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DatastorePartitions = datastorePartitions;
             DatastoreStorage = datastoreStorage;

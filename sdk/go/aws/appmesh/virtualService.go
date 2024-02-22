@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,14 +19,14 @@ import (
 type VirtualService struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput          `pulumi:"arn"`
-	MeshName           pulumi.StringOutput          `pulumi:"meshName"`
-	MeshOwner          pulumi.StringPtrOutput       `pulumi:"meshOwner"`
-	ResourceOwner      pulumi.StringOutput          `pulumi:"resourceOwner"`
-	Spec               VirtualServiceSpecOutput     `pulumi:"spec"`
-	Tags               VirtualServiceTagArrayOutput `pulumi:"tags"`
-	Uid                pulumi.StringOutput          `pulumi:"uid"`
-	VirtualServiceName pulumi.StringOutput          `pulumi:"virtualServiceName"`
+	Arn                pulumi.StringOutput      `pulumi:"arn"`
+	MeshName           pulumi.StringOutput      `pulumi:"meshName"`
+	MeshOwner          pulumi.StringPtrOutput   `pulumi:"meshOwner"`
+	ResourceOwner      pulumi.StringOutput      `pulumi:"resourceOwner"`
+	Spec               VirtualServiceSpecOutput `pulumi:"spec"`
+	Tags               aws.TagArrayOutput       `pulumi:"tags"`
+	Uid                pulumi.StringOutput      `pulumi:"uid"`
+	VirtualServiceName pulumi.StringOutput      `pulumi:"virtualServiceName"`
 }
 
 // NewVirtualService registers a new resource with the given unique name, arguments, and options.
@@ -80,11 +81,11 @@ func (VirtualServiceState) ElementType() reflect.Type {
 }
 
 type virtualServiceArgs struct {
-	MeshName           string              `pulumi:"meshName"`
-	MeshOwner          *string             `pulumi:"meshOwner"`
-	Spec               VirtualServiceSpec  `pulumi:"spec"`
-	Tags               []VirtualServiceTag `pulumi:"tags"`
-	VirtualServiceName *string             `pulumi:"virtualServiceName"`
+	MeshName           string             `pulumi:"meshName"`
+	MeshOwner          *string            `pulumi:"meshOwner"`
+	Spec               VirtualServiceSpec `pulumi:"spec"`
+	Tags               []aws.Tag          `pulumi:"tags"`
+	VirtualServiceName *string            `pulumi:"virtualServiceName"`
 }
 
 // The set of arguments for constructing a VirtualService resource.
@@ -92,7 +93,7 @@ type VirtualServiceArgs struct {
 	MeshName           pulumi.StringInput
 	MeshOwner          pulumi.StringPtrInput
 	Spec               VirtualServiceSpecInput
-	Tags               VirtualServiceTagArrayInput
+	Tags               aws.TagArrayInput
 	VirtualServiceName pulumi.StringPtrInput
 }
 
@@ -153,8 +154,8 @@ func (o VirtualServiceOutput) Spec() VirtualServiceSpecOutput {
 	return o.ApplyT(func(v *VirtualService) VirtualServiceSpecOutput { return v.Spec }).(VirtualServiceSpecOutput)
 }
 
-func (o VirtualServiceOutput) Tags() VirtualServiceTagArrayOutput {
-	return o.ApplyT(func(v *VirtualService) VirtualServiceTagArrayOutput { return v.Tags }).(VirtualServiceTagArrayOutput)
+func (o VirtualServiceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VirtualService) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o VirtualServiceOutput) Uid() pulumi.StringOutput {

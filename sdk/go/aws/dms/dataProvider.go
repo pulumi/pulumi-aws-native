@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type DataProvider struct {
 	// The property identifies the exact type of settings for the data provider.
 	Settings pulumi.AnyOutput `pulumi:"settings"`
 	// An array of key-value pairs to apply to this resource.
-	Tags DataProviderTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataProvider registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +93,7 @@ type dataProviderArgs struct {
 	// The property identifies the exact type of settings for the data provider.
 	Settings interface{} `pulumi:"settings"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DataProviderTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataProvider resource.
@@ -110,7 +111,7 @@ type DataProviderArgs struct {
 	// The property identifies the exact type of settings for the data provider.
 	Settings pulumi.Input
 	// An array of key-value pairs to apply to this resource.
-	Tags DataProviderTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DataProviderArgs) ElementType() reflect.Type {
@@ -191,8 +192,8 @@ func (o DataProviderOutput) Settings() pulumi.AnyOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o DataProviderOutput) Tags() DataProviderTagArrayOutput {
-	return o.ApplyT(func(v *DataProvider) DataProviderTagArrayOutput { return v.Tags }).(DataProviderTagArrayOutput)
+func (o DataProviderOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DataProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

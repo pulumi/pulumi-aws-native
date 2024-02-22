@@ -19,7 +19,6 @@ __all__ = [
     'CampaignDataDestinationConfig1Properties',
     'CampaignS3Config',
     'CampaignSignalInformation',
-    'CampaignTag',
     'CampaignTimeBasedCollectionScheme',
     'CampaignTimestreamConfig',
     'DecoderManifestCanInterface',
@@ -30,9 +29,6 @@ __all__ = [
     'DecoderManifestObdNetworkInterface',
     'DecoderManifestObdSignal',
     'DecoderManifestObdSignalDecoder',
-    'DecoderManifestTag',
-    'FleetTag',
-    'ModelManifestTag',
     'SignalCatalogActuator',
     'SignalCatalogAttribute',
     'SignalCatalogBranch',
@@ -42,8 +38,6 @@ __all__ = [
     'SignalCatalogNode3Properties',
     'SignalCatalogNodeCounts',
     'SignalCatalogSensor',
-    'SignalCatalogTag',
-    'VehicleTag',
     'VehicleattributesMap',
 ]
 
@@ -322,25 +316,6 @@ class CampaignSignalInformation(dict):
     @pulumi.getter(name="minimumSamplingIntervalMs")
     def minimum_sampling_interval_ms(self) -> Optional[float]:
         return pulumi.get(self, "minimum_sampling_interval_ms")
-
-
-@pulumi.output_type
-class CampaignTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -924,63 +899,6 @@ class DecoderManifestObdSignalDecoder(dict):
 
 
 @pulumi.output_type
-class DecoderManifestTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class FleetTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ModelManifestTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class SignalCatalogActuator(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1407,44 +1325,6 @@ class SignalCatalogSensor(dict):
     @pulumi.getter
     def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
-
-
-@pulumi.output_type
-class SignalCatalogTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VehicleTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

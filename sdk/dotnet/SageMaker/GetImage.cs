@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ImageTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetImageResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? imageRoleArn,
 
-            ImmutableArray<Outputs.ImageTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ImageArn = imageArn;
             ImageDescription = imageDescription;

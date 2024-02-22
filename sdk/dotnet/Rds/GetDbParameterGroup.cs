@@ -66,13 +66,13 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DbParameterGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDbParameterGroupResult(
             object? parameters,
 
-            ImmutableArray<Outputs.DbParameterGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Parameters = parameters;
             Tags = tags;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupIdentityResult struct {
 	IdentityDnsRecordValue2   *string                     `pulumi:"identityDnsRecordValue2"`
 	IdentityDnsRecordValue3   *string                     `pulumi:"identityDnsRecordValue3"`
 	MailFromAttributes        *IdentityMailFromAttributes `pulumi:"mailFromAttributes"`
-	Tags                      []IdentityTags              `pulumi:"tags"`
+	Tags                      []aws.Tag                   `pulumi:"tags"`
 }
 
 func LookupIdentityOutput(ctx *pulumi.Context, args LookupIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityResultOutput {
@@ -115,8 +116,8 @@ func (o LookupIdentityResultOutput) MailFromAttributes() IdentityMailFromAttribu
 	return o.ApplyT(func(v LookupIdentityResult) *IdentityMailFromAttributes { return v.MailFromAttributes }).(IdentityMailFromAttributesPtrOutput)
 }
 
-func (o LookupIdentityResultOutput) Tags() IdentityTagsArrayOutput {
-	return o.ApplyT(func(v LookupIdentityResult) []IdentityTags { return v.Tags }).(IdentityTagsArrayOutput)
+func (o LookupIdentityResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIdentityResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

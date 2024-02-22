@@ -12,7 +12,6 @@ from ._enums import *
 
 __all__ = [
     'KeyspaceReplicationSpecificationArgs',
-    'KeyspaceTagArgs',
     'TableAutoScalingSettingArgs',
     'TableAutoScalingSpecificationArgs',
     'TableBillingModeArgs',
@@ -22,7 +21,6 @@ __all__ = [
     'TableProvisionedThroughputArgs',
     'TableReplicaSpecificationArgs',
     'TableScalingPolicyArgs',
-    'TableTagArgs',
     'TableTargetTrackingScalingPolicyConfigurationArgs',
 ]
 
@@ -53,33 +51,6 @@ class KeyspaceReplicationSpecificationArgs:
     @replication_strategy.setter
     def replication_strategy(self, value: Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']]):
         pulumi.set(self, "replication_strategy", value)
-
-
-@pulumi.input_type
-class KeyspaceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -375,36 +346,6 @@ class TableScalingPolicyArgs:
     @target_tracking_scaling_policy_configuration.setter
     def target_tracking_scaling_policy_configuration(self, value: Optional[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgs']]):
         pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
-
-
-@pulumi.input_type
-class TableTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to apply to the resource
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

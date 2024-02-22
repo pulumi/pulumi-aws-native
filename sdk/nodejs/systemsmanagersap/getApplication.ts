@@ -35,7 +35,7 @@ export interface GetApplicationResult {
     /**
      * The tags of a SystemsManagerSAP application.
      */
-    readonly tags?: outputs.systemsmanagersap.ApplicationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::SystemsManagerSAP::Application

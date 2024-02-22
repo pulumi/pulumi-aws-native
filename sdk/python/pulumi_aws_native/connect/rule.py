@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class RuleArgs:
                  publish_status: pulumi.Input['RulePublishStatus'],
                  trigger_event_source: pulumi.Input['RuleTriggerEventSourceArgs'],
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input['RuleActionsArgs'] actions: The list of actions that will be executed when a rule is triggered.
@@ -32,7 +34,7 @@ class RuleArgs:
         :param pulumi.Input['RulePublishStatus'] publish_status: The publish status of a rule, either draft or published.
         :param pulumi.Input['RuleTriggerEventSourceArgs'] trigger_event_source: The event source that triggers the rule.
         :param pulumi.Input[str] name: The name of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "function", function)
@@ -118,14 +120,14 @@ class RuleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -139,7 +141,7 @@ class Rule(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  publish_status: Optional[pulumi.Input['RulePublishStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  trigger_event_source: Optional[pulumi.Input[pulumi.InputType['RuleTriggerEventSourceArgs']]] = None,
                  __props__=None):
         """
@@ -152,7 +154,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the instance.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input['RulePublishStatus'] publish_status: The publish status of a rule, either draft or published.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleTagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
         :param pulumi.Input[pulumi.InputType['RuleTriggerEventSourceArgs']] trigger_event_source: The event source that triggers the rule.
         """
         ...
@@ -184,7 +186,7 @@ class Rule(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  publish_status: Optional[pulumi.Input['RulePublishStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  trigger_event_source: Optional[pulumi.Input[pulumi.InputType['RuleTriggerEventSourceArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -297,7 +299,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RuleTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         One or more tags.
         """

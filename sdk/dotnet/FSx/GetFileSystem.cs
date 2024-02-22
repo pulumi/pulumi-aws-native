@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.FSx
         public readonly string? RootVolumeId;
         public readonly int? StorageCapacity;
         public readonly string? StorageType;
-        public readonly ImmutableArray<Outputs.FileSystemTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.FileSystemWindowsConfiguration? WindowsConfiguration;
 
         [OutputConstructor]
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.FSx
 
             string? storageType,
 
-            ImmutableArray<Outputs.FileSystemTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.FileSystemWindowsConfiguration? windowsConfiguration)
         {

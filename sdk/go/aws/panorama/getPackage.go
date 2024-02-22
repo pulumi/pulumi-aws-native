@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupPackageResult struct {
 	CreatedTime     *int                    `pulumi:"createdTime"`
 	PackageId       *string                 `pulumi:"packageId"`
 	StorageLocation *PackageStorageLocation `pulumi:"storageLocation"`
-	Tags            []PackageTag            `pulumi:"tags"`
+	Tags            []aws.Tag               `pulumi:"tags"`
 }
 
 func LookupPackageOutput(ctx *pulumi.Context, args LookupPackageOutputArgs, opts ...pulumi.InvokeOption) LookupPackageResultOutput {
@@ -85,8 +86,8 @@ func (o LookupPackageResultOutput) StorageLocation() PackageStorageLocationPtrOu
 	return o.ApplyT(func(v LookupPackageResult) *PackageStorageLocation { return v.StorageLocation }).(PackageStorageLocationPtrOutput)
 }
 
-func (o LookupPackageResultOutput) Tags() PackageTagArrayOutput {
-	return o.ApplyT(func(v LookupPackageResult) []PackageTag { return v.Tags }).(PackageTagArrayOutput)
+func (o LookupPackageResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPackageResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

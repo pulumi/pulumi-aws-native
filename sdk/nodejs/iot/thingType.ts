@@ -42,7 +42,7 @@ export class ThingType extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.iot.ThingTypeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly thingTypeName!: pulumi.Output<string | undefined>;
     public readonly thingTypeProperties!: pulumi.Output<outputs.iot.ThingTypePropertiesProperties | undefined>;
 
@@ -84,7 +84,7 @@ export interface ThingTypeArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.ThingTypeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     thingTypeName?: pulumi.Input<string>;
     thingTypeProperties?: pulumi.Input<inputs.iot.ThingTypePropertiesPropertiesArgs>;
 }

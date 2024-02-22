@@ -24,7 +24,7 @@ export interface GetTrafficMirrorTargetArgs {
 
 export interface GetTrafficMirrorTargetResult {
     readonly id?: string;
-    readonly tags?: outputs.ec2.TrafficMirrorTargetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::TrafficMirrorTarget

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupDetectorResult struct {
 	Features                   []DetectorCfnFeatureConfiguration    `pulumi:"features"`
 	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
 	Id                         *string                              `pulumi:"id"`
-	Tags                       []DetectorTagItem                    `pulumi:"tags"`
+	Tags                       []aws.Tag                            `pulumi:"tags"`
 }
 
 func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorResultOutput {
@@ -90,8 +91,8 @@ func (o LookupDetectorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDetectorResultOutput) Tags() DetectorTagItemArrayOutput {
-	return o.ApplyT(func(v LookupDetectorResult) []DetectorTagItem { return v.Tags }).(DetectorTagItemArrayOutput)
+func (o LookupDetectorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDetectorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

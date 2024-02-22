@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupUserGroupResult struct {
 	// Indicates user group status. Can be "creating", "active", "modifying", "deleting".
 	Status *string `pulumi:"status"`
 	// An array of key-value pairs to apply to this user.
-	Tags []UserGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// List of users associated to this user group.
 	UserIds []string `pulumi:"userIds"`
 }
@@ -85,8 +86,8 @@ func (o LookupUserGroupResultOutput) Status() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this user.
-func (o LookupUserGroupResultOutput) Tags() UserGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupUserGroupResult) []UserGroupTag { return v.Tags }).(UserGroupTagArrayOutput)
+func (o LookupUserGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupUserGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // List of users associated to this user group.

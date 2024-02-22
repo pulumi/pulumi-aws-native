@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type Namespace struct {
 	// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The list of tags for the namespace.
-	Tags NamespaceTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -106,7 +107,7 @@ type namespaceArgs struct {
 	// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The list of tags for the namespace.
-	Tags []NamespaceTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Namespace resource.
@@ -132,7 +133,7 @@ type NamespaceArgs struct {
 	// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
 	NamespaceName pulumi.StringPtrInput
 	// The list of tags for the namespace.
-	Tags NamespaceTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -227,8 +228,8 @@ func (o NamespaceOutput) NamespaceName() pulumi.StringOutput {
 }
 
 // The list of tags for the namespace.
-func (o NamespaceOutput) Tags() NamespaceTagArrayOutput {
-	return o.ApplyT(func(v *Namespace) NamespaceTagArrayOutput { return v.Tags }).(NamespaceTagArrayOutput)
+func (o NamespaceOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Namespace) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

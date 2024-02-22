@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type WirelessDevice struct {
 	// Wireless device name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
-	Tags WirelessDeviceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Thing arn. Passed into update to associate Thing with Wireless device.
 	ThingArn pulumi.StringPtrOutput `pulumi:"thingArn"`
 	// Thing Arn. If there is a Thing created, this can be returned with a Get call.
@@ -95,7 +96,7 @@ type wirelessDeviceArgs struct {
 	// Wireless device name
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
-	Tags []WirelessDeviceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Thing arn. Passed into update to associate Thing with Wireless device.
 	ThingArn *string `pulumi:"thingArn"`
 	// Wireless device type, currently only Sidewalk and LoRa
@@ -115,7 +116,7 @@ type WirelessDeviceArgs struct {
 	// Wireless device name
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
-	Tags WirelessDeviceTagArrayInput
+	Tags aws.TagArrayInput
 	// Thing arn. Passed into update to associate Thing with Wireless device.
 	ThingArn pulumi.StringPtrInput
 	// Wireless device type, currently only Sidewalk and LoRa
@@ -190,8 +191,8 @@ func (o WirelessDeviceOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
-func (o WirelessDeviceOutput) Tags() WirelessDeviceTagArrayOutput {
-	return o.ApplyT(func(v *WirelessDevice) WirelessDeviceTagArrayOutput { return v.Tags }).(WirelessDeviceTagArrayOutput)
+func (o WirelessDeviceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *WirelessDevice) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Thing arn. Passed into update to associate Thing with Wireless device.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupWorkflowResult struct {
 	// Specifies the unique Amazon Resource Name (ARN) for the workflow.
 	Arn *string `pulumi:"arn"`
 	// Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
-	Tags []WorkflowTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A unique identifier for the workflow.
 	WorkflowId *string `pulumi:"workflowId"`
 }
@@ -78,8 +79,8 @@ func (o LookupWorkflowResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
-func (o LookupWorkflowResultOutput) Tags() WorkflowTagArrayOutput {
-	return o.ApplyT(func(v LookupWorkflowResult) []WorkflowTag { return v.Tags }).(WorkflowTagArrayOutput)
+func (o LookupWorkflowResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A unique identifier for the workflow.

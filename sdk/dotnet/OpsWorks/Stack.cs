@@ -19,11 +19,8 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("agentVersion")]
         public Output<string?> AgentVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-        /// </summary>
         [Output("attributes")]
-        public Output<object?> Attributes { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
         [Output("chefConfiguration")]
         public Output<Outputs.StackChefConfiguration?> ChefConfiguration { get; private set; } = null!;
@@ -86,7 +83,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public Output<string?> SourceStackId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.StackTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("useCustomCookbooks")]
         public Output<bool?> UseCustomCookbooks { get; private set; } = null!;
@@ -153,11 +150,13 @@ namespace Pulumi.AwsNative.OpsWorks
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
 
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-        /// </summary>
         [Input("attributes")]
-        public Input<object>? Attributes { get; set; }
+        private InputMap<string>? _attributes;
+        public InputMap<string> Attributes
+        {
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
+        }
 
         [Input("chefConfiguration")]
         public Input<Inputs.StackChefConfigurationArgs>? ChefConfiguration { get; set; }
@@ -235,10 +234,10 @@ namespace Pulumi.AwsNative.OpsWorks
         public Input<string>? SourceStackId { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.StackTagArgs>? _tags;
-        public InputList<Inputs.StackTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.StackTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

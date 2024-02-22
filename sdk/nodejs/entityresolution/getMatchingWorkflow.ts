@@ -35,7 +35,7 @@ export interface GetMatchingWorkflowResult {
     readonly outputSourceConfig?: outputs.entityresolution.MatchingWorkflowOutputSource[];
     readonly resolutionTechniques?: outputs.entityresolution.MatchingWorkflowResolutionTechniques;
     readonly roleArn?: string;
-    readonly tags?: outputs.entityresolution.MatchingWorkflowTag[];
+    readonly tags?: outputs.Tag[];
     readonly updatedAt?: string;
     readonly workflowArn?: string;
 }

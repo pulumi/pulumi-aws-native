@@ -66,7 +66,7 @@ export class Faq extends pulumi.CustomResource {
     /**
      * Tags for labeling the FAQ
      */
-    public readonly tags!: pulumi.Output<outputs.kendra.FaqTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Faq resource with the given unique name, arguments, and options.
@@ -147,5 +147,5 @@ export interface FaqArgs {
     /**
      * Tags for labeling the FAQ
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.kendra.FaqTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

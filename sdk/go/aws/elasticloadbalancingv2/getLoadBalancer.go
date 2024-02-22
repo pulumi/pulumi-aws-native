@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -51,7 +52,7 @@ type LookupLoadBalancerResult struct {
 	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 	Subnets []string `pulumi:"subnets"`
 	// The tags to assign to the load balancer.
-	Tags []LoadBalancerTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
@@ -148,8 +149,8 @@ func (o LookupLoadBalancerResultOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 // The tags to assign to the load balancer.
-func (o LookupLoadBalancerResultOutput) Tags() LoadBalancerTagArrayOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) []LoadBalancerTag { return v.Tags }).(LoadBalancerTagArrayOutput)
+func (o LookupLoadBalancerResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

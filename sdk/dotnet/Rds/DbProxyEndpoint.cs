@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Rds
         /// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DbProxyEndpointTagFormat>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
@@ -139,14 +139,14 @@ namespace Pulumi.AwsNative.Rds
         public Input<string> DbProxyName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.DbProxyEndpointTagFormatArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         /// </summary>
-        public InputList<Inputs.DbProxyEndpointTagFormatArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DbProxyEndpointTagFormatArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

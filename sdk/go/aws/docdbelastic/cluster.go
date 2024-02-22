@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type Cluster struct {
 	ShardCapacity              pulumi.IntOutput         `pulumi:"shardCapacity"`
 	ShardCount                 pulumi.IntOutput         `pulumi:"shardCount"`
 	SubnetIds                  pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	Tags                       ClusterTagArrayOutput    `pulumi:"tags"`
+	Tags                       aws.TagArrayOutput       `pulumi:"tags"`
 	VpcSecurityGroupIds        pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -90,17 +91,17 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	AdminUserName              string       `pulumi:"adminUserName"`
-	AdminUserPassword          *string      `pulumi:"adminUserPassword"`
-	AuthType                   string       `pulumi:"authType"`
-	ClusterName                *string      `pulumi:"clusterName"`
-	KmsKeyId                   *string      `pulumi:"kmsKeyId"`
-	PreferredMaintenanceWindow *string      `pulumi:"preferredMaintenanceWindow"`
-	ShardCapacity              int          `pulumi:"shardCapacity"`
-	ShardCount                 int          `pulumi:"shardCount"`
-	SubnetIds                  []string     `pulumi:"subnetIds"`
-	Tags                       []ClusterTag `pulumi:"tags"`
-	VpcSecurityGroupIds        []string     `pulumi:"vpcSecurityGroupIds"`
+	AdminUserName              string    `pulumi:"adminUserName"`
+	AdminUserPassword          *string   `pulumi:"adminUserPassword"`
+	AuthType                   string    `pulumi:"authType"`
+	ClusterName                *string   `pulumi:"clusterName"`
+	KmsKeyId                   *string   `pulumi:"kmsKeyId"`
+	PreferredMaintenanceWindow *string   `pulumi:"preferredMaintenanceWindow"`
+	ShardCapacity              int       `pulumi:"shardCapacity"`
+	ShardCount                 int       `pulumi:"shardCount"`
+	SubnetIds                  []string  `pulumi:"subnetIds"`
+	Tags                       []aws.Tag `pulumi:"tags"`
+	VpcSecurityGroupIds        []string  `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -114,7 +115,7 @@ type ClusterArgs struct {
 	ShardCapacity              pulumi.IntInput
 	ShardCount                 pulumi.IntInput
 	SubnetIds                  pulumi.StringArrayInput
-	Tags                       ClusterTagArrayInput
+	Tags                       aws.TagArrayInput
 	VpcSecurityGroupIds        pulumi.StringArrayInput
 }
 
@@ -199,8 +200,8 @@ func (o ClusterOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o ClusterOutput) Tags() ClusterTagArrayOutput {
-	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+func (o ClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Cluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

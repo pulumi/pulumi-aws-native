@@ -59,7 +59,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly stackPolicyUrl!: pulumi.Output<string | undefined>;
     public /*out*/ readonly stackStatus!: pulumi.Output<enums.cloudformation.StackStatus>;
     public readonly stackStatusReason!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.cloudformation.StackTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
      */
@@ -151,7 +151,7 @@ export interface StackArgs {
     stackPolicyBody?: any;
     stackPolicyUrl?: pulumi.Input<string>;
     stackStatusReason?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
      */

@@ -59,7 +59,7 @@ export class Space extends pulumi.CustomResource {
     /**
      * A list of tags to apply to the space.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.SpaceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -125,5 +125,5 @@ export interface SpaceArgs {
     /**
      * A list of tags to apply to the space.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type DeliverySource struct {
 	// The AWS service that is sending logs.
 	Service pulumi.StringOutput `pulumi:"service"`
 	// The tags that have been assigned to this delivery source.
-	Tags DeliverySourceTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDeliverySource registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +85,7 @@ type deliverySourceArgs struct {
 	// The ARN of the resource that will be sending the logs.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The tags that have been assigned to this delivery source.
-	Tags []DeliverySourceTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeliverySource resource.
@@ -96,7 +97,7 @@ type DeliverySourceArgs struct {
 	// The ARN of the resource that will be sending the logs.
 	ResourceArn pulumi.StringPtrInput
 	// The tags that have been assigned to this delivery source.
-	Tags DeliverySourceTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DeliverySourceArgs) ElementType() reflect.Type {
@@ -167,8 +168,8 @@ func (o DeliverySourceOutput) Service() pulumi.StringOutput {
 }
 
 // The tags that have been assigned to this delivery source.
-func (o DeliverySourceOutput) Tags() DeliverySourceTagArrayOutput {
-	return o.ApplyT(func(v *DeliverySource) DeliverySourceTagArrayOutput { return v.Tags }).(DeliverySourceTagArrayOutput)
+func (o DeliverySourceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DeliverySource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

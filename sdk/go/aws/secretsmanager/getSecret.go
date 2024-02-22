@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupSecretResult struct {
 	// (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
 	ReplicaRegions []SecretReplicaRegion `pulumi:"replicaRegions"`
 	// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-	Tags []SecretTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
@@ -97,8 +98,8 @@ func (o LookupSecretResultOutput) ReplicaRegions() SecretReplicaRegionArrayOutpu
 }
 
 // The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-func (o LookupSecretResultOutput) Tags() SecretTagArrayOutput {
-	return o.ApplyT(func(v LookupSecretResult) []SecretTag { return v.Tags }).(SecretTagArrayOutput)
+func (o LookupSecretResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSecretResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

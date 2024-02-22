@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupSchemaMappingResult struct {
 	// The SchemaMapping attributes input
 	MappedInputFields []SchemaMappingSchemaInputAttribute `pulumi:"mappedInputFields"`
 	SchemaArn         *string                             `pulumi:"schemaArn"`
-	Tags              []SchemaMappingTag                  `pulumi:"tags"`
+	Tags              []aws.Tag                           `pulumi:"tags"`
 	UpdatedAt         *string                             `pulumi:"updatedAt"`
 }
 
@@ -97,8 +98,8 @@ func (o LookupSchemaMappingResultOutput) SchemaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchemaMappingResult) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSchemaMappingResultOutput) Tags() SchemaMappingTagArrayOutput {
-	return o.ApplyT(func(v LookupSchemaMappingResult) []SchemaMappingTag { return v.Tags }).(SchemaMappingTagArrayOutput)
+func (o LookupSchemaMappingResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSchemaMappingResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupSchemaMappingResultOutput) UpdatedAt() pulumi.StringPtrOutput {

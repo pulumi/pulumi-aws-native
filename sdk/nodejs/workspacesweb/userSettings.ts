@@ -47,7 +47,7 @@ export class UserSettings extends pulumi.CustomResource {
     public readonly idleDisconnectTimeoutInMinutes!: pulumi.Output<number | undefined>;
     public readonly pasteAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
     public readonly printAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
-    public readonly tags!: pulumi.Output<outputs.workspacesweb.UserSettingsTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly uploadAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
     public /*out*/ readonly userSettingsArn!: pulumi.Output<string>;
 
@@ -125,6 +125,6 @@ export interface UserSettingsArgs {
     idleDisconnectTimeoutInMinutes?: pulumi.Input<number>;
     pasteAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
     printAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
-    tags?: pulumi.Input<pulumi.Input<inputs.workspacesweb.UserSettingsTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     uploadAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
 }

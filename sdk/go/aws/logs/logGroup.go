@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type LogGroup struct {
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LogGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLogGroup registers a new resource with the given unique name, arguments, and options.
@@ -102,7 +103,7 @@ type logGroupArgs struct {
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LogGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogGroup resource.
@@ -126,7 +127,7 @@ type LogGroupArgs struct {
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
 	RetentionInDays pulumi.IntPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LogGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LogGroupArgs) ElementType() reflect.Type {
@@ -205,8 +206,8 @@ func (o LogGroupOutput) RetentionInDays() pulumi.IntPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LogGroupOutput) Tags() LogGroupTagArrayOutput {
-	return o.ApplyT(func(v *LogGroup) LogGroupTagArrayOutput { return v.Tags }).(LogGroupTagArrayOutput)
+func (o LogGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LogGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -19,7 +21,7 @@ class TlsInspectionConfigurationArgs:
     def __init__(__self__, *,
                  tls_inspection_configuration: pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tls_inspection_configuration_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TlsInspectionConfiguration resource.
@@ -52,11 +54,11 @@ class TlsInspectionConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -75,7 +77,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TlsInspectionConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tls_inspection_configuration: Optional[pulumi.Input[pulumi.InputType['TlsInspectionConfigurationTlsInspectionConfigurationArgs']]] = None,
                  tls_inspection_configuration_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -110,7 +112,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TlsInspectionConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tls_inspection_configuration: Optional[pulumi.Input[pulumi.InputType['TlsInspectionConfigurationTlsInspectionConfigurationArgs']]] = None,
                  tls_inspection_configuration_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -169,7 +171,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TlsInspectionConfigurationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

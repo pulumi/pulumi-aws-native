@@ -52,7 +52,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * Tags associated with the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.eventschemas.RegistryTagsEntry[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Registry resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface RegistryArgs {
     /**
      * Tags associated with the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.eventschemas.RegistryTagsEntryArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

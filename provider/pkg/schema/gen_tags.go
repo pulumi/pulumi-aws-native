@@ -10,10 +10,17 @@ import (
 type TagsStyle string
 
 const (
-	TagsStyleUnknown       TagsStyle = ""
-	TagsStyleUntyped       TagsStyle = "untyped"
-	TagsStyleStringMap     TagsStyle = "stringMap"
+	// TagsStyleUnknown indicates we can't identify the style of tags.
+	TagsStyleUnknown TagsStyle = ""
+	// TagsStyleUntyped is a style where the tags are represented as "Any" - without a schema.
+	TagsStyleUntyped TagsStyle = "untyped"
+	// TagsStyleStringMap is a style where the tags are represented as a map of strings.
+	TagsStyleStringMap TagsStyle = "stringMap"
+	// TagsStyleKeyValueArray is a style where the tags are represented as an array of key-value pairs.
 	TagsStyleKeyValueArray TagsStyle = "keyValueArray"
+	// TagsStyleKeyValueCreateOnlyArray is a style where the tags are represented as an array of key-value pairs, but
+	// the tags are create-only.
+	TagsStyleKeyValueCreateOnlyArray TagsStyle = "keyValueCreateOnlyArray"
 )
 
 func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
@@ -36,22 +43,53 @@ func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
 	return strings.TrimPrefix(tagPropertyString, "/properties/"), true
 }
 
-func (ctx *context) GetTagsStyle(typeSpec *pschema.TypeSpec, originalSpec *jsschema.Schema) TagsStyle {
-	if typeSpec == nil || originalSpec == nil {
+func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) TagsStyle {
+	if typeSpec == nil {
 		return TagsStyleUnknown
 	}
 	// Check for "Any" ref
 	if typeSpec.Ref == "pulumi.json#/Any" {
 		return TagsStyleUntyped
 	}
-	switch typeSpec.Type {
-	case "object":
-		if typeSpec.AdditionalProperties != nil && typeSpec.AdditionalProperties.Type == "string" {
-			return TagsStyleStringMap
-		} else {
-			return TagsStyleUnknown
-		}
-	default:
-		return TagsStyleUnknown
+
+	if typeSpec.AdditionalProperties != nil && typeSpec.AdditionalProperties.Type == "string" {
+		return TagsStyleStringMap
 	}
+
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, false /* includeCreateOnly */) {
+		return TagsStyleKeyValueArray
+	}
+
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeCreateOnly */) {
+		return TagsStyleKeyValueCreateOnlyArray
+	}
+
+	return TagsStyleUnknown
+}
+
+func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec, includeCreateOnly bool) bool {
+	if typeSpec == nil || typeSpec.Items == nil || typeSpec.Items.Ref == "" {
+		return false
+	}
+
+	typeToken, hasPrefix := strings.CutPrefix(typeSpec.Items.Ref, "#/types/")
+	if !hasPrefix {
+		return false
+	}
+
+	// We can't include tags which are create-only properties because this has to be added on the tags type but this is a shared type
+	if createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties"); createOnlyProps.Has(ToSdkName(propName)) && !includeCreateOnly {
+		return false
+	}
+
+	if refType, ok := ctx.pkg.Types[typeToken]; ok {
+		keyProp, keyPropExists := refType.Properties["key"]
+		valueProp, valuePropExists := refType.Properties["value"]
+		// Check if the type has exactly two properties, "key" and "value", both of type "string"
+		if keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string" && len(refType.Properties) == 2 {
+			return true
+		}
+	}
+
+	return false
 }

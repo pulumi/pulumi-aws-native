@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupAssetModelResult struct {
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties []AssetModelProperty `pulumi:"assetModelProperties"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags []AssetModelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAssetModelOutput(ctx *pulumi.Context, args LookupAssetModelOutputArgs, opts ...pulumi.InvokeOption) LookupAssetModelResultOutput {
@@ -118,8 +119,8 @@ func (o LookupAssetModelResultOutput) AssetModelProperties() AssetModelPropertyA
 }
 
 // A list of key-value pairs that contain metadata for the asset model.
-func (o LookupAssetModelResultOutput) Tags() AssetModelTagArrayOutput {
-	return o.ApplyT(func(v LookupAssetModelResult) []AssetModelTag { return v.Tags }).(AssetModelTagArrayOutput)
+func (o LookupAssetModelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAssetModelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

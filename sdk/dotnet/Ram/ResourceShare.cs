@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.Ram
         public Output<ImmutableArray<string>> Sources { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ResourceShareTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -124,10 +124,10 @@ namespace Pulumi.AwsNative.Ram
         }
 
         [Input("tags")]
-        private InputList<Inputs.ResourceShareTagArgs>? _tags;
-        public InputList<Inputs.ResourceShareTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ResourceShareTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

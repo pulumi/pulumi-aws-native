@@ -45,7 +45,7 @@ export class Fleet extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly lastModificationTime!: pulumi.Output<string>;
     public readonly signalCatalogArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.iotfleetwise.FleetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -90,5 +90,5 @@ export class Fleet extends pulumi.CustomResource {
 export interface FleetArgs {
     description?: pulumi.Input<string>;
     signalCatalogArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.FleetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

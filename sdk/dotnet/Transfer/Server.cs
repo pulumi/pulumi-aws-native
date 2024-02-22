@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Transfer
         public Output<ImmutableArray<Outputs.ServerStructuredLogDestination>> StructuredLogDestinations { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ServerTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("workflowDetails")]
         public Output<Outputs.ServerWorkflowDetails?> WorkflowDetails { get; private set; } = null!;
@@ -173,10 +173,10 @@ namespace Pulumi.AwsNative.Transfer
         }
 
         [Input("tags")]
-        private InputList<Inputs.ServerTagArgs>? _tags;
-        public InputList<Inputs.ServerTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ServerTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

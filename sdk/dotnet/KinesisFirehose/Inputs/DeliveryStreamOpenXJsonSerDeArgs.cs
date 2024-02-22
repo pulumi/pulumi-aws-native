@@ -16,7 +16,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<bool>? CaseInsensitive { get; set; }
 
         [Input("columnToJsonKeyMappings")]
-        public Input<object>? ColumnToJsonKeyMappings { get; set; }
+        private InputMap<string>? _columnToJsonKeyMappings;
+        public InputMap<string> ColumnToJsonKeyMappings
+        {
+            get => _columnToJsonKeyMappings ?? (_columnToJsonKeyMappings = new InputMap<string>());
+            set => _columnToJsonKeyMappings = value;
+        }
 
         [Input("convertDotsInJsonKeysToUnderscores")]
         public Input<bool>? ConvertDotsInJsonKeysToUnderscores { get; set; }

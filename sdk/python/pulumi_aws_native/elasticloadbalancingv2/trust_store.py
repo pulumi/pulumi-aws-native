@@ -8,8 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['TrustStoreArgs', 'TrustStore']
 
@@ -20,14 +20,14 @@ class TrustStoreArgs:
                  ca_certificates_bundle_s3_key: Optional[pulumi.Input[str]] = None,
                  ca_certificates_bundle_s3_object_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrustStoreTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
         :param pulumi.Input[str] ca_certificates_bundle_s3_bucket: The name of the S3 bucket to fetch the CA certificate bundle from.
         :param pulumi.Input[str] ca_certificates_bundle_s3_key: The name of the S3 object to fetch the CA certificate bundle from.
         :param pulumi.Input[str] ca_certificates_bundle_s3_object_version: The version of the S3 bucket that contains the CA certificate bundle.
         :param pulumi.Input[str] name: The name of the trust store.
-        :param pulumi.Input[Sequence[pulumi.Input['TrustStoreTagArgs']]] tags: The tags to assign to the trust store.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the trust store.
         """
         if ca_certificates_bundle_s3_bucket is not None:
             pulumi.set(__self__, "ca_certificates_bundle_s3_bucket", ca_certificates_bundle_s3_bucket)
@@ -90,14 +90,14 @@ class TrustStoreArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrustStoreTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to assign to the trust store.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrustStoreTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,7 +110,7 @@ class TrustStore(pulumi.CustomResource):
                  ca_certificates_bundle_s3_key: Optional[pulumi.Input[str]] = None,
                  ca_certificates_bundle_s3_object_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustStoreTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
@@ -121,7 +121,7 @@ class TrustStore(pulumi.CustomResource):
         :param pulumi.Input[str] ca_certificates_bundle_s3_key: The name of the S3 object to fetch the CA certificate bundle from.
         :param pulumi.Input[str] ca_certificates_bundle_s3_object_version: The version of the S3 bucket that contains the CA certificate bundle.
         :param pulumi.Input[str] name: The name of the trust store.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustStoreTagArgs']]]] tags: The tags to assign to the trust store.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the trust store.
         """
         ...
     @overload
@@ -151,7 +151,7 @@ class TrustStore(pulumi.CustomResource):
                  ca_certificates_bundle_s3_key: Optional[pulumi.Input[str]] = None,
                  ca_certificates_bundle_s3_object_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustStoreTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,7 +253,7 @@ class TrustStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TrustStoreTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags to assign to the trust store.
         """

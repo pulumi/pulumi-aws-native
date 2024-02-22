@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// Tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.FirewallRuleGroupAssociationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// VpcId
@@ -168,14 +168,14 @@ namespace Pulumi.AwsNative.Route53Resolver
         public Input<int> Priority { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.FirewallRuleGroupAssociationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags
         /// </summary>
-        public InputList<Inputs.FirewallRuleGroupAssociationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.FirewallRuleGroupAssociationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

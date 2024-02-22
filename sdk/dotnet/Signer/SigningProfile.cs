@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Signer
         /// A list of tags associated with the signing profile.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SigningProfileTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -120,14 +120,14 @@ namespace Pulumi.AwsNative.Signer
         public Input<Inputs.SigningProfileSignatureValidityPeriodArgs>? SignatureValidityPeriod { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.SigningProfileTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// A list of tags associated with the signing profile.
         /// </summary>
-        public InputList<Inputs.SigningProfileTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SigningProfileTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

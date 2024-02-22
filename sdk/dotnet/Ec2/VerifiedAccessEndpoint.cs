@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.Ec2
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VerifiedAccessEndpointTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the AWS Verified Access endpoint.
@@ -276,14 +276,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<Inputs.VerifiedAccessEndpointSseSpecificationArgs>? SseSpecification { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.VerifiedAccessEndpointTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.VerifiedAccessEndpointTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VerifiedAccessEndpointTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

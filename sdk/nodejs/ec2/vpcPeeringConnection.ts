@@ -53,7 +53,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      * The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
      */
     public readonly peerVpcId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.ec2.VpcPeeringConnectionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC.
      */
@@ -117,7 +117,7 @@ export interface VpcPeeringConnectionArgs {
      * The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
      */
     peerVpcId: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.VpcPeeringConnectionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the VPC.
      */

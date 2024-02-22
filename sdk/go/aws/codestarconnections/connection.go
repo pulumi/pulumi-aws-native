@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type Connection struct {
 	// The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
 	ProviderType pulumi.StringPtrOutput `pulumi:"providerType"`
 	// Specifies the tags applied to a connection.
-	Tags ConnectionTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +85,7 @@ type connectionArgs struct {
 	// The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
 	ProviderType *string `pulumi:"providerType"`
 	// Specifies the tags applied to a connection.
-	Tags []ConnectionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
@@ -96,7 +97,7 @@ type ConnectionArgs struct {
 	// The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
 	ProviderType pulumi.StringPtrInput
 	// Specifies the tags applied to a connection.
-	Tags ConnectionTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -167,8 +168,8 @@ func (o ConnectionOutput) ProviderType() pulumi.StringPtrOutput {
 }
 
 // Specifies the tags applied to a connection.
-func (o ConnectionOutput) Tags() ConnectionTagArrayOutput {
-	return o.ApplyT(func(v *Connection) ConnectionTagArrayOutput { return v.Tags }).(ConnectionTagArrayOutput)
+func (o ConnectionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Connection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

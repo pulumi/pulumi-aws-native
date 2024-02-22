@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> RoleArn { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.PipelineTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -128,10 +128,10 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.PipelineTagArgs>? _tags;
-        public InputList<Inputs.PipelineTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.PipelineTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

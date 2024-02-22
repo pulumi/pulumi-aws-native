@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupProfilingGroupResult struct {
 	// The Amazon Resource Name (ARN) of the specified profiling group.
 	Arn *string `pulumi:"arn"`
 	// The tags associated with a profiling group.
-	Tags []ProfilingGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProfilingGroupOutput(ctx *pulumi.Context, args LookupProfilingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupProfilingGroupResultOutput {
@@ -92,8 +93,8 @@ func (o LookupProfilingGroupResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // The tags associated with a profiling group.
-func (o LookupProfilingGroupResultOutput) Tags() ProfilingGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupProfilingGroupResult) []ProfilingGroupTag { return v.Tags }).(ProfilingGroupTagArrayOutput)
+func (o LookupProfilingGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProfilingGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

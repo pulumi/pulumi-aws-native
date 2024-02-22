@@ -30,7 +30,7 @@ export interface GetStreamResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.qldb.StreamTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::QLDB::Stream.

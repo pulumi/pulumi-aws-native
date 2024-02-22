@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type DbSubnetGroup struct {
 	DbSubnetGroupName        pulumi.StringPtrOutput   `pulumi:"dbSubnetGroupName"`
 	SubnetIds                pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// An array of key-value pairs to apply to this resource.
-	Tags DbSubnetGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDbSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +78,7 @@ type dbSubnetGroupArgs struct {
 	DbSubnetGroupName        *string  `pulumi:"dbSubnetGroupName"`
 	SubnetIds                []string `pulumi:"subnetIds"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []DbSubnetGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DbSubnetGroup resource.
@@ -86,7 +87,7 @@ type DbSubnetGroupArgs struct {
 	DbSubnetGroupName        pulumi.StringPtrInput
 	SubnetIds                pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags DbSubnetGroupTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (DbSubnetGroupArgs) ElementType() reflect.Type {
@@ -139,8 +140,8 @@ func (o DbSubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o DbSubnetGroupOutput) Tags() DbSubnetGroupTagArrayOutput {
-	return o.ApplyT(func(v *DbSubnetGroup) DbSubnetGroupTagArrayOutput { return v.Tags }).(DbSubnetGroupTagArrayOutput)
+func (o DbSubnetGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbSubnetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

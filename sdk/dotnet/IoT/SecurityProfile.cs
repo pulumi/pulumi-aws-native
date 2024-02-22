@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.IoT
         /// Metadata that can be used to manage the security profile.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SecurityProfileTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A set of target ARNs that the security profile is attached to.
@@ -173,14 +173,14 @@ namespace Pulumi.AwsNative.IoT
         public Input<string>? SecurityProfileName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.SecurityProfileTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Metadata that can be used to manage the security profile.
         /// </summary>
-        public InputList<Inputs.SecurityProfileTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SecurityProfileTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

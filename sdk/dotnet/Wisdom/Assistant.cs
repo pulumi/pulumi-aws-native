@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Wisdom
         public Output<Outputs.AssistantServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AssistantTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<Pulumi.AwsNative.Wisdom.AssistantType> Type { get; private set; } = null!;
@@ -99,10 +99,10 @@ namespace Pulumi.AwsNative.Wisdom
         public Input<Inputs.AssistantServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AssistantTagArgs>? _tags;
-        public InputList<Inputs.AssistantTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AssistantTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

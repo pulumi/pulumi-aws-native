@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// <summary>
         /// Specifies the tags applied to a connection.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetConnectionResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
 
             string? ownerAccountId,
 
-            ImmutableArray<Outputs.ConnectionTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ConnectionArn = connectionArn;
             ConnectionStatus = connectionStatus;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,20 +28,20 @@ type LookupReplicationInstanceArgs struct {
 }
 
 type LookupReplicationInstanceResult struct {
-	AllocatedStorage                      *int                     `pulumi:"allocatedStorage"`
-	AllowMajorVersionUpgrade              *bool                    `pulumi:"allowMajorVersionUpgrade"`
-	AutoMinorVersionUpgrade               *bool                    `pulumi:"autoMinorVersionUpgrade"`
-	AvailabilityZone                      *string                  `pulumi:"availabilityZone"`
-	EngineVersion                         *string                  `pulumi:"engineVersion"`
-	Id                                    *string                  `pulumi:"id"`
-	MultiAz                               *bool                    `pulumi:"multiAz"`
-	PreferredMaintenanceWindow            *string                  `pulumi:"preferredMaintenanceWindow"`
-	ReplicationInstanceClass              *string                  `pulumi:"replicationInstanceClass"`
-	ReplicationInstanceIdentifier         *string                  `pulumi:"replicationInstanceIdentifier"`
-	ReplicationInstancePrivateIpAddresses *string                  `pulumi:"replicationInstancePrivateIpAddresses"`
-	ReplicationInstancePublicIpAddresses  *string                  `pulumi:"replicationInstancePublicIpAddresses"`
-	Tags                                  []ReplicationInstanceTag `pulumi:"tags"`
-	VpcSecurityGroupIds                   []string                 `pulumi:"vpcSecurityGroupIds"`
+	AllocatedStorage                      *int      `pulumi:"allocatedStorage"`
+	AllowMajorVersionUpgrade              *bool     `pulumi:"allowMajorVersionUpgrade"`
+	AutoMinorVersionUpgrade               *bool     `pulumi:"autoMinorVersionUpgrade"`
+	AvailabilityZone                      *string   `pulumi:"availabilityZone"`
+	EngineVersion                         *string   `pulumi:"engineVersion"`
+	Id                                    *string   `pulumi:"id"`
+	MultiAz                               *bool     `pulumi:"multiAz"`
+	PreferredMaintenanceWindow            *string   `pulumi:"preferredMaintenanceWindow"`
+	ReplicationInstanceClass              *string   `pulumi:"replicationInstanceClass"`
+	ReplicationInstanceIdentifier         *string   `pulumi:"replicationInstanceIdentifier"`
+	ReplicationInstancePrivateIpAddresses *string   `pulumi:"replicationInstancePrivateIpAddresses"`
+	ReplicationInstancePublicIpAddresses  *string   `pulumi:"replicationInstancePublicIpAddresses"`
+	Tags                                  []aws.Tag `pulumi:"tags"`
+	VpcSecurityGroupIds                   []string  `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupReplicationInstanceOutput(ctx *pulumi.Context, args LookupReplicationInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationInstanceResultOutput {
@@ -126,8 +127,8 @@ func (o LookupReplicationInstanceResultOutput) ReplicationInstancePublicIpAddres
 	return o.ApplyT(func(v LookupReplicationInstanceResult) *string { return v.ReplicationInstancePublicIpAddresses }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupReplicationInstanceResultOutput) Tags() ReplicationInstanceTagArrayOutput {
-	return o.ApplyT(func(v LookupReplicationInstanceResult) []ReplicationInstanceTag { return v.Tags }).(ReplicationInstanceTagArrayOutput)
+func (o LookupReplicationInstanceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupReplicationInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupReplicationInstanceResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

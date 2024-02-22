@@ -52,7 +52,7 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
     /**
      * The tags for the attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayConnectTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the Connect attachment.
      */
@@ -117,7 +117,7 @@ export interface TransitGatewayConnectArgs {
     /**
      * The tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayConnectTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the attachment from which the Connect attachment was created.
      */

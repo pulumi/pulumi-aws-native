@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type SafetyRule struct {
 	// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 	Status SafetyRuleStatusOutput `pulumi:"status"`
 	// A collection of tags associated with a resource
-	Tags SafetyRuleTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSafetyRule registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +83,7 @@ type safetyRuleArgs struct {
 	Name            *string               `pulumi:"name"`
 	RuleConfig      *SafetyRuleRuleConfig `pulumi:"ruleConfig"`
 	// A collection of tags associated with a resource
-	Tags []SafetyRuleTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SafetyRule resource.
@@ -94,7 +95,7 @@ type SafetyRuleArgs struct {
 	Name            pulumi.StringPtrInput
 	RuleConfig      SafetyRuleRuleConfigPtrInput
 	// A collection of tags associated with a resource
-	Tags SafetyRuleTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (SafetyRuleArgs) ElementType() reflect.Type {
@@ -166,8 +167,8 @@ func (o SafetyRuleOutput) Status() SafetyRuleStatusOutput {
 }
 
 // A collection of tags associated with a resource
-func (o SafetyRuleOutput) Tags() SafetyRuleTagArrayOutput {
-	return o.ApplyT(func(v *SafetyRule) SafetyRuleTagArrayOutput { return v.Tags }).(SafetyRuleTagArrayOutput)
+func (o SafetyRuleOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *SafetyRule) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

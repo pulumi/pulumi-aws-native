@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type AllowList struct {
 	// AllowList status.
 	Status AllowListStatusOutput `pulumi:"status"`
 	// A collection of tags associated with a resource
-	Tags AllowListTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAllowList registers a new resource with the given unique name, arguments, and options.
@@ -80,7 +81,7 @@ type allowListArgs struct {
 	// Name of AllowList.
 	Name *string `pulumi:"name"`
 	// A collection of tags associated with a resource
-	Tags []AllowListTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AllowList resource.
@@ -92,7 +93,7 @@ type AllowListArgs struct {
 	// Name of AllowList.
 	Name pulumi.StringPtrInput
 	// A collection of tags associated with a resource
-	Tags AllowListTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AllowListArgs) ElementType() reflect.Type {
@@ -158,8 +159,8 @@ func (o AllowListOutput) Status() AllowListStatusOutput {
 }
 
 // A collection of tags associated with a resource
-func (o AllowListOutput) Tags() AllowListTagArrayOutput {
-	return o.ApplyT(func(v *AllowList) AllowListTagArrayOutput { return v.Tags }).(AllowListTagArrayOutput)
+func (o AllowListOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AllowList) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

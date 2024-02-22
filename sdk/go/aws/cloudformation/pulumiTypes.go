@@ -1198,205 +1198,9 @@ type StackSetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// StackSetTagInput is an input type that accepts StackSetTagArgs and StackSetTagOutput values.
-// You can construct a concrete instance of `StackSetTagInput` via:
-//
-//	StackSetTagArgs{...}
-type StackSetTagInput interface {
-	pulumi.Input
-
-	ToStackSetTagOutput() StackSetTagOutput
-	ToStackSetTagOutputWithContext(context.Context) StackSetTagOutput
-}
-
-// Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
-type StackSetTagArgs struct {
-	// A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StackSetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackSetTag)(nil)).Elem()
-}
-
-func (i StackSetTagArgs) ToStackSetTagOutput() StackSetTagOutput {
-	return i.ToStackSetTagOutputWithContext(context.Background())
-}
-
-func (i StackSetTagArgs) ToStackSetTagOutputWithContext(ctx context.Context) StackSetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackSetTagOutput)
-}
-
-// StackSetTagArrayInput is an input type that accepts StackSetTagArray and StackSetTagArrayOutput values.
-// You can construct a concrete instance of `StackSetTagArrayInput` via:
-//
-//	StackSetTagArray{ StackSetTagArgs{...} }
-type StackSetTagArrayInput interface {
-	pulumi.Input
-
-	ToStackSetTagArrayOutput() StackSetTagArrayOutput
-	ToStackSetTagArrayOutputWithContext(context.Context) StackSetTagArrayOutput
-}
-
-type StackSetTagArray []StackSetTagInput
-
-func (StackSetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackSetTag)(nil)).Elem()
-}
-
-func (i StackSetTagArray) ToStackSetTagArrayOutput() StackSetTagArrayOutput {
-	return i.ToStackSetTagArrayOutputWithContext(context.Background())
-}
-
-func (i StackSetTagArray) ToStackSetTagArrayOutputWithContext(ctx context.Context) StackSetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackSetTagArrayOutput)
-}
-
-// Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
-type StackSetTagOutput struct{ *pulumi.OutputState }
-
-func (StackSetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackSetTag)(nil)).Elem()
-}
-
-func (o StackSetTagOutput) ToStackSetTagOutput() StackSetTagOutput {
-	return o
-}
-
-func (o StackSetTagOutput) ToStackSetTagOutputWithContext(ctx context.Context) StackSetTagOutput {
-	return o
-}
-
-// A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
-func (o StackSetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StackSetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
-func (o StackSetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StackSetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StackSetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StackSetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackSetTag)(nil)).Elem()
-}
-
-func (o StackSetTagArrayOutput) ToStackSetTagArrayOutput() StackSetTagArrayOutput {
-	return o
-}
-
-func (o StackSetTagArrayOutput) ToStackSetTagArrayOutputWithContext(ctx context.Context) StackSetTagArrayOutput {
-	return o
-}
-
-func (o StackSetTagArrayOutput) Index(i pulumi.IntInput) StackSetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackSetTag {
-		return vs[0].([]StackSetTag)[vs[1].(int)]
-	}).(StackSetTagOutput)
-}
-
 type StackTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// StackTagInput is an input type that accepts StackTagArgs and StackTagOutput values.
-// You can construct a concrete instance of `StackTagInput` via:
-//
-//	StackTagArgs{...}
-type StackTagInput interface {
-	pulumi.Input
-
-	ToStackTagOutput() StackTagOutput
-	ToStackTagOutputWithContext(context.Context) StackTagOutput
-}
-
-type StackTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StackTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackTag)(nil)).Elem()
-}
-
-func (i StackTagArgs) ToStackTagOutput() StackTagOutput {
-	return i.ToStackTagOutputWithContext(context.Background())
-}
-
-func (i StackTagArgs) ToStackTagOutputWithContext(ctx context.Context) StackTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackTagOutput)
-}
-
-// StackTagArrayInput is an input type that accepts StackTagArray and StackTagArrayOutput values.
-// You can construct a concrete instance of `StackTagArrayInput` via:
-//
-//	StackTagArray{ StackTagArgs{...} }
-type StackTagArrayInput interface {
-	pulumi.Input
-
-	ToStackTagArrayOutput() StackTagArrayOutput
-	ToStackTagArrayOutputWithContext(context.Context) StackTagArrayOutput
-}
-
-type StackTagArray []StackTagInput
-
-func (StackTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackTag)(nil)).Elem()
-}
-
-func (i StackTagArray) ToStackTagArrayOutput() StackTagArrayOutput {
-	return i.ToStackTagArrayOutputWithContext(context.Background())
-}
-
-func (i StackTagArray) ToStackTagArrayOutputWithContext(ctx context.Context) StackTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackTagArrayOutput)
-}
-
-type StackTagOutput struct{ *pulumi.OutputState }
-
-func (StackTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackTag)(nil)).Elem()
-}
-
-func (o StackTagOutput) ToStackTagOutput() StackTagOutput {
-	return o
-}
-
-func (o StackTagOutput) ToStackTagOutputWithContext(ctx context.Context) StackTagOutput {
-	return o
-}
-
-func (o StackTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StackTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o StackTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StackTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StackTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StackTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackTag)(nil)).Elem()
-}
-
-func (o StackTagArrayOutput) ToStackTagArrayOutput() StackTagArrayOutput {
-	return o
-}
-
-func (o StackTagArrayOutput) ToStackTagArrayOutputWithContext(ctx context.Context) StackTagArrayOutput {
-	return o
-}
-
-func (o StackTagArrayOutput) Index(i pulumi.IntInput) StackTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackTag {
-		return vs[0].([]StackTag)[vs[1].(int)]
-	}).(StackTagOutput)
 }
 
 type TypeActivationLoggingConfig struct {
@@ -1571,10 +1375,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetParameterArrayInput)(nil)).Elem(), StackSetParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetStackInstancesInput)(nil)).Elem(), StackSetStackInstancesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetStackInstancesArrayInput)(nil)).Elem(), StackSetStackInstancesArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackSetTagInput)(nil)).Elem(), StackSetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackSetTagArrayInput)(nil)).Elem(), StackSetTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackTagInput)(nil)).Elem(), StackTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackTagArrayInput)(nil)).Elem(), StackTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigPtrInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
 	pulumi.RegisterOutputType(HookVersionLoggingConfigOutput{})
@@ -1594,10 +1394,6 @@ func init() {
 	pulumi.RegisterOutputType(StackSetParameterArrayOutput{})
 	pulumi.RegisterOutputType(StackSetStackInstancesOutput{})
 	pulumi.RegisterOutputType(StackSetStackInstancesArrayOutput{})
-	pulumi.RegisterOutputType(StackSetTagOutput{})
-	pulumi.RegisterOutputType(StackSetTagArrayOutput{})
-	pulumi.RegisterOutputType(StackTagOutput{})
-	pulumi.RegisterOutputType(StackTagArrayOutput{})
 	pulumi.RegisterOutputType(TypeActivationLoggingConfigOutput{})
 	pulumi.RegisterOutputType(TypeActivationLoggingConfigPtrOutput{})
 }

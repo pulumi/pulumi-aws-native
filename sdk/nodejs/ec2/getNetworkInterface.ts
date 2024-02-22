@@ -94,7 +94,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * An arbitrary set of tags (key-value pairs) for this network interface.
      */
-    readonly tags?: outputs.ec2.NetworkInterfaceTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::EC2::NetworkInterface resource creates network interface

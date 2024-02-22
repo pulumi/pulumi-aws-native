@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,7 +21,7 @@ type NetworkInsightsAccessScope struct {
 	MatchPaths                    NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput `pulumi:"matchPaths"`
 	NetworkInsightsAccessScopeArn pulumi.StringOutput                                         `pulumi:"networkInsightsAccessScopeArn"`
 	NetworkInsightsAccessScopeId  pulumi.StringOutput                                         `pulumi:"networkInsightsAccessScopeId"`
-	Tags                          NetworkInsightsAccessScopeTagArrayOutput                    `pulumi:"tags"`
+	Tags                          aws.TagArrayOutput                                          `pulumi:"tags"`
 	UpdatedDate                   pulumi.StringOutput                                         `pulumi:"updatedDate"`
 }
 
@@ -71,14 +72,14 @@ func (NetworkInsightsAccessScopeState) ElementType() reflect.Type {
 type networkInsightsAccessScopeArgs struct {
 	ExcludePaths []NetworkInsightsAccessScopeAccessScopePathRequest `pulumi:"excludePaths"`
 	MatchPaths   []NetworkInsightsAccessScopeAccessScopePathRequest `pulumi:"matchPaths"`
-	Tags         []NetworkInsightsAccessScopeTag                    `pulumi:"tags"`
+	Tags         []aws.Tag                                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsAccessScope resource.
 type NetworkInsightsAccessScopeArgs struct {
 	ExcludePaths NetworkInsightsAccessScopeAccessScopePathRequestArrayInput
 	MatchPaths   NetworkInsightsAccessScopeAccessScopePathRequestArrayInput
-	Tags         NetworkInsightsAccessScopeTagArrayInput
+	Tags         aws.TagArrayInput
 }
 
 func (NetworkInsightsAccessScopeArgs) ElementType() reflect.Type {
@@ -142,8 +143,8 @@ func (o NetworkInsightsAccessScopeOutput) NetworkInsightsAccessScopeId() pulumi.
 	return o.ApplyT(func(v *NetworkInsightsAccessScope) pulumi.StringOutput { return v.NetworkInsightsAccessScopeId }).(pulumi.StringOutput)
 }
 
-func (o NetworkInsightsAccessScopeOutput) Tags() NetworkInsightsAccessScopeTagArrayOutput {
-	return o.ApplyT(func(v *NetworkInsightsAccessScope) NetworkInsightsAccessScopeTagArrayOutput { return v.Tags }).(NetworkInsightsAccessScopeTagArrayOutput)
+func (o NetworkInsightsAccessScopeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScope) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o NetworkInsightsAccessScopeOutput) UpdatedDate() pulumi.StringOutput {

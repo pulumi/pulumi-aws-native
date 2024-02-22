@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,8 +21,8 @@ type AccessGrantsInstance struct {
 	// A unique identifier for the specified access grants instance.
 	AccessGrantsInstanceId pulumi.StringOutput `pulumi:"accessGrantsInstanceId"`
 	// The Amazon Resource Name (ARN) of the specified AWS Identity Center.
-	IdentityCenterArn pulumi.StringPtrOutput             `pulumi:"identityCenterArn"`
-	Tags              AccessGrantsInstanceTagArrayOutput `pulumi:"tags"`
+	IdentityCenterArn pulumi.StringPtrOutput       `pulumi:"identityCenterArn"`
+	Tags              aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAccessGrantsInstance registers a new resource with the given unique name, arguments, and options.
@@ -69,15 +70,15 @@ func (AccessGrantsInstanceState) ElementType() reflect.Type {
 
 type accessGrantsInstanceArgs struct {
 	// The Amazon Resource Name (ARN) of the specified AWS Identity Center.
-	IdentityCenterArn *string                   `pulumi:"identityCenterArn"`
-	Tags              []AccessGrantsInstanceTag `pulumi:"tags"`
+	IdentityCenterArn *string             `pulumi:"identityCenterArn"`
+	Tags              []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessGrantsInstance resource.
 type AccessGrantsInstanceArgs struct {
 	// The Amazon Resource Name (ARN) of the specified AWS Identity Center.
 	IdentityCenterArn pulumi.StringPtrInput
-	Tags              AccessGrantsInstanceTagArrayInput
+	Tags              aws.CreateOnlyTagArrayInput
 }
 
 func (AccessGrantsInstanceArgs) ElementType() reflect.Type {
@@ -132,8 +133,8 @@ func (o AccessGrantsInstanceOutput) IdentityCenterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringPtrOutput { return v.IdentityCenterArn }).(pulumi.StringPtrOutput)
 }
 
-func (o AccessGrantsInstanceOutput) Tags() AccessGrantsInstanceTagArrayOutput {
-	return o.ApplyT(func(v *AccessGrantsInstance) AccessGrantsInstanceTagArrayOutput { return v.Tags }).(AccessGrantsInstanceTagArrayOutput)
+func (o AccessGrantsInstanceOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *AccessGrantsInstance) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

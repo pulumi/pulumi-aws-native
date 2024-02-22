@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,7 +24,7 @@ class PackagingConfigurationArgs:
                  dash_package: Optional[pulumi.Input['PackagingConfigurationDashPackageArgs']] = None,
                  hls_package: Optional[pulumi.Input['PackagingConfigurationHlsPackageArgs']] = None,
                  mss_package: Optional[pulumi.Input['PackagingConfigurationMssPackageArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PackagingConfiguration resource.
         :param pulumi.Input[str] packaging_group_id: The ID of a PackagingGroup.
@@ -30,7 +32,7 @@ class PackagingConfigurationArgs:
         :param pulumi.Input['PackagingConfigurationDashPackageArgs'] dash_package: A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         :param pulumi.Input['PackagingConfigurationHlsPackageArgs'] hls_package: An HTTP Live Streaming (HLS) packaging configuration.
         :param pulumi.Input['PackagingConfigurationMssPackageArgs'] mss_package: A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
-        :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationTagArgs']]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
         """
         pulumi.set(__self__, "packaging_group_id", packaging_group_id)
         if cmaf_package is not None:
@@ -106,14 +108,14 @@ class PackagingConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,7 +129,7 @@ class PackagingConfiguration(pulumi.CustomResource):
                  hls_package: Optional[pulumi.Input[pulumi.InputType['PackagingConfigurationHlsPackageArgs']]] = None,
                  mss_package: Optional[pulumi.Input[pulumi.InputType['PackagingConfigurationMssPackageArgs']]] = None,
                  packaging_group_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackagingConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaPackage::PackagingConfiguration
@@ -139,7 +141,7 @@ class PackagingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PackagingConfigurationHlsPackageArgs']] hls_package: An HTTP Live Streaming (HLS) packaging configuration.
         :param pulumi.Input[pulumi.InputType['PackagingConfigurationMssPackageArgs']] mss_package: A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
         :param pulumi.Input[str] packaging_group_id: The ID of a PackagingGroup.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackagingConfigurationTagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -170,7 +172,7 @@ class PackagingConfiguration(pulumi.CustomResource):
                  hls_package: Optional[pulumi.Input[pulumi.InputType['PackagingConfigurationHlsPackageArgs']]] = None,
                  mss_package: Optional[pulumi.Input[pulumi.InputType['PackagingConfigurationMssPackageArgs']]] = None,
                  packaging_group_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackagingConfigurationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -270,7 +272,7 @@ class PackagingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PackagingConfigurationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A collection of tags associated with a resource
         """

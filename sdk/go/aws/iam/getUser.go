@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,7 +44,7 @@ type LookupUserResult struct {
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
 	Policies []UserPolicyType `pulumi:"policies"`
 	// A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
-	Tags []UserTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -118,8 +119,8 @@ func (o LookupUserResultOutput) Policies() UserPolicyTypeArrayOutput {
 }
 
 // A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
-func (o LookupUserResultOutput) Tags() UserTagArrayOutput {
-	return o.ApplyT(func(v LookupUserResult) []UserTag { return v.Tags }).(UserTagArrayOutput)
+func (o LookupUserResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

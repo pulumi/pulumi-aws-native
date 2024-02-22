@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LocationSmb struct {
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationSmbTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The user who can mount the share, has the permissions to access files and folders in the SMB share.
 	User pulumi.StringOutput `pulumi:"user"`
 }
@@ -99,7 +100,7 @@ type locationSmbArgs struct {
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationSmbTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The user who can mount the share, has the permissions to access files and folders in the SMB share.
 	User string `pulumi:"user"`
 }
@@ -118,7 +119,7 @@ type LocationSmbArgs struct {
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationSmbTagArrayInput
+	Tags aws.TagArrayInput
 	// The user who can mount the share, has the permissions to access files and folders in the SMB share.
 	User pulumi.StringInput
 }
@@ -200,8 +201,8 @@ func (o LocationSmbOutput) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationSmbOutput) Tags() LocationSmbTagArrayOutput {
-	return o.ApplyT(func(v *LocationSmb) LocationSmbTagArrayOutput { return v.Tags }).(LocationSmbTagArrayOutput)
+func (o LocationSmbOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationSmb) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The user who can mount the share, has the permissions to access files and folders in the SMB share.

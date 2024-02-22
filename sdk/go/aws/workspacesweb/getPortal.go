@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,7 +41,7 @@ type LookupPortalResult struct {
 	RendererType                 *PortalRendererType       `pulumi:"rendererType"`
 	ServiceProviderSamlMetadata  *string                   `pulumi:"serviceProviderSamlMetadata"`
 	StatusReason                 *string                   `pulumi:"statusReason"`
-	Tags                         []PortalTag               `pulumi:"tags"`
+	Tags                         []aws.Tag                 `pulumi:"tags"`
 	TrustStoreArn                *string                   `pulumi:"trustStoreArn"`
 	UserAccessLoggingSettingsArn *string                   `pulumi:"userAccessLoggingSettingsArn"`
 	UserSettingsArn              *string                   `pulumi:"userSettingsArn"`
@@ -133,8 +134,8 @@ func (o LookupPortalResultOutput) StatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPortalResultOutput) Tags() PortalTagArrayOutput {
-	return o.ApplyT(func(v LookupPortalResult) []PortalTag { return v.Tags }).(PortalTagArrayOutput)
+func (o LookupPortalResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPortalResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupPortalResultOutput) TrustStoreArn() pulumi.StringPtrOutput {

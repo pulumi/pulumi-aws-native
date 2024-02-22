@@ -43,7 +43,7 @@ export class ChannelGroup extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly egressDomain!: pulumi.Output<string>;
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.mediapackagev2.ChannelGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ChannelGroup resource with the given unique name, arguments, and options.
@@ -85,5 +85,5 @@ export class ChannelGroup extends pulumi.CustomResource {
 export interface ChannelGroupArgs {
     channelGroupName?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.ChannelGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

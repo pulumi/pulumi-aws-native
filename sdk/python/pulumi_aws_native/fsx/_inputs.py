@@ -14,7 +14,6 @@ __all__ = [
     'DataRepositoryAssociationAutoExportPolicyArgs',
     'DataRepositoryAssociationAutoImportPolicyArgs',
     'DataRepositoryAssociationS3Args',
-    'DataRepositoryAssociationTagArgs',
     'FileSystemAuditLogConfigurationArgs',
     'FileSystemClientConfigurationsArgs',
     'FileSystemDiskIopsConfigurationArgs',
@@ -24,13 +23,10 @@ __all__ = [
     'FileSystemOpenZfsConfigurationArgs',
     'FileSystemRootVolumeConfigurationArgs',
     'FileSystemSelfManagedActiveDirectoryConfigurationArgs',
-    'FileSystemTagArgs',
     'FileSystemUserAndGroupQuotasArgs',
     'FileSystemWindowsConfigurationArgs',
-    'SnapshotTagArgs',
     'StorageVirtualMachineActiveDirectoryConfigurationArgs',
     'StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs',
-    'StorageVirtualMachineTagArgs',
     'VolumeAggregateConfigurationArgs',
     'VolumeAutocommitPeriodArgs',
     'VolumeClientConfigurationsArgs',
@@ -41,7 +37,6 @@ __all__ = [
     'VolumeRetentionPeriodArgs',
     'VolumeSnaplockConfigurationArgs',
     'VolumeSnaplockRetentionPeriodArgs',
-    'VolumeTagArgs',
     'VolumeTieringPolicyArgs',
     'VolumeUserAndGroupQuotasArgs',
 ]
@@ -156,44 +151,6 @@ class DataRepositoryAssociationS3Args:
     @auto_import_policy.setter
     def auto_import_policy(self, value: Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']]):
         pulumi.set(self, "auto_import_policy", value)
-
-
-@pulumi.input_type
-class DataRepositoryAssociationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        Specifies a key-value pair for a resource tag.
-        :param pulumi.Input[str] key: A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
-        :param pulumi.Input[str] value: A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -922,33 +879,6 @@ class FileSystemSelfManagedActiveDirectoryConfigurationArgs:
 
 
 @pulumi.input_type
-class FileSystemTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class FileSystemUserAndGroupQuotasArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[int]] = None,
@@ -1138,33 +1068,6 @@ class FileSystemWindowsConfigurationArgs:
 
 
 @pulumi.input_type
-class SnapshotTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class StorageVirtualMachineActiveDirectoryConfigurationArgs:
     def __init__(__self__, *,
                  net_bios_name: Optional[pulumi.Input[str]] = None,
@@ -1268,33 +1171,6 @@ class StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs:
     @user_name.setter
     def user_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name", value)
-
-
-@pulumi.input_type
-class StorageVirtualMachineTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1860,33 +1736,6 @@ class VolumeSnaplockRetentionPeriodArgs:
     @minimum_retention.setter
     def minimum_retention(self, value: pulumi.Input['VolumeRetentionPeriodArgs']):
         pulumi.set(self, "minimum_retention", value)
-
-
-@pulumi.input_type
-class VolumeTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

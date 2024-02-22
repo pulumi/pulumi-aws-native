@@ -40,14 +40,11 @@ __all__ = [
     'ListenerTargetGroupTuple',
     'LoadBalancerAttribute',
     'LoadBalancerSubnetMapping',
-    'LoadBalancerTag',
     'TargetGroupAttribute',
     'TargetGroupMatcher',
-    'TargetGroupTag',
     'TargetGroupTargetDescription',
     'TrustStoreRevocation',
     'TrustStoreRevocationRevocationContent',
-    'TrustStoreTag',
 ]
 
 @pulumi.output_type
@@ -180,7 +177,7 @@ class ListenerAuthenticateCognitoConfig(dict):
                  user_pool_arn: str,
                  user_pool_client_id: str,
                  user_pool_domain: str,
-                 authentication_request_extra_params: Optional[Any] = None,
+                 authentication_request_extra_params: Optional[Mapping[str, str]] = None,
                  on_unauthenticated_request: Optional[str] = None,
                  scope: Optional[str] = None,
                  session_cookie_name: Optional[str] = None,
@@ -216,7 +213,7 @@ class ListenerAuthenticateCognitoConfig(dict):
 
     @property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[Any]:
+    def authentication_request_extra_params(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "authentication_request_extra_params")
 
     @property
@@ -283,7 +280,7 @@ class ListenerAuthenticateOidcConfig(dict):
                  issuer: str,
                  token_endpoint: str,
                  user_info_endpoint: str,
-                 authentication_request_extra_params: Optional[Any] = None,
+                 authentication_request_extra_params: Optional[Mapping[str, str]] = None,
                  client_secret: Optional[str] = None,
                  on_unauthenticated_request: Optional[str] = None,
                  scope: Optional[str] = None,
@@ -337,7 +334,7 @@ class ListenerAuthenticateOidcConfig(dict):
 
     @property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[Any]:
+    def authentication_request_extra_params(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "authentication_request_extra_params")
 
     @property
@@ -1569,26 +1566,6 @@ class LoadBalancerSubnetMapping(dict):
 
 
 @pulumi.output_type
-class LoadBalancerTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: Optional[str] = None):
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class TargetGroupAttribute(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
@@ -1667,35 +1644,6 @@ class TargetGroupMatcher(dict):
         For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
         """
         return pulumi.get(self, "http_code")
-
-
-@pulumi.output_type
-class TargetGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: The value for the tag. 
-        :param str value: The key name of the tag. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The value for the tag. 
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The key name of the tag. 
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1875,24 +1823,5 @@ class TrustStoreRevocationRevocationContent(dict):
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[str]:
         return pulumi.get(self, "s3_object_version")
-
-
-@pulumi.output_type
-class TrustStoreTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

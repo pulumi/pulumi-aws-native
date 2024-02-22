@@ -49,7 +49,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
     public readonly serviceNetworkIdentifier!: pulumi.Output<string | undefined>;
     public /*out*/ readonly serviceNetworkName!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceNetworkServiceAssociationStatus>;
-    public readonly tags!: pulumi.Output<outputs.vpclattice.ServiceNetworkServiceAssociationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ServiceNetworkServiceAssociation resource with the given unique name, arguments, and options.
@@ -104,5 +104,5 @@ export interface ServiceNetworkServiceAssociationArgs {
     dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntryArgs>;
     serviceIdentifier?: pulumi.Input<string>;
     serviceNetworkIdentifier?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

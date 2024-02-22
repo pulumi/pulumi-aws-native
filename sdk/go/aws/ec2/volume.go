@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type Volume struct {
 	// The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
 	// The tags to apply to the volume during creation.
-	Tags VolumeTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The throughput that the volume supports, in MiB/s.
 	Throughput pulumi.IntPtrOutput `pulumi:"throughput"`
 	VolumeId   pulumi.StringOutput `pulumi:"volumeId"`
@@ -105,7 +106,7 @@ type volumeArgs struct {
 	// The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The tags to apply to the volume during creation.
-	Tags []VolumeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The throughput that the volume supports, in MiB/s.
 	Throughput *int `pulumi:"throughput"`
 	// The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
@@ -133,7 +134,7 @@ type VolumeArgs struct {
 	// The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
 	SnapshotId pulumi.StringPtrInput
 	// The tags to apply to the volume during creation.
-	Tags VolumeTagArrayInput
+	Tags aws.TagArrayInput
 	// The throughput that the volume supports, in MiB/s.
 	Throughput pulumi.IntPtrInput
 	// The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
@@ -223,8 +224,8 @@ func (o VolumeOutput) SnapshotId() pulumi.StringPtrOutput {
 }
 
 // The tags to apply to the volume during creation.
-func (o VolumeOutput) Tags() VolumeTagArrayOutput {
-	return o.ApplyT(func(v *Volume) VolumeTagArrayOutput { return v.Tags }).(VolumeTagArrayOutput)
+func (o VolumeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Volume) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The throughput that the volume supports, in MiB/s.

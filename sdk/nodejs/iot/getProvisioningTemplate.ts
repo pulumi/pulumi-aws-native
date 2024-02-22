@@ -27,7 +27,7 @@ export interface GetProvisioningTemplateResult {
     readonly enabled?: boolean;
     readonly preProvisioningHook?: outputs.iot.ProvisioningTemplateProvisioningHook;
     readonly provisioningRoleArn?: string;
-    readonly tags?: outputs.iot.ProvisioningTemplateTag[];
+    readonly tags?: outputs.Tag[];
     readonly templateArn?: string;
     readonly templateBody?: string;
 }

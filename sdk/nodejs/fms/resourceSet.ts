@@ -41,7 +41,7 @@ export class ResourceSet extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly resourceTypeList!: pulumi.Output<string[]>;
     public readonly resources!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.fms.ResourceSetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResourceSet resource with the given unique name, arguments, and options.
@@ -82,5 +82,5 @@ export interface ResourceSetArgs {
     name?: pulumi.Input<string>;
     resourceTypeList: pulumi.Input<pulumi.Input<string>[]>;
     resources?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

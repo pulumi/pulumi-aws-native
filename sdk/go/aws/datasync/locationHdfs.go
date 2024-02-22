@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,7 +45,7 @@ type LocationHdfs struct {
 	// The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationHdfsTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationHdfs registers a new resource with the given unique name, arguments, and options.
@@ -120,7 +121,7 @@ type locationHdfsArgs struct {
 	// The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationHdfsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationHdfs resource.
@@ -149,7 +150,7 @@ type LocationHdfsArgs struct {
 	// The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags LocationHdfsTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (LocationHdfsArgs) ElementType() reflect.Type {
@@ -259,8 +260,8 @@ func (o LocationHdfsOutput) Subdirectory() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LocationHdfsOutput) Tags() LocationHdfsTagArrayOutput {
-	return o.ApplyT(func(v *LocationHdfs) LocationHdfsTagArrayOutput { return v.Tags }).(LocationHdfsTagArrayOutput)
+func (o LocationHdfsOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *LocationHdfs) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

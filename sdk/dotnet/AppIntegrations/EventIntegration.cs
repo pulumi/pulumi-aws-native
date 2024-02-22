@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// The tags (keys and values) associated with the event integration.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.EventIntegrationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -127,14 +127,14 @@ namespace Pulumi.AwsNative.AppIntegrations
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.EventIntegrationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The tags (keys and values) associated with the event integration.
         /// </summary>
-        public InputList<Inputs.EventIntegrationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.EventIntegrationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

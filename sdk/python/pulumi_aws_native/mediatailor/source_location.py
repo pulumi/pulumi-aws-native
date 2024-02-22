@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,11 +24,11 @@ class SourceLocationArgs:
                  default_segment_delivery_configuration: Optional[pulumi.Input['SourceLocationDefaultSegmentDeliveryConfigurationArgs']] = None,
                  segment_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]]] = None,
                  source_location_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SourceLocation resource.
         :param pulumi.Input[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]] segment_delivery_configurations: <p>A list of the segment delivery configurations associated with this resource.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['SourceLocationTagArgs']]] tags: The tags to assign to the source location.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the source location.
         """
         pulumi.set(__self__, "http_configuration", http_configuration)
         if access_configuration is not None:
@@ -90,14 +92,14 @@ class SourceLocationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to assign to the source location.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -111,7 +113,7 @@ class SourceLocation(pulumi.CustomResource):
                  http_configuration: Optional[pulumi.Input[pulumi.InputType['SourceLocationHttpConfigurationArgs']]] = None,
                  segment_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SourceLocationSegmentDeliveryConfigurationArgs']]]]] = None,
                  source_location_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SourceLocationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaTailor::SourceLocation Resource Type
@@ -119,7 +121,7 @@ class SourceLocation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SourceLocationSegmentDeliveryConfigurationArgs']]]] segment_delivery_configurations: <p>A list of the segment delivery configurations associated with this resource.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SourceLocationTagArgs']]]] tags: The tags to assign to the source location.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the source location.
         """
         ...
     @overload
@@ -150,7 +152,7 @@ class SourceLocation(pulumi.CustomResource):
                  http_configuration: Optional[pulumi.Input[pulumi.InputType['SourceLocationHttpConfigurationArgs']]] = None,
                  segment_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SourceLocationSegmentDeliveryConfigurationArgs']]]]] = None,
                  source_location_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SourceLocationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -240,7 +242,7 @@ class SourceLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SourceLocationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         The tags to assign to the source location.
         """

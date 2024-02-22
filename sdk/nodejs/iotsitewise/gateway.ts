@@ -56,7 +56,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.iotsitewise.GatewayTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -110,5 +110,5 @@ export interface GatewayArgs {
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotsitewise.GatewayTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

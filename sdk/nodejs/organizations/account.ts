@@ -76,7 +76,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
      */
-    public readonly tags!: pulumi.Output<outputs.organizations.AccountTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -142,5 +142,5 @@ export interface AccountArgs {
     /**
      * A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.organizations.AccountTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

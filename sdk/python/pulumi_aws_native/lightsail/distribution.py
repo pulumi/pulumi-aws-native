@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DistributionArgs', 'Distribution']
@@ -25,7 +27,7 @@ class DistributionArgs:
                  distribution_name: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Distribution resource.
         :param pulumi.Input[str] bundle_id: The bundle ID to use for the distribution.
@@ -37,7 +39,7 @@ class DistributionArgs:
         :param pulumi.Input[str] distribution_name: The name for the distribution.
         :param pulumi.Input[str] ip_address_type: The IP address type for the distribution.
         :param pulumi.Input[bool] is_enabled: Indicates whether the distribution is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
         pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
@@ -167,14 +169,14 @@ class DistributionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -197,7 +199,7 @@ class Distribution(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  origin: Optional[pulumi.Input[pulumi.InputType['DistributionInputOriginArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Distribution
@@ -213,7 +215,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] ip_address_type: The IP address type for the distribution.
         :param pulumi.Input[bool] is_enabled: Indicates whether the distribution is enabled.
         :param pulumi.Input[pulumi.InputType['DistributionInputOriginArgs']] origin: An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -248,7 +250,7 @@ class Distribution(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  origin: Optional[pulumi.Input[pulumi.InputType['DistributionInputOriginArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Distribution is deprecated: Distribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -412,7 +414,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

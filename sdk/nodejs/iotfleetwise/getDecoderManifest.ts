@@ -30,7 +30,7 @@ export interface GetDecoderManifestResult {
     readonly networkInterfaces?: (outputs.iotfleetwise.DecoderManifestCanNetworkInterface | outputs.iotfleetwise.DecoderManifestObdNetworkInterface)[];
     readonly signalDecoders?: (outputs.iotfleetwise.DecoderManifestCanSignalDecoder | outputs.iotfleetwise.DecoderManifestObdSignalDecoder)[];
     readonly status?: enums.iotfleetwise.DecoderManifestManifestStatus;
-    readonly tags?: outputs.iotfleetwise.DecoderManifestTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::IoTFleetWise::DecoderManifest Resource Type

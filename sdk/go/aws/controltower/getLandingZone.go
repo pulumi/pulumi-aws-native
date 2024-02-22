@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupLandingZoneResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 	Manifest interface{}        `pulumi:"manifest"`
 	Status   *LandingZoneStatus `pulumi:"status"`
-	Tags     []LandingZoneTag   `pulumi:"tags"`
+	Tags     []aws.Tag          `pulumi:"tags"`
 	Version  *string            `pulumi:"version"`
 }
 
@@ -98,8 +99,8 @@ func (o LookupLandingZoneResultOutput) Status() LandingZoneStatusPtrOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) *LandingZoneStatus { return v.Status }).(LandingZoneStatusPtrOutput)
 }
 
-func (o LookupLandingZoneResultOutput) Tags() LandingZoneTagArrayOutput {
-	return o.ApplyT(func(v LookupLandingZoneResult) []LandingZoneTag { return v.Tags }).(LandingZoneTagArrayOutput)
+func (o LookupLandingZoneResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLandingZoneResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupLandingZoneResultOutput) Version() pulumi.StringPtrOutput {

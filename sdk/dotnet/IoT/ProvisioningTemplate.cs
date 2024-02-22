@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string> ProvisioningRoleArn { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ProvisioningTemplateTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("templateArn")]
         public Output<string> TemplateArn { get; private set; } = null!;
@@ -105,10 +105,10 @@ namespace Pulumi.AwsNative.IoT
         public Input<string> ProvisioningRoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.ProvisioningTemplateTagArgs>? _tags;
-        public InputList<Inputs.ProvisioningTemplateTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ProvisioningTemplateTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

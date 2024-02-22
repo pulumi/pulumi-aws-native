@@ -64,7 +64,7 @@ export class GraphQlApi extends pulumi.CustomResource {
     public /*out*/ readonly realtimeDns!: pulumi.Output<string>;
     public /*out*/ readonly realtimeUrl!: pulumi.Output<string>;
     public readonly resolverCountLimit!: pulumi.Output<number | undefined>;
-    public readonly tags!: pulumi.Output<outputs.appsync.GraphQlApiTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQlApiUserPoolConfig | undefined>;
     public readonly visibility!: pulumi.Output<string | undefined>;
     public readonly xrayEnabled!: pulumi.Output<boolean | undefined>;
@@ -163,7 +163,7 @@ export interface GraphQlApiArgs {
     ownerContact?: pulumi.Input<string>;
     queryDepthLimit?: pulumi.Input<number>;
     resolverCountLimit?: pulumi.Input<number>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQlApiTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQlApiUserPoolConfigArgs>;
     visibility?: pulumi.Input<string>;
     xrayEnabled?: pulumi.Input<boolean>;

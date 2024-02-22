@@ -41,7 +41,7 @@ export interface GetAgentResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.datasync.AgentTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataSync::Agent.

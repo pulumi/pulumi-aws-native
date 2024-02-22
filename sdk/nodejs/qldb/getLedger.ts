@@ -27,7 +27,7 @@ export interface GetLedgerResult {
     readonly id?: string;
     readonly kmsKey?: string;
     readonly permissionsMode?: string;
-    readonly tags?: outputs.qldb.LedgerTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::QLDB::Ledger

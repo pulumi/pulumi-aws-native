@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// <summary>
         /// The tags associated with a profiling group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProfilingGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetProfilingGroupResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
 
             string? arn,
 
-            ImmutableArray<Outputs.ProfilingGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AgentPermissions = agentPermissions;
             AnomalyDetectionNotificationConfiguration = anomalyDetectionNotificationConfiguration;

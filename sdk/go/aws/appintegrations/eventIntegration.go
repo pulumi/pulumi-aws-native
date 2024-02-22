@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,7 +28,7 @@ type EventIntegration struct {
 	// The name of the event integration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags (keys and values) associated with the event integration.
-	Tags EventIntegrationTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewEventIntegration registers a new resource with the given unique name, arguments, and options.
@@ -91,7 +92,7 @@ type eventIntegrationArgs struct {
 	// The name of the event integration.
 	Name *string `pulumi:"name"`
 	// The tags (keys and values) associated with the event integration.
-	Tags []EventIntegrationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventIntegration resource.
@@ -105,7 +106,7 @@ type EventIntegrationArgs struct {
 	// The name of the event integration.
 	Name pulumi.StringPtrInput
 	// The tags (keys and values) associated with the event integration.
-	Tags EventIntegrationTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (EventIntegrationArgs) ElementType() reflect.Type {
@@ -171,8 +172,8 @@ func (o EventIntegrationOutput) Name() pulumi.StringOutput {
 }
 
 // The tags (keys and values) associated with the event integration.
-func (o EventIntegrationOutput) Tags() EventIntegrationTagArrayOutput {
-	return o.ApplyT(func(v *EventIntegration) EventIntegrationTagArrayOutput { return v.Tags }).(EventIntegrationTagArrayOutput)
+func (o EventIntegrationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EventIntegration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

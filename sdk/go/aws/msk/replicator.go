@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type Replicator struct {
 	// The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
 	ServiceExecutionRoleArn pulumi.StringOutput `pulumi:"serviceExecutionRoleArn"`
 	// A collection of tags associated with a resource
-	Tags ReplicatorTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewReplicator registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +104,7 @@ type replicatorArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
 	ServiceExecutionRoleArn string `pulumi:"serviceExecutionRoleArn"`
 	// A collection of tags associated with a resource
-	Tags []ReplicatorTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Replicator resource.
@@ -121,7 +122,7 @@ type ReplicatorArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
 	ServiceExecutionRoleArn pulumi.StringInput
 	// A collection of tags associated with a resource
-	Tags ReplicatorTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ReplicatorArgs) ElementType() reflect.Type {
@@ -197,8 +198,8 @@ func (o ReplicatorOutput) ServiceExecutionRoleArn() pulumi.StringOutput {
 }
 
 // A collection of tags associated with a resource
-func (o ReplicatorOutput) Tags() ReplicatorTagArrayOutput {
-	return o.ApplyT(func(v *Replicator) ReplicatorTagArrayOutput { return v.Tags }).(ReplicatorTagArrayOutput)
+func (o ReplicatorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Replicator) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

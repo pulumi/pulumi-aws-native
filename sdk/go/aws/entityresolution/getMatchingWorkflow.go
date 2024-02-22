@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupMatchingWorkflowResult struct {
 	OutputSourceConfig   []MatchingWorkflowOutputSource        `pulumi:"outputSourceConfig"`
 	ResolutionTechniques *MatchingWorkflowResolutionTechniques `pulumi:"resolutionTechniques"`
 	RoleArn              *string                               `pulumi:"roleArn"`
-	Tags                 []MatchingWorkflowTag                 `pulumi:"tags"`
+	Tags                 []aws.Tag                             `pulumi:"tags"`
 	UpdatedAt            *string                               `pulumi:"updatedAt"`
 	WorkflowArn          *string                               `pulumi:"workflowArn"`
 }
@@ -103,8 +104,8 @@ func (o LookupMatchingWorkflowResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupMatchingWorkflowResultOutput) Tags() MatchingWorkflowTagArrayOutput {
-	return o.ApplyT(func(v LookupMatchingWorkflowResult) []MatchingWorkflowTag { return v.Tags }).(MatchingWorkflowTagArrayOutput)
+func (o LookupMatchingWorkflowResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMatchingWorkflowResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupMatchingWorkflowResultOutput) UpdatedAt() pulumi.StringPtrOutput {

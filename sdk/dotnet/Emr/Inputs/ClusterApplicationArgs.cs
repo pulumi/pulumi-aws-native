@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.Emr.Inputs
     public sealed class ClusterApplicationArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalInfo")]
-        public Input<object>? AdditionalInfo { get; set; }
+        private InputMap<string>? _additionalInfo;
+        public InputMap<string> AdditionalInfo
+        {
+            get => _additionalInfo ?? (_additionalInfo = new InputMap<string>());
+            set => _additionalInfo = value;
+        }
 
         [Input("args")]
         private InputList<string>? _args;

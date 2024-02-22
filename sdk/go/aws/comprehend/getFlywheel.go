@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,7 @@ type LookupFlywheelResult struct {
 	Arn                *string                     `pulumi:"arn"`
 	DataAccessRoleArn  *string                     `pulumi:"dataAccessRoleArn"`
 	DataSecurityConfig *FlywheelDataSecurityConfig `pulumi:"dataSecurityConfig"`
-	Tags               []FlywheelTag               `pulumi:"tags"`
+	Tags               []aws.Tag                   `pulumi:"tags"`
 }
 
 func LookupFlywheelOutput(ctx *pulumi.Context, args LookupFlywheelOutputArgs, opts ...pulumi.InvokeOption) LookupFlywheelResultOutput {
@@ -85,8 +86,8 @@ func (o LookupFlywheelResultOutput) DataSecurityConfig() FlywheelDataSecurityCon
 	return o.ApplyT(func(v LookupFlywheelResult) *FlywheelDataSecurityConfig { return v.DataSecurityConfig }).(FlywheelDataSecurityConfigPtrOutput)
 }
 
-func (o LookupFlywheelResultOutput) Tags() FlywheelTagArrayOutput {
-	return o.ApplyT(func(v LookupFlywheelResult) []FlywheelTag { return v.Tags }).(FlywheelTagArrayOutput)
+func (o LookupFlywheelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFlywheelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

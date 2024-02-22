@@ -52,7 +52,7 @@ export class AggregationAuthorization extends pulumi.CustomResource {
     /**
      * The tags for the AggregationAuthorization.
      */
-    public readonly tags!: pulumi.Output<outputs.configuration.AggregationAuthorizationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AggregationAuthorization resource with the given unique name, arguments, and options.
@@ -103,5 +103,5 @@ export interface AggregationAuthorizationArgs {
     /**
      * The tags for the AggregationAuthorization.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.configuration.AggregationAuthorizationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

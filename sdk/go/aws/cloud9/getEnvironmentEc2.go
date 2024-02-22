@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,11 +28,11 @@ type LookupEnvironmentEc2Args struct {
 }
 
 type LookupEnvironmentEc2Result struct {
-	Arn         *string             `pulumi:"arn"`
-	Description *string             `pulumi:"description"`
-	Id          *string             `pulumi:"id"`
-	Name        *string             `pulumi:"name"`
-	Tags        []EnvironmentEc2Tag `pulumi:"tags"`
+	Arn         *string   `pulumi:"arn"`
+	Description *string   `pulumi:"description"`
+	Id          *string   `pulumi:"id"`
+	Name        *string   `pulumi:"name"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEnvironmentEc2Output(ctx *pulumi.Context, args LookupEnvironmentEc2OutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentEc2ResultOutput {
@@ -85,8 +86,8 @@ func (o LookupEnvironmentEc2ResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentEc2Result) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEnvironmentEc2ResultOutput) Tags() EnvironmentEc2TagArrayOutput {
-	return o.ApplyT(func(v LookupEnvironmentEc2Result) []EnvironmentEc2Tag { return v.Tags }).(EnvironmentEc2TagArrayOutput)
+func (o LookupEnvironmentEc2ResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEnvironmentEc2Result) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

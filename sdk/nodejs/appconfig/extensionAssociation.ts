@@ -47,7 +47,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.appconfig.ExtensionAssociationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ExtensionAssociation resource with the given unique name, arguments, and options.
@@ -96,5 +96,5 @@ export interface ExtensionAssociationArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionAssociationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Detective
         public Output<bool?> AutoEnableMembers { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.GraphTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -82,10 +82,10 @@ namespace Pulumi.AwsNative.Detective
         public Input<bool>? AutoEnableMembers { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.GraphTagArgs>? _tags;
-        public InputList<Inputs.GraphTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.GraphTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupRulesetResult struct {
 	Description *string `pulumi:"description"`
 	// List of the data quality rules in the ruleset
 	Rules []RulesetRule `pulumi:"rules"`
-	Tags  []RulesetTag  `pulumi:"tags"`
+	Tags  []aws.Tag     `pulumi:"tags"`
 }
 
 func LookupRulesetOutput(ctx *pulumi.Context, args LookupRulesetOutputArgs, opts ...pulumi.InvokeOption) LookupRulesetResultOutput {
@@ -81,8 +82,8 @@ func (o LookupRulesetResultOutput) Rules() RulesetRuleArrayOutput {
 	return o.ApplyT(func(v LookupRulesetResult) []RulesetRule { return v.Rules }).(RulesetRuleArrayOutput)
 }
 
-func (o LookupRulesetResultOutput) Tags() RulesetTagArrayOutput {
-	return o.ApplyT(func(v LookupRulesetResult) []RulesetTag { return v.Tags }).(RulesetTagArrayOutput)
+func (o LookupRulesetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRulesetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

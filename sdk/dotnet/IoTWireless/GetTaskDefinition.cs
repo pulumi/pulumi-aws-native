@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// A list of key-value pairs that contain metadata for the destination.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TaskDefinitionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// A filter to list only the wireless gateway task definitions that use this task definition type
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? name,
 
-            ImmutableArray<Outputs.TaskDefinitionTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.IoTWireless.TaskDefinitionType? taskDefinitionType,
 

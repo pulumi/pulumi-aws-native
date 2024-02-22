@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupResourceSetResult struct {
 	// A list of resource objects in the resource set.
 	Resources []ResourceSetResource `pulumi:"resources"`
 	// A tag to associate with the parameters for a resource set.
-	Tags []ResourceSetTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupResourceSetOutput(ctx *pulumi.Context, args LookupResourceSetOutputArgs, opts ...pulumi.InvokeOption) LookupResourceSetResultOutput {
@@ -83,8 +84,8 @@ func (o LookupResourceSetResultOutput) Resources() ResourceSetResourceArrayOutpu
 }
 
 // A tag to associate with the parameters for a resource set.
-func (o LookupResourceSetResultOutput) Tags() ResourceSetTagArrayOutput {
-	return o.ApplyT(func(v LookupResourceSetResult) []ResourceSetTag { return v.Tags }).(ResourceSetTagArrayOutput)
+func (o LookupResourceSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupResourceSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

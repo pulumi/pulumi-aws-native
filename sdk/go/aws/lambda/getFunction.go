@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -68,7 +69,7 @@ type LookupFunctionResult struct {
 	// The SnapStart response of your function
 	SnapStartResponse *FunctionSnapStartResponse `pulumi:"snapStartResponse"`
 	// A list of tags to apply to the function.
-	Tags []FunctionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
 	Timeout *int `pulumi:"timeout"`
 	// Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
@@ -213,8 +214,8 @@ func (o LookupFunctionResultOutput) SnapStartResponse() FunctionSnapStartRespons
 }
 
 // A list of tags to apply to the function.
-func (o LookupFunctionResultOutput) Tags() FunctionTagArrayOutput {
-	return o.ApplyT(func(v LookupFunctionResult) []FunctionTag { return v.Tags }).(FunctionTagArrayOutput)
+func (o LookupFunctionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type FileSystem struct {
 	StorageCapacity       pulumi.IntPtrOutput                     `pulumi:"storageCapacity"`
 	StorageType           pulumi.StringPtrOutput                  `pulumi:"storageType"`
 	SubnetIds             pulumi.StringArrayOutput                `pulumi:"subnetIds"`
-	Tags                  FileSystemTagArrayOutput                `pulumi:"tags"`
+	Tags                  aws.TagArrayOutput                      `pulumi:"tags"`
 	WindowsConfiguration  FileSystemWindowsConfigurationPtrOutput `pulumi:"windowsConfiguration"`
 }
 
@@ -103,7 +104,7 @@ type fileSystemArgs struct {
 	StorageCapacity       *int                            `pulumi:"storageCapacity"`
 	StorageType           *string                         `pulumi:"storageType"`
 	SubnetIds             []string                        `pulumi:"subnetIds"`
-	Tags                  []FileSystemTag                 `pulumi:"tags"`
+	Tags                  []aws.Tag                       `pulumi:"tags"`
 	WindowsConfiguration  *FileSystemWindowsConfiguration `pulumi:"windowsConfiguration"`
 }
 
@@ -120,7 +121,7 @@ type FileSystemArgs struct {
 	StorageCapacity       pulumi.IntPtrInput
 	StorageType           pulumi.StringPtrInput
 	SubnetIds             pulumi.StringArrayInput
-	Tags                  FileSystemTagArrayInput
+	Tags                  aws.TagArrayInput
 	WindowsConfiguration  FileSystemWindowsConfigurationPtrInput
 }
 
@@ -221,8 +222,8 @@ func (o FileSystemOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o FileSystemOutput) Tags() FileSystemTagArrayOutput {
-	return o.ApplyT(func(v *FileSystem) FileSystemTagArrayOutput { return v.Tags }).(FileSystemTagArrayOutput)
+func (o FileSystemOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FileSystem) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o FileSystemOutput) WindowsConfiguration() FileSystemWindowsConfigurationPtrOutput {

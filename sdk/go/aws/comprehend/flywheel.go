@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type Flywheel struct {
 	DataSecurityConfig FlywheelDataSecurityConfigPtrOutput `pulumi:"dataSecurityConfig"`
 	FlywheelName       pulumi.StringOutput                 `pulumi:"flywheelName"`
 	ModelType          FlywheelModelTypePtrOutput          `pulumi:"modelType"`
-	Tags               FlywheelTagArrayOutput              `pulumi:"tags"`
+	Tags               aws.TagArrayOutput                  `pulumi:"tags"`
 	TaskConfig         FlywheelTaskConfigPtrOutput         `pulumi:"taskConfig"`
 }
 
@@ -86,7 +87,7 @@ type flywheelArgs struct {
 	DataSecurityConfig *FlywheelDataSecurityConfig `pulumi:"dataSecurityConfig"`
 	FlywheelName       *string                     `pulumi:"flywheelName"`
 	ModelType          *FlywheelModelType          `pulumi:"modelType"`
-	Tags               []FlywheelTag               `pulumi:"tags"`
+	Tags               []aws.Tag                   `pulumi:"tags"`
 	TaskConfig         *FlywheelTaskConfig         `pulumi:"taskConfig"`
 }
 
@@ -98,7 +99,7 @@ type FlywheelArgs struct {
 	DataSecurityConfig FlywheelDataSecurityConfigPtrInput
 	FlywheelName       pulumi.StringPtrInput
 	ModelType          FlywheelModelTypePtrInput
-	Tags               FlywheelTagArrayInput
+	Tags               aws.TagArrayInput
 	TaskConfig         FlywheelTaskConfigPtrInput
 }
 
@@ -167,8 +168,8 @@ func (o FlywheelOutput) ModelType() FlywheelModelTypePtrOutput {
 	return o.ApplyT(func(v *Flywheel) FlywheelModelTypePtrOutput { return v.ModelType }).(FlywheelModelTypePtrOutput)
 }
 
-func (o FlywheelOutput) Tags() FlywheelTagArrayOutput {
-	return o.ApplyT(func(v *Flywheel) FlywheelTagArrayOutput { return v.Tags }).(FlywheelTagArrayOutput)
+func (o FlywheelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Flywheel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o FlywheelOutput) TaskConfig() FlywheelTaskConfigPtrOutput {

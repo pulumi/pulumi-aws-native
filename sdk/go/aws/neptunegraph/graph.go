@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type Graph struct {
 	// _Default_: If not specified, the default value is 1.
 	ReplicaCount pulumi.IntPtrOutput `pulumi:"replicaCount"`
 	// The tags associated with this graph.
-	Tags GraphTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Vector Search Configuration
 	VectorSearchConfiguration GraphVectorSearchConfigurationPtrOutput `pulumi:"vectorSearchConfiguration"`
 }
@@ -130,7 +131,7 @@ type graphArgs struct {
 	// _Default_: If not specified, the default value is 1.
 	ReplicaCount *int `pulumi:"replicaCount"`
 	// The tags associated with this graph.
-	Tags []GraphTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Vector Search Configuration
 	VectorSearchConfiguration *GraphVectorSearchConfiguration `pulumi:"vectorSearchConfiguration"`
 }
@@ -164,7 +165,7 @@ type GraphArgs struct {
 	// _Default_: If not specified, the default value is 1.
 	ReplicaCount pulumi.IntPtrInput
 	// The tags associated with this graph.
-	Tags GraphTagArrayInput
+	Tags aws.TagArrayInput
 	// Vector Search Configuration
 	VectorSearchConfiguration GraphVectorSearchConfigurationPtrInput
 }
@@ -263,8 +264,8 @@ func (o GraphOutput) ReplicaCount() pulumi.IntPtrOutput {
 }
 
 // The tags associated with this graph.
-func (o GraphOutput) Tags() GraphTagArrayOutput {
-	return o.ApplyT(func(v *Graph) GraphTagArrayOutput { return v.Tags }).(GraphTagArrayOutput)
+func (o GraphOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Graph) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Vector Search Configuration

@@ -45,7 +45,7 @@ export class KnowledgeBase extends pulumi.CustomResource {
     public readonly renderingConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseRenderingConfiguration | undefined>;
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseServerSideEncryptionConfiguration | undefined>;
     public readonly sourceConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseSourceConfiguration | undefined>;
-    public readonly tags!: pulumi.Output<outputs.wisdom.KnowledgeBaseTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a KnowledgeBase resource with the given unique name, arguments, and options.
@@ -98,5 +98,5 @@ export interface KnowledgeBaseArgs {
     renderingConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseRenderingConfigurationArgs>;
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseServerSideEncryptionConfigurationArgs>;
     sourceConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseSourceConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.wisdom.KnowledgeBaseTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

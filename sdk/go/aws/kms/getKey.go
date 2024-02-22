@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,7 +49,7 @@ type LookupKeyResult struct {
 	// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
 	Origin *KeyOrigin `pulumi:"origin"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []KeyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
@@ -137,8 +138,8 @@ func (o LookupKeyResultOutput) Origin() KeyOriginPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupKeyResultOutput) Tags() KeyTagArrayOutput {
-	return o.ApplyT(func(v LookupKeyResult) []KeyTag { return v.Tags }).(KeyTagArrayOutput)
+func (o LookupKeyResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupKeyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

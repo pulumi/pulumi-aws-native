@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type RuleGroup struct {
 	// Collection of Rules.
 	Rules            RuleGroupRuleArrayOutput        `pulumi:"rules"`
 	Scope            RuleGroupScopeOutput            `pulumi:"scope"`
-	Tags             RuleGroupTagArrayOutput         `pulumi:"tags"`
+	Tags             aws.TagArrayOutput              `pulumi:"tags"`
 	VisibilityConfig RuleGroupVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
 
@@ -98,7 +99,7 @@ type ruleGroupArgs struct {
 	// Collection of Rules.
 	Rules            []RuleGroupRule           `pulumi:"rules"`
 	Scope            RuleGroupScope            `pulumi:"scope"`
-	Tags             []RuleGroupTag            `pulumi:"tags"`
+	Tags             []aws.Tag                 `pulumi:"tags"`
 	VisibilityConfig RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -115,7 +116,7 @@ type RuleGroupArgs struct {
 	// Collection of Rules.
 	Rules            RuleGroupRuleArrayInput
 	Scope            RuleGroupScopeInput
-	Tags             RuleGroupTagArrayInput
+	Tags             aws.TagArrayInput
 	VisibilityConfig RuleGroupVisibilityConfigInput
 }
 
@@ -199,8 +200,8 @@ func (o RuleGroupOutput) Scope() RuleGroupScopeOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupScopeOutput { return v.Scope }).(RuleGroupScopeOutput)
 }
 
-func (o RuleGroupOutput) Tags() RuleGroupTagArrayOutput {
-	return o.ApplyT(func(v *RuleGroup) RuleGroupTagArrayOutput { return v.Tags }).(RuleGroupTagArrayOutput)
+func (o RuleGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *RuleGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o RuleGroupOutput) VisibilityConfig() RuleGroupVisibilityConfigOutput {

@@ -39,7 +39,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
 
     public readonly path!: pulumi.Output<string | undefined>;
     public /*out*/ readonly serialNumber!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.iam.VirtualMfaDeviceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly users!: pulumi.Output<string[]>;
     public readonly virtualMfaDeviceName!: pulumi.Output<string | undefined>;
 
@@ -81,7 +81,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
  */
 export interface VirtualMfaDeviceArgs {
     path?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iam.VirtualMfaDeviceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     users: pulumi.Input<pulumi.Input<string>[]>;
     virtualMfaDeviceName?: pulumi.Input<string>;
 }

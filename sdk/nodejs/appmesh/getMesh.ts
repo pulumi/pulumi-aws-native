@@ -28,7 +28,7 @@ export interface GetMeshResult {
     readonly meshOwner?: string;
     readonly resourceOwner?: string;
     readonly spec?: outputs.appmesh.MeshSpec;
-    readonly tags?: outputs.appmesh.MeshTag[];
+    readonly tags?: outputs.Tag[];
     readonly uid?: string;
 }
 /**

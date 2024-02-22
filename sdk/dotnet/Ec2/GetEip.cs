@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// Any tags assigned to the EIP.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EipTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEipResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? publicIpv4Pool,
 
-            ImmutableArray<Outputs.EipTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllocationId = allocationId;
             InstanceId = instanceId;

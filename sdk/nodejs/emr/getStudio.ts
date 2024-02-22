@@ -61,7 +61,7 @@ export interface GetStudioResult {
     /**
      * A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
      */
-    readonly tags?: outputs.emr.StudioTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The unique Studio access URL.
      */

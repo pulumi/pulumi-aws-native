@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,7 +39,7 @@ type LookupLocationSmbResult struct {
 	LocationUri  *string                  `pulumi:"locationUri"`
 	MountOptions *LocationSmbMountOptions `pulumi:"mountOptions"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []LocationSmbTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The user who can mount the share, has the permissions to access files and folders in the SMB share.
 	User *string `pulumi:"user"`
 }
@@ -104,8 +105,8 @@ func (o LookupLocationSmbResultOutput) MountOptions() LocationSmbMountOptionsPtr
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupLocationSmbResultOutput) Tags() LocationSmbTagArrayOutput {
-	return o.ApplyT(func(v LookupLocationSmbResult) []LocationSmbTag { return v.Tags }).(LocationSmbTagArrayOutput)
+func (o LookupLocationSmbResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLocationSmbResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The user who can mount the share, has the permissions to access files and folders in the SMB share.

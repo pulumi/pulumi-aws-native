@@ -43,7 +43,7 @@ export class SamlProvider extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly samlMetadataDocument!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.iam.SamlProviderTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SamlProvider resource with the given unique name, arguments, and options.
@@ -82,5 +82,5 @@ export class SamlProvider extends pulumi.CustomResource {
 export interface SamlProviderArgs {
     name?: pulumi.Input<string>;
     samlMetadataDocument: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iam.SamlProviderTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

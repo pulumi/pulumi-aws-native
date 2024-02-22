@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Dms
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MigrationProjectTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The property describes target data provider descriptors for the migration project.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.Dms
 
             ImmutableArray<Outputs.MigrationProjectDataProviderDescriptor> sourceDataProviderDescriptors,
 
-            ImmutableArray<Outputs.MigrationProjectTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<Outputs.MigrationProjectDataProviderDescriptor> targetDataProviderDescriptors,
 

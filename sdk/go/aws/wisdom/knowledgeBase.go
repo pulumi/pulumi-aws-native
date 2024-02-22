@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type KnowledgeBase struct {
 	RenderingConfiguration            KnowledgeBaseRenderingConfigurationPtrOutput            `pulumi:"renderingConfiguration"`
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	SourceConfiguration               KnowledgeBaseSourceConfigurationPtrOutput               `pulumi:"sourceConfiguration"`
-	Tags                              KnowledgeBaseTagArrayOutput                             `pulumi:"tags"`
+	Tags                              aws.CreateOnlyTagArrayOutput                            `pulumi:"tags"`
 }
 
 // NewKnowledgeBase registers a new resource with the given unique name, arguments, and options.
@@ -85,7 +86,7 @@ type knowledgeBaseArgs struct {
 	RenderingConfiguration            *KnowledgeBaseRenderingConfiguration            `pulumi:"renderingConfiguration"`
 	ServerSideEncryptionConfiguration *KnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	SourceConfiguration               *KnowledgeBaseSourceConfiguration               `pulumi:"sourceConfiguration"`
-	Tags                              []KnowledgeBaseTag                              `pulumi:"tags"`
+	Tags                              []aws.CreateOnlyTag                             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KnowledgeBase resource.
@@ -96,7 +97,7 @@ type KnowledgeBaseArgs struct {
 	RenderingConfiguration            KnowledgeBaseRenderingConfigurationPtrInput
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrInput
 	SourceConfiguration               KnowledgeBaseSourceConfigurationPtrInput
-	Tags                              KnowledgeBaseTagArrayInput
+	Tags                              aws.CreateOnlyTagArrayInput
 }
 
 func (KnowledgeBaseArgs) ElementType() reflect.Type {
@@ -170,8 +171,8 @@ func (o KnowledgeBaseOutput) SourceConfiguration() KnowledgeBaseSourceConfigurat
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseSourceConfigurationPtrOutput { return v.SourceConfiguration }).(KnowledgeBaseSourceConfigurationPtrOutput)
 }
 
-func (o KnowledgeBaseOutput) Tags() KnowledgeBaseTagArrayOutput {
-	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseTagArrayOutput { return v.Tags }).(KnowledgeBaseTagArrayOutput)
+func (o KnowledgeBaseOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *KnowledgeBase) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

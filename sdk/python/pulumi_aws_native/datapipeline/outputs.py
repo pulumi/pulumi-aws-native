@@ -16,7 +16,6 @@ __all__ = [
     'PipelineParameterAttribute',
     'PipelineParameterObject',
     'PipelineParameterValue',
-    'PipelineTag',
 ]
 
 @pulumi.output_type
@@ -239,34 +238,5 @@ class PipelineParameterValue(dict):
         The field value, expressed as a String.
         """
         return pulumi.get(self, "string_value")
-
-
-@pulumi.output_type
-class PipelineTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: The key name of a tag.
-        :param str value: The value to associate with the key name.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of a tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value to associate with the key name.
-        """
-        return pulumi.get(self, "value")
 
 

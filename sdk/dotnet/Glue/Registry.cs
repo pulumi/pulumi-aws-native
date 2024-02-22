@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Glue
         /// List of tags to tag the Registry
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RegistryTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -101,14 +101,14 @@ namespace Pulumi.AwsNative.Glue
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.RegistryTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// List of tags to tag the Registry
         /// </summary>
-        public InputList<Inputs.RegistryTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RegistryTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

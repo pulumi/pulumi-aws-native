@@ -39,7 +39,7 @@ export class Pipeline extends pulumi.CustomResource {
 
     public readonly pipelineActivities!: pulumi.Output<outputs.iotanalytics.PipelineActivity[]>;
     public readonly pipelineName!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iotanalytics.PipelineTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -76,5 +76,5 @@ export class Pipeline extends pulumi.CustomResource {
 export interface PipelineArgs {
     pipelineActivities: pulumi.Input<pulumi.Input<inputs.iotanalytics.PipelineActivityArgs>[]>;
     pipelineName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iotanalytics.PipelineTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

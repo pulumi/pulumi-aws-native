@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type VpcLink struct {
 	// A name for the VPC link.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of arbitrary tags (key-value pairs) to associate with the stage.
-	Tags VpcLinkTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
 	TargetArns pulumi.StringArrayOutput `pulumi:"targetArns"`
 	// The ID of the instance that backs VPC link.
@@ -80,7 +81,7 @@ type vpcLinkArgs struct {
 	// A name for the VPC link.
 	Name *string `pulumi:"name"`
 	// An array of arbitrary tags (key-value pairs) to associate with the stage.
-	Tags []VpcLinkTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
 	TargetArns []string `pulumi:"targetArns"`
 }
@@ -92,7 +93,7 @@ type VpcLinkArgs struct {
 	// A name for the VPC link.
 	Name pulumi.StringPtrInput
 	// An array of arbitrary tags (key-value pairs) to associate with the stage.
-	Tags VpcLinkTagArrayInput
+	Tags aws.TagArrayInput
 	// The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
 	TargetArns pulumi.StringArrayInput
 }
@@ -145,8 +146,8 @@ func (o VpcLinkOutput) Name() pulumi.StringOutput {
 }
 
 // An array of arbitrary tags (key-value pairs) to associate with the stage.
-func (o VpcLinkOutput) Tags() VpcLinkTagArrayOutput {
-	return o.ApplyT(func(v *VpcLink) VpcLinkTagArrayOutput { return v.Tags }).(VpcLinkTagArrayOutput)
+func (o VpcLinkOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VpcLink) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.

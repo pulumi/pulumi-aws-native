@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,7 +50,7 @@ type LookupObjectTypeResult struct {
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat *string `pulumi:"sourceLastUpdatedTimestampFormat"`
 	// The tags (keys and values) associated with the integration.
-	Tags []ObjectTypeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A unique identifier for the object template.
 	TemplateId *string `pulumi:"templateId"`
 }
@@ -138,8 +139,8 @@ func (o LookupObjectTypeResultOutput) SourceLastUpdatedTimestampFormat() pulumi.
 }
 
 // The tags (keys and values) associated with the integration.
-func (o LookupObjectTypeResultOutput) Tags() ObjectTypeTagArrayOutput {
-	return o.ApplyT(func(v LookupObjectTypeResult) []ObjectTypeTag { return v.Tags }).(ObjectTypeTagArrayOutput)
+func (o LookupObjectTypeResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupObjectTypeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A unique identifier for the object template.

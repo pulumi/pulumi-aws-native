@@ -41,7 +41,7 @@ export interface GetReplicatorResult {
     /**
      * A collection of tags associated with a resource
      */
-    readonly tags?: outputs.msk.ReplicatorTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::MSK::Replicator

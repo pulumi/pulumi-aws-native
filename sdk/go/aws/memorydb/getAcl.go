@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupAclResult struct {
 	// Indicates acl status. Can be "creating", "active", "modifying", "deleting".
 	Status *string `pulumi:"status"`
 	// An array of key-value pairs to apply to this cluster.
-	Tags []AclTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// List of users associated to this acl.
 	UserNames []string `pulumi:"userNames"`
 }
@@ -85,8 +86,8 @@ func (o LookupAclResultOutput) Status() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this cluster.
-func (o LookupAclResultOutput) Tags() AclTagArrayOutput {
-	return o.ApplyT(func(v LookupAclResult) []AclTag { return v.Tags }).(AclTagArrayOutput)
+func (o LookupAclResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAclResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // List of users associated to this acl.

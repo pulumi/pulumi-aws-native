@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ReportPlanArgs', 'ReportPlan']
@@ -20,14 +22,14 @@ class ReportPlanArgs:
                  report_setting: pulumi.Input['ReportSettingPropertiesArgs'],
                  report_plan_description: Optional[pulumi.Input[str]] = None,
                  report_plan_name: Optional[pulumi.Input[str]] = None,
-                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReportPlanTagArgs']]]] = None):
+                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReportPlan resource.
         :param pulumi.Input['ReportDeliveryChannelPropertiesArgs'] report_delivery_channel: A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
         :param pulumi.Input['ReportSettingPropertiesArgs'] report_setting: Identifies the report template for the report. Reports are built using a report template.
         :param pulumi.Input[str] report_plan_description: An optional description of the report plan with a maximum of 1,024 characters.
         :param pulumi.Input[str] report_plan_name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
-        :param pulumi.Input[Sequence[pulumi.Input['ReportPlanTagArgs']]] report_plan_tags: Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] report_plan_tags: Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
         """
         pulumi.set(__self__, "report_delivery_channel", report_delivery_channel)
         pulumi.set(__self__, "report_setting", report_setting)
@@ -88,14 +90,14 @@ class ReportPlanArgs:
 
     @property
     @pulumi.getter(name="reportPlanTags")
-    def report_plan_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportPlanTagArgs']]]]:
+    def report_plan_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
         """
         return pulumi.get(self, "report_plan_tags")
 
     @report_plan_tags.setter
-    def report_plan_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportPlanTagArgs']]]]):
+    def report_plan_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "report_plan_tags", value)
 
 
@@ -107,7 +109,7 @@ class ReportPlan(pulumi.CustomResource):
                  report_delivery_channel: Optional[pulumi.Input[pulumi.InputType['ReportDeliveryChannelPropertiesArgs']]] = None,
                  report_plan_description: Optional[pulumi.Input[str]] = None,
                  report_plan_name: Optional[pulumi.Input[str]] = None,
-                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReportPlanTagArgs']]]]] = None,
+                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  report_setting: Optional[pulumi.Input[pulumi.InputType['ReportSettingPropertiesArgs']]] = None,
                  __props__=None):
         """
@@ -118,7 +120,7 @@ class ReportPlan(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ReportDeliveryChannelPropertiesArgs']] report_delivery_channel: A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
         :param pulumi.Input[str] report_plan_description: An optional description of the report plan with a maximum of 1,024 characters.
         :param pulumi.Input[str] report_plan_name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReportPlanTagArgs']]]] report_plan_tags: Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] report_plan_tags: Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
         :param pulumi.Input[pulumi.InputType['ReportSettingPropertiesArgs']] report_setting: Identifies the report template for the report. Reports are built using a report template.
         """
         ...
@@ -148,7 +150,7 @@ class ReportPlan(pulumi.CustomResource):
                  report_delivery_channel: Optional[pulumi.Input[pulumi.InputType['ReportDeliveryChannelPropertiesArgs']]] = None,
                  report_plan_description: Optional[pulumi.Input[str]] = None,
                  report_plan_name: Optional[pulumi.Input[str]] = None,
-                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReportPlanTagArgs']]]]] = None,
+                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  report_setting: Optional[pulumi.Input[pulumi.InputType['ReportSettingPropertiesArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -235,7 +237,7 @@ class ReportPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reportPlanTags")
-    def report_plan_tags(self) -> pulumi.Output[Optional[Sequence['outputs.ReportPlanTag']]]:
+    def report_plan_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
         """

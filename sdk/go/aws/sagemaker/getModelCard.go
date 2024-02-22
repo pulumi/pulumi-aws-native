@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,7 +47,7 @@ type LookupModelCardResult struct {
 	// A version of the model card.
 	ModelCardVersion *int `pulumi:"modelCardVersion"`
 	// Key-value pairs used to manage metadata for model cards.
-	Tags []ModelCardTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupModelCardOutput(ctx *pulumi.Context, args LookupModelCardOutputArgs, opts ...pulumi.InvokeOption) LookupModelCardResultOutput {
@@ -130,8 +131,8 @@ func (o LookupModelCardResultOutput) ModelCardVersion() pulumi.IntPtrOutput {
 }
 
 // Key-value pairs used to manage metadata for model cards.
-func (o LookupModelCardResultOutput) Tags() ModelCardTagArrayOutput {
-	return o.ApplyT(func(v LookupModelCardResult) []ModelCardTag { return v.Tags }).(ModelCardTagArrayOutput)
+func (o LookupModelCardResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupModelCardResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -146,7 +146,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this cluster.
      */
-    public readonly tags!: pulumi.Output<outputs.memorydb.ClusterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A flag that enables in-transit encryption when set to true.
      *
@@ -337,7 +337,7 @@ export interface ClusterArgs {
     /**
      * An array of key-value pairs to apply to this cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.memorydb.ClusterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A flag that enables in-transit encryption when set to true.
      *

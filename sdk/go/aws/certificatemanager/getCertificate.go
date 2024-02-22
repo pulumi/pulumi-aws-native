@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,9 +28,9 @@ type LookupCertificateArgs struct {
 }
 
 type LookupCertificateResult struct {
-	CertificateTransparencyLoggingPreference *string          `pulumi:"certificateTransparencyLoggingPreference"`
-	Id                                       *string          `pulumi:"id"`
-	Tags                                     []CertificateTag `pulumi:"tags"`
+	CertificateTransparencyLoggingPreference *string   `pulumi:"certificateTransparencyLoggingPreference"`
+	Id                                       *string   `pulumi:"id"`
+	Tags                                     []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
@@ -75,8 +76,8 @@ func (o LookupCertificateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCertificateResultOutput) Tags() CertificateTagArrayOutput {
-	return o.ApplyT(func(v LookupCertificateResult) []CertificateTag { return v.Tags }).(CertificateTagArrayOutput)
+func (o LookupCertificateResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCertificateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

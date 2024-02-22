@@ -46,7 +46,7 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.iot.SoftwarePackageVersionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly versionName!: pulumi.Output<string | undefined>;
 
     /**
@@ -98,6 +98,6 @@ export interface SoftwarePackageVersionArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iot.SoftwarePackageVersionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     versionName?: pulumi.Input<string>;
 }

@@ -62,7 +62,7 @@ export interface GetVolumeResult {
     /**
      * The tags to apply to the volume during creation.
      */
-    readonly tags?: outputs.ec2.VolumeTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The throughput that the volume supports, in MiB/s.
      */

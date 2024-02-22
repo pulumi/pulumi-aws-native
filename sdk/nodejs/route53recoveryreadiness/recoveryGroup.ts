@@ -52,7 +52,7 @@ export class RecoveryGroup extends pulumi.CustomResource {
     /**
      * A collection of tags associated with a resource.
      */
-    public readonly tags!: pulumi.Output<outputs.route53recoveryreadiness.RecoveryGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RecoveryGroup resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface RecoveryGroupArgs {
     /**
      * A collection of tags associated with a resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.RecoveryGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Output<Outputs.DatastoreRetentionPeriod?> RetentionPeriod { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DatastoreTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -98,10 +98,10 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Input<Inputs.DatastoreRetentionPeriodArgs>? RetentionPeriod { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DatastoreTagArgs>? _tags;
-        public InputList<Inputs.DatastoreTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DatastoreTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

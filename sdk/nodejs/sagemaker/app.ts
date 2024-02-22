@@ -60,7 +60,7 @@ export class App extends pulumi.CustomResource {
     /**
      * A list of tags to apply to the app.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.AppTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The user profile name.
      */
@@ -132,7 +132,7 @@ export interface AppArgs {
     /**
      * A list of tags to apply to the app.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.AppTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * The user profile name.
      */

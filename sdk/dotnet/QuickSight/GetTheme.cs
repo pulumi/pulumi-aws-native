@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly string? LastUpdatedTime;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.ThemeResourcePermission> Permissions;
-        public readonly ImmutableArray<Outputs.ThemeTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Pulumi.AwsNative.QuickSight.ThemeType? Type;
         public readonly Outputs.ThemeVersion? Version;
 
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.ThemeResourcePermission> permissions,
 
-            ImmutableArray<Outputs.ThemeTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.QuickSight.ThemeType? type,
 

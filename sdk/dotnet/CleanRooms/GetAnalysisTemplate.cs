@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AnalysisTemplateTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAnalysisTemplateResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.CleanRooms
 
             Outputs.AnalysisTemplateAnalysisSchema? schema,
 
-            ImmutableArray<Outputs.AnalysisTemplateTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AnalysisTemplateIdentifier = analysisTemplateIdentifier;
             Arn = arn;

@@ -46,7 +46,7 @@ export interface GetSchemaResult {
     /**
      * List of tags to tag the schema
      */
-    readonly tags?: outputs.glue.SchemaTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * This resource represents a schema of Glue Schema Registry.

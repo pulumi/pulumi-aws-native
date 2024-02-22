@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupSignalCatalogResult struct {
 	LastModificationTime *string                  `pulumi:"lastModificationTime"`
 	NodeCounts           *SignalCatalogNodeCounts `pulumi:"nodeCounts"`
 	Nodes                []interface{}            `pulumi:"nodes"`
-	Tags                 []SignalCatalogTag       `pulumi:"tags"`
+	Tags                 []aws.Tag                `pulumi:"tags"`
 }
 
 func LookupSignalCatalogOutput(ctx *pulumi.Context, args LookupSignalCatalogOutputArgs, opts ...pulumi.InvokeOption) LookupSignalCatalogResultOutput {
@@ -95,8 +96,8 @@ func (o LookupSignalCatalogResultOutput) Nodes() pulumi.ArrayOutput {
 	return o.ApplyT(func(v LookupSignalCatalogResult) []interface{} { return v.Nodes }).(pulumi.ArrayOutput)
 }
 
-func (o LookupSignalCatalogResultOutput) Tags() SignalCatalogTagArrayOutput {
-	return o.ApplyT(func(v LookupSignalCatalogResult) []SignalCatalogTag { return v.Tags }).(SignalCatalogTagArrayOutput)
+func (o LookupSignalCatalogResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSignalCatalogResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -118,101 +118,6 @@ type AppBlockBuilderTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AppBlockBuilderTagInput is an input type that accepts AppBlockBuilderTagArgs and AppBlockBuilderTagOutput values.
-// You can construct a concrete instance of `AppBlockBuilderTagInput` via:
-//
-//	AppBlockBuilderTagArgs{...}
-type AppBlockBuilderTagInput interface {
-	pulumi.Input
-
-	ToAppBlockBuilderTagOutput() AppBlockBuilderTagOutput
-	ToAppBlockBuilderTagOutputWithContext(context.Context) AppBlockBuilderTagOutput
-}
-
-type AppBlockBuilderTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AppBlockBuilderTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppBlockBuilderTag)(nil)).Elem()
-}
-
-func (i AppBlockBuilderTagArgs) ToAppBlockBuilderTagOutput() AppBlockBuilderTagOutput {
-	return i.ToAppBlockBuilderTagOutputWithContext(context.Background())
-}
-
-func (i AppBlockBuilderTagArgs) ToAppBlockBuilderTagOutputWithContext(ctx context.Context) AppBlockBuilderTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppBlockBuilderTagOutput)
-}
-
-// AppBlockBuilderTagArrayInput is an input type that accepts AppBlockBuilderTagArray and AppBlockBuilderTagArrayOutput values.
-// You can construct a concrete instance of `AppBlockBuilderTagArrayInput` via:
-//
-//	AppBlockBuilderTagArray{ AppBlockBuilderTagArgs{...} }
-type AppBlockBuilderTagArrayInput interface {
-	pulumi.Input
-
-	ToAppBlockBuilderTagArrayOutput() AppBlockBuilderTagArrayOutput
-	ToAppBlockBuilderTagArrayOutputWithContext(context.Context) AppBlockBuilderTagArrayOutput
-}
-
-type AppBlockBuilderTagArray []AppBlockBuilderTagInput
-
-func (AppBlockBuilderTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppBlockBuilderTag)(nil)).Elem()
-}
-
-func (i AppBlockBuilderTagArray) ToAppBlockBuilderTagArrayOutput() AppBlockBuilderTagArrayOutput {
-	return i.ToAppBlockBuilderTagArrayOutputWithContext(context.Background())
-}
-
-func (i AppBlockBuilderTagArray) ToAppBlockBuilderTagArrayOutputWithContext(ctx context.Context) AppBlockBuilderTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppBlockBuilderTagArrayOutput)
-}
-
-type AppBlockBuilderTagOutput struct{ *pulumi.OutputState }
-
-func (AppBlockBuilderTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppBlockBuilderTag)(nil)).Elem()
-}
-
-func (o AppBlockBuilderTagOutput) ToAppBlockBuilderTagOutput() AppBlockBuilderTagOutput {
-	return o
-}
-
-func (o AppBlockBuilderTagOutput) ToAppBlockBuilderTagOutputWithContext(ctx context.Context) AppBlockBuilderTagOutput {
-	return o
-}
-
-func (o AppBlockBuilderTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AppBlockBuilderTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AppBlockBuilderTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AppBlockBuilderTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AppBlockBuilderTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AppBlockBuilderTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppBlockBuilderTag)(nil)).Elem()
-}
-
-func (o AppBlockBuilderTagArrayOutput) ToAppBlockBuilderTagArrayOutput() AppBlockBuilderTagArrayOutput {
-	return o
-}
-
-func (o AppBlockBuilderTagArrayOutput) ToAppBlockBuilderTagArrayOutputWithContext(ctx context.Context) AppBlockBuilderTagArrayOutput {
-	return o
-}
-
-func (o AppBlockBuilderTagArrayOutput) Index(i pulumi.IntInput) AppBlockBuilderTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppBlockBuilderTag {
-		return vs[0].([]AppBlockBuilderTag)[vs[1].(int)]
-	}).(AppBlockBuilderTagOutput)
-}
-
 type AppBlockBuilderVpcConfig struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	SubnetIds        []string `pulumi:"subnetIds"`
@@ -1747,101 +1652,6 @@ type FleetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// FleetTagInput is an input type that accepts FleetTagArgs and FleetTagOutput values.
-// You can construct a concrete instance of `FleetTagInput` via:
-//
-//	FleetTagArgs{...}
-type FleetTagInput interface {
-	pulumi.Input
-
-	ToFleetTagOutput() FleetTagOutput
-	ToFleetTagOutputWithContext(context.Context) FleetTagOutput
-}
-
-type FleetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FleetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetTag)(nil)).Elem()
-}
-
-func (i FleetTagArgs) ToFleetTagOutput() FleetTagOutput {
-	return i.ToFleetTagOutputWithContext(context.Background())
-}
-
-func (i FleetTagArgs) ToFleetTagOutputWithContext(ctx context.Context) FleetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetTagOutput)
-}
-
-// FleetTagArrayInput is an input type that accepts FleetTagArray and FleetTagArrayOutput values.
-// You can construct a concrete instance of `FleetTagArrayInput` via:
-//
-//	FleetTagArray{ FleetTagArgs{...} }
-type FleetTagArrayInput interface {
-	pulumi.Input
-
-	ToFleetTagArrayOutput() FleetTagArrayOutput
-	ToFleetTagArrayOutputWithContext(context.Context) FleetTagArrayOutput
-}
-
-type FleetTagArray []FleetTagInput
-
-func (FleetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FleetTag)(nil)).Elem()
-}
-
-func (i FleetTagArray) ToFleetTagArrayOutput() FleetTagArrayOutput {
-	return i.ToFleetTagArrayOutputWithContext(context.Background())
-}
-
-func (i FleetTagArray) ToFleetTagArrayOutputWithContext(ctx context.Context) FleetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetTagArrayOutput)
-}
-
-type FleetTagOutput struct{ *pulumi.OutputState }
-
-func (FleetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetTag)(nil)).Elem()
-}
-
-func (o FleetTagOutput) ToFleetTagOutput() FleetTagOutput {
-	return o
-}
-
-func (o FleetTagOutput) ToFleetTagOutputWithContext(ctx context.Context) FleetTagOutput {
-	return o
-}
-
-func (o FleetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o FleetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FleetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FleetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FleetTag)(nil)).Elem()
-}
-
-func (o FleetTagArrayOutput) ToFleetTagArrayOutput() FleetTagArrayOutput {
-	return o
-}
-
-func (o FleetTagArrayOutput) ToFleetTagArrayOutputWithContext(ctx context.Context) FleetTagArrayOutput {
-	return o
-}
-
-func (o FleetTagArrayOutput) Index(i pulumi.IntInput) FleetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetTag {
-		return vs[0].([]FleetTag)[vs[1].(int)]
-	}).(FleetTagOutput)
-}
-
 type FleetVpcConfig struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	SubnetIds        []string `pulumi:"subnetIds"`
@@ -2241,101 +2051,6 @@ func (o ImageBuilderDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName
 type ImageBuilderTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// ImageBuilderTagInput is an input type that accepts ImageBuilderTagArgs and ImageBuilderTagOutput values.
-// You can construct a concrete instance of `ImageBuilderTagInput` via:
-//
-//	ImageBuilderTagArgs{...}
-type ImageBuilderTagInput interface {
-	pulumi.Input
-
-	ToImageBuilderTagOutput() ImageBuilderTagOutput
-	ToImageBuilderTagOutputWithContext(context.Context) ImageBuilderTagOutput
-}
-
-type ImageBuilderTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ImageBuilderTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageBuilderTag)(nil)).Elem()
-}
-
-func (i ImageBuilderTagArgs) ToImageBuilderTagOutput() ImageBuilderTagOutput {
-	return i.ToImageBuilderTagOutputWithContext(context.Background())
-}
-
-func (i ImageBuilderTagArgs) ToImageBuilderTagOutputWithContext(ctx context.Context) ImageBuilderTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderTagOutput)
-}
-
-// ImageBuilderTagArrayInput is an input type that accepts ImageBuilderTagArray and ImageBuilderTagArrayOutput values.
-// You can construct a concrete instance of `ImageBuilderTagArrayInput` via:
-//
-//	ImageBuilderTagArray{ ImageBuilderTagArgs{...} }
-type ImageBuilderTagArrayInput interface {
-	pulumi.Input
-
-	ToImageBuilderTagArrayOutput() ImageBuilderTagArrayOutput
-	ToImageBuilderTagArrayOutputWithContext(context.Context) ImageBuilderTagArrayOutput
-}
-
-type ImageBuilderTagArray []ImageBuilderTagInput
-
-func (ImageBuilderTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageBuilderTag)(nil)).Elem()
-}
-
-func (i ImageBuilderTagArray) ToImageBuilderTagArrayOutput() ImageBuilderTagArrayOutput {
-	return i.ToImageBuilderTagArrayOutputWithContext(context.Background())
-}
-
-func (i ImageBuilderTagArray) ToImageBuilderTagArrayOutputWithContext(ctx context.Context) ImageBuilderTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderTagArrayOutput)
-}
-
-type ImageBuilderTagOutput struct{ *pulumi.OutputState }
-
-func (ImageBuilderTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageBuilderTag)(nil)).Elem()
-}
-
-func (o ImageBuilderTagOutput) ToImageBuilderTagOutput() ImageBuilderTagOutput {
-	return o
-}
-
-func (o ImageBuilderTagOutput) ToImageBuilderTagOutputWithContext(ctx context.Context) ImageBuilderTagOutput {
-	return o
-}
-
-func (o ImageBuilderTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageBuilderTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ImageBuilderTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageBuilderTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ImageBuilderTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ImageBuilderTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageBuilderTag)(nil)).Elem()
-}
-
-func (o ImageBuilderTagArrayOutput) ToImageBuilderTagArrayOutput() ImageBuilderTagArrayOutput {
-	return o
-}
-
-func (o ImageBuilderTagArrayOutput) ToImageBuilderTagArrayOutputWithContext(ctx context.Context) ImageBuilderTagArrayOutput {
-	return o
-}
-
-func (o ImageBuilderTagArrayOutput) Index(i pulumi.IntInput) ImageBuilderTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageBuilderTag {
-		return vs[0].([]ImageBuilderTag)[vs[1].(int)]
-	}).(ImageBuilderTagOutput)
 }
 
 type ImageBuilderVpcConfig struct {
@@ -2978,101 +2693,6 @@ type StackTag struct {
 	Value string `pulumi:"value"`
 }
 
-// StackTagInput is an input type that accepts StackTagArgs and StackTagOutput values.
-// You can construct a concrete instance of `StackTagInput` via:
-//
-//	StackTagArgs{...}
-type StackTagInput interface {
-	pulumi.Input
-
-	ToStackTagOutput() StackTagOutput
-	ToStackTagOutputWithContext(context.Context) StackTagOutput
-}
-
-type StackTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (StackTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackTag)(nil)).Elem()
-}
-
-func (i StackTagArgs) ToStackTagOutput() StackTagOutput {
-	return i.ToStackTagOutputWithContext(context.Background())
-}
-
-func (i StackTagArgs) ToStackTagOutputWithContext(ctx context.Context) StackTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackTagOutput)
-}
-
-// StackTagArrayInput is an input type that accepts StackTagArray and StackTagArrayOutput values.
-// You can construct a concrete instance of `StackTagArrayInput` via:
-//
-//	StackTagArray{ StackTagArgs{...} }
-type StackTagArrayInput interface {
-	pulumi.Input
-
-	ToStackTagArrayOutput() StackTagArrayOutput
-	ToStackTagArrayOutputWithContext(context.Context) StackTagArrayOutput
-}
-
-type StackTagArray []StackTagInput
-
-func (StackTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackTag)(nil)).Elem()
-}
-
-func (i StackTagArray) ToStackTagArrayOutput() StackTagArrayOutput {
-	return i.ToStackTagArrayOutputWithContext(context.Background())
-}
-
-func (i StackTagArray) ToStackTagArrayOutputWithContext(ctx context.Context) StackTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackTagArrayOutput)
-}
-
-type StackTagOutput struct{ *pulumi.OutputState }
-
-func (StackTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackTag)(nil)).Elem()
-}
-
-func (o StackTagOutput) ToStackTagOutput() StackTagOutput {
-	return o
-}
-
-func (o StackTagOutput) ToStackTagOutputWithContext(ctx context.Context) StackTagOutput {
-	return o
-}
-
-func (o StackTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v StackTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o StackTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StackTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type StackTagArrayOutput struct{ *pulumi.OutputState }
-
-func (StackTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackTag)(nil)).Elem()
-}
-
-func (o StackTagArrayOutput) ToStackTagArrayOutput() StackTagArrayOutput {
-	return o
-}
-
-func (o StackTagArrayOutput) ToStackTagArrayOutputWithContext(ctx context.Context) StackTagArrayOutput {
-	return o
-}
-
-func (o StackTagArrayOutput) Index(i pulumi.IntInput) StackTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackTag {
-		return vs[0].([]StackTag)[vs[1].(int)]
-	}).(StackTagOutput)
-}
-
 type StackUserSetting struct {
 	Action        string `pulumi:"action"`
 	MaximumLength *int   `pulumi:"maximumLength"`
@@ -3182,8 +2802,6 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderAccessEndpointInput)(nil)).Elem(), AppBlockBuilderAccessEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderAccessEndpointArrayInput)(nil)).Elem(), AppBlockBuilderAccessEndpointArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderTagInput)(nil)).Elem(), AppBlockBuilderTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderTagArrayInput)(nil)).Elem(), AppBlockBuilderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderVpcConfigInput)(nil)).Elem(), AppBlockBuilderVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockS3LocationInput)(nil)).Elem(), AppBlockS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockS3LocationPtrInput)(nil)).Elem(), AppBlockS3LocationArgs{})
@@ -3205,16 +2823,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetDomainJoinInfoPtrInput)(nil)).Elem(), FleetDomainJoinInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetS3LocationInput)(nil)).Elem(), FleetS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetS3LocationPtrInput)(nil)).Elem(), FleetS3LocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagInput)(nil)).Elem(), FleetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagArrayInput)(nil)).Elem(), FleetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigInput)(nil)).Elem(), FleetVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigPtrInput)(nil)).Elem(), FleetVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderAccessEndpointInput)(nil)).Elem(), ImageBuilderAccessEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderAccessEndpointArrayInput)(nil)).Elem(), ImageBuilderAccessEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderDomainJoinInfoInput)(nil)).Elem(), ImageBuilderDomainJoinInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderDomainJoinInfoPtrInput)(nil)).Elem(), ImageBuilderDomainJoinInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderTagInput)(nil)).Elem(), ImageBuilderTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderTagArrayInput)(nil)).Elem(), ImageBuilderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVpcConfigInput)(nil)).Elem(), ImageBuilderVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVpcConfigPtrInput)(nil)).Elem(), ImageBuilderVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackAccessEndpointInput)(nil)).Elem(), StackAccessEndpointArgs{})
@@ -3225,14 +2839,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStorageConnectorArrayInput)(nil)).Elem(), StackStorageConnectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStreamingExperienceSettingsInput)(nil)).Elem(), StackStreamingExperienceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStreamingExperienceSettingsPtrInput)(nil)).Elem(), StackStreamingExperienceSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackTagInput)(nil)).Elem(), StackTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackTagArrayInput)(nil)).Elem(), StackTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingInput)(nil)).Elem(), StackUserSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingArrayInput)(nil)).Elem(), StackUserSettingArray{})
 	pulumi.RegisterOutputType(AppBlockBuilderAccessEndpointOutput{})
 	pulumi.RegisterOutputType(AppBlockBuilderAccessEndpointArrayOutput{})
-	pulumi.RegisterOutputType(AppBlockBuilderTagOutput{})
-	pulumi.RegisterOutputType(AppBlockBuilderTagArrayOutput{})
 	pulumi.RegisterOutputType(AppBlockBuilderVpcConfigOutput{})
 	pulumi.RegisterOutputType(AppBlockBuilderVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppBlockS3LocationOutput{})
@@ -3257,16 +2867,12 @@ func init() {
 	pulumi.RegisterOutputType(FleetDomainJoinInfoPtrOutput{})
 	pulumi.RegisterOutputType(FleetS3LocationOutput{})
 	pulumi.RegisterOutputType(FleetS3LocationPtrOutput{})
-	pulumi.RegisterOutputType(FleetTagOutput{})
-	pulumi.RegisterOutputType(FleetTagArrayOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ImageBuilderAccessEndpointOutput{})
 	pulumi.RegisterOutputType(ImageBuilderAccessEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ImageBuilderDomainJoinInfoOutput{})
 	pulumi.RegisterOutputType(ImageBuilderDomainJoinInfoPtrOutput{})
-	pulumi.RegisterOutputType(ImageBuilderTagOutput{})
-	pulumi.RegisterOutputType(ImageBuilderTagArrayOutput{})
 	pulumi.RegisterOutputType(ImageBuilderVpcConfigOutput{})
 	pulumi.RegisterOutputType(ImageBuilderVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackAccessEndpointOutput{})
@@ -3277,8 +2883,6 @@ func init() {
 	pulumi.RegisterOutputType(StackStorageConnectorArrayOutput{})
 	pulumi.RegisterOutputType(StackStreamingExperienceSettingsOutput{})
 	pulumi.RegisterOutputType(StackStreamingExperienceSettingsPtrOutput{})
-	pulumi.RegisterOutputType(StackTagOutput{})
-	pulumi.RegisterOutputType(StackTagArrayOutput{})
 	pulumi.RegisterOutputType(StackUserSettingOutput{})
 	pulumi.RegisterOutputType(StackUserSettingArrayOutput{})
 }

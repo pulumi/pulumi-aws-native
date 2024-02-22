@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -24,7 +26,7 @@ class PortalArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
                  network_settings_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None,
                  user_access_logging_settings_arn: Optional[pulumi.Input[str]] = None,
                  user_settings_arn: Optional[pulumi.Input[str]] = None):
@@ -119,11 +121,11 @@ class PortalArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -166,7 +168,7 @@ class Portal(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
                  network_settings_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PortalTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None,
                  user_access_logging_settings_arn: Optional[pulumi.Input[str]] = None,
                  user_settings_arn: Optional[pulumi.Input[str]] = None,
@@ -208,7 +210,7 @@ class Portal(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
                  network_settings_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PortalTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None,
                  user_access_logging_settings_arn: Optional[pulumi.Input[str]] = None,
                  user_settings_arn: Optional[pulumi.Input[str]] = None,
@@ -362,7 +364,7 @@ class Portal(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PortalTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

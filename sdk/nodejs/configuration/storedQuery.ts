@@ -45,7 +45,7 @@ export class StoredQuery extends pulumi.CustomResource {
     /**
      * The tags for the stored query.
      */
-    public readonly tags!: pulumi.Output<outputs.configuration.StoredQueryTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a StoredQuery resource with the given unique name, arguments, and options.
@@ -95,5 +95,5 @@ export interface StoredQueryArgs {
     /**
      * The tags for the stored query.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.configuration.StoredQueryTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

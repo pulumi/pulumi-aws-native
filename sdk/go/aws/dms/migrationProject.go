@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type MigrationProject struct {
 	// The property describes source data provider descriptors for the migration project.
 	SourceDataProviderDescriptors MigrationProjectDataProviderDescriptorArrayOutput `pulumi:"sourceDataProviderDescriptors"`
 	// An array of key-value pairs to apply to this resource.
-	Tags MigrationProjectTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The property describes target data provider descriptors for the migration project.
 	TargetDataProviderDescriptors MigrationProjectDataProviderDescriptorArrayOutput `pulumi:"targetDataProviderDescriptors"`
 	// The property describes transformation rules for the migration project.
@@ -102,7 +103,7 @@ type migrationProjectArgs struct {
 	// The property describes source data provider descriptors for the migration project.
 	SourceDataProviderDescriptors []MigrationProjectDataProviderDescriptor `pulumi:"sourceDataProviderDescriptors"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []MigrationProjectTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The property describes target data provider descriptors for the migration project.
 	TargetDataProviderDescriptors []MigrationProjectDataProviderDescriptor `pulumi:"targetDataProviderDescriptors"`
 	// The property describes transformation rules for the migration project.
@@ -130,7 +131,7 @@ type MigrationProjectArgs struct {
 	// The property describes source data provider descriptors for the migration project.
 	SourceDataProviderDescriptors MigrationProjectDataProviderDescriptorArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags MigrationProjectTagArrayInput
+	Tags aws.TagArrayInput
 	// The property describes target data provider descriptors for the migration project.
 	TargetDataProviderDescriptors MigrationProjectDataProviderDescriptorArrayInput
 	// The property describes transformation rules for the migration project.
@@ -229,8 +230,8 @@ func (o MigrationProjectOutput) SourceDataProviderDescriptors() MigrationProject
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o MigrationProjectOutput) Tags() MigrationProjectTagArrayOutput {
-	return o.ApplyT(func(v *MigrationProject) MigrationProjectTagArrayOutput { return v.Tags }).(MigrationProjectTagArrayOutput)
+func (o MigrationProjectOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *MigrationProject) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The property describes target data provider descriptors for the migration project.

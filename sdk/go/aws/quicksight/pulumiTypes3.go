@@ -673,101 +673,6 @@ type ThemeTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ThemeTagInput is an input type that accepts ThemeTagArgs and ThemeTagOutput values.
-// You can construct a concrete instance of `ThemeTagInput` via:
-//
-//	ThemeTagArgs{...}
-type ThemeTagInput interface {
-	pulumi.Input
-
-	ToThemeTagOutput() ThemeTagOutput
-	ToThemeTagOutputWithContext(context.Context) ThemeTagOutput
-}
-
-type ThemeTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ThemeTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeTag)(nil)).Elem()
-}
-
-func (i ThemeTagArgs) ToThemeTagOutput() ThemeTagOutput {
-	return i.ToThemeTagOutputWithContext(context.Background())
-}
-
-func (i ThemeTagArgs) ToThemeTagOutputWithContext(ctx context.Context) ThemeTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagOutput)
-}
-
-// ThemeTagArrayInput is an input type that accepts ThemeTagArray and ThemeTagArrayOutput values.
-// You can construct a concrete instance of `ThemeTagArrayInput` via:
-//
-//	ThemeTagArray{ ThemeTagArgs{...} }
-type ThemeTagArrayInput interface {
-	pulumi.Input
-
-	ToThemeTagArrayOutput() ThemeTagArrayOutput
-	ToThemeTagArrayOutputWithContext(context.Context) ThemeTagArrayOutput
-}
-
-type ThemeTagArray []ThemeTagInput
-
-func (ThemeTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThemeTag)(nil)).Elem()
-}
-
-func (i ThemeTagArray) ToThemeTagArrayOutput() ThemeTagArrayOutput {
-	return i.ToThemeTagArrayOutputWithContext(context.Background())
-}
-
-func (i ThemeTagArray) ToThemeTagArrayOutputWithContext(ctx context.Context) ThemeTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagArrayOutput)
-}
-
-type ThemeTagOutput struct{ *pulumi.OutputState }
-
-func (ThemeTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeTag)(nil)).Elem()
-}
-
-func (o ThemeTagOutput) ToThemeTagOutput() ThemeTagOutput {
-	return o
-}
-
-func (o ThemeTagOutput) ToThemeTagOutputWithContext(ctx context.Context) ThemeTagOutput {
-	return o
-}
-
-func (o ThemeTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ThemeTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ThemeTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ThemeTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ThemeTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ThemeTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThemeTag)(nil)).Elem()
-}
-
-func (o ThemeTagArrayOutput) ToThemeTagArrayOutput() ThemeTagArrayOutput {
-	return o
-}
-
-func (o ThemeTagArrayOutput) ToThemeTagArrayOutputWithContext(ctx context.Context) ThemeTagArrayOutput {
-	return o
-}
-
-func (o ThemeTagArrayOutput) Index(i pulumi.IntInput) ThemeTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeTag {
-		return vs[0].([]ThemeTag)[vs[1].(int)]
-	}).(ThemeTagOutput)
-}
-
 type ThemeTileLayoutStyle struct {
 	Gutter *ThemeGutterStyle `pulumi:"gutter"`
 	Margin *ThemeMarginStyle `pulumi:"margin"`
@@ -5973,101 +5878,6 @@ type VpcConnectionTag struct {
 	Value string `pulumi:"value"`
 }
 
-// VpcConnectionTagInput is an input type that accepts VpcConnectionTagArgs and VpcConnectionTagOutput values.
-// You can construct a concrete instance of `VpcConnectionTagInput` via:
-//
-//	VpcConnectionTagArgs{...}
-type VpcConnectionTagInput interface {
-	pulumi.Input
-
-	ToVpcConnectionTagOutput() VpcConnectionTagOutput
-	ToVpcConnectionTagOutputWithContext(context.Context) VpcConnectionTagOutput
-}
-
-type VpcConnectionTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VpcConnectionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcConnectionTag)(nil)).Elem()
-}
-
-func (i VpcConnectionTagArgs) ToVpcConnectionTagOutput() VpcConnectionTagOutput {
-	return i.ToVpcConnectionTagOutputWithContext(context.Background())
-}
-
-func (i VpcConnectionTagArgs) ToVpcConnectionTagOutputWithContext(ctx context.Context) VpcConnectionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionTagOutput)
-}
-
-// VpcConnectionTagArrayInput is an input type that accepts VpcConnectionTagArray and VpcConnectionTagArrayOutput values.
-// You can construct a concrete instance of `VpcConnectionTagArrayInput` via:
-//
-//	VpcConnectionTagArray{ VpcConnectionTagArgs{...} }
-type VpcConnectionTagArrayInput interface {
-	pulumi.Input
-
-	ToVpcConnectionTagArrayOutput() VpcConnectionTagArrayOutput
-	ToVpcConnectionTagArrayOutputWithContext(context.Context) VpcConnectionTagArrayOutput
-}
-
-type VpcConnectionTagArray []VpcConnectionTagInput
-
-func (VpcConnectionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcConnectionTag)(nil)).Elem()
-}
-
-func (i VpcConnectionTagArray) ToVpcConnectionTagArrayOutput() VpcConnectionTagArrayOutput {
-	return i.ToVpcConnectionTagArrayOutputWithContext(context.Background())
-}
-
-func (i VpcConnectionTagArray) ToVpcConnectionTagArrayOutputWithContext(ctx context.Context) VpcConnectionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionTagArrayOutput)
-}
-
-type VpcConnectionTagOutput struct{ *pulumi.OutputState }
-
-func (VpcConnectionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcConnectionTag)(nil)).Elem()
-}
-
-func (o VpcConnectionTagOutput) ToVpcConnectionTagOutput() VpcConnectionTagOutput {
-	return o
-}
-
-func (o VpcConnectionTagOutput) ToVpcConnectionTagOutputWithContext(ctx context.Context) VpcConnectionTagOutput {
-	return o
-}
-
-func (o VpcConnectionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v VpcConnectionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o VpcConnectionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v VpcConnectionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type VpcConnectionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (VpcConnectionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcConnectionTag)(nil)).Elem()
-}
-
-func (o VpcConnectionTagArrayOutput) ToVpcConnectionTagArrayOutput() VpcConnectionTagArrayOutput {
-	return o
-}
-
-func (o VpcConnectionTagArrayOutput) ToVpcConnectionTagArrayOutputWithContext(ctx context.Context) VpcConnectionTagArrayOutput {
-	return o
-}
-
-func (o VpcConnectionTagArrayOutput) Index(i pulumi.IntInput) VpcConnectionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcConnectionTag {
-		return vs[0].([]VpcConnectionTag)[vs[1].(int)]
-	}).(VpcConnectionTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontInput)(nil)).Elem(), ThemeFontArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontArrayInput)(nil)).Elem(), ThemeFontArray{})
@@ -6079,8 +5889,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeResourcePermissionArrayInput)(nil)).Elem(), ThemeResourcePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeSheetStyleInput)(nil)).Elem(), ThemeSheetStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeSheetStylePtrInput)(nil)).Elem(), ThemeSheetStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTagInput)(nil)).Elem(), ThemeTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTagArrayInput)(nil)).Elem(), ThemeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTileLayoutStyleInput)(nil)).Elem(), ThemeTileLayoutStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTileLayoutStylePtrInput)(nil)).Elem(), ThemeTileLayoutStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTileStyleInput)(nil)).Elem(), ThemeTileStyleArgs{})
@@ -6143,8 +5951,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTypeParametersInput)(nil)).Elem(), TopicTypeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTypeParametersPtrInput)(nil)).Elem(), TopicTypeParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTagInput)(nil)).Elem(), VpcConnectionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTagArrayInput)(nil)).Elem(), VpcConnectionTagArray{})
 	pulumi.RegisterOutputType(ThemeErrorOutput{})
 	pulumi.RegisterOutputType(ThemeErrorArrayOutput{})
 	pulumi.RegisterOutputType(ThemeFontOutput{})
@@ -6157,8 +5963,6 @@ func init() {
 	pulumi.RegisterOutputType(ThemeResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(ThemeSheetStyleOutput{})
 	pulumi.RegisterOutputType(ThemeSheetStylePtrOutput{})
-	pulumi.RegisterOutputType(ThemeTagOutput{})
-	pulumi.RegisterOutputType(ThemeTagArrayOutput{})
 	pulumi.RegisterOutputType(ThemeTileLayoutStyleOutput{})
 	pulumi.RegisterOutputType(ThemeTileLayoutStylePtrOutput{})
 	pulumi.RegisterOutputType(ThemeTileStyleOutput{})
@@ -6225,6 +6029,4 @@ func init() {
 	pulumi.RegisterOutputType(TopicTypeParametersPtrOutput{})
 	pulumi.RegisterOutputType(VpcConnectionNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(VpcConnectionNetworkInterfaceArrayOutput{})
-	pulumi.RegisterOutputType(VpcConnectionTagOutput{})
-	pulumi.RegisterOutputType(VpcConnectionTagArrayOutput{})
 }

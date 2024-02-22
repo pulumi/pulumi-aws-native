@@ -52,7 +52,7 @@ export class ReadinessCheck extends pulumi.CustomResource {
     /**
      * A collection of tags associated with a resource.
      */
-    public readonly tags!: pulumi.Output<outputs.route53recoveryreadiness.ReadinessCheckTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ReadinessCheck resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface ReadinessCheckArgs {
     /**
      * A collection of tags associated with a resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.ReadinessCheckTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

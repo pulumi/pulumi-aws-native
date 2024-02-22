@@ -660,103 +660,6 @@ type MonitorTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// MonitorTagInput is an input type that accepts MonitorTagArgs and MonitorTagOutput values.
-// You can construct a concrete instance of `MonitorTagInput` via:
-//
-//	MonitorTagArgs{...}
-type MonitorTagInput interface {
-	pulumi.Input
-
-	ToMonitorTagOutput() MonitorTagOutput
-	ToMonitorTagOutputWithContext(context.Context) MonitorTagOutput
-}
-
-// The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-type MonitorTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (MonitorTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorTag)(nil)).Elem()
-}
-
-func (i MonitorTagArgs) ToMonitorTagOutput() MonitorTagOutput {
-	return i.ToMonitorTagOutputWithContext(context.Background())
-}
-
-func (i MonitorTagArgs) ToMonitorTagOutputWithContext(ctx context.Context) MonitorTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagOutput)
-}
-
-// MonitorTagArrayInput is an input type that accepts MonitorTagArray and MonitorTagArrayOutput values.
-// You can construct a concrete instance of `MonitorTagArrayInput` via:
-//
-//	MonitorTagArray{ MonitorTagArgs{...} }
-type MonitorTagArrayInput interface {
-	pulumi.Input
-
-	ToMonitorTagArrayOutput() MonitorTagArrayOutput
-	ToMonitorTagArrayOutputWithContext(context.Context) MonitorTagArrayOutput
-}
-
-type MonitorTagArray []MonitorTagInput
-
-func (MonitorTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitorTag)(nil)).Elem()
-}
-
-func (i MonitorTagArray) ToMonitorTagArrayOutput() MonitorTagArrayOutput {
-	return i.ToMonitorTagArrayOutputWithContext(context.Background())
-}
-
-func (i MonitorTagArray) ToMonitorTagArrayOutputWithContext(ctx context.Context) MonitorTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagArrayOutput)
-}
-
-// The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
-type MonitorTagOutput struct{ *pulumi.OutputState }
-
-func (MonitorTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorTag)(nil)).Elem()
-}
-
-func (o MonitorTagOutput) ToMonitorTagOutput() MonitorTagOutput {
-	return o
-}
-
-func (o MonitorTagOutput) ToMonitorTagOutputWithContext(ctx context.Context) MonitorTagOutput {
-	return o
-}
-
-func (o MonitorTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitorTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o MonitorTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitorTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type MonitorTagArrayOutput struct{ *pulumi.OutputState }
-
-func (MonitorTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitorTag)(nil)).Elem()
-}
-
-func (o MonitorTagArrayOutput) ToMonitorTagArrayOutput() MonitorTagArrayOutput {
-	return o
-}
-
-func (o MonitorTagArrayOutput) ToMonitorTagArrayOutputWithContext(ctx context.Context) MonitorTagArrayOutput {
-	return o
-}
-
-func (o MonitorTagArrayOutput) Index(i pulumi.IntInput) MonitorTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorTag {
-		return vs[0].([]MonitorTag)[vs[1].(int)]
-	}).(MonitorTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorHealthEventsConfigInput)(nil)).Elem(), MonitorHealthEventsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorHealthEventsConfigPtrInput)(nil)).Elem(), MonitorHealthEventsConfigArgs{})
@@ -766,8 +669,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorLocalHealthEventsConfigPtrInput)(nil)).Elem(), MonitorLocalHealthEventsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorS3ConfigInput)(nil)).Elem(), MonitorS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorS3ConfigPtrInput)(nil)).Elem(), MonitorS3ConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagInput)(nil)).Elem(), MonitorTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagArrayInput)(nil)).Elem(), MonitorTagArray{})
 	pulumi.RegisterOutputType(MonitorHealthEventsConfigOutput{})
 	pulumi.RegisterOutputType(MonitorHealthEventsConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitorInternetMeasurementsLogDeliveryOutput{})
@@ -776,6 +677,4 @@ func init() {
 	pulumi.RegisterOutputType(MonitorLocalHealthEventsConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitorS3ConfigOutput{})
 	pulumi.RegisterOutputType(MonitorS3ConfigPtrOutput{})
-	pulumi.RegisterOutputType(MonitorTagOutput{})
-	pulumi.RegisterOutputType(MonitorTagArrayOutput{})
 }

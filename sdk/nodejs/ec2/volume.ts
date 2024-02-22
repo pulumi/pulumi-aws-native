@@ -76,7 +76,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The tags to apply to the volume during creation.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.VolumeTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The throughput that the volume supports, in MiB/s.
      */
@@ -177,7 +177,7 @@ export interface VolumeArgs {
     /**
      * The tags to apply to the volume during creation.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.VolumeTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The throughput that the volume supports, in MiB/s.
      */

@@ -16,7 +16,6 @@ __all__ = [
     'GroupConfigurationParameter',
     'GroupQuery',
     'GroupResourceQuery',
-    'GroupTag',
     'GroupTagFilter',
 ]
 
@@ -131,27 +130,6 @@ class GroupResourceQuery(dict):
     @pulumi.getter
     def type(self) -> Optional['GroupResourceQueryType']:
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class GroupTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

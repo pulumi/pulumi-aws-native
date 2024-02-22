@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<Pulumi.AwsNative.IoT.DomainConfigurationServiceType?> ServiceType { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DomainConfigurationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("tlsConfig")]
         public Output<Outputs.DomainConfigurationTlsConfig?> TlsConfig { get; private set; } = null!;
@@ -134,10 +134,10 @@ namespace Pulumi.AwsNative.IoT
         public Input<Pulumi.AwsNative.IoT.DomainConfigurationServiceType>? ServiceType { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DomainConfigurationTagArgs>? _tags;
-        public InputList<Inputs.DomainConfigurationTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DomainConfigurationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

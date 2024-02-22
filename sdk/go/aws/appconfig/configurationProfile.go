@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type ConfigurationProfile struct {
 	// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
 	RetrievalRoleArn pulumi.StringPtrOutput `pulumi:"retrievalRoleArn"`
 	// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags ConfigurationProfileTagsArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// A list of methods for validating the configuration.
@@ -105,7 +106,7 @@ type configurationProfileArgs struct {
 	// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
 	RetrievalRoleArn *string `pulumi:"retrievalRoleArn"`
 	// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags []ConfigurationProfileTags `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
 	Type *string `pulumi:"type"`
 	// A list of methods for validating the configuration.
@@ -127,7 +128,7 @@ type ConfigurationProfileArgs struct {
 	// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
 	RetrievalRoleArn pulumi.StringPtrInput
 	// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags ConfigurationProfileTagsArrayInput
+	Tags aws.TagArrayInput
 	// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
 	Type pulumi.StringPtrInput
 	// A list of methods for validating the configuration.
@@ -212,8 +213,8 @@ func (o ConfigurationProfileOutput) RetrievalRoleArn() pulumi.StringPtrOutput {
 }
 
 // Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-func (o ConfigurationProfileOutput) Tags() ConfigurationProfileTagsArrayOutput {
-	return o.ApplyT(func(v *ConfigurationProfile) ConfigurationProfileTagsArrayOutput { return v.Tags }).(ConfigurationProfileTagsArrayOutput)
+func (o ConfigurationProfileOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform

@@ -37,7 +37,7 @@ export interface GetLocationFSxWindowsResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.datasync.LocationFSxWindowsTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::DataSync::LocationFSxWindows.

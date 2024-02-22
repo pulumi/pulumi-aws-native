@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public Output<string?> SourceVersion { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ProjectTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("timeoutInMinutes")]
         public Output<int?> TimeoutInMinutes { get; private set; } = null!;
@@ -218,10 +218,10 @@ namespace Pulumi.AwsNative.CodeBuild
         public Input<string>? SourceVersion { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ProjectTagArgs>? _tags;
-        public InputList<Inputs.ProjectTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ProjectTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

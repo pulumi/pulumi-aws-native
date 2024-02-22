@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,7 +48,7 @@ type LookupTargetGroupResult struct {
 	// [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
 	Matcher *TargetGroupMatcher `pulumi:"matcher"`
 	// The tags.
-	Tags []TargetGroupTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the Target Group
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// The attributes.
@@ -144,8 +145,8 @@ func (o LookupTargetGroupResultOutput) Matcher() TargetGroupMatcherPtrOutput {
 }
 
 // The tags.
-func (o LookupTargetGroupResultOutput) Tags() TargetGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) []TargetGroupTag { return v.Tags }).(TargetGroupTagArrayOutput)
+func (o LookupTargetGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the Target Group

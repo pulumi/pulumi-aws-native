@@ -52,14 +52,14 @@ namespace Pulumi.AwsNative.Iam
     public sealed class GetVirtualMfaDeviceResult
     {
         public readonly string? SerialNumber;
-        public readonly ImmutableArray<Outputs.VirtualMfaDeviceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]
         private GetVirtualMfaDeviceResult(
             string? serialNumber,
 
-            ImmutableArray<Outputs.VirtualMfaDeviceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> users)
         {

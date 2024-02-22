@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Fms
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ResourceSetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -98,10 +98,10 @@ namespace Pulumi.AwsNative.Fms
         }
 
         [Input("tags")]
-        private InputList<Inputs.ResourceSetTagArgs>? _tags;
-        public InputList<Inputs.ResourceSetTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ResourceSetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

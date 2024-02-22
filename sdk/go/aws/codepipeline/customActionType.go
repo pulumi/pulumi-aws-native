@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type CustomActionType struct {
 	// URLs that provide users information about this custom action.
 	Settings CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
 	// Any tags assigned to the custom action.
-	Tags CustomActionTypeTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The version identifier of the custom action.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -112,7 +113,7 @@ type customActionTypeArgs struct {
 	// URLs that provide users information about this custom action.
 	Settings *CustomActionTypeSettings `pulumi:"settings"`
 	// Any tags assigned to the custom action.
-	Tags []CustomActionTypeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The version identifier of the custom action.
 	Version string `pulumi:"version"`
 }
@@ -132,7 +133,7 @@ type CustomActionTypeArgs struct {
 	// URLs that provide users information about this custom action.
 	Settings CustomActionTypeSettingsPtrInput
 	// Any tags assigned to the custom action.
-	Tags CustomActionTypeTagArrayInput
+	Tags aws.TagArrayInput
 	// The version identifier of the custom action.
 	Version pulumi.StringInput
 }
@@ -207,8 +208,8 @@ func (o CustomActionTypeOutput) Settings() CustomActionTypeSettingsPtrOutput {
 }
 
 // Any tags assigned to the custom action.
-func (o CustomActionTypeOutput) Tags() CustomActionTypeTagArrayOutput {
-	return o.ApplyT(func(v *CustomActionType) CustomActionTypeTagArrayOutput { return v.Tags }).(CustomActionTypeTagArrayOutput)
+func (o CustomActionTypeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CustomActionType) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The version identifier of the custom action.

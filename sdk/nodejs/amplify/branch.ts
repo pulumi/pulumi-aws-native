@@ -51,7 +51,7 @@ export class Branch extends pulumi.CustomResource {
     public readonly framework!: pulumi.Output<string | undefined>;
     public readonly pullRequestEnvironmentName!: pulumi.Output<string | undefined>;
     public readonly stage!: pulumi.Output<enums.amplify.BranchStage | undefined>;
-    public readonly tags!: pulumi.Output<outputs.amplify.BranchTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Branch resource with the given unique name, arguments, and options.
@@ -123,5 +123,5 @@ export interface BranchArgs {
     framework?: pulumi.Input<string>;
     pullRequestEnvironmentName?: pulumi.Input<string>;
     stage?: pulumi.Input<enums.amplify.BranchStage>;
-    tags?: pulumi.Input<pulumi.Input<inputs.amplify.BranchTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// Any tags assigned to the event bus.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EventBusTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEventBusResult(
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Events
 
             object? policy,
 
-            ImmutableArray<Outputs.EventBusTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Policy = policy;

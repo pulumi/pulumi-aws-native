@@ -47,7 +47,7 @@ export class DeploymentStrategy extends pulumi.CustomResource {
     public readonly growthType!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly replicateTo!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.appconfig.DeploymentStrategyTags[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DeploymentStrategy resource with the given unique name, arguments, and options.
@@ -107,5 +107,5 @@ export interface DeploymentStrategyArgs {
     growthType?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     replicateTo: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appconfig.DeploymentStrategyTagsArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

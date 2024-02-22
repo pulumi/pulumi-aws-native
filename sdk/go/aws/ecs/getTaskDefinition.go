@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type LookupTaskDefinitionArgs struct {
 }
 
 type LookupTaskDefinitionResult struct {
-	Tags []TaskDefinitionTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the Amazon ECS task definition
 	TaskDefinitionArn *string `pulumi:"taskDefinitionArn"`
 }
@@ -69,8 +70,8 @@ func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutputWith
 	return o
 }
 
-func (o LookupTaskDefinitionResultOutput) Tags() TaskDefinitionTagArrayOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) []TaskDefinitionTag { return v.Tags }).(TaskDefinitionTagArrayOutput)
+func (o LookupTaskDefinitionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon ECS task definition

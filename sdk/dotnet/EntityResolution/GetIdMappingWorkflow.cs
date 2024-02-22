@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public readonly ImmutableArray<Outputs.IdMappingWorkflowInputSource> InputSourceConfig;
         public readonly ImmutableArray<Outputs.IdMappingWorkflowOutputSource> OutputSourceConfig;
         public readonly string? RoleArn;
-        public readonly ImmutableArray<Outputs.IdMappingWorkflowTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UpdatedAt;
         public readonly string? WorkflowArn;
 
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.EntityResolution
 
             string? roleArn,
 
-            ImmutableArray<Outputs.IdMappingWorkflowTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updatedAt,
 

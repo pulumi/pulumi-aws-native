@@ -41,7 +41,7 @@ export interface GetLocalGatewayRouteTableVpcAssociationResult {
     /**
      * The tags for the association.
      */
-    readonly tags?: outputs.ec2.LocalGatewayRouteTableVpcAssociationTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Describes an association between a local gateway route table and a VPC.

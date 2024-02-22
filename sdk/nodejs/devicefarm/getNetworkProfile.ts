@@ -30,7 +30,7 @@ export interface GetNetworkProfileResult {
     readonly downlinkJitterMs?: number;
     readonly downlinkLossPercent?: number;
     readonly name?: string;
-    readonly tags?: outputs.devicefarm.NetworkProfileTag[];
+    readonly tags?: outputs.Tag[];
     readonly uplinkBandwidthBits?: number;
     readonly uplinkDelayMs?: number;
     readonly uplinkJitterMs?: number;

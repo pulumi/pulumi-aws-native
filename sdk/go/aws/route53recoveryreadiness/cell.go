@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Cell struct {
 	// The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
 	ParentReadinessScopes pulumi.StringArrayOutput `pulumi:"parentReadinessScopes"`
 	// A collection of tags associated with a resource
-	Tags CellTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCell registers a new resource with the given unique name, arguments, and options.
@@ -76,7 +77,7 @@ type cellArgs struct {
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
 	Cells []string `pulumi:"cells"`
 	// A collection of tags associated with a resource
-	Tags []CellTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cell resource.
@@ -86,7 +87,7 @@ type CellArgs struct {
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
 	Cells pulumi.StringArrayInput
 	// A collection of tags associated with a resource
-	Tags CellTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (CellArgs) ElementType() reflect.Type {
@@ -147,8 +148,8 @@ func (o CellOutput) ParentReadinessScopes() pulumi.StringArrayOutput {
 }
 
 // A collection of tags associated with a resource
-func (o CellOutput) Tags() CellTagArrayOutput {
-	return o.ApplyT(func(v *Cell) CellTagArrayOutput { return v.Tags }).(CellTagArrayOutput)
+func (o CellOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Cell) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

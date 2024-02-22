@@ -41,7 +41,7 @@ export interface GetDeviceFleetResult {
     /**
      * Associate tags with the resource
      */
-    readonly tags?: outputs.sagemaker.DeviceFleetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::SageMaker::DeviceFleet

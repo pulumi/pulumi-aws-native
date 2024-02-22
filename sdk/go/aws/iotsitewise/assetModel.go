@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +31,7 @@ type AssetModel struct {
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties AssetModelPropertyArrayOutput `pulumi:"assetModelProperties"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags AssetModelTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAssetModel registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +85,7 @@ type assetModelArgs struct {
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties []AssetModelProperty `pulumi:"assetModelProperties"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags []AssetModelTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AssetModel resource.
@@ -100,7 +101,7 @@ type AssetModelArgs struct {
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties AssetModelPropertyArrayInput
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags AssetModelTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AssetModelArgs) ElementType() reflect.Type {
@@ -176,8 +177,8 @@ func (o AssetModelOutput) AssetModelProperties() AssetModelPropertyArrayOutput {
 }
 
 // A list of key-value pairs that contain metadata for the asset model.
-func (o AssetModelOutput) Tags() AssetModelTagArrayOutput {
-	return o.ApplyT(func(v *AssetModel) AssetModelTagArrayOutput { return v.Tags }).(AssetModelTagArrayOutput)
+func (o AssetModelOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AssetModel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

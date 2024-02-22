@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.WaFv2
         /// Collection of Rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRule> Rules;
-        public readonly ImmutableArray<Outputs.WebAclTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<string> TokenDomains;
         public readonly Outputs.WebAclVisibilityConfig? VisibilityConfig;
 
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.WaFv2
 
             ImmutableArray<Outputs.WebAclRule> rules,
 
-            ImmutableArray<Outputs.WebAclTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> tokenDomains,
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -50,7 +51,7 @@ type LookupGraphQlApiResult struct {
 	RealtimeDns               *string                           `pulumi:"realtimeDns"`
 	RealtimeUrl               *string                           `pulumi:"realtimeUrl"`
 	ResolverCountLimit        *int                              `pulumi:"resolverCountLimit"`
-	Tags                      []GraphQlApiTag                   `pulumi:"tags"`
+	Tags                      []aws.Tag                         `pulumi:"tags"`
 	UserPoolConfig            *GraphQlApiUserPoolConfig         `pulumi:"userPoolConfig"`
 	Visibility                *string                           `pulumi:"visibility"`
 	XrayEnabled               *bool                             `pulumi:"xrayEnabled"`
@@ -182,8 +183,8 @@ func (o LookupGraphQlApiResultOutput) ResolverCountLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *int { return v.ResolverCountLimit }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupGraphQlApiResultOutput) Tags() GraphQlApiTagArrayOutput {
-	return o.ApplyT(func(v LookupGraphQlApiResult) []GraphQlApiTag { return v.Tags }).(GraphQlApiTagArrayOutput)
+func (o LookupGraphQlApiResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGraphQlApiResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupGraphQlApiResultOutput) UserPoolConfig() GraphQlApiUserPoolConfigPtrOutput {

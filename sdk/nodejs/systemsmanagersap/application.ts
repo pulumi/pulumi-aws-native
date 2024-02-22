@@ -50,7 +50,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The tags of a SystemsManagerSAP application.
      */
-    public readonly tags!: pulumi.Output<outputs.systemsmanagersap.ApplicationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -107,5 +107,5 @@ export interface ApplicationArgs {
     /**
      * The tags of a SystemsManagerSAP application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.systemsmanagersap.ApplicationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

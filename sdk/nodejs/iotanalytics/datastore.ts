@@ -42,7 +42,7 @@ export class Datastore extends pulumi.CustomResource {
     public readonly datastoreStorage!: pulumi.Output<outputs.iotanalytics.DatastoreStorage | undefined>;
     public readonly fileFormatConfiguration!: pulumi.Output<outputs.iotanalytics.DatastoreFileFormatConfiguration | undefined>;
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatastoreRetentionPeriod | undefined>;
-    public readonly tags!: pulumi.Output<outputs.iotanalytics.DatastoreTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Datastore resource with the given unique name, arguments, and options.
@@ -85,5 +85,5 @@ export interface DatastoreArgs {
     datastoreStorage?: pulumi.Input<inputs.iotanalytics.DatastoreStorageArgs>;
     fileFormatConfiguration?: pulumi.Input<inputs.iotanalytics.DatastoreFileFormatConfigurationArgs>;
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.DatastoreRetentionPeriodArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatastoreTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

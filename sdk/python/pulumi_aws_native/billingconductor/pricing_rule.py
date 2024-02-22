@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,7 @@ class PricingRuleArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  operation: Optional[pulumi.Input[str]] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tiering: Optional[pulumi.Input['TieringPropertiesArgs']] = None,
                  usage_type: Optional[pulumi.Input[str]] = None):
         """
@@ -160,11 +162,11 @@ class PricingRuleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -209,7 +211,7 @@ class PricingRule(pulumi.CustomResource):
                  operation: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['PricingRuleScope']] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PricingRuleTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tiering: Optional[pulumi.Input[pulumi.InputType['TieringPropertiesArgs']]] = None,
                  type: Optional[pulumi.Input['PricingRuleType']] = None,
                  usage_type: Optional[pulumi.Input[str]] = None,
@@ -261,7 +263,7 @@ class PricingRule(pulumi.CustomResource):
                  operation: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['PricingRuleScope']] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PricingRuleTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tiering: Optional[pulumi.Input[pulumi.InputType['TieringPropertiesArgs']]] = None,
                  type: Optional[pulumi.Input['PricingRuleType']] = None,
                  usage_type: Optional[pulumi.Input[str]] = None,
@@ -425,7 +427,7 @@ class PricingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PricingRuleTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         return pulumi.get(self, "tags")
 
     @property

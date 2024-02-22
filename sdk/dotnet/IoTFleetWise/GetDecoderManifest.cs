@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public readonly ImmutableArray<Union<Outputs.DecoderManifestCanNetworkInterface, Outputs.DecoderManifestObdNetworkInterface>> NetworkInterfaces;
         public readonly ImmutableArray<Union<Outputs.DecoderManifestCanSignalDecoder, Outputs.DecoderManifestObdSignalDecoder>> SignalDecoders;
         public readonly Pulumi.AwsNative.IoTFleetWise.DecoderManifestManifestStatus? Status;
-        public readonly ImmutableArray<Outputs.DecoderManifestTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDecoderManifestResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
 
             Pulumi.AwsNative.IoTFleetWise.DecoderManifestManifestStatus? status,
 
-            ImmutableArray<Outputs.DecoderManifestTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationTime = creationTime;

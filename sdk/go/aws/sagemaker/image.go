@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type Image struct {
 	ImageName        pulumi.StringOutput    `pulumi:"imageName"`
 	ImageRoleArn     pulumi.StringOutput    `pulumi:"imageRoleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ImageTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewImage registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +78,7 @@ type imageArgs struct {
 	ImageName        *string `pulumi:"imageName"`
 	ImageRoleArn     string  `pulumi:"imageRoleArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ImageTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Image resource.
@@ -87,7 +88,7 @@ type ImageArgs struct {
 	ImageName        pulumi.StringPtrInput
 	ImageRoleArn     pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ImageTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (ImageArgs) ElementType() reflect.Type {
@@ -148,8 +149,8 @@ func (o ImageOutput) ImageRoleArn() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ImageOutput) Tags() ImageTagArrayOutput {
-	return o.ApplyT(func(v *Image) ImageTagArrayOutput { return v.Tags }).(ImageTagArrayOutput)
+func (o ImageOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Image) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

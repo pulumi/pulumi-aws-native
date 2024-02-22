@@ -31,7 +31,7 @@ export interface GetTransformerResult {
     readonly name?: string;
     readonly sampleDocument?: string;
     readonly status?: enums.b2bi.TransformerStatus;
-    readonly tags?: outputs.b2bi.TransformerTag[];
+    readonly tags?: outputs.Tag[];
     readonly transformerArn?: string;
     readonly transformerId?: string;
 }

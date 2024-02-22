@@ -27,7 +27,7 @@ export interface GetVirtualNodeResult {
     readonly id?: string;
     readonly resourceOwner?: string;
     readonly spec?: outputs.appmesh.VirtualNodeSpec;
-    readonly tags?: outputs.appmesh.VirtualNodeTag[];
+    readonly tags?: outputs.Tag[];
     readonly uid?: string;
 }
 /**

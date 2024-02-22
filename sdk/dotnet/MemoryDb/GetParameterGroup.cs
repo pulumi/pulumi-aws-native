@@ -64,13 +64,13 @@ namespace Pulumi.AwsNative.MemoryDb
         /// <summary>
         /// An array of key-value pairs to apply to this parameter group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ParameterGroupTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetParameterGroupResult(
             string? arn,
 
-            ImmutableArray<Outputs.ParameterGroupTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Tags = tags;

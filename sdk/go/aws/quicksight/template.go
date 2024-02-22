@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Template struct {
 	Name               pulumi.StringPtrOutput                `pulumi:"name"`
 	Permissions        TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
 	SourceEntity       TemplateSourceEntityPtrOutput         `pulumi:"sourceEntity"`
-	Tags               TemplateTagArrayOutput                `pulumi:"tags"`
+	Tags               aws.TagArrayOutput                    `pulumi:"tags"`
 	TemplateId         pulumi.StringOutput                   `pulumi:"templateId"`
 	ValidationStrategy TemplateValidationStrategyPtrOutput   `pulumi:"validationStrategy"`
 	Version            TemplateVersionOutput                 `pulumi:"version"`
@@ -87,7 +88,7 @@ type templateArgs struct {
 	Name               *string                      `pulumi:"name"`
 	Permissions        []TemplateResourcePermission `pulumi:"permissions"`
 	SourceEntity       *TemplateSourceEntity        `pulumi:"sourceEntity"`
-	Tags               []TemplateTag                `pulumi:"tags"`
+	Tags               []aws.Tag                    `pulumi:"tags"`
 	TemplateId         string                       `pulumi:"templateId"`
 	ValidationStrategy *TemplateValidationStrategy  `pulumi:"validationStrategy"`
 	VersionDescription *string                      `pulumi:"versionDescription"`
@@ -100,7 +101,7 @@ type TemplateArgs struct {
 	Name               pulumi.StringPtrInput
 	Permissions        TemplateResourcePermissionArrayInput
 	SourceEntity       TemplateSourceEntityPtrInput
-	Tags               TemplateTagArrayInput
+	Tags               aws.TagArrayInput
 	TemplateId         pulumi.StringInput
 	ValidationStrategy TemplateValidationStrategyPtrInput
 	VersionDescription pulumi.StringPtrInput
@@ -175,8 +176,8 @@ func (o TemplateOutput) SourceEntity() TemplateSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateSourceEntityPtrOutput { return v.SourceEntity }).(TemplateSourceEntityPtrOutput)
 }
 
-func (o TemplateOutput) Tags() TemplateTagArrayOutput {
-	return o.ApplyT(func(v *Template) TemplateTagArrayOutput { return v.Tags }).(TemplateTagArrayOutput)
+func (o TemplateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Template) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o TemplateOutput) TemplateId() pulumi.StringOutput {

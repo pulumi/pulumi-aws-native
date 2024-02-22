@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupRecordingConfigurationResult struct {
 	// Recording Configuration State.
 	State *RecordingConfigurationStateEnum `pulumi:"state"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags []RecordingConfigurationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRecordingConfigurationOutput(ctx *pulumi.Context, args LookupRecordingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupRecordingConfigurationResultOutput {
@@ -83,8 +84,8 @@ func (o LookupRecordingConfigurationResultOutput) State() RecordingConfiguration
 }
 
 // A list of key-value pairs that contain metadata for the asset model.
-func (o LookupRecordingConfigurationResultOutput) Tags() RecordingConfigurationTagArrayOutput {
-	return o.ApplyT(func(v LookupRecordingConfigurationResult) []RecordingConfigurationTag { return v.Tags }).(RecordingConfigurationTagArrayOutput)
+func (o LookupRecordingConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRecordingConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

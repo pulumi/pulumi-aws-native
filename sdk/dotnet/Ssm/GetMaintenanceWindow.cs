@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Ssm
         public readonly int? ScheduleOffset;
         public readonly string? ScheduleTimezone;
         public readonly string? StartDate;
-        public readonly ImmutableArray<Outputs.MaintenanceWindowTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetMaintenanceWindowResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Ssm
 
             string? startDate,
 
-            ImmutableArray<Outputs.MaintenanceWindowTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllowUnassociatedTargets = allowUnassociatedTargets;
             Cutoff = cutoff;

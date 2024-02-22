@@ -27,7 +27,7 @@ export interface GetEnvironmentEc2Result {
     readonly description?: string;
     readonly id?: string;
     readonly name?: string;
-    readonly tags?: outputs.cloud9.EnvironmentEc2Tag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Cloud9::EnvironmentEC2

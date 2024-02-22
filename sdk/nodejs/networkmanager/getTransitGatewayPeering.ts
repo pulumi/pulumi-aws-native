@@ -61,7 +61,7 @@ export interface GetTransitGatewayPeeringResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.networkmanager.TransitGatewayPeeringTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ID of the TransitGatewayPeeringAttachment
      */

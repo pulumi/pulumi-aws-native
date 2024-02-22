@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WirelessDeviceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Thing arn. Passed into update to associate Thing with Wireless device.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? name,
 
-            ImmutableArray<Outputs.WirelessDeviceTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? thingArn,
 

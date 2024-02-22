@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Ec2
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.VerifiedAccessTrustProviderTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Type of trust provider. Possible values: user|device
@@ -165,14 +165,14 @@ namespace Pulumi.AwsNative.Ec2
         public Input<Inputs.SseSpecificationPropertiesArgs>? SseSpecification { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.VerifiedAccessTrustProviderTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.VerifiedAccessTrustProviderTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.VerifiedAccessTrustProviderTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

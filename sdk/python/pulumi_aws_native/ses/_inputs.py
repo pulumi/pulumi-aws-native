@@ -23,7 +23,6 @@ __all__ = [
     'ConfigurationSetSuppressionOptionsArgs',
     'ConfigurationSetTrackingOptionsArgs',
     'ConfigurationSetVdmOptionsArgs',
-    'ContactListTagArgs',
     'ContactListTopicArgs',
     'EmailIdentityConfigurationSetAttributesArgs',
     'EmailIdentityDkimAttributesArgs',
@@ -490,33 +489,6 @@ class ConfigurationSetVdmOptionsArgs:
     @guardian_options.setter
     def guardian_options(self, value: Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']]):
         pulumi.set(self, "guardian_options", value)
-
-
-@pulumi.input_type
-class ContactListTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

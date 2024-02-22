@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type Variable struct {
 	// The name of the variable.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags associated with this variable.
-	Tags VariableTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
 	VariableType VariableTypePtrOutput `pulumi:"variableType"`
 }
@@ -102,7 +103,7 @@ type variableArgs struct {
 	// The name of the variable.
 	Name *string `pulumi:"name"`
 	// Tags associated with this variable.
-	Tags []VariableTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
 	VariableType *VariableType `pulumi:"variableType"`
 }
@@ -120,7 +121,7 @@ type VariableArgs struct {
 	// The name of the variable.
 	Name pulumi.StringPtrInput
 	// Tags associated with this variable.
-	Tags VariableTagArrayInput
+	Tags aws.TagArrayInput
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
 	VariableType VariableTypePtrInput
 }
@@ -203,8 +204,8 @@ func (o VariableOutput) Name() pulumi.StringOutput {
 }
 
 // Tags associated with this variable.
-func (o VariableOutput) Tags() VariableTagArrayOutput {
-	return o.ApplyT(func(v *Variable) VariableTagArrayOutput { return v.Tags }).(VariableTagArrayOutput)
+func (o VariableOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Variable) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types

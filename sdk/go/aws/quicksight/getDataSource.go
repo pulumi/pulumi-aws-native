@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -53,7 +54,7 @@ type LookupDataSourceResult struct {
 	SslProperties *DataSourceSslProperties       `pulumi:"sslProperties"`
 	Status        *DataSourceResourceStatus      `pulumi:"status"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-	Tags                    []DataSourceTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                          `pulumi:"tags"`
 	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
 
@@ -149,8 +150,8 @@ func (o LookupDataSourceResultOutput) Status() DataSourceResourceStatusPtrOutput
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-func (o LookupDataSourceResultOutput) Tags() DataSourceTagArrayOutput {
-	return o.ApplyT(func(v LookupDataSourceResult) []DataSourceTag { return v.Tags }).(DataSourceTagArrayOutput)
+func (o LookupDataSourceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDataSourceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupDataSourceResultOutput) VpcConnectionProperties() DataSourceVpcConnectionPropertiesPtrOutput {

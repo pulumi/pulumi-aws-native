@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DbProxyEndpointTagFormat> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Rds
 
             bool? isDefault,
 
-            ImmutableArray<Outputs.DbProxyEndpointTagFormat> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.Rds.DbProxyEndpointTargetRole? targetRole,
 

@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// <summary>
         /// The tags to assign to the live source.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LiveSourceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetLiveSourceResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.MediaTailor
 
             ImmutableArray<Outputs.LiveSourceHttpPackageConfiguration> httpPackageConfigurations,
 
-            ImmutableArray<Outputs.LiveSourceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             HttpPackageConfigurations = httpPackageConfigurations;

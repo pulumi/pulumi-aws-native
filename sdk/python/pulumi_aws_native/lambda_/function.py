@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -38,7 +40,7 @@ class FunctionArgs:
                  runtime: Optional[pulumi.Input[str]] = None,
                  runtime_management_config: Optional[pulumi.Input['FunctionRuntimeManagementConfigArgs']] = None,
                  snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
@@ -64,7 +66,7 @@ class FunctionArgs:
         :param pulumi.Input[str] runtime: The identifier of the function's runtime.
         :param pulumi.Input['FunctionRuntimeManagementConfigArgs'] runtime_management_config: RuntimeManagementConfig
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: The SnapStart setting of your function
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]] tags: A list of tags to apply to the function.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to apply to the function.
         :param pulumi.Input[int] timeout: The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
@@ -369,14 +371,14 @@ class FunctionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to apply to the function.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -442,7 +444,7 @@ class Function(pulumi.CustomResource):
                  runtime: Optional[pulumi.Input[str]] = None,
                  runtime_management_config: Optional[pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']]] = None,
                  snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']]] = None,
@@ -472,7 +474,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] runtime: The identifier of the function's runtime.
         :param pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']] runtime_management_config: RuntimeManagementConfig
         :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: The SnapStart setting of your function
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]] tags: A list of tags to apply to the function.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags to apply to the function.
         :param pulumi.Input[int] timeout: The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
         :param pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']] tracing_config: Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
         :param pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
@@ -522,7 +524,7 @@ class Function(pulumi.CustomResource):
                  runtime: Optional[pulumi.Input[str]] = None,
                  runtime_management_config: Optional[pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']]] = None,
                  snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']]] = None,
@@ -802,7 +804,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags to apply to the function.
         """

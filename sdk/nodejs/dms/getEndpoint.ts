@@ -52,7 +52,7 @@ export interface GetEndpointResult {
     readonly serverName?: string;
     readonly sslMode?: string;
     readonly sybaseSettings?: outputs.dms.EndpointSybaseSettings;
-    readonly tags?: outputs.dms.EndpointTag[];
+    readonly tags?: outputs.Tag[];
     readonly username?: string;
 }
 /**

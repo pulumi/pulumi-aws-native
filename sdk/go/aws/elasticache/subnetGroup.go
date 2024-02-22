@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,8 +22,8 @@ type SubnetGroup struct {
 	// The description for the cache subnet group.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The EC2 subnet IDs for the cache subnet group.
-	SubnetIds pulumi.StringArrayOutput  `pulumi:"subnetIds"`
-	Tags      SubnetGroupTagArrayOutput `pulumi:"tags"`
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	Tags      aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -80,8 +81,8 @@ type subnetGroupArgs struct {
 	// The description for the cache subnet group.
 	Description string `pulumi:"description"`
 	// The EC2 subnet IDs for the cache subnet group.
-	SubnetIds []string         `pulumi:"subnetIds"`
-	Tags      []SubnetGroupTag `pulumi:"tags"`
+	SubnetIds []string  `pulumi:"subnetIds"`
+	Tags      []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
@@ -92,7 +93,7 @@ type SubnetGroupArgs struct {
 	Description pulumi.StringInput
 	// The EC2 subnet IDs for the cache subnet group.
 	SubnetIds pulumi.StringArrayInput
-	Tags      SubnetGroupTagArrayInput
+	Tags      aws.TagArrayInput
 }
 
 func (SubnetGroupArgs) ElementType() reflect.Type {
@@ -147,8 +148,8 @@ func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o SubnetGroupOutput) Tags() SubnetGroupTagArrayOutput {
-	return o.ApplyT(func(v *SubnetGroup) SubnetGroupTagArrayOutput { return v.Tags }).(SubnetGroupTagArrayOutput)
+func (o SubnetGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SubnetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

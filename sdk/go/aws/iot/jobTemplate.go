@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,7 +37,7 @@ type JobTemplate struct {
 	// Configuration for pre-signed S3 URLs.
 	PresignedUrlConfig PresignedUrlConfigPropertiesPtrOutput `pulumi:"presignedUrlConfig"`
 	// Metadata that can be used to manage the JobTemplate.
-	Tags JobTemplateTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// Specifies the amount of time each device has to finish its execution of the job.
 	TimeoutConfig TimeoutConfigPropertiesPtrOutput `pulumi:"timeoutConfig"`
 }
@@ -122,7 +123,7 @@ type jobTemplateArgs struct {
 	// Configuration for pre-signed S3 URLs.
 	PresignedUrlConfig *PresignedUrlConfigProperties `pulumi:"presignedUrlConfig"`
 	// Metadata that can be used to manage the JobTemplate.
-	Tags []JobTemplateTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// Specifies the amount of time each device has to finish its execution of the job.
 	TimeoutConfig *TimeoutConfigProperties `pulumi:"timeoutConfig"`
 }
@@ -148,7 +149,7 @@ type JobTemplateArgs struct {
 	// Configuration for pre-signed S3 URLs.
 	PresignedUrlConfig PresignedUrlConfigPropertiesPtrInput
 	// Metadata that can be used to manage the JobTemplate.
-	Tags JobTemplateTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 	// Specifies the amount of time each device has to finish its execution of the job.
 	TimeoutConfig TimeoutConfigPropertiesPtrInput
 }
@@ -248,8 +249,8 @@ func (o JobTemplateOutput) PresignedUrlConfig() PresignedUrlConfigPropertiesPtrO
 }
 
 // Metadata that can be used to manage the JobTemplate.
-func (o JobTemplateOutput) Tags() JobTemplateTagArrayOutput {
-	return o.ApplyT(func(v *JobTemplate) JobTemplateTagArrayOutput { return v.Tags }).(JobTemplateTagArrayOutput)
+func (o JobTemplateOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *JobTemplate) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // Specifies the amount of time each device has to finish its execution of the job.

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.IoT
         /// Metadata that can be used to manage the dimension.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DimensionTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of the dimension.
@@ -114,14 +114,14 @@ namespace Pulumi.AwsNative.IoT
         }
 
         [Input("tags")]
-        private InputList<Inputs.DimensionTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Metadata that can be used to manage the dimension.
         /// </summary>
-        public InputList<Inputs.DimensionTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DimensionTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

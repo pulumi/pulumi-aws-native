@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// An array of key-value pairs to apply to this user.
         /// </summary>
-        public readonly ImmutableArray<Outputs.UserTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetUserResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ElastiCache
 
             string? status,
 
-            ImmutableArray<Outputs.UserTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Status = status;

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type Route struct {
 	ResourceOwner     pulumi.StringOutput    `pulumi:"resourceOwner"`
 	RouteName         pulumi.StringPtrOutput `pulumi:"routeName"`
 	Spec              RouteSpecOutput        `pulumi:"spec"`
-	Tags              RouteTagArrayOutput    `pulumi:"tags"`
+	Tags              aws.TagArrayOutput     `pulumi:"tags"`
 	Uid               pulumi.StringOutput    `pulumi:"uid"`
 	VirtualRouterName pulumi.StringOutput    `pulumi:"virtualRouterName"`
 }
@@ -85,12 +86,12 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	MeshName          string     `pulumi:"meshName"`
-	MeshOwner         *string    `pulumi:"meshOwner"`
-	RouteName         *string    `pulumi:"routeName"`
-	Spec              RouteSpec  `pulumi:"spec"`
-	Tags              []RouteTag `pulumi:"tags"`
-	VirtualRouterName string     `pulumi:"virtualRouterName"`
+	MeshName          string    `pulumi:"meshName"`
+	MeshOwner         *string   `pulumi:"meshOwner"`
+	RouteName         *string   `pulumi:"routeName"`
+	Spec              RouteSpec `pulumi:"spec"`
+	Tags              []aws.Tag `pulumi:"tags"`
+	VirtualRouterName string    `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a Route resource.
@@ -99,7 +100,7 @@ type RouteArgs struct {
 	MeshOwner         pulumi.StringPtrInput
 	RouteName         pulumi.StringPtrInput
 	Spec              RouteSpecInput
-	Tags              RouteTagArrayInput
+	Tags              aws.TagArrayInput
 	VirtualRouterName pulumi.StringInput
 }
 
@@ -164,8 +165,8 @@ func (o RouteOutput) Spec() RouteSpecOutput {
 	return o.ApplyT(func(v *Route) RouteSpecOutput { return v.Spec }).(RouteSpecOutput)
 }
 
-func (o RouteOutput) Tags() RouteTagArrayOutput {
-	return o.ApplyT(func(v *Route) RouteTagArrayOutput { return v.Tags }).(RouteTagArrayOutput)
+func (o RouteOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Route) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o RouteOutput) Uid() pulumi.StringOutput {

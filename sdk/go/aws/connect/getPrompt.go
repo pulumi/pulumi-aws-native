@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupPromptResult struct {
 	// The Amazon Resource Name (ARN) for the prompt.
 	PromptArn *string `pulumi:"promptArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []PromptTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPromptOutput(ctx *pulumi.Context, args LookupPromptOutputArgs, opts ...pulumi.InvokeOption) LookupPromptResultOutput {
@@ -97,8 +98,8 @@ func (o LookupPromptResultOutput) PromptArn() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupPromptResultOutput) Tags() PromptTagArrayOutput {
-	return o.ApplyT(func(v LookupPromptResult) []PromptTag { return v.Tags }).(PromptTagArrayOutput)
+func (o LookupPromptResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPromptResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

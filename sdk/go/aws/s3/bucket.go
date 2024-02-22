@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -56,7 +57,7 @@ type Bucket struct {
 	// Configuration for replicating objects in an S3 bucket.
 	ReplicationConfiguration BucketReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
 	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
-	Tags                    BucketTagArrayOutput                   `pulumi:"tags"`
+	Tags                    aws.TagArrayOutput                     `pulumi:"tags"`
 	VersioningConfiguration BucketVersioningConfigurationPtrOutput `pulumi:"versioningConfiguration"`
 	WebsiteConfiguration    BucketWebsiteConfigurationPtrOutput    `pulumi:"websiteConfiguration"`
 	// The Amazon S3 website endpoint for the specified bucket.
@@ -141,7 +142,7 @@ type bucketArgs struct {
 	// Configuration for replicating objects in an S3 bucket.
 	ReplicationConfiguration *BucketReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
-	Tags                    []BucketTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                      `pulumi:"tags"`
 	VersioningConfiguration *BucketVersioningConfiguration `pulumi:"versioningConfiguration"`
 	WebsiteConfiguration    *BucketWebsiteConfiguration    `pulumi:"websiteConfiguration"`
 }
@@ -181,7 +182,7 @@ type BucketArgs struct {
 	// Configuration for replicating objects in an S3 bucket.
 	ReplicationConfiguration BucketReplicationConfigurationPtrInput
 	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
-	Tags                    BucketTagArrayInput
+	Tags                    aws.TagArrayInput
 	VersioningConfiguration BucketVersioningConfigurationPtrInput
 	WebsiteConfiguration    BucketWebsiteConfigurationPtrInput
 }
@@ -329,8 +330,8 @@ func (o BucketOutput) ReplicationConfiguration() BucketReplicationConfigurationP
 }
 
 // An arbitrary set of tags (key-value pairs) for this S3 bucket.
-func (o BucketOutput) Tags() BucketTagArrayOutput {
-	return o.ApplyT(func(v *Bucket) BucketTagArrayOutput { return v.Tags }).(BucketTagArrayOutput)
+func (o BucketOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Bucket) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o BucketOutput) VersioningConfiguration() BucketVersioningConfigurationPtrOutput {

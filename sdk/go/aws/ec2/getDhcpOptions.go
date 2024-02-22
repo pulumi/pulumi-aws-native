@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -29,7 +30,7 @@ type LookupDhcpOptionsArgs struct {
 type LookupDhcpOptionsResult struct {
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// Any tags assigned to the DHCP options set.
-	Tags []DhcpOptionsTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDhcpOptionsOutput(ctx *pulumi.Context, args LookupDhcpOptionsOutputArgs, opts ...pulumi.InvokeOption) LookupDhcpOptionsResultOutput {
@@ -72,8 +73,8 @@ func (o LookupDhcpOptionsResultOutput) DhcpOptionsId() pulumi.StringPtrOutput {
 }
 
 // Any tags assigned to the DHCP options set.
-func (o LookupDhcpOptionsResultOutput) Tags() DhcpOptionsTagArrayOutput {
-	return o.ApplyT(func(v LookupDhcpOptionsResult) []DhcpOptionsTag { return v.Tags }).(DhcpOptionsTagArrayOutput)
+func (o LookupDhcpOptionsResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDhcpOptionsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

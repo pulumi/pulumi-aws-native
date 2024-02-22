@@ -42,7 +42,7 @@ export interface GetIndexResult {
     /**
      * Tags for labeling the index
      */
-    readonly tags?: outputs.kendra.IndexTag[];
+    readonly tags?: outputs.Tag[];
     readonly userContextPolicy?: enums.kendra.IndexUserContextPolicy;
     readonly userTokenConfigurations?: outputs.kendra.IndexUserTokenConfiguration[];
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,8 +33,8 @@ type LookupAccessPointResult struct {
 	AccessPointId *string `pulumi:"accessPointId"`
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	AccessPointTags []AccessPointTag `pulumi:"accessPointTags"`
-	Arn             *string          `pulumi:"arn"`
+	AccessPointTags []aws.Tag `pulumi:"accessPointTags"`
+	Arn             *string   `pulumi:"arn"`
 }
 
 func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPointResultOutput {
@@ -78,8 +79,8 @@ func (o LookupAccessPointResultOutput) AccessPointId() pulumi.StringPtrOutput {
 // An array of key-value pairs to apply to this resource.
 //
 //	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-func (o LookupAccessPointResultOutput) AccessPointTags() AccessPointTagArrayOutput {
-	return o.ApplyT(func(v LookupAccessPointResult) []AccessPointTag { return v.AccessPointTags }).(AccessPointTagArrayOutput)
+func (o LookupAccessPointResultOutput) AccessPointTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) []aws.Tag { return v.AccessPointTags }).(aws.TagArrayOutput)
 }
 
 func (o LookupAccessPointResultOutput) Arn() pulumi.StringPtrOutput {

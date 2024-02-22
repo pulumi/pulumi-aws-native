@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.FSx
         public readonly string? ResourceArn;
         public readonly string? StorageVirtualMachineId;
         public readonly string? SvmAdminPassword;
-        public readonly ImmutableArray<Outputs.StorageVirtualMachineTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? Uuid;
 
         [OutputConstructor]
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.FSx
 
             string? svmAdminPassword,
 
-            ImmutableArray<Outputs.StorageVirtualMachineTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? uuid)
         {

@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public readonly string? Id;
         public readonly string? LastUpdatedAt;
         public readonly Pulumi.AwsNative.VpcLattice.ServiceStatus? Status;
-        public readonly ImmutableArray<Outputs.ServiceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetServiceResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
             Pulumi.AwsNative.VpcLattice.ServiceStatus? status,
 
-            ImmutableArray<Outputs.ServiceTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AuthType = authType;

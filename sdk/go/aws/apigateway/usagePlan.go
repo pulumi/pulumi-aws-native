@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type UsagePlan struct {
 	// The target maximum number of permitted requests per a given unit time interval.
 	Quota UsagePlanQuotaSettingsPtrOutput `pulumi:"quota"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags UsagePlanTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A map containing method level throttling information for API stage in a usage plan.
 	Throttle UsagePlanThrottleSettingsPtrOutput `pulumi:"throttle"`
 	// The name of a usage plan.
@@ -78,7 +79,7 @@ type usagePlanArgs struct {
 	// The target maximum number of permitted requests per a given unit time interval.
 	Quota *UsagePlanQuotaSettings `pulumi:"quota"`
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags []UsagePlanTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// A map containing method level throttling information for API stage in a usage plan.
 	Throttle *UsagePlanThrottleSettings `pulumi:"throttle"`
 	// The name of a usage plan.
@@ -94,7 +95,7 @@ type UsagePlanArgs struct {
 	// The target maximum number of permitted requests per a given unit time interval.
 	Quota UsagePlanQuotaSettingsPtrInput
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags UsagePlanTagArrayInput
+	Tags aws.TagArrayInput
 	// A map containing method level throttling information for API stage in a usage plan.
 	Throttle UsagePlanThrottleSettingsPtrInput
 	// The name of a usage plan.
@@ -154,8 +155,8 @@ func (o UsagePlanOutput) Quota() UsagePlanQuotaSettingsPtrOutput {
 }
 
 // The collection of tags. Each tag element is associated with a given resource.
-func (o UsagePlanOutput) Tags() UsagePlanTagArrayOutput {
-	return o.ApplyT(func(v *UsagePlan) UsagePlanTagArrayOutput { return v.Tags }).(UsagePlanTagArrayOutput)
+func (o UsagePlanOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *UsagePlan) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A map containing method level throttling information for API stage in a usage plan.

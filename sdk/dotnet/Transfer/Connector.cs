@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Transfer
         /// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ConnectorTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// URL for Connector
@@ -133,14 +133,14 @@ namespace Pulumi.AwsNative.Transfer
         public Input<Inputs.SftpConfigPropertiesArgs>? SftpConfig { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ConnectorTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         /// </summary>
-        public InputList<Inputs.ConnectorTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ConnectorTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

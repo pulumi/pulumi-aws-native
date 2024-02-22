@@ -43,7 +43,7 @@ export class AccessPoint extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    public readonly accessPointTags!: pulumi.Output<outputs.efs.AccessPointTag[] | undefined>;
+    public readonly accessPointTags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The opaque string specified in the request to ensure idempotent creation.
@@ -107,7 +107,7 @@ export interface AccessPointArgs {
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    accessPointTags?: pulumi.Input<pulumi.Input<inputs.efs.AccessPointTagArgs>[]>;
+    accessPointTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The opaque string specified in the request to ensure idempotent creation.
      */

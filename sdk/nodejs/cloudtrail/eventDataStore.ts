@@ -97,7 +97,7 @@ export class EventDataStore extends pulumi.CustomResource {
      * The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.cloudtrail.EventDataStoreTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Indicates whether the event data store is protected from termination.
      */
@@ -213,7 +213,7 @@ export interface EventDataStoreArgs {
      * The retention period, in days.
      */
     retentionPeriod?: pulumi.Input<number>;
-    tags?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Indicates whether the event data store is protected from termination.
      */

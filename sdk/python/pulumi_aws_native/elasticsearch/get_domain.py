@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetDomainResult',
@@ -85,10 +86,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="advancedOptions")
-    def advanced_options(self) -> Optional[Any]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-        """
+    def advanced_options(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "advanced_options")
 
     @property
@@ -148,10 +146,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="logPublishingOptions")
-    def log_publishing_options(self) -> Optional[Any]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-        """
+    def log_publishing_options(self) -> Optional[Mapping[str, 'outputs.DomainLogPublishingOption']]:
         return pulumi.get(self, "log_publishing_options")
 
     @property
@@ -166,7 +161,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DomainTag']]:
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         return pulumi.get(self, "tags")
 
     @property

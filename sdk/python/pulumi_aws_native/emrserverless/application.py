@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -29,7 +31,7 @@ class ApplicationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
                  runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  worker_type_specifications: Optional[pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
@@ -41,7 +43,7 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationMaximumAllowedResourcesArgs'] maximum_capacity: Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
         :param pulumi.Input[str] name: User friendly Application name.
         :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: Network Configuration for customer VPC connectivity.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: Tag map with key and value
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tag map with key and value
         :param pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs'] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         """
         pulumi.set(__self__, "release_label", release_label)
@@ -205,14 +207,14 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tag map with key and value
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -244,7 +246,7 @@ class Application(pulumi.CustomResource):
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConfigurationObjectArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  worker_type_specifications: Optional[pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputMapArgs']]] = None,
                  __props__=None):
@@ -260,7 +262,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] name: User friendly Application name.
         :param pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']] network_configuration: Network Configuration for customer VPC connectivity.
         :param pulumi.Input[str] release_label: EMR release label.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]] tags: Tag map with key and value
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tag map with key and value
         :param pulumi.Input[str] type: The type of the application
         :param pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputMapArgs']] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         """
@@ -299,7 +301,7 @@ class Application(pulumi.CustomResource):
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConfigurationObjectArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  worker_type_specifications: Optional[pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputMapArgs']]] = None,
                  __props__=None):
@@ -467,7 +469,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Tag map with key and value
         """

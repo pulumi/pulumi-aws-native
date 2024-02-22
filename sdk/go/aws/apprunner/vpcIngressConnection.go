@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,8 +23,8 @@ type VpcIngressConnection struct {
 	// The Amazon Resource Name (ARN) of the service.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// The current status of the VpcIngressConnection.
-	Status VpcIngressConnectionStatusOutput   `pulumi:"status"`
-	Tags   VpcIngressConnectionTagArrayOutput `pulumi:"tags"`
+	Status VpcIngressConnectionStatusOutput `pulumi:"status"`
+	Tags   aws.CreateOnlyTagArrayOutput     `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the VpcIngressConnection.
 	VpcIngressConnectionArn pulumi.StringOutput `pulumi:"vpcIngressConnectionArn"`
 	// The customer-provided Vpc Ingress Connection name.
@@ -84,8 +85,8 @@ func (VpcIngressConnectionState) ElementType() reflect.Type {
 type vpcIngressConnectionArgs struct {
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfiguration `pulumi:"ingressVpcConfiguration"`
 	// The Amazon Resource Name (ARN) of the service.
-	ServiceArn string                    `pulumi:"serviceArn"`
-	Tags       []VpcIngressConnectionTag `pulumi:"tags"`
+	ServiceArn string              `pulumi:"serviceArn"`
+	Tags       []aws.CreateOnlyTag `pulumi:"tags"`
 	// The customer-provided Vpc Ingress Connection name.
 	VpcIngressConnectionName *string `pulumi:"vpcIngressConnectionName"`
 }
@@ -95,7 +96,7 @@ type VpcIngressConnectionArgs struct {
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfigurationInput
 	// The Amazon Resource Name (ARN) of the service.
 	ServiceArn pulumi.StringInput
-	Tags       VpcIngressConnectionTagArrayInput
+	Tags       aws.CreateOnlyTagArrayInput
 	// The customer-provided Vpc Ingress Connection name.
 	VpcIngressConnectionName pulumi.StringPtrInput
 }
@@ -158,8 +159,8 @@ func (o VpcIngressConnectionOutput) Status() VpcIngressConnectionStatusOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) VpcIngressConnectionStatusOutput { return v.Status }).(VpcIngressConnectionStatusOutput)
 }
 
-func (o VpcIngressConnectionOutput) Tags() VpcIngressConnectionTagArrayOutput {
-	return o.ApplyT(func(v *VpcIngressConnection) VpcIngressConnectionTagArrayOutput { return v.Tags }).(VpcIngressConnectionTagArrayOutput)
+func (o VpcIngressConnectionOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *VpcIngressConnection) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the VpcIngressConnection.

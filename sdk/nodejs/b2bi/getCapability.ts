@@ -30,7 +30,7 @@ export interface GetCapabilityResult {
     readonly instructionsDocuments?: outputs.b2bi.CapabilityS3Location[];
     readonly modifiedAt?: string;
     readonly name?: string;
-    readonly tags?: outputs.b2bi.CapabilityTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::B2BI::Capability Resource Type

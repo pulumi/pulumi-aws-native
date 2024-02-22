@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['CollectionArgs', 'Collection']
 
@@ -20,7 +20,7 @@ class CollectionArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CollectionTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
                  type: Optional[pulumi.Input['CollectionType']] = None):
         """
         The set of arguments for constructing a Collection resource.
@@ -32,7 +32,7 @@ class CollectionArgs:
                Starts with a lowercase letter
                Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
                Contains between 3 and 32 characters
-        :param pulumi.Input[Sequence[pulumi.Input['CollectionTagArgs']]] tags: List of tags to be added to the resource
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: List of tags to be added to the resource
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -86,14 +86,14 @@ class CollectionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollectionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         List of tags to be added to the resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CollectionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -114,7 +114,7 @@ class Collection(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  type: Optional[pulumi.Input['CollectionType']] = None,
                  __props__=None):
         """
@@ -130,7 +130,7 @@ class Collection(pulumi.CustomResource):
                Starts with a lowercase letter
                Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
                Contains between 3 and 32 characters
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollectionTagArgs']]]] tags: List of tags to be added to the resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: List of tags to be added to the resource
         """
         ...
     @overload
@@ -159,7 +159,7 @@ class Collection(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  type: Optional[pulumi.Input['CollectionType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -265,7 +265,7 @@ class Collection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CollectionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         List of tags to be added to the resource
         """

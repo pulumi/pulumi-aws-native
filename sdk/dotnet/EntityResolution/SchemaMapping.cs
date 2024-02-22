@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public Output<string> SchemaName { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SchemaMappingTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -122,10 +122,10 @@ namespace Pulumi.AwsNative.EntityResolution
         public Input<string> SchemaName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.SchemaMappingTagArgs>? _tags;
-        public InputList<Inputs.SchemaMappingTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SchemaMappingTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

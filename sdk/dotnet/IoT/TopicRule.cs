@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string?> RuleName { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TopicRuleTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("topicRulePayload")]
         public Output<Outputs.TopicRulePayload> TopicRulePayload { get; private set; } = null!;
@@ -80,10 +80,10 @@ namespace Pulumi.AwsNative.IoT
         public Input<string>? RuleName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TopicRuleTagArgs>? _tags;
-        public InputList<Inputs.TopicRuleTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TopicRuleTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

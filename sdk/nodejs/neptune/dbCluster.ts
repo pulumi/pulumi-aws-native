@@ -168,7 +168,7 @@ export class DbCluster extends pulumi.CustomResource {
     /**
      * The tags assigned to this cluster.
      */
-    public readonly tags!: pulumi.Output<outputs.neptune.DbClusterTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
      *
@@ -379,7 +379,7 @@ export interface DbClusterArgs {
     /**
      * The tags assigned to this cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.neptune.DbClusterTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
      *

@@ -12,7 +12,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'DatabaseTag',
     'MagneticStoreWritePropertiesProperties',
     'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties',
     'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties',
@@ -26,40 +25,11 @@ __all__ = [
     'ScheduledQueryS3Configuration',
     'ScheduledQueryScheduleConfiguration',
     'ScheduledQuerySnsConfiguration',
-    'ScheduledQueryTag',
     'ScheduledQueryTargetConfiguration',
     'ScheduledQueryTimestreamConfiguration',
     'SchemaProperties',
     'TablePartitionKey',
-    'TableTag',
 ]
-
-@pulumi.output_type
-class DatabaseTag(dict):
-    """
-    You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-    """
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class MagneticStoreWritePropertiesProperties(dict):
@@ -700,31 +670,6 @@ class ScheduledQuerySnsConfiguration(dict):
 
 
 @pulumi.output_type
-class ScheduledQueryTag(dict):
-    """
-    A key-value pair to label the scheduled query.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to label the scheduled query.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ScheduledQueryTargetConfiguration(dict):
     """
     Configuration of target store where scheduled query results are written to.
@@ -936,32 +881,5 @@ class TablePartitionKey(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class TableTag(dict):
-    """
-    You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-    """
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 

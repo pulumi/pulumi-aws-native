@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FuotaTaskArgs', 'FuotaTask']
@@ -25,7 +27,7 @@ class FuotaTaskArgs:
                  disassociate_multicast_group: Optional[pulumi.Input[str]] = None,
                  disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FuotaTaskTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FuotaTask resource.
         :param pulumi.Input[str] firmware_update_image: FUOTA task firmware update image binary S3 link
@@ -37,7 +39,7 @@ class FuotaTaskArgs:
         :param pulumi.Input[str] disassociate_multicast_group: Multicast group to disassociate. Only for update request.
         :param pulumi.Input[str] disassociate_wireless_device: Wireless device to disassociate. Only for update request.
         :param pulumi.Input[str] name: Name of FUOTA task
-        :param pulumi.Input[Sequence[pulumi.Input['FuotaTaskTagArgs']]] tags: A list of key-value pairs that contain metadata for the FUOTA task.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the FUOTA task.
         """
         pulumi.set(__self__, "firmware_update_image", firmware_update_image)
         pulumi.set(__self__, "firmware_update_role", firmware_update_role)
@@ -167,14 +169,14 @@ class FuotaTaskArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FuotaTaskTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the FUOTA task.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FuotaTaskTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -192,7 +194,7 @@ class FuotaTask(pulumi.CustomResource):
                  firmware_update_role: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['FuotaTaskLoRaWanArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FuotaTaskTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Create and manage FUOTA tasks.
@@ -208,7 +210,7 @@ class FuotaTask(pulumi.CustomResource):
         :param pulumi.Input[str] firmware_update_role: FUOTA task firmware IAM role for reading S3
         :param pulumi.Input[pulumi.InputType['FuotaTaskLoRaWanArgs']] lo_ra_wan: FUOTA task LoRaWAN
         :param pulumi.Input[str] name: Name of FUOTA task
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FuotaTaskTagArgs']]]] tags: A list of key-value pairs that contain metadata for the FUOTA task.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the FUOTA task.
         """
         ...
     @overload
@@ -243,7 +245,7 @@ class FuotaTask(pulumi.CustomResource):
                  firmware_update_role: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['FuotaTaskLoRaWanArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FuotaTaskTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -397,7 +399,7 @@ class FuotaTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FuotaTaskTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of key-value pairs that contain metadata for the FUOTA task.
         """

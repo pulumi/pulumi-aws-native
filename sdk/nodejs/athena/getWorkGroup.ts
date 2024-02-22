@@ -41,7 +41,7 @@ export interface GetWorkGroupResult {
     /**
      * One or more tags, separated by commas, that you want to attach to the workgroup as you create it
      */
-    readonly tags?: outputs.athena.WorkGroupTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The workgroup configuration
      */

@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// Name of accelerator.
         /// </summary>
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.AcceleratorTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAcceleratorResult(
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
 
             string? name,
 
-            ImmutableArray<Outputs.AcceleratorTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AcceleratorArn = acceleratorArn;
             DnsName = dnsName;

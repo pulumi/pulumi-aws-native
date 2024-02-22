@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ClientCertificateTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -82,14 +82,14 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? Description { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ClientCertificateTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
-        public InputList<Inputs.ClientCertificateTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ClientCertificateTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

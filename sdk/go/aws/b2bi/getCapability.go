@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,7 +35,7 @@ type LookupCapabilityResult struct {
 	InstructionsDocuments []CapabilityS3Location             `pulumi:"instructionsDocuments"`
 	ModifiedAt            *string                            `pulumi:"modifiedAt"`
 	Name                  *string                            `pulumi:"name"`
-	Tags                  []CapabilityTag                    `pulumi:"tags"`
+	Tags                  []aws.Tag                          `pulumi:"tags"`
 }
 
 func LookupCapabilityOutput(ctx *pulumi.Context, args LookupCapabilityOutputArgs, opts ...pulumi.InvokeOption) LookupCapabilityResultOutput {
@@ -100,8 +101,8 @@ func (o LookupCapabilityResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCapabilityResultOutput) Tags() CapabilityTagArrayOutput {
-	return o.ApplyT(func(v LookupCapabilityResult) []CapabilityTag { return v.Tags }).(CapabilityTagArrayOutput)
+func (o LookupCapabilityResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCapabilityResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

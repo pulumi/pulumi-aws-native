@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,7 +27,7 @@ type Outcome struct {
 	// The name of the outcome.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags associated with this outcome.
-	Tags OutcomeTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewOutcome registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type outcomeArgs struct {
 	// The name of the outcome.
 	Name *string `pulumi:"name"`
 	// Tags associated with this outcome.
-	Tags []OutcomeTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Outcome resource.
@@ -88,7 +89,7 @@ type OutcomeArgs struct {
 	// The name of the outcome.
 	Name pulumi.StringPtrInput
 	// Tags associated with this outcome.
-	Tags OutcomeTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (OutcomeArgs) ElementType() reflect.Type {
@@ -154,8 +155,8 @@ func (o OutcomeOutput) Name() pulumi.StringOutput {
 }
 
 // Tags associated with this outcome.
-func (o OutcomeOutput) Tags() OutcomeTagArrayOutput {
-	return o.ApplyT(func(v *Outcome) OutcomeTagArrayOutput { return v.Tags }).(OutcomeTagArrayOutput)
+func (o OutcomeOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Outcome) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

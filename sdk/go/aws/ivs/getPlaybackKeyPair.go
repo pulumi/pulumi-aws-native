@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupPlaybackKeyPairResult struct {
 	// Key-pair identifier.
 	Fingerprint *string `pulumi:"fingerprint"`
 	// A list of key-value pairs that contain metadata for the asset model.
-	Tags []PlaybackKeyPairTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPlaybackKeyPairOutput(ctx *pulumi.Context, args LookupPlaybackKeyPairOutputArgs, opts ...pulumi.InvokeOption) LookupPlaybackKeyPairResultOutput {
@@ -83,8 +84,8 @@ func (o LookupPlaybackKeyPairResultOutput) Fingerprint() pulumi.StringPtrOutput 
 }
 
 // A list of key-value pairs that contain metadata for the asset model.
-func (o LookupPlaybackKeyPairResultOutput) Tags() PlaybackKeyPairTagArrayOutput {
-	return o.ApplyT(func(v LookupPlaybackKeyPairResult) []PlaybackKeyPairTag { return v.Tags }).(PlaybackKeyPairTagArrayOutput)
+func (o LookupPlaybackKeyPairResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPlaybackKeyPairResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

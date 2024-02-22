@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// A list of tags to apply to the AppImageConfig.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AppImageConfigTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,14 +114,14 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.AppImageConfigKernelGatewayImageConfigArgs>? KernelGatewayImageConfig { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AppImageConfigTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// A list of tags to apply to the AppImageConfig.
         /// </summary>
-        public InputList<Inputs.AppImageConfigTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AppImageConfigTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

@@ -60,7 +60,7 @@ export class WorkGroup extends pulumi.CustomResource {
     /**
      * One or more tags, separated by commas, that you want to attach to the workgroup as you create it
      */
-    public readonly tags!: pulumi.Output<outputs.athena.WorkGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The workgroup configuration
      */
@@ -129,7 +129,7 @@ export interface WorkGroupArgs {
     /**
      * One or more tags, separated by commas, that you want to attach to the workgroup as you create it
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.athena.WorkGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The workgroup configuration
      */

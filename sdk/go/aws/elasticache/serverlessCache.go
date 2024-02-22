@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -50,7 +51,7 @@ type ServerlessCache struct {
 	// The subnet id's of the Serverless Cache.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// An array of key-value pairs to apply to this Serverless Cache.
-	Tags ServerlessCacheTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the user group.
 	UserGroupId pulumi.StringPtrOutput `pulumi:"userGroupId"`
 }
@@ -133,7 +134,7 @@ type serverlessCacheArgs struct {
 	// The subnet id's of the Serverless Cache.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// An array of key-value pairs to apply to this Serverless Cache.
-	Tags []ServerlessCacheTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the user group.
 	UserGroupId *string `pulumi:"userGroupId"`
 }
@@ -166,7 +167,7 @@ type ServerlessCacheArgs struct {
 	// The subnet id's of the Serverless Cache.
 	SubnetIds pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this Serverless Cache.
-	Tags ServerlessCacheTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the user group.
 	UserGroupId pulumi.StringPtrInput
 }
@@ -296,8 +297,8 @@ func (o ServerlessCacheOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // An array of key-value pairs to apply to this Serverless Cache.
-func (o ServerlessCacheOutput) Tags() ServerlessCacheTagArrayOutput {
-	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheTagArrayOutput { return v.Tags }).(ServerlessCacheTagArrayOutput)
+func (o ServerlessCacheOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ServerlessCache) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the user group.

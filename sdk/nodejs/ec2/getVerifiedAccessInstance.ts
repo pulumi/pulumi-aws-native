@@ -49,7 +49,7 @@ export interface GetVerifiedAccessInstanceResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ec2.VerifiedAccessInstanceTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * The ID of the AWS Verified Access instance.
      */

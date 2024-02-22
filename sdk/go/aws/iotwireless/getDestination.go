@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +40,7 @@ type LookupDestinationResult struct {
 	// AWS role ARN that grants access
 	RoleArn *string `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the destination.
-	Tags []DestinationTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDestinationOutput(ctx *pulumi.Context, args LookupDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupDestinationResultOutput {
@@ -104,8 +105,8 @@ func (o LookupDestinationResultOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the destination.
-func (o LookupDestinationResultOutput) Tags() DestinationTagArrayOutput {
-	return o.ApplyT(func(v LookupDestinationResult) []DestinationTag { return v.Tags }).(DestinationTagArrayOutput)
+func (o LookupDestinationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDestinationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

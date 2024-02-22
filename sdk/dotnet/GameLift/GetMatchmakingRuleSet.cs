@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MatchmakingRuleSetTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetMatchmakingRuleSetResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.GameLift
 
             string? creationTime,
 
-            ImmutableArray<Outputs.MatchmakingRuleSetTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationTime = creationTime;

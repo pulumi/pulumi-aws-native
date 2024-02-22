@@ -73,7 +73,7 @@ export interface GetDomainResult {
     /**
      * The tags specified for the Amazon DataZone domain.
      */
-    readonly tags?: outputs.datazone.DomainTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A domain is an organizing entity for connecting together assets, users, and their projects

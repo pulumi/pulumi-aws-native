@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupChannelResult struct {
 	LogConfiguration *ChannelLogConfigurationForChannel `pulumi:"logConfiguration"`
 	PlaybackMode     *ChannelPlaybackMode               `pulumi:"playbackMode"`
 	// The tags to assign to the channel.
-	Tags                   []ChannelTag                   `pulumi:"tags"`
+	Tags                   []aws.Tag                      `pulumi:"tags"`
 	TimeShiftConfiguration *ChannelTimeShiftConfiguration `pulumi:"timeShiftConfiguration"`
 }
 
@@ -90,8 +91,8 @@ func (o LookupChannelResultOutput) PlaybackMode() ChannelPlaybackModePtrOutput {
 }
 
 // The tags to assign to the channel.
-func (o LookupChannelResultOutput) Tags() ChannelTagArrayOutput {
-	return o.ApplyT(func(v LookupChannelResult) []ChannelTag { return v.Tags }).(ChannelTagArrayOutput)
+func (o LookupChannelResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupChannelResultOutput) TimeShiftConfiguration() ChannelTimeShiftConfigurationPtrOutput {

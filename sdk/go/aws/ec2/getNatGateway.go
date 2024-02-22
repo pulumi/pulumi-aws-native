@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -41,7 +42,7 @@ type LookupNatGatewayResult struct {
 	//  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
 	SecondaryPrivateIpAddresses []string `pulumi:"secondaryPrivateIpAddresses"`
 	// The tags for the NAT gateway.
-	Tags []NatGatewayTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupNatGatewayResultOutput {
@@ -103,8 +104,8 @@ func (o LookupNatGatewayResultOutput) SecondaryPrivateIpAddresses() pulumi.Strin
 }
 
 // The tags for the NAT gateway.
-func (o LookupNatGatewayResultOutput) Tags() NatGatewayTagArrayOutput {
-	return o.ApplyT(func(v LookupNatGatewayResult) []NatGatewayTag { return v.Tags }).(NatGatewayTagArrayOutput)
+func (o LookupNatGatewayResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InferenceExperimentTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetInferenceExperimentResult(
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? statusReason,
 
-            ImmutableArray<Outputs.InferenceExperimentTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             CreationTime = creationTime;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type LookupDatasetResult struct {
 	Id                      *string                         `pulumi:"id"`
 	LateDataRules           []DatasetLateDataRule           `pulumi:"lateDataRules"`
 	RetentionPeriod         *DatasetRetentionPeriod         `pulumi:"retentionPeriod"`
-	Tags                    []DatasetTag                    `pulumi:"tags"`
+	Tags                    []aws.Tag                       `pulumi:"tags"`
 	Triggers                []DatasetTrigger                `pulumi:"triggers"`
 	VersioningConfiguration *DatasetVersioningConfiguration `pulumi:"versioningConfiguration"`
 }
@@ -92,8 +93,8 @@ func (o LookupDatasetResultOutput) RetentionPeriod() DatasetRetentionPeriodPtrOu
 	return o.ApplyT(func(v LookupDatasetResult) *DatasetRetentionPeriod { return v.RetentionPeriod }).(DatasetRetentionPeriodPtrOutput)
 }
 
-func (o LookupDatasetResultOutput) Tags() DatasetTagArrayOutput {
-	return o.ApplyT(func(v LookupDatasetResult) []DatasetTag { return v.Tags }).(DatasetTagArrayOutput)
+func (o LookupDatasetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDatasetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupDatasetResultOutput) Triggers() DatasetTriggerArrayOutput {

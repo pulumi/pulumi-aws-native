@@ -41,7 +41,7 @@ export class Crl extends pulumi.CustomResource {
     public /*out*/ readonly crlId!: pulumi.Output<string>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.rolesanywhere.CrlTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly trustAnchorArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -84,6 +84,6 @@ export interface CrlArgs {
     crlData: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.CrlTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     trustAnchorArn?: pulumi.Input<string>;
 }

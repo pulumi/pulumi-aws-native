@@ -23,9 +23,7 @@ __all__ = [
     'FirewallPolicyStatefulRuleGroupOverride',
     'FirewallPolicyStatefulRuleGroupReference',
     'FirewallPolicyStatelessRuleGroupReference',
-    'FirewallPolicyTag',
     'FirewallSubnetMapping',
-    'FirewallTag',
     'LoggingConfiguration',
     'LoggingConfigurationLogDestinationConfig',
     'RuleGroup',
@@ -50,7 +48,6 @@ __all__ = [
     'RuleGroupStatefulRuleOptions',
     'RuleGroupStatelessRule',
     'RuleGroupStatelessRulesAndCustomActions',
-    'RuleGroupTag',
     'RuleGroupTcpFlagField',
     'TlsInspectionConfigurationAddress',
     'TlsInspectionConfigurationPortRange',
@@ -58,7 +55,6 @@ __all__ = [
     'TlsInspectionConfigurationServerCertificateConfiguration',
     'TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties',
     'TlsInspectionConfigurationServerCertificateScope',
-    'TlsInspectionConfigurationTag',
     'TlsInspectionConfigurationTlsInspectionConfiguration',
 ]
 
@@ -433,25 +429,6 @@ class FirewallPolicyStatelessRuleGroupReference(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class FirewallSubnetMapping(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -498,25 +475,6 @@ class FirewallSubnetMapping(dict):
         A IPAddressType
         """
         return pulumi.get(self, "ip_address_type")
-
-
-@pulumi.output_type
-class FirewallTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1395,25 +1353,6 @@ class RuleGroupStatelessRulesAndCustomActions(dict):
 
 
 @pulumi.output_type
-class RuleGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class RuleGroupTcpFlagField(dict):
     def __init__(__self__, *,
                  flags: Sequence['RuleGroupTcpFlag'],
@@ -1690,25 +1629,6 @@ class TlsInspectionConfigurationServerCertificateScope(dict):
     @pulumi.getter
     def sources(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationAddress']]:
         return pulumi.get(self, "sources")
-
-
-@pulumi.output_type
-class TlsInspectionConfigurationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

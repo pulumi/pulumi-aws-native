@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.S3
         public Output<string?> IdentityCenterArn { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AccessGrantsInstanceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -92,10 +92,10 @@ namespace Pulumi.AwsNative.S3
         public Input<string>? IdentityCenterArn { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AccessGrantsInstanceTagArgs>? _tags;
-        public InputList<Inputs.AccessGrantsInstanceTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AccessGrantsInstanceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

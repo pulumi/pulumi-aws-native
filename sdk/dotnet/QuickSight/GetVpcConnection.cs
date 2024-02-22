@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly string? RoleArn;
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly Pulumi.AwsNative.QuickSight.VpcConnectionVpcConnectionResourceStatus? Status;
-        public readonly ImmutableArray<Outputs.VpcConnectionTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? VpcId;
 
         [OutputConstructor]
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.QuickSight
 
             Pulumi.AwsNative.QuickSight.VpcConnectionVpcConnectionResourceStatus? status,
 
-            ImmutableArray<Outputs.VpcConnectionTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? vpcId)
         {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +38,7 @@ type LookupDeviceProfileResult struct {
 	// Name of service profile
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device profile.
-	Tags []DeviceProfileTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDeviceProfileOutput(ctx *pulumi.Context, args LookupDeviceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupDeviceProfileResultOutput {
@@ -97,8 +98,8 @@ func (o LookupDeviceProfileResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of key-value pairs that contain metadata for the device profile.
-func (o LookupDeviceProfileResultOutput) Tags() DeviceProfileTagArrayOutput {
-	return o.ApplyT(func(v LookupDeviceProfileResult) []DeviceProfileTag { return v.Tags }).(DeviceProfileTagArrayOutput)
+func (o LookupDeviceProfileResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDeviceProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,12 +17,12 @@ import (
 type VpceConfiguration struct {
 	pulumi.CustomResourceState
 
-	Arn                          pulumi.StringOutput             `pulumi:"arn"`
-	ServiceDnsName               pulumi.StringOutput             `pulumi:"serviceDnsName"`
-	Tags                         VpceConfigurationTagArrayOutput `pulumi:"tags"`
-	VpceConfigurationDescription pulumi.StringPtrOutput          `pulumi:"vpceConfigurationDescription"`
-	VpceConfigurationName        pulumi.StringOutput             `pulumi:"vpceConfigurationName"`
-	VpceServiceName              pulumi.StringOutput             `pulumi:"vpceServiceName"`
+	Arn                          pulumi.StringOutput    `pulumi:"arn"`
+	ServiceDnsName               pulumi.StringOutput    `pulumi:"serviceDnsName"`
+	Tags                         aws.TagArrayOutput     `pulumi:"tags"`
+	VpceConfigurationDescription pulumi.StringPtrOutput `pulumi:"vpceConfigurationDescription"`
+	VpceConfigurationName        pulumi.StringOutput    `pulumi:"vpceConfigurationName"`
+	VpceServiceName              pulumi.StringOutput    `pulumi:"vpceServiceName"`
 }
 
 // NewVpceConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -70,17 +71,17 @@ func (VpceConfigurationState) ElementType() reflect.Type {
 }
 
 type vpceConfigurationArgs struct {
-	ServiceDnsName               string                 `pulumi:"serviceDnsName"`
-	Tags                         []VpceConfigurationTag `pulumi:"tags"`
-	VpceConfigurationDescription *string                `pulumi:"vpceConfigurationDescription"`
-	VpceConfigurationName        *string                `pulumi:"vpceConfigurationName"`
-	VpceServiceName              string                 `pulumi:"vpceServiceName"`
+	ServiceDnsName               string    `pulumi:"serviceDnsName"`
+	Tags                         []aws.Tag `pulumi:"tags"`
+	VpceConfigurationDescription *string   `pulumi:"vpceConfigurationDescription"`
+	VpceConfigurationName        *string   `pulumi:"vpceConfigurationName"`
+	VpceServiceName              string    `pulumi:"vpceServiceName"`
 }
 
 // The set of arguments for constructing a VpceConfiguration resource.
 type VpceConfigurationArgs struct {
 	ServiceDnsName               pulumi.StringInput
-	Tags                         VpceConfigurationTagArrayInput
+	Tags                         aws.TagArrayInput
 	VpceConfigurationDescription pulumi.StringPtrInput
 	VpceConfigurationName        pulumi.StringPtrInput
 	VpceServiceName              pulumi.StringInput
@@ -131,8 +132,8 @@ func (o VpceConfigurationOutput) ServiceDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpceConfiguration) pulumi.StringOutput { return v.ServiceDnsName }).(pulumi.StringOutput)
 }
 
-func (o VpceConfigurationOutput) Tags() VpceConfigurationTagArrayOutput {
-	return o.ApplyT(func(v *VpceConfiguration) VpceConfigurationTagArrayOutput { return v.Tags }).(VpceConfigurationTagArrayOutput)
+func (o VpceConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VpceConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o VpceConfigurationOutput) VpceConfigurationDescription() pulumi.StringPtrOutput {

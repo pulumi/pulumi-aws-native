@@ -18,101 +18,6 @@ type ApplicationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ApplicationTagInput is an input type that accepts ApplicationTagArgs and ApplicationTagOutput values.
-// You can construct a concrete instance of `ApplicationTagInput` via:
-//
-//	ApplicationTagArgs{...}
-type ApplicationTagInput interface {
-	pulumi.Input
-
-	ToApplicationTagOutput() ApplicationTagOutput
-	ToApplicationTagOutputWithContext(context.Context) ApplicationTagOutput
-}
-
-type ApplicationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ApplicationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTag)(nil)).Elem()
-}
-
-func (i ApplicationTagArgs) ToApplicationTagOutput() ApplicationTagOutput {
-	return i.ToApplicationTagOutputWithContext(context.Background())
-}
-
-func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagOutput)
-}
-
-// ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
-// You can construct a concrete instance of `ApplicationTagArrayInput` via:
-//
-//	ApplicationTagArray{ ApplicationTagArgs{...} }
-type ApplicationTagArrayInput interface {
-	pulumi.Input
-
-	ToApplicationTagArrayOutput() ApplicationTagArrayOutput
-	ToApplicationTagArrayOutputWithContext(context.Context) ApplicationTagArrayOutput
-}
-
-type ApplicationTagArray []ApplicationTagInput
-
-func (ApplicationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationTag)(nil)).Elem()
-}
-
-func (i ApplicationTagArray) ToApplicationTagArrayOutput() ApplicationTagArrayOutput {
-	return i.ToApplicationTagArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
-}
-
-type ApplicationTagOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTag)(nil)).Elem()
-}
-
-func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
-	return o
-}
-
-func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
-	return o
-}
-
-func (o ApplicationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ApplicationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ApplicationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationTag)(nil)).Elem()
-}
-
-func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutput() ApplicationTagArrayOutput {
-	return o
-}
-
-func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
-	return o
-}
-
-func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationTag {
-		return vs[0].([]ApplicationTag)[vs[1].(int)]
-	}).(ApplicationTagOutput)
-}
-
 type DeploymentConfigMinimumHealthyHosts struct {
 	Type  string `pulumi:"type"`
 	Value int    `pulumi:"value"`
@@ -3783,101 +3688,6 @@ type DeploymentGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DeploymentGroupTagInput is an input type that accepts DeploymentGroupTagArgs and DeploymentGroupTagOutput values.
-// You can construct a concrete instance of `DeploymentGroupTagInput` via:
-//
-//	DeploymentGroupTagArgs{...}
-type DeploymentGroupTagInput interface {
-	pulumi.Input
-
-	ToDeploymentGroupTagOutput() DeploymentGroupTagOutput
-	ToDeploymentGroupTagOutputWithContext(context.Context) DeploymentGroupTagOutput
-}
-
-type DeploymentGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DeploymentGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupTag)(nil)).Elem()
-}
-
-func (i DeploymentGroupTagArgs) ToDeploymentGroupTagOutput() DeploymentGroupTagOutput {
-	return i.ToDeploymentGroupTagOutputWithContext(context.Background())
-}
-
-func (i DeploymentGroupTagArgs) ToDeploymentGroupTagOutputWithContext(ctx context.Context) DeploymentGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTagOutput)
-}
-
-// DeploymentGroupTagArrayInput is an input type that accepts DeploymentGroupTagArray and DeploymentGroupTagArrayOutput values.
-// You can construct a concrete instance of `DeploymentGroupTagArrayInput` via:
-//
-//	DeploymentGroupTagArray{ DeploymentGroupTagArgs{...} }
-type DeploymentGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToDeploymentGroupTagArrayOutput() DeploymentGroupTagArrayOutput
-	ToDeploymentGroupTagArrayOutputWithContext(context.Context) DeploymentGroupTagArrayOutput
-}
-
-type DeploymentGroupTagArray []DeploymentGroupTagInput
-
-func (DeploymentGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroupTag)(nil)).Elem()
-}
-
-func (i DeploymentGroupTagArray) ToDeploymentGroupTagArrayOutput() DeploymentGroupTagArrayOutput {
-	return i.ToDeploymentGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i DeploymentGroupTagArray) ToDeploymentGroupTagArrayOutputWithContext(ctx context.Context) DeploymentGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTagArrayOutput)
-}
-
-type DeploymentGroupTagOutput struct{ *pulumi.OutputState }
-
-func (DeploymentGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroupTag)(nil)).Elem()
-}
-
-func (o DeploymentGroupTagOutput) ToDeploymentGroupTagOutput() DeploymentGroupTagOutput {
-	return o
-}
-
-func (o DeploymentGroupTagOutput) ToDeploymentGroupTagOutputWithContext(ctx context.Context) DeploymentGroupTagOutput {
-	return o
-}
-
-func (o DeploymentGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DeploymentGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DeploymentGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DeploymentGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroupTag)(nil)).Elem()
-}
-
-func (o DeploymentGroupTagArrayOutput) ToDeploymentGroupTagArrayOutput() DeploymentGroupTagArrayOutput {
-	return o
-}
-
-func (o DeploymentGroupTagArrayOutput) ToDeploymentGroupTagArrayOutputWithContext(ctx context.Context) DeploymentGroupTagArrayOutput {
-	return o
-}
-
-func (o DeploymentGroupTagArrayOutput) Index(i pulumi.IntInput) DeploymentGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupTag {
-		return vs[0].([]DeploymentGroupTag)[vs[1].(int)]
-	}).(DeploymentGroupTagOutput)
-}
-
 type DeploymentGroupTagFilter struct {
 	Key   *string `pulumi:"key"`
 	Type  *string `pulumi:"type"`
@@ -4424,8 +4234,6 @@ func (o DeploymentGroupTriggerConfigArrayOutput) Index(i pulumi.IntInput) Deploy
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagInput)(nil)).Elem(), ApplicationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsInput)(nil)).Elem(), DeploymentConfigMinimumHealthyHostsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsPtrInput)(nil)).Elem(), DeploymentConfigMinimumHealthyHostsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsPerZoneInput)(nil)).Elem(), DeploymentConfigMinimumHealthyHostsPerZoneArgs{})
@@ -4478,8 +4286,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupRevisionLocationPtrInput)(nil)).Elem(), DeploymentGroupRevisionLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupS3LocationInput)(nil)).Elem(), DeploymentGroupS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupS3LocationPtrInput)(nil)).Elem(), DeploymentGroupS3LocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTagInput)(nil)).Elem(), DeploymentGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTagArrayInput)(nil)).Elem(), DeploymentGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTagFilterInput)(nil)).Elem(), DeploymentGroupTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTagFilterArrayInput)(nil)).Elem(), DeploymentGroupTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTargetGroupInfoInput)(nil)).Elem(), DeploymentGroupTargetGroupInfoArgs{})
@@ -4490,8 +4296,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTrafficRoutePtrInput)(nil)).Elem(), DeploymentGroupTrafficRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTriggerConfigInput)(nil)).Elem(), DeploymentGroupTriggerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTriggerConfigArrayInput)(nil)).Elem(), DeploymentGroupTriggerConfigArray{})
-	pulumi.RegisterOutputType(ApplicationTagOutput{})
-	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigMinimumHealthyHostsOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigMinimumHealthyHostsPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigMinimumHealthyHostsPerZoneOutput{})
@@ -4544,8 +4348,6 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentGroupRevisionLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupS3LocationOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupS3LocationPtrOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupTagOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupTagFilterOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupTargetGroupInfoOutput{})

@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.CellTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCellResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
 
             ImmutableArray<string> parentReadinessScopes,
 
-            ImmutableArray<Outputs.CellTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CellArn = cellArn;
             Cells = cells;

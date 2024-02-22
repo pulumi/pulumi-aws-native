@@ -52,7 +52,7 @@ export class Acl extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this cluster.
      */
-    public readonly tags!: pulumi.Output<outputs.memorydb.AclTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * List of users associated to this acl.
      */
@@ -99,7 +99,7 @@ export interface AclArgs {
     /**
      * An array of key-value pairs to apply to this cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.memorydb.AclTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * List of users associated to this acl.
      */

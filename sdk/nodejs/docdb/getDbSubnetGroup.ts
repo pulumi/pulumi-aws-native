@@ -26,7 +26,7 @@ export interface GetDbSubnetGroupResult {
     readonly dbSubnetGroupDescription?: string;
     readonly id?: string;
     readonly subnetIds?: string[];
-    readonly tags?: outputs.docdb.DbSubnetGroupTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::DocDB::DBSubnetGroup

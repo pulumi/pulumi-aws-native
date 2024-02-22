@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type Ipam struct {
 	// The number of scopes that currently exist in this IPAM.
 	ScopeCount pulumi.IntOutput `pulumi:"scopeCount"`
 	// An array of key-value pairs to apply to this resource.
-	Tags IpamTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The tier of the IPAM.
 	Tier IpamTierPtrOutput `pulumi:"tier"`
 }
@@ -84,7 +85,7 @@ type ipamArgs struct {
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IpamOperatingRegion `pulumi:"operatingRegions"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IpamTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The tier of the IPAM.
 	Tier *IpamTier `pulumi:"tier"`
 }
@@ -95,7 +96,7 @@ type IpamArgs struct {
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions IpamOperatingRegionArrayInput
 	// An array of key-value pairs to apply to this resource.
-	Tags IpamTagArrayInput
+	Tags aws.TagArrayInput
 	// The tier of the IPAM.
 	Tier IpamTierPtrInput
 }
@@ -187,8 +188,8 @@ func (o IpamOutput) ScopeCount() pulumi.IntOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o IpamOutput) Tags() IpamTagArrayOutput {
-	return o.ApplyT(func(v *Ipam) IpamTagArrayOutput { return v.Tags }).(IpamTagArrayOutput)
+func (o IpamOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Ipam) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The tier of the IPAM.

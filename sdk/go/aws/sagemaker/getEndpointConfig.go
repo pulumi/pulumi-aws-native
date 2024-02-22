@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,8 +28,8 @@ type LookupEndpointConfigArgs struct {
 }
 
 type LookupEndpointConfigResult struct {
-	Id   *string             `pulumi:"id"`
-	Tags []EndpointConfigTag `pulumi:"tags"`
+	Id   *string   `pulumi:"id"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEndpointConfigOutput(ctx *pulumi.Context, args LookupEndpointConfigOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointConfigResultOutput {
@@ -70,8 +71,8 @@ func (o LookupEndpointConfigResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEndpointConfigResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEndpointConfigResultOutput) Tags() EndpointConfigTagArrayOutput {
-	return o.ApplyT(func(v LookupEndpointConfigResult) []EndpointConfigTag { return v.Tags }).(EndpointConfigTagArrayOutput)
+func (o LookupEndpointConfigResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEndpointConfigResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -84,7 +84,7 @@ export class PricingRule extends pulumi.CustomResource {
      * The service which a pricing rule is applied on
      */
     public readonly service!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.billingconductor.PricingRuleTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The set of tiering configurations for the pricing rule.
      */
@@ -188,7 +188,7 @@ export interface PricingRuleArgs {
      * The service which a pricing rule is applied on
      */
     service?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.billingconductor.PricingRuleTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The set of tiering configurations for the pricing rule.
      */

@@ -27,7 +27,7 @@ export interface GetFirewallPolicyResult {
     readonly firewallPolicy?: outputs.networkfirewall.FirewallPolicy;
     readonly firewallPolicyArn?: string;
     readonly firewallPolicyId?: string;
-    readonly tags?: outputs.networkfirewall.FirewallPolicyTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource type definition for AWS::NetworkFirewall::FirewallPolicy

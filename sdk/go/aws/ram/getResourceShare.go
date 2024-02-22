@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,15 +28,15 @@ type LookupResourceShareArgs struct {
 }
 
 type LookupResourceShareResult struct {
-	AllowExternalPrincipals *bool              `pulumi:"allowExternalPrincipals"`
-	Arn                     *string            `pulumi:"arn"`
-	Id                      *string            `pulumi:"id"`
-	Name                    *string            `pulumi:"name"`
-	PermissionArns          []string           `pulumi:"permissionArns"`
-	Principals              []string           `pulumi:"principals"`
-	ResourceArns            []string           `pulumi:"resourceArns"`
-	Sources                 []string           `pulumi:"sources"`
-	Tags                    []ResourceShareTag `pulumi:"tags"`
+	AllowExternalPrincipals *bool     `pulumi:"allowExternalPrincipals"`
+	Arn                     *string   `pulumi:"arn"`
+	Id                      *string   `pulumi:"id"`
+	Name                    *string   `pulumi:"name"`
+	PermissionArns          []string  `pulumi:"permissionArns"`
+	Principals              []string  `pulumi:"principals"`
+	ResourceArns            []string  `pulumi:"resourceArns"`
+	Sources                 []string  `pulumi:"sources"`
+	Tags                    []aws.Tag `pulumi:"tags"`
 }
 
 func LookupResourceShareOutput(ctx *pulumi.Context, args LookupResourceShareOutputArgs, opts ...pulumi.InvokeOption) LookupResourceShareResultOutput {
@@ -105,8 +106,8 @@ func (o LookupResourceShareResultOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupResourceShareResultOutput) Tags() ResourceShareTagArrayOutput {
-	return o.ApplyT(func(v LookupResourceShareResult) []ResourceShareTag { return v.Tags }).(ResourceShareTagArrayOutput)
+func (o LookupResourceShareResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -37,7 +37,7 @@ export interface GetServerResult {
     readonly securityPolicyName?: string;
     readonly serverId?: string;
     readonly structuredLogDestinations?: outputs.transfer.ServerStructuredLogDestination[];
-    readonly tags?: outputs.transfer.ServerTag[];
+    readonly tags?: outputs.Tag[];
     readonly workflowDetails?: outputs.transfer.ServerWorkflowDetails;
 }
 /**

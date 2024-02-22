@@ -77,7 +77,7 @@ export interface GetFuotaTaskResult {
     /**
      * A list of key-value pairs that contain metadata for the FUOTA task.
      */
-    readonly tags?: outputs.iotwireless.FuotaTaskTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Create and manage FUOTA tasks.

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,14 +25,14 @@ class ModelCardArgs:
                  last_modified_by: Optional[pulumi.Input['ModelCardUserContextArgs']] = None,
                  model_card_name: Optional[pulumi.Input[str]] = None,
                  security_config: Optional[pulumi.Input['ModelCardSecurityConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelCard resource.
         :param pulumi.Input['ModelCardStatus'] model_card_status: The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
         :param pulumi.Input['ModelCardUserContextArgs'] created_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         :param pulumi.Input['ModelCardUserContextArgs'] last_modified_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         :param pulumi.Input[str] model_card_name: The unique name of the model card.
-        :param pulumi.Input[Sequence[pulumi.Input['ModelCardTagArgs']]] tags: Key-value pairs used to manage metadata for model cards.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs used to manage metadata for model cards.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "model_card_status", model_card_status)
@@ -113,14 +115,14 @@ class ModelCardArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs used to manage metadata for model cards.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -135,7 +137,7 @@ class ModelCard(pulumi.CustomResource):
                  model_card_name: Optional[pulumi.Input[str]] = None,
                  model_card_status: Optional[pulumi.Input['ModelCardStatus']] = None,
                  security_config: Optional[pulumi.Input[pulumi.InputType['ModelCardSecurityConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelCardTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::ModelCard.
@@ -146,7 +148,7 @@ class ModelCard(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ModelCardUserContextArgs']] last_modified_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         :param pulumi.Input[str] model_card_name: The unique name of the model card.
         :param pulumi.Input['ModelCardStatus'] model_card_status: The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelCardTagArgs']]]] tags: Key-value pairs used to manage metadata for model cards.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs used to manage metadata for model cards.
         """
         ...
     @overload
@@ -178,7 +180,7 @@ class ModelCard(pulumi.CustomResource):
                  model_card_name: Optional[pulumi.Input[str]] = None,
                  model_card_status: Optional[pulumi.Input['ModelCardStatus']] = None,
                  security_config: Optional[pulumi.Input[pulumi.InputType['ModelCardSecurityConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelCardTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -326,7 +328,7 @@ class ModelCard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ModelCardTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Key-value pairs used to manage metadata for model cards.
         """

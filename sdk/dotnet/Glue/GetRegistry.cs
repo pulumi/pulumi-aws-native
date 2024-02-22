@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// List of tags to tag the Registry
         /// </summary>
-        public readonly ImmutableArray<Outputs.RegistryTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetRegistryResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Glue
 
             string? description,
 
-            ImmutableArray<Outputs.RegistryTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Description = description;

@@ -42,7 +42,7 @@ export class Snapshot extends pulumi.CustomResource {
 
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.fsx.SnapshotTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly volumeId!: pulumi.Output<string>;
 
     /**
@@ -83,6 +83,6 @@ export class Snapshot extends pulumi.CustomResource {
  */
 export interface SnapshotArgs {
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.fsx.SnapshotTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     volumeId: pulumi.Input<string>;
 }

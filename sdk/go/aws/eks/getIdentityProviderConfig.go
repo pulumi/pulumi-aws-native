@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,7 @@ type LookupIdentityProviderConfigResult struct {
 	// The ARN of the configuration.
 	IdentityProviderConfigArn *string `pulumi:"identityProviderConfigArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []IdentityProviderConfigTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIdentityProviderConfigOutput(ctx *pulumi.Context, args LookupIdentityProviderConfigOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityProviderConfigResultOutput {
@@ -84,8 +85,8 @@ func (o LookupIdentityProviderConfigResultOutput) IdentityProviderConfigArn() pu
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupIdentityProviderConfigResultOutput) Tags() IdentityProviderConfigTagArrayOutput {
-	return o.ApplyT(func(v LookupIdentityProviderConfigResult) []IdentityProviderConfigTag { return v.Tags }).(IdentityProviderConfigTagArrayOutput)
+func (o LookupIdentityProviderConfigResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIdentityProviderConfigResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

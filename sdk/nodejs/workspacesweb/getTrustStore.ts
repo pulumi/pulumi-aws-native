@@ -25,7 +25,7 @@ export interface GetTrustStoreArgs {
 export interface GetTrustStoreResult {
     readonly associatedPortalArns?: string[];
     readonly certificateList?: string[];
-    readonly tags?: outputs.workspacesweb.TrustStoreTag[];
+    readonly tags?: outputs.Tag[];
     readonly trustStoreArn?: string;
 }
 /**

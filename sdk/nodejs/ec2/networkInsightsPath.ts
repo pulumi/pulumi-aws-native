@@ -50,7 +50,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     public readonly source!: pulumi.Output<string>;
     public /*out*/ readonly sourceArn!: pulumi.Output<string>;
     public readonly sourceIp!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.ec2.NetworkInsightsPathTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NetworkInsightsPath resource with the given unique name, arguments, and options.
@@ -118,5 +118,5 @@ export interface NetworkInsightsPathArgs {
     protocol: pulumi.Input<enums.ec2.NetworkInsightsPathProtocol>;
     source: pulumi.Input<string>;
     sourceIp?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsPathTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

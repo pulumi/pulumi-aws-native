@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? VpcLinkId;
 
         [OutputConstructor]
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
             string? stageName,
 
-            ImmutableArray<Outputs.ApplicationTag> tags,
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? vpcLinkId)
         {

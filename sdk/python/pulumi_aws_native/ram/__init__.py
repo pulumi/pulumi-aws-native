@@ -9,5 +9,3 @@ from .get_permission import *
 from .get_resource_share import *
 from .permission import *
 from .resource_share import *
-from ._inputs import *
-from . import outputs

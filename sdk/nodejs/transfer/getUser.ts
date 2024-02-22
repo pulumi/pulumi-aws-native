@@ -32,7 +32,7 @@ export interface GetUserResult {
     readonly posixProfile?: outputs.transfer.UserPosixProfile;
     readonly role?: string;
     readonly sshPublicKeys?: outputs.transfer.UserSshPublicKey[];
-    readonly tags?: outputs.transfer.UserTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Transfer::User

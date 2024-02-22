@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,9 +19,9 @@ import (
 type StreamingDistribution struct {
 	pulumi.CustomResourceState
 
-	DomainName                  pulumi.StringOutput                 `pulumi:"domainName"`
-	StreamingDistributionConfig StreamingDistributionConfigOutput   `pulumi:"streamingDistributionConfig"`
-	Tags                        StreamingDistributionTagArrayOutput `pulumi:"tags"`
+	DomainName                  pulumi.StringOutput               `pulumi:"domainName"`
+	StreamingDistributionConfig StreamingDistributionConfigOutput `pulumi:"streamingDistributionConfig"`
+	Tags                        aws.TagArrayOutput                `pulumi:"tags"`
 }
 
 // NewStreamingDistribution registers a new resource with the given unique name, arguments, and options.
@@ -70,13 +71,13 @@ func (StreamingDistributionState) ElementType() reflect.Type {
 
 type streamingDistributionArgs struct {
 	StreamingDistributionConfig StreamingDistributionConfig `pulumi:"streamingDistributionConfig"`
-	Tags                        []StreamingDistributionTag  `pulumi:"tags"`
+	Tags                        []aws.Tag                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamingDistribution resource.
 type StreamingDistributionArgs struct {
 	StreamingDistributionConfig StreamingDistributionConfigInput
-	Tags                        StreamingDistributionTagArrayInput
+	Tags                        aws.TagArrayInput
 }
 
 func (StreamingDistributionArgs) ElementType() reflect.Type {
@@ -124,8 +125,8 @@ func (o StreamingDistributionOutput) StreamingDistributionConfig() StreamingDist
 	return o.ApplyT(func(v *StreamingDistribution) StreamingDistributionConfigOutput { return v.StreamingDistributionConfig }).(StreamingDistributionConfigOutput)
 }
 
-func (o StreamingDistributionOutput) Tags() StreamingDistributionTagArrayOutput {
-	return o.ApplyT(func(v *StreamingDistribution) StreamingDistributionTagArrayOutput { return v.Tags }).(StreamingDistributionTagArrayOutput)
+func (o StreamingDistributionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *StreamingDistribution) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

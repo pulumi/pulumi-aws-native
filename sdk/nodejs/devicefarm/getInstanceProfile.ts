@@ -29,7 +29,7 @@ export interface GetInstanceProfileResult {
     readonly name?: string;
     readonly packageCleanup?: boolean;
     readonly rebootAfterUse?: boolean;
-    readonly tags?: outputs.devicefarm.InstanceProfileTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile

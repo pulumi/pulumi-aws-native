@@ -13,9 +13,7 @@ from ._enums import *
 __all__ = [
     'ApplicationInstanceManifestOverridesPayloadArgs',
     'ApplicationInstanceManifestPayloadArgs',
-    'ApplicationInstanceTagArgs',
     'PackageStorageLocationArgs',
-    'PackageTagArgs',
 ]
 
 @pulumi.input_type
@@ -50,43 +48,6 @@ class ApplicationInstanceManifestPayloadArgs:
     @payload_data.setter
     def payload_data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "payload_data", value)
-
-
-@pulumi.input_type
-class ApplicationInstanceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: A string used to identify this tag
-        :param pulumi.Input[str] value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -152,32 +113,5 @@ class PackageStorageLocationArgs:
     @repo_prefix_location.setter
     def repo_prefix_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repo_prefix_location", value)
-
-
-@pulumi.input_type
-class PackageTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

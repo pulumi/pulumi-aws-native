@@ -74,7 +74,7 @@ export interface GetDataSetResult {
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
-    readonly tags?: outputs.quicksight.DataSetTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of the AWS::QuickSight::DataSet Resource Type.

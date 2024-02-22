@@ -70,7 +70,7 @@ export class PermissionSet extends pulumi.CustomResource {
      * The length of time that a user can be signed in to an AWS account.
      */
     public readonly sessionDuration!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.sso.PermissionSetTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PermissionSet resource with the given unique name, arguments, and options.
@@ -150,5 +150,5 @@ export interface PermissionSetArgs {
      * The length of time that a user can be signed in to an AWS account.
      */
     sessionDuration?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.sso.PermissionSetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

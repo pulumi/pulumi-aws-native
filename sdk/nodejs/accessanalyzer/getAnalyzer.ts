@@ -34,7 +34,7 @@ export interface GetAnalyzerResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.accessanalyzer.AnalyzerTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account

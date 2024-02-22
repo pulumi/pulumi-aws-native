@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpamPoolTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetIpamPoolResult(
@@ -151,7 +151,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? stateMessage,
 
-            ImmutableArray<Outputs.IpamPoolTag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllocationDefaultNetmaskLength = allocationDefaultNetmaskLength;
             AllocationMaxNetmaskLength = allocationMaxNetmaskLength;

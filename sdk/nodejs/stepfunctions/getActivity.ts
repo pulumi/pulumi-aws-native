@@ -24,7 +24,7 @@ export interface GetActivityArgs {
 
 export interface GetActivityResult {
     readonly arn?: string;
-    readonly tags?: outputs.stepfunctions.ActivityTagsEntry[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for Activity

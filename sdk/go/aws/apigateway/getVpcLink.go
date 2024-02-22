@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupVpcLinkResult struct {
 	// A name for the VPC link.
 	Name *string `pulumi:"name"`
 	// An array of arbitrary tags (key-value pairs) to associate with the stage.
-	Tags []VpcLinkTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the instance that backs VPC link.
 	VpcLinkId *string `pulumi:"vpcLinkId"`
 }
@@ -85,8 +86,8 @@ func (o LookupVpcLinkResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // An array of arbitrary tags (key-value pairs) to associate with the stage.
-func (o LookupVpcLinkResultOutput) Tags() VpcLinkTagArrayOutput {
-	return o.ApplyT(func(v LookupVpcLinkResult) []VpcLinkTag { return v.Tags }).(VpcLinkTagArrayOutput)
+func (o LookupVpcLinkResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the instance that backs VPC link.

@@ -60,10 +60,10 @@ namespace Pulumi.AwsNative.Emr
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WalWorkspaceTag> Tags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GetWalWorkspaceResult(ImmutableArray<Outputs.WalWorkspaceTag> tags)
+        private GetWalWorkspaceResult(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Tags = tags;
         }

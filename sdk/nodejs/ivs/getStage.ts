@@ -41,7 +41,7 @@ export interface GetStageResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly tags?: outputs.ivs.StageTag[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Definition for type AWS::IVS::Stage.

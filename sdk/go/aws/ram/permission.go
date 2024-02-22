@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,8 +28,8 @@ type Permission struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
 	PolicyTemplate pulumi.AnyOutput `pulumi:"policyTemplate"`
 	// The resource type this permission can be used with.
-	ResourceType pulumi.StringOutput      `pulumi:"resourceType"`
-	Tags         PermissionTagArrayOutput `pulumi:"tags"`
+	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	Tags         aws.TagArrayOutput  `pulumi:"tags"`
 	// Version of the permission.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -92,8 +93,8 @@ type permissionArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
 	PolicyTemplate interface{} `pulumi:"policyTemplate"`
 	// The resource type this permission can be used with.
-	ResourceType string          `pulumi:"resourceType"`
-	Tags         []PermissionTag `pulumi:"tags"`
+	ResourceType string    `pulumi:"resourceType"`
+	Tags         []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Permission resource.
@@ -106,7 +107,7 @@ type PermissionArgs struct {
 	PolicyTemplate pulumi.Input
 	// The resource type this permission can be used with.
 	ResourceType pulumi.StringInput
-	Tags         PermissionTagArrayInput
+	Tags         aws.TagArrayInput
 }
 
 func (PermissionArgs) ElementType() reflect.Type {
@@ -176,8 +177,8 @@ func (o PermissionOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-func (o PermissionOutput) Tags() PermissionTagArrayOutput {
-	return o.ApplyT(func(v *Permission) PermissionTagArrayOutput { return v.Tags }).(PermissionTagArrayOutput)
+func (o PermissionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Permission) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Version of the permission.

@@ -43,7 +43,7 @@ export interface GetRotationResult {
      * Start time of the first shift of Oncall Schedule
      */
     readonly startTime?: string;
-    readonly tags?: outputs.ssmcontacts.RotationTag[];
+    readonly tags?: outputs.Tag[];
     /**
      * TimeZone Identifier for the Oncall Schedule
      */

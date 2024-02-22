@@ -884,107 +884,6 @@ type SecretTag struct {
 	Value string `pulumi:"value"`
 }
 
-// SecretTagInput is an input type that accepts SecretTagArgs and SecretTagOutput values.
-// You can construct a concrete instance of `SecretTagInput` via:
-//
-//	SecretTagArgs{...}
-type SecretTagInput interface {
-	pulumi.Input
-
-	ToSecretTagOutput() SecretTagOutput
-	ToSecretTagOutputWithContext(context.Context) SecretTagOutput
-}
-
-// A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string.
-type SecretTagArgs struct {
-	// The value for the tag. You can specify a value that's 1 to 256 characters in length.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SecretTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretTag)(nil)).Elem()
-}
-
-func (i SecretTagArgs) ToSecretTagOutput() SecretTagOutput {
-	return i.ToSecretTagOutputWithContext(context.Background())
-}
-
-func (i SecretTagArgs) ToSecretTagOutputWithContext(ctx context.Context) SecretTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretTagOutput)
-}
-
-// SecretTagArrayInput is an input type that accepts SecretTagArray and SecretTagArrayOutput values.
-// You can construct a concrete instance of `SecretTagArrayInput` via:
-//
-//	SecretTagArray{ SecretTagArgs{...} }
-type SecretTagArrayInput interface {
-	pulumi.Input
-
-	ToSecretTagArrayOutput() SecretTagArrayOutput
-	ToSecretTagArrayOutputWithContext(context.Context) SecretTagArrayOutput
-}
-
-type SecretTagArray []SecretTagInput
-
-func (SecretTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecretTag)(nil)).Elem()
-}
-
-func (i SecretTagArray) ToSecretTagArrayOutput() SecretTagArrayOutput {
-	return i.ToSecretTagArrayOutputWithContext(context.Background())
-}
-
-func (i SecretTagArray) ToSecretTagArrayOutputWithContext(ctx context.Context) SecretTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretTagArrayOutput)
-}
-
-// A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string.
-type SecretTagOutput struct{ *pulumi.OutputState }
-
-func (SecretTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretTag)(nil)).Elem()
-}
-
-func (o SecretTagOutput) ToSecretTagOutput() SecretTagOutput {
-	return o
-}
-
-func (o SecretTagOutput) ToSecretTagOutputWithContext(ctx context.Context) SecretTagOutput {
-	return o
-}
-
-// The value for the tag. You can specify a value that's 1 to 256 characters in length.
-func (o SecretTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SecretTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws.
-func (o SecretTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SecretTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type SecretTagArrayOutput struct{ *pulumi.OutputState }
-
-func (SecretTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecretTag)(nil)).Elem()
-}
-
-func (o SecretTagArrayOutput) ToSecretTagArrayOutput() SecretTagArrayOutput {
-	return o
-}
-
-func (o SecretTagArrayOutput) ToSecretTagArrayOutputWithContext(ctx context.Context) SecretTagArrayOutput {
-	return o
-}
-
-func (o SecretTagArrayOutput) Index(i pulumi.IntInput) SecretTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecretTag {
-		return vs[0].([]SecretTag)[vs[1].(int)]
-	}).(SecretTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleHostedRotationLambdaInput)(nil)).Elem(), RotationScheduleHostedRotationLambdaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleHostedRotationLambdaPtrInput)(nil)).Elem(), RotationScheduleHostedRotationLambdaArgs{})
@@ -994,8 +893,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretGenerateSecretStringPtrInput)(nil)).Elem(), SecretGenerateSecretStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaRegionInput)(nil)).Elem(), SecretReplicaRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaRegionArrayInput)(nil)).Elem(), SecretReplicaRegionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretTagInput)(nil)).Elem(), SecretTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecretTagArrayInput)(nil)).Elem(), SecretTagArray{})
 	pulumi.RegisterOutputType(RotationScheduleHostedRotationLambdaOutput{})
 	pulumi.RegisterOutputType(RotationScheduleHostedRotationLambdaPtrOutput{})
 	pulumi.RegisterOutputType(RotationScheduleRotationRulesOutput{})
@@ -1004,6 +901,4 @@ func init() {
 	pulumi.RegisterOutputType(SecretGenerateSecretStringPtrOutput{})
 	pulumi.RegisterOutputType(SecretReplicaRegionOutput{})
 	pulumi.RegisterOutputType(SecretReplicaRegionArrayOutput{})
-	pulumi.RegisterOutputType(SecretTagOutput{})
-	pulumi.RegisterOutputType(SecretTagArrayOutput{})
 }

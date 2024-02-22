@@ -28,7 +28,7 @@ export interface GetThreatIntelSetResult {
     readonly id?: string;
     readonly location?: string;
     readonly name?: string;
-    readonly tags?: outputs.guardduty.ThreatIntelSetTagItem[];
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::GuardDuty::ThreatIntelSet

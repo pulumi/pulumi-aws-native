@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,8 +23,8 @@ type VodSource struct {
 	HttpPackageConfigurations VodSourceHttpPackageConfigurationArrayOutput `pulumi:"httpPackageConfigurations"`
 	SourceLocationName        pulumi.StringOutput                          `pulumi:"sourceLocationName"`
 	// The tags to assign to the VOD source.
-	Tags          VodSourceTagArrayOutput `pulumi:"tags"`
-	VodSourceName pulumi.StringOutput     `pulumi:"vodSourceName"`
+	Tags          aws.TagArrayOutput  `pulumi:"tags"`
+	VodSourceName pulumi.StringOutput `pulumi:"vodSourceName"`
 }
 
 // NewVodSource registers a new resource with the given unique name, arguments, and options.
@@ -81,8 +82,8 @@ type vodSourceArgs struct {
 	HttpPackageConfigurations []VodSourceHttpPackageConfiguration `pulumi:"httpPackageConfigurations"`
 	SourceLocationName        string                              `pulumi:"sourceLocationName"`
 	// The tags to assign to the VOD source.
-	Tags          []VodSourceTag `pulumi:"tags"`
-	VodSourceName *string        `pulumi:"vodSourceName"`
+	Tags          []aws.Tag `pulumi:"tags"`
+	VodSourceName *string   `pulumi:"vodSourceName"`
 }
 
 // The set of arguments for constructing a VodSource resource.
@@ -91,7 +92,7 @@ type VodSourceArgs struct {
 	HttpPackageConfigurations VodSourceHttpPackageConfigurationArrayInput
 	SourceLocationName        pulumi.StringInput
 	// The tags to assign to the VOD source.
-	Tags          VodSourceTagArrayInput
+	Tags          aws.TagArrayInput
 	VodSourceName pulumi.StringPtrInput
 }
 
@@ -147,8 +148,8 @@ func (o VodSourceOutput) SourceLocationName() pulumi.StringOutput {
 }
 
 // The tags to assign to the VOD source.
-func (o VodSourceOutput) Tags() VodSourceTagArrayOutput {
-	return o.ApplyT(func(v *VodSource) VodSourceTagArrayOutput { return v.Tags }).(VodSourceTagArrayOutput)
+func (o VodSourceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VodSource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o VodSourceOutput) VodSourceName() pulumi.StringOutput {
