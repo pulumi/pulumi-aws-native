@@ -86,12 +86,7 @@ func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.T
 		keyProp, keyPropExists := refType.Properties["key"]
 		valueProp, valuePropExists := refType.Properties["value"]
 		// Check if the type has exactly two properties, "key" and "value", both of type "string"
-		for k := range refType.Properties {
-			if k != "key" && k != "value" {
-				return false
-			}
-		}
-		if keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string" {
+		if keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string" && len(refType.Properties) == 2 {
 			return true
 		}
 	}
