@@ -9,8 +9,9 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['NamespaceArgs', 'Namespace']
 
@@ -27,7 +28,7 @@ class NamespaceArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
         :param pulumi.Input[str] admin_user_password: The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
@@ -40,7 +41,7 @@ class NamespaceArgs:
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the namespace.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]] log_exports: The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
         :param pulumi.Input[str] namespace_name: A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
-        :param pulumi.Input[Sequence[pulumi.Input['NamespaceTagArgs']]] tags: The list of tags for the namespace.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The list of tags for the namespace.
         """
         if admin_user_password is not None:
             pulumi.set(__self__, "admin_user_password", admin_user_password)
@@ -187,14 +188,14 @@ class NamespaceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         The list of tags for the namespace.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -213,7 +214,7 @@ class Namespace(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::RedshiftServerless::Namespace Resource Type
@@ -230,7 +231,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the namespace.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]] log_exports: The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
         :param pulumi.Input[str] namespace_name: A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceTagArgs']]]] tags: The list of tags for the namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The list of tags for the namespace.
         """
         ...
     @overload
@@ -266,7 +267,7 @@ class Namespace(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -413,7 +414,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.NamespaceTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         The list of tags for the namespace.
         """

@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// A list of tags to apply to the user profile.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DomainTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The URL to the created domain.
@@ -232,14 +232,14 @@ namespace Pulumi.AwsNative.SageMaker
         }
 
         [Input("tags")]
-        private InputList<Inputs.DomainTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// A list of tags to apply to the user profile.
         /// </summary>
-        public InputList<Inputs.DomainTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DomainTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

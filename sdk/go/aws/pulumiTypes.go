@@ -13,6 +13,115 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A set of tags to apply to the resource.
+type CreateOnlyTag struct {
+	// The key name of the tag
+	Key string `pulumi:"key"`
+	// The value of the tag
+	Value string `pulumi:"value"`
+}
+
+// CreateOnlyTagInput is an input type that accepts CreateOnlyTagArgs and CreateOnlyTagOutput values.
+// You can construct a concrete instance of `CreateOnlyTagInput` via:
+//
+//	CreateOnlyTagArgs{...}
+type CreateOnlyTagInput interface {
+	pulumi.Input
+
+	ToCreateOnlyTagOutput() CreateOnlyTagOutput
+	ToCreateOnlyTagOutputWithContext(context.Context) CreateOnlyTagOutput
+}
+
+// A set of tags to apply to the resource.
+type CreateOnlyTagArgs struct {
+	// The key name of the tag
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the tag
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CreateOnlyTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreateOnlyTag)(nil)).Elem()
+}
+
+func (i CreateOnlyTagArgs) ToCreateOnlyTagOutput() CreateOnlyTagOutput {
+	return i.ToCreateOnlyTagOutputWithContext(context.Background())
+}
+
+func (i CreateOnlyTagArgs) ToCreateOnlyTagOutputWithContext(ctx context.Context) CreateOnlyTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreateOnlyTagOutput)
+}
+
+// CreateOnlyTagArrayInput is an input type that accepts CreateOnlyTagArray and CreateOnlyTagArrayOutput values.
+// You can construct a concrete instance of `CreateOnlyTagArrayInput` via:
+//
+//	CreateOnlyTagArray{ CreateOnlyTagArgs{...} }
+type CreateOnlyTagArrayInput interface {
+	pulumi.Input
+
+	ToCreateOnlyTagArrayOutput() CreateOnlyTagArrayOutput
+	ToCreateOnlyTagArrayOutputWithContext(context.Context) CreateOnlyTagArrayOutput
+}
+
+type CreateOnlyTagArray []CreateOnlyTagInput
+
+func (CreateOnlyTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CreateOnlyTag)(nil)).Elem()
+}
+
+func (i CreateOnlyTagArray) ToCreateOnlyTagArrayOutput() CreateOnlyTagArrayOutput {
+	return i.ToCreateOnlyTagArrayOutputWithContext(context.Background())
+}
+
+func (i CreateOnlyTagArray) ToCreateOnlyTagArrayOutputWithContext(ctx context.Context) CreateOnlyTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreateOnlyTagArrayOutput)
+}
+
+// A set of tags to apply to the resource.
+type CreateOnlyTagOutput struct{ *pulumi.OutputState }
+
+func (CreateOnlyTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreateOnlyTag)(nil)).Elem()
+}
+
+func (o CreateOnlyTagOutput) ToCreateOnlyTagOutput() CreateOnlyTagOutput {
+	return o
+}
+
+func (o CreateOnlyTagOutput) ToCreateOnlyTagOutputWithContext(ctx context.Context) CreateOnlyTagOutput {
+	return o
+}
+
+// The key name of the tag
+func (o CreateOnlyTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateOnlyTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the tag
+func (o CreateOnlyTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateOnlyTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CreateOnlyTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CreateOnlyTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CreateOnlyTag)(nil)).Elem()
+}
+
+func (o CreateOnlyTagArrayOutput) ToCreateOnlyTagArrayOutput() CreateOnlyTagArrayOutput {
+	return o
+}
+
+func (o CreateOnlyTagArrayOutput) ToCreateOnlyTagArrayOutputWithContext(ctx context.Context) CreateOnlyTagArrayOutput {
+	return o
+}
+
+func (o CreateOnlyTagArrayOutput) Index(i pulumi.IntInput) CreateOnlyTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CreateOnlyTag {
+		return vs[0].([]CreateOnlyTag)[vs[1].(int)]
+	}).(CreateOnlyTagOutput)
+}
+
 // The configuration for a Provider to assume a role.
 type ProviderAssumeRole struct {
 	// Number of seconds to restrict the assume role session duration.
@@ -831,6 +940,8 @@ func (o TagArrayOutput) Index(i pulumi.IntInput) TagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CreateOnlyTagInput)(nil)).Elem(), CreateOnlyTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CreateOnlyTagArrayInput)(nil)).Elem(), CreateOnlyTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRolePtrInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
@@ -841,6 +952,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIgnoreTagsPtrInput)(nil)).Elem(), ProviderIgnoreTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagInput)(nil)).Elem(), TagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagArrayInput)(nil)).Elem(), TagArray{})
+	pulumi.RegisterOutputType(CreateOnlyTagOutput{})
+	pulumi.RegisterOutputType(CreateOnlyTagArrayOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRolePtrOutput{})
 	pulumi.RegisterOutputType(ProviderDefaultTagsOutput{})

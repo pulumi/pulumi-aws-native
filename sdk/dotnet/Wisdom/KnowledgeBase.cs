@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Wisdom
         public Output<Outputs.KnowledgeBaseSourceConfiguration?> SourceConfiguration { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.KnowledgeBaseTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -115,10 +115,10 @@ namespace Pulumi.AwsNative.Wisdom
         public Input<Inputs.KnowledgeBaseSourceConfigurationArgs>? SourceConfiguration { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.KnowledgeBaseTagArgs>? _tags;
-        public InputList<Inputs.KnowledgeBaseTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.KnowledgeBaseTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

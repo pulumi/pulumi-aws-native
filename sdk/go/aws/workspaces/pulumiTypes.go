@@ -77,101 +77,6 @@ type ConnectionAliasTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ConnectionAliasTagInput is an input type that accepts ConnectionAliasTagArgs and ConnectionAliasTagOutput values.
-// You can construct a concrete instance of `ConnectionAliasTagInput` via:
-//
-//	ConnectionAliasTagArgs{...}
-type ConnectionAliasTagInput interface {
-	pulumi.Input
-
-	ToConnectionAliasTagOutput() ConnectionAliasTagOutput
-	ToConnectionAliasTagOutputWithContext(context.Context) ConnectionAliasTagOutput
-}
-
-type ConnectionAliasTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ConnectionAliasTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAliasTag)(nil)).Elem()
-}
-
-func (i ConnectionAliasTagArgs) ToConnectionAliasTagOutput() ConnectionAliasTagOutput {
-	return i.ToConnectionAliasTagOutputWithContext(context.Background())
-}
-
-func (i ConnectionAliasTagArgs) ToConnectionAliasTagOutputWithContext(ctx context.Context) ConnectionAliasTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasTagOutput)
-}
-
-// ConnectionAliasTagArrayInput is an input type that accepts ConnectionAliasTagArray and ConnectionAliasTagArrayOutput values.
-// You can construct a concrete instance of `ConnectionAliasTagArrayInput` via:
-//
-//	ConnectionAliasTagArray{ ConnectionAliasTagArgs{...} }
-type ConnectionAliasTagArrayInput interface {
-	pulumi.Input
-
-	ToConnectionAliasTagArrayOutput() ConnectionAliasTagArrayOutput
-	ToConnectionAliasTagArrayOutputWithContext(context.Context) ConnectionAliasTagArrayOutput
-}
-
-type ConnectionAliasTagArray []ConnectionAliasTagInput
-
-func (ConnectionAliasTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectionAliasTag)(nil)).Elem()
-}
-
-func (i ConnectionAliasTagArray) ToConnectionAliasTagArrayOutput() ConnectionAliasTagArrayOutput {
-	return i.ToConnectionAliasTagArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectionAliasTagArray) ToConnectionAliasTagArrayOutputWithContext(ctx context.Context) ConnectionAliasTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasTagArrayOutput)
-}
-
-type ConnectionAliasTagOutput struct{ *pulumi.OutputState }
-
-func (ConnectionAliasTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAliasTag)(nil)).Elem()
-}
-
-func (o ConnectionAliasTagOutput) ToConnectionAliasTagOutput() ConnectionAliasTagOutput {
-	return o
-}
-
-func (o ConnectionAliasTagOutput) ToConnectionAliasTagOutputWithContext(ctx context.Context) ConnectionAliasTagOutput {
-	return o
-}
-
-func (o ConnectionAliasTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionAliasTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ConnectionAliasTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionAliasTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ConnectionAliasTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ConnectionAliasTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectionAliasTag)(nil)).Elem()
-}
-
-func (o ConnectionAliasTagArrayOutput) ToConnectionAliasTagArrayOutput() ConnectionAliasTagArrayOutput {
-	return o
-}
-
-func (o ConnectionAliasTagArrayOutput) ToConnectionAliasTagArrayOutputWithContext(ctx context.Context) ConnectionAliasTagArrayOutput {
-	return o
-}
-
-func (o ConnectionAliasTagArrayOutput) Index(i pulumi.IntInput) ConnectionAliasTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionAliasTag {
-		return vs[0].([]ConnectionAliasTag)[vs[1].(int)]
-	}).(ConnectionAliasTagOutput)
-}
-
 type WorkspaceProperties struct {
 	ComputeTypeName                     *string `pulumi:"computeTypeName"`
 	RootVolumeSizeGib                   *int    `pulumi:"rootVolumeSizeGib"`
@@ -371,14 +276,10 @@ type WorkspaceTag struct {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTagInput)(nil)).Elem(), ConnectionAliasTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTagArrayInput)(nil)).Elem(), ConnectionAliasTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesInput)(nil)).Elem(), WorkspacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesPtrInput)(nil)).Elem(), WorkspacePropertiesArgs{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationArrayOutput{})
-	pulumi.RegisterOutputType(ConnectionAliasTagOutput{})
-	pulumi.RegisterOutputType(ConnectionAliasTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesPtrOutput{})
 }

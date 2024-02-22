@@ -43,7 +43,7 @@ export class AssistantAssociation extends pulumi.CustomResource {
     public readonly assistantId!: pulumi.Output<string>;
     public readonly association!: pulumi.Output<outputs.wisdom.AssistantAssociationAssociationData>;
     public readonly associationType!: pulumi.Output<enums.wisdom.AssistantAssociationAssociationType>;
-    public readonly tags!: pulumi.Output<outputs.wisdom.AssistantAssociationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a AssistantAssociation resource with the given unique name, arguments, and options.
@@ -95,5 +95,5 @@ export interface AssistantAssociationArgs {
     assistantId: pulumi.Input<string>;
     association: pulumi.Input<inputs.wisdom.AssistantAssociationAssociationDataArgs>;
     associationType: pulumi.Input<enums.wisdom.AssistantAssociationAssociationType>;
-    tags?: pulumi.Input<pulumi.Input<inputs.wisdom.AssistantAssociationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

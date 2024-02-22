@@ -42,7 +42,7 @@ export class Assistant extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.wisdom.AssistantServerSideEncryptionConfiguration | undefined>;
-    public readonly tags!: pulumi.Output<outputs.wisdom.AssistantTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     public readonly type!: pulumi.Output<enums.wisdom.AssistantType>;
 
     /**
@@ -89,6 +89,6 @@ export interface AssistantArgs {
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.AssistantServerSideEncryptionConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.wisdom.AssistantTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     type: pulumi.Input<enums.wisdom.AssistantType>;
 }

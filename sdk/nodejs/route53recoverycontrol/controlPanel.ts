@@ -64,7 +64,7 @@ export class ControlPanel extends pulumi.CustomResource {
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.route53recoverycontrol.ControlPanelTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ControlPanel resource with the given unique name, arguments, and options.
@@ -115,5 +115,5 @@ export interface ControlPanelArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.route53recoverycontrol.ControlPanelTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

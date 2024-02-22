@@ -60,7 +60,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.ProjectTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -120,5 +120,5 @@ export interface ProjectArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.ProjectTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

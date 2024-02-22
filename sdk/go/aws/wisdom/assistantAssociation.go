@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,7 +23,7 @@ type AssistantAssociation struct {
 	AssistantId             pulumi.StringOutput                       `pulumi:"assistantId"`
 	Association             AssistantAssociationAssociationDataOutput `pulumi:"association"`
 	AssociationType         AssistantAssociationAssociationTypeOutput `pulumi:"associationType"`
-	Tags                    AssistantAssociationTagArrayOutput        `pulumi:"tags"`
+	Tags                    aws.CreateOnlyTagArrayOutput              `pulumi:"tags"`
 }
 
 // NewAssistantAssociation registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +85,7 @@ type assistantAssociationArgs struct {
 	AssistantId     string                              `pulumi:"assistantId"`
 	Association     AssistantAssociationAssociationData `pulumi:"association"`
 	AssociationType AssistantAssociationAssociationType `pulumi:"associationType"`
-	Tags            []AssistantAssociationTag           `pulumi:"tags"`
+	Tags            []aws.CreateOnlyTag                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AssistantAssociation resource.
@@ -92,7 +93,7 @@ type AssistantAssociationArgs struct {
 	AssistantId     pulumi.StringInput
 	Association     AssistantAssociationAssociationDataInput
 	AssociationType AssistantAssociationAssociationTypeInput
-	Tags            AssistantAssociationTagArrayInput
+	Tags            aws.CreateOnlyTagArrayInput
 }
 
 func (AssistantAssociationArgs) ElementType() reflect.Type {
@@ -156,8 +157,8 @@ func (o AssistantAssociationOutput) AssociationType() AssistantAssociationAssoci
 	return o.ApplyT(func(v *AssistantAssociation) AssistantAssociationAssociationTypeOutput { return v.AssociationType }).(AssistantAssociationAssociationTypeOutput)
 }
 
-func (o AssistantAssociationOutput) Tags() AssistantAssociationTagArrayOutput {
-	return o.ApplyT(func(v *AssistantAssociation) AssistantAssociationTagArrayOutput { return v.Tags }).(AssistantAssociationTagArrayOutput)
+func (o AssistantAssociationOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *AssistantAssociation) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

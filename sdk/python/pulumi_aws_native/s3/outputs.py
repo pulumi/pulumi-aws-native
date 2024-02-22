@@ -13,10 +13,7 @@ from ._enums import *
 
 __all__ = [
     'AccessGrantGrantee',
-    'AccessGrantTag',
-    'AccessGrantsInstanceTag',
     'AccessGrantsLocationConfiguration',
-    'AccessGrantsLocationTag',
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointVpcConfiguration',
     'BucketAbortIncompleteMultipartUpload',
@@ -154,44 +151,6 @@ class AccessGrantGrantee(dict):
 
 
 @pulumi.output_type
-class AccessGrantTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class AccessGrantsInstanceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class AccessGrantsLocationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -224,25 +183,6 @@ class AccessGrantsLocationConfiguration(dict):
         The S3 sub prefix of a registered location in your S3 Access Grants instance
         """
         return pulumi.get(self, "s3_sub_prefix")
-
-
-@pulumi.output_type
-class AccessGrantsLocationTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -61,7 +61,7 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ModelExplainabilityJobDefinition resource with the given unique name, arguments, and options.
@@ -144,5 +144,5 @@ export interface ModelExplainabilityJobDefinitionArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

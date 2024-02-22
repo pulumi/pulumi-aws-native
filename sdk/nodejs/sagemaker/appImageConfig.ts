@@ -56,7 +56,7 @@ export class AppImageConfig extends pulumi.CustomResource {
     /**
      * A list of tags to apply to the AppImageConfig.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.AppImageConfigTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a AppImageConfig resource with the given unique name, arguments, and options.
@@ -107,5 +107,5 @@ export interface AppImageConfigArgs {
     /**
      * A list of tags to apply to the AppImageConfig.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.AppImageConfigTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

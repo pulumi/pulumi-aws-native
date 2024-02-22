@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,8 +26,8 @@ type Extension struct {
 	Name       pulumi.StringOutput         `pulumi:"name"`
 	Parameters ExtensionParameterMapOutput `pulumi:"parameters"`
 	// An array of key-value tags to apply to this resource.
-	Tags          ExtensionTagArrayOutput `pulumi:"tags"`
-	VersionNumber pulumi.IntOutput        `pulumi:"versionNumber"`
+	Tags          aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	VersionNumber pulumi.IntOutput             `pulumi:"versionNumber"`
 }
 
 // NewExtension registers a new resource with the given unique name, arguments, and options.
@@ -85,7 +86,7 @@ type extensionArgs struct {
 	Name       *string                       `pulumi:"name"`
 	Parameters map[string]ExtensionParameter `pulumi:"parameters"`
 	// An array of key-value tags to apply to this resource.
-	Tags []ExtensionTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Extension resource.
@@ -98,7 +99,7 @@ type ExtensionArgs struct {
 	Name       pulumi.StringPtrInput
 	Parameters ExtensionParameterMapInput
 	// An array of key-value tags to apply to this resource.
-	Tags ExtensionTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ExtensionArgs) ElementType() reflect.Type {
@@ -165,8 +166,8 @@ func (o ExtensionOutput) Parameters() ExtensionParameterMapOutput {
 }
 
 // An array of key-value tags to apply to this resource.
-func (o ExtensionOutput) Tags() ExtensionTagArrayOutput {
-	return o.ApplyT(func(v *Extension) ExtensionTagArrayOutput { return v.Tags }).(ExtensionTagArrayOutput)
+func (o ExtensionOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Extension) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func (o ExtensionOutput) VersionNumber() pulumi.IntOutput {

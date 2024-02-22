@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         /// The tags associated with a repository association.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.RepositoryAssociationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of repository to be associated.
@@ -136,14 +136,14 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         public Input<string>? Owner { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.RepositoryAssociationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// The tags associated with a repository association.
         /// </summary>
-        public InputList<Inputs.RepositoryAssociationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RepositoryAssociationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.AppRunner
         /// A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AutoScalingConfigurationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -141,14 +141,14 @@ namespace Pulumi.AwsNative.AppRunner
         public Input<int>? MinSize { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AutoScalingConfigurationTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
         /// </summary>
-        public InputList<Inputs.AutoScalingConfigurationTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AutoScalingConfigurationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

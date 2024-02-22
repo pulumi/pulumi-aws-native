@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -19,7 +21,7 @@ class VpcIngressConnectionArgs:
     def __init__(__self__, *,
                  ingress_vpc_configuration: pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs'],
                  service_arn: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIngressConnectionTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
                  vpc_ingress_connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VpcIngressConnection resource.
@@ -56,11 +58,11 @@ class VpcIngressConnectionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcIngressConnectionTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIngressConnectionTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -83,7 +85,7 @@ class VpcIngressConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ingress_vpc_configuration: Optional[pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArgs']]] = None,
                  service_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIngressConnectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  vpc_ingress_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -120,7 +122,7 @@ class VpcIngressConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ingress_vpc_configuration: Optional[pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArgs']]] = None,
                  service_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIngressConnectionTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  vpc_ingress_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -206,7 +208,7 @@ class VpcIngressConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VpcIngressConnectionTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         return pulumi.get(self, "tags")
 
     @property

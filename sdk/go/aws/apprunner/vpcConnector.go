@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type VpcConnector struct {
 	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
-	Tags VpcConnectorTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of this VPC connector.
 	VpcConnectorArn pulumi.StringOutput `pulumi:"vpcConnectorArn"`
 	// A name for the VPC connector. If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
@@ -85,7 +86,7 @@ type vpcConnectorArgs struct {
 	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
 	Subnets []string `pulumi:"subnets"`
 	// A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
-	Tags []VpcConnectorTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// A name for the VPC connector. If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
 	VpcConnectorName *string `pulumi:"vpcConnectorName"`
 }
@@ -97,7 +98,7 @@ type VpcConnectorArgs struct {
 	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
 	Subnets pulumi.StringArrayInput
 	// A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
-	Tags VpcConnectorTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 	// A name for the VPC connector. If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
 	VpcConnectorName pulumi.StringPtrInput
 }
@@ -150,8 +151,8 @@ func (o VpcConnectorOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 // A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
-func (o VpcConnectorOutput) Tags() VpcConnectorTagArrayOutput {
-	return o.ApplyT(func(v *VpcConnector) VpcConnectorTagArrayOutput { return v.Tags }).(VpcConnectorTagArrayOutput)
+func (o VpcConnectorOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *VpcConnector) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of this VPC connector.

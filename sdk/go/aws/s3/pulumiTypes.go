@@ -123,199 +123,9 @@ type AccessGrantTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AccessGrantTagInput is an input type that accepts AccessGrantTagArgs and AccessGrantTagOutput values.
-// You can construct a concrete instance of `AccessGrantTagInput` via:
-//
-//	AccessGrantTagArgs{...}
-type AccessGrantTagInput interface {
-	pulumi.Input
-
-	ToAccessGrantTagOutput() AccessGrantTagOutput
-	ToAccessGrantTagOutputWithContext(context.Context) AccessGrantTagOutput
-}
-
-type AccessGrantTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AccessGrantTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessGrantTag)(nil)).Elem()
-}
-
-func (i AccessGrantTagArgs) ToAccessGrantTagOutput() AccessGrantTagOutput {
-	return i.ToAccessGrantTagOutputWithContext(context.Background())
-}
-
-func (i AccessGrantTagArgs) ToAccessGrantTagOutputWithContext(ctx context.Context) AccessGrantTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantTagOutput)
-}
-
-// AccessGrantTagArrayInput is an input type that accepts AccessGrantTagArray and AccessGrantTagArrayOutput values.
-// You can construct a concrete instance of `AccessGrantTagArrayInput` via:
-//
-//	AccessGrantTagArray{ AccessGrantTagArgs{...} }
-type AccessGrantTagArrayInput interface {
-	pulumi.Input
-
-	ToAccessGrantTagArrayOutput() AccessGrantTagArrayOutput
-	ToAccessGrantTagArrayOutputWithContext(context.Context) AccessGrantTagArrayOutput
-}
-
-type AccessGrantTagArray []AccessGrantTagInput
-
-func (AccessGrantTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessGrantTag)(nil)).Elem()
-}
-
-func (i AccessGrantTagArray) ToAccessGrantTagArrayOutput() AccessGrantTagArrayOutput {
-	return i.ToAccessGrantTagArrayOutputWithContext(context.Background())
-}
-
-func (i AccessGrantTagArray) ToAccessGrantTagArrayOutputWithContext(ctx context.Context) AccessGrantTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantTagArrayOutput)
-}
-
-type AccessGrantTagOutput struct{ *pulumi.OutputState }
-
-func (AccessGrantTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessGrantTag)(nil)).Elem()
-}
-
-func (o AccessGrantTagOutput) ToAccessGrantTagOutput() AccessGrantTagOutput {
-	return o
-}
-
-func (o AccessGrantTagOutput) ToAccessGrantTagOutputWithContext(ctx context.Context) AccessGrantTagOutput {
-	return o
-}
-
-func (o AccessGrantTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessGrantTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AccessGrantTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessGrantTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AccessGrantTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessGrantTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessGrantTag)(nil)).Elem()
-}
-
-func (o AccessGrantTagArrayOutput) ToAccessGrantTagArrayOutput() AccessGrantTagArrayOutput {
-	return o
-}
-
-func (o AccessGrantTagArrayOutput) ToAccessGrantTagArrayOutputWithContext(ctx context.Context) AccessGrantTagArrayOutput {
-	return o
-}
-
-func (o AccessGrantTagArrayOutput) Index(i pulumi.IntInput) AccessGrantTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantTag {
-		return vs[0].([]AccessGrantTag)[vs[1].(int)]
-	}).(AccessGrantTagOutput)
-}
-
 type AccessGrantsInstanceTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// AccessGrantsInstanceTagInput is an input type that accepts AccessGrantsInstanceTagArgs and AccessGrantsInstanceTagOutput values.
-// You can construct a concrete instance of `AccessGrantsInstanceTagInput` via:
-//
-//	AccessGrantsInstanceTagArgs{...}
-type AccessGrantsInstanceTagInput interface {
-	pulumi.Input
-
-	ToAccessGrantsInstanceTagOutput() AccessGrantsInstanceTagOutput
-	ToAccessGrantsInstanceTagOutputWithContext(context.Context) AccessGrantsInstanceTagOutput
-}
-
-type AccessGrantsInstanceTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AccessGrantsInstanceTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessGrantsInstanceTag)(nil)).Elem()
-}
-
-func (i AccessGrantsInstanceTagArgs) ToAccessGrantsInstanceTagOutput() AccessGrantsInstanceTagOutput {
-	return i.ToAccessGrantsInstanceTagOutputWithContext(context.Background())
-}
-
-func (i AccessGrantsInstanceTagArgs) ToAccessGrantsInstanceTagOutputWithContext(ctx context.Context) AccessGrantsInstanceTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantsInstanceTagOutput)
-}
-
-// AccessGrantsInstanceTagArrayInput is an input type that accepts AccessGrantsInstanceTagArray and AccessGrantsInstanceTagArrayOutput values.
-// You can construct a concrete instance of `AccessGrantsInstanceTagArrayInput` via:
-//
-//	AccessGrantsInstanceTagArray{ AccessGrantsInstanceTagArgs{...} }
-type AccessGrantsInstanceTagArrayInput interface {
-	pulumi.Input
-
-	ToAccessGrantsInstanceTagArrayOutput() AccessGrantsInstanceTagArrayOutput
-	ToAccessGrantsInstanceTagArrayOutputWithContext(context.Context) AccessGrantsInstanceTagArrayOutput
-}
-
-type AccessGrantsInstanceTagArray []AccessGrantsInstanceTagInput
-
-func (AccessGrantsInstanceTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessGrantsInstanceTag)(nil)).Elem()
-}
-
-func (i AccessGrantsInstanceTagArray) ToAccessGrantsInstanceTagArrayOutput() AccessGrantsInstanceTagArrayOutput {
-	return i.ToAccessGrantsInstanceTagArrayOutputWithContext(context.Background())
-}
-
-func (i AccessGrantsInstanceTagArray) ToAccessGrantsInstanceTagArrayOutputWithContext(ctx context.Context) AccessGrantsInstanceTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantsInstanceTagArrayOutput)
-}
-
-type AccessGrantsInstanceTagOutput struct{ *pulumi.OutputState }
-
-func (AccessGrantsInstanceTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessGrantsInstanceTag)(nil)).Elem()
-}
-
-func (o AccessGrantsInstanceTagOutput) ToAccessGrantsInstanceTagOutput() AccessGrantsInstanceTagOutput {
-	return o
-}
-
-func (o AccessGrantsInstanceTagOutput) ToAccessGrantsInstanceTagOutputWithContext(ctx context.Context) AccessGrantsInstanceTagOutput {
-	return o
-}
-
-func (o AccessGrantsInstanceTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessGrantsInstanceTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AccessGrantsInstanceTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessGrantsInstanceTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AccessGrantsInstanceTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessGrantsInstanceTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessGrantsInstanceTag)(nil)).Elem()
-}
-
-func (o AccessGrantsInstanceTagArrayOutput) ToAccessGrantsInstanceTagArrayOutput() AccessGrantsInstanceTagArrayOutput {
-	return o
-}
-
-func (o AccessGrantsInstanceTagArrayOutput) ToAccessGrantsInstanceTagArrayOutputWithContext(ctx context.Context) AccessGrantsInstanceTagArrayOutput {
-	return o
-}
-
-func (o AccessGrantsInstanceTagArrayOutput) Index(i pulumi.IntInput) AccessGrantsInstanceTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantsInstanceTag {
-		return vs[0].([]AccessGrantsInstanceTag)[vs[1].(int)]
-	}).(AccessGrantsInstanceTagOutput)
 }
 
 type AccessGrantsLocationConfiguration struct {
@@ -458,101 +268,6 @@ func (o AccessGrantsLocationConfigurationPtrOutput) S3SubPrefix() pulumi.StringP
 type AccessGrantsLocationTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// AccessGrantsLocationTagInput is an input type that accepts AccessGrantsLocationTagArgs and AccessGrantsLocationTagOutput values.
-// You can construct a concrete instance of `AccessGrantsLocationTagInput` via:
-//
-//	AccessGrantsLocationTagArgs{...}
-type AccessGrantsLocationTagInput interface {
-	pulumi.Input
-
-	ToAccessGrantsLocationTagOutput() AccessGrantsLocationTagOutput
-	ToAccessGrantsLocationTagOutputWithContext(context.Context) AccessGrantsLocationTagOutput
-}
-
-type AccessGrantsLocationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AccessGrantsLocationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessGrantsLocationTag)(nil)).Elem()
-}
-
-func (i AccessGrantsLocationTagArgs) ToAccessGrantsLocationTagOutput() AccessGrantsLocationTagOutput {
-	return i.ToAccessGrantsLocationTagOutputWithContext(context.Background())
-}
-
-func (i AccessGrantsLocationTagArgs) ToAccessGrantsLocationTagOutputWithContext(ctx context.Context) AccessGrantsLocationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantsLocationTagOutput)
-}
-
-// AccessGrantsLocationTagArrayInput is an input type that accepts AccessGrantsLocationTagArray and AccessGrantsLocationTagArrayOutput values.
-// You can construct a concrete instance of `AccessGrantsLocationTagArrayInput` via:
-//
-//	AccessGrantsLocationTagArray{ AccessGrantsLocationTagArgs{...} }
-type AccessGrantsLocationTagArrayInput interface {
-	pulumi.Input
-
-	ToAccessGrantsLocationTagArrayOutput() AccessGrantsLocationTagArrayOutput
-	ToAccessGrantsLocationTagArrayOutputWithContext(context.Context) AccessGrantsLocationTagArrayOutput
-}
-
-type AccessGrantsLocationTagArray []AccessGrantsLocationTagInput
-
-func (AccessGrantsLocationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessGrantsLocationTag)(nil)).Elem()
-}
-
-func (i AccessGrantsLocationTagArray) ToAccessGrantsLocationTagArrayOutput() AccessGrantsLocationTagArrayOutput {
-	return i.ToAccessGrantsLocationTagArrayOutputWithContext(context.Background())
-}
-
-func (i AccessGrantsLocationTagArray) ToAccessGrantsLocationTagArrayOutputWithContext(ctx context.Context) AccessGrantsLocationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantsLocationTagArrayOutput)
-}
-
-type AccessGrantsLocationTagOutput struct{ *pulumi.OutputState }
-
-func (AccessGrantsLocationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessGrantsLocationTag)(nil)).Elem()
-}
-
-func (o AccessGrantsLocationTagOutput) ToAccessGrantsLocationTagOutput() AccessGrantsLocationTagOutput {
-	return o
-}
-
-func (o AccessGrantsLocationTagOutput) ToAccessGrantsLocationTagOutputWithContext(ctx context.Context) AccessGrantsLocationTagOutput {
-	return o
-}
-
-func (o AccessGrantsLocationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessGrantsLocationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AccessGrantsLocationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessGrantsLocationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AccessGrantsLocationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessGrantsLocationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessGrantsLocationTag)(nil)).Elem()
-}
-
-func (o AccessGrantsLocationTagArrayOutput) ToAccessGrantsLocationTagArrayOutput() AccessGrantsLocationTagArrayOutput {
-	return o
-}
-
-func (o AccessGrantsLocationTagArrayOutput) ToAccessGrantsLocationTagArrayOutputWithContext(ctx context.Context) AccessGrantsLocationTagArrayOutput {
-	return o
-}
-
-func (o AccessGrantsLocationTagArrayOutput) Index(i pulumi.IntInput) AccessGrantsLocationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessGrantsLocationTag {
-		return vs[0].([]AccessGrantsLocationTag)[vs[1].(int)]
-	}).(AccessGrantsLocationTagOutput)
 }
 
 type AccessPointPublicAccessBlockConfiguration struct {
@@ -12980,14 +12695,8 @@ type StorageLensTag struct {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantGranteeInput)(nil)).Elem(), AccessGrantGranteeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantTagInput)(nil)).Elem(), AccessGrantTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantTagArrayInput)(nil)).Elem(), AccessGrantTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantsInstanceTagInput)(nil)).Elem(), AccessGrantsInstanceTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantsInstanceTagArrayInput)(nil)).Elem(), AccessGrantsInstanceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantsLocationConfigurationInput)(nil)).Elem(), AccessGrantsLocationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantsLocationConfigurationPtrInput)(nil)).Elem(), AccessGrantsLocationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantsLocationTagInput)(nil)).Elem(), AccessGrantsLocationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantsLocationTagArrayInput)(nil)).Elem(), AccessGrantsLocationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointVpcConfigurationInput)(nil)).Elem(), AccessPointVpcConfigurationArgs{})
@@ -13156,14 +12865,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensSelectionCriteriaPtrInput)(nil)).Elem(), StorageLensSelectionCriteriaArgs{})
 	pulumi.RegisterOutputType(AccessGrantGranteeOutput{})
 	pulumi.RegisterOutputType(AccessGrantGranteePtrOutput{})
-	pulumi.RegisterOutputType(AccessGrantTagOutput{})
-	pulumi.RegisterOutputType(AccessGrantTagArrayOutput{})
-	pulumi.RegisterOutputType(AccessGrantsInstanceTagOutput{})
-	pulumi.RegisterOutputType(AccessGrantsInstanceTagArrayOutput{})
 	pulumi.RegisterOutputType(AccessGrantsLocationConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessGrantsLocationConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AccessGrantsLocationTagOutput{})
-	pulumi.RegisterOutputType(AccessGrantsLocationTagArrayOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})

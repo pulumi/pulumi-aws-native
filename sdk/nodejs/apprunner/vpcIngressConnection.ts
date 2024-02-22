@@ -50,7 +50,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
      * The current status of the VpcIngressConnection.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.apprunner.VpcIngressConnectionStatus>;
-    public readonly tags!: pulumi.Output<outputs.apprunner.VpcIngressConnectionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the VpcIngressConnection.
      */
@@ -109,7 +109,7 @@ export interface VpcIngressConnectionArgs {
      * The Amazon Resource Name (ARN) of the service.
      */
     serviceArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.apprunner.VpcIngressConnectionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * The customer-provided Vpc Ingress Connection name.
      */

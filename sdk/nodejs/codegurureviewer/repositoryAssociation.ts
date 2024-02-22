@@ -60,7 +60,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
     /**
      * The tags associated with a repository association.
      */
-    public readonly tags!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The type of repository to be associated.
      */
@@ -126,7 +126,7 @@ export interface RepositoryAssociationArgs {
     /**
      * The tags associated with a repository association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.codegurureviewer.RepositoryAssociationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * The type of repository to be associated.
      */

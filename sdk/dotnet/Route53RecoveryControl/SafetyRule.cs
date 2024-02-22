@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// A collection of tags associated with a resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.SafetyRuleTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,14 +121,14 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public Input<Inputs.SafetyRuleRuleConfigArgs>? RuleConfig { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.SafetyRuleTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
-        public InputList<Inputs.SafetyRuleTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.SafetyRuleTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

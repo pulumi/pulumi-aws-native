@@ -46,7 +46,7 @@ export class Schedule extends pulumi.CustomResource {
      * Schedule Name
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.databrew.ScheduleTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -92,5 +92,5 @@ export interface ScheduleArgs {
      * Schedule Name
      */
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.databrew.ScheduleTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

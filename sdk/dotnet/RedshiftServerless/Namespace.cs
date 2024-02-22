@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// The list of tags for the namespace.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.NamespaceTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -207,14 +207,14 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Input<string>? NamespaceName { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.NamespaceTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// The list of tags for the namespace.
         /// </summary>
-        public InputList<Inputs.NamespaceTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.NamespaceTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

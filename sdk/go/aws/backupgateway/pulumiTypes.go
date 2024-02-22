@@ -4,11 +4,7 @@
 package backupgateway
 
 import (
-	"context"
-	"reflect"
-
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -18,104 +14,5 @@ type HypervisorTag struct {
 	Value string `pulumi:"value"`
 }
 
-// HypervisorTagInput is an input type that accepts HypervisorTagArgs and HypervisorTagOutput values.
-// You can construct a concrete instance of `HypervisorTagInput` via:
-//
-//	HypervisorTagArgs{...}
-type HypervisorTagInput interface {
-	pulumi.Input
-
-	ToHypervisorTagOutput() HypervisorTagOutput
-	ToHypervisorTagOutputWithContext(context.Context) HypervisorTagOutput
-}
-
-type HypervisorTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (HypervisorTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HypervisorTag)(nil)).Elem()
-}
-
-func (i HypervisorTagArgs) ToHypervisorTagOutput() HypervisorTagOutput {
-	return i.ToHypervisorTagOutputWithContext(context.Background())
-}
-
-func (i HypervisorTagArgs) ToHypervisorTagOutputWithContext(ctx context.Context) HypervisorTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HypervisorTagOutput)
-}
-
-// HypervisorTagArrayInput is an input type that accepts HypervisorTagArray and HypervisorTagArrayOutput values.
-// You can construct a concrete instance of `HypervisorTagArrayInput` via:
-//
-//	HypervisorTagArray{ HypervisorTagArgs{...} }
-type HypervisorTagArrayInput interface {
-	pulumi.Input
-
-	ToHypervisorTagArrayOutput() HypervisorTagArrayOutput
-	ToHypervisorTagArrayOutputWithContext(context.Context) HypervisorTagArrayOutput
-}
-
-type HypervisorTagArray []HypervisorTagInput
-
-func (HypervisorTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HypervisorTag)(nil)).Elem()
-}
-
-func (i HypervisorTagArray) ToHypervisorTagArrayOutput() HypervisorTagArrayOutput {
-	return i.ToHypervisorTagArrayOutputWithContext(context.Background())
-}
-
-func (i HypervisorTagArray) ToHypervisorTagArrayOutputWithContext(ctx context.Context) HypervisorTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HypervisorTagArrayOutput)
-}
-
-type HypervisorTagOutput struct{ *pulumi.OutputState }
-
-func (HypervisorTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HypervisorTag)(nil)).Elem()
-}
-
-func (o HypervisorTagOutput) ToHypervisorTagOutput() HypervisorTagOutput {
-	return o
-}
-
-func (o HypervisorTagOutput) ToHypervisorTagOutputWithContext(ctx context.Context) HypervisorTagOutput {
-	return o
-}
-
-func (o HypervisorTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v HypervisorTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o HypervisorTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v HypervisorTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type HypervisorTagArrayOutput struct{ *pulumi.OutputState }
-
-func (HypervisorTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HypervisorTag)(nil)).Elem()
-}
-
-func (o HypervisorTagArrayOutput) ToHypervisorTagArrayOutput() HypervisorTagArrayOutput {
-	return o
-}
-
-func (o HypervisorTagArrayOutput) ToHypervisorTagArrayOutputWithContext(ctx context.Context) HypervisorTagArrayOutput {
-	return o
-}
-
-func (o HypervisorTagArrayOutput) Index(i pulumi.IntInput) HypervisorTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HypervisorTag {
-		return vs[0].([]HypervisorTag)[vs[1].(int)]
-	}).(HypervisorTagOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*HypervisorTagInput)(nil)).Elem(), HypervisorTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HypervisorTagArrayInput)(nil)).Elem(), HypervisorTagArray{})
-	pulumi.RegisterOutputType(HypervisorTagOutput{})
-	pulumi.RegisterOutputType(HypervisorTagArrayOutput{})
 }

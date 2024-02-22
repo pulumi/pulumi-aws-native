@@ -47,7 +47,7 @@ export class Deployment extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly environmentId!: pulumi.Output<string>;
     public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.appconfig.DeploymentTags[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -113,5 +113,5 @@ export interface DeploymentArgs {
     description?: pulumi.Input<string>;
     environmentId: pulumi.Input<string>;
     kmsKeyIdentifier?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appconfig.DeploymentTagsArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

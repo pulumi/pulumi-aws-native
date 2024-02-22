@@ -7,20 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Inputs
 {
 
-    public sealed class AppImageConfigTagArgs : global::Pulumi.ResourceArgs
+    /// <summary>
+    /// A set of tags to apply to the resource.
+    /// </summary>
+    public sealed class CreateOnlyTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key name of the tag
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the tag
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
-        public AppImageConfigTagArgs()
+        public CreateOnlyTagArgs()
         {
         }
-        public static new AppImageConfigTagArgs Empty => new AppImageConfigTagArgs();
+        public static new CreateOnlyTagArgs Empty => new CreateOnlyTagArgs();
     }
 }

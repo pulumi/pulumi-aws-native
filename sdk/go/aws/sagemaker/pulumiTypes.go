@@ -885,101 +885,6 @@ type AppImageConfigTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AppImageConfigTagInput is an input type that accepts AppImageConfigTagArgs and AppImageConfigTagOutput values.
-// You can construct a concrete instance of `AppImageConfigTagInput` via:
-//
-//	AppImageConfigTagArgs{...}
-type AppImageConfigTagInput interface {
-	pulumi.Input
-
-	ToAppImageConfigTagOutput() AppImageConfigTagOutput
-	ToAppImageConfigTagOutputWithContext(context.Context) AppImageConfigTagOutput
-}
-
-type AppImageConfigTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AppImageConfigTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppImageConfigTag)(nil)).Elem()
-}
-
-func (i AppImageConfigTagArgs) ToAppImageConfigTagOutput() AppImageConfigTagOutput {
-	return i.ToAppImageConfigTagOutputWithContext(context.Background())
-}
-
-func (i AppImageConfigTagArgs) ToAppImageConfigTagOutputWithContext(ctx context.Context) AppImageConfigTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigTagOutput)
-}
-
-// AppImageConfigTagArrayInput is an input type that accepts AppImageConfigTagArray and AppImageConfigTagArrayOutput values.
-// You can construct a concrete instance of `AppImageConfigTagArrayInput` via:
-//
-//	AppImageConfigTagArray{ AppImageConfigTagArgs{...} }
-type AppImageConfigTagArrayInput interface {
-	pulumi.Input
-
-	ToAppImageConfigTagArrayOutput() AppImageConfigTagArrayOutput
-	ToAppImageConfigTagArrayOutputWithContext(context.Context) AppImageConfigTagArrayOutput
-}
-
-type AppImageConfigTagArray []AppImageConfigTagInput
-
-func (AppImageConfigTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppImageConfigTag)(nil)).Elem()
-}
-
-func (i AppImageConfigTagArray) ToAppImageConfigTagArrayOutput() AppImageConfigTagArrayOutput {
-	return i.ToAppImageConfigTagArrayOutputWithContext(context.Background())
-}
-
-func (i AppImageConfigTagArray) ToAppImageConfigTagArrayOutputWithContext(ctx context.Context) AppImageConfigTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigTagArrayOutput)
-}
-
-type AppImageConfigTagOutput struct{ *pulumi.OutputState }
-
-func (AppImageConfigTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppImageConfigTag)(nil)).Elem()
-}
-
-func (o AppImageConfigTagOutput) ToAppImageConfigTagOutput() AppImageConfigTagOutput {
-	return o
-}
-
-func (o AppImageConfigTagOutput) ToAppImageConfigTagOutputWithContext(ctx context.Context) AppImageConfigTagOutput {
-	return o
-}
-
-func (o AppImageConfigTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AppImageConfigTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AppImageConfigTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AppImageConfigTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AppImageConfigTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AppImageConfigTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppImageConfigTag)(nil)).Elem()
-}
-
-func (o AppImageConfigTagArrayOutput) ToAppImageConfigTagArrayOutput() AppImageConfigTagArrayOutput {
-	return o
-}
-
-func (o AppImageConfigTagArrayOutput) ToAppImageConfigTagArrayOutputWithContext(ctx context.Context) AppImageConfigTagArrayOutput {
-	return o
-}
-
-func (o AppImageConfigTagArrayOutput) Index(i pulumi.IntInput) AppImageConfigTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppImageConfigTag {
-		return vs[0].([]AppImageConfigTag)[vs[1].(int)]
-	}).(AppImageConfigTagOutput)
-}
-
 type AppResourceSpec struct {
 	// The instance type that the image version runs on.
 	InstanceType *AppResourceSpecInstanceType `pulumi:"instanceType"`
@@ -1158,101 +1063,6 @@ func (o AppResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrOut
 type AppTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// AppTagInput is an input type that accepts AppTagArgs and AppTagOutput values.
-// You can construct a concrete instance of `AppTagInput` via:
-//
-//	AppTagArgs{...}
-type AppTagInput interface {
-	pulumi.Input
-
-	ToAppTagOutput() AppTagOutput
-	ToAppTagOutputWithContext(context.Context) AppTagOutput
-}
-
-type AppTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AppTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppTag)(nil)).Elem()
-}
-
-func (i AppTagArgs) ToAppTagOutput() AppTagOutput {
-	return i.ToAppTagOutputWithContext(context.Background())
-}
-
-func (i AppTagArgs) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppTagOutput)
-}
-
-// AppTagArrayInput is an input type that accepts AppTagArray and AppTagArrayOutput values.
-// You can construct a concrete instance of `AppTagArrayInput` via:
-//
-//	AppTagArray{ AppTagArgs{...} }
-type AppTagArrayInput interface {
-	pulumi.Input
-
-	ToAppTagArrayOutput() AppTagArrayOutput
-	ToAppTagArrayOutputWithContext(context.Context) AppTagArrayOutput
-}
-
-type AppTagArray []AppTagInput
-
-func (AppTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppTag)(nil)).Elem()
-}
-
-func (i AppTagArray) ToAppTagArrayOutput() AppTagArrayOutput {
-	return i.ToAppTagArrayOutputWithContext(context.Background())
-}
-
-func (i AppTagArray) ToAppTagArrayOutputWithContext(ctx context.Context) AppTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppTagArrayOutput)
-}
-
-type AppTagOutput struct{ *pulumi.OutputState }
-
-func (AppTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppTag)(nil)).Elem()
-}
-
-func (o AppTagOutput) ToAppTagOutput() AppTagOutput {
-	return o
-}
-
-func (o AppTagOutput) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput {
-	return o
-}
-
-func (o AppTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AppTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AppTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AppTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AppTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AppTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppTag)(nil)).Elem()
-}
-
-func (o AppTagArrayOutput) ToAppTagArrayOutput() AppTagArrayOutput {
-	return o
-}
-
-func (o AppTagArrayOutput) ToAppTagArrayOutputWithContext(ctx context.Context) AppTagArrayOutput {
-	return o
-}
-
-func (o AppTagArrayOutput) Index(i pulumi.IntInput) AppTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTag {
-		return vs[0].([]AppTag)[vs[1].(int)]
-	}).(AppTagOutput)
 }
 
 type CodeRepositoryGitConfig struct {
@@ -3581,107 +3391,6 @@ type DataQualityJobDefinitionTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// DataQualityJobDefinitionTagInput is an input type that accepts DataQualityJobDefinitionTagArgs and DataQualityJobDefinitionTagOutput values.
-// You can construct a concrete instance of `DataQualityJobDefinitionTagInput` via:
-//
-//	DataQualityJobDefinitionTagArgs{...}
-type DataQualityJobDefinitionTagInput interface {
-	pulumi.Input
-
-	ToDataQualityJobDefinitionTagOutput() DataQualityJobDefinitionTagOutput
-	ToDataQualityJobDefinitionTagOutputWithContext(context.Context) DataQualityJobDefinitionTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type DataQualityJobDefinitionTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DataQualityJobDefinitionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataQualityJobDefinitionTag)(nil)).Elem()
-}
-
-func (i DataQualityJobDefinitionTagArgs) ToDataQualityJobDefinitionTagOutput() DataQualityJobDefinitionTagOutput {
-	return i.ToDataQualityJobDefinitionTagOutputWithContext(context.Background())
-}
-
-func (i DataQualityJobDefinitionTagArgs) ToDataQualityJobDefinitionTagOutputWithContext(ctx context.Context) DataQualityJobDefinitionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionTagOutput)
-}
-
-// DataQualityJobDefinitionTagArrayInput is an input type that accepts DataQualityJobDefinitionTagArray and DataQualityJobDefinitionTagArrayOutput values.
-// You can construct a concrete instance of `DataQualityJobDefinitionTagArrayInput` via:
-//
-//	DataQualityJobDefinitionTagArray{ DataQualityJobDefinitionTagArgs{...} }
-type DataQualityJobDefinitionTagArrayInput interface {
-	pulumi.Input
-
-	ToDataQualityJobDefinitionTagArrayOutput() DataQualityJobDefinitionTagArrayOutput
-	ToDataQualityJobDefinitionTagArrayOutputWithContext(context.Context) DataQualityJobDefinitionTagArrayOutput
-}
-
-type DataQualityJobDefinitionTagArray []DataQualityJobDefinitionTagInput
-
-func (DataQualityJobDefinitionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataQualityJobDefinitionTag)(nil)).Elem()
-}
-
-func (i DataQualityJobDefinitionTagArray) ToDataQualityJobDefinitionTagArrayOutput() DataQualityJobDefinitionTagArrayOutput {
-	return i.ToDataQualityJobDefinitionTagArrayOutputWithContext(context.Background())
-}
-
-func (i DataQualityJobDefinitionTagArray) ToDataQualityJobDefinitionTagArrayOutputWithContext(ctx context.Context) DataQualityJobDefinitionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type DataQualityJobDefinitionTagOutput struct{ *pulumi.OutputState }
-
-func (DataQualityJobDefinitionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataQualityJobDefinitionTag)(nil)).Elem()
-}
-
-func (o DataQualityJobDefinitionTagOutput) ToDataQualityJobDefinitionTagOutput() DataQualityJobDefinitionTagOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionTagOutput) ToDataQualityJobDefinitionTagOutputWithContext(ctx context.Context) DataQualityJobDefinitionTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DataQualityJobDefinitionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DataQualityJobDefinitionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o DataQualityJobDefinitionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DataQualityJobDefinitionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DataQualityJobDefinitionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DataQualityJobDefinitionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataQualityJobDefinitionTag)(nil)).Elem()
-}
-
-func (o DataQualityJobDefinitionTagArrayOutput) ToDataQualityJobDefinitionTagArrayOutput() DataQualityJobDefinitionTagArrayOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionTagArrayOutput) ToDataQualityJobDefinitionTagArrayOutputWithContext(ctx context.Context) DataQualityJobDefinitionTagArrayOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionTagArrayOutput) Index(i pulumi.IntInput) DataQualityJobDefinitionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataQualityJobDefinitionTag {
-		return vs[0].([]DataQualityJobDefinitionTag)[vs[1].(int)]
-	}).(DataQualityJobDefinitionTagOutput)
 }
 
 // Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -7108,101 +6817,6 @@ func (o DomainSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 type DomainTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// DomainTagInput is an input type that accepts DomainTagArgs and DomainTagOutput values.
-// You can construct a concrete instance of `DomainTagInput` via:
-//
-//	DomainTagArgs{...}
-type DomainTagInput interface {
-	pulumi.Input
-
-	ToDomainTagOutput() DomainTagOutput
-	ToDomainTagOutputWithContext(context.Context) DomainTagOutput
-}
-
-type DomainTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DomainTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTag)(nil)).Elem()
-}
-
-func (i DomainTagArgs) ToDomainTagOutput() DomainTagOutput {
-	return i.ToDomainTagOutputWithContext(context.Background())
-}
-
-func (i DomainTagArgs) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainTagOutput)
-}
-
-// DomainTagArrayInput is an input type that accepts DomainTagArray and DomainTagArrayOutput values.
-// You can construct a concrete instance of `DomainTagArrayInput` via:
-//
-//	DomainTagArray{ DomainTagArgs{...} }
-type DomainTagArrayInput interface {
-	pulumi.Input
-
-	ToDomainTagArrayOutput() DomainTagArrayOutput
-	ToDomainTagArrayOutputWithContext(context.Context) DomainTagArrayOutput
-}
-
-type DomainTagArray []DomainTagInput
-
-func (DomainTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainTag)(nil)).Elem()
-}
-
-func (i DomainTagArray) ToDomainTagArrayOutput() DomainTagArrayOutput {
-	return i.ToDomainTagArrayOutputWithContext(context.Background())
-}
-
-func (i DomainTagArray) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainTagArrayOutput)
-}
-
-type DomainTagOutput struct{ *pulumi.OutputState }
-
-func (DomainTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTag)(nil)).Elem()
-}
-
-func (o DomainTagOutput) ToDomainTagOutput() DomainTagOutput {
-	return o
-}
-
-func (o DomainTagOutput) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
-	return o
-}
-
-func (o DomainTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DomainTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DomainTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DomainTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainTag)(nil)).Elem()
-}
-
-func (o DomainTagArrayOutput) ToDomainTagArrayOutput() DomainTagArrayOutput {
-	return o
-}
-
-func (o DomainTagArrayOutput) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
-	return o
-}
-
-func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainTag {
-		return vs[0].([]DomainTag)[vs[1].(int)]
-	}).(DomainTagOutput)
 }
 
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
@@ -12346,103 +11960,6 @@ type FeatureGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// FeatureGroupTagInput is an input type that accepts FeatureGroupTagArgs and FeatureGroupTagOutput values.
-// You can construct a concrete instance of `FeatureGroupTagInput` via:
-//
-//	FeatureGroupTagArgs{...}
-type FeatureGroupTagInput interface {
-	pulumi.Input
-
-	ToFeatureGroupTagOutput() FeatureGroupTagOutput
-	ToFeatureGroupTagOutputWithContext(context.Context) FeatureGroupTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type FeatureGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (FeatureGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FeatureGroupTag)(nil)).Elem()
-}
-
-func (i FeatureGroupTagArgs) ToFeatureGroupTagOutput() FeatureGroupTagOutput {
-	return i.ToFeatureGroupTagOutputWithContext(context.Background())
-}
-
-func (i FeatureGroupTagArgs) ToFeatureGroupTagOutputWithContext(ctx context.Context) FeatureGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupTagOutput)
-}
-
-// FeatureGroupTagArrayInput is an input type that accepts FeatureGroupTagArray and FeatureGroupTagArrayOutput values.
-// You can construct a concrete instance of `FeatureGroupTagArrayInput` via:
-//
-//	FeatureGroupTagArray{ FeatureGroupTagArgs{...} }
-type FeatureGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToFeatureGroupTagArrayOutput() FeatureGroupTagArrayOutput
-	ToFeatureGroupTagArrayOutputWithContext(context.Context) FeatureGroupTagArrayOutput
-}
-
-type FeatureGroupTagArray []FeatureGroupTagInput
-
-func (FeatureGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FeatureGroupTag)(nil)).Elem()
-}
-
-func (i FeatureGroupTagArray) ToFeatureGroupTagArrayOutput() FeatureGroupTagArrayOutput {
-	return i.ToFeatureGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i FeatureGroupTagArray) ToFeatureGroupTagArrayOutputWithContext(ctx context.Context) FeatureGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type FeatureGroupTagOutput struct{ *pulumi.OutputState }
-
-func (FeatureGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FeatureGroupTag)(nil)).Elem()
-}
-
-func (o FeatureGroupTagOutput) ToFeatureGroupTagOutput() FeatureGroupTagOutput {
-	return o
-}
-
-func (o FeatureGroupTagOutput) ToFeatureGroupTagOutputWithContext(ctx context.Context) FeatureGroupTagOutput {
-	return o
-}
-
-func (o FeatureGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FeatureGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o FeatureGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v FeatureGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type FeatureGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (FeatureGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FeatureGroupTag)(nil)).Elem()
-}
-
-func (o FeatureGroupTagArrayOutput) ToFeatureGroupTagArrayOutput() FeatureGroupTagArrayOutput {
-	return o
-}
-
-func (o FeatureGroupTagArrayOutput) ToFeatureGroupTagArrayOutputWithContext(ctx context.Context) FeatureGroupTagArrayOutput {
-	return o
-}
-
-func (o FeatureGroupTagArrayOutput) Index(i pulumi.IntInput) FeatureGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeatureGroupTag {
-		return vs[0].([]FeatureGroupTag)[vs[1].(int)]
-	}).(FeatureGroupTagOutput)
-}
-
 type FeatureGroupThroughputConfig struct {
 	// For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
 	ProvisionedReadCapacityUnits *int `pulumi:"provisionedReadCapacityUnits"`
@@ -17132,107 +16649,6 @@ type ModelBiasJobDefinitionTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// ModelBiasJobDefinitionTagInput is an input type that accepts ModelBiasJobDefinitionTagArgs and ModelBiasJobDefinitionTagOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionTagInput` via:
-//
-//	ModelBiasJobDefinitionTagArgs{...}
-type ModelBiasJobDefinitionTagInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionTagOutput() ModelBiasJobDefinitionTagOutput
-	ToModelBiasJobDefinitionTagOutputWithContext(context.Context) ModelBiasJobDefinitionTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ModelBiasJobDefinitionTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ModelBiasJobDefinitionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelBiasJobDefinitionTag)(nil)).Elem()
-}
-
-func (i ModelBiasJobDefinitionTagArgs) ToModelBiasJobDefinitionTagOutput() ModelBiasJobDefinitionTagOutput {
-	return i.ToModelBiasJobDefinitionTagOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionTagArgs) ToModelBiasJobDefinitionTagOutputWithContext(ctx context.Context) ModelBiasJobDefinitionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionTagOutput)
-}
-
-// ModelBiasJobDefinitionTagArrayInput is an input type that accepts ModelBiasJobDefinitionTagArray and ModelBiasJobDefinitionTagArrayOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionTagArrayInput` via:
-//
-//	ModelBiasJobDefinitionTagArray{ ModelBiasJobDefinitionTagArgs{...} }
-type ModelBiasJobDefinitionTagArrayInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionTagArrayOutput() ModelBiasJobDefinitionTagArrayOutput
-	ToModelBiasJobDefinitionTagArrayOutputWithContext(context.Context) ModelBiasJobDefinitionTagArrayOutput
-}
-
-type ModelBiasJobDefinitionTagArray []ModelBiasJobDefinitionTagInput
-
-func (ModelBiasJobDefinitionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModelBiasJobDefinitionTag)(nil)).Elem()
-}
-
-func (i ModelBiasJobDefinitionTagArray) ToModelBiasJobDefinitionTagArrayOutput() ModelBiasJobDefinitionTagArrayOutput {
-	return i.ToModelBiasJobDefinitionTagArrayOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionTagArray) ToModelBiasJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelBiasJobDefinitionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ModelBiasJobDefinitionTagOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelBiasJobDefinitionTag)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionTagOutput) ToModelBiasJobDefinitionTagOutput() ModelBiasJobDefinitionTagOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionTagOutput) ToModelBiasJobDefinitionTagOutputWithContext(ctx context.Context) ModelBiasJobDefinitionTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ModelBiasJobDefinitionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelBiasJobDefinitionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ModelBiasJobDefinitionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelBiasJobDefinitionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ModelBiasJobDefinitionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModelBiasJobDefinitionTag)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionTagArrayOutput) ToModelBiasJobDefinitionTagArrayOutput() ModelBiasJobDefinitionTagArrayOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionTagArrayOutput) ToModelBiasJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelBiasJobDefinitionTagArrayOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionTagArrayOutput) Index(i pulumi.IntInput) ModelBiasJobDefinitionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelBiasJobDefinitionTag {
-		return vs[0].([]ModelBiasJobDefinitionTag)[vs[1].(int)]
-	}).(ModelBiasJobDefinitionTagOutput)
 }
 
 // Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -23969,107 +23385,6 @@ type ModelExplainabilityJobDefinitionTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// ModelExplainabilityJobDefinitionTagInput is an input type that accepts ModelExplainabilityJobDefinitionTagArgs and ModelExplainabilityJobDefinitionTagOutput values.
-// You can construct a concrete instance of `ModelExplainabilityJobDefinitionTagInput` via:
-//
-//	ModelExplainabilityJobDefinitionTagArgs{...}
-type ModelExplainabilityJobDefinitionTagInput interface {
-	pulumi.Input
-
-	ToModelExplainabilityJobDefinitionTagOutput() ModelExplainabilityJobDefinitionTagOutput
-	ToModelExplainabilityJobDefinitionTagOutputWithContext(context.Context) ModelExplainabilityJobDefinitionTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ModelExplainabilityJobDefinitionTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ModelExplainabilityJobDefinitionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelExplainabilityJobDefinitionTag)(nil)).Elem()
-}
-
-func (i ModelExplainabilityJobDefinitionTagArgs) ToModelExplainabilityJobDefinitionTagOutput() ModelExplainabilityJobDefinitionTagOutput {
-	return i.ToModelExplainabilityJobDefinitionTagOutputWithContext(context.Background())
-}
-
-func (i ModelExplainabilityJobDefinitionTagArgs) ToModelExplainabilityJobDefinitionTagOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionTagOutput)
-}
-
-// ModelExplainabilityJobDefinitionTagArrayInput is an input type that accepts ModelExplainabilityJobDefinitionTagArray and ModelExplainabilityJobDefinitionTagArrayOutput values.
-// You can construct a concrete instance of `ModelExplainabilityJobDefinitionTagArrayInput` via:
-//
-//	ModelExplainabilityJobDefinitionTagArray{ ModelExplainabilityJobDefinitionTagArgs{...} }
-type ModelExplainabilityJobDefinitionTagArrayInput interface {
-	pulumi.Input
-
-	ToModelExplainabilityJobDefinitionTagArrayOutput() ModelExplainabilityJobDefinitionTagArrayOutput
-	ToModelExplainabilityJobDefinitionTagArrayOutputWithContext(context.Context) ModelExplainabilityJobDefinitionTagArrayOutput
-}
-
-type ModelExplainabilityJobDefinitionTagArray []ModelExplainabilityJobDefinitionTagInput
-
-func (ModelExplainabilityJobDefinitionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModelExplainabilityJobDefinitionTag)(nil)).Elem()
-}
-
-func (i ModelExplainabilityJobDefinitionTagArray) ToModelExplainabilityJobDefinitionTagArrayOutput() ModelExplainabilityJobDefinitionTagArrayOutput {
-	return i.ToModelExplainabilityJobDefinitionTagArrayOutputWithContext(context.Background())
-}
-
-func (i ModelExplainabilityJobDefinitionTagArray) ToModelExplainabilityJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ModelExplainabilityJobDefinitionTagOutput struct{ *pulumi.OutputState }
-
-func (ModelExplainabilityJobDefinitionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelExplainabilityJobDefinitionTag)(nil)).Elem()
-}
-
-func (o ModelExplainabilityJobDefinitionTagOutput) ToModelExplainabilityJobDefinitionTagOutput() ModelExplainabilityJobDefinitionTagOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionTagOutput) ToModelExplainabilityJobDefinitionTagOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ModelExplainabilityJobDefinitionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelExplainabilityJobDefinitionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ModelExplainabilityJobDefinitionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelExplainabilityJobDefinitionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ModelExplainabilityJobDefinitionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ModelExplainabilityJobDefinitionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModelExplainabilityJobDefinitionTag)(nil)).Elem()
-}
-
-func (o ModelExplainabilityJobDefinitionTagArrayOutput) ToModelExplainabilityJobDefinitionTagArrayOutput() ModelExplainabilityJobDefinitionTagArrayOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionTagArrayOutput) ToModelExplainabilityJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionTagArrayOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionTagArrayOutput) Index(i pulumi.IntInput) ModelExplainabilityJobDefinitionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelExplainabilityJobDefinitionTag {
-		return vs[0].([]ModelExplainabilityJobDefinitionTag)[vs[1].(int)]
-	}).(ModelExplainabilityJobDefinitionTagOutput)
 }
 
 // Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -31218,107 +30533,6 @@ type ModelQualityJobDefinitionTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ModelQualityJobDefinitionTagInput is an input type that accepts ModelQualityJobDefinitionTagArgs and ModelQualityJobDefinitionTagOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionTagInput` via:
-//
-//	ModelQualityJobDefinitionTagArgs{...}
-type ModelQualityJobDefinitionTagInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionTagOutput() ModelQualityJobDefinitionTagOutput
-	ToModelQualityJobDefinitionTagOutputWithContext(context.Context) ModelQualityJobDefinitionTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ModelQualityJobDefinitionTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ModelQualityJobDefinitionTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelQualityJobDefinitionTag)(nil)).Elem()
-}
-
-func (i ModelQualityJobDefinitionTagArgs) ToModelQualityJobDefinitionTagOutput() ModelQualityJobDefinitionTagOutput {
-	return i.ToModelQualityJobDefinitionTagOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionTagArgs) ToModelQualityJobDefinitionTagOutputWithContext(ctx context.Context) ModelQualityJobDefinitionTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionTagOutput)
-}
-
-// ModelQualityJobDefinitionTagArrayInput is an input type that accepts ModelQualityJobDefinitionTagArray and ModelQualityJobDefinitionTagArrayOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionTagArrayInput` via:
-//
-//	ModelQualityJobDefinitionTagArray{ ModelQualityJobDefinitionTagArgs{...} }
-type ModelQualityJobDefinitionTagArrayInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionTagArrayOutput() ModelQualityJobDefinitionTagArrayOutput
-	ToModelQualityJobDefinitionTagArrayOutputWithContext(context.Context) ModelQualityJobDefinitionTagArrayOutput
-}
-
-type ModelQualityJobDefinitionTagArray []ModelQualityJobDefinitionTagInput
-
-func (ModelQualityJobDefinitionTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModelQualityJobDefinitionTag)(nil)).Elem()
-}
-
-func (i ModelQualityJobDefinitionTagArray) ToModelQualityJobDefinitionTagArrayOutput() ModelQualityJobDefinitionTagArrayOutput {
-	return i.ToModelQualityJobDefinitionTagArrayOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionTagArray) ToModelQualityJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelQualityJobDefinitionTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ModelQualityJobDefinitionTagOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelQualityJobDefinitionTag)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionTagOutput) ToModelQualityJobDefinitionTagOutput() ModelQualityJobDefinitionTagOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionTagOutput) ToModelQualityJobDefinitionTagOutputWithContext(ctx context.Context) ModelQualityJobDefinitionTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ModelQualityJobDefinitionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelQualityJobDefinitionTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ModelQualityJobDefinitionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelQualityJobDefinitionTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ModelQualityJobDefinitionTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModelQualityJobDefinitionTag)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionTagArrayOutput) ToModelQualityJobDefinitionTagArrayOutput() ModelQualityJobDefinitionTagArrayOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionTagArrayOutput) ToModelQualityJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelQualityJobDefinitionTagArrayOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionTagArrayOutput) Index(i pulumi.IntInput) ModelQualityJobDefinitionTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelQualityJobDefinitionTag {
-		return vs[0].([]ModelQualityJobDefinitionTag)[vs[1].(int)]
-	}).(ModelQualityJobDefinitionTagOutput)
-}
-
 // Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type ModelQualityJobDefinitionVpcConfig struct {
 	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
@@ -36744,107 +35958,6 @@ type ProjectTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
-// You can construct a concrete instance of `ProjectTagInput` via:
-//
-//	ProjectTagArgs{...}
-type ProjectTagInput interface {
-	pulumi.Input
-
-	ToProjectTagOutput() ProjectTagOutput
-	ToProjectTagOutputWithContext(context.Context) ProjectTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ProjectTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ProjectTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
-}
-
-func (i ProjectTagArgs) ToProjectTagOutput() ProjectTagOutput {
-	return i.ToProjectTagOutputWithContext(context.Background())
-}
-
-func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagOutput)
-}
-
-// ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
-// You can construct a concrete instance of `ProjectTagArrayInput` via:
-//
-//	ProjectTagArray{ ProjectTagArgs{...} }
-type ProjectTagArrayInput interface {
-	pulumi.Input
-
-	ToProjectTagArrayOutput() ProjectTagArrayOutput
-	ToProjectTagArrayOutputWithContext(context.Context) ProjectTagArrayOutput
-}
-
-type ProjectTagArray []ProjectTagInput
-
-func (ProjectTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
-}
-
-func (i ProjectTagArray) ToProjectTagArrayOutput() ProjectTagArrayOutput {
-	return i.ToProjectTagArrayOutputWithContext(context.Background())
-}
-
-func (i ProjectTagArray) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ProjectTagOutput struct{ *pulumi.OutputState }
-
-func (ProjectTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
-}
-
-func (o ProjectTagOutput) ToProjectTagOutput() ProjectTagOutput {
-	return o
-}
-
-func (o ProjectTagOutput) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ProjectTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ProjectTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ProjectTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ProjectTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
-}
-
-func (o ProjectTagArrayOutput) ToProjectTagArrayOutput() ProjectTagArrayOutput {
-	return o
-}
-
-func (o ProjectTagArrayOutput) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
-	return o
-}
-
-func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectTag {
-		return vs[0].([]ProjectTag)[vs[1].(int)]
-	}).(ProjectTagOutput)
-}
-
 // Provisioned ServiceCatalog  Details
 type ServiceCatalogProvisionedProductDetailsProperties struct {
 	ProvisionedProductId            *string `pulumi:"provisionedProductId"`
@@ -41144,101 +40257,6 @@ type UserProfileTag struct {
 	Value string `pulumi:"value"`
 }
 
-// UserProfileTagInput is an input type that accepts UserProfileTagArgs and UserProfileTagOutput values.
-// You can construct a concrete instance of `UserProfileTagInput` via:
-//
-//	UserProfileTagArgs{...}
-type UserProfileTagInput interface {
-	pulumi.Input
-
-	ToUserProfileTagOutput() UserProfileTagOutput
-	ToUserProfileTagOutputWithContext(context.Context) UserProfileTagOutput
-}
-
-type UserProfileTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (UserProfileTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserProfileTag)(nil)).Elem()
-}
-
-func (i UserProfileTagArgs) ToUserProfileTagOutput() UserProfileTagOutput {
-	return i.ToUserProfileTagOutputWithContext(context.Background())
-}
-
-func (i UserProfileTagArgs) ToUserProfileTagOutputWithContext(ctx context.Context) UserProfileTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserProfileTagOutput)
-}
-
-// UserProfileTagArrayInput is an input type that accepts UserProfileTagArray and UserProfileTagArrayOutput values.
-// You can construct a concrete instance of `UserProfileTagArrayInput` via:
-//
-//	UserProfileTagArray{ UserProfileTagArgs{...} }
-type UserProfileTagArrayInput interface {
-	pulumi.Input
-
-	ToUserProfileTagArrayOutput() UserProfileTagArrayOutput
-	ToUserProfileTagArrayOutputWithContext(context.Context) UserProfileTagArrayOutput
-}
-
-type UserProfileTagArray []UserProfileTagInput
-
-func (UserProfileTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserProfileTag)(nil)).Elem()
-}
-
-func (i UserProfileTagArray) ToUserProfileTagArrayOutput() UserProfileTagArrayOutput {
-	return i.ToUserProfileTagArrayOutputWithContext(context.Background())
-}
-
-func (i UserProfileTagArray) ToUserProfileTagArrayOutputWithContext(ctx context.Context) UserProfileTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserProfileTagArrayOutput)
-}
-
-type UserProfileTagOutput struct{ *pulumi.OutputState }
-
-func (UserProfileTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserProfileTag)(nil)).Elem()
-}
-
-func (o UserProfileTagOutput) ToUserProfileTagOutput() UserProfileTagOutput {
-	return o
-}
-
-func (o UserProfileTagOutput) ToUserProfileTagOutputWithContext(ctx context.Context) UserProfileTagOutput {
-	return o
-}
-
-func (o UserProfileTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v UserProfileTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o UserProfileTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v UserProfileTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type UserProfileTagArrayOutput struct{ *pulumi.OutputState }
-
-func (UserProfileTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserProfileTag)(nil)).Elem()
-}
-
-func (o UserProfileTagArrayOutput) ToUserProfileTagArrayOutput() UserProfileTagArrayOutput {
-	return o
-}
-
-func (o UserProfileTagArrayOutput) ToUserProfileTagArrayOutputWithContext(ctx context.Context) UserProfileTagArrayOutput {
-	return o
-}
-
-func (o UserProfileTagArrayOutput) Index(i pulumi.IntInput) UserProfileTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileTag {
-		return vs[0].([]UserProfileTag)[vs[1].(int)]
-	}).(UserProfileTagOutput)
-}
-
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type UserProfileUserSettings struct {
 	CodeEditorAppSettings   *UserProfileCodeEditorAppSettings   `pulumi:"codeEditorAppSettings"`
@@ -42136,12 +41154,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigPtrInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelSpecInput)(nil)).Elem(), AppImageConfigKernelSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelSpecArrayInput)(nil)).Elem(), AppImageConfigKernelSpecArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigTagInput)(nil)).Elem(), AppImageConfigTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigTagArrayInput)(nil)).Elem(), AppImageConfigTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInput)(nil)).Elem(), AppResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecPtrInput)(nil)).Elem(), AppResourceSpecArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppTagInput)(nil)).Elem(), AppTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppTagArrayInput)(nil)).Elem(), AppTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryGitConfigInput)(nil)).Elem(), CodeRepositoryGitConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
@@ -42171,8 +41185,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionStatisticsResourcePtrInput)(nil)).Elem(), DataQualityJobDefinitionStatisticsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionStoppingConditionInput)(nil)).Elem(), DataQualityJobDefinitionStoppingConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionStoppingConditionPtrInput)(nil)).Elem(), DataQualityJobDefinitionStoppingConditionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionTagInput)(nil)).Elem(), DataQualityJobDefinitionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionTagArrayInput)(nil)).Elem(), DataQualityJobDefinitionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionVpcConfigInput)(nil)).Elem(), DataQualityJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionVpcConfigPtrInput)(nil)).Elem(), DataQualityJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTypeInput)(nil)).Elem(), DeviceTypeArgs{})
@@ -42216,8 +41228,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSettingsPtrInput)(nil)).Elem(), DomainSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsInput)(nil)).Elem(), DomainSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsPtrInput)(nil)).Elem(), DomainSharingSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagArrayInput)(nil)).Elem(), DomainTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsInput)(nil)).Elem(), DomainUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAlarmInput)(nil)).Elem(), EndpointAlarmArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAlarmArrayInput)(nil)).Elem(), EndpointAlarmArray{})
@@ -42283,8 +41293,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOnlineStoreSecurityConfigPtrInput)(nil)).Elem(), FeatureGroupOnlineStoreSecurityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupS3StorageConfigInput)(nil)).Elem(), FeatureGroupS3StorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupS3StorageConfigPtrInput)(nil)).Elem(), FeatureGroupS3StorageConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTagInput)(nil)).Elem(), FeatureGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTagArrayInput)(nil)).Elem(), FeatureGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputConfigInput)(nil)).Elem(), FeatureGroupThroughputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputConfigPtrInput)(nil)).Elem(), FeatureGroupThroughputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentComputeResourceRequirementsInput)(nil)).Elem(), InferenceComponentComputeResourceRequirementsArgs{})
@@ -42341,8 +41349,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionS3OutputInput)(nil)).Elem(), ModelBiasJobDefinitionS3OutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionStoppingConditionInput)(nil)).Elem(), ModelBiasJobDefinitionStoppingConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionStoppingConditionPtrInput)(nil)).Elem(), ModelBiasJobDefinitionStoppingConditionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionTagInput)(nil)).Elem(), ModelBiasJobDefinitionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionTagArrayInput)(nil)).Elem(), ModelBiasJobDefinitionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionVpcConfigInput)(nil)).Elem(), ModelBiasJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionVpcConfigPtrInput)(nil)).Elem(), ModelBiasJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardAdditionalInformationInput)(nil)).Elem(), ModelCardAdditionalInformationArgs{})
@@ -42423,8 +41429,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionS3OutputInput)(nil)).Elem(), ModelExplainabilityJobDefinitionS3OutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionStoppingConditionInput)(nil)).Elem(), ModelExplainabilityJobDefinitionStoppingConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionStoppingConditionPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionStoppingConditionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionTagInput)(nil)).Elem(), ModelExplainabilityJobDefinitionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionTagArrayInput)(nil)).Elem(), ModelExplainabilityJobDefinitionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionVpcConfigInput)(nil)).Elem(), ModelExplainabilityJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionVpcConfigPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelImageConfigInput)(nil)).Elem(), ModelImageConfigArgs{})
@@ -42516,8 +41520,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionS3OutputInput)(nil)).Elem(), ModelQualityJobDefinitionS3OutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionStoppingConditionInput)(nil)).Elem(), ModelQualityJobDefinitionStoppingConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionStoppingConditionPtrInput)(nil)).Elem(), ModelQualityJobDefinitionStoppingConditionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionTagInput)(nil)).Elem(), ModelQualityJobDefinitionTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionTagArrayInput)(nil)).Elem(), ModelQualityJobDefinitionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionVpcConfigInput)(nil)).Elem(), ModelQualityJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionVpcConfigPtrInput)(nil)).Elem(), ModelQualityJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelRepositoryAuthConfigInput)(nil)).Elem(), ModelRepositoryAuthConfigArgs{})
@@ -42583,8 +41585,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineS3LocationInput)(nil)).Elem(), PipelineS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProvisioningParameterInput)(nil)).Elem(), ProjectProvisioningParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProvisioningParameterArrayInput)(nil)).Elem(), ProjectProvisioningParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagInput)(nil)).Elem(), ProjectTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagArrayInput)(nil)).Elem(), ProjectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesPtrInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisioningDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisioningDetailsPropertiesArgs{})
@@ -42644,8 +41644,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecPtrInput)(nil)).Elem(), UserProfileResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsInput)(nil)).Elem(), UserProfileSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsPtrInput)(nil)).Elem(), UserProfileSharingSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileTagInput)(nil)).Elem(), UserProfileTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileTagArrayInput)(nil)).Elem(), UserProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamCognitoMemberDefinitionInput)(nil)).Elem(), WorkteamCognitoMemberDefinitionArgs{})
@@ -42668,12 +41666,8 @@ func init() {
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelSpecOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelSpecArrayOutput{})
-	pulumi.RegisterOutputType(AppImageConfigTagOutput{})
-	pulumi.RegisterOutputType(AppImageConfigTagArrayOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
-	pulumi.RegisterOutputType(AppTagOutput{})
-	pulumi.RegisterOutputType(AppTagArrayOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputOutput{})
@@ -42704,8 +41698,6 @@ func init() {
 	pulumi.RegisterOutputType(DataQualityJobDefinitionStatisticsResourcePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionStoppingConditionOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionStoppingConditionPtrOutput{})
-	pulumi.RegisterOutputType(DataQualityJobDefinitionTagOutput{})
-	pulumi.RegisterOutputType(DataQualityJobDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeviceTypeOutput{})
@@ -42750,8 +41742,6 @@ func init() {
 	pulumi.RegisterOutputType(DomainSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsPtrOutput{})
-	pulumi.RegisterOutputType(DomainTagOutput{})
-	pulumi.RegisterOutputType(DomainTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointAlarmOutput{})
@@ -42818,8 +41808,6 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreSecurityConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupS3StorageConfigOutput{})
 	pulumi.RegisterOutputType(FeatureGroupS3StorageConfigPtrOutput{})
-	pulumi.RegisterOutputType(FeatureGroupTagOutput{})
-	pulumi.RegisterOutputType(FeatureGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(FeatureGroupThroughputConfigOutput{})
 	pulumi.RegisterOutputType(FeatureGroupThroughputConfigPtrOutput{})
 	pulumi.RegisterOutputType(InferenceComponentComputeResourceRequirementsOutput{})
@@ -42881,8 +41869,6 @@ func init() {
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionS3OutputOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionStoppingConditionOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionStoppingConditionPtrOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionTagOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardAdditionalInformationOutput{})
@@ -42964,8 +41950,6 @@ func init() {
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionS3OutputOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionStoppingConditionOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionStoppingConditionPtrOutput{})
-	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionTagOutput{})
-	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelImageConfigOutput{})
@@ -43057,8 +42041,6 @@ func init() {
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionS3OutputOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionStoppingConditionOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionStoppingConditionPtrOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionTagOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelRepositoryAuthConfigOutput{})
@@ -43128,8 +42110,6 @@ func init() {
 	pulumi.RegisterOutputType(PipelineS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(ProjectProvisioningParameterOutput{})
 	pulumi.RegisterOutputType(ProjectProvisioningParameterArrayOutput{})
-	pulumi.RegisterOutputType(ProjectTagOutput{})
-	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesOutput{})
@@ -43189,8 +42169,6 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsPtrOutput{})
-	pulumi.RegisterOutputType(UserProfileTagOutput{})
-	pulumi.RegisterOutputType(UserProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(WorkteamCognitoMemberDefinitionOutput{})

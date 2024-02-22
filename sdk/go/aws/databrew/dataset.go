@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,8 +26,8 @@ type Dataset struct {
 	// Dataset name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// PathOptions
-	PathOptions DatasetPathOptionsPtrOutput `pulumi:"pathOptions"`
-	Tags        DatasetTagArrayOutput       `pulumi:"tags"`
+	PathOptions DatasetPathOptionsPtrOutput  `pulumi:"pathOptions"`
+	Tags        aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataset registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +88,7 @@ type datasetArgs struct {
 	Name *string `pulumi:"name"`
 	// PathOptions
 	PathOptions *DatasetPathOptions `pulumi:"pathOptions"`
-	Tags        []DatasetTag        `pulumi:"tags"`
+	Tags        []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dataset resource.
@@ -102,7 +103,7 @@ type DatasetArgs struct {
 	Name pulumi.StringPtrInput
 	// PathOptions
 	PathOptions DatasetPathOptionsPtrInput
-	Tags        DatasetTagArrayInput
+	Tags        aws.CreateOnlyTagArrayInput
 }
 
 func (DatasetArgs) ElementType() reflect.Type {
@@ -167,8 +168,8 @@ func (o DatasetOutput) PathOptions() DatasetPathOptionsPtrOutput {
 	return o.ApplyT(func(v *Dataset) DatasetPathOptionsPtrOutput { return v.PathOptions }).(DatasetPathOptionsPtrOutput)
 }
 
-func (o DatasetOutput) Tags() DatasetTagArrayOutput {
-	return o.ApplyT(func(v *Dataset) DatasetTagArrayOutput { return v.Tags }).(DatasetTagArrayOutput)
+func (o DatasetOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Dataset) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

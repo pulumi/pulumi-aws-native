@@ -16,7 +16,6 @@ __all__ = [
     'ChannelHlsIngest',
     'ChannelIngestEndpoint',
     'ChannelLogConfiguration',
-    'ChannelTag',
     'OriginEndpointAuthorization',
     'OriginEndpointCmafEncryption',
     'OriginEndpointCmafPackage',
@@ -46,7 +45,6 @@ __all__ = [
     'PackagingConfigurationStreamSelection',
     'PackagingGroupAuthorization',
     'PackagingGroupLogConfiguration',
-    'PackagingGroupTag',
 ]
 
 @pulumi.output_type
@@ -228,25 +226,6 @@ class ChannelLogConfiguration(dict):
         Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
         """
         return pulumi.get(self, "log_group_name")
-
-
-@pulumi.output_type
-class ChannelTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2515,24 +2494,5 @@ class PackagingGroupLogConfiguration(dict):
         Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
         """
         return pulumi.get(self, "log_group_name")
-
-
-@pulumi.output_type
-class PackagingGroupTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

@@ -28,7 +28,6 @@ __all__ = [
     'DatasetPathOptions',
     'DatasetPathParameter',
     'DatasetS3Location',
-    'DatasetTag',
     'JobAllowedStatistics',
     'JobColumnSelector',
     'JobColumnStatisticsConfiguration',
@@ -48,10 +47,8 @@ __all__ = [
     'JobSample',
     'JobStatisticOverride',
     'JobStatisticsConfiguration',
-    'JobTag',
     'JobValidationConfiguration',
     'ProjectSample',
-    'ProjectTag',
     'RecipeAction',
     'RecipeConditionExpression',
     'RecipeDataCatalogInputDefinition',
@@ -61,12 +58,10 @@ __all__ = [
     'RecipeS3Location',
     'RecipeSecondaryInput',
     'RecipeStep',
-    'RecipeTag',
     'RulesetColumnSelector',
     'RulesetRule',
     'RulesetSubstitutionValue',
     'RulesetThreshold',
-    'ScheduleTag',
 ]
 
 @pulumi.output_type
@@ -888,31 +883,6 @@ class DatasetS3Location(dict):
 
 
 @pulumi.output_type
-class DatasetTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class JobAllowedStatistics(dict):
     def __init__(__self__, *,
                  statistics: Sequence[str]):
@@ -1593,31 +1563,6 @@ class JobStatisticsConfiguration(dict):
 
 
 @pulumi.output_type
-class JobTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class JobValidationConfiguration(dict):
     """
     Configuration to attach Rulesets to the job
@@ -1694,31 +1639,6 @@ class ProjectSample(dict):
         Sample size
         """
         return pulumi.get(self, "size")
-
-
-@pulumi.output_type
-class ProjectTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -3055,31 +2975,6 @@ class RecipeStep(dict):
 
 
 @pulumi.output_type
-class RecipeTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class RulesetColumnSelector(dict):
     """
     Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
@@ -3272,30 +3167,5 @@ class RulesetThreshold(dict):
     @pulumi.getter
     def unit(self) -> Optional['RulesetThresholdUnit']:
         return pulumi.get(self, "unit")
-
-
-@pulumi.output_type
-class ScheduleTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 

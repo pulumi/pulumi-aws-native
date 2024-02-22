@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// A list of tags to apply to the user profile.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.UserProfileTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The user profile Amazon Resource Name (ARN).
@@ -131,14 +131,14 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<string>? SingleSignOnUserValue { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.UserProfileTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// A list of tags to apply to the user profile.
         /// </summary>
-        public InputList<Inputs.UserProfileTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.UserProfileTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

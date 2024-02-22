@@ -56,7 +56,7 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
     /**
      * A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.apprunner.ObservabilityConfigurationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
      */
@@ -105,7 +105,7 @@ export interface ObservabilityConfigurationArgs {
     /**
      * A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.apprunner.ObservabilityConfigurationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
      */

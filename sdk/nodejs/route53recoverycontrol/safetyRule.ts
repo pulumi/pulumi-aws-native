@@ -56,7 +56,7 @@ export class SafetyRule extends pulumi.CustomResource {
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a SafetyRule resource with the given unique name, arguments, and options.
@@ -109,5 +109,5 @@ export interface SafetyRuleArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.route53recoverycontrol.SafetyRuleTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

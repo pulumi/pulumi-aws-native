@@ -81,7 +81,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * The list of tags for the namespace.
      */
-    public readonly tags!: pulumi.Output<outputs.redshiftserverless.NamespaceTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -174,5 +174,5 @@ export interface NamespaceArgs {
     /**
      * The list of tags for the namespace.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.NamespaceTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

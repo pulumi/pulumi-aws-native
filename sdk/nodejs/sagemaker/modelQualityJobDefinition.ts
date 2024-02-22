@@ -61,7 +61,7 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ModelQualityJobDefinition resource with the given unique name, arguments, and options.
@@ -144,5 +144,5 @@ export interface ModelQualityJobDefinitionArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

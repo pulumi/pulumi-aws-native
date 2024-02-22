@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,7 @@ class FeatureGroupArgs:
                  offline_store_config: Optional[pulumi.Input['OfflineStoreConfigPropertiesArgs']] = None,
                  online_store_config: Optional[pulumi.Input['OnlineStoreConfigPropertiesArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
                  throughput_config: Optional[pulumi.Input['FeatureGroupThroughputConfigArgs']] = None):
         """
         The set of arguments for constructing a FeatureGroup resource.
@@ -35,7 +37,7 @@ class FeatureGroupArgs:
         :param pulumi.Input[str] description: Description about the FeatureGroup.
         :param pulumi.Input[str] feature_group_name: The Name of the FeatureGroup.
         :param pulumi.Input[str] role_arn: Role Arn
-        :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]] tags: An array of key-value pair to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pair to apply to this resource.
         """
         pulumi.set(__self__, "event_time_feature_name", event_time_feature_name)
         pulumi.set(__self__, "feature_definitions", feature_definitions)
@@ -147,14 +149,14 @@ class FeatureGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         An array of key-value pair to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -180,7 +182,7 @@ class FeatureGroup(pulumi.CustomResource):
                  online_store_config: Optional[pulumi.Input[pulumi.InputType['OnlineStoreConfigPropertiesArgs']]] = None,
                  record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  throughput_config: Optional[pulumi.Input[pulumi.InputType['FeatureGroupThroughputConfigArgs']]] = None,
                  __props__=None):
         """
@@ -194,7 +196,7 @@ class FeatureGroup(pulumi.CustomResource):
         :param pulumi.Input[str] feature_group_name: The Name of the FeatureGroup.
         :param pulumi.Input[str] record_identifier_feature_name: The Record Identifier Feature Name.
         :param pulumi.Input[str] role_arn: Role Arn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupTagArgs']]]] tags: An array of key-value pair to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pair to apply to this resource.
         """
         ...
     @overload
@@ -228,7 +230,7 @@ class FeatureGroup(pulumi.CustomResource):
                  online_store_config: Optional[pulumi.Input[pulumi.InputType['OnlineStoreConfigPropertiesArgs']]] = None,
                  record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  throughput_config: Optional[pulumi.Input[pulumi.InputType['FeatureGroupThroughputConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -371,7 +373,7 @@ class FeatureGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FeatureGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         An array of key-value pair to apply to this resource.
         """

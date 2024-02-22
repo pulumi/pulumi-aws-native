@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -15,14 +16,14 @@ import (
 type Hypervisor struct {
 	pulumi.CustomResourceState
 
-	Host          pulumi.StringPtrOutput   `pulumi:"host"`
-	HypervisorArn pulumi.StringOutput      `pulumi:"hypervisorArn"`
-	KmsKeyArn     pulumi.StringPtrOutput   `pulumi:"kmsKeyArn"`
-	LogGroupArn   pulumi.StringPtrOutput   `pulumi:"logGroupArn"`
-	Name          pulumi.StringPtrOutput   `pulumi:"name"`
-	Password      pulumi.StringPtrOutput   `pulumi:"password"`
-	Tags          HypervisorTagArrayOutput `pulumi:"tags"`
-	Username      pulumi.StringPtrOutput   `pulumi:"username"`
+	Host          pulumi.StringPtrOutput       `pulumi:"host"`
+	HypervisorArn pulumi.StringOutput          `pulumi:"hypervisorArn"`
+	KmsKeyArn     pulumi.StringPtrOutput       `pulumi:"kmsKeyArn"`
+	LogGroupArn   pulumi.StringPtrOutput       `pulumi:"logGroupArn"`
+	Name          pulumi.StringPtrOutput       `pulumi:"name"`
+	Password      pulumi.StringPtrOutput       `pulumi:"password"`
+	Tags          aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Username      pulumi.StringPtrOutput       `pulumi:"username"`
 }
 
 // NewHypervisor registers a new resource with the given unique name, arguments, and options.
@@ -70,13 +71,13 @@ func (HypervisorState) ElementType() reflect.Type {
 }
 
 type hypervisorArgs struct {
-	Host        *string         `pulumi:"host"`
-	KmsKeyArn   *string         `pulumi:"kmsKeyArn"`
-	LogGroupArn *string         `pulumi:"logGroupArn"`
-	Name        *string         `pulumi:"name"`
-	Password    *string         `pulumi:"password"`
-	Tags        []HypervisorTag `pulumi:"tags"`
-	Username    *string         `pulumi:"username"`
+	Host        *string             `pulumi:"host"`
+	KmsKeyArn   *string             `pulumi:"kmsKeyArn"`
+	LogGroupArn *string             `pulumi:"logGroupArn"`
+	Name        *string             `pulumi:"name"`
+	Password    *string             `pulumi:"password"`
+	Tags        []aws.CreateOnlyTag `pulumi:"tags"`
+	Username    *string             `pulumi:"username"`
 }
 
 // The set of arguments for constructing a Hypervisor resource.
@@ -86,7 +87,7 @@ type HypervisorArgs struct {
 	LogGroupArn pulumi.StringPtrInput
 	Name        pulumi.StringPtrInput
 	Password    pulumi.StringPtrInput
-	Tags        HypervisorTagArrayInput
+	Tags        aws.CreateOnlyTagArrayInput
 	Username    pulumi.StringPtrInput
 }
 
@@ -151,8 +152,8 @@ func (o HypervisorOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hypervisor) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-func (o HypervisorOutput) Tags() HypervisorTagArrayOutput {
-	return o.ApplyT(func(v *Hypervisor) HypervisorTagArrayOutput { return v.Tags }).(HypervisorTagArrayOutput)
+func (o HypervisorOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Hypervisor) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func (o HypervisorOutput) Username() pulumi.StringPtrOutput {

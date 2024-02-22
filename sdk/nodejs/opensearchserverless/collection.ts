@@ -67,7 +67,7 @@ export class Collection extends pulumi.CustomResource {
     /**
      * List of tags to be added to the resource
      */
-    public readonly tags!: pulumi.Output<outputs.opensearchserverless.CollectionTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     public readonly type!: pulumi.Output<enums.opensearchserverless.CollectionType | undefined>;
 
     /**
@@ -128,6 +128,6 @@ export interface CollectionArgs {
     /**
      * List of tags to be added to the resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.opensearchserverless.CollectionTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     type?: pulumi.Input<enums.opensearchserverless.CollectionType>;
 }

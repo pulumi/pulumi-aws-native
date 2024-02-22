@@ -73,7 +73,6 @@ __all__ = [
     'IpamPoolSourceResource',
     'IpamPoolTag',
     'IpamResourceDiscoveryIpamOperatingRegion',
-    'KeyPairTag',
     'LaunchTemplateAcceleratorCount',
     'LaunchTemplateAcceleratorTotalMemoryMiB',
     'LaunchTemplateBaselineEbsBandwidthMbps',
@@ -142,7 +141,6 @@ __all__ = [
     'NetworkInterfaceIpv6PrefixSpecification',
     'NetworkInterfacePrivateIpAddressSpecification',
     'OptionsProperties',
-    'PlacementGroupTag',
     'PrefixListEntry',
     'PrivateDnsNameOptionsOnLaunchProperties',
     'SecurityGroupEgress',
@@ -185,7 +183,6 @@ __all__ = [
     'TrafficMirrorFilterRuleTrafficMirrorPortRange',
     'TransitGatewayConnectOptions',
     'TransitGatewayPeeringAttachmentPeeringAttachmentStatus',
-    'TransitGatewayRouteTableTag',
     'VerifiedAccessEndpointLoadBalancerOptions',
     'VerifiedAccessEndpointNetworkInterfaceOptions',
     'VerifiedAccessEndpointSseSpecification',
@@ -2810,39 +2807,6 @@ class IpamResourceDiscoveryIpamOperatingRegion(dict):
         The name of the region.
         """
         return pulumi.get(self, "region_name")
-
-
-@pulumi.output_type
-class KeyPairTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -7729,39 +7693,6 @@ class OptionsProperties(dict):
 
 
 @pulumi.output_type
-class PlacementGroupTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class PrefixListEntry(dict):
     def __init__(__self__, *,
                  cidr: str,
@@ -9965,35 +9896,6 @@ class TransitGatewayPeeringAttachmentPeeringAttachmentStatus(dict):
         The status message, if applicable.
         """
         return pulumi.get(self, "message")
-
-
-@pulumi.output_type
-class TransitGatewayRouteTableTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: The key of the associated tag key-value pair
-        :param str value: The value of the associated tag key-value pair
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key of the associated tag key-value pair
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value of the associated tag key-value pair
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

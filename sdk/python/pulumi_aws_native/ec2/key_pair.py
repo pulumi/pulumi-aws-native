@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['KeyPairArgs', 'KeyPair']
 
@@ -21,14 +21,14 @@ class KeyPairArgs:
                  key_format: Optional[pulumi.Input['KeyPairKeyFormat']] = None,
                  key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyPairTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a KeyPair resource.
         :param pulumi.Input[str] key_name: The name of the SSH key pair
         :param pulumi.Input['KeyPairKeyFormat'] key_format: The format of the private key
         :param pulumi.Input['KeyPairKeyType'] key_type: The crypto-system used to generate a key pair.
         :param pulumi.Input[str] public_key_material: Plain text public key to import
-        :param pulumi.Input[Sequence[pulumi.Input['KeyPairTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "key_name", key_name)
         if key_format is not None:
@@ -90,14 +90,14 @@ class KeyPairArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyPairTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyPairTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,7 +110,7 @@ class KeyPair(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyPairTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::EC2::KeyPair creates an SSH key pair
@@ -121,7 +121,7 @@ class KeyPair(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The name of the SSH key pair
         :param pulumi.Input['KeyPairKeyType'] key_type: The crypto-system used to generate a key pair.
         :param pulumi.Input[str] public_key_material: Plain text public key to import
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyPairTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -151,7 +151,7 @@ class KeyPair(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyPairTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,7 +253,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.KeyPairTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         An array of key-value pairs to apply to this resource.
         """

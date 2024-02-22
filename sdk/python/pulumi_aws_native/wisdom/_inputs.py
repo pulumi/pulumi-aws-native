@@ -12,14 +12,11 @@ from ._enums import *
 
 __all__ = [
     'AssistantAssociationAssociationDataArgs',
-    'AssistantAssociationTagArgs',
     'AssistantServerSideEncryptionConfigurationArgs',
-    'AssistantTagArgs',
     'KnowledgeBaseAppIntegrationsConfigurationArgs',
     'KnowledgeBaseRenderingConfigurationArgs',
     'KnowledgeBaseServerSideEncryptionConfigurationArgs',
     'KnowledgeBaseSourceConfigurationArgs',
-    'KnowledgeBaseTagArgs',
 ]
 
 @pulumi.input_type
@@ -39,33 +36,6 @@ class AssistantAssociationAssociationDataArgs:
 
 
 @pulumi.input_type
-class AssistantAssociationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class AssistantServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
@@ -80,33 +50,6 @@ class AssistantServerSideEncryptionConfigurationArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
-
-
-@pulumi.input_type
-class AssistantTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -186,32 +129,5 @@ class KnowledgeBaseSourceConfigurationArgs:
     @app_integrations.setter
     def app_integrations(self, value: Optional[pulumi.Input['KnowledgeBaseAppIntegrationsConfigurationArgs']]):
         pulumi.set(self, "app_integrations", value)
-
-
-@pulumi.input_type
-class KnowledgeBaseTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type AppImageConfig struct {
 	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrOutput `pulumi:"kernelGatewayImageConfig"`
 	// A list of tags to apply to the AppImageConfig.
-	Tags AppImageConfigTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAppImageConfig registers a new resource with the given unique name, arguments, and options.
@@ -79,7 +80,7 @@ type appImageConfigArgs struct {
 	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig *AppImageConfigKernelGatewayImageConfig `pulumi:"kernelGatewayImageConfig"`
 	// A list of tags to apply to the AppImageConfig.
-	Tags []AppImageConfigTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppImageConfig resource.
@@ -91,7 +92,7 @@ type AppImageConfigArgs struct {
 	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrInput
 	// A list of tags to apply to the AppImageConfig.
-	Tags AppImageConfigTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (AppImageConfigArgs) ElementType() reflect.Type {
@@ -156,8 +157,8 @@ func (o AppImageConfigOutput) KernelGatewayImageConfig() AppImageConfigKernelGat
 }
 
 // A list of tags to apply to the AppImageConfig.
-func (o AppImageConfigOutput) Tags() AppImageConfigTagArrayOutput {
-	return o.ApplyT(func(v *AppImageConfig) AppImageConfigTagArrayOutput { return v.Tags }).(AppImageConfigTagArrayOutput)
+func (o AppImageConfigOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *AppImageConfig) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

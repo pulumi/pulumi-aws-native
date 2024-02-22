@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,8 +34,8 @@ type Service struct {
 	ServiceUrl          pulumi.StringOutput              `pulumi:"serviceUrl"`
 	SourceConfiguration ServiceSourceConfigurationOutput `pulumi:"sourceConfiguration"`
 	// AppRunner Service status.
-	Status pulumi.StringOutput   `pulumi:"status"`
-	Tags   ServiceTagArrayOutput `pulumi:"tags"`
+	Status pulumi.StringOutput          `pulumi:"status"`
+	Tags   aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -96,7 +97,7 @@ type serviceArgs struct {
 	// The AppRunner Service Name.
 	ServiceName         *string                    `pulumi:"serviceName"`
 	SourceConfiguration ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
-	Tags                []ServiceTag               `pulumi:"tags"`
+	Tags                []aws.CreateOnlyTag        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -111,7 +112,7 @@ type ServiceArgs struct {
 	// The AppRunner Service Name.
 	ServiceName         pulumi.StringPtrInput
 	SourceConfiguration ServiceSourceConfigurationInput
-	Tags                ServiceTagArrayInput
+	Tags                aws.CreateOnlyTagArrayInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -205,8 +206,8 @@ func (o ServiceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-func (o ServiceOutput) Tags() ServiceTagArrayOutput {
-	return o.ApplyT(func(v *Service) ServiceTagArrayOutput { return v.Tags }).(ServiceTagArrayOutput)
+func (o ServiceOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Service) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

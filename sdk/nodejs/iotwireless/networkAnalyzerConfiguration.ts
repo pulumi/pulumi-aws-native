@@ -52,7 +52,7 @@ export class NetworkAnalyzerConfiguration extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.iotwireless.NetworkAnalyzerConfigurationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * Trace content for your wireless gateway and wireless device resources
      */
@@ -115,7 +115,7 @@ export interface NetworkAnalyzerConfigurationArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.NetworkAnalyzerConfigurationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * Trace content for your wireless gateway and wireless device resources
      */

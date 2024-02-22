@@ -2888,107 +2888,6 @@ type JobTemplateTag struct {
 	Value string `pulumi:"value"`
 }
 
-// JobTemplateTagInput is an input type that accepts JobTemplateTagArgs and JobTemplateTagOutput values.
-// You can construct a concrete instance of `JobTemplateTagInput` via:
-//
-//	JobTemplateTagArgs{...}
-type JobTemplateTagInput interface {
-	pulumi.Input
-
-	ToJobTemplateTagOutput() JobTemplateTagOutput
-	ToJobTemplateTagOutputWithContext(context.Context) JobTemplateTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type JobTemplateTagArgs struct {
-	// The tag's key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The tag's value.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (JobTemplateTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobTemplateTag)(nil)).Elem()
-}
-
-func (i JobTemplateTagArgs) ToJobTemplateTagOutput() JobTemplateTagOutput {
-	return i.ToJobTemplateTagOutputWithContext(context.Background())
-}
-
-func (i JobTemplateTagArgs) ToJobTemplateTagOutputWithContext(ctx context.Context) JobTemplateTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateTagOutput)
-}
-
-// JobTemplateTagArrayInput is an input type that accepts JobTemplateTagArray and JobTemplateTagArrayOutput values.
-// You can construct a concrete instance of `JobTemplateTagArrayInput` via:
-//
-//	JobTemplateTagArray{ JobTemplateTagArgs{...} }
-type JobTemplateTagArrayInput interface {
-	pulumi.Input
-
-	ToJobTemplateTagArrayOutput() JobTemplateTagArrayOutput
-	ToJobTemplateTagArrayOutputWithContext(context.Context) JobTemplateTagArrayOutput
-}
-
-type JobTemplateTagArray []JobTemplateTagInput
-
-func (JobTemplateTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobTemplateTag)(nil)).Elem()
-}
-
-func (i JobTemplateTagArray) ToJobTemplateTagArrayOutput() JobTemplateTagArrayOutput {
-	return i.ToJobTemplateTagArrayOutputWithContext(context.Background())
-}
-
-func (i JobTemplateTagArray) ToJobTemplateTagArrayOutputWithContext(ctx context.Context) JobTemplateTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type JobTemplateTagOutput struct{ *pulumi.OutputState }
-
-func (JobTemplateTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobTemplateTag)(nil)).Elem()
-}
-
-func (o JobTemplateTagOutput) ToJobTemplateTagOutput() JobTemplateTagOutput {
-	return o
-}
-
-func (o JobTemplateTagOutput) ToJobTemplateTagOutputWithContext(ctx context.Context) JobTemplateTagOutput {
-	return o
-}
-
-// The tag's key.
-func (o JobTemplateTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v JobTemplateTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The tag's value.
-func (o JobTemplateTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v JobTemplateTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type JobTemplateTagArrayOutput struct{ *pulumi.OutputState }
-
-func (JobTemplateTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobTemplateTag)(nil)).Elem()
-}
-
-func (o JobTemplateTagArrayOutput) ToJobTemplateTagArrayOutput() JobTemplateTagArrayOutput {
-	return o
-}
-
-func (o JobTemplateTagArrayOutput) ToJobTemplateTagArrayOutputWithContext(ctx context.Context) JobTemplateTagArrayOutput {
-	return o
-}
-
-func (o JobTemplateTagArrayOutput) Index(i pulumi.IntInput) JobTemplateTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateTag {
-		return vs[0].([]JobTemplateTag)[vs[1].(int)]
-	}).(JobTemplateTagOutput)
-}
-
 // A structure containing the mqtt topic for metrics export.
 type MetricsExportConfigProperties struct {
 	// The topic for metrics export.
@@ -13280,8 +13179,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRateIncreaseCriteriaPtrInput)(nil)).Elem(), JobTemplateRateIncreaseCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRetryCriteriaInput)(nil)).Elem(), JobTemplateRetryCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRetryCriteriaArrayInput)(nil)).Elem(), JobTemplateRetryCriteriaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTagInput)(nil)).Elem(), JobTemplateTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTagArrayInput)(nil)).Elem(), JobTemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricsExportConfigPropertiesInput)(nil)).Elem(), MetricsExportConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricsExportConfigPropertiesPtrInput)(nil)).Elem(), MetricsExportConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionActionParamsInput)(nil)).Elem(), MitigationActionActionParamsArgs{})
@@ -13445,8 +13342,6 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateRateIncreaseCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateRetryCriteriaOutput{})
 	pulumi.RegisterOutputType(JobTemplateRetryCriteriaArrayOutput{})
-	pulumi.RegisterOutputType(JobTemplateTagOutput{})
-	pulumi.RegisterOutputType(JobTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(MetricsExportConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(MetricsExportConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsOutput{})

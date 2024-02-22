@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.S3
         public Output<Pulumi.AwsNative.S3.AccessGrantS3PrefixType?> S3PrefixType { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AccessGrantTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -159,10 +159,10 @@ namespace Pulumi.AwsNative.S3
         public Input<Pulumi.AwsNative.S3.AccessGrantS3PrefixType>? S3PrefixType { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AccessGrantTagArgs>? _tags;
-        public InputList<Inputs.AccessGrantTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AccessGrantTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

@@ -8611,107 +8611,6 @@ type KeyPairTag struct {
 	Value string `pulumi:"value"`
 }
 
-// KeyPairTagInput is an input type that accepts KeyPairTagArgs and KeyPairTagOutput values.
-// You can construct a concrete instance of `KeyPairTagInput` via:
-//
-//	KeyPairTagArgs{...}
-type KeyPairTagInput interface {
-	pulumi.Input
-
-	ToKeyPairTagOutput() KeyPairTagOutput
-	ToKeyPairTagOutputWithContext(context.Context) KeyPairTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type KeyPairTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (KeyPairTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyPairTag)(nil)).Elem()
-}
-
-func (i KeyPairTagArgs) ToKeyPairTagOutput() KeyPairTagOutput {
-	return i.ToKeyPairTagOutputWithContext(context.Background())
-}
-
-func (i KeyPairTagArgs) ToKeyPairTagOutputWithContext(ctx context.Context) KeyPairTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPairTagOutput)
-}
-
-// KeyPairTagArrayInput is an input type that accepts KeyPairTagArray and KeyPairTagArrayOutput values.
-// You can construct a concrete instance of `KeyPairTagArrayInput` via:
-//
-//	KeyPairTagArray{ KeyPairTagArgs{...} }
-type KeyPairTagArrayInput interface {
-	pulumi.Input
-
-	ToKeyPairTagArrayOutput() KeyPairTagArrayOutput
-	ToKeyPairTagArrayOutputWithContext(context.Context) KeyPairTagArrayOutput
-}
-
-type KeyPairTagArray []KeyPairTagInput
-
-func (KeyPairTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyPairTag)(nil)).Elem()
-}
-
-func (i KeyPairTagArray) ToKeyPairTagArrayOutput() KeyPairTagArrayOutput {
-	return i.ToKeyPairTagArrayOutputWithContext(context.Background())
-}
-
-func (i KeyPairTagArray) ToKeyPairTagArrayOutputWithContext(ctx context.Context) KeyPairTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPairTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type KeyPairTagOutput struct{ *pulumi.OutputState }
-
-func (KeyPairTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyPairTag)(nil)).Elem()
-}
-
-func (o KeyPairTagOutput) ToKeyPairTagOutput() KeyPairTagOutput {
-	return o
-}
-
-func (o KeyPairTagOutput) ToKeyPairTagOutputWithContext(ctx context.Context) KeyPairTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o KeyPairTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyPairTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o KeyPairTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyPairTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type KeyPairTagArrayOutput struct{ *pulumi.OutputState }
-
-func (KeyPairTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyPairTag)(nil)).Elem()
-}
-
-func (o KeyPairTagArrayOutput) ToKeyPairTagArrayOutput() KeyPairTagArrayOutput {
-	return o
-}
-
-func (o KeyPairTagArrayOutput) ToKeyPairTagArrayOutputWithContext(ctx context.Context) KeyPairTagArrayOutput {
-	return o
-}
-
-func (o KeyPairTagArrayOutput) Index(i pulumi.IntInput) KeyPairTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyPairTag {
-		return vs[0].([]KeyPairTag)[vs[1].(int)]
-	}).(KeyPairTagOutput)
-}
-
 // The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
 type LaunchTemplateAcceleratorCount struct {
 	// The maximum number of accelerators.
@@ -19270,107 +19169,6 @@ type PlacementGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// PlacementGroupTagInput is an input type that accepts PlacementGroupTagArgs and PlacementGroupTagOutput values.
-// You can construct a concrete instance of `PlacementGroupTagInput` via:
-//
-//	PlacementGroupTagArgs{...}
-type PlacementGroupTagInput interface {
-	pulumi.Input
-
-	ToPlacementGroupTagOutput() PlacementGroupTagOutput
-	ToPlacementGroupTagOutputWithContext(context.Context) PlacementGroupTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type PlacementGroupTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PlacementGroupTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlacementGroupTag)(nil)).Elem()
-}
-
-func (i PlacementGroupTagArgs) ToPlacementGroupTagOutput() PlacementGroupTagOutput {
-	return i.ToPlacementGroupTagOutputWithContext(context.Background())
-}
-
-func (i PlacementGroupTagArgs) ToPlacementGroupTagOutputWithContext(ctx context.Context) PlacementGroupTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupTagOutput)
-}
-
-// PlacementGroupTagArrayInput is an input type that accepts PlacementGroupTagArray and PlacementGroupTagArrayOutput values.
-// You can construct a concrete instance of `PlacementGroupTagArrayInput` via:
-//
-//	PlacementGroupTagArray{ PlacementGroupTagArgs{...} }
-type PlacementGroupTagArrayInput interface {
-	pulumi.Input
-
-	ToPlacementGroupTagArrayOutput() PlacementGroupTagArrayOutput
-	ToPlacementGroupTagArrayOutputWithContext(context.Context) PlacementGroupTagArrayOutput
-}
-
-type PlacementGroupTagArray []PlacementGroupTagInput
-
-func (PlacementGroupTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PlacementGroupTag)(nil)).Elem()
-}
-
-func (i PlacementGroupTagArray) ToPlacementGroupTagArrayOutput() PlacementGroupTagArrayOutput {
-	return i.ToPlacementGroupTagArrayOutputWithContext(context.Background())
-}
-
-func (i PlacementGroupTagArray) ToPlacementGroupTagArrayOutputWithContext(ctx context.Context) PlacementGroupTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type PlacementGroupTagOutput struct{ *pulumi.OutputState }
-
-func (PlacementGroupTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlacementGroupTag)(nil)).Elem()
-}
-
-func (o PlacementGroupTagOutput) ToPlacementGroupTagOutput() PlacementGroupTagOutput {
-	return o
-}
-
-func (o PlacementGroupTagOutput) ToPlacementGroupTagOutputWithContext(ctx context.Context) PlacementGroupTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o PlacementGroupTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PlacementGroupTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o PlacementGroupTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PlacementGroupTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PlacementGroupTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PlacementGroupTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PlacementGroupTag)(nil)).Elem()
-}
-
-func (o PlacementGroupTagArrayOutput) ToPlacementGroupTagArrayOutput() PlacementGroupTagArrayOutput {
-	return o
-}
-
-func (o PlacementGroupTagArrayOutput) ToPlacementGroupTagArrayOutputWithContext(ctx context.Context) PlacementGroupTagArrayOutput {
-	return o
-}
-
-func (o PlacementGroupTagArrayOutput) Index(i pulumi.IntInput) PlacementGroupTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlacementGroupTag {
-		return vs[0].([]PlacementGroupTag)[vs[1].(int)]
-	}).(PlacementGroupTagOutput)
-}
-
 type PrefixListEntry struct {
 	Cidr        string  `pulumi:"cidr"`
 	Description *string `pulumi:"description"`
@@ -25661,105 +25459,6 @@ type TransitGatewayRouteTableTag struct {
 	Value string `pulumi:"value"`
 }
 
-// TransitGatewayRouteTableTagInput is an input type that accepts TransitGatewayRouteTableTagArgs and TransitGatewayRouteTableTagOutput values.
-// You can construct a concrete instance of `TransitGatewayRouteTableTagInput` via:
-//
-//	TransitGatewayRouteTableTagArgs{...}
-type TransitGatewayRouteTableTagInput interface {
-	pulumi.Input
-
-	ToTransitGatewayRouteTableTagOutput() TransitGatewayRouteTableTagOutput
-	ToTransitGatewayRouteTableTagOutputWithContext(context.Context) TransitGatewayRouteTableTagOutput
-}
-
-type TransitGatewayRouteTableTagArgs struct {
-	// The key of the associated tag key-value pair
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the associated tag key-value pair
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TransitGatewayRouteTableTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRouteTableTag)(nil)).Elem()
-}
-
-func (i TransitGatewayRouteTableTagArgs) ToTransitGatewayRouteTableTagOutput() TransitGatewayRouteTableTagOutput {
-	return i.ToTransitGatewayRouteTableTagOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayRouteTableTagArgs) ToTransitGatewayRouteTableTagOutputWithContext(ctx context.Context) TransitGatewayRouteTableTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableTagOutput)
-}
-
-// TransitGatewayRouteTableTagArrayInput is an input type that accepts TransitGatewayRouteTableTagArray and TransitGatewayRouteTableTagArrayOutput values.
-// You can construct a concrete instance of `TransitGatewayRouteTableTagArrayInput` via:
-//
-//	TransitGatewayRouteTableTagArray{ TransitGatewayRouteTableTagArgs{...} }
-type TransitGatewayRouteTableTagArrayInput interface {
-	pulumi.Input
-
-	ToTransitGatewayRouteTableTagArrayOutput() TransitGatewayRouteTableTagArrayOutput
-	ToTransitGatewayRouteTableTagArrayOutputWithContext(context.Context) TransitGatewayRouteTableTagArrayOutput
-}
-
-type TransitGatewayRouteTableTagArray []TransitGatewayRouteTableTagInput
-
-func (TransitGatewayRouteTableTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransitGatewayRouteTableTag)(nil)).Elem()
-}
-
-func (i TransitGatewayRouteTableTagArray) ToTransitGatewayRouteTableTagArrayOutput() TransitGatewayRouteTableTagArrayOutput {
-	return i.ToTransitGatewayRouteTableTagArrayOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayRouteTableTagArray) ToTransitGatewayRouteTableTagArrayOutputWithContext(ctx context.Context) TransitGatewayRouteTableTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableTagArrayOutput)
-}
-
-type TransitGatewayRouteTableTagOutput struct{ *pulumi.OutputState }
-
-func (TransitGatewayRouteTableTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRouteTableTag)(nil)).Elem()
-}
-
-func (o TransitGatewayRouteTableTagOutput) ToTransitGatewayRouteTableTagOutput() TransitGatewayRouteTableTagOutput {
-	return o
-}
-
-func (o TransitGatewayRouteTableTagOutput) ToTransitGatewayRouteTableTagOutputWithContext(ctx context.Context) TransitGatewayRouteTableTagOutput {
-	return o
-}
-
-// The key of the associated tag key-value pair
-func (o TransitGatewayRouteTableTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TransitGatewayRouteTableTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value of the associated tag key-value pair
-func (o TransitGatewayRouteTableTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TransitGatewayRouteTableTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TransitGatewayRouteTableTagArrayOutput struct{ *pulumi.OutputState }
-
-func (TransitGatewayRouteTableTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransitGatewayRouteTableTag)(nil)).Elem()
-}
-
-func (o TransitGatewayRouteTableTagArrayOutput) ToTransitGatewayRouteTableTagArrayOutput() TransitGatewayRouteTableTagArrayOutput {
-	return o
-}
-
-func (o TransitGatewayRouteTableTagArrayOutput) ToTransitGatewayRouteTableTagArrayOutputWithContext(ctx context.Context) TransitGatewayRouteTableTagArrayOutput {
-	return o
-}
-
-func (o TransitGatewayRouteTableTagArrayOutput) Index(i pulumi.IntInput) TransitGatewayRouteTableTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayRouteTableTag {
-		return vs[0].([]TransitGatewayRouteTableTag)[vs[1].(int)]
-	}).(TransitGatewayRouteTableTagOutput)
-}
-
 type TransitGatewayTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -28039,8 +27738,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolTagArrayInput)(nil)).Elem(), IpamPoolTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegionInput)(nil)).Elem(), IpamResourceDiscoveryIpamOperatingRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegionArrayInput)(nil)).Elem(), IpamResourceDiscoveryIpamOperatingRegionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairTagInput)(nil)).Elem(), KeyPairTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairTagArrayInput)(nil)).Elem(), KeyPairTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountPtrInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorTotalMemoryMiBInput)(nil)).Elem(), LaunchTemplateAcceleratorTotalMemoryMiBArgs{})
@@ -28150,8 +27847,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePrivateIpAddressSpecificationArrayInput)(nil)).Elem(), NetworkInterfacePrivateIpAddressSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionsPropertiesInput)(nil)).Elem(), OptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionsPropertiesPtrInput)(nil)).Elem(), OptionsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupTagInput)(nil)).Elem(), PlacementGroupTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupTagArrayInput)(nil)).Elem(), PlacementGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListEntryInput)(nil)).Elem(), PrefixListEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListEntryArrayInput)(nil)).Elem(), PrefixListEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNameOptionsOnLaunchPropertiesInput)(nil)).Elem(), PrivateDnsNameOptionsOnLaunchPropertiesArgs{})
@@ -28232,8 +27927,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRangeInput)(nil)).Elem(), TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput)(nil)).Elem(), TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectOptionsInput)(nil)).Elem(), TransitGatewayConnectOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableTagInput)(nil)).Elem(), TransitGatewayRouteTableTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableTagArrayInput)(nil)).Elem(), TransitGatewayRouteTableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointNetworkInterfaceOptionsInput)(nil)).Elem(), VerifiedAccessEndpointNetworkInterfaceOptionsArgs{})
@@ -28380,8 +28073,6 @@ func init() {
 	pulumi.RegisterOutputType(IpamPoolTagArrayOutput{})
 	pulumi.RegisterOutputType(IpamResourceDiscoveryIpamOperatingRegionOutput{})
 	pulumi.RegisterOutputType(IpamResourceDiscoveryIpamOperatingRegionArrayOutput{})
-	pulumi.RegisterOutputType(KeyPairTagOutput{})
-	pulumi.RegisterOutputType(KeyPairTagArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorTotalMemoryMiBOutput{})
@@ -28519,8 +28210,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInterfacePrivateIpAddressSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(OptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(OptionsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(PlacementGroupTagOutput{})
-	pulumi.RegisterOutputType(PlacementGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryArrayOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNameOptionsOnLaunchPropertiesOutput{})
@@ -28604,8 +28293,6 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayConnectOptionsOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput{})
-	pulumi.RegisterOutputType(TransitGatewayRouteTableTagOutput{})
-	pulumi.RegisterOutputType(TransitGatewayRouteTableTagArrayOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointLoadBalancerOptionsOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointLoadBalancerOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointNetworkInterfaceOptionsOutput{})

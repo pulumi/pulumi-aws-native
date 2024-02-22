@@ -9,6 +9,20 @@ import * as enums from "../types/enums";
 /**
  * A set of tags to apply to the resource.
  */
+export interface CreateOnlyTag {
+    /**
+     * The key name of the tag
+     */
+    key: string;
+    /**
+     * The value of the tag
+     */
+    value: string;
+}
+
+/**
+ * A set of tags to apply to the resource.
+ */
 export interface Tag {
     /**
      * The key name of the tag
@@ -1279,11 +1293,6 @@ export namespace appconfig {
         type?: string;
     }
 
-    export interface DeploymentTags {
-        key?: string;
-        value?: string;
-    }
-
     /**
      * Amazon CloudWatch alarm to monitor during the deployment process.
      */
@@ -1321,20 +1330,6 @@ export namespace appconfig {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ExtensionAssociationTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
-    }
-
-    /**
      * A parameter for the extension to send to a specific action.
      */
     export interface ExtensionParameter {
@@ -1343,20 +1338,6 @@ export namespace appconfig {
          */
         description?: string;
         required: boolean;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ExtensionTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
     }
 
 }
@@ -3646,16 +3627,6 @@ export namespace appmesh {
 }
 
 export namespace apprunner {
-    export interface AutoScalingConfigurationTag {
-        key?: string;
-        value?: string;
-    }
-
-    export interface ObservabilityConfigurationTag {
-        key?: string;
-        value?: string;
-    }
-
     /**
      * Describes the configuration of the tracing feature within an AWS App Runner observability configuration.
      */
@@ -3908,16 +3879,6 @@ export namespace apprunner {
         imageRepository?: outputs.apprunner.ServiceImageRepository;
     }
 
-    export interface ServiceTag {
-        key?: string;
-        value?: string;
-    }
-
-    export interface VpcConnectorTag {
-        key?: string;
-        value?: string;
-    }
-
     /**
      * The configuration of customer’s VPC and related VPC endpoint
      */
@@ -3930,11 +3891,6 @@ export namespace apprunner {
          * The ID of the VPC that the VPC endpoint is used in.
          */
         vpcId: string;
-    }
-
-    export interface VpcIngressConnectionTag {
-        key?: string;
-        value?: string;
     }
 
 }
@@ -5120,11 +5076,6 @@ export namespace backup {
 }
 
 export namespace backupgateway {
-    export interface HypervisorTag {
-        key: string;
-        value: string;
-    }
-
 }
 
 export namespace batch {
@@ -7159,20 +7110,6 @@ export namespace codeguruprofiler {
 }
 
 export namespace codegurureviewer {
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RepositoryAssociationTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
-         */
-        value: string;
-    }
-
 }
 
 export namespace codepipeline {
@@ -9285,14 +9222,6 @@ export namespace databrew {
         key?: string;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DatasetTag {
-        key: string;
-        value: string;
-    }
-
     export interface JobAllowedStatistics {
         statistics: string[];
     }
@@ -9424,14 +9353,6 @@ export namespace databrew {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface JobTag {
-        key: string;
-        value: string;
-    }
-
-    /**
      * Configuration to attach Rulesets to the job
      */
     export interface JobValidationConfiguration {
@@ -9451,14 +9372,6 @@ export namespace databrew {
          * Sample type
          */
         type: enums.databrew.ProjectSampleType;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ProjectTag {
-        key: string;
-        value: string;
     }
 
     export interface RecipeAction {
@@ -9646,14 +9559,6 @@ export namespace databrew {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RecipeTag {
-        key: string;
-        value: string;
-    }
-
-    /**
      * Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
      */
     export interface RulesetColumnSelector {
@@ -9700,14 +9605,6 @@ export namespace databrew {
         type?: enums.databrew.RulesetThresholdType;
         unit?: enums.databrew.RulesetThresholdUnit;
         value: number;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ScheduleTag {
-        key: string;
-        value: string;
     }
 
 }
@@ -11698,20 +11595,6 @@ export namespace ec2 {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface KeyPairTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
-    }
-
-    /**
      * The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
      */
     export interface LaunchTemplateAcceleratorCount {
@@ -12745,20 +12628,6 @@ export namespace ec2 {
         ipv6Support?: string;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface PlacementGroupTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
-    }
-
     export interface PrefixListEntry {
         cidr: string;
         description?: string;
@@ -13079,17 +12948,6 @@ export namespace ec2 {
          * The status message, if applicable.
          */
         message?: string;
-    }
-
-    export interface TransitGatewayRouteTableTag {
-        /**
-         * The key of the associated tag key-value pair
-         */
-        key: string;
-        /**
-         * The value of the associated tag key-value pair
-         */
-        value: string;
     }
 
     /**
@@ -16039,20 +15897,6 @@ export namespace finspace {
          * Last name
          */
         lastName?: string;
-    }
-
-    /**
-     * A list of all tags for a resource.
-     */
-    export interface EnvironmentTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
     }
 
 }
@@ -19498,20 +19342,6 @@ export namespace iot {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface JobTemplateTag {
-        /**
-         * The tag's key.
-         */
-        key: string;
-        /**
-         * The tag's value.
-         */
-        value: string;
-    }
-
-    /**
      * A structure containing the mqtt topic for metrics export.
      */
     export interface MetricsExportConfigProperties {
@@ -22077,20 +21907,6 @@ export namespace iotwireless {
          * Multicast group LoRaWAN RF region
          */
         rfRegion: string;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface NetworkAnalyzerConfigurationTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: string;
     }
 
     export interface PartnerAccountSidewalkAccountInfo {
@@ -28914,11 +28730,6 @@ export namespace mediapackage {
         logGroupName?: string;
     }
 
-    export interface ChannelTag {
-        key: string;
-        value: string;
-    }
-
     /**
      * CDN Authorization credentials
      */
@@ -29469,11 +29280,6 @@ export namespace mediapackage {
          * Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
          */
         logGroupName?: string;
-    }
-
-    export interface PackagingGroupTag {
-        key: string;
-        value: string;
     }
 
 }
@@ -31289,20 +31095,6 @@ export namespace omics {
 }
 
 export namespace opensearchserverless {
-    /**
-     * A key-value pair metadata associated with resource
-     */
-    export interface CollectionTag {
-        /**
-         * The key in the key-value pair
-         */
-        key: string;
-        /**
-         * The value in the key-value pair
-         */
-        value: string;
-    }
-
     /**
      * Describes saml options in form of key value map
      */
@@ -43593,11 +43385,6 @@ export namespace redshiftserverless {
         status?: enums.redshiftserverless.NamespaceStatus;
     }
 
-    export interface NamespaceTag {
-        key: string;
-        value: string;
-    }
-
     export interface Workgroup {
         baseCapacity?: number;
         configParameters?: outputs.redshiftserverless.WorkgroupConfigParameter[];
@@ -44225,16 +44012,6 @@ export namespace route53recoverycontrol {
         region?: string;
     }
 
-    export interface ClusterTag {
-        key: string;
-        value: string;
-    }
-
-    export interface ControlPanelTag {
-        key: string;
-        value: string;
-    }
-
     /**
      * An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
      */
@@ -44281,11 +44058,6 @@ export namespace route53recoverycontrol {
          */
         threshold: number;
         type: enums.route53recoverycontrol.SafetyRuleRuleType;
-    }
-
-    export interface SafetyRuleTag {
-        key: string;
-        value: string;
     }
 
 }
@@ -44612,26 +44384,11 @@ export namespace s3 {
         granteeType: enums.s3.AccessGrantGranteeGranteeType;
     }
 
-    export interface AccessGrantTag {
-        key: string;
-        value: string;
-    }
-
-    export interface AccessGrantsInstanceTag {
-        key: string;
-        value: string;
-    }
-
     export interface AccessGrantsLocationConfiguration {
         /**
          * The S3 sub prefix of a registered location in your S3 Access Grants instance
          */
         s3SubPrefix: string;
-    }
-
-    export interface AccessGrantsLocationTag {
-        key: string;
-        value: string;
     }
 
     export interface AccessPointPublicAccessBlockConfiguration {
@@ -45913,11 +45670,6 @@ export namespace sagemaker {
         name: string;
     }
 
-    export interface AppImageConfigTag {
-        key: string;
-        value: string;
-    }
-
     export interface AppResourceSpec {
         /**
          * The instance type that the image version runs on.
@@ -45931,11 +45683,6 @@ export namespace sagemaker {
          * The ARN of the image version created on the instance.
          */
         sageMakerImageVersionArn?: string;
-    }
-
-    export interface AppTag {
-        key: string;
-        value: string;
     }
 
     export interface CodeRepositoryGitConfig {
@@ -46181,20 +45928,6 @@ export namespace sagemaker {
          * The maximum runtime allowed in seconds.
          */
         maxRuntimeInSeconds: number;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DataQualityJobDefinitionTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: string;
     }
 
     /**
@@ -46486,11 +46219,6 @@ export namespace sagemaker {
         s3OutputPath?: string;
     }
 
-    export interface DomainTag {
-        key: string;
-        value: string;
-    }
-
     /**
      * A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
      */
@@ -46719,14 +46447,6 @@ export namespace sagemaker {
     export interface FeatureGroupS3StorageConfig {
         kmsKeyId?: string;
         s3Uri: string;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface FeatureGroupTag {
-        key: string;
-        value: string;
     }
 
     export interface FeatureGroupThroughputConfig {
@@ -47180,20 +46900,6 @@ export namespace sagemaker {
          * The maximum runtime allowed in seconds.
          */
         maxRuntimeInSeconds: number;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ModelBiasJobDefinitionTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: string;
     }
 
     /**
@@ -47836,20 +47542,6 @@ export namespace sagemaker {
          * The maximum runtime allowed in seconds.
          */
         maxRuntimeInSeconds: number;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ModelExplainabilityJobDefinitionTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: string;
     }
 
     /**
@@ -48577,20 +48269,6 @@ export namespace sagemaker {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ModelQualityJobDefinitionTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: string;
-    }
-
-    /**
      * Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
      */
     export interface ModelQualityJobDefinitionVpcConfig {
@@ -49025,20 +48703,6 @@ export namespace sagemaker {
     }
 
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ProjectTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        key: string;
-        /**
-         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
-        value: string;
-    }
-
-    /**
      * Provisioned ServiceCatalog  Details
      */
     export interface ServiceCatalogProvisionedProductDetailsProperties {
@@ -49358,11 +49022,6 @@ export namespace sagemaker {
          * When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
          */
         s3OutputPath?: string;
-    }
-
-    export interface UserProfileTag {
-        key: string;
-        value: string;
     }
 
     /**
@@ -53151,18 +52810,8 @@ export namespace wisdom {
         knowledgeBaseId: string;
     }
 
-    export interface AssistantAssociationTag {
-        key: string;
-        value: string;
-    }
-
     export interface AssistantServerSideEncryptionConfiguration {
         kmsKeyId?: string;
-    }
-
-    export interface AssistantTag {
-        key: string;
-        value: string;
     }
 
     export interface KnowledgeBaseAppIntegrationsConfiguration {
@@ -53182,11 +52831,6 @@ export namespace wisdom {
         appIntegrations?: outputs.wisdom.KnowledgeBaseAppIntegrationsConfiguration;
     }
 
-    export interface KnowledgeBaseTag {
-        key: string;
-        value: string;
-    }
-
 }
 
 export namespace workspaces {
@@ -53195,11 +52839,6 @@ export namespace workspaces {
         associationStatus?: enums.workspaces.ConnectionAliasAssociationAssociationStatus;
         connectionIdentifier?: string;
         resourceId?: string;
-    }
-
-    export interface ConnectionAliasTag {
-        key: string;
-        value: string;
     }
 
     export interface WorkspaceProperties {

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,7 +25,7 @@ class AccessGrantArgs:
                  access_grants_location_configuration: Optional[pulumi.Input['AccessGrantsLocationConfigurationArgs']] = None,
                  application_arn: Optional[pulumi.Input[str]] = None,
                  s3_prefix_type: Optional[pulumi.Input['AccessGrantS3PrefixType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessGrantTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessGrant resource.
         :param pulumi.Input[str] access_grants_location_id: The custom S3 location to be accessed by the grantee
@@ -119,11 +121,11 @@ class AccessGrantArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessGrantTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessGrantTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -138,7 +140,7 @@ class AccessGrant(pulumi.CustomResource):
                  grantee: Optional[pulumi.Input[pulumi.InputType['AccessGrantGranteeArgs']]] = None,
                  permission: Optional[pulumi.Input['AccessGrantPermission']] = None,
                  s3_prefix_type: Optional[pulumi.Input['AccessGrantS3PrefixType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessGrantTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
@@ -182,7 +184,7 @@ class AccessGrant(pulumi.CustomResource):
                  grantee: Optional[pulumi.Input[pulumi.InputType['AccessGrantGranteeArgs']]] = None,
                  permission: Optional[pulumi.Input['AccessGrantPermission']] = None,
                  s3_prefix_type: Optional[pulumi.Input['AccessGrantS3PrefixType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessGrantTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -318,6 +320,6 @@ class AccessGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AccessGrantTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         return pulumi.get(self, "tags")
 

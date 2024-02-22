@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,11 +24,11 @@ class SafetyRuleArgs:
                  gating_rule: Optional[pulumi.Input['SafetyRuleGatingRuleArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
         :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
-        :param pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A collection of tags associated with a resource
         """
         if assertion_rule is not None:
             pulumi.set(__self__, "assertion_rule", assertion_rule)
@@ -91,14 +93,14 @@ class SafetyRuleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -112,7 +114,7 @@ class SafetyRule(pulumi.CustomResource):
                  gating_rule: Optional[pulumi.Input[pulumi.InputType['SafetyRuleGatingRuleArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_config: Optional[pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SafetyRuleTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
@@ -120,7 +122,7 @@ class SafetyRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SafetyRuleTagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -151,7 +153,7 @@ class SafetyRule(pulumi.CustomResource):
                  gating_rule: Optional[pulumi.Input[pulumi.InputType['SafetyRuleGatingRuleArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_config: Optional[pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SafetyRuleTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -249,7 +251,7 @@ class SafetyRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SafetyRuleTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         A collection of tags associated with a resource
         """

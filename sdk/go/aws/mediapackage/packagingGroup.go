@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type PackagingGroup struct {
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs PackagingGroupLogConfigurationPtrOutput `pulumi:"egressAccessLogs"`
 	// A collection of tags associated with a resource
-	Tags PackagingGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewPackagingGroup registers a new resource with the given unique name, arguments, and options.
@@ -76,7 +77,7 @@ type packagingGroupArgs struct {
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs *PackagingGroupLogConfiguration `pulumi:"egressAccessLogs"`
 	// A collection of tags associated with a resource
-	Tags []PackagingGroupTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PackagingGroup resource.
@@ -86,7 +87,7 @@ type PackagingGroupArgs struct {
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs PackagingGroupLogConfigurationPtrInput
 	// A collection of tags associated with a resource
-	Tags PackagingGroupTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (PackagingGroupArgs) ElementType() reflect.Type {
@@ -147,8 +148,8 @@ func (o PackagingGroupOutput) EgressAccessLogs() PackagingGroupLogConfigurationP
 }
 
 // A collection of tags associated with a resource
-func (o PackagingGroupOutput) Tags() PackagingGroupTagArrayOutput {
-	return o.ApplyT(func(v *PackagingGroup) PackagingGroupTagArrayOutput { return v.Tags }).(PackagingGroupTagArrayOutput)
+func (o PackagingGroupOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *PackagingGroup) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,14 +19,14 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	ApplicationId          pulumi.StringOutput       `pulumi:"applicationId"`
-	ConfigurationProfileId pulumi.StringOutput       `pulumi:"configurationProfileId"`
-	ConfigurationVersion   pulumi.StringOutput       `pulumi:"configurationVersion"`
-	DeploymentStrategyId   pulumi.StringOutput       `pulumi:"deploymentStrategyId"`
-	Description            pulumi.StringPtrOutput    `pulumi:"description"`
-	EnvironmentId          pulumi.StringOutput       `pulumi:"environmentId"`
-	KmsKeyIdentifier       pulumi.StringPtrOutput    `pulumi:"kmsKeyIdentifier"`
-	Tags                   DeploymentTagsArrayOutput `pulumi:"tags"`
+	ApplicationId          pulumi.StringOutput          `pulumi:"applicationId"`
+	ConfigurationProfileId pulumi.StringOutput          `pulumi:"configurationProfileId"`
+	ConfigurationVersion   pulumi.StringOutput          `pulumi:"configurationVersion"`
+	DeploymentStrategyId   pulumi.StringOutput          `pulumi:"deploymentStrategyId"`
+	Description            pulumi.StringPtrOutput       `pulumi:"description"`
+	EnvironmentId          pulumi.StringOutput          `pulumi:"environmentId"`
+	KmsKeyIdentifier       pulumi.StringPtrOutput       `pulumi:"kmsKeyIdentifier"`
+	Tags                   aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -94,14 +95,14 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	ApplicationId          string           `pulumi:"applicationId"`
-	ConfigurationProfileId string           `pulumi:"configurationProfileId"`
-	ConfigurationVersion   string           `pulumi:"configurationVersion"`
-	DeploymentStrategyId   string           `pulumi:"deploymentStrategyId"`
-	Description            *string          `pulumi:"description"`
-	EnvironmentId          string           `pulumi:"environmentId"`
-	KmsKeyIdentifier       *string          `pulumi:"kmsKeyIdentifier"`
-	Tags                   []DeploymentTags `pulumi:"tags"`
+	ApplicationId          string              `pulumi:"applicationId"`
+	ConfigurationProfileId string              `pulumi:"configurationProfileId"`
+	ConfigurationVersion   string              `pulumi:"configurationVersion"`
+	DeploymentStrategyId   string              `pulumi:"deploymentStrategyId"`
+	Description            *string             `pulumi:"description"`
+	EnvironmentId          string              `pulumi:"environmentId"`
+	KmsKeyIdentifier       *string             `pulumi:"kmsKeyIdentifier"`
+	Tags                   []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Deployment resource.
@@ -113,7 +114,7 @@ type DeploymentArgs struct {
 	Description            pulumi.StringPtrInput
 	EnvironmentId          pulumi.StringInput
 	KmsKeyIdentifier       pulumi.StringPtrInput
-	Tags                   DeploymentTagsArrayInput
+	Tags                   aws.CreateOnlyTagArrayInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {
@@ -181,8 +182,8 @@ func (o DeploymentOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o DeploymentOutput) Tags() DeploymentTagsArrayOutput {
-	return o.ApplyT(func(v *Deployment) DeploymentTagsArrayOutput { return v.Tags }).(DeploymentTagsArrayOutput)
+func (o DeploymentOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Deployment) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

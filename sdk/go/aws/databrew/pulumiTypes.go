@@ -2389,103 +2389,6 @@ type DatasetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// DatasetTagInput is an input type that accepts DatasetTagArgs and DatasetTagOutput values.
-// You can construct a concrete instance of `DatasetTagInput` via:
-//
-//	DatasetTagArgs{...}
-type DatasetTagInput interface {
-	pulumi.Input
-
-	ToDatasetTagOutput() DatasetTagOutput
-	ToDatasetTagOutputWithContext(context.Context) DatasetTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type DatasetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DatasetTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetTag)(nil)).Elem()
-}
-
-func (i DatasetTagArgs) ToDatasetTagOutput() DatasetTagOutput {
-	return i.ToDatasetTagOutputWithContext(context.Background())
-}
-
-func (i DatasetTagArgs) ToDatasetTagOutputWithContext(ctx context.Context) DatasetTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetTagOutput)
-}
-
-// DatasetTagArrayInput is an input type that accepts DatasetTagArray and DatasetTagArrayOutput values.
-// You can construct a concrete instance of `DatasetTagArrayInput` via:
-//
-//	DatasetTagArray{ DatasetTagArgs{...} }
-type DatasetTagArrayInput interface {
-	pulumi.Input
-
-	ToDatasetTagArrayOutput() DatasetTagArrayOutput
-	ToDatasetTagArrayOutputWithContext(context.Context) DatasetTagArrayOutput
-}
-
-type DatasetTagArray []DatasetTagInput
-
-func (DatasetTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetTag)(nil)).Elem()
-}
-
-func (i DatasetTagArray) ToDatasetTagArrayOutput() DatasetTagArrayOutput {
-	return i.ToDatasetTagArrayOutputWithContext(context.Background())
-}
-
-func (i DatasetTagArray) ToDatasetTagArrayOutputWithContext(ctx context.Context) DatasetTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type DatasetTagOutput struct{ *pulumi.OutputState }
-
-func (DatasetTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetTag)(nil)).Elem()
-}
-
-func (o DatasetTagOutput) ToDatasetTagOutput() DatasetTagOutput {
-	return o
-}
-
-func (o DatasetTagOutput) ToDatasetTagOutputWithContext(ctx context.Context) DatasetTagOutput {
-	return o
-}
-
-func (o DatasetTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o DatasetTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DatasetTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DatasetTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetTag)(nil)).Elem()
-}
-
-func (o DatasetTagArrayOutput) ToDatasetTagArrayOutput() DatasetTagArrayOutput {
-	return o
-}
-
-func (o DatasetTagArrayOutput) ToDatasetTagArrayOutputWithContext(ctx context.Context) DatasetTagArrayOutput {
-	return o
-}
-
-func (o DatasetTagArrayOutput) Index(i pulumi.IntInput) DatasetTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetTag {
-		return vs[0].([]DatasetTag)[vs[1].(int)]
-	}).(DatasetTagOutput)
-}
-
 type JobAllowedStatistics struct {
 	Statistics []string `pulumi:"statistics"`
 }
@@ -5002,103 +4905,6 @@ type JobTag struct {
 	Value string `pulumi:"value"`
 }
 
-// JobTagInput is an input type that accepts JobTagArgs and JobTagOutput values.
-// You can construct a concrete instance of `JobTagInput` via:
-//
-//	JobTagArgs{...}
-type JobTagInput interface {
-	pulumi.Input
-
-	ToJobTagOutput() JobTagOutput
-	ToJobTagOutputWithContext(context.Context) JobTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type JobTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (JobTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobTag)(nil)).Elem()
-}
-
-func (i JobTagArgs) ToJobTagOutput() JobTagOutput {
-	return i.ToJobTagOutputWithContext(context.Background())
-}
-
-func (i JobTagArgs) ToJobTagOutputWithContext(ctx context.Context) JobTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTagOutput)
-}
-
-// JobTagArrayInput is an input type that accepts JobTagArray and JobTagArrayOutput values.
-// You can construct a concrete instance of `JobTagArrayInput` via:
-//
-//	JobTagArray{ JobTagArgs{...} }
-type JobTagArrayInput interface {
-	pulumi.Input
-
-	ToJobTagArrayOutput() JobTagArrayOutput
-	ToJobTagArrayOutputWithContext(context.Context) JobTagArrayOutput
-}
-
-type JobTagArray []JobTagInput
-
-func (JobTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobTag)(nil)).Elem()
-}
-
-func (i JobTagArray) ToJobTagArrayOutput() JobTagArrayOutput {
-	return i.ToJobTagArrayOutputWithContext(context.Background())
-}
-
-func (i JobTagArray) ToJobTagArrayOutputWithContext(ctx context.Context) JobTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type JobTagOutput struct{ *pulumi.OutputState }
-
-func (JobTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobTag)(nil)).Elem()
-}
-
-func (o JobTagOutput) ToJobTagOutput() JobTagOutput {
-	return o
-}
-
-func (o JobTagOutput) ToJobTagOutputWithContext(ctx context.Context) JobTagOutput {
-	return o
-}
-
-func (o JobTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v JobTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o JobTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v JobTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type JobTagArrayOutput struct{ *pulumi.OutputState }
-
-func (JobTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobTag)(nil)).Elem()
-}
-
-func (o JobTagArrayOutput) ToJobTagArrayOutput() JobTagArrayOutput {
-	return o
-}
-
-func (o JobTagArrayOutput) ToJobTagArrayOutputWithContext(ctx context.Context) JobTagArrayOutput {
-	return o
-}
-
-func (o JobTagArrayOutput) Index(i pulumi.IntInput) JobTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTag {
-		return vs[0].([]JobTag)[vs[1].(int)]
-	}).(JobTagOutput)
-}
-
 // Configuration to attach Rulesets to the job
 type JobValidationConfiguration struct {
 	// Arn of the Ruleset
@@ -5365,103 +5171,6 @@ func (o ProjectSamplePtrOutput) Type() ProjectSampleTypePtrOutput {
 type ProjectTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
-// You can construct a concrete instance of `ProjectTagInput` via:
-//
-//	ProjectTagArgs{...}
-type ProjectTagInput interface {
-	pulumi.Input
-
-	ToProjectTagOutput() ProjectTagOutput
-	ToProjectTagOutputWithContext(context.Context) ProjectTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ProjectTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ProjectTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
-}
-
-func (i ProjectTagArgs) ToProjectTagOutput() ProjectTagOutput {
-	return i.ToProjectTagOutputWithContext(context.Background())
-}
-
-func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagOutput)
-}
-
-// ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
-// You can construct a concrete instance of `ProjectTagArrayInput` via:
-//
-//	ProjectTagArray{ ProjectTagArgs{...} }
-type ProjectTagArrayInput interface {
-	pulumi.Input
-
-	ToProjectTagArrayOutput() ProjectTagArrayOutput
-	ToProjectTagArrayOutputWithContext(context.Context) ProjectTagArrayOutput
-}
-
-type ProjectTagArray []ProjectTagInput
-
-func (ProjectTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
-}
-
-func (i ProjectTagArray) ToProjectTagArrayOutput() ProjectTagArrayOutput {
-	return i.ToProjectTagArrayOutputWithContext(context.Background())
-}
-
-func (i ProjectTagArray) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ProjectTagOutput struct{ *pulumi.OutputState }
-
-func (ProjectTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
-}
-
-func (o ProjectTagOutput) ToProjectTagOutput() ProjectTagOutput {
-	return o
-}
-
-func (o ProjectTagOutput) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
-	return o
-}
-
-func (o ProjectTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ProjectTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ProjectTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ProjectTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
-}
-
-func (o ProjectTagArrayOutput) ToProjectTagArrayOutput() ProjectTagArrayOutput {
-	return o
-}
-
-func (o ProjectTagArrayOutput) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
-	return o
-}
-
-func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectTag {
-		return vs[0].([]ProjectTag)[vs[1].(int)]
-	}).(ProjectTagOutput)
 }
 
 type RecipeAction struct {
@@ -8101,103 +7810,6 @@ type RecipeTag struct {
 	Value string `pulumi:"value"`
 }
 
-// RecipeTagInput is an input type that accepts RecipeTagArgs and RecipeTagOutput values.
-// You can construct a concrete instance of `RecipeTagInput` via:
-//
-//	RecipeTagArgs{...}
-type RecipeTagInput interface {
-	pulumi.Input
-
-	ToRecipeTagOutput() RecipeTagOutput
-	ToRecipeTagOutputWithContext(context.Context) RecipeTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type RecipeTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (RecipeTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecipeTag)(nil)).Elem()
-}
-
-func (i RecipeTagArgs) ToRecipeTagOutput() RecipeTagOutput {
-	return i.ToRecipeTagOutputWithContext(context.Background())
-}
-
-func (i RecipeTagArgs) ToRecipeTagOutputWithContext(ctx context.Context) RecipeTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipeTagOutput)
-}
-
-// RecipeTagArrayInput is an input type that accepts RecipeTagArray and RecipeTagArrayOutput values.
-// You can construct a concrete instance of `RecipeTagArrayInput` via:
-//
-//	RecipeTagArray{ RecipeTagArgs{...} }
-type RecipeTagArrayInput interface {
-	pulumi.Input
-
-	ToRecipeTagArrayOutput() RecipeTagArrayOutput
-	ToRecipeTagArrayOutputWithContext(context.Context) RecipeTagArrayOutput
-}
-
-type RecipeTagArray []RecipeTagInput
-
-func (RecipeTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecipeTag)(nil)).Elem()
-}
-
-func (i RecipeTagArray) ToRecipeTagArrayOutput() RecipeTagArrayOutput {
-	return i.ToRecipeTagArrayOutputWithContext(context.Background())
-}
-
-func (i RecipeTagArray) ToRecipeTagArrayOutputWithContext(ctx context.Context) RecipeTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipeTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type RecipeTagOutput struct{ *pulumi.OutputState }
-
-func (RecipeTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecipeTag)(nil)).Elem()
-}
-
-func (o RecipeTagOutput) ToRecipeTagOutput() RecipeTagOutput {
-	return o
-}
-
-func (o RecipeTagOutput) ToRecipeTagOutputWithContext(ctx context.Context) RecipeTagOutput {
-	return o
-}
-
-func (o RecipeTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v RecipeTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o RecipeTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RecipeTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type RecipeTagArrayOutput struct{ *pulumi.OutputState }
-
-func (RecipeTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecipeTag)(nil)).Elem()
-}
-
-func (o RecipeTagArrayOutput) ToRecipeTagArrayOutput() RecipeTagArrayOutput {
-	return o
-}
-
-func (o RecipeTagArrayOutput) ToRecipeTagArrayOutputWithContext(ctx context.Context) RecipeTagArrayOutput {
-	return o
-}
-
-func (o RecipeTagArrayOutput) Index(i pulumi.IntInput) RecipeTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecipeTag {
-		return vs[0].([]RecipeTag)[vs[1].(int)]
-	}).(RecipeTagOutput)
-}
-
 // Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
 type RulesetColumnSelector struct {
 	// The name of a column from a dataset
@@ -8721,103 +8333,6 @@ type ScheduleTag struct {
 	Value string `pulumi:"value"`
 }
 
-// ScheduleTagInput is an input type that accepts ScheduleTagArgs and ScheduleTagOutput values.
-// You can construct a concrete instance of `ScheduleTagInput` via:
-//
-//	ScheduleTagArgs{...}
-type ScheduleTagInput interface {
-	pulumi.Input
-
-	ToScheduleTagOutput() ScheduleTagOutput
-	ToScheduleTagOutputWithContext(context.Context) ScheduleTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ScheduleTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ScheduleTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleTag)(nil)).Elem()
-}
-
-func (i ScheduleTagArgs) ToScheduleTagOutput() ScheduleTagOutput {
-	return i.ToScheduleTagOutputWithContext(context.Background())
-}
-
-func (i ScheduleTagArgs) ToScheduleTagOutputWithContext(ctx context.Context) ScheduleTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTagOutput)
-}
-
-// ScheduleTagArrayInput is an input type that accepts ScheduleTagArray and ScheduleTagArrayOutput values.
-// You can construct a concrete instance of `ScheduleTagArrayInput` via:
-//
-//	ScheduleTagArray{ ScheduleTagArgs{...} }
-type ScheduleTagArrayInput interface {
-	pulumi.Input
-
-	ToScheduleTagArrayOutput() ScheduleTagArrayOutput
-	ToScheduleTagArrayOutputWithContext(context.Context) ScheduleTagArrayOutput
-}
-
-type ScheduleTagArray []ScheduleTagInput
-
-func (ScheduleTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleTag)(nil)).Elem()
-}
-
-func (i ScheduleTagArray) ToScheduleTagArrayOutput() ScheduleTagArrayOutput {
-	return i.ToScheduleTagArrayOutputWithContext(context.Background())
-}
-
-func (i ScheduleTagArray) ToScheduleTagArrayOutputWithContext(ctx context.Context) ScheduleTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type ScheduleTagOutput struct{ *pulumi.OutputState }
-
-func (ScheduleTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleTag)(nil)).Elem()
-}
-
-func (o ScheduleTagOutput) ToScheduleTagOutput() ScheduleTagOutput {
-	return o
-}
-
-func (o ScheduleTagOutput) ToScheduleTagOutputWithContext(ctx context.Context) ScheduleTagOutput {
-	return o
-}
-
-func (o ScheduleTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o ScheduleTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ScheduleTagArrayOutput struct{ *pulumi.OutputState }
-
-func (ScheduleTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleTag)(nil)).Elem()
-}
-
-func (o ScheduleTagArrayOutput) ToScheduleTagArrayOutput() ScheduleTagArrayOutput {
-	return o
-}
-
-func (o ScheduleTagArrayOutput) ToScheduleTagArrayOutputWithContext(ctx context.Context) ScheduleTagArrayOutput {
-	return o
-}
-
-func (o ScheduleTagArrayOutput) Index(i pulumi.IntInput) ScheduleTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleTag {
-		return vs[0].([]ScheduleTag)[vs[1].(int)]
-	}).(ScheduleTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetCsvOptionsInput)(nil)).Elem(), DatasetCsvOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetCsvOptionsPtrInput)(nil)).Elem(), DatasetCsvOptionsArgs{})
@@ -8849,8 +8364,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPathParameterArrayInput)(nil)).Elem(), DatasetPathParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetS3LocationInput)(nil)).Elem(), DatasetS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetS3LocationPtrInput)(nil)).Elem(), DatasetS3LocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTagInput)(nil)).Elem(), DatasetTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTagArrayInput)(nil)).Elem(), DatasetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobAllowedStatisticsInput)(nil)).Elem(), JobAllowedStatisticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobAllowedStatisticsPtrInput)(nil)).Elem(), JobAllowedStatisticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobColumnSelectorInput)(nil)).Elem(), JobColumnSelectorArgs{})
@@ -8888,14 +8401,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobStatisticOverrideArrayInput)(nil)).Elem(), JobStatisticOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobStatisticsConfigurationInput)(nil)).Elem(), JobStatisticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobStatisticsConfigurationPtrInput)(nil)).Elem(), JobStatisticsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobTagInput)(nil)).Elem(), JobTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobTagArrayInput)(nil)).Elem(), JobTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobValidationConfigurationInput)(nil)).Elem(), JobValidationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobValidationConfigurationArrayInput)(nil)).Elem(), JobValidationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSampleInput)(nil)).Elem(), ProjectSampleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSamplePtrInput)(nil)).Elem(), ProjectSampleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagInput)(nil)).Elem(), ProjectTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagArrayInput)(nil)).Elem(), ProjectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeActionInput)(nil)).Elem(), RecipeActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeConditionExpressionInput)(nil)).Elem(), RecipeConditionExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeConditionExpressionArrayInput)(nil)).Elem(), RecipeConditionExpressionArray{})
@@ -8913,8 +8422,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeSecondaryInputArrayInput)(nil)).Elem(), RecipeSecondaryInputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeStepInput)(nil)).Elem(), RecipeStepArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeStepArrayInput)(nil)).Elem(), RecipeStepArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecipeTagInput)(nil)).Elem(), RecipeTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecipeTagArrayInput)(nil)).Elem(), RecipeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetColumnSelectorInput)(nil)).Elem(), RulesetColumnSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetColumnSelectorArrayInput)(nil)).Elem(), RulesetColumnSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleInput)(nil)).Elem(), RulesetRuleArgs{})
@@ -8923,8 +8430,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetSubstitutionValueArrayInput)(nil)).Elem(), RulesetSubstitutionValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetThresholdInput)(nil)).Elem(), RulesetThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetThresholdPtrInput)(nil)).Elem(), RulesetThresholdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleTagInput)(nil)).Elem(), ScheduleTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleTagArrayInput)(nil)).Elem(), ScheduleTagArray{})
 	pulumi.RegisterOutputType(DatasetCsvOptionsOutput{})
 	pulumi.RegisterOutputType(DatasetCsvOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DatasetDataCatalogInputDefinitionOutput{})
@@ -8956,8 +8461,6 @@ func init() {
 	pulumi.RegisterOutputType(DatasetPathParameterArrayOutput{})
 	pulumi.RegisterOutputType(DatasetS3LocationOutput{})
 	pulumi.RegisterOutputType(DatasetS3LocationPtrOutput{})
-	pulumi.RegisterOutputType(DatasetTagOutput{})
-	pulumi.RegisterOutputType(DatasetTagArrayOutput{})
 	pulumi.RegisterOutputType(JobAllowedStatisticsOutput{})
 	pulumi.RegisterOutputType(JobAllowedStatisticsPtrOutput{})
 	pulumi.RegisterOutputType(JobColumnSelectorOutput{})
@@ -8995,14 +8498,10 @@ func init() {
 	pulumi.RegisterOutputType(JobStatisticOverrideArrayOutput{})
 	pulumi.RegisterOutputType(JobStatisticsConfigurationOutput{})
 	pulumi.RegisterOutputType(JobStatisticsConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(JobTagOutput{})
-	pulumi.RegisterOutputType(JobTagArrayOutput{})
 	pulumi.RegisterOutputType(JobValidationConfigurationOutput{})
 	pulumi.RegisterOutputType(JobValidationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSampleOutput{})
 	pulumi.RegisterOutputType(ProjectSamplePtrOutput{})
-	pulumi.RegisterOutputType(ProjectTagOutput{})
-	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
 	pulumi.RegisterOutputType(RecipeActionOutput{})
 	pulumi.RegisterOutputType(RecipeConditionExpressionOutput{})
 	pulumi.RegisterOutputType(RecipeConditionExpressionArrayOutput{})
@@ -9020,8 +8519,6 @@ func init() {
 	pulumi.RegisterOutputType(RecipeSecondaryInputArrayOutput{})
 	pulumi.RegisterOutputType(RecipeStepOutput{})
 	pulumi.RegisterOutputType(RecipeStepArrayOutput{})
-	pulumi.RegisterOutputType(RecipeTagOutput{})
-	pulumi.RegisterOutputType(RecipeTagArrayOutput{})
 	pulumi.RegisterOutputType(RulesetColumnSelectorOutput{})
 	pulumi.RegisterOutputType(RulesetColumnSelectorArrayOutput{})
 	pulumi.RegisterOutputType(RulesetRuleOutput{})
@@ -9030,6 +8527,4 @@ func init() {
 	pulumi.RegisterOutputType(RulesetSubstitutionValueArrayOutput{})
 	pulumi.RegisterOutputType(RulesetThresholdOutput{})
 	pulumi.RegisterOutputType(RulesetThresholdPtrOutput{})
-	pulumi.RegisterOutputType(ScheduleTagOutput{})
-	pulumi.RegisterOutputType(ScheduleTagArrayOutput{})
 }

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         public Output<string> ConnectionString { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ConnectionAliasTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,10 +84,10 @@ namespace Pulumi.AwsNative.WorkSpaces
         public Input<string> ConnectionString { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.ConnectionAliasTagArgs>? _tags;
-        public InputList<Inputs.ConnectionAliasTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ConnectionAliasTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

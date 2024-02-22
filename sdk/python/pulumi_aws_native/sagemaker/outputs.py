@@ -18,9 +18,7 @@ __all__ = [
     'AppImageConfigJupyterLabAppImageConfig',
     'AppImageConfigKernelGatewayImageConfig',
     'AppImageConfigKernelSpec',
-    'AppImageConfigTag',
     'AppResourceSpec',
-    'AppTag',
     'CodeRepositoryGitConfig',
     'DataQualityJobDefinitionBatchTransformInput',
     'DataQualityJobDefinitionClusterConfig',
@@ -39,7 +37,6 @@ __all__ = [
     'DataQualityJobDefinitionS3Output',
     'DataQualityJobDefinitionStatisticsResource',
     'DataQualityJobDefinitionStoppingCondition',
-    'DataQualityJobDefinitionTag',
     'DataQualityJobDefinitionVpcConfig',
     'Device',
     'DeviceFleetEdgeOutputConfig',
@@ -62,7 +59,6 @@ __all__ = [
     'DomainResourceSpec',
     'DomainSettings',
     'DomainSharingSettings',
-    'DomainTag',
     'DomainUserSettings',
     'EndpointAlarm',
     'EndpointAutoRollbackConfig',
@@ -96,7 +92,6 @@ __all__ = [
     'FeatureGroupFeatureDefinition',
     'FeatureGroupOnlineStoreSecurityConfig',
     'FeatureGroupS3StorageConfig',
-    'FeatureGroupTag',
     'FeatureGroupThroughputConfig',
     'InferenceComponentComputeResourceRequirements',
     'InferenceComponentContainerSpecification',
@@ -132,7 +127,6 @@ __all__ = [
     'ModelBiasJobDefinitionNetworkConfig',
     'ModelBiasJobDefinitionS3Output',
     'ModelBiasJobDefinitionStoppingCondition',
-    'ModelBiasJobDefinitionTag',
     'ModelBiasJobDefinitionVpcConfig',
     'ModelCardAdditionalInformation',
     'ModelCardBarChartMetric',
@@ -178,7 +172,6 @@ __all__ = [
     'ModelExplainabilityJobDefinitionNetworkConfig',
     'ModelExplainabilityJobDefinitionS3Output',
     'ModelExplainabilityJobDefinitionStoppingCondition',
-    'ModelExplainabilityJobDefinitionTag',
     'ModelExplainabilityJobDefinitionVpcConfig',
     'ModelImageConfig',
     'ModelInferenceExecutionConfig',
@@ -231,7 +224,6 @@ __all__ = [
     'ModelQualityJobDefinitionNetworkConfig',
     'ModelQualityJobDefinitionS3Output',
     'ModelQualityJobDefinitionStoppingCondition',
-    'ModelQualityJobDefinitionTag',
     'ModelQualityJobDefinitionVpcConfig',
     'ModelRepositoryAuthConfig',
     'ModelS3DataSource',
@@ -267,7 +259,6 @@ __all__ = [
     'PipelineDefinition1Properties',
     'PipelineS3Location',
     'ProjectProvisioningParameter',
-    'ProjectTag',
     'ServiceCatalogProvisionedProductDetailsProperties',
     'ServiceCatalogProvisioningDetailsProperties',
     'SpaceCodeEditorAppSettings',
@@ -298,7 +289,6 @@ __all__ = [
     'UserProfileRStudioServerProAppSettings',
     'UserProfileResourceSpec',
     'UserProfileSharingSettings',
-    'UserProfileTag',
     'UserProfileUserSettings',
     'WorkteamCognitoMemberDefinition',
     'WorkteamMemberDefinition',
@@ -602,25 +592,6 @@ class AppImageConfigKernelSpec(dict):
 
 
 @pulumi.output_type
-class AppImageConfigTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class AppResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -682,25 +653,6 @@ class AppResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
-
-
-@pulumi.output_type
-class AppTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1682,39 +1634,6 @@ class DataQualityJobDefinitionStoppingCondition(dict):
         The maximum runtime allowed in seconds.
         """
         return pulumi.get(self, "max_runtime_in_seconds")
-
-
-@pulumi.output_type
-class DataQualityJobDefinitionTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2904,25 +2823,6 @@ class DomainSharingSettings(dict):
         When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
         """
         return pulumi.get(self, "s3_output_path")
-
-
-@pulumi.output_type
-class DomainTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -4563,31 +4463,6 @@ class FeatureGroupS3StorageConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
-
-
-@pulumi.output_type
-class FeatureGroupTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -6531,39 +6406,6 @@ class ModelBiasJobDefinitionStoppingCondition(dict):
         The maximum runtime allowed in seconds.
         """
         return pulumi.get(self, "max_runtime_in_seconds")
-
-
-@pulumi.output_type
-class ModelBiasJobDefinitionTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -9379,39 +9221,6 @@ class ModelExplainabilityJobDefinitionStoppingCondition(dict):
         The maximum runtime allowed in seconds.
         """
         return pulumi.get(self, "max_runtime_in_seconds")
-
-
-@pulumi.output_type
-class ModelExplainabilityJobDefinitionTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -12310,39 +12119,6 @@ class ModelQualityJobDefinitionStoppingCondition(dict):
 
 
 @pulumi.output_type
-class ModelQualityJobDefinitionTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ModelQualityJobDefinitionVpcConfig(dict):
     """
     Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -14209,39 +13985,6 @@ class ProjectProvisioningParameter(dict):
 
 
 @pulumi.output_type
-class ProjectTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ServiceCatalogProvisionedProductDetailsProperties(dict):
     """
     Provisioned ServiceCatalog  Details
@@ -15686,25 +15429,6 @@ class UserProfileSharingSettings(dict):
         When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
         """
         return pulumi.get(self, "s3_output_path")
-
-
-@pulumi.output_type
-class UserProfileTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

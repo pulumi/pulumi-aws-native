@@ -43,7 +43,7 @@ export class Hypervisor extends pulumi.CustomResource {
     public readonly logGroupArn!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly password!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.backupgateway.HypervisorTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     public readonly username!: pulumi.Output<string | undefined>;
 
     /**
@@ -91,6 +91,6 @@ export interface HypervisorArgs {
     logGroupArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.backupgateway.HypervisorTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     username?: pulumi.Input<string>;
 }

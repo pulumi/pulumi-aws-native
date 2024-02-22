@@ -74,7 +74,7 @@ export class FeatureGroup extends pulumi.CustomResource {
     /**
      * An array of key-value pair to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.FeatureGroupTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     public readonly throughputConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupThroughputConfig | undefined>;
 
     /**
@@ -163,6 +163,6 @@ export interface FeatureGroupArgs {
     /**
      * An array of key-value pair to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.FeatureGroupTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     throughputConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupThroughputConfigArgs>;
 }

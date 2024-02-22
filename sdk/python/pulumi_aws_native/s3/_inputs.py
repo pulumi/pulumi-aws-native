@@ -12,10 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AccessGrantGranteeArgs',
-    'AccessGrantTagArgs',
-    'AccessGrantsInstanceTagArgs',
     'AccessGrantsLocationConfigurationArgs',
-    'AccessGrantsLocationTagArgs',
     'AccessPointPublicAccessBlockConfigurationArgs',
     'AccessPointVpcConfigurationArgs',
     'BucketAbortIncompleteMultipartUploadArgs',
@@ -141,60 +138,6 @@ class AccessGrantGranteeArgs:
 
 
 @pulumi.input_type
-class AccessGrantTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class AccessGrantsInstanceTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class AccessGrantsLocationConfigurationArgs:
     def __init__(__self__, *,
                  s3_sub_prefix: pulumi.Input[str]):
@@ -214,33 +157,6 @@ class AccessGrantsLocationConfigurationArgs:
     @s3_sub_prefix.setter
     def s3_sub_prefix(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_sub_prefix", value)
-
-
-@pulumi.input_type
-class AccessGrantsLocationTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

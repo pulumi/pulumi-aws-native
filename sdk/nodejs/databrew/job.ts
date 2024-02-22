@@ -89,7 +89,7 @@ export class Job extends pulumi.CustomResource {
      * Role arn
      */
     public readonly roleArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.databrew.JobTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * Timeout
      */
@@ -225,7 +225,7 @@ export interface JobArgs {
      * Role arn
      */
     roleArn: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.databrew.JobTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * Timeout
      */

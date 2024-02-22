@@ -41,7 +41,7 @@ export class ConnectionAlias extends pulumi.CustomResource {
     public /*out*/ readonly associations!: pulumi.Output<outputs.workspaces.ConnectionAliasAssociation[]>;
     public /*out*/ readonly connectionAliasState!: pulumi.Output<enums.workspaces.ConnectionAliasState>;
     public readonly connectionString!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.workspaces.ConnectionAliasTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ConnectionAlias resource with the given unique name, arguments, and options.
@@ -81,5 +81,5 @@ export class ConnectionAlias extends pulumi.CustomResource {
  */
 export interface ConnectionAliasArgs {
     connectionString: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.workspaces.ConnectionAliasTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

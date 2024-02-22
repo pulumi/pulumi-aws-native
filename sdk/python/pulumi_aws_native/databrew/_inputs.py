@@ -27,7 +27,6 @@ __all__ = [
     'DatasetPathOptionsArgs',
     'DatasetPathParameterArgs',
     'DatasetS3LocationArgs',
-    'DatasetTagArgs',
     'JobAllowedStatisticsArgs',
     'JobColumnSelectorArgs',
     'JobColumnStatisticsConfigurationArgs',
@@ -47,10 +46,8 @@ __all__ = [
     'JobSampleArgs',
     'JobStatisticOverrideArgs',
     'JobStatisticsConfigurationArgs',
-    'JobTagArgs',
     'JobValidationConfigurationArgs',
     'ProjectSampleArgs',
-    'ProjectTagArgs',
     'RecipeActionArgs',
     'RecipeConditionExpressionArgs',
     'RecipeDataCatalogInputDefinitionArgs',
@@ -60,12 +57,10 @@ __all__ = [
     'RecipeS3LocationArgs',
     'RecipeSecondaryInputArgs',
     'RecipeStepArgs',
-    'RecipeTagArgs',
     'RulesetColumnSelectorArgs',
     'RulesetRuleArgs',
     'RulesetSubstitutionValueArgs',
     'RulesetThresholdArgs',
-    'ScheduleTagArgs',
 ]
 
 @pulumi.input_type
@@ -771,36 +766,6 @@ class DatasetS3LocationArgs:
 
 
 @pulumi.input_type
-class DatasetTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class JobAllowedStatisticsArgs:
     def __init__(__self__, *,
                  statistics: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -1469,36 +1434,6 @@ class JobStatisticsConfigurationArgs:
 
 
 @pulumi.input_type
-class JobTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class JobValidationConfigurationArgs:
     def __init__(__self__, *,
                  ruleset_arn: pulumi.Input[str],
@@ -1569,36 +1504,6 @@ class ProjectSampleArgs:
     @size.setter
     def size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size", value)
-
-
-@pulumi.input_type
-class ProjectTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -3115,36 +3020,6 @@ class RecipeStepArgs:
 
 
 @pulumi.input_type
-class RecipeTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class RulesetColumnSelectorArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
@@ -3342,35 +3217,5 @@ class RulesetThresholdArgs:
     @unit.setter
     def unit(self, value: Optional[pulumi.Input['RulesetThresholdUnit']]):
         pulumi.set(self, "unit", value)
-
-
-@pulumi.input_type
-class ScheduleTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 

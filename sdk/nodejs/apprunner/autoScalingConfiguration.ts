@@ -68,7 +68,7 @@ export class AutoScalingConfiguration extends pulumi.CustomResource {
     /**
      * A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.apprunner.AutoScalingConfigurationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a AutoScalingConfiguration resource with the given unique name, arguments, and options.
@@ -129,5 +129,5 @@ export interface AutoScalingConfigurationArgs {
     /**
      * A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.apprunner.AutoScalingConfigurationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

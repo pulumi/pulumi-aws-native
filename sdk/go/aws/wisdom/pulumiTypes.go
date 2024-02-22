@@ -67,101 +67,6 @@ type AssistantAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// AssistantAssociationTagInput is an input type that accepts AssistantAssociationTagArgs and AssistantAssociationTagOutput values.
-// You can construct a concrete instance of `AssistantAssociationTagInput` via:
-//
-//	AssistantAssociationTagArgs{...}
-type AssistantAssociationTagInput interface {
-	pulumi.Input
-
-	ToAssistantAssociationTagOutput() AssistantAssociationTagOutput
-	ToAssistantAssociationTagOutputWithContext(context.Context) AssistantAssociationTagOutput
-}
-
-type AssistantAssociationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AssistantAssociationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssistantAssociationTag)(nil)).Elem()
-}
-
-func (i AssistantAssociationTagArgs) ToAssistantAssociationTagOutput() AssistantAssociationTagOutput {
-	return i.ToAssistantAssociationTagOutputWithContext(context.Background())
-}
-
-func (i AssistantAssociationTagArgs) ToAssistantAssociationTagOutputWithContext(ctx context.Context) AssistantAssociationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationTagOutput)
-}
-
-// AssistantAssociationTagArrayInput is an input type that accepts AssistantAssociationTagArray and AssistantAssociationTagArrayOutput values.
-// You can construct a concrete instance of `AssistantAssociationTagArrayInput` via:
-//
-//	AssistantAssociationTagArray{ AssistantAssociationTagArgs{...} }
-type AssistantAssociationTagArrayInput interface {
-	pulumi.Input
-
-	ToAssistantAssociationTagArrayOutput() AssistantAssociationTagArrayOutput
-	ToAssistantAssociationTagArrayOutputWithContext(context.Context) AssistantAssociationTagArrayOutput
-}
-
-type AssistantAssociationTagArray []AssistantAssociationTagInput
-
-func (AssistantAssociationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssistantAssociationTag)(nil)).Elem()
-}
-
-func (i AssistantAssociationTagArray) ToAssistantAssociationTagArrayOutput() AssistantAssociationTagArrayOutput {
-	return i.ToAssistantAssociationTagArrayOutputWithContext(context.Background())
-}
-
-func (i AssistantAssociationTagArray) ToAssistantAssociationTagArrayOutputWithContext(ctx context.Context) AssistantAssociationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationTagArrayOutput)
-}
-
-type AssistantAssociationTagOutput struct{ *pulumi.OutputState }
-
-func (AssistantAssociationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssistantAssociationTag)(nil)).Elem()
-}
-
-func (o AssistantAssociationTagOutput) ToAssistantAssociationTagOutput() AssistantAssociationTagOutput {
-	return o
-}
-
-func (o AssistantAssociationTagOutput) ToAssistantAssociationTagOutputWithContext(ctx context.Context) AssistantAssociationTagOutput {
-	return o
-}
-
-func (o AssistantAssociationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AssistantAssociationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AssistantAssociationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AssistantAssociationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AssistantAssociationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AssistantAssociationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssistantAssociationTag)(nil)).Elem()
-}
-
-func (o AssistantAssociationTagArrayOutput) ToAssistantAssociationTagArrayOutput() AssistantAssociationTagArrayOutput {
-	return o
-}
-
-func (o AssistantAssociationTagArrayOutput) ToAssistantAssociationTagArrayOutputWithContext(ctx context.Context) AssistantAssociationTagArrayOutput {
-	return o
-}
-
-func (o AssistantAssociationTagArrayOutput) Index(i pulumi.IntInput) AssistantAssociationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssistantAssociationTag {
-		return vs[0].([]AssistantAssociationTag)[vs[1].(int)]
-	}).(AssistantAssociationTagOutput)
-}
-
 type AssistantServerSideEncryptionConfiguration struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
@@ -298,101 +203,6 @@ func (o AssistantServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.S
 type AssistantTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
-}
-
-// AssistantTagInput is an input type that accepts AssistantTagArgs and AssistantTagOutput values.
-// You can construct a concrete instance of `AssistantTagInput` via:
-//
-//	AssistantTagArgs{...}
-type AssistantTagInput interface {
-	pulumi.Input
-
-	ToAssistantTagOutput() AssistantTagOutput
-	ToAssistantTagOutputWithContext(context.Context) AssistantTagOutput
-}
-
-type AssistantTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (AssistantTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssistantTag)(nil)).Elem()
-}
-
-func (i AssistantTagArgs) ToAssistantTagOutput() AssistantTagOutput {
-	return i.ToAssistantTagOutputWithContext(context.Background())
-}
-
-func (i AssistantTagArgs) ToAssistantTagOutputWithContext(ctx context.Context) AssistantTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssistantTagOutput)
-}
-
-// AssistantTagArrayInput is an input type that accepts AssistantTagArray and AssistantTagArrayOutput values.
-// You can construct a concrete instance of `AssistantTagArrayInput` via:
-//
-//	AssistantTagArray{ AssistantTagArgs{...} }
-type AssistantTagArrayInput interface {
-	pulumi.Input
-
-	ToAssistantTagArrayOutput() AssistantTagArrayOutput
-	ToAssistantTagArrayOutputWithContext(context.Context) AssistantTagArrayOutput
-}
-
-type AssistantTagArray []AssistantTagInput
-
-func (AssistantTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssistantTag)(nil)).Elem()
-}
-
-func (i AssistantTagArray) ToAssistantTagArrayOutput() AssistantTagArrayOutput {
-	return i.ToAssistantTagArrayOutputWithContext(context.Background())
-}
-
-func (i AssistantTagArray) ToAssistantTagArrayOutputWithContext(ctx context.Context) AssistantTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssistantTagArrayOutput)
-}
-
-type AssistantTagOutput struct{ *pulumi.OutputState }
-
-func (AssistantTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssistantTag)(nil)).Elem()
-}
-
-func (o AssistantTagOutput) ToAssistantTagOutput() AssistantTagOutput {
-	return o
-}
-
-func (o AssistantTagOutput) ToAssistantTagOutputWithContext(ctx context.Context) AssistantTagOutput {
-	return o
-}
-
-func (o AssistantTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AssistantTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o AssistantTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AssistantTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type AssistantTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AssistantTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssistantTag)(nil)).Elem()
-}
-
-func (o AssistantTagArrayOutput) ToAssistantTagArrayOutput() AssistantTagArrayOutput {
-	return o
-}
-
-func (o AssistantTagArrayOutput) ToAssistantTagArrayOutputWithContext(ctx context.Context) AssistantTagArrayOutput {
-	return o
-}
-
-func (o AssistantTagArrayOutput) Index(i pulumi.IntInput) AssistantTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssistantTag {
-		return vs[0].([]AssistantTag)[vs[1].(int)]
-	}).(AssistantTagOutput)
 }
 
 type KnowledgeBaseAppIntegrationsConfiguration struct {
@@ -949,109 +759,10 @@ type KnowledgeBaseTag struct {
 	Value string `pulumi:"value"`
 }
 
-// KnowledgeBaseTagInput is an input type that accepts KnowledgeBaseTagArgs and KnowledgeBaseTagOutput values.
-// You can construct a concrete instance of `KnowledgeBaseTagInput` via:
-//
-//	KnowledgeBaseTagArgs{...}
-type KnowledgeBaseTagInput interface {
-	pulumi.Input
-
-	ToKnowledgeBaseTagOutput() KnowledgeBaseTagOutput
-	ToKnowledgeBaseTagOutputWithContext(context.Context) KnowledgeBaseTagOutput
-}
-
-type KnowledgeBaseTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (KnowledgeBaseTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KnowledgeBaseTag)(nil)).Elem()
-}
-
-func (i KnowledgeBaseTagArgs) ToKnowledgeBaseTagOutput() KnowledgeBaseTagOutput {
-	return i.ToKnowledgeBaseTagOutputWithContext(context.Background())
-}
-
-func (i KnowledgeBaseTagArgs) ToKnowledgeBaseTagOutputWithContext(ctx context.Context) KnowledgeBaseTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseTagOutput)
-}
-
-// KnowledgeBaseTagArrayInput is an input type that accepts KnowledgeBaseTagArray and KnowledgeBaseTagArrayOutput values.
-// You can construct a concrete instance of `KnowledgeBaseTagArrayInput` via:
-//
-//	KnowledgeBaseTagArray{ KnowledgeBaseTagArgs{...} }
-type KnowledgeBaseTagArrayInput interface {
-	pulumi.Input
-
-	ToKnowledgeBaseTagArrayOutput() KnowledgeBaseTagArrayOutput
-	ToKnowledgeBaseTagArrayOutputWithContext(context.Context) KnowledgeBaseTagArrayOutput
-}
-
-type KnowledgeBaseTagArray []KnowledgeBaseTagInput
-
-func (KnowledgeBaseTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KnowledgeBaseTag)(nil)).Elem()
-}
-
-func (i KnowledgeBaseTagArray) ToKnowledgeBaseTagArrayOutput() KnowledgeBaseTagArrayOutput {
-	return i.ToKnowledgeBaseTagArrayOutputWithContext(context.Background())
-}
-
-func (i KnowledgeBaseTagArray) ToKnowledgeBaseTagArrayOutputWithContext(ctx context.Context) KnowledgeBaseTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseTagArrayOutput)
-}
-
-type KnowledgeBaseTagOutput struct{ *pulumi.OutputState }
-
-func (KnowledgeBaseTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KnowledgeBaseTag)(nil)).Elem()
-}
-
-func (o KnowledgeBaseTagOutput) ToKnowledgeBaseTagOutput() KnowledgeBaseTagOutput {
-	return o
-}
-
-func (o KnowledgeBaseTagOutput) ToKnowledgeBaseTagOutputWithContext(ctx context.Context) KnowledgeBaseTagOutput {
-	return o
-}
-
-func (o KnowledgeBaseTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v KnowledgeBaseTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o KnowledgeBaseTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v KnowledgeBaseTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type KnowledgeBaseTagArrayOutput struct{ *pulumi.OutputState }
-
-func (KnowledgeBaseTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KnowledgeBaseTag)(nil)).Elem()
-}
-
-func (o KnowledgeBaseTagArrayOutput) ToKnowledgeBaseTagArrayOutput() KnowledgeBaseTagArrayOutput {
-	return o
-}
-
-func (o KnowledgeBaseTagArrayOutput) ToKnowledgeBaseTagArrayOutputWithContext(ctx context.Context) KnowledgeBaseTagArrayOutput {
-	return o
-}
-
-func (o KnowledgeBaseTagArrayOutput) Index(i pulumi.IntInput) KnowledgeBaseTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KnowledgeBaseTag {
-		return vs[0].([]KnowledgeBaseTag)[vs[1].(int)]
-	}).(KnowledgeBaseTagOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationDataInput)(nil)).Elem(), AssistantAssociationAssociationDataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationTagInput)(nil)).Elem(), AssistantAssociationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationTagArrayInput)(nil)).Elem(), AssistantAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssistantTagInput)(nil)).Elem(), AssistantTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssistantTagArrayInput)(nil)).Elem(), AssistantTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAppIntegrationsConfigurationInput)(nil)).Elem(), KnowledgeBaseAppIntegrationsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAppIntegrationsConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseAppIntegrationsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRenderingConfigurationInput)(nil)).Elem(), KnowledgeBaseRenderingConfigurationArgs{})
@@ -1060,15 +771,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfigurationInput)(nil)).Elem(), KnowledgeBaseSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseSourceConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTagInput)(nil)).Elem(), KnowledgeBaseTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTagArrayInput)(nil)).Elem(), KnowledgeBaseTagArray{})
 	pulumi.RegisterOutputType(AssistantAssociationAssociationDataOutput{})
-	pulumi.RegisterOutputType(AssistantAssociationTagOutput{})
-	pulumi.RegisterOutputType(AssistantAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(AssistantServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(AssistantServerSideEncryptionConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AssistantTagOutput{})
-	pulumi.RegisterOutputType(AssistantTagArrayOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseAppIntegrationsConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseAppIntegrationsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseRenderingConfigurationOutput{})
@@ -1077,6 +782,4 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseSourceConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(KnowledgeBaseTagOutput{})
-	pulumi.RegisterOutputType(KnowledgeBaseTagArrayOutput{})
 }

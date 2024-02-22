@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,7 +24,7 @@ type ExtensionAssociation struct {
 	ResourceArn            pulumi.StringOutput    `pulumi:"resourceArn"`
 	ResourceIdentifier     pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ExtensionAssociationTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewExtensionAssociation registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +79,7 @@ type extensionAssociationArgs struct {
 	Parameters             map[string]string `pulumi:"parameters"`
 	ResourceIdentifier     *string           `pulumi:"resourceIdentifier"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ExtensionAssociationTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ExtensionAssociation resource.
@@ -88,7 +89,7 @@ type ExtensionAssociationArgs struct {
 	Parameters             pulumi.StringMapInput
 	ResourceIdentifier     pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ExtensionAssociationTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ExtensionAssociationArgs) ElementType() reflect.Type {
@@ -157,8 +158,8 @@ func (o ExtensionAssociationOutput) ResourceIdentifier() pulumi.StringPtrOutput 
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ExtensionAssociationOutput) Tags() ExtensionAssociationTagArrayOutput {
-	return o.ApplyT(func(v *ExtensionAssociation) ExtensionAssociationTagArrayOutput { return v.Tags }).(ExtensionAssociationTagArrayOutput)
+func (o ExtensionAssociationOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *ExtensionAssociation) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

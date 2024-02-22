@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,8 +26,8 @@ type Project struct {
 	// Role arn
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Sample
-	Sample ProjectSamplePtrOutput `pulumi:"sample"`
-	Tags   ProjectTagArrayOutput  `pulumi:"tags"`
+	Sample ProjectSamplePtrOutput       `pulumi:"sample"`
+	Tags   aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -92,8 +93,8 @@ type projectArgs struct {
 	// Role arn
 	RoleArn string `pulumi:"roleArn"`
 	// Sample
-	Sample *ProjectSample `pulumi:"sample"`
-	Tags   []ProjectTag   `pulumi:"tags"`
+	Sample *ProjectSample      `pulumi:"sample"`
+	Tags   []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -108,7 +109,7 @@ type ProjectArgs struct {
 	RoleArn pulumi.StringInput
 	// Sample
 	Sample ProjectSamplePtrInput
-	Tags   ProjectTagArrayInput
+	Tags   aws.CreateOnlyTagArrayInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -173,8 +174,8 @@ func (o ProjectOutput) Sample() ProjectSamplePtrOutput {
 	return o.ApplyT(func(v *Project) ProjectSamplePtrOutput { return v.Sample }).(ProjectSamplePtrOutput)
 }
 
-func (o ProjectOutput) Tags() ProjectTagArrayOutput {
-	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+func (o ProjectOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Project) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

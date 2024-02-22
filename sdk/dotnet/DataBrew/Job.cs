@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.DataBrew
         public Output<string> RoleArn { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.JobTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Timeout
@@ -271,10 +271,10 @@ namespace Pulumi.AwsNative.DataBrew
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.JobTagArgs>? _tags;
-        public InputList<Inputs.JobTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.JobTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.DataBrew
         public Output<Outputs.ProjectSample?> Sample { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ProjectTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -129,10 +129,10 @@ namespace Pulumi.AwsNative.DataBrew
         public Input<Inputs.ProjectSampleArgs>? Sample { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ProjectTagArgs>? _tags;
-        public InputList<Inputs.ProjectTagArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ProjectTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,7 +24,7 @@ class AppArgs:
                  user_profile_name: pulumi.Input[str],
                  app_name: Optional[pulumi.Input[str]] = None,
                  resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a App resource.
         :param pulumi.Input['AppType'] app_type: The type of app.
@@ -30,7 +32,7 @@ class AppArgs:
         :param pulumi.Input[str] user_profile_name: The user profile name.
         :param pulumi.Input[str] app_name: The name of the app.
         :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]] tags: A list of tags to apply to the app.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A list of tags to apply to the app.
         """
         pulumi.set(__self__, "app_type", app_type)
         pulumi.set(__self__, "domain_id", domain_id)
@@ -104,14 +106,14 @@ class AppArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         A list of tags to apply to the app.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -124,7 +126,7 @@ class App(pulumi.CustomResource):
                  app_type: Optional[pulumi.Input['AppType']] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -136,7 +138,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input['AppType'] app_type: The type of app.
         :param pulumi.Input[str] domain_id: The domain ID.
         :param pulumi.Input[pulumi.InputType['AppResourceSpecArgs']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]] tags: A list of tags to apply to the app.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A list of tags to apply to the app.
         :param pulumi.Input[str] user_profile_name: The user profile name.
         """
         ...
@@ -167,7 +169,7 @@ class App(pulumi.CustomResource):
                  app_type: Optional[pulumi.Input['AppType']] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -266,7 +268,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AppTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         A list of tags to apply to the app.
         """

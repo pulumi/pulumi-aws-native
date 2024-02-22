@@ -40,7 +40,7 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
     /**
      * Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
      */
-    public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayRouteTableTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The ID of the transit gateway.
      */
@@ -86,7 +86,7 @@ export interface TransitGatewayRouteTableArgs {
     /**
      * Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayRouteTableTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * The ID of the transit gateway.
      */

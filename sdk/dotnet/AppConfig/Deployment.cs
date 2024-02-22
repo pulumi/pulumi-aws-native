@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.AppConfig
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.DeploymentTags>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -118,10 +118,10 @@ namespace Pulumi.AwsNative.AppConfig
         public Input<string>? KmsKeyIdentifier { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.DeploymentTagsArgs>? _tags;
-        public InputList<Inputs.DeploymentTagsArgs> Tags
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.DeploymentTagsArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

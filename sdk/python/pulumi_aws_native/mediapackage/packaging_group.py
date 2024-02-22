@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['PackagingGroupArgs', 'PackagingGroup']
@@ -18,12 +20,12 @@ class PackagingGroupArgs:
     def __init__(__self__, *,
                  authorization: Optional[pulumi.Input['PackagingGroupAuthorizationArgs']] = None,
                  egress_access_logs: Optional[pulumi.Input['PackagingGroupLogConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a PackagingGroup resource.
         :param pulumi.Input['PackagingGroupAuthorizationArgs'] authorization: CDN Authorization
         :param pulumi.Input['PackagingGroupLogConfigurationArgs'] egress_access_logs: The configuration parameters for egress access logging.
-        :param pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A collection of tags associated with a resource
         """
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
@@ -58,14 +60,14 @@ class PackagingGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -76,7 +78,7 @@ class PackagingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization: Optional[pulumi.Input[pulumi.InputType['PackagingGroupAuthorizationArgs']]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['PackagingGroupLogConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackagingGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaPackage::PackagingGroup
@@ -85,7 +87,7 @@ class PackagingGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PackagingGroupAuthorizationArgs']] authorization: CDN Authorization
         :param pulumi.Input[pulumi.InputType['PackagingGroupLogConfigurationArgs']] egress_access_logs: The configuration parameters for egress access logging.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackagingGroupTagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -113,7 +115,7 @@ class PackagingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization: Optional[pulumi.Input[pulumi.InputType['PackagingGroupAuthorizationArgs']]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['PackagingGroupLogConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackagingGroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -193,7 +195,7 @@ class PackagingGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PackagingGroupTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         A collection of tags associated with a resource
         """

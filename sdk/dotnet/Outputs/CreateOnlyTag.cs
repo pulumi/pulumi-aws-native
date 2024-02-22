@@ -7,17 +7,26 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.RedshiftServerless.Outputs
+namespace Pulumi.AwsNative.Outputs
 {
 
+    /// <summary>
+    /// A set of tags to apply to the resource.
+    /// </summary>
     [OutputType]
-    public sealed class NamespaceTag
+    public sealed class CreateOnlyTag
     {
+        /// <summary>
+        /// The key name of the tag
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value of the tag
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]
-        private NamespaceTag(
+        private CreateOnlyTag(
             string key,
 
             string value)

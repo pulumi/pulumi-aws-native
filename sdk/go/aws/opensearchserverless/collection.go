@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,8 +34,8 @@ type Collection struct {
 	Name            pulumi.StringOutput                `pulumi:"name"`
 	StandbyReplicas CollectionStandbyReplicasPtrOutput `pulumi:"standbyReplicas"`
 	// List of tags to be added to the resource
-	Tags CollectionTagArrayOutput `pulumi:"tags"`
-	Type CollectionTypePtrOutput  `pulumi:"type"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Type CollectionTypePtrOutput      `pulumi:"type"`
 }
 
 // NewCollection registers a new resource with the given unique name, arguments, and options.
@@ -95,8 +96,8 @@ type collectionArgs struct {
 	Name            *string                    `pulumi:"name"`
 	StandbyReplicas *CollectionStandbyReplicas `pulumi:"standbyReplicas"`
 	// List of tags to be added to the resource
-	Tags []CollectionTag `pulumi:"tags"`
-	Type *CollectionType `pulumi:"type"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Type *CollectionType     `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Collection resource.
@@ -113,7 +114,7 @@ type CollectionArgs struct {
 	Name            pulumi.StringPtrInput
 	StandbyReplicas CollectionStandbyReplicasPtrInput
 	// List of tags to be added to the resource
-	Tags CollectionTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 	Type CollectionTypePtrInput
 }
 
@@ -190,8 +191,8 @@ func (o CollectionOutput) StandbyReplicas() CollectionStandbyReplicasPtrOutput {
 }
 
 // List of tags to be added to the resource
-func (o CollectionOutput) Tags() CollectionTagArrayOutput {
-	return o.ApplyT(func(v *Collection) CollectionTagArrayOutput { return v.Tags }).(CollectionTagArrayOutput)
+func (o CollectionOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Collection) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func (o CollectionOutput) Type() CollectionTypePtrOutput {

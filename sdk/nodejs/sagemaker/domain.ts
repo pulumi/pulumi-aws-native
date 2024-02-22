@@ -97,7 +97,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * A list of tags to apply to the user profile.
      */
-    public readonly tags!: pulumi.Output<outputs.sagemaker.DomainTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The URL to the created domain.
      */
@@ -215,7 +215,7 @@ export interface DomainArgs {
     /**
      * A list of tags to apply to the user profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      */

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,7 +25,7 @@ type PlacementGroup struct {
 	// The placement strategy.
 	Strategy pulumi.StringPtrOutput `pulumi:"strategy"`
 	// An array of key-value pairs to apply to this resource.
-	Tags PlacementGroupTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewPlacementGroup registers a new resource with the given unique name, arguments, and options.
@@ -81,7 +82,7 @@ type placementGroupArgs struct {
 	// The placement strategy.
 	Strategy *string `pulumi:"strategy"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []PlacementGroupTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlacementGroup resource.
@@ -93,7 +94,7 @@ type PlacementGroupArgs struct {
 	// The placement strategy.
 	Strategy pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags PlacementGroupTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (PlacementGroupArgs) ElementType() reflect.Type {
@@ -154,8 +155,8 @@ func (o PlacementGroupOutput) Strategy() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o PlacementGroupOutput) Tags() PlacementGroupTagArrayOutput {
-	return o.ApplyT(func(v *PlacementGroup) PlacementGroupTagArrayOutput { return v.Tags }).(PlacementGroupTagArrayOutput)
+func (o PlacementGroupOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *PlacementGroup) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

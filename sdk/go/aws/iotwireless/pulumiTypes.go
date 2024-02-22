@@ -692,107 +692,6 @@ type NetworkAnalyzerConfigurationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// NetworkAnalyzerConfigurationTagInput is an input type that accepts NetworkAnalyzerConfigurationTagArgs and NetworkAnalyzerConfigurationTagOutput values.
-// You can construct a concrete instance of `NetworkAnalyzerConfigurationTagInput` via:
-//
-//	NetworkAnalyzerConfigurationTagArgs{...}
-type NetworkAnalyzerConfigurationTagInput interface {
-	pulumi.Input
-
-	ToNetworkAnalyzerConfigurationTagOutput() NetworkAnalyzerConfigurationTagOutput
-	ToNetworkAnalyzerConfigurationTagOutputWithContext(context.Context) NetworkAnalyzerConfigurationTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type NetworkAnalyzerConfigurationTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (NetworkAnalyzerConfigurationTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAnalyzerConfigurationTag)(nil)).Elem()
-}
-
-func (i NetworkAnalyzerConfigurationTagArgs) ToNetworkAnalyzerConfigurationTagOutput() NetworkAnalyzerConfigurationTagOutput {
-	return i.ToNetworkAnalyzerConfigurationTagOutputWithContext(context.Background())
-}
-
-func (i NetworkAnalyzerConfigurationTagArgs) ToNetworkAnalyzerConfigurationTagOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAnalyzerConfigurationTagOutput)
-}
-
-// NetworkAnalyzerConfigurationTagArrayInput is an input type that accepts NetworkAnalyzerConfigurationTagArray and NetworkAnalyzerConfigurationTagArrayOutput values.
-// You can construct a concrete instance of `NetworkAnalyzerConfigurationTagArrayInput` via:
-//
-//	NetworkAnalyzerConfigurationTagArray{ NetworkAnalyzerConfigurationTagArgs{...} }
-type NetworkAnalyzerConfigurationTagArrayInput interface {
-	pulumi.Input
-
-	ToNetworkAnalyzerConfigurationTagArrayOutput() NetworkAnalyzerConfigurationTagArrayOutput
-	ToNetworkAnalyzerConfigurationTagArrayOutputWithContext(context.Context) NetworkAnalyzerConfigurationTagArrayOutput
-}
-
-type NetworkAnalyzerConfigurationTagArray []NetworkAnalyzerConfigurationTagInput
-
-func (NetworkAnalyzerConfigurationTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkAnalyzerConfigurationTag)(nil)).Elem()
-}
-
-func (i NetworkAnalyzerConfigurationTagArray) ToNetworkAnalyzerConfigurationTagArrayOutput() NetworkAnalyzerConfigurationTagArrayOutput {
-	return i.ToNetworkAnalyzerConfigurationTagArrayOutputWithContext(context.Background())
-}
-
-func (i NetworkAnalyzerConfigurationTagArray) ToNetworkAnalyzerConfigurationTagArrayOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAnalyzerConfigurationTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type NetworkAnalyzerConfigurationTagOutput struct{ *pulumi.OutputState }
-
-func (NetworkAnalyzerConfigurationTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAnalyzerConfigurationTag)(nil)).Elem()
-}
-
-func (o NetworkAnalyzerConfigurationTagOutput) ToNetworkAnalyzerConfigurationTagOutput() NetworkAnalyzerConfigurationTagOutput {
-	return o
-}
-
-func (o NetworkAnalyzerConfigurationTagOutput) ToNetworkAnalyzerConfigurationTagOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationTagOutput {
-	return o
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o NetworkAnalyzerConfigurationTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkAnalyzerConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o NetworkAnalyzerConfigurationTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkAnalyzerConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type NetworkAnalyzerConfigurationTagArrayOutput struct{ *pulumi.OutputState }
-
-func (NetworkAnalyzerConfigurationTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkAnalyzerConfigurationTag)(nil)).Elem()
-}
-
-func (o NetworkAnalyzerConfigurationTagArrayOutput) ToNetworkAnalyzerConfigurationTagArrayOutput() NetworkAnalyzerConfigurationTagArrayOutput {
-	return o
-}
-
-func (o NetworkAnalyzerConfigurationTagArrayOutput) ToNetworkAnalyzerConfigurationTagArrayOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationTagArrayOutput {
-	return o
-}
-
-func (o NetworkAnalyzerConfigurationTagArrayOutput) Index(i pulumi.IntInput) NetworkAnalyzerConfigurationTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAnalyzerConfigurationTag {
-		return vs[0].([]NetworkAnalyzerConfigurationTag)[vs[1].(int)]
-	}).(NetworkAnalyzerConfigurationTagOutput)
-}
-
 type PartnerAccountSidewalkAccountInfo struct {
 	AppServerPrivateKey string `pulumi:"appServerPrivateKey"`
 }
@@ -3861,8 +3760,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileLoRaWanDeviceProfilePtrInput)(nil)).Elem(), DeviceProfileLoRaWanDeviceProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskLoRaWanInput)(nil)).Elem(), FuotaTaskLoRaWanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupLoRaWanInput)(nil)).Elem(), MulticastGroupLoRaWanArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationTagInput)(nil)).Elem(), NetworkAnalyzerConfigurationTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationTagArrayInput)(nil)).Elem(), NetworkAnalyzerConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoPtrInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoWithFingerprintInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoWithFingerprintArgs{})
@@ -3903,8 +3800,6 @@ func init() {
 	pulumi.RegisterOutputType(FuotaTaskLoRaWanPtrOutput{})
 	pulumi.RegisterOutputType(MulticastGroupLoRaWanOutput{})
 	pulumi.RegisterOutputType(MulticastGroupLoRaWanPtrOutput{})
-	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationTagOutput{})
-	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoPtrOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoWithFingerprintOutput{})

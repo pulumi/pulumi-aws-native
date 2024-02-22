@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,7 +33,7 @@ type ModelBiasJobDefinition struct {
 	RoleArn           pulumi.StringOutput                              `pulumi:"roleArn"`
 	StoppingCondition ModelBiasJobDefinitionStoppingConditionPtrOutput `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
-	Tags ModelBiasJobDefinitionTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewModelBiasJobDefinition registers a new resource with the given unique name, arguments, and options.
@@ -116,7 +117,7 @@ type modelBiasJobDefinitionArgs struct {
 	RoleArn           string                                   `pulumi:"roleArn"`
 	StoppingCondition *ModelBiasJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []ModelBiasJobDefinitionTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ModelBiasJobDefinition resource.
@@ -133,7 +134,7 @@ type ModelBiasJobDefinitionArgs struct {
 	RoleArn           pulumi.StringInput
 	StoppingCondition ModelBiasJobDefinitionStoppingConditionPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags ModelBiasJobDefinitionTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ModelBiasJobDefinitionArgs) ElementType() reflect.Type {
@@ -235,8 +236,8 @@ func (o ModelBiasJobDefinitionOutput) StoppingCondition() ModelBiasJobDefinition
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o ModelBiasJobDefinitionOutput) Tags() ModelBiasJobDefinitionTagArrayOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionTagArrayOutput { return v.Tags }).(ModelBiasJobDefinitionTagArrayOutput)
+func (o ModelBiasJobDefinitionOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinition) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

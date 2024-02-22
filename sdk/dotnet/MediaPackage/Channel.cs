@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// A collection of tags associated with a resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ChannelTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -125,14 +125,14 @@ namespace Pulumi.AwsNative.MediaPackage
         public Input<Inputs.ChannelLogConfigurationArgs>? IngressAccessLogs { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ChannelTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
-        public InputList<Inputs.ChannelTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ChannelTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

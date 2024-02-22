@@ -8,5 +8,3 @@ import typing
 from ._enums import *
 from .get_repository_association import *
 from .repository_association import *
-from ._inputs import *
-from . import outputs

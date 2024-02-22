@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -22,8 +23,8 @@ type AccessGrantsLocation struct {
 	// The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
 	// Descriptor for where the location actually points
-	LocationScope pulumi.StringPtrOutput             `pulumi:"locationScope"`
-	Tags          AccessGrantsLocationTagArrayOutput `pulumi:"tags"`
+	LocationScope pulumi.StringPtrOutput       `pulumi:"locationScope"`
+	Tags          aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAccessGrantsLocation registers a new resource with the given unique name, arguments, and options.
@@ -73,8 +74,8 @@ type accessGrantsLocationArgs struct {
 	// The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// Descriptor for where the location actually points
-	LocationScope *string                   `pulumi:"locationScope"`
-	Tags          []AccessGrantsLocationTag `pulumi:"tags"`
+	LocationScope *string             `pulumi:"locationScope"`
+	Tags          []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessGrantsLocation resource.
@@ -83,7 +84,7 @@ type AccessGrantsLocationArgs struct {
 	IamRoleArn pulumi.StringPtrInput
 	// Descriptor for where the location actually points
 	LocationScope pulumi.StringPtrInput
-	Tags          AccessGrantsLocationTagArrayInput
+	Tags          aws.CreateOnlyTagArrayInput
 }
 
 func (AccessGrantsLocationArgs) ElementType() reflect.Type {
@@ -143,8 +144,8 @@ func (o AccessGrantsLocationOutput) LocationScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringPtrOutput { return v.LocationScope }).(pulumi.StringPtrOutput)
 }
 
-func (o AccessGrantsLocationOutput) Tags() AccessGrantsLocationTagArrayOutput {
-	return o.ApplyT(func(v *AccessGrantsLocation) AccessGrantsLocationTagArrayOutput { return v.Tags }).(AccessGrantsLocationTagArrayOutput)
+func (o AccessGrantsLocationOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *AccessGrantsLocation) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

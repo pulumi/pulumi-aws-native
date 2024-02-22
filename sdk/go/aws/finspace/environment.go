@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,7 +43,7 @@ type Environment struct {
 	Status              EnvironmentStatusOutput                 `pulumi:"status"`
 	SuperuserParameters EnvironmentSuperuserParametersPtrOutput `pulumi:"superuserParameters"`
 	// An array of key-value pairs to apply to this resource.
-	Tags EnvironmentTagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -106,7 +107,7 @@ type environmentArgs struct {
 	Name                *string                         `pulumi:"name"`
 	SuperuserParameters *EnvironmentSuperuserParameters `pulumi:"superuserParameters"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []EnvironmentTag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -124,7 +125,7 @@ type EnvironmentArgs struct {
 	Name                pulumi.StringPtrInput
 	SuperuserParameters EnvironmentSuperuserParametersPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags EnvironmentTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -233,8 +234,8 @@ func (o EnvironmentOutput) SuperuserParameters() EnvironmentSuperuserParametersP
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o EnvironmentOutput) Tags() EnvironmentTagArrayOutput {
-	return o.ApplyT(func(v *Environment) EnvironmentTagArrayOutput { return v.Tags }).(EnvironmentTagArrayOutput)
+func (o EnvironmentOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Environment) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

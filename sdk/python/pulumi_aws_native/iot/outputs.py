@@ -31,7 +31,6 @@ __all__ = [
     'JobTemplateMaintenanceWindow',
     'JobTemplateRateIncreaseCriteria',
     'JobTemplateRetryCriteria',
-    'JobTemplateTag',
     'MetricsExportConfigProperties',
     'MitigationActionActionParams',
     'MitigationActionAddThingsToThingGroupParams',
@@ -1041,39 +1040,6 @@ class JobTemplateRetryCriteria(dict):
     @pulumi.getter(name="numberOfRetries")
     def number_of_retries(self) -> Optional[int]:
         return pulumi.get(self, "number_of_retries")
-
-
-@pulumi.output_type
-class JobTemplateTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A key-value pair to associate with a resource.
-        :param str key: The tag's key.
-        :param str value: The tag's value.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The tag's key.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The tag's value.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

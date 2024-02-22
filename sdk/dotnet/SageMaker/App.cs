@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// A list of tags to apply to the app.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AppTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The user profile name.
@@ -136,14 +136,14 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.AppResourceSpecArgs>? ResourceSpec { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.AppTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// A list of tags to apply to the app.
         /// </summary>
-        public InputList<Inputs.AppTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AppTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 
