@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	jsschema "github.com/lestrrat-go/jsschema"
 	"github.com/pkg/errors"
+	jsschema "github.com/pulumi/jsschema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
