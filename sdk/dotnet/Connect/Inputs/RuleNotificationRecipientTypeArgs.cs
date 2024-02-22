@@ -27,11 +27,17 @@ namespace Pulumi.AwsNative.Connect.Inputs
             set => _userArns = value;
         }
 
+        [Input("userTags")]
+        private InputMap<string>? _userTags;
+
         /// <summary>
         /// The collection of recipients who are identified by user tags
         /// </summary>
-        [Input("userTags")]
-        public Input<object>? UserTags { get; set; }
+        public InputMap<string> UserTags
+        {
+            get => _userTags ?? (_userTags = new InputMap<string>());
+            set => _userTags = value;
+        }
 
         public RuleNotificationRecipientTypeArgs()
         {

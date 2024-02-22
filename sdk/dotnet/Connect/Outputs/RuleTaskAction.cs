@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// <summary>
         /// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
         /// </summary>
-        public readonly object? References;
+        public readonly ImmutableDictionary<string, Outputs.RuleReference>? References;
 
         [OutputConstructor]
         private RuleTaskAction(
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             string name,
 
-            object? references)
+            ImmutableDictionary<string, Outputs.RuleReference>? references)
         {
             ContactFlowArn = contactFlowArn;
             Description = description;

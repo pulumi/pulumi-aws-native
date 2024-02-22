@@ -8392,7 +8392,15 @@ export namespace connect {
         /**
          * The collection of recipients who are identified by user tags
          */
-        userTags?: any;
+        userTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * A contact reference.
+     */
+    export interface RuleReferenceArgs {
+        type: pulumi.Input<enums.connect.RuleReferenceType>;
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -8437,7 +8445,7 @@ export namespace connect {
         /**
          * A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
          */
-        references?: any;
+        references?: pulumi.Input<{[key: string]: pulumi.Input<inputs.connect.RuleReferenceArgs>}>;
     }
 
     /**
@@ -23047,7 +23055,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * Describes the value of an application execution property key-value pair.
          */
-        propertyMap?: any;
+        propertyMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     /**
@@ -29316,6 +29324,12 @@ export namespace mediatailor {
          * A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
          */
         contentSegmentUrlPrefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * The predefined aliases for dynamic variables.
+     */
+    export interface PlaybackConfigurationConfigurationAliasesArgs {
     }
 
     /**
@@ -43609,7 +43623,7 @@ export namespace rum {
          *
          * All dimensions listed in this field must also be included in EventPattern.
          */
-        dimensionKeys?: any;
+        dimensionKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
          *

@@ -22,6 +22,7 @@ __all__ = [
     'PlaybackConfigurationAvailSuppressionArgs',
     'PlaybackConfigurationBumperArgs',
     'PlaybackConfigurationCdnConfigurationArgs',
+    'PlaybackConfigurationConfigurationAliasesArgs',
     'PlaybackConfigurationDashConfigurationArgs',
     'PlaybackConfigurationHlsConfigurationArgs',
     'PlaybackConfigurationLivePreRollConfigurationArgs',
@@ -486,6 +487,15 @@ class PlaybackConfigurationCdnConfigurationArgs:
     @content_segment_url_prefix.setter
     def content_segment_url_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_segment_url_prefix", value)
+
+
+@pulumi.input_type
+class PlaybackConfigurationConfigurationAliasesArgs:
+    def __init__(__self__):
+        """
+        The predefined aliases for dynamic variables.
+        """
+        pass
 
 
 @pulumi.input_type

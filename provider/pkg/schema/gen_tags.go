@@ -3,7 +3,7 @@ package schema
 import (
 	"strings"
 
-	jsschema "github.com/lestrrat-go/jsschema"
+	jsschema "github.com/pulumi/jsschema"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 

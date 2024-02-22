@@ -3,7 +3,7 @@ package schema
 import (
 	"testing"
 
-	jsschema "github.com/lestrrat-go/jsschema"
+	jsschema "github.com/pulumi/jsschema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
 )

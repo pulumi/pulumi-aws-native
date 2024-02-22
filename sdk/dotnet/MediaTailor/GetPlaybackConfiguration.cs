@@ -75,10 +75,8 @@ namespace Pulumi.AwsNative.MediaTailor
         public readonly Outputs.PlaybackConfigurationCdnConfiguration? CdnConfiguration;
         /// <summary>
         /// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
         /// </summary>
-        public readonly object? ConfigurationAliases;
+        public readonly Outputs.PlaybackConfigurationConfigurationAliases? ConfigurationAliases;
         /// <summary>
         /// The configuration for DASH content.
         /// </summary>
@@ -138,7 +136,7 @@ namespace Pulumi.AwsNative.MediaTailor
 
             Outputs.PlaybackConfigurationCdnConfiguration? cdnConfiguration,
 
-            object? configurationAliases,
+            Outputs.PlaybackConfigurationConfigurationAliases? configurationAliases,
 
             Outputs.PlaybackConfigurationDashConfiguration? dashConfiguration,
 

@@ -35,9 +35,7 @@ type LookupSinkResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// Tags to apply to the sink
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupSinkOutput(ctx *pulumi.Context, args LookupSinkOutputArgs, opts ...pulumi.InvokeOption) LookupSinkResultOutput {
@@ -89,10 +87,8 @@ func (o LookupSinkResultOutput) Policy() pulumi.AnyOutput {
 }
 
 // Tags to apply to the sink
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
-func (o LookupSinkResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupSinkResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupSinkResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSinkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

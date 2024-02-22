@@ -1714,11 +1714,11 @@ class ApplicationPropertyGroup(dict):
 
     def __init__(__self__, *,
                  property_group_id: Optional[str] = None,
-                 property_map: Optional[Any] = None):
+                 property_map: Optional[Mapping[str, str]] = None):
         """
         Property key-value pairs passed into an application.
         :param str property_group_id: Describes the key of an application execution property key-value pair.
-        :param Any property_map: Describes the value of an application execution property key-value pair.
+        :param Mapping[str, str] property_map: Describes the value of an application execution property key-value pair.
         """
         if property_group_id is not None:
             pulumi.set(__self__, "property_group_id", property_group_id)
@@ -1735,7 +1735,7 @@ class ApplicationPropertyGroup(dict):
 
     @property
     @pulumi.getter(name="propertyMap")
-    def property_map(self) -> Optional[Any]:
+    def property_map(self) -> Optional[Mapping[str, str]]:
         """
         Describes the value of an application execution property key-value pair.
         """

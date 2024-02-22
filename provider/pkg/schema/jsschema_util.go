@@ -3,7 +3,7 @@
 package schema
 
 import (
-	jsschema "github.com/lestrrat-go/jsschema"
+	jsschema "github.com/pulumi/jsschema"
 )
 
 // FlattenJSSchema recursively flattens a schema containing AnyOf or OneOf into a list of schemas
@@ -104,7 +104,7 @@ func MergeJSSchema(dest *jsschema.Schema, src *jsschema.Schema) {
 		dest.MinLength = src.MinLength
 	}
 
-	if src.Pattern != nil {
+	if src.Pattern != "" {
 		dest.Pattern = src.Pattern
 	}
 

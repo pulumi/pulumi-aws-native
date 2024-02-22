@@ -261,6 +261,17 @@ export const RulePublishStatus = {
  */
 export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePublishStatus];
 
+export const RuleReferenceType = {
+    Url: "URL",
+    Attachment: "ATTACHMENT",
+    Number: "NUMBER",
+    String: "STRING",
+    Date: "DATE",
+    Email: "EMAIL",
+} as const;
+
+export type RuleReferenceType = (typeof RuleReferenceType)[keyof typeof RuleReferenceType];
+
 export const RuleSendNotificationActionContentType = {
     PlainText: "PLAIN_TEXT",
 } as const;

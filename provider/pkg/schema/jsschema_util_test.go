@@ -3,11 +3,10 @@
 package schema
 
 import (
-	"regexp"
 	"testing"
 	"testing/quick"
 
-	jsschema "github.com/lestrrat-go/jsschema"
+	jsschema "github.com/pulumi/jsschema"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -290,7 +289,7 @@ type AlmostJSSchema struct {
 	// StringValidation
 	MaxLength jsschema.Integer
 	MinLength jsschema.Integer
-	Pattern   *regexp.Regexp
+	Pattern   string
 
 	// ArrayValidations
 	AdditionalItems *jsschema.AdditionalItems
@@ -306,7 +305,7 @@ type AlmostJSSchema struct {
 	Dependencies         jsschema.DependencyMap
 	Properties           map[string]AlmostJSSchema
 	AdditionalProperties *jsschema.AdditionalProperties
-	PatternProperties    map[*regexp.Regexp]AlmostJSSchema
+	PatternProperties    map[string]AlmostJSSchema
 
 	Enum   []struct{ Foo string }
 	AllOf  []AlmostJSSchema

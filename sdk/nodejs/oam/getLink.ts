@@ -28,10 +28,8 @@ export interface GetLinkResult {
     readonly resourceTypes?: enums.oam.LinkResourceType[];
     /**
      * Tags to apply to the link
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Definition of AWS::Oam::Link Resource Type

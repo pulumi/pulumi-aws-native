@@ -1184,10 +1184,14 @@ github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+
 github.com/leodido/go-urn v1.2.0/go.mod h1:+8+nEpDfqqsY+g338gtMEUOtuK+4dEMhiQEgxpxOKII=
 github.com/lestrrat-go/jspointer v0.0.0-20181205001929-82fadba7561c h1:pGh5EFIfczeDHwgMHgfwjhZzL+8/E3uZF6T7vER/W8c=
 github.com/lestrrat-go/jspointer v0.0.0-20181205001929-82fadba7561c/go.mod h1:xw2Gm4Mg+ST9s8fHR1VkUIyOJMJnSloRZlPQB+wyVpY=
-github.com/lestrrat-go/jsref v0.0.0-20181205001954-1b590508f37d h1:1eeFdKL5ySmmYevvKv7iECIc4dTATeKTtBqP4/nXxDk=
-github.com/lestrrat-go/jsref v0.0.0-20181205001954-1b590508f37d/go.mod h1:h+r25adx46+IvUSt/rTTvXNnCDnu3lRTkMPPR/GdCwk=
+github.com/lestrrat-go/jsref v0.0.0-20211028120858-c0bcbb5abf20 h1:E1vlSQTLj+2EK0mrFGDc57u3QN7RybAUiGEOUAlYRd0=
+github.com/lestrrat-go/jsref v0.0.0-20211028120858-c0bcbb5abf20/go.mod h1:A5HUnnciqLnCzBsUqvspKKUgIkA+i/4dSaqmKV/D2Pw=
+github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3 h1:TSKrrGm89gmmVlrG34ZzCIOMNVk5kkSV1P88Dt38DiE=
+github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3/go.mod h1:SVfIykmWQyFuRToBTKQ8AcveWeOunS2phYxA8hJ/6Gg=
 github.com/lestrrat-go/jsval v0.0.0-20181205002323-20277e9befc0 h1:w4rIjeCV/gQpxtn3i1voyF6Hd7v1mRGIB63F7RZOk1U=
 github.com/lestrrat-go/jsval v0.0.0-20181205002323-20277e9befc0/go.mod h1:hazjwMAn+trtmUnjvhIzSIZ0YS+2egAMonQMjDhcC2s=
+github.com/lestrrat-go/option v1.0.0 h1:WqAWL8kh8VcSoD6xjSH34/1m8yxluXQbDeKNfvFeEO4=
+github.com/lestrrat-go/option v1.0.0/go.mod h1:5ZHFbivi4xwXxhxY9XHDe2FHo6/Z7WWmtT7T5nBBp3I=
 github.com/lestrrat-go/pdebug v0.0.0-20210111095411-35b07dbf089b h1:2v0K4PeWeccG1wpznCE71PqO5scFzSj3jZGkQaVYEWg=
 github.com/lestrrat-go/pdebug v0.0.0-20210111095411-35b07dbf089b/go.mod h1:RbVbom7RDVgpH5IqUPbhJ425z9iRIRH0tRWp+uxEjCE=
 github.com/lestrrat-go/structinfo v0.0.0-20210312050401-7f8bd69d6acb h1:DDg5u5lk2v8O8qxs8ecQkMUBj3tLW6wkSLzxxOyi1Ig=
@@ -1258,8 +1262,6 @@ github.com/miekg/dns v1.1.41/go.mod h1:p6aan82bvRIyn+zDIv9xYNUpwa73JcSh9BKwknJys
 github.com/miekg/dns v1.1.48/go.mod h1:e3IlAVfNqAllflbibAZEWOXOQ+Ynzk/dDozDxY7XnME=
 github.com/miekg/dns v1.1.50/go.mod h1:e3IlAVfNqAllflbibAZEWOXOQ+Ynzk/dDozDxY7XnME=
 github.com/miekg/pkcs11 v1.0.3/go.mod h1:XsNlhZGX73bx86s2hdc/FuaLm2CPZJemRLMA+WTFxgs=
-github.com/mikhailshilkov/jsschema v0.0.0-20210924145243-fc93fd28ee1b h1:aIpebasR+2tVaZSLOajIyvN/wsR6d1F97dmFc0IzG8E=
-github.com/mikhailshilkov/jsschema v0.0.0-20210924145243-fc93fd28ee1b/go.mod h1:i1nU2aK8qY0ffKDDR93W5QThp1RplMQzs/8Q8EsvBlM=
 github.com/mistifyio/go-zfs v2.1.2-0.20190413222219-f784269be439+incompatible/go.mod h1:8AuVvqP/mXw1px98n46wfvcGfQ4ci2FwoAjKYxuo3Z4=
 github.com/mitchellh/cli v1.0.0/go.mod h1:hNIlj7HEI86fIcpObd7a0FcrxTWetlwJDGcceTlRvqc=
 github.com/mitchellh/cli v1.1.0/go.mod h1:xcISNoH86gajksDmfB23e/pu+B+GeFRMYmoHXxx3xhI=
@@ -1513,6 +1515,8 @@ github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
 github.com/pulumi/esc v0.6.2 h1:+z+l8cuwIauLSwXQS0uoI3rqB+YG4SzsZYtHfNoXBvw=
 github.com/pulumi/esc v0.6.2/go.mod h1:jNnYNjzsOgVTjCp0LL24NsCk8ZJxq4IoLQdCT0X7l8k=
+github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54 h1:bKq2LqtQOtab1ZuR9eU8ReGfik564A1YCSIt3q1mlkM=
+github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54/go.mod h1:nXH0b0s3hX5wMv1UlCz9n/O6832x4dPIVl7t5aonm0Q=
 github.com/pulumi/providertest v0.0.10 h1:bx77G0JYPO2Alf/SHRP05XpAYMrboKJkMIVkbFclVhI=
 github.com/pulumi/providertest v0.0.10/go.mod h1:HsxjVsytcMIuNj19w1lT2W0QXY0oReXl1+h6eD2JXP8=
 github.com/pulumi/pulumi/pkg/v3 v3.105.0 h1:bJG1vUiYH2gDF1pfBKlIABDNoJD2LvU1LmjjL+EbvuM=

@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Rum.Outputs
         /// 
         /// All dimensions listed in this field must also be included in EventPattern.
         /// </summary>
-        public readonly object? DimensionKeys;
+        public readonly ImmutableDictionary<string, string>? DimensionKeys;
         /// <summary>
         /// The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
         /// 
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Rum.Outputs
 
         [OutputConstructor]
         private AppMonitorMetricDefinition(
-            object? dimensionKeys,
+            ImmutableDictionary<string, string>? dimensionKeys,
 
             string? eventPattern,
 

@@ -21,11 +21,17 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         [Input("propertyGroupId")]
         public Input<string>? PropertyGroupId { get; set; }
 
+        [Input("propertyMap")]
+        private InputMap<string>? _propertyMap;
+
         /// <summary>
         /// Describes the value of an application execution property key-value pair.
         /// </summary>
-        [Input("propertyMap")]
-        public Input<object>? PropertyMap { get; set; }
+        public InputMap<string> PropertyMap
+        {
+            get => _propertyMap ?? (_propertyMap = new InputMap<string>());
+            set => _propertyMap = value;
+        }
 
         public ApplicationPropertyGroupArgs()
         {

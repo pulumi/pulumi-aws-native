@@ -5511,7 +5511,7 @@ type RuleNotificationRecipientType struct {
 	// The list of recipients by user arns.
 	UserArns []string `pulumi:"userArns"`
 	// The collection of recipients who are identified by user tags
-	UserTags interface{} `pulumi:"userTags"`
+	UserTags map[string]string `pulumi:"userTags"`
 }
 
 // RuleNotificationRecipientTypeInput is an input type that accepts RuleNotificationRecipientTypeArgs and RuleNotificationRecipientTypeOutput values.
@@ -5530,7 +5530,7 @@ type RuleNotificationRecipientTypeArgs struct {
 	// The list of recipients by user arns.
 	UserArns pulumi.StringArrayInput `pulumi:"userArns"`
 	// The collection of recipients who are identified by user tags
-	UserTags pulumi.Input `pulumi:"userTags"`
+	UserTags pulumi.StringMapInput `pulumi:"userTags"`
 }
 
 func (RuleNotificationRecipientTypeArgs) ElementType() reflect.Type {
@@ -5566,8 +5566,111 @@ func (o RuleNotificationRecipientTypeOutput) UserArns() pulumi.StringArrayOutput
 }
 
 // The collection of recipients who are identified by user tags
-func (o RuleNotificationRecipientTypeOutput) UserTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleNotificationRecipientType) interface{} { return v.UserTags }).(pulumi.AnyOutput)
+func (o RuleNotificationRecipientTypeOutput) UserTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RuleNotificationRecipientType) map[string]string { return v.UserTags }).(pulumi.StringMapOutput)
+}
+
+// A contact reference.
+type RuleReference struct {
+	Type  RuleReferenceType `pulumi:"type"`
+	Value string            `pulumi:"value"`
+}
+
+// RuleReferenceInput is an input type that accepts RuleReferenceArgs and RuleReferenceOutput values.
+// You can construct a concrete instance of `RuleReferenceInput` via:
+//
+//	RuleReferenceArgs{...}
+type RuleReferenceInput interface {
+	pulumi.Input
+
+	ToRuleReferenceOutput() RuleReferenceOutput
+	ToRuleReferenceOutputWithContext(context.Context) RuleReferenceOutput
+}
+
+// A contact reference.
+type RuleReferenceArgs struct {
+	Type  RuleReferenceTypeInput `pulumi:"type"`
+	Value pulumi.StringInput     `pulumi:"value"`
+}
+
+func (RuleReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleReference)(nil)).Elem()
+}
+
+func (i RuleReferenceArgs) ToRuleReferenceOutput() RuleReferenceOutput {
+	return i.ToRuleReferenceOutputWithContext(context.Background())
+}
+
+func (i RuleReferenceArgs) ToRuleReferenceOutputWithContext(ctx context.Context) RuleReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleReferenceOutput)
+}
+
+// RuleReferenceMapInput is an input type that accepts RuleReferenceMap and RuleReferenceMapOutput values.
+// You can construct a concrete instance of `RuleReferenceMapInput` via:
+//
+//	RuleReferenceMap{ "key": RuleReferenceArgs{...} }
+type RuleReferenceMapInput interface {
+	pulumi.Input
+
+	ToRuleReferenceMapOutput() RuleReferenceMapOutput
+	ToRuleReferenceMapOutputWithContext(context.Context) RuleReferenceMapOutput
+}
+
+type RuleReferenceMap map[string]RuleReferenceInput
+
+func (RuleReferenceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleReference)(nil)).Elem()
+}
+
+func (i RuleReferenceMap) ToRuleReferenceMapOutput() RuleReferenceMapOutput {
+	return i.ToRuleReferenceMapOutputWithContext(context.Background())
+}
+
+func (i RuleReferenceMap) ToRuleReferenceMapOutputWithContext(ctx context.Context) RuleReferenceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleReferenceMapOutput)
+}
+
+// A contact reference.
+type RuleReferenceOutput struct{ *pulumi.OutputState }
+
+func (RuleReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleReference)(nil)).Elem()
+}
+
+func (o RuleReferenceOutput) ToRuleReferenceOutput() RuleReferenceOutput {
+	return o
+}
+
+func (o RuleReferenceOutput) ToRuleReferenceOutputWithContext(ctx context.Context) RuleReferenceOutput {
+	return o
+}
+
+func (o RuleReferenceOutput) Type() RuleReferenceTypeOutput {
+	return o.ApplyT(func(v RuleReference) RuleReferenceType { return v.Type }).(RuleReferenceTypeOutput)
+}
+
+func (o RuleReferenceOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleReference) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RuleReferenceMapOutput struct{ *pulumi.OutputState }
+
+func (RuleReferenceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleReference)(nil)).Elem()
+}
+
+func (o RuleReferenceMapOutput) ToRuleReferenceMapOutput() RuleReferenceMapOutput {
+	return o
+}
+
+func (o RuleReferenceMapOutput) ToRuleReferenceMapOutputWithContext(ctx context.Context) RuleReferenceMapOutput {
+	return o
+}
+
+func (o RuleReferenceMapOutput) MapIndex(k pulumi.StringInput) RuleReferenceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleReference {
+		return vs[0].(map[string]RuleReference)[vs[1].(string)]
+	}).(RuleReferenceOutput)
 }
 
 // The definition for sending notification action.
@@ -5720,7 +5823,7 @@ type RuleTaskAction struct {
 	// The name which appears in the agent's Contact Control Panel (CCP).
 	Name string `pulumi:"name"`
 	// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
-	References interface{} `pulumi:"references"`
+	References map[string]RuleReference `pulumi:"references"`
 }
 
 // RuleTaskActionInput is an input type that accepts RuleTaskActionArgs and RuleTaskActionOutput values.
@@ -5743,7 +5846,7 @@ type RuleTaskActionArgs struct {
 	// The name which appears in the agent's Contact Control Panel (CCP).
 	Name pulumi.StringInput `pulumi:"name"`
 	// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
-	References pulumi.Input `pulumi:"references"`
+	References RuleReferenceMapInput `pulumi:"references"`
 }
 
 func (RuleTaskActionArgs) ElementType() reflect.Type {
@@ -5814,8 +5917,8 @@ func (o RuleTaskActionOutput) Name() pulumi.StringOutput {
 }
 
 // A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
-func (o RuleTaskActionOutput) References() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleTaskAction) interface{} { return v.References }).(pulumi.AnyOutput)
+func (o RuleTaskActionOutput) References() RuleReferenceMapOutput {
+	return o.ApplyT(func(v RuleTaskAction) map[string]RuleReference { return v.References }).(RuleReferenceMapOutput)
 }
 
 type RuleTaskActionArrayOutput struct{ *pulumi.OutputState }
@@ -7313,6 +7416,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleFieldArrayInput)(nil)).Elem(), RuleFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleFieldValueInput)(nil)).Elem(), RuleFieldValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationRecipientTypeInput)(nil)).Elem(), RuleNotificationRecipientTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceInput)(nil)).Elem(), RuleReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceMapInput)(nil)).Elem(), RuleReferenceMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionInput)(nil)).Elem(), RuleSendNotificationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionArrayInput)(nil)).Elem(), RuleSendNotificationActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTaskActionInput)(nil)).Elem(), RuleTaskActionArgs{})
@@ -7416,6 +7521,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleFieldArrayOutput{})
 	pulumi.RegisterOutputType(RuleFieldValueOutput{})
 	pulumi.RegisterOutputType(RuleNotificationRecipientTypeOutput{})
+	pulumi.RegisterOutputType(RuleReferenceOutput{})
+	pulumi.RegisterOutputType(RuleReferenceMapOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionArrayOutput{})
 	pulumi.RegisterOutputType(RuleTaskActionOutput{})

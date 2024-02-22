@@ -33,11 +33,17 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("references")]
+        private InputMap<Inputs.RuleReferenceArgs>? _references;
+
         /// <summary>
         /// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
         /// </summary>
-        [Input("references")]
-        public Input<object>? References { get; set; }
+        public InputMap<Inputs.RuleReferenceArgs> References
+        {
+            get => _references ?? (_references = new InputMap<Inputs.RuleReferenceArgs>());
+            set => _references = value;
+        }
 
         public RuleTaskActionArgs()
         {

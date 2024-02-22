@@ -28,6 +28,7 @@ __all__ = [
     'RoutingProfileBehaviorType',
     'RoutingProfileChannel',
     'RulePublishStatus',
+    'RuleReferenceType',
     'RuleSendNotificationActionContentType',
     'RuleSendNotificationActionDeliveryMethod',
     'RuleTriggerEventSourceEventSourceName',
@@ -249,6 +250,15 @@ class RulePublishStatus(str, Enum):
     """
     DRAFT = "DRAFT"
     PUBLISHED = "PUBLISHED"
+
+
+class RuleReferenceType(str, Enum):
+    URL = "URL"
+    ATTACHMENT = "ATTACHMENT"
+    NUMBER = "NUMBER"
+    STRING = "STRING"
+    DATE = "DATE"
+    EMAIL = "EMAIL"
 
 
 class RuleSendNotificationActionContentType(str, Enum):

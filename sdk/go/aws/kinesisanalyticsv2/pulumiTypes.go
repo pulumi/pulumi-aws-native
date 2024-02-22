@@ -4628,7 +4628,7 @@ type ApplicationPropertyGroup struct {
 	// Describes the key of an application execution property key-value pair.
 	PropertyGroupId *string `pulumi:"propertyGroupId"`
 	// Describes the value of an application execution property key-value pair.
-	PropertyMap interface{} `pulumi:"propertyMap"`
+	PropertyMap map[string]string `pulumi:"propertyMap"`
 }
 
 // ApplicationPropertyGroupInput is an input type that accepts ApplicationPropertyGroupArgs and ApplicationPropertyGroupOutput values.
@@ -4647,7 +4647,7 @@ type ApplicationPropertyGroupArgs struct {
 	// Describes the key of an application execution property key-value pair.
 	PropertyGroupId pulumi.StringPtrInput `pulumi:"propertyGroupId"`
 	// Describes the value of an application execution property key-value pair.
-	PropertyMap pulumi.Input `pulumi:"propertyMap"`
+	PropertyMap pulumi.StringMapInput `pulumi:"propertyMap"`
 }
 
 func (ApplicationPropertyGroupArgs) ElementType() reflect.Type {
@@ -4708,8 +4708,8 @@ func (o ApplicationPropertyGroupOutput) PropertyGroupId() pulumi.StringPtrOutput
 }
 
 // Describes the value of an application execution property key-value pair.
-func (o ApplicationPropertyGroupOutput) PropertyMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v ApplicationPropertyGroup) interface{} { return v.PropertyMap }).(pulumi.AnyOutput)
+func (o ApplicationPropertyGroupOutput) PropertyMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationPropertyGroup) map[string]string { return v.PropertyMap }).(pulumi.StringMapOutput)
 }
 
 type ApplicationPropertyGroupArrayOutput struct{ *pulumi.OutputState }

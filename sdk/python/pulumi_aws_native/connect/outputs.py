@@ -53,6 +53,7 @@ __all__ = [
     'RuleField',
     'RuleFieldValue',
     'RuleNotificationRecipientType',
+    'RuleReference',
     'RuleSendNotificationAction',
     'RuleTaskAction',
     'RuleTriggerEventSource',
@@ -2076,11 +2077,11 @@ class RuleNotificationRecipientType(dict):
 
     def __init__(__self__, *,
                  user_arns: Optional[Sequence[str]] = None,
-                 user_tags: Optional[Any] = None):
+                 user_tags: Optional[Mapping[str, str]] = None):
         """
         The type of notification recipient.
         :param Sequence[str] user_arns: The list of recipients by user arns.
-        :param Any user_tags: The collection of recipients who are identified by user tags
+        :param Mapping[str, str] user_tags: The collection of recipients who are identified by user tags
         """
         if user_arns is not None:
             pulumi.set(__self__, "user_arns", user_arns)
@@ -2097,11 +2098,36 @@ class RuleNotificationRecipientType(dict):
 
     @property
     @pulumi.getter(name="userTags")
-    def user_tags(self) -> Optional[Any]:
+    def user_tags(self) -> Optional[Mapping[str, str]]:
         """
         The collection of recipients who are identified by user tags
         """
         return pulumi.get(self, "user_tags")
+
+
+@pulumi.output_type
+class RuleReference(dict):
+    """
+    A contact reference.
+    """
+    def __init__(__self__, *,
+                 type: 'RuleReferenceType',
+                 value: str):
+        """
+        A contact reference.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'RuleReferenceType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2212,13 +2238,13 @@ class RuleTaskAction(dict):
                  contact_flow_arn: str,
                  name: str,
                  description: Optional[str] = None,
-                 references: Optional[Any] = None):
+                 references: Optional[Mapping[str, 'outputs.RuleReference']] = None):
         """
         The definition of task action.
         :param str contact_flow_arn: The Amazon Resource Name (ARN) of the contact flow.
         :param str name: The name which appears in the agent's Contact Control Panel (CCP).
         :param str description: The description which appears in the agent's Contact Control Panel (CCP).
-        :param Any references: A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+        :param Mapping[str, 'RuleReference'] references: A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
         """
         pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
         pulumi.set(__self__, "name", name)
@@ -2253,7 +2279,7 @@ class RuleTaskAction(dict):
 
     @property
     @pulumi.getter
-    def references(self) -> Optional[Any]:
+    def references(self) -> Optional[Mapping[str, 'outputs.RuleReference']]:
         """
         A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
         """

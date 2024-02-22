@@ -1673,6 +1673,127 @@ func (o PlaybackConfigurationCdnConfigurationPtrOutput) ContentSegmentUrlPrefix(
 	}).(pulumi.StringPtrOutput)
 }
 
+// The predefined aliases for dynamic variables.
+type PlaybackConfigurationConfigurationAliases struct {
+}
+
+// PlaybackConfigurationConfigurationAliasesInput is an input type that accepts PlaybackConfigurationConfigurationAliasesArgs and PlaybackConfigurationConfigurationAliasesOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationConfigurationAliasesInput` via:
+//
+//	PlaybackConfigurationConfigurationAliasesArgs{...}
+type PlaybackConfigurationConfigurationAliasesInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationConfigurationAliasesOutput() PlaybackConfigurationConfigurationAliasesOutput
+	ToPlaybackConfigurationConfigurationAliasesOutputWithContext(context.Context) PlaybackConfigurationConfigurationAliasesOutput
+}
+
+// The predefined aliases for dynamic variables.
+type PlaybackConfigurationConfigurationAliasesArgs struct {
+}
+
+func (PlaybackConfigurationConfigurationAliasesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationConfigurationAliases)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationConfigurationAliasesArgs) ToPlaybackConfigurationConfigurationAliasesOutput() PlaybackConfigurationConfigurationAliasesOutput {
+	return i.ToPlaybackConfigurationConfigurationAliasesOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationConfigurationAliasesArgs) ToPlaybackConfigurationConfigurationAliasesOutputWithContext(ctx context.Context) PlaybackConfigurationConfigurationAliasesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationConfigurationAliasesOutput)
+}
+
+func (i PlaybackConfigurationConfigurationAliasesArgs) ToPlaybackConfigurationConfigurationAliasesPtrOutput() PlaybackConfigurationConfigurationAliasesPtrOutput {
+	return i.ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationConfigurationAliasesArgs) ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(ctx context.Context) PlaybackConfigurationConfigurationAliasesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationConfigurationAliasesOutput).ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationConfigurationAliasesPtrInput is an input type that accepts PlaybackConfigurationConfigurationAliasesArgs, PlaybackConfigurationConfigurationAliasesPtr and PlaybackConfigurationConfigurationAliasesPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationConfigurationAliasesPtrInput` via:
+//
+//	        PlaybackConfigurationConfigurationAliasesArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationConfigurationAliasesPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationConfigurationAliasesPtrOutput() PlaybackConfigurationConfigurationAliasesPtrOutput
+	ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(context.Context) PlaybackConfigurationConfigurationAliasesPtrOutput
+}
+
+type playbackConfigurationConfigurationAliasesPtrType PlaybackConfigurationConfigurationAliasesArgs
+
+func PlaybackConfigurationConfigurationAliasesPtr(v *PlaybackConfigurationConfigurationAliasesArgs) PlaybackConfigurationConfigurationAliasesPtrInput {
+	return (*playbackConfigurationConfigurationAliasesPtrType)(v)
+}
+
+func (*playbackConfigurationConfigurationAliasesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationConfigurationAliases)(nil)).Elem()
+}
+
+func (i *playbackConfigurationConfigurationAliasesPtrType) ToPlaybackConfigurationConfigurationAliasesPtrOutput() PlaybackConfigurationConfigurationAliasesPtrOutput {
+	return i.ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationConfigurationAliasesPtrType) ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(ctx context.Context) PlaybackConfigurationConfigurationAliasesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationConfigurationAliasesPtrOutput)
+}
+
+// The predefined aliases for dynamic variables.
+type PlaybackConfigurationConfigurationAliasesOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationConfigurationAliasesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationConfigurationAliases)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationConfigurationAliasesOutput) ToPlaybackConfigurationConfigurationAliasesOutput() PlaybackConfigurationConfigurationAliasesOutput {
+	return o
+}
+
+func (o PlaybackConfigurationConfigurationAliasesOutput) ToPlaybackConfigurationConfigurationAliasesOutputWithContext(ctx context.Context) PlaybackConfigurationConfigurationAliasesOutput {
+	return o
+}
+
+func (o PlaybackConfigurationConfigurationAliasesOutput) ToPlaybackConfigurationConfigurationAliasesPtrOutput() PlaybackConfigurationConfigurationAliasesPtrOutput {
+	return o.ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationConfigurationAliasesOutput) ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(ctx context.Context) PlaybackConfigurationConfigurationAliasesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationConfigurationAliases) *PlaybackConfigurationConfigurationAliases {
+		return &v
+	}).(PlaybackConfigurationConfigurationAliasesPtrOutput)
+}
+
+type PlaybackConfigurationConfigurationAliasesPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationConfigurationAliasesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationConfigurationAliases)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationConfigurationAliasesPtrOutput) ToPlaybackConfigurationConfigurationAliasesPtrOutput() PlaybackConfigurationConfigurationAliasesPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationConfigurationAliasesPtrOutput) ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(ctx context.Context) PlaybackConfigurationConfigurationAliasesPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationConfigurationAliasesPtrOutput) Elem() PlaybackConfigurationConfigurationAliasesOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationConfigurationAliases) PlaybackConfigurationConfigurationAliases {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationConfigurationAliases
+		return ret
+	}).(PlaybackConfigurationConfigurationAliasesOutput)
+}
+
 // The configuration for DASH PUT operations.
 type PlaybackConfigurationDashConfiguration struct {
 	// The URL generated by MediaTailor to initiate a DASH playback session. The session uses server-side reporting.
@@ -3113,6 +3234,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationBumperPtrInput)(nil)).Elem(), PlaybackConfigurationBumperArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationCdnConfigurationInput)(nil)).Elem(), PlaybackConfigurationCdnConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationCdnConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationCdnConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationConfigurationAliasesInput)(nil)).Elem(), PlaybackConfigurationConfigurationAliasesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationConfigurationAliasesPtrInput)(nil)).Elem(), PlaybackConfigurationConfigurationAliasesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHlsConfigurationInput)(nil)).Elem(), PlaybackConfigurationHlsConfigurationArgs{})
@@ -3154,6 +3277,8 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationBumperPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationCdnConfigurationOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationCdnConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationConfigurationAliasesOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationConfigurationAliasesPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationHlsConfigurationOutput{})

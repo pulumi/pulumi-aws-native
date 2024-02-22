@@ -26,9 +26,7 @@ type PlaybackConfiguration struct {
 	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 	CdnConfiguration PlaybackConfigurationCdnConfigurationPtrOutput `pulumi:"cdnConfiguration"`
 	// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
-	ConfigurationAliases pulumi.AnyOutput `pulumi:"configurationAliases"`
+	ConfigurationAliases PlaybackConfigurationConfigurationAliasesPtrOutput `pulumi:"configurationAliases"`
 	// The configuration for DASH content.
 	DashConfiguration PlaybackConfigurationDashConfigurationPtrOutput `pulumi:"dashConfiguration"`
 	// The configuration for HLS content.
@@ -116,9 +114,7 @@ type playbackConfigurationArgs struct {
 	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 	CdnConfiguration *PlaybackConfigurationCdnConfiguration `pulumi:"cdnConfiguration"`
 	// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
-	ConfigurationAliases interface{} `pulumi:"configurationAliases"`
+	ConfigurationAliases *PlaybackConfigurationConfigurationAliases `pulumi:"configurationAliases"`
 	// The configuration for DASH content.
 	DashConfiguration *PlaybackConfigurationDashConfiguration `pulumi:"dashConfiguration"`
 	// The configuration for HLS content.
@@ -152,9 +148,7 @@ type PlaybackConfigurationArgs struct {
 	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 	CdnConfiguration PlaybackConfigurationCdnConfigurationPtrInput
 	// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
-	ConfigurationAliases pulumi.Input
+	ConfigurationAliases PlaybackConfigurationConfigurationAliasesPtrInput
 	// The configuration for DASH content.
 	DashConfiguration PlaybackConfigurationDashConfigurationPtrInput
 	// The configuration for HLS content.
@@ -239,10 +233,10 @@ func (o PlaybackConfigurationOutput) CdnConfiguration() PlaybackConfigurationCdn
 }
 
 // The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
-func (o PlaybackConfigurationOutput) ConfigurationAliases() pulumi.AnyOutput {
-	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.AnyOutput { return v.ConfigurationAliases }).(pulumi.AnyOutput)
+func (o PlaybackConfigurationOutput) ConfigurationAliases() PlaybackConfigurationConfigurationAliasesPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationConfigurationAliasesPtrOutput {
+		return v.ConfigurationAliases
+	}).(PlaybackConfigurationConfigurationAliasesPtrOutput)
 }
 
 // The configuration for DASH content.

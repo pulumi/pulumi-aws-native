@@ -5,12 +5,11 @@ package schema
 import (
 	"encoding/json"
 	"fmt"
-	"regexp"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 
-	jsschema "github.com/lestrrat-go/jsschema"
+	jsschema "github.com/pulumi/jsschema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
@@ -181,8 +180,8 @@ func TestPropertyTypeSpec(t *testing.T) {
 					},
 				},
 				"ObjLike2": &jsschema.Schema{
-					PatternProperties: map[*regexp.Regexp]*jsschema.Schema{
-						regexp.MustCompile(".+"): jsschema.New(),
+					PatternProperties: map[string]*jsschema.Schema{
+						".+": jsschema.New(),
 					},
 				},
 			},

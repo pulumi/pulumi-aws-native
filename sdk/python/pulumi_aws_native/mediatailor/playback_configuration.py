@@ -24,7 +24,7 @@ class PlaybackConfigurationArgs:
                  avail_suppression: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionArgs']] = None,
                  bumper: Optional[pulumi.Input['PlaybackConfigurationBumperArgs']] = None,
                  cdn_configuration: Optional[pulumi.Input['PlaybackConfigurationCdnConfigurationArgs']] = None,
-                 configuration_aliases: Optional[Any] = None,
+                 configuration_aliases: Optional[pulumi.Input['PlaybackConfigurationConfigurationAliasesArgs']] = None,
                  dash_configuration: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationArgs']] = None,
                  hls_configuration: Optional[pulumi.Input['PlaybackConfigurationHlsConfigurationArgs']] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs']] = None,
@@ -41,9 +41,7 @@ class PlaybackConfigurationArgs:
         :param pulumi.Input['PlaybackConfigurationAvailSuppressionArgs'] avail_suppression: The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         :param pulumi.Input['PlaybackConfigurationBumperArgs'] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input['PlaybackConfigurationCdnConfigurationArgs'] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
-        :param Any configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
+        :param pulumi.Input['PlaybackConfigurationConfigurationAliasesArgs'] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
         :param pulumi.Input['PlaybackConfigurationDashConfigurationArgs'] dash_configuration: The configuration for DASH content.
         :param pulumi.Input['PlaybackConfigurationHlsConfigurationArgs'] hls_configuration: The configuration for HLS content.
         :param pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs'] live_pre_roll_configuration: The configuration for pre-roll ad insertion.
@@ -145,16 +143,14 @@ class PlaybackConfigurationArgs:
 
     @property
     @pulumi.getter(name="configurationAliases")
-    def configuration_aliases(self) -> Optional[Any]:
+    def configuration_aliases(self) -> Optional[pulumi.Input['PlaybackConfigurationConfigurationAliasesArgs']]:
         """
         The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "configuration_aliases")
 
     @configuration_aliases.setter
-    def configuration_aliases(self, value: Optional[Any]):
+    def configuration_aliases(self, value: Optional[pulumi.Input['PlaybackConfigurationConfigurationAliasesArgs']]):
         pulumi.set(self, "configuration_aliases", value)
 
     @property
@@ -275,7 +271,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  avail_suppression: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationAvailSuppressionArgs']]] = None,
                  bumper: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationBumperArgs']]] = None,
                  cdn_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationCdnConfigurationArgs']]] = None,
-                 configuration_aliases: Optional[Any] = None,
+                 configuration_aliases: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationConfigurationAliasesArgs']]] = None,
                  dash_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationDashConfigurationArgs']]] = None,
                  hls_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationHlsConfigurationArgs']]] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationLivePreRollConfigurationArgs']]] = None,
@@ -296,9 +292,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationAvailSuppressionArgs']] avail_suppression: The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationBumperArgs']] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationCdnConfigurationArgs']] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
-        :param Any configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
+        :param pulumi.Input[pulumi.InputType['PlaybackConfigurationConfigurationAliasesArgs']] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationDashConfigurationArgs']] dash_configuration: The configuration for DASH content.
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationHlsConfigurationArgs']] hls_configuration: The configuration for HLS content.
         :param pulumi.Input[pulumi.InputType['PlaybackConfigurationLivePreRollConfigurationArgs']] live_pre_roll_configuration: The configuration for pre-roll ad insertion.
@@ -338,7 +332,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  avail_suppression: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationAvailSuppressionArgs']]] = None,
                  bumper: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationBumperArgs']]] = None,
                  cdn_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationCdnConfigurationArgs']]] = None,
-                 configuration_aliases: Optional[Any] = None,
+                 configuration_aliases: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationConfigurationAliasesArgs']]] = None,
                  dash_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationDashConfigurationArgs']]] = None,
                  hls_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationHlsConfigurationArgs']]] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input[pulumi.InputType['PlaybackConfigurationLivePreRollConfigurationArgs']]] = None,
@@ -458,11 +452,9 @@ class PlaybackConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationAliases")
-    def configuration_aliases(self) -> pulumi.Output[Optional[Any]]:
+    def configuration_aliases(self) -> pulumi.Output[Optional['outputs.PlaybackConfigurationConfigurationAliases']]:
         """
         The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "configuration_aliases")
 

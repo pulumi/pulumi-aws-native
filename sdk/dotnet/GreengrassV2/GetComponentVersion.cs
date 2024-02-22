@@ -54,10 +54,7 @@ namespace Pulumi.AwsNative.GreengrassV2
         public readonly string? Arn;
         public readonly string? ComponentName;
         public readonly string? ComponentVersionValue;
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
-        /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetComponentVersionResult(
@@ -67,7 +64,7 @@ namespace Pulumi.AwsNative.GreengrassV2
 
             string? componentVersion,
 
-            object? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ComponentName = componentName;

@@ -213,7 +213,7 @@ class AppMonitorCustomEventsArgs:
 class AppMonitorMetricDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 dimension_keys: Optional[Any] = None,
+                 dimension_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  event_pattern: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  unit_label: Optional[pulumi.Input[str]] = None,
@@ -243,7 +243,7 @@ class AppMonitorMetricDefinitionArgs:
                HttpErrorCount
                
                SessionCount
-        :param Any dimension_keys: Use this field only if you are sending the metric to CloudWatch.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimension_keys: Use this field only if you are sending the metric to CloudWatch.
                
                This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
                
@@ -329,7 +329,7 @@ class AppMonitorMetricDefinitionArgs:
 
     @property
     @pulumi.getter(name="dimensionKeys")
-    def dimension_keys(self) -> Optional[Any]:
+    def dimension_keys(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Use this field only if you are sending the metric to CloudWatch.
 
@@ -352,7 +352,7 @@ class AppMonitorMetricDefinitionArgs:
         return pulumi.get(self, "dimension_keys")
 
     @dimension_keys.setter
-    def dimension_keys(self, value: Optional[Any]):
+    def dimension_keys(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "dimension_keys", value)
 
     @property
