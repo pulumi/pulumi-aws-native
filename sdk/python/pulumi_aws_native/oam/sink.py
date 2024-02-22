@@ -16,16 +16,14 @@ class SinkArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Sink resource.
         :param pulumi.Input[str] name: The name of the ObservabilityAccessManager Sink.
         :param Any policy: The policy of this ObservabilityAccessManager Sink.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
-        :param Any tags: Tags to apply to the sink
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the sink
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -62,16 +60,14 @@ class SinkArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Tags to apply to the sink
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -82,7 +78,7 @@ class Sink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Oam::Sink
@@ -93,9 +89,7 @@ class Sink(pulumi.CustomResource):
         :param Any policy: The policy of this ObservabilityAccessManager Sink.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
-        :param Any tags: Tags to apply to the sink
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the sink
         """
         ...
     @overload
@@ -123,7 +117,7 @@ class Sink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -195,11 +189,9 @@ class Sink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags to apply to the sink
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
 

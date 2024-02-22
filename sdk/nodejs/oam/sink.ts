@@ -50,10 +50,8 @@ export class Sink extends pulumi.CustomResource {
     public readonly policy!: pulumi.Output<any | undefined>;
     /**
      * Tags to apply to the sink
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Sink resource with the given unique name, arguments, and options.
@@ -99,8 +97,6 @@ export interface SinkArgs {
     policy?: any;
     /**
      * Tags to apply to the sink
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -55,10 +55,8 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
     public readonly cdnConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationCdnConfiguration | undefined>;
     /**
      * The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
      */
-    public readonly configurationAliases!: pulumi.Output<any | undefined>;
+    public readonly configurationAliases!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationConfigurationAliases | undefined>;
     /**
      * The configuration for DASH content.
      */
@@ -196,10 +194,8 @@ export interface PlaybackConfigurationArgs {
     cdnConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationCdnConfigurationArgs>;
     /**
      * The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::PlaybackConfiguration` for more information about the expected schema for this property.
      */
-    configurationAliases?: any;
+    configurationAliases?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationConfigurationAliasesArgs>;
     /**
      * The configuration for DASH content.
      */

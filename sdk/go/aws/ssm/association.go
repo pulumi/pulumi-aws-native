@@ -33,9 +33,7 @@ type Association struct {
 	Name           pulumi.StringOutput                                   `pulumi:"name"`
 	OutputLocation AssociationInstanceAssociationOutputLocationPtrOutput `pulumi:"outputLocation"`
 	// Parameter values that the SSM document uses at runtime.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
-	Parameters pulumi.AnyOutput `pulumi:"parameters"`
+	Parameters pulumi.StringArrayMapOutput `pulumi:"parameters"`
 	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression pulumi.StringPtrOutput             `pulumi:"scheduleExpression"`
 	ScheduleOffset     pulumi.IntPtrOutput                `pulumi:"scheduleOffset"`
@@ -101,9 +99,7 @@ type associationArgs struct {
 	Name           *string                                       `pulumi:"name"`
 	OutputLocation *AssociationInstanceAssociationOutputLocation `pulumi:"outputLocation"`
 	// Parameter values that the SSM document uses at runtime.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
-	Parameters interface{} `pulumi:"parameters"`
+	Parameters map[string][]string `pulumi:"parameters"`
 	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression *string                    `pulumi:"scheduleExpression"`
 	ScheduleOffset     *int                       `pulumi:"scheduleOffset"`
@@ -131,9 +127,7 @@ type AssociationArgs struct {
 	Name           pulumi.StringPtrInput
 	OutputLocation AssociationInstanceAssociationOutputLocationPtrInput
 	// Parameter values that the SSM document uses at runtime.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
-	Parameters pulumi.Input
+	Parameters pulumi.StringArrayMapInput
 	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression pulumi.StringPtrInput
 	ScheduleOffset     pulumi.IntPtrInput
@@ -234,10 +228,8 @@ func (o AssociationOutput) OutputLocation() AssociationInstanceAssociationOutput
 }
 
 // Parameter values that the SSM document uses at runtime.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
-func (o AssociationOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Association) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+func (o AssociationOutput) Parameters() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringArrayMapOutput { return v.Parameters }).(pulumi.StringArrayMapOutput)
 }
 
 // A Cron or Rate expression that specifies when the association is applied to the target.

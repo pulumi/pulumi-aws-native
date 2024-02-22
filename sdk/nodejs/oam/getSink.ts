@@ -35,10 +35,8 @@ export interface GetSinkResult {
     readonly policy?: any;
     /**
      * Tags to apply to the sink
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource Type definition for AWS::Oam::Sink

@@ -46,9 +46,7 @@ type LookupAssociationResult struct {
 	Name           *string                                       `pulumi:"name"`
 	OutputLocation *AssociationInstanceAssociationOutputLocation `pulumi:"outputLocation"`
 	// Parameter values that the SSM document uses at runtime.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
-	Parameters interface{} `pulumi:"parameters"`
+	Parameters map[string][]string `pulumi:"parameters"`
 	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression *string                    `pulumi:"scheduleExpression"`
 	ScheduleOffset     *int                       `pulumi:"scheduleOffset"`
@@ -147,10 +145,8 @@ func (o LookupAssociationResultOutput) OutputLocation() AssociationInstanceAssoc
 }
 
 // Parameter values that the SSM document uses at runtime.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
-func (o LookupAssociationResultOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupAssociationResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+func (o LookupAssociationResultOutput) Parameters() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v LookupAssociationResult) map[string][]string { return v.Parameters }).(pulumi.StringArrayMapOutput)
 }
 
 // A Cron or Rate expression that specifies when the association is applied to the target.

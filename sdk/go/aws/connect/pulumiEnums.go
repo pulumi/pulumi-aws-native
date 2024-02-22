@@ -3735,6 +3735,179 @@ func (in *rulePublishStatusPtr) ToRulePublishStatusPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(RulePublishStatusPtrOutput)
 }
 
+type RuleReferenceType string
+
+const (
+	RuleReferenceTypeUrl        = RuleReferenceType("URL")
+	RuleReferenceTypeAttachment = RuleReferenceType("ATTACHMENT")
+	RuleReferenceTypeNumber     = RuleReferenceType("NUMBER")
+	RuleReferenceTypeString     = RuleReferenceType("STRING")
+	RuleReferenceTypeDate       = RuleReferenceType("DATE")
+	RuleReferenceTypeEmail      = RuleReferenceType("EMAIL")
+)
+
+func (RuleReferenceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleReferenceType)(nil)).Elem()
+}
+
+func (e RuleReferenceType) ToRuleReferenceTypeOutput() RuleReferenceTypeOutput {
+	return pulumi.ToOutput(e).(RuleReferenceTypeOutput)
+}
+
+func (e RuleReferenceType) ToRuleReferenceTypeOutputWithContext(ctx context.Context) RuleReferenceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleReferenceTypeOutput)
+}
+
+func (e RuleReferenceType) ToRuleReferenceTypePtrOutput() RuleReferenceTypePtrOutput {
+	return e.ToRuleReferenceTypePtrOutputWithContext(context.Background())
+}
+
+func (e RuleReferenceType) ToRuleReferenceTypePtrOutputWithContext(ctx context.Context) RuleReferenceTypePtrOutput {
+	return RuleReferenceType(e).ToRuleReferenceTypeOutputWithContext(ctx).ToRuleReferenceTypePtrOutputWithContext(ctx)
+}
+
+func (e RuleReferenceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleReferenceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleReferenceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleReferenceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleReferenceTypeOutput struct{ *pulumi.OutputState }
+
+func (RuleReferenceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleReferenceType)(nil)).Elem()
+}
+
+func (o RuleReferenceTypeOutput) ToRuleReferenceTypeOutput() RuleReferenceTypeOutput {
+	return o
+}
+
+func (o RuleReferenceTypeOutput) ToRuleReferenceTypeOutputWithContext(ctx context.Context) RuleReferenceTypeOutput {
+	return o
+}
+
+func (o RuleReferenceTypeOutput) ToRuleReferenceTypePtrOutput() RuleReferenceTypePtrOutput {
+	return o.ToRuleReferenceTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuleReferenceTypeOutput) ToRuleReferenceTypePtrOutputWithContext(ctx context.Context) RuleReferenceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleReferenceType) *RuleReferenceType {
+		return &v
+	}).(RuleReferenceTypePtrOutput)
+}
+
+func (o RuleReferenceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleReferenceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleReferenceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleReferenceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleReferenceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleReferenceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleReferenceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleReferenceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleReferenceType)(nil)).Elem()
+}
+
+func (o RuleReferenceTypePtrOutput) ToRuleReferenceTypePtrOutput() RuleReferenceTypePtrOutput {
+	return o
+}
+
+func (o RuleReferenceTypePtrOutput) ToRuleReferenceTypePtrOutputWithContext(ctx context.Context) RuleReferenceTypePtrOutput {
+	return o
+}
+
+func (o RuleReferenceTypePtrOutput) Elem() RuleReferenceTypeOutput {
+	return o.ApplyT(func(v *RuleReferenceType) RuleReferenceType {
+		if v != nil {
+			return *v
+		}
+		var ret RuleReferenceType
+		return ret
+	}).(RuleReferenceTypeOutput)
+}
+
+func (o RuleReferenceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleReferenceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleReferenceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleReferenceTypeInput is an input type that accepts values of the RuleReferenceType enum
+// A concrete instance of `RuleReferenceTypeInput` can be one of the following:
+//
+//	RuleReferenceTypeUrl
+//	RuleReferenceTypeAttachment
+//	RuleReferenceTypeNumber
+//	RuleReferenceTypeString
+//	RuleReferenceTypeDate
+//	RuleReferenceTypeEmail
+type RuleReferenceTypeInput interface {
+	pulumi.Input
+
+	ToRuleReferenceTypeOutput() RuleReferenceTypeOutput
+	ToRuleReferenceTypeOutputWithContext(context.Context) RuleReferenceTypeOutput
+}
+
+var ruleReferenceTypePtrType = reflect.TypeOf((**RuleReferenceType)(nil)).Elem()
+
+type RuleReferenceTypePtrInput interface {
+	pulumi.Input
+
+	ToRuleReferenceTypePtrOutput() RuleReferenceTypePtrOutput
+	ToRuleReferenceTypePtrOutputWithContext(context.Context) RuleReferenceTypePtrOutput
+}
+
+type ruleReferenceTypePtr string
+
+func RuleReferenceTypePtr(v string) RuleReferenceTypePtrInput {
+	return (*ruleReferenceTypePtr)(&v)
+}
+
+func (*ruleReferenceTypePtr) ElementType() reflect.Type {
+	return ruleReferenceTypePtrType
+}
+
+func (in *ruleReferenceTypePtr) ToRuleReferenceTypePtrOutput() RuleReferenceTypePtrOutput {
+	return pulumi.ToOutput(in).(RuleReferenceTypePtrOutput)
+}
+
+func (in *ruleReferenceTypePtr) ToRuleReferenceTypePtrOutputWithContext(ctx context.Context) RuleReferenceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleReferenceTypePtrOutput)
+}
+
 // The type of content.
 type RuleSendNotificationActionContentType string
 
@@ -4903,6 +5076,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileChannelPtrInput)(nil)).Elem(), RoutingProfileChannel("VOICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusPtrInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceTypeInput)(nil)).Elem(), RuleReferenceType("URL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceTypePtrInput)(nil)).Elem(), RuleReferenceType("URL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionContentTypeInput)(nil)).Elem(), RuleSendNotificationActionContentType("PLAIN_TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionContentTypePtrInput)(nil)).Elem(), RuleSendNotificationActionContentType("PLAIN_TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionDeliveryMethodInput)(nil)).Elem(), RuleSendNotificationActionDeliveryMethod("EMAIL"))
@@ -4961,6 +5136,8 @@ func init() {
 	pulumi.RegisterOutputType(RoutingProfileChannelPtrOutput{})
 	pulumi.RegisterOutputType(RulePublishStatusOutput{})
 	pulumi.RegisterOutputType(RulePublishStatusPtrOutput{})
+	pulumi.RegisterOutputType(RuleReferenceTypeOutput{})
+	pulumi.RegisterOutputType(RuleReferenceTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionContentTypeOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionContentTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionDeliveryMethodOutput{})

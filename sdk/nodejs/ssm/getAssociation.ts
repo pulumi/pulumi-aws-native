@@ -55,10 +55,8 @@ export interface GetAssociationResult {
     readonly outputLocation?: outputs.ssm.AssociationInstanceAssociationOutputLocation;
     /**
      * Parameter values that the SSM document uses at runtime.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
      */
-    readonly parameters?: any;
+    readonly parameters?: {[key: string]: string[]};
     /**
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */

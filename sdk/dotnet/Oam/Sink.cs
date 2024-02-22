@@ -37,11 +37,9 @@ namespace Pulumi.AwsNative.Oam
 
         /// <summary>
         /// Tags to apply to the sink
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -106,13 +104,17 @@ namespace Pulumi.AwsNative.Oam
         [Input("policy")]
         public Input<object>? Policy { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// Tags to apply to the sink
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         /// </summary>
-        [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public SinkArgs()
         {

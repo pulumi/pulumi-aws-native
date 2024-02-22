@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Rum.Inputs
     /// </summary>
     public sealed class AppMonitorMetricDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dimensionKeys")]
+        private InputMap<string>? _dimensionKeys;
+
         /// <summary>
         /// Use this field only if you are sending the metric to CloudWatch.
         /// 
@@ -34,8 +37,11 @@ namespace Pulumi.AwsNative.Rum.Inputs
         /// 
         /// All dimensions listed in this field must also be included in EventPattern.
         /// </summary>
-        [Input("dimensionKeys")]
-        public Input<object>? DimensionKeys { get; set; }
+        public InputMap<string> DimensionKeys
+        {
+            get => _dimensionKeys ?? (_dimensionKeys = new InputMap<string>());
+            set => _dimensionKeys = value;
+        }
 
         /// <summary>
         /// The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.

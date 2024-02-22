@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// <summary>
         /// The collection of recipients who are identified by user tags
         /// </summary>
-        public readonly object? UserTags;
+        public readonly ImmutableDictionary<string, string>? UserTags;
 
         [OutputConstructor]
         private RuleNotificationRecipientType(
             ImmutableArray<string> userArns,
 
-            object? userTags)
+            ImmutableDictionary<string, string>? userTags)
         {
             UserArns = userArns;
             UserTags = userTags;

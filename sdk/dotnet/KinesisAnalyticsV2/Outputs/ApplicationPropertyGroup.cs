@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// Describes the value of an application execution property key-value pair.
         /// </summary>
-        public readonly object? PropertyMap;
+        public readonly ImmutableDictionary<string, string>? PropertyMap;
 
         [OutputConstructor]
         private ApplicationPropertyGroup(
             string? propertyGroupId,
 
-            object? propertyMap)
+            ImmutableDictionary<string, string>? propertyMap)
         {
             PropertyGroupId = propertyGroupId;
             PropertyMap = propertyMap;

@@ -22,9 +22,7 @@ type Link struct {
 	ResourceTypes  LinkResourceTypeArrayOutput `pulumi:"resourceTypes"`
 	SinkIdentifier pulumi.StringOutput         `pulumi:"sinkIdentifier"`
 	// Tags to apply to the link
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewLink registers a new resource with the given unique name, arguments, and options.
@@ -82,9 +80,7 @@ type linkArgs struct {
 	ResourceTypes  []LinkResourceType `pulumi:"resourceTypes"`
 	SinkIdentifier string             `pulumi:"sinkIdentifier"`
 	// Tags to apply to the link
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
-	Tags interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Link resource.
@@ -93,9 +89,7 @@ type LinkArgs struct {
 	ResourceTypes  LinkResourceTypeArrayInput
 	SinkIdentifier pulumi.StringInput
 	// Tags to apply to the link
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
-	Tags pulumi.Input
+	Tags pulumi.StringMapInput
 }
 
 func (LinkArgs) ElementType() reflect.Type {
@@ -156,10 +150,8 @@ func (o LinkOutput) SinkIdentifier() pulumi.StringOutput {
 }
 
 // Tags to apply to the link
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Link` for more information about the expected schema for this property.
-func (o LinkOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Link) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o LinkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

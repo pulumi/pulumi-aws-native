@@ -483,7 +483,7 @@ type AppMonitorMetricDefinition struct {
 	// "event_details.fileType": "FileType"
 	//
 	// All dimensions listed in this field must also be included in EventPattern.
-	DimensionKeys interface{} `pulumi:"dimensionKeys"`
+	DimensionKeys map[string]string `pulumi:"dimensionKeys"`
 	// The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
 	//
 	// When you define extended metrics, the metric definition is not valid if EventPattern is omitted.
@@ -564,7 +564,7 @@ type AppMonitorMetricDefinitionArgs struct {
 	// "event_details.fileType": "FileType"
 	//
 	// All dimensions listed in this field must also be included in EventPattern.
-	DimensionKeys pulumi.Input `pulumi:"dimensionKeys"`
+	DimensionKeys pulumi.StringMapInput `pulumi:"dimensionKeys"`
 	// The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
 	//
 	// When you define extended metrics, the metric definition is not valid if EventPattern is omitted.
@@ -684,8 +684,8 @@ func (o AppMonitorMetricDefinitionOutput) ToAppMonitorMetricDefinitionOutputWith
 // "event_details.fileType": "FileType"
 //
 // All dimensions listed in this field must also be included in EventPattern.
-func (o AppMonitorMetricDefinitionOutput) DimensionKeys() pulumi.AnyOutput {
-	return o.ApplyT(func(v AppMonitorMetricDefinition) interface{} { return v.DimensionKeys }).(pulumi.AnyOutput)
+func (o AppMonitorMetricDefinitionOutput) DimensionKeys() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AppMonitorMetricDefinition) map[string]string { return v.DimensionKeys }).(pulumi.StringMapOutput)
 }
 
 // The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.

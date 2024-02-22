@@ -69,10 +69,8 @@ namespace Pulumi.AwsNative.Oam
         public readonly object? Policy;
         /// <summary>
         /// Tags to apply to the sink
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetSinkResult(
@@ -80,7 +78,7 @@ namespace Pulumi.AwsNative.Oam
 
             object? policy,
 
-            object? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Policy = policy;

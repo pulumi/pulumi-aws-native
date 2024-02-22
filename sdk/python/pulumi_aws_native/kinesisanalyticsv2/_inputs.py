@@ -1306,11 +1306,11 @@ class ApplicationParallelismConfigurationArgs:
 class ApplicationPropertyGroupArgs:
     def __init__(__self__, *,
                  property_group_id: Optional[pulumi.Input[str]] = None,
-                 property_map: Optional[Any] = None):
+                 property_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Property key-value pairs passed into an application.
         :param pulumi.Input[str] property_group_id: Describes the key of an application execution property key-value pair.
-        :param Any property_map: Describes the value of an application execution property key-value pair.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] property_map: Describes the value of an application execution property key-value pair.
         """
         if property_group_id is not None:
             pulumi.set(__self__, "property_group_id", property_group_id)
@@ -1331,14 +1331,14 @@ class ApplicationPropertyGroupArgs:
 
     @property
     @pulumi.getter(name="propertyMap")
-    def property_map(self) -> Optional[Any]:
+    def property_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Describes the value of an application execution property key-value pair.
         """
         return pulumi.get(self, "property_map")
 
     @property_map.setter
-    def property_map(self, value: Optional[Any]):
+    def property_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "property_map", value)
 
 

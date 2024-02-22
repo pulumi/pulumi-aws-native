@@ -20,8 +20,7 @@ type ComponentVersion struct {
 	ComponentVersion pulumi.StringOutput                                 `pulumi:"componentVersion"`
 	InlineRecipe     pulumi.StringPtrOutput                              `pulumi:"inlineRecipe"`
 	LambdaFunction   ComponentVersionLambdaFunctionRecipeSourcePtrOutput `pulumi:"lambdaFunction"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	Tags             pulumi.StringMapOutput                              `pulumi:"tags"`
 }
 
 // NewComponentVersion registers a new resource with the given unique name, arguments, and options.
@@ -71,16 +70,14 @@ func (ComponentVersionState) ElementType() reflect.Type {
 type componentVersionArgs struct {
 	InlineRecipe   *string                                     `pulumi:"inlineRecipe"`
 	LambdaFunction *ComponentVersionLambdaFunctionRecipeSource `pulumi:"lambdaFunction"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
-	Tags interface{} `pulumi:"tags"`
+	Tags           map[string]string                           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ComponentVersion resource.
 type ComponentVersionArgs struct {
 	InlineRecipe   pulumi.StringPtrInput
 	LambdaFunction ComponentVersionLambdaFunctionRecipeSourcePtrInput
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
-	Tags pulumi.Input
+	Tags           pulumi.StringMapInput
 }
 
 func (ComponentVersionArgs) ElementType() reflect.Type {
@@ -140,9 +137,8 @@ func (o ComponentVersionOutput) LambdaFunction() ComponentVersionLambdaFunctionR
 	return o.ApplyT(func(v *ComponentVersion) ComponentVersionLambdaFunctionRecipeSourcePtrOutput { return v.LambdaFunction }).(ComponentVersionLambdaFunctionRecipeSourcePtrOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::GreengrassV2::ComponentVersion` for more information about the expected schema for this property.
-func (o ComponentVersionOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ComponentVersion) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+func (o ComponentVersionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ComponentVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

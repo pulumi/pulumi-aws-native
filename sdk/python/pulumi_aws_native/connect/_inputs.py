@@ -52,6 +52,7 @@ __all__ = [
     'RuleFieldValueArgs',
     'RuleFieldArgs',
     'RuleNotificationRecipientTypeArgs',
+    'RuleReferenceArgs',
     'RuleSendNotificationActionArgs',
     'RuleTaskActionArgs',
     'RuleTriggerEventSourceArgs',
@@ -1768,11 +1769,11 @@ class RuleFieldArgs:
 class RuleNotificationRecipientTypeArgs:
     def __init__(__self__, *,
                  user_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 user_tags: Optional[Any] = None):
+                 user_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The type of notification recipient.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_arns: The list of recipients by user arns.
-        :param Any user_tags: The collection of recipients who are identified by user tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_tags: The collection of recipients who are identified by user tags
         """
         if user_arns is not None:
             pulumi.set(__self__, "user_arns", user_arns)
@@ -1793,15 +1794,45 @@ class RuleNotificationRecipientTypeArgs:
 
     @property
     @pulumi.getter(name="userTags")
-    def user_tags(self) -> Optional[Any]:
+    def user_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The collection of recipients who are identified by user tags
         """
         return pulumi.get(self, "user_tags")
 
     @user_tags.setter
-    def user_tags(self, value: Optional[Any]):
+    def user_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "user_tags", value)
+
+
+@pulumi.input_type
+class RuleReferenceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['RuleReferenceType'],
+                 value: pulumi.Input[str]):
+        """
+        A contact reference.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['RuleReferenceType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['RuleReferenceType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1890,13 +1921,13 @@ class RuleTaskActionArgs:
                  contact_flow_arn: pulumi.Input[str],
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 references: Optional[Any] = None):
+                 references: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleReferenceArgs']]]] = None):
         """
         The definition of task action.
         :param pulumi.Input[str] contact_flow_arn: The Amazon Resource Name (ARN) of the contact flow.
         :param pulumi.Input[str] name: The name which appears in the agent's Contact Control Panel (CCP).
         :param pulumi.Input[str] description: The description which appears in the agent's Contact Control Panel (CCP).
-        :param Any references: A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+        :param pulumi.Input[Mapping[str, pulumi.Input['RuleReferenceArgs']]] references: A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
         """
         pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
         pulumi.set(__self__, "name", name)
@@ -1943,14 +1974,14 @@ class RuleTaskActionArgs:
 
     @property
     @pulumi.getter
-    def references(self) -> Optional[Any]:
+    def references(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleReferenceArgs']]]]:
         """
         A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
         """
         return pulumi.get(self, "references")
 
     @references.setter
-    def references(self, value: Optional[Any]):
+    def references(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleReferenceArgs']]]]):
         pulumi.set(self, "references", value)
 
 

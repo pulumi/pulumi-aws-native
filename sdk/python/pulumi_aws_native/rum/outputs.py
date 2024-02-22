@@ -235,7 +235,7 @@ class AppMonitorMetricDefinition(dict):
 
     def __init__(__self__, *,
                  name: str,
-                 dimension_keys: Optional[Any] = None,
+                 dimension_keys: Optional[Mapping[str, str]] = None,
                  event_pattern: Optional[str] = None,
                  namespace: Optional[str] = None,
                  unit_label: Optional[str] = None,
@@ -265,7 +265,7 @@ class AppMonitorMetricDefinition(dict):
                HttpErrorCount
                
                SessionCount
-        :param Any dimension_keys: Use this field only if you are sending the metric to CloudWatch.
+        :param Mapping[str, str] dimension_keys: Use this field only if you are sending the metric to CloudWatch.
                
                This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
                
@@ -347,7 +347,7 @@ class AppMonitorMetricDefinition(dict):
 
     @property
     @pulumi.getter(name="dimensionKeys")
-    def dimension_keys(self) -> Optional[Any]:
+    def dimension_keys(self) -> Optional[Mapping[str, str]]:
         """
         Use this field only if you are sending the metric to CloudWatch.
 

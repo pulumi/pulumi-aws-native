@@ -28,7 +28,7 @@ class AssociationArgs:
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_location: Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  schedule_offset: Optional[pulumi.Input[int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
@@ -40,9 +40,7 @@ class AssociationArgs:
         :param pulumi.Input[str] document_version: The version of the SSM document to associate with the target.
         :param pulumi.Input[str] instance_id: The ID of the instance that the SSM document is associated with.
         :param pulumi.Input[str] name: The name of the SSM document.
-        :param Any parameters: Parameter values that the SSM document uses at runtime.
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] parameters: Parameter values that the SSM document uses at runtime.
         :param pulumi.Input[str] schedule_expression: A Cron or Rate expression that specifies when the association is applied to the target.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: The targets that the SSM document sends commands to.
         """
@@ -194,16 +192,14 @@ class AssociationArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]:
         """
         Parameter values that the SSM document uses at runtime.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[Any]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -274,7 +270,7 @@ class Association(pulumi.CustomResource):
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_location: Optional[pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  schedule_offset: Optional[pulumi.Input[int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
@@ -290,9 +286,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] document_version: The version of the SSM document to associate with the target.
         :param pulumi.Input[str] instance_id: The ID of the instance that the SSM document is associated with.
         :param pulumi.Input[str] name: The name of the SSM document.
-        :param Any parameters: Parameter values that the SSM document uses at runtime.
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] parameters: Parameter values that the SSM document uses at runtime.
         :param pulumi.Input[str] schedule_expression: A Cron or Rate expression that specifies when the association is applied to the target.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: The targets that the SSM document sends commands to.
         """
@@ -331,7 +325,7 @@ class Association(pulumi.CustomResource):
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_location: Optional[pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  schedule_offset: Optional[pulumi.Input[int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
@@ -483,11 +477,9 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Any]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, Sequence[str]]]]:
         """
         Parameter values that the SSM document uses at runtime.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 

@@ -49,11 +49,9 @@ class GetSinkResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags to apply to the sink
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
 

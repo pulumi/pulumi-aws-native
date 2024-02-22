@@ -749,6 +749,38 @@ namespace Pulumi.AwsNative.Connect
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct RuleReferenceType : IEquatable<RuleReferenceType>
+    {
+        private readonly string _value;
+
+        private RuleReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleReferenceType Url { get; } = new RuleReferenceType("URL");
+        public static RuleReferenceType Attachment { get; } = new RuleReferenceType("ATTACHMENT");
+        public static RuleReferenceType Number { get; } = new RuleReferenceType("NUMBER");
+        public static RuleReferenceType String { get; } = new RuleReferenceType("STRING");
+        public static RuleReferenceType Date { get; } = new RuleReferenceType("DATE");
+        public static RuleReferenceType Email { get; } = new RuleReferenceType("EMAIL");
+
+        public static bool operator ==(RuleReferenceType left, RuleReferenceType right) => left.Equals(right);
+        public static bool operator !=(RuleReferenceType left, RuleReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(RuleReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleReferenceType other && Equals(other);
+        public bool Equals(RuleReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of content.
     /// </summary>

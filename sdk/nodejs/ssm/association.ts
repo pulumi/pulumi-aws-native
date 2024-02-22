@@ -66,10 +66,8 @@ export class Association extends pulumi.CustomResource {
     public readonly outputLocation!: pulumi.Output<outputs.ssm.AssociationInstanceAssociationOutputLocation | undefined>;
     /**
      * Parameter values that the SSM document uses at runtime.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
      */
-    public readonly parameters!: pulumi.Output<any | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string[]} | undefined>;
     /**
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */
@@ -165,10 +163,8 @@ export interface AssociationArgs {
     outputLocation?: pulumi.Input<inputs.ssm.AssociationInstanceAssociationOutputLocationArgs>;
     /**
      * Parameter values that the SSM document uses at runtime.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Association` for more information about the expected schema for this property.
      */
-    parameters?: any;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
     /**
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */
