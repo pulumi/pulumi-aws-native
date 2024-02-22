@@ -432,6 +432,7 @@
     "uniqueItems": true
   },
   "aws-native:cloudfront:Distribution": {
+    "description": "A complex type that contains zero or more ``Tag`` elements.",
     "items": {
       "$ref": "#/definitions/Tag"
     },
@@ -765,6 +766,23 @@
     "maxItems": 50,
     "type": "array",
     "uniqueItems": true
+  },
+  "aws-native:controltower:EnabledBaseline": {
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "type": "array"
+  },
+  "aws-native:controltower:EnabledControl": {
+    "description": "A set of tags to assign to the enabled control.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/Tag"
+    },
+    "maxItems": 50,
+    "minItems": 1,
+    "type": "array"
   },
   "aws-native:controltower:LandingZone": {
     "items": {
@@ -1124,6 +1142,7 @@
     "uniqueItems": true
   },
   "aws-native:dynamodb:Table": {
+    "description": "An array of key-value pairs to apply to this resource.\n For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "items": {
       "$ref": "#/definitions/Tag"
     },
@@ -1153,7 +1172,7 @@
     "uniqueItems": false
   },
   "aws-native:ec2:Eip": {
-    "description": "Any tags assigned to the EIP.",
+    "description": "Any tags assigned to the Elastic IP address.\n  Updates to the ``Tags`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"
@@ -1516,6 +1535,7 @@
     "type": "array"
   },
   "aws-native:ecs:TaskDefinition": {
+    "description": "The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.\n The following basic restrictions apply to tags:\n  +  Maximum number of tags per resource - 50\n  +  For each resource, each tag key must be unique, and each tag key can have only one value.\n  +  Maximum key length - 128 Unicode characters in UTF-8\n  +  Maximum value length - 256 Unicode characters in UTF-8\n  +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.\n  +  Tag keys and values are case-sensitive.\n  +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"
@@ -1532,6 +1552,7 @@
     "uniqueItems": true
   },
   "aws-native:efs:FileSystem": {
+    "description": "Use to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a ``\"Key\":\"Name\",\"Value\":\"{value}\"`` key-value pair. Each key must be unique. For more information, see [Tagging resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *General Reference Guide*.",
     "items": {
       "$ref": "#/definitions/ElasticFileSystemTag"
     },
@@ -1994,6 +2015,7 @@
     "uniqueItems": true
   },
   "aws-native:globalaccelerator:Accelerator": {
+    "insertionOrder": true,
     "items": {
       "$ref": "#/definitions/Tag"
     },
@@ -2103,7 +2125,7 @@
     "uniqueItems": false
   },
   "aws-native:iam:User": {
-    "description": "A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.",
+    "description": "A list of tags that you want to attach to the new user. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*.\n  If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"
@@ -2672,7 +2694,7 @@
     "uniqueItems": false
   },
   "aws-native:kms:Key": {
-    "description": "An array of key-value pairs to apply to this resource.",
+    "description": "Assigns one or more tags to the replica key.\n  Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [ABAC for](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *Developer Guide*.\n  For information about tags in KMS, see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html) in the *Developer Guide*. For information about tags in CloudFormation, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"
@@ -2690,7 +2712,7 @@
     "uniqueItems": true
   },
   "aws-native:lambda:Function": {
-    "description": "A list of tags to apply to the function.",
+    "description": "A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"
@@ -3468,7 +3490,7 @@
     "type": "array"
   },
   "aws-native:rds:DbInstance": {
-    "description": "Tags to assign to the DB instance.",
+    "description": "An optional array of key-value pairs to apply to this DB instance.",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"
@@ -3477,7 +3499,7 @@
     "uniqueItems": false
   },
   "aws-native:rds:DbParameterGroup": {
-    "description": "An array of key-value pairs to apply to this resource.",
+    "description": "An optional array of key-value pairs to apply to this DB parameter group.\n  Currently, this is the only property that supports drift detection.",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"
@@ -3503,7 +3525,7 @@
     "type": "array"
   },
   "aws-native:rds:DbSubnetGroup": {
-    "description": "An array of key-value pairs to apply to this resource.",
+    "description": "An optional array of key-value pairs to apply to this DB subnet group.",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"
@@ -4059,7 +4081,7 @@
     "type": "array"
   },
   "aws-native:secretsmanager:Secret": {
-    "description": "The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.",
+    "description": "A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:\n  ``[{\"Key\":\"CostCenter\",\"Value\":\"12345\"},{\"Key\":\"environment\",\"Value\":\"production\"}]`` \n Secrets Manager tag key names are case sensitive. A tag with the key \"ABC\" is a different tag from one with key \"abc\".\n Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret. \n If you check tags in permissions policies as part of your security strategy, then adding or removing a tag can change permissions. If the completion of this operation would result in you losing your permissions for this secret, then Secrets Manager blocks the operation and returns an ``Access Denied`` error. For more information, see [Control access to secrets using tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#tag-secrets-abac) and [Limit access to identities with tags that match secrets' tags](https://docs.aws.amazo",
     "insertionOrder": false,
     "items": {
       "$ref": "#/definitions/Tag"

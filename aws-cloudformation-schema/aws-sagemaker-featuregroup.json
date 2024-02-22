@@ -47,6 +47,9 @@
         },
         "StorageType" : {
           "$ref" : "#/definitions/StorageType"
+        },
+        "TtlDuration" : {
+          "$ref" : "#/definitions/TtlDuration"
         }
       }
     },
@@ -128,6 +131,28 @@
     "StorageType" : {
       "type" : "string",
       "enum" : [ "Standard", "InMemory" ]
+    },
+    "TtlDuration" : {
+      "type" : "object",
+      "description" : "TTL configuration of the feature group",
+      "additionalProperties" : false,
+      "properties" : {
+        "Unit" : {
+          "$ref" : "#/definitions/Unit"
+        },
+        "Value" : {
+          "$ref" : "#/definitions/Value"
+        }
+      }
+    },
+    "Unit" : {
+      "type" : "string",
+      "description" : "Unit of ttl configuration",
+      "enum" : [ "Seconds", "Minutes", "Hours", "Days", "Weeks" ]
+    },
+    "Value" : {
+      "type" : "integer",
+      "description" : "Value of ttl configuration"
     },
     "OnlineStoreSecurityConfig" : {
       "type" : "object",
@@ -222,7 +247,7 @@
     }
   },
   "required" : [ "FeatureGroupName", "RecordIdentifierFeatureName", "EventTimeFeatureName", "FeatureDefinitions" ],
-  "createOnlyProperties" : [ "/properties/FeatureGroupName", "/properties/RecordIdentifierFeatureName", "/properties/EventTimeFeatureName", "/properties/OnlineStoreConfig", "/properties/OfflineStoreConfig", "/properties/RoleArn", "/properties/Description", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/FeatureGroupName", "/properties/RecordIdentifierFeatureName", "/properties/EventTimeFeatureName", "/properties/OnlineStoreConfig/SecurityConfig", "/properties/OnlineStoreConfig/EnableOnlineStore", "/properties/OnlineStoreConfig/StorageType", "/properties/OfflineStoreConfig", "/properties/RoleArn", "/properties/Description", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/FeatureGroupName" ],
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/FeatureGroupStatus" ],
   "handlers" : {
