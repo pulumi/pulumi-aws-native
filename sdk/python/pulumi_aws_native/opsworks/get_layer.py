@@ -78,10 +78,7 @@ class GetLayerResult:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-        """
+    def attributes(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "attributes")
 
     @property

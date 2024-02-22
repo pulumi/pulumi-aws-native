@@ -349,13 +349,13 @@ class InstanceEbsBlockDevice(dict):
 @pulumi.output_type
 class InstanceTimeBasedAutoScaling(dict):
     def __init__(__self__, *,
-                 friday: Optional[Any] = None,
-                 monday: Optional[Any] = None,
-                 saturday: Optional[Any] = None,
-                 sunday: Optional[Any] = None,
-                 thursday: Optional[Any] = None,
-                 tuesday: Optional[Any] = None,
-                 wednesday: Optional[Any] = None):
+                 friday: Optional[Mapping[str, str]] = None,
+                 monday: Optional[Mapping[str, str]] = None,
+                 saturday: Optional[Mapping[str, str]] = None,
+                 sunday: Optional[Mapping[str, str]] = None,
+                 thursday: Optional[Mapping[str, str]] = None,
+                 tuesday: Optional[Mapping[str, str]] = None,
+                 wednesday: Optional[Mapping[str, str]] = None):
         if friday is not None:
             pulumi.set(__self__, "friday", friday)
         if monday is not None:
@@ -373,37 +373,37 @@ class InstanceTimeBasedAutoScaling(dict):
 
     @property
     @pulumi.getter
-    def friday(self) -> Optional[Any]:
+    def friday(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "friday")
 
     @property
     @pulumi.getter
-    def monday(self) -> Optional[Any]:
+    def monday(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "monday")
 
     @property
     @pulumi.getter
-    def saturday(self) -> Optional[Any]:
+    def saturday(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "saturday")
 
     @property
     @pulumi.getter
-    def sunday(self) -> Optional[Any]:
+    def sunday(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "sunday")
 
     @property
     @pulumi.getter
-    def thursday(self) -> Optional[Any]:
+    def thursday(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "thursday")
 
     @property
     @pulumi.getter
-    def tuesday(self) -> Optional[Any]:
+    def tuesday(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tuesday")
 
     @property
     @pulumi.getter
-    def wednesday(self) -> Optional[Any]:
+    def wednesday(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "wednesday")
 
 

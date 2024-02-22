@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.Emr.Outputs
     public sealed class InstanceGroupConfigConfiguration
     {
         public readonly string? Classification;
-        public readonly object? ConfigurationProperties;
+        public readonly ImmutableDictionary<string, string>? ConfigurationProperties;
         public readonly ImmutableArray<Outputs.InstanceGroupConfigConfiguration> Configurations;
 
         [OutputConstructor]
         private InstanceGroupConfigConfiguration(
             string? classification,
 
-            object? configurationProperties,
+            ImmutableDictionary<string, string>? configurationProperties,
 
             ImmutableArray<Outputs.InstanceGroupConfigConfiguration> configurations)
         {

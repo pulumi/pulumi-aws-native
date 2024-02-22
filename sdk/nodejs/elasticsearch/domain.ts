@@ -44,10 +44,7 @@ export class Domain extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
      */
     public readonly accessPolicies!: pulumi.Output<any | undefined>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-     */
-    public readonly advancedOptions!: pulumi.Output<any | undefined>;
+    public readonly advancedOptions!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly advancedSecurityOptions!: pulumi.Output<outputs.elasticsearch.DomainAdvancedSecurityOptionsInput | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly cognitoOptions!: pulumi.Output<outputs.elasticsearch.DomainCognitoOptions | undefined>;
@@ -59,10 +56,7 @@ export class Domain extends pulumi.CustomResource {
     public readonly elasticsearchClusterConfig!: pulumi.Output<outputs.elasticsearch.DomainElasticsearchClusterConfig | undefined>;
     public readonly elasticsearchVersion!: pulumi.Output<string | undefined>;
     public readonly encryptionAtRestOptions!: pulumi.Output<outputs.elasticsearch.DomainEncryptionAtRestOptions | undefined>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-     */
-    public readonly logPublishingOptions!: pulumi.Output<any | undefined>;
+    public readonly logPublishingOptions!: pulumi.Output<{[key: string]: outputs.elasticsearch.DomainLogPublishingOption} | undefined>;
     public readonly nodeToNodeEncryptionOptions!: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryptionOptions | undefined>;
     public readonly snapshotOptions!: pulumi.Output<outputs.elasticsearch.DomainSnapshotOptions | undefined>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -134,10 +128,7 @@ export interface DomainArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
      */
     accessPolicies?: any;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-     */
-    advancedOptions?: any;
+    advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptionsInputArgs>;
     cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptionsArgs>;
     domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainEndpointOptionsArgs>;
@@ -146,10 +137,7 @@ export interface DomainArgs {
     elasticsearchClusterConfig?: pulumi.Input<inputs.elasticsearch.DomainElasticsearchClusterConfigArgs>;
     elasticsearchVersion?: pulumi.Input<string>;
     encryptionAtRestOptions?: pulumi.Input<inputs.elasticsearch.DomainEncryptionAtRestOptionsArgs>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-     */
-    logPublishingOptions?: any;
+    logPublishingOptions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.elasticsearch.DomainLogPublishingOptionArgs>}>;
     nodeToNodeEncryptionOptions?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryptionOptionsArgs>;
     snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptionsArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;

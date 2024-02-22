@@ -1304,6 +1304,106 @@ func (o DomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainLogPublishingOption struct {
+	CloudWatchLogsLogGroupArn *string `pulumi:"cloudWatchLogsLogGroupArn"`
+	Enabled                   *bool   `pulumi:"enabled"`
+}
+
+// DomainLogPublishingOptionInput is an input type that accepts DomainLogPublishingOptionArgs and DomainLogPublishingOptionOutput values.
+// You can construct a concrete instance of `DomainLogPublishingOptionInput` via:
+//
+//	DomainLogPublishingOptionArgs{...}
+type DomainLogPublishingOptionInput interface {
+	pulumi.Input
+
+	ToDomainLogPublishingOptionOutput() DomainLogPublishingOptionOutput
+	ToDomainLogPublishingOptionOutputWithContext(context.Context) DomainLogPublishingOptionOutput
+}
+
+type DomainLogPublishingOptionArgs struct {
+	CloudWatchLogsLogGroupArn pulumi.StringPtrInput `pulumi:"cloudWatchLogsLogGroupArn"`
+	Enabled                   pulumi.BoolPtrInput   `pulumi:"enabled"`
+}
+
+func (DomainLogPublishingOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainLogPublishingOption)(nil)).Elem()
+}
+
+func (i DomainLogPublishingOptionArgs) ToDomainLogPublishingOptionOutput() DomainLogPublishingOptionOutput {
+	return i.ToDomainLogPublishingOptionOutputWithContext(context.Background())
+}
+
+func (i DomainLogPublishingOptionArgs) ToDomainLogPublishingOptionOutputWithContext(ctx context.Context) DomainLogPublishingOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainLogPublishingOptionOutput)
+}
+
+// DomainLogPublishingOptionMapInput is an input type that accepts DomainLogPublishingOptionMap and DomainLogPublishingOptionMapOutput values.
+// You can construct a concrete instance of `DomainLogPublishingOptionMapInput` via:
+//
+//	DomainLogPublishingOptionMap{ "key": DomainLogPublishingOptionArgs{...} }
+type DomainLogPublishingOptionMapInput interface {
+	pulumi.Input
+
+	ToDomainLogPublishingOptionMapOutput() DomainLogPublishingOptionMapOutput
+	ToDomainLogPublishingOptionMapOutputWithContext(context.Context) DomainLogPublishingOptionMapOutput
+}
+
+type DomainLogPublishingOptionMap map[string]DomainLogPublishingOptionInput
+
+func (DomainLogPublishingOptionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DomainLogPublishingOption)(nil)).Elem()
+}
+
+func (i DomainLogPublishingOptionMap) ToDomainLogPublishingOptionMapOutput() DomainLogPublishingOptionMapOutput {
+	return i.ToDomainLogPublishingOptionMapOutputWithContext(context.Background())
+}
+
+func (i DomainLogPublishingOptionMap) ToDomainLogPublishingOptionMapOutputWithContext(ctx context.Context) DomainLogPublishingOptionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainLogPublishingOptionMapOutput)
+}
+
+type DomainLogPublishingOptionOutput struct{ *pulumi.OutputState }
+
+func (DomainLogPublishingOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainLogPublishingOption)(nil)).Elem()
+}
+
+func (o DomainLogPublishingOptionOutput) ToDomainLogPublishingOptionOutput() DomainLogPublishingOptionOutput {
+	return o
+}
+
+func (o DomainLogPublishingOptionOutput) ToDomainLogPublishingOptionOutputWithContext(ctx context.Context) DomainLogPublishingOptionOutput {
+	return o
+}
+
+func (o DomainLogPublishingOptionOutput) CloudWatchLogsLogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainLogPublishingOption) *string { return v.CloudWatchLogsLogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainLogPublishingOptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainLogPublishingOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DomainLogPublishingOptionMapOutput struct{ *pulumi.OutputState }
+
+func (DomainLogPublishingOptionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DomainLogPublishingOption)(nil)).Elem()
+}
+
+func (o DomainLogPublishingOptionMapOutput) ToDomainLogPublishingOptionMapOutput() DomainLogPublishingOptionMapOutput {
+	return o
+}
+
+func (o DomainLogPublishingOptionMapOutput) ToDomainLogPublishingOptionMapOutputWithContext(ctx context.Context) DomainLogPublishingOptionMapOutput {
+	return o
+}
+
+func (o DomainLogPublishingOptionMapOutput) MapIndex(k pulumi.StringInput) DomainLogPublishingOptionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainLogPublishingOption {
+		return vs[0].(map[string]DomainLogPublishingOption)[vs[1].(string)]
+	}).(DomainLogPublishingOptionOutput)
+}
+
 type DomainMasterUserOptions struct {
 	MasterUserArn      *string `pulumi:"masterUserArn"`
 	MasterUserName     *string `pulumi:"masterUserName"`
@@ -2034,6 +2134,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEncryptionAtRestOptionsPtrInput)(nil)).Elem(), DomainEncryptionAtRestOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEndpointOptionsInput)(nil)).Elem(), DomainEndpointOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEndpointOptionsPtrInput)(nil)).Elem(), DomainEndpointOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainLogPublishingOptionInput)(nil)).Elem(), DomainLogPublishingOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainLogPublishingOptionMapInput)(nil)).Elem(), DomainLogPublishingOptionMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMasterUserOptionsInput)(nil)).Elem(), DomainMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMasterUserOptionsPtrInput)(nil)).Elem(), DomainMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionOptionsInput)(nil)).Elem(), DomainNodeToNodeEncryptionOptionsArgs{})
@@ -2058,6 +2160,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEndpointOptionsOutput{})
 	pulumi.RegisterOutputType(DomainEndpointOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainLogPublishingOptionOutput{})
+	pulumi.RegisterOutputType(DomainLogPublishingOptionMapOutput{})
 	pulumi.RegisterOutputType(DomainMasterUserOptionsOutput{})
 	pulumi.RegisterOutputType(DomainMasterUserOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsOutput{})

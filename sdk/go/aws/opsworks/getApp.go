@@ -27,9 +27,8 @@ type LookupAppArgs struct {
 }
 
 type LookupAppResult struct {
-	AppSource *AppSource `pulumi:"appSource"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-	Attributes       interface{}              `pulumi:"attributes"`
+	AppSource        *AppSource               `pulumi:"appSource"`
+	Attributes       map[string]string        `pulumi:"attributes"`
 	DataSources      []AppDataSource          `pulumi:"dataSources"`
 	Description      *string                  `pulumi:"description"`
 	Domains          []string                 `pulumi:"domains"`
@@ -80,9 +79,8 @@ func (o LookupAppResultOutput) AppSource() AppSourcePtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *AppSource { return v.AppSource }).(AppSourcePtrOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-func (o LookupAppResultOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupAppResult) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+func (o LookupAppResultOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAppResult) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o LookupAppResultOutput) DataSources() AppDataSourceArrayOutput {

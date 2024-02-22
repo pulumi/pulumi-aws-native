@@ -41,10 +41,7 @@ export class Stack extends pulumi.CustomResource {
     }
 
     public readonly agentVersion!: pulumi.Output<string | undefined>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-     */
-    public readonly attributes!: pulumi.Output<any | undefined>;
+    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly chefConfiguration!: pulumi.Output<outputs.opsworks.StackChefConfiguration | undefined>;
     public readonly cloneAppIds!: pulumi.Output<string[] | undefined>;
     public readonly clonePermissions!: pulumi.Output<boolean | undefined>;
@@ -155,10 +152,7 @@ export class Stack extends pulumi.CustomResource {
  */
 export interface StackArgs {
     agentVersion?: pulumi.Input<string>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-     */
-    attributes?: any;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     chefConfiguration?: pulumi.Input<inputs.opsworks.StackChefConfigurationArgs>;
     cloneAppIds?: pulumi.Input<pulumi.Input<string>[]>;
     clonePermissions?: pulumi.Input<boolean>;

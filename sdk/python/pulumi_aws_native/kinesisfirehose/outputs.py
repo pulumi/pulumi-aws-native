@@ -1681,7 +1681,7 @@ class DeliveryStreamOpenXJsonSerDe(dict):
 
     def __init__(__self__, *,
                  case_insensitive: Optional[bool] = None,
-                 column_to_json_key_mappings: Optional[Any] = None,
+                 column_to_json_key_mappings: Optional[Mapping[str, str]] = None,
                  convert_dots_in_json_keys_to_underscores: Optional[bool] = None):
         if case_insensitive is not None:
             pulumi.set(__self__, "case_insensitive", case_insensitive)
@@ -1697,7 +1697,7 @@ class DeliveryStreamOpenXJsonSerDe(dict):
 
     @property
     @pulumi.getter(name="columnToJsonKeyMappings")
-    def column_to_json_key_mappings(self) -> Optional[Any]:
+    def column_to_json_key_mappings(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "column_to_json_key_mappings")
 
     @property

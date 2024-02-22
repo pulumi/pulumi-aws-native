@@ -14,10 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterApplication struct {
-	AdditionalInfo interface{} `pulumi:"additionalInfo"`
-	Args           []string    `pulumi:"args"`
-	Name           *string     `pulumi:"name"`
-	Version        *string     `pulumi:"version"`
+	AdditionalInfo map[string]string `pulumi:"additionalInfo"`
+	Args           []string          `pulumi:"args"`
+	Name           *string           `pulumi:"name"`
+	Version        *string           `pulumi:"version"`
 }
 
 // ClusterApplicationInput is an input type that accepts ClusterApplicationArgs and ClusterApplicationOutput values.
@@ -32,7 +32,7 @@ type ClusterApplicationInput interface {
 }
 
 type ClusterApplicationArgs struct {
-	AdditionalInfo pulumi.Input            `pulumi:"additionalInfo"`
+	AdditionalInfo pulumi.StringMapInput   `pulumi:"additionalInfo"`
 	Args           pulumi.StringArrayInput `pulumi:"args"`
 	Name           pulumi.StringPtrInput   `pulumi:"name"`
 	Version        pulumi.StringPtrInput   `pulumi:"version"`
@@ -89,8 +89,8 @@ func (o ClusterApplicationOutput) ToClusterApplicationOutputWithContext(ctx cont
 	return o
 }
 
-func (o ClusterApplicationOutput) AdditionalInfo() pulumi.AnyOutput {
-	return o.ApplyT(func(v ClusterApplication) interface{} { return v.AdditionalInfo }).(pulumi.AnyOutput)
+func (o ClusterApplicationOutput) AdditionalInfo() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterApplication) map[string]string { return v.AdditionalInfo }).(pulumi.StringMapOutput)
 }
 
 func (o ClusterApplicationOutput) Args() pulumi.StringArrayOutput {
@@ -800,7 +800,7 @@ func (o ClusterComputeLimitsPtrOutput) UnitType() pulumi.StringPtrOutput {
 
 type ClusterConfiguration struct {
 	Classification          *string                `pulumi:"classification"`
-	ConfigurationProperties interface{}            `pulumi:"configurationProperties"`
+	ConfigurationProperties map[string]string      `pulumi:"configurationProperties"`
 	Configurations          []ClusterConfiguration `pulumi:"configurations"`
 }
 
@@ -817,7 +817,7 @@ type ClusterConfigurationInput interface {
 
 type ClusterConfigurationArgs struct {
 	Classification          pulumi.StringPtrInput          `pulumi:"classification"`
-	ConfigurationProperties pulumi.Input                   `pulumi:"configurationProperties"`
+	ConfigurationProperties pulumi.StringMapInput          `pulumi:"configurationProperties"`
 	Configurations          ClusterConfigurationArrayInput `pulumi:"configurations"`
 }
 
@@ -876,8 +876,8 @@ func (o ClusterConfigurationOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterConfigurationOutput) ConfigurationProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v ClusterConfiguration) interface{} { return v.ConfigurationProperties }).(pulumi.AnyOutput)
+func (o ClusterConfigurationOutput) ConfigurationProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterConfiguration) map[string]string { return v.ConfigurationProperties }).(pulumi.StringMapOutput)
 }
 
 func (o ClusterConfigurationOutput) Configurations() ClusterConfigurationArrayOutput {
@@ -4108,7 +4108,7 @@ func (o ClusterVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {
 
 type InstanceFleetConfigConfiguration struct {
 	Classification          *string                            `pulumi:"classification"`
-	ConfigurationProperties interface{}                        `pulumi:"configurationProperties"`
+	ConfigurationProperties map[string]string                  `pulumi:"configurationProperties"`
 	Configurations          []InstanceFleetConfigConfiguration `pulumi:"configurations"`
 }
 
@@ -4125,7 +4125,7 @@ type InstanceFleetConfigConfigurationInput interface {
 
 type InstanceFleetConfigConfigurationArgs struct {
 	Classification          pulumi.StringPtrInput                      `pulumi:"classification"`
-	ConfigurationProperties pulumi.Input                               `pulumi:"configurationProperties"`
+	ConfigurationProperties pulumi.StringMapInput                      `pulumi:"configurationProperties"`
 	Configurations          InstanceFleetConfigConfigurationArrayInput `pulumi:"configurations"`
 }
 
@@ -4184,8 +4184,8 @@ func (o InstanceFleetConfigConfigurationOutput) Classification() pulumi.StringPt
 	return o.ApplyT(func(v InstanceFleetConfigConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
-func (o InstanceFleetConfigConfigurationOutput) ConfigurationProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceFleetConfigConfiguration) interface{} { return v.ConfigurationProperties }).(pulumi.AnyOutput)
+func (o InstanceFleetConfigConfigurationOutput) ConfigurationProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceFleetConfigConfiguration) map[string]string { return v.ConfigurationProperties }).(pulumi.StringMapOutput)
 }
 
 func (o InstanceFleetConfigConfigurationOutput) Configurations() InstanceFleetConfigConfigurationArrayOutput {
@@ -5379,7 +5379,7 @@ func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) Unit() pulumi.String
 
 type InstanceGroupConfigConfiguration struct {
 	Classification          *string                            `pulumi:"classification"`
-	ConfigurationProperties interface{}                        `pulumi:"configurationProperties"`
+	ConfigurationProperties map[string]string                  `pulumi:"configurationProperties"`
 	Configurations          []InstanceGroupConfigConfiguration `pulumi:"configurations"`
 }
 
@@ -5396,7 +5396,7 @@ type InstanceGroupConfigConfigurationInput interface {
 
 type InstanceGroupConfigConfigurationArgs struct {
 	Classification          pulumi.StringPtrInput                      `pulumi:"classification"`
-	ConfigurationProperties pulumi.Input                               `pulumi:"configurationProperties"`
+	ConfigurationProperties pulumi.StringMapInput                      `pulumi:"configurationProperties"`
 	Configurations          InstanceGroupConfigConfigurationArrayInput `pulumi:"configurations"`
 }
 
@@ -5455,8 +5455,8 @@ func (o InstanceGroupConfigConfigurationOutput) Classification() pulumi.StringPt
 	return o.ApplyT(func(v InstanceGroupConfigConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
-func (o InstanceGroupConfigConfigurationOutput) ConfigurationProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceGroupConfigConfiguration) interface{} { return v.ConfigurationProperties }).(pulumi.AnyOutput)
+func (o InstanceGroupConfigConfigurationOutput) ConfigurationProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceGroupConfigConfiguration) map[string]string { return v.ConfigurationProperties }).(pulumi.StringMapOutput)
 }
 
 func (o InstanceGroupConfigConfigurationOutput) Configurations() InstanceGroupConfigConfigurationArrayOutput {

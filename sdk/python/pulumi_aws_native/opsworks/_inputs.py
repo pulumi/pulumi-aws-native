@@ -349,13 +349,13 @@ class InstanceEbsBlockDeviceArgs:
 @pulumi.input_type
 class InstanceTimeBasedAutoScalingArgs:
     def __init__(__self__, *,
-                 friday: Optional[Any] = None,
-                 monday: Optional[Any] = None,
-                 saturday: Optional[Any] = None,
-                 sunday: Optional[Any] = None,
-                 thursday: Optional[Any] = None,
-                 tuesday: Optional[Any] = None,
-                 wednesday: Optional[Any] = None):
+                 friday: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 monday: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 saturday: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 sunday: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 thursday: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tuesday: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 wednesday: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         if friday is not None:
             pulumi.set(__self__, "friday", friday)
         if monday is not None:
@@ -373,65 +373,65 @@ class InstanceTimeBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def friday(self) -> Optional[Any]:
+    def friday(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "friday")
 
     @friday.setter
-    def friday(self, value: Optional[Any]):
+    def friday(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "friday", value)
 
     @property
     @pulumi.getter
-    def monday(self) -> Optional[Any]:
+    def monday(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "monday")
 
     @monday.setter
-    def monday(self, value: Optional[Any]):
+    def monday(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "monday", value)
 
     @property
     @pulumi.getter
-    def saturday(self) -> Optional[Any]:
+    def saturday(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "saturday")
 
     @saturday.setter
-    def saturday(self, value: Optional[Any]):
+    def saturday(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "saturday", value)
 
     @property
     @pulumi.getter
-    def sunday(self) -> Optional[Any]:
+    def sunday(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "sunday")
 
     @sunday.setter
-    def sunday(self, value: Optional[Any]):
+    def sunday(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "sunday", value)
 
     @property
     @pulumi.getter
-    def thursday(self) -> Optional[Any]:
+    def thursday(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "thursday")
 
     @thursday.setter
-    def thursday(self, value: Optional[Any]):
+    def thursday(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "thursday", value)
 
     @property
     @pulumi.getter
-    def tuesday(self) -> Optional[Any]:
+    def tuesday(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tuesday")
 
     @tuesday.setter
-    def tuesday(self, value: Optional[Any]):
+    def tuesday(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tuesday", value)
 
     @property
     @pulumi.getter
-    def wednesday(self) -> Optional[Any]:
+    def wednesday(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "wednesday")
 
     @wednesday.setter
-    def wednesday(self, value: Optional[Any]):
+    def wednesday(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "wednesday", value)
 
 

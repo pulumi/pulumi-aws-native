@@ -17,6 +17,7 @@ __all__ = [
     'DomainElasticsearchClusterConfigArgs',
     'DomainEncryptionAtRestOptionsArgs',
     'DomainEndpointOptionsArgs',
+    'DomainLogPublishingOptionArgs',
     'DomainMasterUserOptionsArgs',
     'DomainNodeToNodeEncryptionOptionsArgs',
     'DomainSnapshotOptionsArgs',
@@ -429,6 +430,35 @@ class DomainEndpointOptionsArgs:
     @tls_security_policy.setter
     def tls_security_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tls_security_policy", value)
+
+
+@pulumi.input_type
+class DomainLogPublishingOptionArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs_log_group_arn: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        if cloud_watch_logs_log_group_arn is not None:
+            pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsLogGroupArn")
+    def cloud_watch_logs_log_group_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cloud_watch_logs_log_group_arn")
+
+    @cloud_watch_logs_log_group_arn.setter
+    def cloud_watch_logs_log_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloud_watch_logs_log_group_arn", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type

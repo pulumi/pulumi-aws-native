@@ -16,11 +16,8 @@ namespace Pulumi.AwsNative.OpsWorks
     [AwsNativeResourceType("aws-native:opsworks:Layer")]
     public partial class Layer : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-        /// </summary>
         [Output("attributes")]
-        public Output<object?> Attributes { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
         [Output("autoAssignElasticIps")]
         public Output<bool> AutoAssignElasticIps { get; private set; } = null!;
@@ -129,11 +126,13 @@ namespace Pulumi.AwsNative.OpsWorks
 
     public sealed class LayerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
-        /// </summary>
         [Input("attributes")]
-        public Input<object>? Attributes { get; set; }
+        private InputMap<string>? _attributes;
+        public InputMap<string> Attributes
+        {
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
+        }
 
         [Input("autoAssignElasticIps", required: true)]
         public Input<bool> AutoAssignElasticIps { get; set; } = null!;

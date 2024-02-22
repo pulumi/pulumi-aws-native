@@ -69,7 +69,7 @@ __all__ = [
 @pulumi.input_type
 class ClusterApplicationArgs:
     def __init__(__self__, *,
-                 additional_info: Optional[Any] = None,
+                 additional_info: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
@@ -84,11 +84,11 @@ class ClusterApplicationArgs:
 
     @property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Optional[Any]:
+    def additional_info(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "additional_info")
 
     @additional_info.setter
-    def additional_info(self, value: Optional[Any]):
+    def additional_info(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "additional_info", value)
 
     @property
@@ -365,7 +365,7 @@ class ClusterComputeLimitsArgs:
 class ClusterConfigurationArgs:
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
-                 configuration_properties: Optional[Any] = None,
+                 configuration_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterConfigurationArgs']]]] = None):
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -385,11 +385,11 @@ class ClusterConfigurationArgs:
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[Any]:
+    def configuration_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
-    def configuration_properties(self, value: Optional[Any]):
+    def configuration_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "configuration_properties", value)
 
     @property
@@ -1555,7 +1555,7 @@ class ClusterVolumeSpecificationArgs:
 class InstanceFleetConfigConfigurationArgs:
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
-                 configuration_properties: Optional[Any] = None,
+                 configuration_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigConfigurationArgs']]]] = None):
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -1575,11 +1575,11 @@ class InstanceFleetConfigConfigurationArgs:
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[Any]:
+    def configuration_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
-    def configuration_properties(self, value: Optional[Any]):
+    def configuration_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "configuration_properties", value)
 
     @property
@@ -2024,7 +2024,7 @@ class InstanceGroupConfigCloudWatchAlarmDefinitionArgs:
 class InstanceGroupConfigConfigurationArgs:
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
-                 configuration_properties: Optional[Any] = None,
+                 configuration_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupConfigConfigurationArgs']]]] = None):
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -2044,11 +2044,11 @@ class InstanceGroupConfigConfigurationArgs:
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[Any]:
+    def configuration_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
-    def configuration_properties(self, value: Optional[Any]):
+    def configuration_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "configuration_properties", value)
 
     @property

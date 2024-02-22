@@ -19,9 +19,8 @@ import (
 type Stack struct {
 	pulumi.CustomResourceState
 
-	AgentVersion pulumi.StringPtrOutput `pulumi:"agentVersion"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-	Attributes            pulumi.AnyOutput                   `pulumi:"attributes"`
+	AgentVersion          pulumi.StringPtrOutput             `pulumi:"agentVersion"`
+	Attributes            pulumi.StringMapOutput             `pulumi:"attributes"`
 	ChefConfiguration     StackChefConfigurationPtrOutput    `pulumi:"chefConfiguration"`
 	CloneAppIds           pulumi.StringArrayOutput           `pulumi:"cloneAppIds"`
 	ClonePermissions      pulumi.BoolPtrOutput               `pulumi:"clonePermissions"`
@@ -102,9 +101,8 @@ func (StackState) ElementType() reflect.Type {
 }
 
 type stackArgs struct {
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-	Attributes            interface{}                `pulumi:"attributes"`
+	AgentVersion          *string                    `pulumi:"agentVersion"`
+	Attributes            map[string]string          `pulumi:"attributes"`
 	ChefConfiguration     *StackChefConfiguration    `pulumi:"chefConfiguration"`
 	CloneAppIds           []string                   `pulumi:"cloneAppIds"`
 	ClonePermissions      *bool                      `pulumi:"clonePermissions"`
@@ -133,9 +131,8 @@ type stackArgs struct {
 
 // The set of arguments for constructing a Stack resource.
 type StackArgs struct {
-	AgentVersion pulumi.StringPtrInput
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-	Attributes            pulumi.Input
+	AgentVersion          pulumi.StringPtrInput
+	Attributes            pulumi.StringMapInput
 	ChefConfiguration     StackChefConfigurationPtrInput
 	CloneAppIds           pulumi.StringArrayInput
 	ClonePermissions      pulumi.BoolPtrInput
@@ -203,9 +200,8 @@ func (o StackOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-func (o StackOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Stack) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+func (o StackOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o StackOutput) ChefConfiguration() StackChefConfigurationPtrOutput {

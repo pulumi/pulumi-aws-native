@@ -22,11 +22,8 @@ namespace Pulumi.AwsNative.Elasticsearch
         [Output("accessPolicies")]
         public Output<object?> AccessPolicies { get; private set; } = null!;
 
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-        /// </summary>
         [Output("advancedOptions")]
-        public Output<object?> AdvancedOptions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> AdvancedOptions { get; private set; } = null!;
 
         [Output("advancedSecurityOptions")]
         public Output<Outputs.DomainAdvancedSecurityOptionsInput?> AdvancedSecurityOptions { get; private set; } = null!;
@@ -61,11 +58,8 @@ namespace Pulumi.AwsNative.Elasticsearch
         [Output("encryptionAtRestOptions")]
         public Output<Outputs.DomainEncryptionAtRestOptions?> EncryptionAtRestOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-        /// </summary>
         [Output("logPublishingOptions")]
-        public Output<object?> LogPublishingOptions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.DomainLogPublishingOption>?> LogPublishingOptions { get; private set; } = null!;
 
         [Output("nodeToNodeEncryptionOptions")]
         public Output<Outputs.DomainNodeToNodeEncryptionOptions?> NodeToNodeEncryptionOptions { get; private set; } = null!;
@@ -134,11 +128,13 @@ namespace Pulumi.AwsNative.Elasticsearch
         [Input("accessPolicies")]
         public Input<object>? AccessPolicies { get; set; }
 
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-        /// </summary>
         [Input("advancedOptions")]
-        public Input<object>? AdvancedOptions { get; set; }
+        private InputMap<string>? _advancedOptions;
+        public InputMap<string> AdvancedOptions
+        {
+            get => _advancedOptions ?? (_advancedOptions = new InputMap<string>());
+            set => _advancedOptions = value;
+        }
 
         [Input("advancedSecurityOptions")]
         public Input<Inputs.DomainAdvancedSecurityOptionsInputArgs>? AdvancedSecurityOptions { get; set; }
@@ -164,11 +160,13 @@ namespace Pulumi.AwsNative.Elasticsearch
         [Input("encryptionAtRestOptions")]
         public Input<Inputs.DomainEncryptionAtRestOptionsArgs>? EncryptionAtRestOptions { get; set; }
 
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Elasticsearch::Domain` for more information about the expected schema for this property.
-        /// </summary>
         [Input("logPublishingOptions")]
-        public Input<object>? LogPublishingOptions { get; set; }
+        private InputMap<Inputs.DomainLogPublishingOptionArgs>? _logPublishingOptions;
+        public InputMap<Inputs.DomainLogPublishingOptionArgs> LogPublishingOptions
+        {
+            get => _logPublishingOptions ?? (_logPublishingOptions = new InputMap<Inputs.DomainLogPublishingOptionArgs>());
+            set => _logPublishingOptions = value;
+        }
 
         [Input("nodeToNodeEncryptionOptions")]
         public Input<Inputs.DomainNodeToNodeEncryptionOptionsArgs>? NodeToNodeEncryptionOptions { get; set; }

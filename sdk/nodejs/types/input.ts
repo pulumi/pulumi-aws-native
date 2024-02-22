@@ -14248,7 +14248,7 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerAuthenticateCognitoConfigArgs {
-        authenticationRequestExtraParams?: any;
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         onUnauthenticatedRequest?: pulumi.Input<string>;
         scope?: pulumi.Input<string>;
         sessionCookieName?: pulumi.Input<string>;
@@ -14259,7 +14259,7 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerAuthenticateOidcConfigArgs {
-        authenticationRequestExtraParams?: any;
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         authorizationEndpoint: pulumi.Input<string>;
         clientId: pulumi.Input<string>;
         clientSecret?: pulumi.Input<string>;
@@ -14536,6 +14536,11 @@ export namespace elasticsearch {
         tlsSecurityPolicy?: pulumi.Input<string>;
     }
 
+    export interface DomainLogPublishingOptionArgs {
+        cloudWatchLogsLogGroupArn?: pulumi.Input<string>;
+        enabled?: pulumi.Input<boolean>;
+    }
+
     export interface DomainMasterUserOptionsArgs {
         masterUserArn?: pulumi.Input<string>;
         masterUserName?: pulumi.Input<string>;
@@ -14562,7 +14567,7 @@ export namespace elasticsearch {
 
 export namespace emr {
     export interface ClusterApplicationArgs {
-        additionalInfo?: any;
+        additionalInfo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         args?: pulumi.Input<pulumi.Input<string>[]>;
         name?: pulumi.Input<string>;
         version?: pulumi.Input<string>;
@@ -14604,7 +14609,7 @@ export namespace emr {
 
     export interface ClusterConfigurationArgs {
         classification?: pulumi.Input<string>;
-        configurationProperties?: any;
+        configurationProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         configurations?: pulumi.Input<pulumi.Input<inputs.emr.ClusterConfigurationArgs>[]>;
     }
 
@@ -14770,7 +14775,7 @@ export namespace emr {
 
     export interface InstanceFleetConfigConfigurationArgs {
         classification?: pulumi.Input<string>;
-        configurationProperties?: any;
+        configurationProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         configurations?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetConfigConfigurationArgs>[]>;
     }
 
@@ -14836,7 +14841,7 @@ export namespace emr {
 
     export interface InstanceGroupConfigConfigurationArgs {
         classification?: pulumi.Input<string>;
-        configurationProperties?: any;
+        configurationProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         configurations?: pulumi.Input<pulumi.Input<inputs.emr.InstanceGroupConfigConfigurationArgs>[]>;
     }
 
@@ -23444,7 +23449,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamOpenXJsonSerDeArgs {
         caseInsensitive?: pulumi.Input<boolean>;
-        columnToJsonKeyMappings?: any;
+        columnToJsonKeyMappings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         convertDotsInJsonKeysToUnderscores?: pulumi.Input<boolean>;
     }
 
@@ -30855,13 +30860,13 @@ export namespace opsworks {
     }
 
     export interface InstanceTimeBasedAutoScalingArgs {
-        friday?: any;
-        monday?: any;
-        saturday?: any;
-        sunday?: any;
-        thursday?: any;
-        tuesday?: any;
-        wednesday?: any;
+        friday?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        monday?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        saturday?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        sunday?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        thursday?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        tuesday?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        wednesday?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface LayerAutoScalingThresholdsArgs {

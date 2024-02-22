@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.Emr.Outputs
     public sealed class InstanceFleetConfigConfiguration
     {
         public readonly string? Classification;
-        public readonly object? ConfigurationProperties;
+        public readonly ImmutableDictionary<string, string>? ConfigurationProperties;
         public readonly ImmutableArray<Outputs.InstanceFleetConfigConfiguration> Configurations;
 
         [OutputConstructor]
         private InstanceFleetConfigConfiguration(
             string? classification,
 
-            object? configurationProperties,
+            ImmutableDictionary<string, string>? configurationProperties,
 
             ImmutableArray<Outputs.InstanceFleetConfigConfiguration> configurations)
         {

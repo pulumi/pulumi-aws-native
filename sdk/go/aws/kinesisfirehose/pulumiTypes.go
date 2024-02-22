@@ -5103,9 +5103,9 @@ func (o DeliveryStreamMskSourceConfigurationPtrOutput) TopicName() pulumi.String
 }
 
 type DeliveryStreamOpenXJsonSerDe struct {
-	CaseInsensitive                    *bool       `pulumi:"caseInsensitive"`
-	ColumnToJsonKeyMappings            interface{} `pulumi:"columnToJsonKeyMappings"`
-	ConvertDotsInJsonKeysToUnderscores *bool       `pulumi:"convertDotsInJsonKeysToUnderscores"`
+	CaseInsensitive                    *bool             `pulumi:"caseInsensitive"`
+	ColumnToJsonKeyMappings            map[string]string `pulumi:"columnToJsonKeyMappings"`
+	ConvertDotsInJsonKeysToUnderscores *bool             `pulumi:"convertDotsInJsonKeysToUnderscores"`
 }
 
 // DeliveryStreamOpenXJsonSerDeInput is an input type that accepts DeliveryStreamOpenXJsonSerDeArgs and DeliveryStreamOpenXJsonSerDeOutput values.
@@ -5120,9 +5120,9 @@ type DeliveryStreamOpenXJsonSerDeInput interface {
 }
 
 type DeliveryStreamOpenXJsonSerDeArgs struct {
-	CaseInsensitive                    pulumi.BoolPtrInput `pulumi:"caseInsensitive"`
-	ColumnToJsonKeyMappings            pulumi.Input        `pulumi:"columnToJsonKeyMappings"`
-	ConvertDotsInJsonKeysToUnderscores pulumi.BoolPtrInput `pulumi:"convertDotsInJsonKeysToUnderscores"`
+	CaseInsensitive                    pulumi.BoolPtrInput   `pulumi:"caseInsensitive"`
+	ColumnToJsonKeyMappings            pulumi.StringMapInput `pulumi:"columnToJsonKeyMappings"`
+	ConvertDotsInJsonKeysToUnderscores pulumi.BoolPtrInput   `pulumi:"convertDotsInJsonKeysToUnderscores"`
 }
 
 func (DeliveryStreamOpenXJsonSerDeArgs) ElementType() reflect.Type {
@@ -5206,8 +5206,8 @@ func (o DeliveryStreamOpenXJsonSerDeOutput) CaseInsensitive() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v DeliveryStreamOpenXJsonSerDe) *bool { return v.CaseInsensitive }).(pulumi.BoolPtrOutput)
 }
 
-func (o DeliveryStreamOpenXJsonSerDeOutput) ColumnToJsonKeyMappings() pulumi.AnyOutput {
-	return o.ApplyT(func(v DeliveryStreamOpenXJsonSerDe) interface{} { return v.ColumnToJsonKeyMappings }).(pulumi.AnyOutput)
+func (o DeliveryStreamOpenXJsonSerDeOutput) ColumnToJsonKeyMappings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeliveryStreamOpenXJsonSerDe) map[string]string { return v.ColumnToJsonKeyMappings }).(pulumi.StringMapOutput)
 }
 
 func (o DeliveryStreamOpenXJsonSerDeOutput) ConvertDotsInJsonKeysToUnderscores() pulumi.BoolPtrOutput {
@@ -5247,13 +5247,13 @@ func (o DeliveryStreamOpenXJsonSerDePtrOutput) CaseInsensitive() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o DeliveryStreamOpenXJsonSerDePtrOutput) ColumnToJsonKeyMappings() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DeliveryStreamOpenXJsonSerDe) interface{} {
+func (o DeliveryStreamOpenXJsonSerDePtrOutput) ColumnToJsonKeyMappings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeliveryStreamOpenXJsonSerDe) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ColumnToJsonKeyMappings
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o DeliveryStreamOpenXJsonSerDePtrOutput) ConvertDotsInJsonKeysToUnderscores() pulumi.BoolPtrOutput {

@@ -21,7 +21,7 @@ class StackArgs:
                  default_instance_profile_arn: pulumi.Input[str],
                  service_role_arn: pulumi.Input[str],
                  agent_version: Optional[pulumi.Input[str]] = None,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  chef_configuration: Optional[pulumi.Input['StackChefConfigurationArgs']] = None,
                  clone_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  clone_permissions: Optional[pulumi.Input[bool]] = None,
@@ -45,7 +45,6 @@ class StackArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Stack resource.
-        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
         :param Any custom_json: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "default_instance_profile_arn", default_instance_profile_arn)
@@ -126,14 +125,11 @@ class StackArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-        """
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[Any]):
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
     @property
@@ -340,7 +336,7 @@ class Stack(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_version: Optional[pulumi.Input[str]] = None,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  chef_configuration: Optional[pulumi.Input[pulumi.InputType['StackChefConfigurationArgs']]] = None,
                  clone_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  clone_permissions: Optional[pulumi.Input[bool]] = None,
@@ -370,7 +366,6 @@ class Stack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any attributes: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
         :param Any custom_json: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
         """
         ...
@@ -398,7 +393,7 @@ class Stack(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_version: Optional[pulumi.Input[str]] = None,
-                 attributes: Optional[Any] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  chef_configuration: Optional[pulumi.Input[pulumi.InputType['StackChefConfigurationArgs']]] = None,
                  clone_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  clone_permissions: Optional[pulumi.Input[bool]] = None,
@@ -519,10 +514,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Output[Optional[Any]]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-        """
+    def attributes(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "attributes")
 
     @property

@@ -28,9 +28,8 @@ type LookupStackArgs struct {
 }
 
 type LookupStackResult struct {
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-	Attributes            interface{}                `pulumi:"attributes"`
+	AgentVersion          *string                    `pulumi:"agentVersion"`
+	Attributes            map[string]string          `pulumi:"attributes"`
 	ChefConfiguration     *StackChefConfiguration    `pulumi:"chefConfiguration"`
 	ConfigurationManager  *StackConfigurationManager `pulumi:"configurationManager"`
 	CustomCookbooksSource *StackSource               `pulumi:"customCookbooksSource"`
@@ -92,9 +91,8 @@ func (o LookupStackResultOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStackResult) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Stack` for more information about the expected schema for this property.
-func (o LookupStackResultOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupStackResult) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+func (o LookupStackResultOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupStackResult) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o LookupStackResultOutput) ChefConfiguration() StackChefConfigurationPtrOutput {

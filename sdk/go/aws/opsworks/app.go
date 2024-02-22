@@ -18,9 +18,8 @@ import (
 type App struct {
 	pulumi.CustomResourceState
 
-	AppSource AppSourcePtrOutput `pulumi:"appSource"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-	Attributes       pulumi.AnyOutput                  `pulumi:"attributes"`
+	AppSource        AppSourcePtrOutput                `pulumi:"appSource"`
+	Attributes       pulumi.StringMapOutput            `pulumi:"attributes"`
 	DataSources      AppDataSourceArrayOutput          `pulumi:"dataSources"`
 	Description      pulumi.StringPtrOutput            `pulumi:"description"`
 	Domains          pulumi.StringArrayOutput          `pulumi:"domains"`
@@ -84,9 +83,8 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	AppSource *AppSource `pulumi:"appSource"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-	Attributes       interface{}              `pulumi:"attributes"`
+	AppSource        *AppSource               `pulumi:"appSource"`
+	Attributes       map[string]string        `pulumi:"attributes"`
 	DataSources      []AppDataSource          `pulumi:"dataSources"`
 	Description      *string                  `pulumi:"description"`
 	Domains          []string                 `pulumi:"domains"`
@@ -101,9 +99,8 @@ type appArgs struct {
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
-	AppSource AppSourcePtrInput
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-	Attributes       pulumi.Input
+	AppSource        AppSourcePtrInput
+	Attributes       pulumi.StringMapInput
 	DataSources      AppDataSourceArrayInput
 	Description      pulumi.StringPtrInput
 	Domains          pulumi.StringArrayInput
@@ -157,9 +154,8 @@ func (o AppOutput) AppSource() AppSourcePtrOutput {
 	return o.ApplyT(func(v *App) AppSourcePtrOutput { return v.AppSource }).(AppSourcePtrOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::App` for more information about the expected schema for this property.
-func (o AppOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *App) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+func (o AppOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o AppOutput) DataSources() AppDataSourceArrayOutput {

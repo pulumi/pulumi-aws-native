@@ -14501,7 +14501,7 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerAuthenticateCognitoConfig {
-        authenticationRequestExtraParams?: any;
+        authenticationRequestExtraParams?: {[key: string]: string};
         onUnauthenticatedRequest?: string;
         scope?: string;
         sessionCookieName?: string;
@@ -14512,7 +14512,7 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerAuthenticateOidcConfig {
-        authenticationRequestExtraParams?: any;
+        authenticationRequestExtraParams?: {[key: string]: string};
         authorizationEndpoint: string;
         clientId: string;
         clientSecret?: string;
@@ -14796,6 +14796,11 @@ export namespace elasticsearch {
         tlsSecurityPolicy?: string;
     }
 
+    export interface DomainLogPublishingOption {
+        cloudWatchLogsLogGroupArn?: string;
+        enabled?: boolean;
+    }
+
     export interface DomainMasterUserOptions {
         masterUserArn?: string;
         masterUserName?: string;
@@ -14823,7 +14828,7 @@ export namespace elasticsearch {
 
 export namespace emr {
     export interface ClusterApplication {
-        additionalInfo?: any;
+        additionalInfo?: {[key: string]: string};
         args?: string[];
         name?: string;
         version?: string;
@@ -14865,7 +14870,7 @@ export namespace emr {
 
     export interface ClusterConfiguration {
         classification?: string;
-        configurationProperties?: any;
+        configurationProperties?: {[key: string]: string};
         configurations?: outputs.emr.ClusterConfiguration[];
     }
 
@@ -15031,7 +15036,7 @@ export namespace emr {
 
     export interface InstanceFleetConfigConfiguration {
         classification?: string;
-        configurationProperties?: any;
+        configurationProperties?: {[key: string]: string};
         configurations?: outputs.emr.InstanceFleetConfigConfiguration[];
     }
 
@@ -15097,7 +15102,7 @@ export namespace emr {
 
     export interface InstanceGroupConfigConfiguration {
         classification?: string;
-        configurationProperties?: any;
+        configurationProperties?: {[key: string]: string};
         configurations?: outputs.emr.InstanceGroupConfigConfiguration[];
     }
 
@@ -23761,7 +23766,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamOpenXJsonSerDe {
         caseInsensitive?: boolean;
-        columnToJsonKeyMappings?: any;
+        columnToJsonKeyMappings?: {[key: string]: string};
         convertDotsInJsonKeysToUnderscores?: boolean;
     }
 
@@ -31294,13 +31299,13 @@ export namespace opsworks {
     }
 
     export interface InstanceTimeBasedAutoScaling {
-        friday?: any;
-        monday?: any;
-        saturday?: any;
-        sunday?: any;
-        thursday?: any;
-        tuesday?: any;
-        wednesday?: any;
+        friday?: {[key: string]: string};
+        monday?: {[key: string]: string};
+        saturday?: {[key: string]: string};
+        sunday?: {[key: string]: string};
+        thursday?: {[key: string]: string};
+        tuesday?: {[key: string]: string};
+        wednesday?: {[key: string]: string};
     }
 
     export interface LayerAutoScalingThresholds {

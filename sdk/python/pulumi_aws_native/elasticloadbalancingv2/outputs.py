@@ -177,7 +177,7 @@ class ListenerAuthenticateCognitoConfig(dict):
                  user_pool_arn: str,
                  user_pool_client_id: str,
                  user_pool_domain: str,
-                 authentication_request_extra_params: Optional[Any] = None,
+                 authentication_request_extra_params: Optional[Mapping[str, str]] = None,
                  on_unauthenticated_request: Optional[str] = None,
                  scope: Optional[str] = None,
                  session_cookie_name: Optional[str] = None,
@@ -213,7 +213,7 @@ class ListenerAuthenticateCognitoConfig(dict):
 
     @property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[Any]:
+    def authentication_request_extra_params(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "authentication_request_extra_params")
 
     @property
@@ -280,7 +280,7 @@ class ListenerAuthenticateOidcConfig(dict):
                  issuer: str,
                  token_endpoint: str,
                  user_info_endpoint: str,
-                 authentication_request_extra_params: Optional[Any] = None,
+                 authentication_request_extra_params: Optional[Mapping[str, str]] = None,
                  client_secret: Optional[str] = None,
                  on_unauthenticated_request: Optional[str] = None,
                  scope: Optional[str] = None,
@@ -334,7 +334,7 @@ class ListenerAuthenticateOidcConfig(dict):
 
     @property
     @pulumi.getter(name="authenticationRequestExtraParams")
-    def authentication_request_extra_params(self) -> Optional[Any]:
+    def authentication_request_extra_params(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "authentication_request_extra_params")
 
     @property

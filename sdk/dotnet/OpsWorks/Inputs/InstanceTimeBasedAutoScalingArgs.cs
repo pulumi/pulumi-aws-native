@@ -13,25 +13,60 @@ namespace Pulumi.AwsNative.OpsWorks.Inputs
     public sealed class InstanceTimeBasedAutoScalingArgs : global::Pulumi.ResourceArgs
     {
         [Input("friday")]
-        public Input<object>? Friday { get; set; }
+        private InputMap<string>? _friday;
+        public InputMap<string> Friday
+        {
+            get => _friday ?? (_friday = new InputMap<string>());
+            set => _friday = value;
+        }
 
         [Input("monday")]
-        public Input<object>? Monday { get; set; }
+        private InputMap<string>? _monday;
+        public InputMap<string> Monday
+        {
+            get => _monday ?? (_monday = new InputMap<string>());
+            set => _monday = value;
+        }
 
         [Input("saturday")]
-        public Input<object>? Saturday { get; set; }
+        private InputMap<string>? _saturday;
+        public InputMap<string> Saturday
+        {
+            get => _saturday ?? (_saturday = new InputMap<string>());
+            set => _saturday = value;
+        }
 
         [Input("sunday")]
-        public Input<object>? Sunday { get; set; }
+        private InputMap<string>? _sunday;
+        public InputMap<string> Sunday
+        {
+            get => _sunday ?? (_sunday = new InputMap<string>());
+            set => _sunday = value;
+        }
 
         [Input("thursday")]
-        public Input<object>? Thursday { get; set; }
+        private InputMap<string>? _thursday;
+        public InputMap<string> Thursday
+        {
+            get => _thursday ?? (_thursday = new InputMap<string>());
+            set => _thursday = value;
+        }
 
         [Input("tuesday")]
-        public Input<object>? Tuesday { get; set; }
+        private InputMap<string>? _tuesday;
+        public InputMap<string> Tuesday
+        {
+            get => _tuesday ?? (_tuesday = new InputMap<string>());
+            set => _tuesday = value;
+        }
 
         [Input("wednesday")]
-        public Input<object>? Wednesday { get; set; }
+        private InputMap<string>? _wednesday;
+        public InputMap<string> Wednesday
+        {
+            get => _wednesday ?? (_wednesday = new InputMap<string>());
+            set => _wednesday = value;
+        }
 
         public InstanceTimeBasedAutoScalingArgs()
         {

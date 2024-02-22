@@ -87,7 +87,7 @@ class ClusterApplication(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 additional_info: Optional[Any] = None,
+                 additional_info: Optional[Mapping[str, str]] = None,
                  args: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  version: Optional[str] = None):
@@ -102,7 +102,7 @@ class ClusterApplication(dict):
 
     @property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Optional[Any]:
+    def additional_info(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "additional_info")
 
     @property
@@ -388,7 +388,7 @@ class ClusterConfiguration(dict):
 
     def __init__(__self__, *,
                  classification: Optional[str] = None,
-                 configuration_properties: Optional[Any] = None,
+                 configuration_properties: Optional[Mapping[str, str]] = None,
                  configurations: Optional[Sequence['outputs.ClusterConfiguration']] = None):
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -404,7 +404,7 @@ class ClusterConfiguration(dict):
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[Any]:
+    def configuration_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "configuration_properties")
 
     @property
@@ -1661,7 +1661,7 @@ class InstanceFleetConfigConfiguration(dict):
 
     def __init__(__self__, *,
                  classification: Optional[str] = None,
-                 configuration_properties: Optional[Any] = None,
+                 configuration_properties: Optional[Mapping[str, str]] = None,
                  configurations: Optional[Sequence['outputs.InstanceFleetConfigConfiguration']] = None):
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -1677,7 +1677,7 @@ class InstanceFleetConfigConfiguration(dict):
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[Any]:
+    def configuration_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "configuration_properties")
 
     @property
@@ -2167,7 +2167,7 @@ class InstanceGroupConfigConfiguration(dict):
 
     def __init__(__self__, *,
                  classification: Optional[str] = None,
-                 configuration_properties: Optional[Any] = None,
+                 configuration_properties: Optional[Mapping[str, str]] = None,
                  configurations: Optional[Sequence['outputs.InstanceGroupConfigConfiguration']] = None):
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -2183,7 +2183,7 @@ class InstanceGroupConfigConfiguration(dict):
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[Any]:
+    def configuration_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "configuration_properties")
 
     @property

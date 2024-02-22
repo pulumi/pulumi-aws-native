@@ -902,13 +902,13 @@ func (o InstanceEbsBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 }
 
 type InstanceTimeBasedAutoScaling struct {
-	Friday    interface{} `pulumi:"friday"`
-	Monday    interface{} `pulumi:"monday"`
-	Saturday  interface{} `pulumi:"saturday"`
-	Sunday    interface{} `pulumi:"sunday"`
-	Thursday  interface{} `pulumi:"thursday"`
-	Tuesday   interface{} `pulumi:"tuesday"`
-	Wednesday interface{} `pulumi:"wednesday"`
+	Friday    map[string]string `pulumi:"friday"`
+	Monday    map[string]string `pulumi:"monday"`
+	Saturday  map[string]string `pulumi:"saturday"`
+	Sunday    map[string]string `pulumi:"sunday"`
+	Thursday  map[string]string `pulumi:"thursday"`
+	Tuesday   map[string]string `pulumi:"tuesday"`
+	Wednesday map[string]string `pulumi:"wednesday"`
 }
 
 // InstanceTimeBasedAutoScalingInput is an input type that accepts InstanceTimeBasedAutoScalingArgs and InstanceTimeBasedAutoScalingOutput values.
@@ -923,13 +923,13 @@ type InstanceTimeBasedAutoScalingInput interface {
 }
 
 type InstanceTimeBasedAutoScalingArgs struct {
-	Friday    pulumi.Input `pulumi:"friday"`
-	Monday    pulumi.Input `pulumi:"monday"`
-	Saturday  pulumi.Input `pulumi:"saturday"`
-	Sunday    pulumi.Input `pulumi:"sunday"`
-	Thursday  pulumi.Input `pulumi:"thursday"`
-	Tuesday   pulumi.Input `pulumi:"tuesday"`
-	Wednesday pulumi.Input `pulumi:"wednesday"`
+	Friday    pulumi.StringMapInput `pulumi:"friday"`
+	Monday    pulumi.StringMapInput `pulumi:"monday"`
+	Saturday  pulumi.StringMapInput `pulumi:"saturday"`
+	Sunday    pulumi.StringMapInput `pulumi:"sunday"`
+	Thursday  pulumi.StringMapInput `pulumi:"thursday"`
+	Tuesday   pulumi.StringMapInput `pulumi:"tuesday"`
+	Wednesday pulumi.StringMapInput `pulumi:"wednesday"`
 }
 
 func (InstanceTimeBasedAutoScalingArgs) ElementType() reflect.Type {
@@ -1009,32 +1009,32 @@ func (o InstanceTimeBasedAutoScalingOutput) ToInstanceTimeBasedAutoScalingPtrOut
 	}).(InstanceTimeBasedAutoScalingPtrOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingOutput) Friday() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) interface{} { return v.Friday }).(pulumi.AnyOutput)
+func (o InstanceTimeBasedAutoScalingOutput) Friday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) map[string]string { return v.Friday }).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingOutput) Monday() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) interface{} { return v.Monday }).(pulumi.AnyOutput)
+func (o InstanceTimeBasedAutoScalingOutput) Monday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) map[string]string { return v.Monday }).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingOutput) Saturday() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) interface{} { return v.Saturday }).(pulumi.AnyOutput)
+func (o InstanceTimeBasedAutoScalingOutput) Saturday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) map[string]string { return v.Saturday }).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingOutput) Sunday() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) interface{} { return v.Sunday }).(pulumi.AnyOutput)
+func (o InstanceTimeBasedAutoScalingOutput) Sunday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) map[string]string { return v.Sunday }).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingOutput) Thursday() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) interface{} { return v.Thursday }).(pulumi.AnyOutput)
+func (o InstanceTimeBasedAutoScalingOutput) Thursday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) map[string]string { return v.Thursday }).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingOutput) Tuesday() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) interface{} { return v.Tuesday }).(pulumi.AnyOutput)
+func (o InstanceTimeBasedAutoScalingOutput) Tuesday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) map[string]string { return v.Tuesday }).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingOutput) Wednesday() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) interface{} { return v.Wednesday }).(pulumi.AnyOutput)
+func (o InstanceTimeBasedAutoScalingOutput) Wednesday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceTimeBasedAutoScaling) map[string]string { return v.Wednesday }).(pulumi.StringMapOutput)
 }
 
 type InstanceTimeBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
@@ -1061,67 +1061,67 @@ func (o InstanceTimeBasedAutoScalingPtrOutput) Elem() InstanceTimeBasedAutoScali
 	}).(InstanceTimeBasedAutoScalingOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingPtrOutput) Friday() pulumi.AnyOutput {
-	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) interface{} {
+func (o InstanceTimeBasedAutoScalingPtrOutput) Friday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Friday
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingPtrOutput) Monday() pulumi.AnyOutput {
-	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) interface{} {
+func (o InstanceTimeBasedAutoScalingPtrOutput) Monday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Monday
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingPtrOutput) Saturday() pulumi.AnyOutput {
-	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) interface{} {
+func (o InstanceTimeBasedAutoScalingPtrOutput) Saturday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Saturday
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingPtrOutput) Sunday() pulumi.AnyOutput {
-	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) interface{} {
+func (o InstanceTimeBasedAutoScalingPtrOutput) Sunday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Sunday
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingPtrOutput) Thursday() pulumi.AnyOutput {
-	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) interface{} {
+func (o InstanceTimeBasedAutoScalingPtrOutput) Thursday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Thursday
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingPtrOutput) Tuesday() pulumi.AnyOutput {
-	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) interface{} {
+func (o InstanceTimeBasedAutoScalingPtrOutput) Tuesday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Tuesday
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
-func (o InstanceTimeBasedAutoScalingPtrOutput) Wednesday() pulumi.AnyOutput {
-	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) interface{} {
+func (o InstanceTimeBasedAutoScalingPtrOutput) Wednesday() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceTimeBasedAutoScaling) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Wednesday
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type LayerAutoScalingThresholds struct {
