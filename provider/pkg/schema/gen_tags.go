@@ -24,6 +24,9 @@ const (
 	// TagsStyleKeyValueArrayWithExtraProperties is a style where the tags are represented as an array of key-value pairs
 	// but can have extra properties.
 	TagsStyleKeyValueArrayWithExtraProperties TagsStyle = "keyValueArrayWithExtraProperties"
+	// TagsStyleKeyValueArrayWithAlternateType is a style where the tags are represented as an array of key-value pairs
+	// but the value can also be of a different type.
+	TagsStyleKeyValueArrayWithAlternateType TagsStyle = "keyValueArrayWithAlternateType"
 )
 
 func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
@@ -59,33 +62,52 @@ func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) Ta
 		return TagsStyleStringMap
 	}
 
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, false /* includeExtraProperties */) {
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, false /* includeExtraProperties */, false /* allowOneOf */) {
 		if ctx.isPropCreateOnly(propName) {
 			return TagsStyleKeyValueCreateOnlyArray
 		}
 		return TagsStyleKeyValueArray
 	}
 
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeExtraProperties */) {
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeExtraProperties */, false /* allowOneOf */) {
 		return TagsStyleKeyValueArrayWithExtraProperties
+	}
+
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeExtraProperties */, true /* allowOneOf */) {
+		return TagsStyleKeyValueArrayWithAlternateType
 	}
 
 	return TagsStyleUnknown
 }
 
-func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec, allowExtraProperties bool) bool {
-	if typeSpec == nil || typeSpec.Items == nil || typeSpec.Items.Ref == "" {
+func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec, allowExtraProperties bool, allowOneOf bool) bool {
+	if typeSpec == nil || typeSpec.Items == nil {
 		return false
 	}
 
-	typeToken, hasPrefix := strings.CutPrefix(typeSpec.Items.Ref, "#/types/")
-	if !hasPrefix {
-		return false
+	if typeSpec.Items.Ref != "" {
+		typeToken, hasPrefix := strings.CutPrefix(typeSpec.Items.Ref, "#/types/")
+		if !hasPrefix {
+			return false
+		}
+
+		if refType, ok := ctx.pkg.Types[typeToken]; ok {
+			if hasKeyValueStringProperties(&refType, allowExtraProperties) {
+				return true
+			}
+		}
 	}
 
-	if refType, ok := ctx.pkg.Types[typeToken]; ok {
-		if hasKeyValueStringProperties(&refType, allowExtraProperties) {
-			return true
+	if allowOneOf && typeSpec.Items.OneOf != nil {
+		for _, item := range typeSpec.Items.OneOf {
+			typeToken := strings.TrimPrefix(item.Ref, "#/types/")
+			if typeToken != "" {
+				if refType, ok := ctx.pkg.Types[typeToken]; ok {
+					if hasKeyValueStringProperties(&refType, allowExtraProperties) {
+						return true
+					}
+				}
+			}
 		}
 	}
 

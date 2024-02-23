@@ -1005,6 +1005,8 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 			delete(ctx.pkg.Types, oldRef)
 		case TagsStyleKeyValueArrayWithExtraProperties:
 			// Keep custom type
+		case TagsStyleKeyValueArrayWithAlternateType:
+			// Keep custom type
 		default: // Unknown
 			ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
 		}

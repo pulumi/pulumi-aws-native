@@ -101,4 +101,46 @@ func TestGetTagsStyle(t *testing.T) {
 		}
 		assert.Equal(t, TagsStyleKeyValueCreateOnlyArray, ctx.GetTagsStyle("Tags", typeSpec))
 	})
+	t.Run("key value array with alternate type style", func(t *testing.T) {
+		ctx := &context{
+			pkg: &schema.PackageSpec{
+				Types: map[string]schema.ComplexTypeSpec{
+					"pulumi:types:input:common:ComponentResourceOptions:TagsEntry": {
+						ObjectTypeSpec: schema.ObjectTypeSpec{
+							Properties: map[string]schema.PropertySpec{
+								"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+								"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+							},
+						},
+					},
+					"pulumi:types:input:common:ComponentResourceOptions:AltTagsEntry": {
+						ObjectTypeSpec: schema.ObjectTypeSpec{
+							Properties: map[string]schema.PropertySpec{
+								"tagKey":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+								"tagValue": {TypeSpec: schema.TypeSpec{Type: "string"}},
+							},
+						},
+					},
+				},
+			},
+			resourceSpec: &jsschema.Schema{
+				Extras: map[string]interface{}{
+					"createOnlyProperties": []interface{}{"/properties/Tags"},
+				},
+			},
+		}
+		typeSpec := &schema.TypeSpec{
+			Items: &schema.TypeSpec{
+				OneOf: []schema.TypeSpec{
+					{
+						Ref: "#/types/pulumi:types:input:common:ComponentResourceOptions:AltTagsEntry",
+					},
+					{
+						Ref: "#/types/pulumi:types:input:common:ComponentResourceOptions:TagsEntry",
+					},
+				},
+			},
+		}
+		assert.Equal(t, TagsStyleKeyValueArrayWithAlternateType, ctx.GetTagsStyle("Tags", typeSpec))
+	})
 }
