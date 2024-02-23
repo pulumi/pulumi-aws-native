@@ -1,11 +1,15 @@
 package schema
 
 import (
+	"encoding/json"
+	"os"
+	"path"
 	"testing"
 
 	jsschema "github.com/pulumi/jsschema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestGetTagsStyle(t *testing.T) {
@@ -143,4 +147,14 @@ func TestGetTagsStyle(t *testing.T) {
 		}
 		assert.Equal(t, TagsStyleKeyValueArrayWithAlternateType, ctx.GetTagsStyle("Tags", typeSpec))
 	})
+}
+
+func TestNoUnexpectedTagsShapes(t *testing.T) {
+	path := path.Join("..", "..", "..", "reports", "unexpectedTagsShapes.json")
+	bytes, err := os.ReadFile(path)
+	require.NoError(t, err)
+	var unexpectedTagsShapes map[string]interface{}
+	err = json.Unmarshal(bytes, &unexpectedTagsShapes)
+	require.NoError(t, err)
+	assert.Empty(t, unexpectedTagsShapes, "reports/unexpectedTagsShapes.json should be empty, which means that we need to update GetTagsStyle in gen_tags.go to cover new tags variations.")
 }
