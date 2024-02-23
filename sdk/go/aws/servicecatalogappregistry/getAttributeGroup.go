@@ -34,8 +34,8 @@ type LookupAttributeGroupResult struct {
 	Description *string `pulumi:"description"`
 	Id          *string `pulumi:"id"`
 	// The name of the attribute group.
-	Name *string             `pulumi:"name"`
-	Tags *AttributeGroupTags `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupAttributeGroupOutput(ctx *pulumi.Context, args LookupAttributeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupAttributeGroupResultOutput {
@@ -96,8 +96,8 @@ func (o LookupAttributeGroupResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAttributeGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAttributeGroupResultOutput) Tags() AttributeGroupTagsPtrOutput {
-	return o.ApplyT(func(v LookupAttributeGroupResult) *AttributeGroupTags { return v.Tags }).(AttributeGroupTagsPtrOutput)
+func (o LookupAttributeGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAttributeGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

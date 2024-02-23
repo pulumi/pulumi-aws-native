@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// An array of ResourceMapping objects.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppResourceMapping> ResourceMappings;
-        public readonly Outputs.AppTagMap? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetAppResult(
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.ResilienceHub
 
             ImmutableArray<Outputs.AppResourceMapping> resourceMappings,
 
-            Outputs.AppTagMap? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             AppArn = appArn;
             AppAssessmentSchedule = appAssessmentSchedule;

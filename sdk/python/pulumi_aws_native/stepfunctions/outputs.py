@@ -16,7 +16,6 @@ __all__ = [
     'StateMachineAliasRoutingConfigurationVersion',
     'StateMachineCloudWatchLogsLogGroup',
     'StateMachineDefinition',
-    'StateMachineDefinitionSubstitutions',
     'StateMachineLogDestination',
     'StateMachineLoggingConfiguration',
     'StateMachineS3Location',
@@ -183,12 +182,6 @@ class StateMachineCloudWatchLogsLogGroup(dict):
 
 @pulumi.output_type
 class StateMachineDefinition(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
-class StateMachineDefinitionSubstitutions(dict):
     def __init__(__self__):
         pass
 

@@ -8,8 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['HubArgs', 'Hub']
 
@@ -19,7 +17,7 @@ class HubArgs:
                  auto_enable_controls: Optional[pulumi.Input[bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[str]] = None,
                  enable_default_standards: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input['HubTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Hub resource.
         :param pulumi.Input[bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled
@@ -73,11 +71,11 @@ class HubArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['HubTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['HubTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -89,7 +87,7 @@ class Hub(pulumi.CustomResource):
                  auto_enable_controls: Optional[pulumi.Input[bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[str]] = None,
                  enable_default_standards: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['HubTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
@@ -127,7 +125,7 @@ class Hub(pulumi.CustomResource):
                  auto_enable_controls: Optional[pulumi.Input[bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[str]] = None,
                  enable_default_standards: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['HubTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -215,6 +213,6 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.HubTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 

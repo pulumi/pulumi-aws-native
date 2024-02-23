@@ -1928,11 +1928,35 @@ export const DataSetDatasetParameterValueType = {
  */
 export type DataSetDatasetParameterValueType = (typeof DataSetDatasetParameterValueType)[keyof typeof DataSetDatasetParameterValueType];
 
+export const DataSetFileFormat = {
+    Csv: "CSV",
+    Tsv: "TSV",
+    Clf: "CLF",
+    Elf: "ELF",
+    Xlsx: "XLSX",
+    Json: "JSON",
+} as const;
+
+export type DataSetFileFormat = (typeof DataSetFileFormat)[keyof typeof DataSetFileFormat];
+
 export const DataSetGeoSpatialCountryCode = {
     Us: "US",
 } as const;
 
 export type DataSetGeoSpatialCountryCode = (typeof DataSetGeoSpatialCountryCode)[keyof typeof DataSetGeoSpatialCountryCode];
+
+export const DataSetGeoSpatialDataRole = {
+    Country: "COUNTRY",
+    State: "STATE",
+    County: "COUNTY",
+    City: "CITY",
+    Postcode: "POSTCODE",
+    Longitude: "LONGITUDE",
+    Latitude: "LATITUDE",
+    Political1: "POLITICAL1",
+} as const;
+
+export type DataSetGeoSpatialDataRole = (typeof DataSetGeoSpatialDataRole)[keyof typeof DataSetGeoSpatialDataRole];
 
 export const DataSetImportMode = {
     Spice: "SPICE",
@@ -1940,6 +1964,27 @@ export const DataSetImportMode = {
 } as const;
 
 export type DataSetImportMode = (typeof DataSetImportMode)[keyof typeof DataSetImportMode];
+
+export const DataSetInputColumnDataType = {
+    String: "STRING",
+    Integer: "INTEGER",
+    Decimal: "DECIMAL",
+    Datetime: "DATETIME",
+    Bit: "BIT",
+    Boolean: "BOOLEAN",
+    Json: "JSON",
+} as const;
+
+export type DataSetInputColumnDataType = (typeof DataSetInputColumnDataType)[keyof typeof DataSetInputColumnDataType];
+
+export const DataSetJoinType = {
+    Inner: "INNER",
+    Outer: "OUTER",
+    Left: "LEFT",
+    Right: "RIGHT",
+} as const;
+
+export type DataSetJoinType = (typeof DataSetJoinType)[keyof typeof DataSetJoinType];
 
 export const DataSetRowLevelPermissionFormatVersion = {
     Version1: "VERSION_1",
@@ -1969,6 +2014,13 @@ export const DataSetStatus = {
 } as const;
 
 export type DataSetStatus = (typeof DataSetStatus)[keyof typeof DataSetStatus];
+
+export const DataSetTextQualifier = {
+    DoubleQuote: "DOUBLE_QUOTE",
+    SingleQuote: "SINGLE_QUOTE",
+} as const;
+
+export type DataSetTextQualifier = (typeof DataSetTextQualifier)[keyof typeof DataSetTextQualifier];
 
 export const DataSetTimeGranularity = {
     Year: "YEAR",

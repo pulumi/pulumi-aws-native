@@ -17,8 +17,8 @@ import (
 type Integration struct {
 	pulumi.CustomResourceState
 
-	AdditionalEncryptionContext IntegrationEncryptionContextMapPtrOutput `pulumi:"additionalEncryptionContext"`
-	CreateTime                  pulumi.StringOutput                      `pulumi:"createTime"`
+	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
+	CreateTime                  pulumi.StringOutput    `pulumi:"createTime"`
 	// The ARN of the integration.
 	IntegrationArn pulumi.StringOutput `pulumi:"integrationArn"`
 	// The name of the integration.
@@ -47,7 +47,7 @@ func NewIntegration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"additionalEncryptionContext",
+		"additionalEncryptionContext.*",
 		"integrationName",
 		"kmsKeyId",
 		"sourceArn",
@@ -87,7 +87,7 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
-	AdditionalEncryptionContext *IntegrationEncryptionContextMap `pulumi:"additionalEncryptionContext"`
+	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
 	// The name of the integration.
 	IntegrationName *string `pulumi:"integrationName"`
 	// An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
@@ -102,7 +102,7 @@ type integrationArgs struct {
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
-	AdditionalEncryptionContext IntegrationEncryptionContextMapPtrInput
+	AdditionalEncryptionContext pulumi.StringMapInput
 	// The name of the integration.
 	IntegrationName pulumi.StringPtrInput
 	// An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
@@ -152,8 +152,8 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 	return o
 }
 
-func (o IntegrationOutput) AdditionalEncryptionContext() IntegrationEncryptionContextMapPtrOutput {
-	return o.ApplyT(func(v *Integration) IntegrationEncryptionContextMapPtrOutput { return v.AdditionalEncryptionContext }).(IntegrationEncryptionContextMapPtrOutput)
+func (o IntegrationOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
 func (o IntegrationOutput) CreateTime() pulumi.StringOutput {

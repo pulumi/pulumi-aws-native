@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -50,7 +49,7 @@ class GetVehicleResult:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional['outputs.VehicleattributesMap']:
+    def attributes(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "attributes")
 
     @property

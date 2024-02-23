@@ -16,10 +16,10 @@ import (
 type Index struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput  `pulumi:"arn"`
-	IndexState IndexStateEnumOutput `pulumi:"indexState"`
-	Tags       IndexTagMapPtrOutput `pulumi:"tags"`
-	Type       IndexTypeOutput      `pulumi:"type"`
+	Arn        pulumi.StringOutput    `pulumi:"arn"`
+	IndexState IndexStateEnumOutput   `pulumi:"indexState"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Type       IndexTypeOutput        `pulumi:"type"`
 }
 
 // NewIndex registers a new resource with the given unique name, arguments, and options.
@@ -65,13 +65,13 @@ func (IndexState) ElementType() reflect.Type {
 }
 
 type indexArgs struct {
-	Tags *IndexTagMap `pulumi:"tags"`
-	Type IndexType    `pulumi:"type"`
+	Tags map[string]string `pulumi:"tags"`
+	Type IndexType         `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Index resource.
 type IndexArgs struct {
-	Tags IndexTagMapPtrInput
+	Tags pulumi.StringMapInput
 	Type IndexTypeInput
 }
 
@@ -120,8 +120,8 @@ func (o IndexOutput) IndexState() IndexStateEnumOutput {
 	return o.ApplyT(func(v *Index) IndexStateEnumOutput { return v.IndexState }).(IndexStateEnumOutput)
 }
 
-func (o IndexOutput) Tags() IndexTagMapPtrOutput {
-	return o.ApplyT(func(v *Index) IndexTagMapPtrOutput { return v.Tags }).(IndexTagMapPtrOutput)
+func (o IndexOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o IndexOutput) Type() IndexTypeOutput {

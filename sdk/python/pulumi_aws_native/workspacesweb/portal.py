@@ -8,18 +8,16 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['PortalArgs', 'Portal']
 
 @pulumi.input_type
 class PortalArgs:
     def __init__(__self__, *,
-                 additional_encryption_context: Optional[pulumi.Input['PortalEncryptionContextMapArgs']] = None,
+                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  authentication_type: Optional[pulumi.Input['PortalAuthenticationType']] = None,
                  browser_settings_arn: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
@@ -58,11 +56,11 @@ class PortalArgs:
 
     @property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> Optional[pulumi.Input['PortalEncryptionContextMapArgs']]:
+    def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
-    def additional_encryption_context(self, value: Optional[pulumi.Input['PortalEncryptionContextMapArgs']]):
+    def additional_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "additional_encryption_context", value)
 
     @property
@@ -161,7 +159,7 @@ class Portal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[pulumi.InputType['PortalEncryptionContextMapArgs']]] = None,
+                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  authentication_type: Optional[pulumi.Input['PortalAuthenticationType']] = None,
                  browser_settings_arn: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
@@ -203,7 +201,7 @@ class Portal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[pulumi.InputType['PortalEncryptionContextMapArgs']]] = None,
+                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  authentication_type: Optional[pulumi.Input['PortalAuthenticationType']] = None,
                  browser_settings_arn: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
@@ -242,7 +240,7 @@ class Portal(pulumi.CustomResource):
             __props__.__dict__["renderer_type"] = None
             __props__.__dict__["service_provider_saml_metadata"] = None
             __props__.__dict__["status_reason"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_encryption_context", "customer_managed_key"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_encryption_context.*", "customer_managed_key"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Portal, __self__).__init__(
             'aws-native:workspacesweb:Portal',
@@ -289,7 +287,7 @@ class Portal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> pulumi.Output[Optional['outputs.PortalEncryptionContextMap']]:
+    def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "additional_encryption_context")
 
     @property

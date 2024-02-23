@@ -28,13 +28,13 @@ type LookupVehicleArgs struct {
 }
 
 type LookupVehicleResult struct {
-	Arn                  *string               `pulumi:"arn"`
-	Attributes           *VehicleattributesMap `pulumi:"attributes"`
-	CreationTime         *string               `pulumi:"creationTime"`
-	DecoderManifestArn   *string               `pulumi:"decoderManifestArn"`
-	LastModificationTime *string               `pulumi:"lastModificationTime"`
-	ModelManifestArn     *string               `pulumi:"modelManifestArn"`
-	Tags                 []aws.Tag             `pulumi:"tags"`
+	Arn                  *string           `pulumi:"arn"`
+	Attributes           map[string]string `pulumi:"attributes"`
+	CreationTime         *string           `pulumi:"creationTime"`
+	DecoderManifestArn   *string           `pulumi:"decoderManifestArn"`
+	LastModificationTime *string           `pulumi:"lastModificationTime"`
+	ModelManifestArn     *string           `pulumi:"modelManifestArn"`
+	Tags                 []aws.Tag         `pulumi:"tags"`
 }
 
 func LookupVehicleOutput(ctx *pulumi.Context, args LookupVehicleOutputArgs, opts ...pulumi.InvokeOption) LookupVehicleResultOutput {
@@ -76,8 +76,8 @@ func (o LookupVehicleResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVehicleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVehicleResultOutput) Attributes() VehicleattributesMapPtrOutput {
-	return o.ApplyT(func(v LookupVehicleResult) *VehicleattributesMap { return v.Attributes }).(VehicleattributesMapPtrOutput)
+func (o LookupVehicleResultOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVehicleResult) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o LookupVehicleResultOutput) CreationTime() pulumi.StringPtrOutput {

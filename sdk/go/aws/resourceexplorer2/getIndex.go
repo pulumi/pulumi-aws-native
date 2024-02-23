@@ -27,10 +27,10 @@ type LookupIndexArgs struct {
 }
 
 type LookupIndexResult struct {
-	Arn        *string         `pulumi:"arn"`
-	IndexState *IndexStateEnum `pulumi:"indexState"`
-	Tags       *IndexTagMap    `pulumi:"tags"`
-	Type       *IndexType      `pulumi:"type"`
+	Arn        *string           `pulumi:"arn"`
+	IndexState *IndexStateEnum   `pulumi:"indexState"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       *IndexType        `pulumi:"type"`
 }
 
 func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...pulumi.InvokeOption) LookupIndexResultOutput {
@@ -76,8 +76,8 @@ func (o LookupIndexResultOutput) IndexState() IndexStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *IndexStateEnum { return v.IndexState }).(IndexStateEnumPtrOutput)
 }
 
-func (o LookupIndexResultOutput) Tags() IndexTagMapPtrOutput {
-	return o.ApplyT(func(v LookupIndexResult) *IndexTagMap { return v.Tags }).(IndexTagMapPtrOutput)
+func (o LookupIndexResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIndexResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupIndexResultOutput) Type() IndexTypePtrOutput {

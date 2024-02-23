@@ -8,16 +8,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['IdentityProviderArgs', 'IdentityProvider']
 
 @pulumi.input_type
 class IdentityProviderArgs:
     def __init__(__self__, *,
-                 identity_provider_details: pulumi.Input['IdentityProviderDetailsArgs'],
+                 identity_provider_details: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  identity_provider_type: pulumi.Input['IdentityProviderType'],
                  identity_provider_name: Optional[pulumi.Input[str]] = None,
                  portal_arn: Optional[pulumi.Input[str]] = None):
@@ -33,11 +31,11 @@ class IdentityProviderArgs:
 
     @property
     @pulumi.getter(name="identityProviderDetails")
-    def identity_provider_details(self) -> pulumi.Input['IdentityProviderDetailsArgs']:
+    def identity_provider_details(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         return pulumi.get(self, "identity_provider_details")
 
     @identity_provider_details.setter
-    def identity_provider_details(self, value: pulumi.Input['IdentityProviderDetailsArgs']):
+    def identity_provider_details(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "identity_provider_details", value)
 
     @property
@@ -73,7 +71,7 @@ class IdentityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_provider_details: Optional[pulumi.Input[pulumi.InputType['IdentityProviderDetailsArgs']]] = None,
+                 identity_provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity_provider_name: Optional[pulumi.Input[str]] = None,
                  identity_provider_type: Optional[pulumi.Input['IdentityProviderType']] = None,
                  portal_arn: Optional[pulumi.Input[str]] = None,
@@ -108,7 +106,7 @@ class IdentityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_provider_details: Optional[pulumi.Input[pulumi.InputType['IdentityProviderDetailsArgs']]] = None,
+                 identity_provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity_provider_name: Optional[pulumi.Input[str]] = None,
                  identity_provider_type: Optional[pulumi.Input['IdentityProviderType']] = None,
                  portal_arn: Optional[pulumi.Input[str]] = None,
@@ -168,7 +166,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityProviderDetails")
-    def identity_provider_details(self) -> pulumi.Output['outputs.IdentityProviderDetails']:
+    def identity_provider_details(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "identity_provider_details")
 
     @property

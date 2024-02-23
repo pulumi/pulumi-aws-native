@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Inputs
     /// </summary>
     public sealed class EntityPropertyDefinitionPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("configuration")]
+        private InputMap<string>? _configuration;
+
         /// <summary>
         /// An object that specifies information about a property.
         /// </summary>
-        [Input("configuration")]
-        public Input<Inputs.EntityPropertyDefinitionConfigurationArgs>? Configuration { get; set; }
+        public InputMap<string> Configuration
+        {
+            get => _configuration ?? (_configuration = new InputMap<string>());
+            set => _configuration = value;
+        }
 
         /// <summary>
         /// An object that contains information about the data type.

@@ -25,7 +25,7 @@ __all__ = [
     'ApplicationNetworkConfigurationArgs',
     'ApplicationS3MonitoringConfigurationArgs',
     'ApplicationWorkerConfigurationArgs',
-    'ApplicationWorkerTypeSpecificationInputMapArgs',
+    'ApplicationWorkerTypeSpecificationInputArgs',
 ]
 
 @pulumi.input_type
@@ -619,8 +619,22 @@ class ApplicationWorkerConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationWorkerTypeSpecificationInputMapArgs:
-    def __init__(__self__):
-        pass
+class ApplicationWorkerTypeSpecificationInputArgs:
+    def __init__(__self__, *,
+                 image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']] = None):
+        """
+        The specifications for a worker type.
+        """
+        if image_configuration is not None:
+            pulumi.set(__self__, "image_configuration", image_configuration)
+
+    @property
+    @pulumi.getter(name="imageConfiguration")
+    def image_configuration(self) -> Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']]:
+        return pulumi.get(self, "image_configuration")
+
+    @image_configuration.setter
+    def image_configuration(self, value: Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']]):
+        pulumi.set(self, "image_configuration", value)
 
 

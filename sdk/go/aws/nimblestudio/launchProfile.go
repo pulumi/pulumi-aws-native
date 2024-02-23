@@ -32,8 +32,8 @@ type LaunchProfile struct {
 	//             launch profile.</p>
 	StudioComponentIds pulumi.StringArrayOutput `pulumi:"studioComponentIds"`
 	// <p>The studio ID. </p>
-	StudioId pulumi.StringOutput        `pulumi:"studioId"`
-	Tags     LaunchProfileTagsPtrOutput `pulumi:"tags"`
+	StudioId pulumi.StringOutput    `pulumi:"studioId"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewLaunchProfile registers a new resource with the given unique name, arguments, and options.
@@ -61,7 +61,7 @@ func NewLaunchProfile(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"ec2SubnetIds[*]",
 		"studioId",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -112,8 +112,8 @@ type launchProfileArgs struct {
 	//             launch profile.</p>
 	StudioComponentIds []string `pulumi:"studioComponentIds"`
 	// <p>The studio ID. </p>
-	StudioId string             `pulumi:"studioId"`
-	Tags     *LaunchProfileTags `pulumi:"tags"`
+	StudioId string            `pulumi:"studioId"`
+	Tags     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LaunchProfile resource.
@@ -134,7 +134,7 @@ type LaunchProfileArgs struct {
 	StudioComponentIds pulumi.StringArrayInput
 	// <p>The studio ID. </p>
 	StudioId pulumi.StringInput
-	Tags     LaunchProfileTagsPtrInput
+	Tags     pulumi.StringMapInput
 }
 
 func (LaunchProfileArgs) ElementType() reflect.Type {
@@ -218,8 +218,8 @@ func (o LaunchProfileOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }
 
-func (o LaunchProfileOutput) Tags() LaunchProfileTagsPtrOutput {
-	return o.ApplyT(func(v *LaunchProfile) LaunchProfileTagsPtrOutput { return v.Tags }).(LaunchProfileTagsPtrOutput)
+func (o LaunchProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LaunchProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

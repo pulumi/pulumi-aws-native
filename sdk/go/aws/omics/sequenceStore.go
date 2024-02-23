@@ -27,7 +27,7 @@ type SequenceStore struct {
 	Name            pulumi.StringOutput             `pulumi:"name"`
 	SequenceStoreId pulumi.StringOutput             `pulumi:"sequenceStoreId"`
 	SseConfig       SequenceStoreSseConfigPtrOutput `pulumi:"sseConfig"`
-	Tags            SequenceStoreTagMapPtrOutput    `pulumi:"tags"`
+	Tags            pulumi.StringMapOutput          `pulumi:"tags"`
 }
 
 // NewSequenceStore registers a new resource with the given unique name, arguments, and options.
@@ -42,7 +42,7 @@ func NewSequenceStore(ctx *pulumi.Context,
 		"fallbackLocation",
 		"name",
 		"sseConfig",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -85,7 +85,7 @@ type sequenceStoreArgs struct {
 	// A name for the store.
 	Name      *string                 `pulumi:"name"`
 	SseConfig *SequenceStoreSseConfig `pulumi:"sseConfig"`
-	Tags      *SequenceStoreTagMap    `pulumi:"tags"`
+	Tags      map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SequenceStore resource.
@@ -97,7 +97,7 @@ type SequenceStoreArgs struct {
 	// A name for the store.
 	Name      pulumi.StringPtrInput
 	SseConfig SequenceStoreSseConfigPtrInput
-	Tags      SequenceStoreTagMapPtrInput
+	Tags      pulumi.StringMapInput
 }
 
 func (SequenceStoreArgs) ElementType() reflect.Type {
@@ -170,8 +170,8 @@ func (o SequenceStoreOutput) SseConfig() SequenceStoreSseConfigPtrOutput {
 	return o.ApplyT(func(v *SequenceStore) SequenceStoreSseConfigPtrOutput { return v.SseConfig }).(SequenceStoreSseConfigPtrOutput)
 }
 
-func (o SequenceStoreOutput) Tags() SequenceStoreTagMapPtrOutput {
-	return o.ApplyT(func(v *SequenceStore) SequenceStoreTagMapPtrOutput { return v.Tags }).(SequenceStoreTagMapPtrOutput)
+func (o SequenceStoreOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SequenceStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

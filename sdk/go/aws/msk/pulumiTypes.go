@@ -5400,127 +5400,6 @@ func (o ServerlessClusterVpcConfigArrayOutput) Index(i pulumi.IntInput) Serverle
 	}).(ServerlessClusterVpcConfigOutput)
 }
 
-// A key-value pair to associate with a resource.
-type VpcConnectionTags struct {
-}
-
-// VpcConnectionTagsInput is an input type that accepts VpcConnectionTagsArgs and VpcConnectionTagsOutput values.
-// You can construct a concrete instance of `VpcConnectionTagsInput` via:
-//
-//	VpcConnectionTagsArgs{...}
-type VpcConnectionTagsInput interface {
-	pulumi.Input
-
-	ToVpcConnectionTagsOutput() VpcConnectionTagsOutput
-	ToVpcConnectionTagsOutputWithContext(context.Context) VpcConnectionTagsOutput
-}
-
-// A key-value pair to associate with a resource.
-type VpcConnectionTagsArgs struct {
-}
-
-func (VpcConnectionTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcConnectionTags)(nil)).Elem()
-}
-
-func (i VpcConnectionTagsArgs) ToVpcConnectionTagsOutput() VpcConnectionTagsOutput {
-	return i.ToVpcConnectionTagsOutputWithContext(context.Background())
-}
-
-func (i VpcConnectionTagsArgs) ToVpcConnectionTagsOutputWithContext(ctx context.Context) VpcConnectionTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionTagsOutput)
-}
-
-func (i VpcConnectionTagsArgs) ToVpcConnectionTagsPtrOutput() VpcConnectionTagsPtrOutput {
-	return i.ToVpcConnectionTagsPtrOutputWithContext(context.Background())
-}
-
-func (i VpcConnectionTagsArgs) ToVpcConnectionTagsPtrOutputWithContext(ctx context.Context) VpcConnectionTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionTagsOutput).ToVpcConnectionTagsPtrOutputWithContext(ctx)
-}
-
-// VpcConnectionTagsPtrInput is an input type that accepts VpcConnectionTagsArgs, VpcConnectionTagsPtr and VpcConnectionTagsPtrOutput values.
-// You can construct a concrete instance of `VpcConnectionTagsPtrInput` via:
-//
-//	        VpcConnectionTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type VpcConnectionTagsPtrInput interface {
-	pulumi.Input
-
-	ToVpcConnectionTagsPtrOutput() VpcConnectionTagsPtrOutput
-	ToVpcConnectionTagsPtrOutputWithContext(context.Context) VpcConnectionTagsPtrOutput
-}
-
-type vpcConnectionTagsPtrType VpcConnectionTagsArgs
-
-func VpcConnectionTagsPtr(v *VpcConnectionTagsArgs) VpcConnectionTagsPtrInput {
-	return (*vpcConnectionTagsPtrType)(v)
-}
-
-func (*vpcConnectionTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcConnectionTags)(nil)).Elem()
-}
-
-func (i *vpcConnectionTagsPtrType) ToVpcConnectionTagsPtrOutput() VpcConnectionTagsPtrOutput {
-	return i.ToVpcConnectionTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcConnectionTagsPtrType) ToVpcConnectionTagsPtrOutputWithContext(ctx context.Context) VpcConnectionTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionTagsPtrOutput)
-}
-
-// A key-value pair to associate with a resource.
-type VpcConnectionTagsOutput struct{ *pulumi.OutputState }
-
-func (VpcConnectionTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcConnectionTags)(nil)).Elem()
-}
-
-func (o VpcConnectionTagsOutput) ToVpcConnectionTagsOutput() VpcConnectionTagsOutput {
-	return o
-}
-
-func (o VpcConnectionTagsOutput) ToVpcConnectionTagsOutputWithContext(ctx context.Context) VpcConnectionTagsOutput {
-	return o
-}
-
-func (o VpcConnectionTagsOutput) ToVpcConnectionTagsPtrOutput() VpcConnectionTagsPtrOutput {
-	return o.ToVpcConnectionTagsPtrOutputWithContext(context.Background())
-}
-
-func (o VpcConnectionTagsOutput) ToVpcConnectionTagsPtrOutputWithContext(ctx context.Context) VpcConnectionTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcConnectionTags) *VpcConnectionTags {
-		return &v
-	}).(VpcConnectionTagsPtrOutput)
-}
-
-type VpcConnectionTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (VpcConnectionTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcConnectionTags)(nil)).Elem()
-}
-
-func (o VpcConnectionTagsPtrOutput) ToVpcConnectionTagsPtrOutput() VpcConnectionTagsPtrOutput {
-	return o
-}
-
-func (o VpcConnectionTagsPtrOutput) ToVpcConnectionTagsPtrOutputWithContext(ctx context.Context) VpcConnectionTagsPtrOutput {
-	return o
-}
-
-func (o VpcConnectionTagsPtrOutput) Elem() VpcConnectionTagsOutput {
-	return o.ApplyT(func(v *VpcConnectionTags) VpcConnectionTags {
-		if v != nil {
-			return *v
-		}
-		var ret VpcConnectionTags
-		return ret
-	}).(VpcConnectionTagsOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerLogsInput)(nil)).Elem(), ClusterBrokerLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerLogsPtrInput)(nil)).Elem(), ClusterBrokerLogsArgs{})
@@ -5598,8 +5477,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterSaslInput)(nil)).Elem(), ServerlessClusterSaslArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterVpcConfigInput)(nil)).Elem(), ServerlessClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterVpcConfigArrayInput)(nil)).Elem(), ServerlessClusterVpcConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTagsInput)(nil)).Elem(), VpcConnectionTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTagsPtrInput)(nil)).Elem(), VpcConnectionTagsArgs{})
 	pulumi.RegisterOutputType(ClusterBrokerLogsOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerLogsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})
@@ -5677,6 +5554,4 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessClusterSaslOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterVpcConfigArrayOutput{})
-	pulumi.RegisterOutputType(VpcConnectionTagsOutput{})
-	pulumi.RegisterOutputType(VpcConnectionTagsPtrOutput{})
 }

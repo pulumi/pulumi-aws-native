@@ -65,15 +65,15 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
     {
         public readonly Outputs.FormCta? Cta;
         public readonly Outputs.FormDataTypeConfig? DataType;
-        public readonly Outputs.FormFieldsMap? Fields;
+        public readonly ImmutableDictionary<string, Outputs.FormFieldConfig>? Fields;
         public readonly Pulumi.AwsNative.AmplifyUiBuilder.FormActionType? FormActionType;
         public readonly string? Id;
         public readonly Pulumi.AwsNative.AmplifyUiBuilder.FormLabelDecorator? LabelDecorator;
         public readonly string? Name;
         public readonly string? SchemaVersion;
-        public readonly Outputs.FormSectionalElementMap? SectionalElements;
+        public readonly ImmutableDictionary<string, Outputs.FormSectionalElement>? SectionalElements;
         public readonly Outputs.FormStyle? Style;
-        public readonly Outputs.FormTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetFormResult(
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
             Outputs.FormDataTypeConfig? dataType,
 
-            Outputs.FormFieldsMap? fields,
+            ImmutableDictionary<string, Outputs.FormFieldConfig>? fields,
 
             Pulumi.AwsNative.AmplifyUiBuilder.FormActionType? formActionType,
 
@@ -93,11 +93,11 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
             string? schemaVersion,
 
-            Outputs.FormSectionalElementMap? sectionalElements,
+            ImmutableDictionary<string, Outputs.FormSectionalElement>? sectionalElements,
 
             Outputs.FormStyle? style,
 
-            Outputs.FormTags? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Cta = cta;
             DataType = dataType;

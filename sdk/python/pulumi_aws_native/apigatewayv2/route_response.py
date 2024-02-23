@@ -21,7 +21,7 @@ class RouteResponseArgs:
                  route_response_key: pulumi.Input[str],
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: Optional[pulumi.Input['RouteResponseRouteParametersArgs']] = None):
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]]] = None):
         """
         The set of arguments for constructing a RouteResponse resource.
         :param pulumi.Input[str] api_id: The API identifier.
@@ -31,7 +31,7 @@ class RouteResponseArgs:
         :param Any response_models: The response models for the route response.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
-        :param pulumi.Input['RouteResponseRouteParametersArgs'] response_parameters: The route response parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]] response_parameters: The route response parameters.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "route_id", route_id)
@@ -107,14 +107,14 @@ class RouteResponseArgs:
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input['RouteResponseRouteParametersArgs']]:
+    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]]]:
         """
         The route response parameters.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input['RouteResponseRouteParametersArgs']]):
+    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]]]):
         pulumi.set(self, "response_parameters", value)
 
 
@@ -126,7 +126,7 @@ class RouteResponse(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[str]] = None,
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: Optional[pulumi.Input[pulumi.InputType['RouteResponseRouteParametersArgs']]] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['RouteResponseParameterConstraintsArgs']]]]] = None,
                  route_id: Optional[pulumi.Input[str]] = None,
                  route_response_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -140,7 +140,7 @@ class RouteResponse(pulumi.CustomResource):
         :param Any response_models: The response models for the route response.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
-        :param pulumi.Input[pulumi.InputType['RouteResponseRouteParametersArgs']] response_parameters: The route response parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['RouteResponseParameterConstraintsArgs']]]] response_parameters: The route response parameters.
         :param pulumi.Input[str] route_id: The route ID.
         :param pulumi.Input[str] route_response_key: The route response key.
         """
@@ -171,7 +171,7 @@ class RouteResponse(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[str]] = None,
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: Optional[pulumi.Input[pulumi.InputType['RouteResponseRouteParametersArgs']]] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['RouteResponseParameterConstraintsArgs']]]]] = None,
                  route_id: Optional[pulumi.Input[str]] = None,
                  route_response_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -257,7 +257,7 @@ class RouteResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> pulumi.Output[Optional['outputs.RouteResponseRouteParameters']]:
+    def response_parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.RouteResponseParameterConstraints']]]:
         """
         The route response parameters.
         """

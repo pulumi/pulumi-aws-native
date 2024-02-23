@@ -2160,127 +2160,6 @@ type EventSubscriptionTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// An optional set of non-secret key–value pairs that contains additional contextual information about the data.
-type IntegrationEncryptionContextMap struct {
-}
-
-// IntegrationEncryptionContextMapInput is an input type that accepts IntegrationEncryptionContextMap and IntegrationEncryptionContextMapOutput values.
-// You can construct a concrete instance of `IntegrationEncryptionContextMapInput` via:
-//
-//	IntegrationEncryptionContextMap{ "key": IntegrationEncryptionContextArgs{...} }
-type IntegrationEncryptionContextMapInput interface {
-	pulumi.Input
-
-	ToIntegrationEncryptionContextMapOutput() IntegrationEncryptionContextMapOutput
-	ToIntegrationEncryptionContextMapOutputWithContext(context.Context) IntegrationEncryptionContextMapOutput
-}
-
-// An optional set of non-secret key–value pairs that contains additional contextual information about the data.
-type IntegrationEncryptionContextMapArgs struct {
-}
-
-func (IntegrationEncryptionContextMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationEncryptionContextMap)(nil)).Elem()
-}
-
-func (i IntegrationEncryptionContextMapArgs) ToIntegrationEncryptionContextMapOutput() IntegrationEncryptionContextMapOutput {
-	return i.ToIntegrationEncryptionContextMapOutputWithContext(context.Background())
-}
-
-func (i IntegrationEncryptionContextMapArgs) ToIntegrationEncryptionContextMapOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationEncryptionContextMapOutput)
-}
-
-func (i IntegrationEncryptionContextMapArgs) ToIntegrationEncryptionContextMapPtrOutput() IntegrationEncryptionContextMapPtrOutput {
-	return i.ToIntegrationEncryptionContextMapPtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationEncryptionContextMapArgs) ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationEncryptionContextMapOutput).ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx)
-}
-
-// IntegrationEncryptionContextMapPtrInput is an input type that accepts IntegrationEncryptionContextMapArgs, IntegrationEncryptionContextMapPtr and IntegrationEncryptionContextMapPtrOutput values.
-// You can construct a concrete instance of `IntegrationEncryptionContextMapPtrInput` via:
-//
-//	        IntegrationEncryptionContextMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type IntegrationEncryptionContextMapPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationEncryptionContextMapPtrOutput() IntegrationEncryptionContextMapPtrOutput
-	ToIntegrationEncryptionContextMapPtrOutputWithContext(context.Context) IntegrationEncryptionContextMapPtrOutput
-}
-
-type integrationEncryptionContextMapPtrType IntegrationEncryptionContextMapArgs
-
-func IntegrationEncryptionContextMapPtr(v *IntegrationEncryptionContextMapArgs) IntegrationEncryptionContextMapPtrInput {
-	return (*integrationEncryptionContextMapPtrType)(v)
-}
-
-func (*integrationEncryptionContextMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationEncryptionContextMap)(nil)).Elem()
-}
-
-func (i *integrationEncryptionContextMapPtrType) ToIntegrationEncryptionContextMapPtrOutput() IntegrationEncryptionContextMapPtrOutput {
-	return i.ToIntegrationEncryptionContextMapPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationEncryptionContextMapPtrType) ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationEncryptionContextMapPtrOutput)
-}
-
-// An optional set of non-secret key–value pairs that contains additional contextual information about the data.
-type IntegrationEncryptionContextMapOutput struct{ *pulumi.OutputState }
-
-func (IntegrationEncryptionContextMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationEncryptionContextMap)(nil)).Elem()
-}
-
-func (o IntegrationEncryptionContextMapOutput) ToIntegrationEncryptionContextMapOutput() IntegrationEncryptionContextMapOutput {
-	return o
-}
-
-func (o IntegrationEncryptionContextMapOutput) ToIntegrationEncryptionContextMapOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapOutput {
-	return o
-}
-
-func (o IntegrationEncryptionContextMapOutput) ToIntegrationEncryptionContextMapPtrOutput() IntegrationEncryptionContextMapPtrOutput {
-	return o.ToIntegrationEncryptionContextMapPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationEncryptionContextMapOutput) ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationEncryptionContextMap) *IntegrationEncryptionContextMap {
-		return &v
-	}).(IntegrationEncryptionContextMapPtrOutput)
-}
-
-type IntegrationEncryptionContextMapPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationEncryptionContextMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationEncryptionContextMap)(nil)).Elem()
-}
-
-func (o IntegrationEncryptionContextMapPtrOutput) ToIntegrationEncryptionContextMapPtrOutput() IntegrationEncryptionContextMapPtrOutput {
-	return o
-}
-
-func (o IntegrationEncryptionContextMapPtrOutput) ToIntegrationEncryptionContextMapPtrOutputWithContext(ctx context.Context) IntegrationEncryptionContextMapPtrOutput {
-	return o
-}
-
-func (o IntegrationEncryptionContextMapPtrOutput) Elem() IntegrationEncryptionContextMapOutput {
-	return o.ApplyT(func(v *IntegrationEncryptionContextMap) IntegrationEncryptionContextMap {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationEncryptionContextMap
-		return ret
-	}).(IntegrationEncryptionContextMapOutput)
-}
-
 // A key-value pair to associate with a resource.
 type IntegrationTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2578,8 +2457,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput)(nil)).Elem(), DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbSecurityGroupIngressTypeInput)(nil)).Elem(), DbSecurityGroupIngressTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbSecurityGroupIngressTypeArrayInput)(nil)).Elem(), DbSecurityGroupIngressTypeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationEncryptionContextMapInput)(nil)).Elem(), IntegrationEncryptionContextMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationEncryptionContextMapPtrInput)(nil)).Elem(), IntegrationEncryptionContextMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionConfigurationInput)(nil)).Elem(), OptionGroupOptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionConfigurationArrayInput)(nil)).Elem(), OptionGroupOptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionSettingInput)(nil)).Elem(), OptionGroupOptionSettingArgs{})
@@ -2612,8 +2489,6 @@ func init() {
 	pulumi.RegisterOutputType(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput{})
 	pulumi.RegisterOutputType(DbSecurityGroupIngressTypeOutput{})
 	pulumi.RegisterOutputType(DbSecurityGroupIngressTypeArrayOutput{})
-	pulumi.RegisterOutputType(IntegrationEncryptionContextMapOutput{})
-	pulumi.RegisterOutputType(IntegrationEncryptionContextMapPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionSettingOutput{})

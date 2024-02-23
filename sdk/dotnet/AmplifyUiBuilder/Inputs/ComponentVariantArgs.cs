@@ -13,10 +13,20 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     public sealed class ComponentVariantArgs : global::Pulumi.ResourceArgs
     {
         [Input("overrides")]
-        public Input<Inputs.ComponentOverridesArgs>? Overrides { get; set; }
+        private InputMap<object>? _overrides;
+        public InputMap<object> Overrides
+        {
+            get => _overrides ?? (_overrides = new InputMap<object>());
+            set => _overrides = value;
+        }
 
         [Input("variantValues")]
-        public Input<Inputs.ComponentVariantValuesArgs>? VariantValues { get; set; }
+        private InputMap<string>? _variantValues;
+        public InputMap<string> VariantValues
+        {
+            get => _variantValues ?? (_variantValues = new InputMap<string>());
+            set => _variantValues = value;
+        }
 
         public ComponentVariantArgs()
         {

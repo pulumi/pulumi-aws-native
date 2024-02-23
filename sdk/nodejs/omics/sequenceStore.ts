@@ -59,7 +59,7 @@ export class SequenceStore extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly sequenceStoreId!: pulumi.Output<string>;
     public readonly sseConfig!: pulumi.Output<outputs.omics.SequenceStoreSseConfig | undefined>;
-    public readonly tags!: pulumi.Output<outputs.omics.SequenceStoreTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SequenceStore resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class SequenceStore extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "fallbackLocation", "name", "sseConfig", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["description", "fallbackLocation", "name", "sseConfig", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SequenceStore.__pulumiType, name, resourceInputs, opts);
     }
@@ -114,5 +114,5 @@ export interface SequenceStoreArgs {
      */
     name?: pulumi.Input<string>;
     sseConfig?: pulumi.Input<inputs.omics.SequenceStoreSseConfigArgs>;
-    tags?: pulumi.Input<inputs.omics.SequenceStoreTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

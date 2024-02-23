@@ -39,7 +39,7 @@ export interface GetAutomationRuleResult {
      * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
     readonly ruleStatus?: enums.securityhub.AutomationRuleRuleStatus;
-    readonly tags?: outputs.securityhub.AutomationRuleTags;
+    readonly tags?: {[key: string]: string};
     readonly updatedAt?: string;
 }
 /**

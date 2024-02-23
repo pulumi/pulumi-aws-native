@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<Pulumi.AwsNative.NimbleStudio.StudioComponentSubtype?> Subtype { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.StudioComponentTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<Pulumi.AwsNative.NimbleStudio.StudioComponentType> Type { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.AwsNative.NimbleStudio
                 {
                     "studioId",
                     "subtype",
-                    "tags",
+                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -190,7 +190,12 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Input<Pulumi.AwsNative.NimbleStudio.StudioComponentSubtype>? Subtype { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.StudioComponentTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.NimbleStudio.StudioComponentType> Type { get; set; } = null!;

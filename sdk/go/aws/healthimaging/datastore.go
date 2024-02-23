@@ -21,7 +21,7 @@ type Datastore struct {
 	DatastoreName   pulumi.StringPtrOutput `pulumi:"datastoreName"`
 	DatastoreStatus DatastoreStatusOutput  `pulumi:"datastoreStatus"`
 	KmsKeyArn       pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	Tags            DatastoreTagsPtrOutput `pulumi:"tags"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
 	UpdatedAt       pulumi.StringOutput    `pulumi:"updatedAt"`
 }
 
@@ -35,7 +35,7 @@ func NewDatastore(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"datastoreName",
 		"kmsKeyArn",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -71,16 +71,16 @@ func (DatastoreState) ElementType() reflect.Type {
 }
 
 type datastoreArgs struct {
-	DatastoreName *string        `pulumi:"datastoreName"`
-	KmsKeyArn     *string        `pulumi:"kmsKeyArn"`
-	Tags          *DatastoreTags `pulumi:"tags"`
+	DatastoreName *string           `pulumi:"datastoreName"`
+	KmsKeyArn     *string           `pulumi:"kmsKeyArn"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Datastore resource.
 type DatastoreArgs struct {
 	DatastoreName pulumi.StringPtrInput
 	KmsKeyArn     pulumi.StringPtrInput
-	Tags          DatastoreTagsPtrInput
+	Tags          pulumi.StringMapInput
 }
 
 func (DatastoreArgs) ElementType() reflect.Type {
@@ -144,8 +144,8 @@ func (o DatastoreOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-func (o DatastoreOutput) Tags() DatastoreTagsPtrOutput {
-	return o.ApplyT(func(v *Datastore) DatastoreTagsPtrOutput { return v.Tags }).(DatastoreTagsPtrOutput)
+func (o DatastoreOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Datastore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o DatastoreOutput) UpdatedAt() pulumi.StringOutput {

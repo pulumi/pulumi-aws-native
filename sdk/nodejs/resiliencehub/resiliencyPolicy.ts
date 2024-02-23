@@ -41,7 +41,7 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
      * Data Location Constraint of the Policy.
      */
     public readonly dataLocationConstraint!: pulumi.Output<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint | undefined>;
-    public readonly policy!: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyPolicyMap>;
+    public readonly policy!: pulumi.Output<{[key: string]: outputs.resiliencehub.ResiliencyPolicyFailurePolicy}>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
@@ -54,7 +54,7 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
      * Name of Resiliency Policy.
      */
     public readonly policyName!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resiliency Policy Tier.
      */
@@ -109,7 +109,7 @@ export interface ResiliencyPolicyArgs {
      * Data Location Constraint of the Policy.
      */
     dataLocationConstraint?: pulumi.Input<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint>;
-    policy: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicyMapArgs>;
+    policy: pulumi.Input<{[key: string]: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyFailurePolicyArgs>}>;
     /**
      * Description of Resiliency Policy.
      */
@@ -118,7 +118,7 @@ export interface ResiliencyPolicyArgs {
      * Name of Resiliency Policy.
      */
     policyName: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resiliency Policy Tier.
      */

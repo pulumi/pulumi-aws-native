@@ -25,8 +25,8 @@ type Application struct {
 	// The description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the application.
-	Name pulumi.StringOutput      `pulumi:"name"`
-	Tags ApplicationTagsPtrOutput `pulumi:"tags"`
+	Name pulumi.StringOutput    `pulumi:"name"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -72,8 +72,8 @@ type applicationArgs struct {
 	// The description of the application.
 	Description *string `pulumi:"description"`
 	// The name of the application.
-	Name *string          `pulumi:"name"`
-	Tags *ApplicationTags `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -82,7 +82,7 @@ type ApplicationArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the application.
 	Name pulumi.StringPtrInput
-	Tags ApplicationTagsPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -151,8 +151,8 @@ func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutput) Tags() ApplicationTagsPtrOutput {
-	return o.ApplyT(func(v *Application) ApplicationTagsPtrOutput { return v.Tags }).(ApplicationTagsPtrOutput)
+func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

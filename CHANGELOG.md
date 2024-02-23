@@ -5,6 +5,7 @@
 - **BREAKING CHANGE**: [De-duplicate types for simple arrays of tags](https://github.com/pulumi/pulumi-aws-native/pull/1348)
   - See PR for a complete list of resources affected (512)
 - [Add types for 9 untyped properties](https://github.com/pulumi/pulumi-aws-native/pull/1365)
+- [Fix generating types for refs to map types](https://github.com/pulumi/pulumi-aws-native/pull/1363)
 
 ## 0.97.0 (2024-02-21)
 

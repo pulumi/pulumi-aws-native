@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly string? TruthyCellValue;
         public readonly ImmutableArray<string> TruthyCellValueSynonyms;
         public readonly string? TypeName;
-        public readonly Outputs.TopicTypeParameters? TypeParameters;
+        public readonly ImmutableDictionary<string, string>? TypeParameters;
 
         [OutputConstructor]
         private TopicSemanticType(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? typeName,
 
-            Outputs.TopicTypeParameters? typeParameters)
+            ImmutableDictionary<string, string>? typeParameters)
         {
             FalseyCellValue = falseyCellValue;
             FalseyCellValueSynonyms = falseyCellValueSynonyms;

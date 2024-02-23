@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly string? SubTypeName;
         public readonly string? TypeName;
-        public readonly Outputs.TopicTypeParameters? TypeParameters;
+        public readonly ImmutableDictionary<string, string>? TypeParameters;
 
         [OutputConstructor]
         private TopicSemanticEntityType(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? typeName,
 
-            Outputs.TopicTypeParameters? typeParameters)
+            ImmutableDictionary<string, string>? typeParameters)
         {
             SubTypeName = subTypeName;
             TypeName = typeName;

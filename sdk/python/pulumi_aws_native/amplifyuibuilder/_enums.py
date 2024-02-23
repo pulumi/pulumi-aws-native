@@ -5,12 +5,19 @@
 from enum import Enum
 
 __all__ = [
+    'ComponentSortDirection',
     'FormActionType',
     'FormButtonsPosition',
     'FormDataSourceType',
     'FormFixedPosition',
     'FormLabelDecorator',
+    'FormStorageAccessLevel',
 ]
+
+
+class ComponentSortDirection(str, Enum):
+    ASC = "ASC"
+    DESC = "DESC"
 
 
 class FormActionType(str, Enum):
@@ -37,3 +44,9 @@ class FormLabelDecorator(str, Enum):
     REQUIRED = "required"
     OPTIONAL = "optional"
     NONE = "none"
+
+
+class FormStorageAccessLevel(str, Enum):
+    PUBLIC = "public"
+    PROTECTED = "protected"
+    PRIVATE = "private"

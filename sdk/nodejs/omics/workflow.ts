@@ -45,10 +45,10 @@ export class Workflow extends pulumi.CustomResource {
     public readonly engine!: pulumi.Output<enums.omics.WorkflowEngine | undefined>;
     public readonly main!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly parameterTemplate!: pulumi.Output<outputs.omics.WorkflowParameterTemplate | undefined>;
+    public readonly parameterTemplate!: pulumi.Output<{[key: string]: outputs.omics.WorkflowParameter} | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.omics.WorkflowStatus>;
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
-    public readonly tags!: pulumi.Output<outputs.omics.WorkflowTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly type!: pulumi.Output<enums.omics.WorkflowType>;
 
     /**
@@ -91,7 +91,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["accelerators", "definitionUri", "engine", "main", "parameterTemplate", "storageCapacity"] };
+        const replaceOnChanges = { replaceOnChanges: ["accelerators", "definitionUri", "engine", "main", "parameterTemplate.*", "storageCapacity"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Workflow.__pulumiType, name, resourceInputs, opts);
     }
@@ -107,7 +107,7 @@ export interface WorkflowArgs {
     engine?: pulumi.Input<enums.omics.WorkflowEngine>;
     main?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    parameterTemplate?: pulumi.Input<inputs.omics.WorkflowParameterTemplateArgs>;
+    parameterTemplate?: pulumi.Input<{[key: string]: pulumi.Input<inputs.omics.WorkflowParameterArgs>}>;
     storageCapacity?: pulumi.Input<number>;
-    tags?: pulumi.Input<inputs.omics.WorkflowTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

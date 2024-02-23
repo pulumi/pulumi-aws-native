@@ -27,8 +27,8 @@ type LookupRobotArgs struct {
 }
 
 type LookupRobotResult struct {
-	Arn  *string    `pulumi:"arn"`
-	Tags *RobotTags `pulumi:"tags"`
+	Arn  *string           `pulumi:"arn"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupRobotOutput(ctx *pulumi.Context, args LookupRobotOutputArgs, opts ...pulumi.InvokeOption) LookupRobotResultOutput {
@@ -70,8 +70,8 @@ func (o LookupRobotResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRobotResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRobotResultOutput) Tags() RobotTagsPtrOutput {
-	return o.ApplyT(func(v LookupRobotResult) *RobotTags { return v.Tags }).(RobotTagsPtrOutput)
+func (o LookupRobotResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRobotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

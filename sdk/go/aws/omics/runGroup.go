@@ -22,7 +22,7 @@ type RunGroup struct {
 	MaxGpus      pulumi.Float64PtrOutput `pulumi:"maxGpus"`
 	MaxRuns      pulumi.Float64PtrOutput `pulumi:"maxRuns"`
 	Name         pulumi.StringPtrOutput  `pulumi:"name"`
-	Tags         RunGroupTagMapPtrOutput `pulumi:"tags"`
+	Tags         pulumi.StringMapOutput  `pulumi:"tags"`
 }
 
 // NewRunGroup registers a new resource with the given unique name, arguments, and options.
@@ -65,12 +65,12 @@ func (RunGroupState) ElementType() reflect.Type {
 }
 
 type runGroupArgs struct {
-	MaxCpus     *float64        `pulumi:"maxCpus"`
-	MaxDuration *float64        `pulumi:"maxDuration"`
-	MaxGpus     *float64        `pulumi:"maxGpus"`
-	MaxRuns     *float64        `pulumi:"maxRuns"`
-	Name        *string         `pulumi:"name"`
-	Tags        *RunGroupTagMap `pulumi:"tags"`
+	MaxCpus     *float64          `pulumi:"maxCpus"`
+	MaxDuration *float64          `pulumi:"maxDuration"`
+	MaxGpus     *float64          `pulumi:"maxGpus"`
+	MaxRuns     *float64          `pulumi:"maxRuns"`
+	Name        *string           `pulumi:"name"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RunGroup resource.
@@ -80,7 +80,7 @@ type RunGroupArgs struct {
 	MaxGpus     pulumi.Float64PtrInput
 	MaxRuns     pulumi.Float64PtrInput
 	Name        pulumi.StringPtrInput
-	Tags        RunGroupTagMapPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (RunGroupArgs) ElementType() reflect.Type {
@@ -148,8 +148,8 @@ func (o RunGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o RunGroupOutput) Tags() RunGroupTagMapPtrOutput {
-	return o.ApplyT(func(v *RunGroup) RunGroupTagMapPtrOutput { return v.Tags }).(RunGroupTagMapPtrOutput)
+func (o RunGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RunGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

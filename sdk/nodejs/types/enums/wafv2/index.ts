@@ -171,6 +171,17 @@ export const RuleGroupRateBasedStatementAggregateKeyType = {
 
 export type RuleGroupRateBasedStatementAggregateKeyType = (typeof RuleGroupRateBasedStatementAggregateKeyType)[keyof typeof RuleGroupRateBasedStatementAggregateKeyType];
 
+export const RuleGroupResponseContentType = {
+    TextPlain: "TEXT_PLAIN",
+    TextHtml: "TEXT_HTML",
+    ApplicationJson: "APPLICATION_JSON",
+} as const;
+
+/**
+ * Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
+ */
+export type RuleGroupResponseContentType = (typeof RuleGroupResponseContentType)[keyof typeof RuleGroupResponseContentType];
+
 export const RuleGroupScope = {
     Cloudfront: "CLOUDFRONT",
     Regional: "REGIONAL",
@@ -354,6 +365,17 @@ export const WebAclRequestInspectionPayloadType = {
 
 export type WebAclRequestInspectionPayloadType = (typeof WebAclRequestInspectionPayloadType)[keyof typeof WebAclRequestInspectionPayloadType];
 
+export const WebAclResponseContentType = {
+    TextPlain: "TEXT_PLAIN",
+    TextHtml: "TEXT_HTML",
+    ApplicationJson: "APPLICATION_JSON",
+} as const;
+
+/**
+ * Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
+ */
+export type WebAclResponseContentType = (typeof WebAclResponseContentType)[keyof typeof WebAclResponseContentType];
+
 export const WebAclScope = {
     Cloudfront: "CLOUDFRONT",
     Regional: "REGIONAL",
@@ -384,6 +406,15 @@ export const WebAclSizeConstraintStatementComparisonOperator = {
 } as const;
 
 export type WebAclSizeConstraintStatementComparisonOperator = (typeof WebAclSizeConstraintStatementComparisonOperator)[keyof typeof WebAclSizeConstraintStatementComparisonOperator];
+
+export const WebAclSizeInspectionLimit = {
+    Kb16: "KB_16",
+    Kb32: "KB_32",
+    Kb48: "KB_48",
+    Kb64: "KB_64",
+} as const;
+
+export type WebAclSizeInspectionLimit = (typeof WebAclSizeInspectionLimit)[keyof typeof WebAclSizeInspectionLimit];
 
 export const WebAclTextTransformationType = {
     None: "NONE",

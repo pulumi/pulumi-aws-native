@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     public sealed class GetIdentityProviderResult
     {
         public readonly string? IdentityProviderArn;
-        public readonly Outputs.IdentityProviderDetails? IdentityProviderDetails;
+        public readonly ImmutableDictionary<string, string>? IdentityProviderDetails;
         public readonly string? IdentityProviderName;
         public readonly Pulumi.AwsNative.WorkSpacesWeb.IdentityProviderType? IdentityProviderType;
 
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         private GetIdentityProviderResult(
             string? identityProviderArn,
 
-            Outputs.IdentityProviderDetails? identityProviderDetails,
+            ImmutableDictionary<string, string>? identityProviderDetails,
 
             string? identityProviderName,
 

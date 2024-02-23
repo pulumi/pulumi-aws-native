@@ -31,7 +31,6 @@ __all__ = [
     'RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs',
     'RestoreTestingSelectionKeyValueArgs',
     'RestoreTestingSelectionProtectedResourceConditionsArgs',
-    'RestoreTestingSelectionSensitiveStringMapArgs',
 ]
 
 @pulumi.input_type
@@ -989,11 +988,5 @@ class RestoreTestingSelectionProtectedResourceConditionsArgs:
     @string_not_equals.setter
     def string_not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]]):
         pulumi.set(self, "string_not_equals", value)
-
-
-@pulumi.input_type
-class RestoreTestingSelectionSensitiveStringMapArgs:
-    def __init__(__self__):
-        pass
 
 

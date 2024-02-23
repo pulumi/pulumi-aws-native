@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ComponentArgs', 'Component']
@@ -17,18 +18,18 @@ __all__ = ['ComponentArgs', 'Component']
 class ComponentArgs:
     def __init__(__self__, *,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 binding_properties: Optional[pulumi.Input['ComponentBindingPropertiesArgs']] = None,
+                 binding_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]]] = None,
                  children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
-                 collection_properties: Optional[pulumi.Input['ComponentCollectionPropertiesArgs']] = None,
+                 collection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]]] = None,
                  component_type: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 events: Optional[pulumi.Input['ComponentEventsArgs']] = None,
+                 events: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 overrides: Optional[pulumi.Input['ComponentOverridesArgs']] = None,
-                 properties: Optional[pulumi.Input['ComponentPropertiesArgs']] = None,
+                 overrides: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]] = None,
                  schema_version: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['ComponentTagsArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]] = None):
         """
         The set of arguments for constructing a Component resource.
@@ -73,11 +74,11 @@ class ComponentArgs:
 
     @property
     @pulumi.getter(name="bindingProperties")
-    def binding_properties(self) -> Optional[pulumi.Input['ComponentBindingPropertiesArgs']]:
+    def binding_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]]]:
         return pulumi.get(self, "binding_properties")
 
     @binding_properties.setter
-    def binding_properties(self, value: Optional[pulumi.Input['ComponentBindingPropertiesArgs']]):
+    def binding_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]]]):
         pulumi.set(self, "binding_properties", value)
 
     @property
@@ -91,11 +92,11 @@ class ComponentArgs:
 
     @property
     @pulumi.getter(name="collectionProperties")
-    def collection_properties(self) -> Optional[pulumi.Input['ComponentCollectionPropertiesArgs']]:
+    def collection_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]]]:
         return pulumi.get(self, "collection_properties")
 
     @collection_properties.setter
-    def collection_properties(self, value: Optional[pulumi.Input['ComponentCollectionPropertiesArgs']]):
+    def collection_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]]]):
         pulumi.set(self, "collection_properties", value)
 
     @property
@@ -118,11 +119,11 @@ class ComponentArgs:
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input['ComponentEventsArgs']]:
+    def events(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]]]:
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input['ComponentEventsArgs']]):
+    def events(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]]]):
         pulumi.set(self, "events", value)
 
     @property
@@ -136,20 +137,20 @@ class ComponentArgs:
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input['ComponentOverridesArgs']]:
+    def overrides(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input['ComponentOverridesArgs']]):
+    def overrides(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "overrides", value)
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ComponentPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ComponentPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -172,11 +173,11 @@ class ComponentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['ComponentTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['ComponentTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -195,18 +196,18 @@ class Component(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 binding_properties: Optional[pulumi.Input[pulumi.InputType['ComponentBindingPropertiesArgs']]] = None,
+                 binding_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentBindingPropertiesValueArgs']]]]] = None,
                  children: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentChildArgs']]]]] = None,
-                 collection_properties: Optional[pulumi.Input[pulumi.InputType['ComponentCollectionPropertiesArgs']]] = None,
+                 collection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentDataConfigurationArgs']]]]] = None,
                  component_type: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 events: Optional[pulumi.Input[pulumi.InputType['ComponentEventsArgs']]] = None,
+                 events: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentEventArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 overrides: Optional[pulumi.Input[pulumi.InputType['ComponentOverridesArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ComponentPropertiesArgs']]] = None,
+                 overrides: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentPropertyArgs']]]]] = None,
                  schema_version: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['ComponentTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentVariantArgs']]]]] = None,
                  __props__=None):
         """
@@ -240,18 +241,18 @@ class Component(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 binding_properties: Optional[pulumi.Input[pulumi.InputType['ComponentBindingPropertiesArgs']]] = None,
+                 binding_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentBindingPropertiesValueArgs']]]]] = None,
                  children: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentChildArgs']]]]] = None,
-                 collection_properties: Optional[pulumi.Input[pulumi.InputType['ComponentCollectionPropertiesArgs']]] = None,
+                 collection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentDataConfigurationArgs']]]]] = None,
                  component_type: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 events: Optional[pulumi.Input[pulumi.InputType['ComponentEventsArgs']]] = None,
+                 events: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentEventArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 overrides: Optional[pulumi.Input[pulumi.InputType['ComponentOverridesArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ComponentPropertiesArgs']]] = None,
+                 overrides: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentPropertyArgs']]]]] = None,
                  schema_version: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['ComponentTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentVariantArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -327,7 +328,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bindingProperties")
-    def binding_properties(self) -> pulumi.Output[Optional['outputs.ComponentBindingProperties']]:
+    def binding_properties(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentBindingPropertiesValue']]]:
         return pulumi.get(self, "binding_properties")
 
     @property
@@ -337,7 +338,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="collectionProperties")
-    def collection_properties(self) -> pulumi.Output[Optional['outputs.ComponentCollectionProperties']]:
+    def collection_properties(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentDataConfiguration']]]:
         return pulumi.get(self, "collection_properties")
 
     @property
@@ -357,7 +358,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def events(self) -> pulumi.Output[Optional['outputs.ComponentEvents']]:
+    def events(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentEvent']]]:
         return pulumi.get(self, "events")
 
     @property
@@ -372,12 +373,12 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def overrides(self) -> pulumi.Output[Optional['outputs.ComponentOverrides']]:
+    def overrides(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         return pulumi.get(self, "overrides")
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[Optional['outputs.ComponentProperties']]:
+    def properties(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ComponentProperty']]]:
         return pulumi.get(self, "properties")
 
     @property
@@ -392,7 +393,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.ComponentTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.WaFv2
         public readonly int? Capacity;
         public readonly Outputs.WebAclCaptchaConfig? CaptchaConfig;
         public readonly Outputs.WebAclChallengeConfig? ChallengeConfig;
-        public readonly Outputs.WebAclCustomResponseBodies? CustomResponseBodies;
+        public readonly ImmutableDictionary<string, Outputs.WebAclCustomResponseBody>? CustomResponseBodies;
         public readonly Outputs.WebAclDefaultAction? DefaultAction;
         public readonly string? Description;
         public readonly string? Id;
@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.WaFv2
 
             Outputs.WebAclChallengeConfig? challengeConfig,
 
-            Outputs.WebAclCustomResponseBodies? customResponseBodies,
+            ImmutableDictionary<string, Outputs.WebAclCustomResponseBody>? customResponseBodies,
 
             Outputs.WebAclDefaultAction? defaultAction,
 

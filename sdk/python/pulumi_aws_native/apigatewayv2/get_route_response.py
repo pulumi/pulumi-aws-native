@@ -56,7 +56,7 @@ class GetRouteResponseResult:
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional['outputs.RouteResponseRouteParameters']:
+    def response_parameters(self) -> Optional[Mapping[str, 'outputs.RouteResponseParameterConstraints']]:
         """
         The route response parameters.
         """

@@ -31,8 +31,8 @@ type StreamingImage struct {
 	Platform         pulumi.StringOutput `pulumi:"platform"`
 	StreamingImageId pulumi.StringOutput `pulumi:"streamingImageId"`
 	// <p>The studioId. </p>
-	StudioId pulumi.StringOutput         `pulumi:"studioId"`
-	Tags     StreamingImageTagsPtrOutput `pulumi:"tags"`
+	StudioId pulumi.StringOutput    `pulumi:"studioId"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewStreamingImage registers a new resource with the given unique name, arguments, and options.
@@ -51,7 +51,7 @@ func NewStreamingImage(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"ec2ImageId",
 		"studioId",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -94,8 +94,8 @@ type streamingImageArgs struct {
 	// <p>A friendly name for a streaming image resource.</p>
 	Name *string `pulumi:"name"`
 	// <p>The studioId. </p>
-	StudioId string              `pulumi:"studioId"`
-	Tags     *StreamingImageTags `pulumi:"tags"`
+	StudioId string            `pulumi:"studioId"`
+	Tags     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamingImage resource.
@@ -108,7 +108,7 @@ type StreamingImageArgs struct {
 	Name pulumi.StringPtrInput
 	// <p>The studioId. </p>
 	StudioId pulumi.StringInput
-	Tags     StreamingImageTagsPtrInput
+	Tags     pulumi.StringMapInput
 }
 
 func (StreamingImageArgs) ElementType() reflect.Type {
@@ -191,8 +191,8 @@ func (o StreamingImageOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }
 
-func (o StreamingImageOutput) Tags() StreamingImageTagsPtrOutput {
-	return o.ApplyT(func(v *StreamingImage) StreamingImageTagsPtrOutput { return v.Tags }).(StreamingImageTagsPtrOutput)
+func (o StreamingImageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -41,7 +41,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? TypeName { get; set; }
 
         [Input("typeParameters")]
-        public Input<Inputs.TopicTypeParametersArgs>? TypeParameters { get; set; }
+        private InputMap<string>? _typeParameters;
+        public InputMap<string> TypeParameters
+        {
+            get => _typeParameters ?? (_typeParameters = new InputMap<string>());
+            set => _typeParameters = value;
+        }
 
         public TopicSemanticTypeArgs()
         {

@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.RoboMaker
         /// </summary>
         public readonly string? Environment;
         public readonly Outputs.RobotApplicationRobotSoftwareSuite? RobotSoftwareSuite;
-        public readonly Outputs.RobotApplicationTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetRobotApplicationResult(
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.RoboMaker
 
             Outputs.RobotApplicationRobotSoftwareSuite? robotSoftwareSuite,
 
-            Outputs.RobotApplicationTags? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CurrentRevisionId = currentRevisionId;

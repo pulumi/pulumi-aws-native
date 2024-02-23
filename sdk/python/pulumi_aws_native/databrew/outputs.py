@@ -39,7 +39,6 @@ __all__ = [
     'JobOutput',
     'JobOutputFormatOptions',
     'JobOutputLocation',
-    'JobParameterMap',
     'JobProfileConfiguration',
     'JobRecipe',
     'JobS3Location',
@@ -52,7 +51,6 @@ __all__ = [
     'RecipeAction',
     'RecipeConditionExpression',
     'RecipeDataCatalogInputDefinition',
-    'RecipeParameterMap',
     'RecipeParameters',
     'RecipeParametersInputProperties',
     'RecipeS3Location',
@@ -1320,12 +1318,6 @@ class JobOutputLocation(dict):
 
 
 @pulumi.output_type
-class JobParameterMap(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class JobProfileConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1508,14 +1500,14 @@ class JobSample(dict):
 @pulumi.output_type
 class JobStatisticOverride(dict):
     def __init__(__self__, *,
-                 parameters: 'outputs.JobParameterMap',
+                 parameters: Mapping[str, str],
                  statistic: str):
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "statistic", statistic)
 
     @property
     @pulumi.getter
-    def parameters(self) -> 'outputs.JobParameterMap':
+    def parameters(self) -> Mapping[str, str]:
         return pulumi.get(self, "parameters")
 
     @property
@@ -1801,12 +1793,6 @@ class RecipeDataCatalogInputDefinition(dict):
     @pulumi.getter(name="tempDirectory")
     def temp_directory(self) -> Optional['outputs.RecipeS3Location']:
         return pulumi.get(self, "temp_directory")
-
-
-@pulumi.output_type
-class RecipeParameterMap(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type

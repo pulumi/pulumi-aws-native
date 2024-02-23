@@ -37,7 +37,7 @@ export class IpAccessSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpAccessSettings.__pulumiType;
     }
 
-    public readonly additionalEncryptionContext!: pulumi.Output<outputs.workspacesweb.IpAccessSettingsEncryptionContextMap | undefined>;
+    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
@@ -82,7 +82,7 @@ export class IpAccessSettings extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext", "customerManagedKey"] };
+        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext.*", "customerManagedKey"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IpAccessSettings.__pulumiType, name, resourceInputs, opts);
     }
@@ -92,7 +92,7 @@ export class IpAccessSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a IpAccessSettings resource.
  */
 export interface IpAccessSettingsArgs {
-    additionalEncryptionContext?: pulumi.Input<inputs.workspacesweb.IpAccessSettingsEncryptionContextMapArgs>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     customerManagedKey?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     displayName?: pulumi.Input<string>;

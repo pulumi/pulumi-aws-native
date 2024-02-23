@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.Backup
         public readonly string? IamRoleArn;
         public readonly ImmutableArray<string> ProtectedResourceArns;
         public readonly Outputs.RestoreTestingSelectionProtectedResourceConditions? ProtectedResourceConditions;
-        public readonly Outputs.RestoreTestingSelectionSensitiveStringMap? RestoreMetadataOverrides;
+        public readonly ImmutableDictionary<string, string>? RestoreMetadataOverrides;
         public readonly int? ValidationWindowHours;
 
         [OutputConstructor]
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Backup
 
             Outputs.RestoreTestingSelectionProtectedResourceConditions? protectedResourceConditions,
 
-            Outputs.RestoreTestingSelectionSensitiveStringMap? restoreMetadataOverrides,
+            ImmutableDictionary<string, string>? restoreMetadataOverrides,
 
             int? validationWindowHours)
         {

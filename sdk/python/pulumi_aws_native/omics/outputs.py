@@ -12,30 +12,16 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AnnotationStoreFormatToHeader',
     'AnnotationStoreReferenceItem',
-    'AnnotationStoreSchemaItem',
     'AnnotationStoreSseConfig',
     'AnnotationStoreStoreOptionsProperties',
-    'AnnotationStoreTagMap',
     'AnnotationStoreTsvStoreOptions',
     'ReferenceStoreSseConfig',
-    'ReferenceStoreTagMap',
-    'RunGroupTagMap',
     'SequenceStoreSseConfig',
-    'SequenceStoreTagMap',
     'VariantStoreReferenceItem',
     'VariantStoreSseConfig',
-    'VariantStoreTagMap',
-    'WorkflowParameterTemplate',
-    'WorkflowTagMap',
+    'WorkflowParameter',
 ]
-
-@pulumi.output_type
-class AnnotationStoreFormatToHeader(dict):
-    def __init__(__self__):
-        pass
-
 
 @pulumi.output_type
 class AnnotationStoreReferenceItem(dict):
@@ -64,12 +50,6 @@ class AnnotationStoreReferenceItem(dict):
     @pulumi.getter(name="referenceArn")
     def reference_arn(self) -> str:
         return pulumi.get(self, "reference_arn")
-
-
-@pulumi.output_type
-class AnnotationStoreSchemaItem(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -139,12 +119,6 @@ class AnnotationStoreStoreOptionsProperties(dict):
 
 
 @pulumi.output_type
-class AnnotationStoreTagMap(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class AnnotationStoreTsvStoreOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -167,8 +141,8 @@ class AnnotationStoreTsvStoreOptions(dict):
 
     def __init__(__self__, *,
                  annotation_type: Optional['AnnotationStoreAnnotationType'] = None,
-                 format_to_header: Optional['outputs.AnnotationStoreFormatToHeader'] = None,
-                 schema: Optional[Sequence['outputs.AnnotationStoreSchemaItem']] = None):
+                 format_to_header: Optional[Mapping[str, str]] = None,
+                 schema: Optional[Sequence[Mapping[str, 'AnnotationStoreSchemaValueType']]] = None):
         if annotation_type is not None:
             pulumi.set(__self__, "annotation_type", annotation_type)
         if format_to_header is not None:
@@ -183,12 +157,12 @@ class AnnotationStoreTsvStoreOptions(dict):
 
     @property
     @pulumi.getter(name="formatToHeader")
-    def format_to_header(self) -> Optional['outputs.AnnotationStoreFormatToHeader']:
+    def format_to_header(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "format_to_header")
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional[Sequence['outputs.AnnotationStoreSchemaItem']]:
+    def schema(self) -> Optional[Sequence[Mapping[str, 'AnnotationStoreSchemaValueType']]]:
         return pulumi.get(self, "schema")
 
 
@@ -240,24 +214,6 @@ class ReferenceStoreSseConfig(dict):
 
 
 @pulumi.output_type
-class ReferenceStoreTagMap(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
-class RunGroupTagMap(dict):
-    """
-    A map of resource tags
-    """
-    def __init__(__self__):
-        """
-        A map of resource tags
-        """
-        pass
-
-
-@pulumi.output_type
 class SequenceStoreSseConfig(dict):
     """
     Server-side encryption (SSE) settings for a store.
@@ -302,12 +258,6 @@ class SequenceStoreSseConfig(dict):
         An encryption key ARN.
         """
         return pulumi.get(self, "key_arn")
-
-
-@pulumi.output_type
-class SequenceStoreTagMap(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -377,26 +327,23 @@ class VariantStoreSseConfig(dict):
 
 
 @pulumi.output_type
-class VariantStoreTagMap(dict):
-    def __init__(__self__):
-        pass
+class WorkflowParameter(dict):
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 optional: Optional[bool] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
 
-@pulumi.output_type
-class WorkflowParameterTemplate(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
-class WorkflowTagMap(dict):
-    """
-    A map of resource tags
-    """
-    def __init__(__self__):
-        """
-        A map of resource tags
-        """
-        pass
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[bool]:
+        return pulumi.get(self, "optional")
 
 

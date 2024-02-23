@@ -19,13 +19,10 @@ __all__ = [
     'AutomationRuleRelatedFindingArgs',
     'AutomationRuleSeverityUpdateArgs',
     'AutomationRuleStringFilterArgs',
-    'AutomationRuleTagsArgs',
     'AutomationRuleWorkflowUpdateArgs',
-    'AutomationRulemapArgs',
     'AutomationRulesActionArgs',
     'AutomationRulesFindingFieldsUpdateArgs',
     'AutomationRulesFindingFiltersArgs',
-    'HubTagsArgs',
     'StandardsControlArgs',
 ]
 
@@ -306,15 +303,6 @@ class AutomationRuleStringFilterArgs:
 
 
 @pulumi.input_type
-class AutomationRuleTagsArgs:
-    def __init__(__self__):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pass
-
-
-@pulumi.input_type
 class AutomationRuleWorkflowUpdateArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['AutomationRuleWorkflowUpdateStatus']):
@@ -328,15 +316,6 @@ class AutomationRuleWorkflowUpdateArgs:
     @status.setter
     def status(self, value: pulumi.Input['AutomationRuleWorkflowUpdateStatus']):
         pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class AutomationRulemapArgs:
-    def __init__(__self__):
-        """
-        An object of user-defined name and value string pair added to a finding.
-        """
-        pass
 
 
 @pulumi.input_type
@@ -375,7 +354,7 @@ class AutomationRulesFindingFieldsUpdateArgs:
                  related_findings: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleRelatedFindingArgs']]]] = None,
                  severity: Optional[pulumi.Input['AutomationRuleSeverityUpdateArgs']] = None,
                  types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 user_defined_fields: Optional[pulumi.Input['AutomationRulemapArgs']] = None,
+                 user_defined_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  verification_state: Optional[pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState']] = None,
                  workflow: Optional[pulumi.Input['AutomationRuleWorkflowUpdateArgs']] = None):
         """
@@ -469,11 +448,11 @@ class AutomationRulesFindingFieldsUpdateArgs:
 
     @property
     @pulumi.getter(name="userDefinedFields")
-    def user_defined_fields(self) -> Optional[pulumi.Input['AutomationRulemapArgs']]:
+    def user_defined_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "user_defined_fields")
 
     @user_defined_fields.setter
-    def user_defined_fields(self, value: Optional[pulumi.Input['AutomationRulemapArgs']]):
+    def user_defined_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "user_defined_fields", value)
 
     @property
@@ -921,15 +900,6 @@ class AutomationRulesFindingFiltersArgs:
     @workflow_status.setter
     def workflow_status(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]):
         pulumi.set(self, "workflow_status", value)
-
-
-@pulumi.input_type
-class HubTagsArgs:
-    def __init__(__self__):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pass
 
 
 @pulumi.input_type

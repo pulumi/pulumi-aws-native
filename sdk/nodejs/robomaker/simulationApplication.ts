@@ -66,7 +66,7 @@ export class SimulationApplication extends pulumi.CustomResource {
      * The sources of the simulation application.
      */
     public readonly sources!: pulumi.Output<outputs.robomaker.SimulationApplicationSourceConfig[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.robomaker.SimulationApplicationTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SimulationApplication resource with the given unique name, arguments, and options.
@@ -144,5 +144,5 @@ export interface SimulationApplicationArgs {
      * The sources of the simulation application.
      */
     sources?: pulumi.Input<pulumi.Input<inputs.robomaker.SimulationApplicationSourceConfigArgs>[]>;
-    tags?: pulumi.Input<inputs.robomaker.SimulationApplicationTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -16,12 +16,12 @@ import (
 type Template struct {
 	pulumi.CustomResourceState
 
-	ConnectorArn                  pulumi.StringOutput   `pulumi:"connectorArn"`
-	Definition                    pulumi.AnyOutput      `pulumi:"definition"`
-	Name                          pulumi.StringOutput   `pulumi:"name"`
-	ReenrollAllCertificateHolders pulumi.BoolPtrOutput  `pulumi:"reenrollAllCertificateHolders"`
-	Tags                          TemplateTagsPtrOutput `pulumi:"tags"`
-	TemplateArn                   pulumi.StringOutput   `pulumi:"templateArn"`
+	ConnectorArn                  pulumi.StringOutput    `pulumi:"connectorArn"`
+	Definition                    pulumi.AnyOutput       `pulumi:"definition"`
+	Name                          pulumi.StringOutput    `pulumi:"name"`
+	ReenrollAllCertificateHolders pulumi.BoolPtrOutput   `pulumi:"reenrollAllCertificateHolders"`
+	Tags                          pulumi.StringMapOutput `pulumi:"tags"`
+	TemplateArn                   pulumi.StringOutput    `pulumi:"templateArn"`
 }
 
 // NewTemplate registers a new resource with the given unique name, arguments, and options.
@@ -75,11 +75,11 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
-	ConnectorArn                  string        `pulumi:"connectorArn"`
-	Definition                    interface{}   `pulumi:"definition"`
-	Name                          *string       `pulumi:"name"`
-	ReenrollAllCertificateHolders *bool         `pulumi:"reenrollAllCertificateHolders"`
-	Tags                          *TemplateTags `pulumi:"tags"`
+	ConnectorArn                  string            `pulumi:"connectorArn"`
+	Definition                    interface{}       `pulumi:"definition"`
+	Name                          *string           `pulumi:"name"`
+	ReenrollAllCertificateHolders *bool             `pulumi:"reenrollAllCertificateHolders"`
+	Tags                          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Template resource.
@@ -88,7 +88,7 @@ type TemplateArgs struct {
 	Definition                    pulumi.Input
 	Name                          pulumi.StringPtrInput
 	ReenrollAllCertificateHolders pulumi.BoolPtrInput
-	Tags                          TemplateTagsPtrInput
+	Tags                          pulumi.StringMapInput
 }
 
 func (TemplateArgs) ElementType() reflect.Type {
@@ -144,8 +144,8 @@ func (o TemplateOutput) ReenrollAllCertificateHolders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Template) pulumi.BoolPtrOutput { return v.ReenrollAllCertificateHolders }).(pulumi.BoolPtrOutput)
 }
 
-func (o TemplateOutput) Tags() TemplateTagsPtrOutput {
-	return o.ApplyT(func(v *Template) TemplateTagsPtrOutput { return v.Tags }).(TemplateTagsPtrOutput)
+func (o TemplateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o TemplateOutput) TemplateArn() pulumi.StringOutput {

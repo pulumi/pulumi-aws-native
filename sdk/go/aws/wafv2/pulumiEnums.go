@@ -2855,6 +2855,174 @@ func (in *ruleGroupRateBasedStatementAggregateKeyTypePtr) ToRuleGroupRateBasedSt
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
+// Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
+type RuleGroupResponseContentType string
+
+const (
+	RuleGroupResponseContentTypeTextPlain       = RuleGroupResponseContentType("TEXT_PLAIN")
+	RuleGroupResponseContentTypeTextHtml        = RuleGroupResponseContentType("TEXT_HTML")
+	RuleGroupResponseContentTypeApplicationJson = RuleGroupResponseContentType("APPLICATION_JSON")
+)
+
+func (RuleGroupResponseContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupResponseContentType)(nil)).Elem()
+}
+
+func (e RuleGroupResponseContentType) ToRuleGroupResponseContentTypeOutput() RuleGroupResponseContentTypeOutput {
+	return pulumi.ToOutput(e).(RuleGroupResponseContentTypeOutput)
+}
+
+func (e RuleGroupResponseContentType) ToRuleGroupResponseContentTypeOutputWithContext(ctx context.Context) RuleGroupResponseContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupResponseContentTypeOutput)
+}
+
+func (e RuleGroupResponseContentType) ToRuleGroupResponseContentTypePtrOutput() RuleGroupResponseContentTypePtrOutput {
+	return e.ToRuleGroupResponseContentTypePtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupResponseContentType) ToRuleGroupResponseContentTypePtrOutputWithContext(ctx context.Context) RuleGroupResponseContentTypePtrOutput {
+	return RuleGroupResponseContentType(e).ToRuleGroupResponseContentTypeOutputWithContext(ctx).ToRuleGroupResponseContentTypePtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupResponseContentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupResponseContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupResponseContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupResponseContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupResponseContentTypeOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupResponseContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupResponseContentType)(nil)).Elem()
+}
+
+func (o RuleGroupResponseContentTypeOutput) ToRuleGroupResponseContentTypeOutput() RuleGroupResponseContentTypeOutput {
+	return o
+}
+
+func (o RuleGroupResponseContentTypeOutput) ToRuleGroupResponseContentTypeOutputWithContext(ctx context.Context) RuleGroupResponseContentTypeOutput {
+	return o
+}
+
+func (o RuleGroupResponseContentTypeOutput) ToRuleGroupResponseContentTypePtrOutput() RuleGroupResponseContentTypePtrOutput {
+	return o.ToRuleGroupResponseContentTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupResponseContentTypeOutput) ToRuleGroupResponseContentTypePtrOutputWithContext(ctx context.Context) RuleGroupResponseContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupResponseContentType) *RuleGroupResponseContentType {
+		return &v
+	}).(RuleGroupResponseContentTypePtrOutput)
+}
+
+func (o RuleGroupResponseContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupResponseContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupResponseContentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupResponseContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupResponseContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupResponseContentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupResponseContentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupResponseContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupResponseContentType)(nil)).Elem()
+}
+
+func (o RuleGroupResponseContentTypePtrOutput) ToRuleGroupResponseContentTypePtrOutput() RuleGroupResponseContentTypePtrOutput {
+	return o
+}
+
+func (o RuleGroupResponseContentTypePtrOutput) ToRuleGroupResponseContentTypePtrOutputWithContext(ctx context.Context) RuleGroupResponseContentTypePtrOutput {
+	return o
+}
+
+func (o RuleGroupResponseContentTypePtrOutput) Elem() RuleGroupResponseContentTypeOutput {
+	return o.ApplyT(func(v *RuleGroupResponseContentType) RuleGroupResponseContentType {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupResponseContentType
+		return ret
+	}).(RuleGroupResponseContentTypeOutput)
+}
+
+func (o RuleGroupResponseContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupResponseContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupResponseContentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupResponseContentTypeInput is an input type that accepts values of the RuleGroupResponseContentType enum
+// A concrete instance of `RuleGroupResponseContentTypeInput` can be one of the following:
+//
+//	RuleGroupResponseContentTypeTextPlain
+//	RuleGroupResponseContentTypeTextHtml
+//	RuleGroupResponseContentTypeApplicationJson
+type RuleGroupResponseContentTypeInput interface {
+	pulumi.Input
+
+	ToRuleGroupResponseContentTypeOutput() RuleGroupResponseContentTypeOutput
+	ToRuleGroupResponseContentTypeOutputWithContext(context.Context) RuleGroupResponseContentTypeOutput
+}
+
+var ruleGroupResponseContentTypePtrType = reflect.TypeOf((**RuleGroupResponseContentType)(nil)).Elem()
+
+type RuleGroupResponseContentTypePtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupResponseContentTypePtrOutput() RuleGroupResponseContentTypePtrOutput
+	ToRuleGroupResponseContentTypePtrOutputWithContext(context.Context) RuleGroupResponseContentTypePtrOutput
+}
+
+type ruleGroupResponseContentTypePtr string
+
+func RuleGroupResponseContentTypePtr(v string) RuleGroupResponseContentTypePtrInput {
+	return (*ruleGroupResponseContentTypePtr)(&v)
+}
+
+func (*ruleGroupResponseContentTypePtr) ElementType() reflect.Type {
+	return ruleGroupResponseContentTypePtrType
+}
+
+func (in *ruleGroupResponseContentTypePtr) ToRuleGroupResponseContentTypePtrOutput() RuleGroupResponseContentTypePtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupResponseContentTypePtrOutput)
+}
+
+func (in *ruleGroupResponseContentTypePtr) ToRuleGroupResponseContentTypePtrOutputWithContext(ctx context.Context) RuleGroupResponseContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupResponseContentTypePtrOutput)
+}
+
 // Use CLOUDFRONT for CloudFront RuleGroup, use REGIONAL for Application Load Balancer and API Gateway.
 type RuleGroupScope string
 
@@ -5899,6 +6067,174 @@ func (in *webAclRequestInspectionPayloadTypePtr) ToWebAclRequestInspectionPayloa
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclRequestInspectionPayloadTypePtrOutput)
 }
 
+// Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
+type WebAclResponseContentType string
+
+const (
+	WebAclResponseContentTypeTextPlain       = WebAclResponseContentType("TEXT_PLAIN")
+	WebAclResponseContentTypeTextHtml        = WebAclResponseContentType("TEXT_HTML")
+	WebAclResponseContentTypeApplicationJson = WebAclResponseContentType("APPLICATION_JSON")
+)
+
+func (WebAclResponseContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclResponseContentType)(nil)).Elem()
+}
+
+func (e WebAclResponseContentType) ToWebAclResponseContentTypeOutput() WebAclResponseContentTypeOutput {
+	return pulumi.ToOutput(e).(WebAclResponseContentTypeOutput)
+}
+
+func (e WebAclResponseContentType) ToWebAclResponseContentTypeOutputWithContext(ctx context.Context) WebAclResponseContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclResponseContentTypeOutput)
+}
+
+func (e WebAclResponseContentType) ToWebAclResponseContentTypePtrOutput() WebAclResponseContentTypePtrOutput {
+	return e.ToWebAclResponseContentTypePtrOutputWithContext(context.Background())
+}
+
+func (e WebAclResponseContentType) ToWebAclResponseContentTypePtrOutputWithContext(ctx context.Context) WebAclResponseContentTypePtrOutput {
+	return WebAclResponseContentType(e).ToWebAclResponseContentTypeOutputWithContext(ctx).ToWebAclResponseContentTypePtrOutputWithContext(ctx)
+}
+
+func (e WebAclResponseContentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclResponseContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclResponseContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclResponseContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclResponseContentTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAclResponseContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclResponseContentType)(nil)).Elem()
+}
+
+func (o WebAclResponseContentTypeOutput) ToWebAclResponseContentTypeOutput() WebAclResponseContentTypeOutput {
+	return o
+}
+
+func (o WebAclResponseContentTypeOutput) ToWebAclResponseContentTypeOutputWithContext(ctx context.Context) WebAclResponseContentTypeOutput {
+	return o
+}
+
+func (o WebAclResponseContentTypeOutput) ToWebAclResponseContentTypePtrOutput() WebAclResponseContentTypePtrOutput {
+	return o.ToWebAclResponseContentTypePtrOutputWithContext(context.Background())
+}
+
+func (o WebAclResponseContentTypeOutput) ToWebAclResponseContentTypePtrOutputWithContext(ctx context.Context) WebAclResponseContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclResponseContentType) *WebAclResponseContentType {
+		return &v
+	}).(WebAclResponseContentTypePtrOutput)
+}
+
+func (o WebAclResponseContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclResponseContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclResponseContentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclResponseContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclResponseContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclResponseContentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclResponseContentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclResponseContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclResponseContentType)(nil)).Elem()
+}
+
+func (o WebAclResponseContentTypePtrOutput) ToWebAclResponseContentTypePtrOutput() WebAclResponseContentTypePtrOutput {
+	return o
+}
+
+func (o WebAclResponseContentTypePtrOutput) ToWebAclResponseContentTypePtrOutputWithContext(ctx context.Context) WebAclResponseContentTypePtrOutput {
+	return o
+}
+
+func (o WebAclResponseContentTypePtrOutput) Elem() WebAclResponseContentTypeOutput {
+	return o.ApplyT(func(v *WebAclResponseContentType) WebAclResponseContentType {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclResponseContentType
+		return ret
+	}).(WebAclResponseContentTypeOutput)
+}
+
+func (o WebAclResponseContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclResponseContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclResponseContentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclResponseContentTypeInput is an input type that accepts values of the WebAclResponseContentType enum
+// A concrete instance of `WebAclResponseContentTypeInput` can be one of the following:
+//
+//	WebAclResponseContentTypeTextPlain
+//	WebAclResponseContentTypeTextHtml
+//	WebAclResponseContentTypeApplicationJson
+type WebAclResponseContentTypeInput interface {
+	pulumi.Input
+
+	ToWebAclResponseContentTypeOutput() WebAclResponseContentTypeOutput
+	ToWebAclResponseContentTypeOutputWithContext(context.Context) WebAclResponseContentTypeOutput
+}
+
+var webAclResponseContentTypePtrType = reflect.TypeOf((**WebAclResponseContentType)(nil)).Elem()
+
+type WebAclResponseContentTypePtrInput interface {
+	pulumi.Input
+
+	ToWebAclResponseContentTypePtrOutput() WebAclResponseContentTypePtrOutput
+	ToWebAclResponseContentTypePtrOutputWithContext(context.Context) WebAclResponseContentTypePtrOutput
+}
+
+type webAclResponseContentTypePtr string
+
+func WebAclResponseContentTypePtr(v string) WebAclResponseContentTypePtrInput {
+	return (*webAclResponseContentTypePtr)(&v)
+}
+
+func (*webAclResponseContentTypePtr) ElementType() reflect.Type {
+	return webAclResponseContentTypePtrType
+}
+
+func (in *webAclResponseContentTypePtr) ToWebAclResponseContentTypePtrOutput() WebAclResponseContentTypePtrOutput {
+	return pulumi.ToOutput(in).(WebAclResponseContentTypePtrOutput)
+}
+
+func (in *webAclResponseContentTypePtr) ToWebAclResponseContentTypePtrOutputWithContext(ctx context.Context) WebAclResponseContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclResponseContentTypePtrOutput)
+}
+
 // Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
 type WebAclScope string
 
@@ -6404,6 +6740,175 @@ func (in *webAclSizeConstraintStatementComparisonOperatorPtr) ToWebAclSizeConstr
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
+type WebAclSizeInspectionLimit string
+
+const (
+	WebAclSizeInspectionLimitKb16 = WebAclSizeInspectionLimit("KB_16")
+	WebAclSizeInspectionLimitKb32 = WebAclSizeInspectionLimit("KB_32")
+	WebAclSizeInspectionLimitKb48 = WebAclSizeInspectionLimit("KB_48")
+	WebAclSizeInspectionLimitKb64 = WebAclSizeInspectionLimit("KB_64")
+)
+
+func (WebAclSizeInspectionLimit) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclSizeInspectionLimit)(nil)).Elem()
+}
+
+func (e WebAclSizeInspectionLimit) ToWebAclSizeInspectionLimitOutput() WebAclSizeInspectionLimitOutput {
+	return pulumi.ToOutput(e).(WebAclSizeInspectionLimitOutput)
+}
+
+func (e WebAclSizeInspectionLimit) ToWebAclSizeInspectionLimitOutputWithContext(ctx context.Context) WebAclSizeInspectionLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclSizeInspectionLimitOutput)
+}
+
+func (e WebAclSizeInspectionLimit) ToWebAclSizeInspectionLimitPtrOutput() WebAclSizeInspectionLimitPtrOutput {
+	return e.ToWebAclSizeInspectionLimitPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclSizeInspectionLimit) ToWebAclSizeInspectionLimitPtrOutputWithContext(ctx context.Context) WebAclSizeInspectionLimitPtrOutput {
+	return WebAclSizeInspectionLimit(e).ToWebAclSizeInspectionLimitOutputWithContext(ctx).ToWebAclSizeInspectionLimitPtrOutputWithContext(ctx)
+}
+
+func (e WebAclSizeInspectionLimit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclSizeInspectionLimit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclSizeInspectionLimit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclSizeInspectionLimit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclSizeInspectionLimitOutput struct{ *pulumi.OutputState }
+
+func (WebAclSizeInspectionLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclSizeInspectionLimit)(nil)).Elem()
+}
+
+func (o WebAclSizeInspectionLimitOutput) ToWebAclSizeInspectionLimitOutput() WebAclSizeInspectionLimitOutput {
+	return o
+}
+
+func (o WebAclSizeInspectionLimitOutput) ToWebAclSizeInspectionLimitOutputWithContext(ctx context.Context) WebAclSizeInspectionLimitOutput {
+	return o
+}
+
+func (o WebAclSizeInspectionLimitOutput) ToWebAclSizeInspectionLimitPtrOutput() WebAclSizeInspectionLimitPtrOutput {
+	return o.ToWebAclSizeInspectionLimitPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclSizeInspectionLimitOutput) ToWebAclSizeInspectionLimitPtrOutputWithContext(ctx context.Context) WebAclSizeInspectionLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclSizeInspectionLimit) *WebAclSizeInspectionLimit {
+		return &v
+	}).(WebAclSizeInspectionLimitPtrOutput)
+}
+
+func (o WebAclSizeInspectionLimitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclSizeInspectionLimitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclSizeInspectionLimit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclSizeInspectionLimitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclSizeInspectionLimitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclSizeInspectionLimit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclSizeInspectionLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclSizeInspectionLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclSizeInspectionLimit)(nil)).Elem()
+}
+
+func (o WebAclSizeInspectionLimitPtrOutput) ToWebAclSizeInspectionLimitPtrOutput() WebAclSizeInspectionLimitPtrOutput {
+	return o
+}
+
+func (o WebAclSizeInspectionLimitPtrOutput) ToWebAclSizeInspectionLimitPtrOutputWithContext(ctx context.Context) WebAclSizeInspectionLimitPtrOutput {
+	return o
+}
+
+func (o WebAclSizeInspectionLimitPtrOutput) Elem() WebAclSizeInspectionLimitOutput {
+	return o.ApplyT(func(v *WebAclSizeInspectionLimit) WebAclSizeInspectionLimit {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclSizeInspectionLimit
+		return ret
+	}).(WebAclSizeInspectionLimitOutput)
+}
+
+func (o WebAclSizeInspectionLimitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclSizeInspectionLimitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclSizeInspectionLimit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclSizeInspectionLimitInput is an input type that accepts values of the WebAclSizeInspectionLimit enum
+// A concrete instance of `WebAclSizeInspectionLimitInput` can be one of the following:
+//
+//	WebAclSizeInspectionLimitKb16
+//	WebAclSizeInspectionLimitKb32
+//	WebAclSizeInspectionLimitKb48
+//	WebAclSizeInspectionLimitKb64
+type WebAclSizeInspectionLimitInput interface {
+	pulumi.Input
+
+	ToWebAclSizeInspectionLimitOutput() WebAclSizeInspectionLimitOutput
+	ToWebAclSizeInspectionLimitOutputWithContext(context.Context) WebAclSizeInspectionLimitOutput
+}
+
+var webAclSizeInspectionLimitPtrType = reflect.TypeOf((**WebAclSizeInspectionLimit)(nil)).Elem()
+
+type WebAclSizeInspectionLimitPtrInput interface {
+	pulumi.Input
+
+	ToWebAclSizeInspectionLimitPtrOutput() WebAclSizeInspectionLimitPtrOutput
+	ToWebAclSizeInspectionLimitPtrOutputWithContext(context.Context) WebAclSizeInspectionLimitPtrOutput
+}
+
+type webAclSizeInspectionLimitPtr string
+
+func WebAclSizeInspectionLimitPtr(v string) WebAclSizeInspectionLimitPtrInput {
+	return (*webAclSizeInspectionLimitPtr)(&v)
+}
+
+func (*webAclSizeInspectionLimitPtr) ElementType() reflect.Type {
+	return webAclSizeInspectionLimitPtrType
+}
+
+func (in *webAclSizeInspectionLimitPtr) ToWebAclSizeInspectionLimitPtrOutput() WebAclSizeInspectionLimitPtrOutput {
+	return pulumi.ToOutput(in).(WebAclSizeInspectionLimitPtrOutput)
+}
+
+func (in *webAclSizeInspectionLimitPtr) ToWebAclSizeInspectionLimitPtrOutputWithContext(ctx context.Context) WebAclSizeInspectionLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclSizeInspectionLimitPtrOutput)
+}
+
 // Type of text transformation.
 type WebAclTextTransformationType string
 
@@ -6643,6 +7148,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPositionalConstraintPtrInput)(nil)).Elem(), RuleGroupPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("IP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupResponseContentTypeInput)(nil)).Elem(), RuleGroupResponseContentType("TEXT_PLAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupResponseContentTypePtrInput)(nil)).Elem(), RuleGroupResponseContentType("TEXT_PLAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupScopeInput)(nil)).Elem(), RuleGroupScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupScopePtrInput)(nil)).Elem(), RuleGroupScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSensitivityLevelInput)(nil)).Elem(), RuleGroupSensitivityLevel("LOW"))
@@ -6679,12 +7186,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionAcfpPayloadTypePtrInput)(nil)).Elem(), WebAclRequestInspectionAcfpPayloadType("JSON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionPayloadTypeInput)(nil)).Elem(), WebAclRequestInspectionPayloadType("JSON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionPayloadTypePtrInput)(nil)).Elem(), WebAclRequestInspectionPayloadType("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclResponseContentTypeInput)(nil)).Elem(), WebAclResponseContentType("TEXT_PLAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclResponseContentTypePtrInput)(nil)).Elem(), WebAclResponseContentType("TEXT_PLAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclScopeInput)(nil)).Elem(), WebAclScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclScopePtrInput)(nil)).Elem(), WebAclScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSensitivityLevelInput)(nil)).Elem(), WebAclSensitivityLevel("LOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSensitivityLevelPtrInput)(nil)).Elem(), WebAclSensitivityLevel("LOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeConstraintStatementComparisonOperatorInput)(nil)).Elem(), WebAclSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeConstraintStatementComparisonOperatorPtrInput)(nil)).Elem(), WebAclSizeConstraintStatementComparisonOperator("EQ"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeInspectionLimitInput)(nil)).Elem(), WebAclSizeInspectionLimit("KB_16"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeInspectionLimitPtrInput)(nil)).Elem(), WebAclSizeInspectionLimit("KB_16"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationTypeInput)(nil)).Elem(), WebAclTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationTypePtrInput)(nil)).Elem(), WebAclTextTransformationType("NONE"))
 	pulumi.RegisterOutputType(IpSetIpAddressVersionOutput{})
@@ -6721,6 +7232,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupPositionalConstraintPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementAggregateKeyTypeOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupResponseContentTypeOutput{})
+	pulumi.RegisterOutputType(RuleGroupResponseContentTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupScopeOutput{})
 	pulumi.RegisterOutputType(RuleGroupScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupSensitivityLevelOutput{})
@@ -6757,12 +7270,16 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRequestInspectionAcfpPayloadTypePtrOutput{})
 	pulumi.RegisterOutputType(WebAclRequestInspectionPayloadTypeOutput{})
 	pulumi.RegisterOutputType(WebAclRequestInspectionPayloadTypePtrOutput{})
+	pulumi.RegisterOutputType(WebAclResponseContentTypeOutput{})
+	pulumi.RegisterOutputType(WebAclResponseContentTypePtrOutput{})
 	pulumi.RegisterOutputType(WebAclScopeOutput{})
 	pulumi.RegisterOutputType(WebAclScopePtrOutput{})
 	pulumi.RegisterOutputType(WebAclSensitivityLevelOutput{})
 	pulumi.RegisterOutputType(WebAclSensitivityLevelPtrOutput{})
 	pulumi.RegisterOutputType(WebAclSizeConstraintStatementComparisonOperatorOutput{})
 	pulumi.RegisterOutputType(WebAclSizeConstraintStatementComparisonOperatorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclSizeInspectionLimitOutput{})
+	pulumi.RegisterOutputType(WebAclSizeInspectionLimitPtrOutput{})
 	pulumi.RegisterOutputType(WebAclTextTransformationTypeOutput{})
 	pulumi.RegisterOutputType(WebAclTextTransformationTypePtrOutput{})
 }

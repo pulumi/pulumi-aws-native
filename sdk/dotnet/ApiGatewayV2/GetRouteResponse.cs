@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// <summary>
         /// The route response parameters.
         /// </summary>
-        public readonly Outputs.RouteResponseRouteParameters? ResponseParameters;
+        public readonly ImmutableDictionary<string, Outputs.RouteResponseParameterConstraints>? ResponseParameters;
         public readonly string? RouteResponseId;
         /// <summary>
         /// The route response key.
@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             object? responseModels,
 
-            Outputs.RouteResponseRouteParameters? responseParameters,
+            ImmutableDictionary<string, Outputs.RouteResponseParameterConstraints>? responseParameters,
 
             string? routeResponseId,
 

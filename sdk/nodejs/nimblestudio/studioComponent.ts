@@ -66,7 +66,7 @@ export class StudioComponent extends pulumi.CustomResource {
      */
     public readonly studioId!: pulumi.Output<string>;
     public readonly subtype!: pulumi.Output<enums.nimblestudio.StudioComponentSubtype | undefined>;
-    public readonly tags!: pulumi.Output<outputs.nimblestudio.StudioComponentTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly type!: pulumi.Output<enums.nimblestudio.StudioComponentType>;
 
     /**
@@ -115,7 +115,7 @@ export class StudioComponent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["studioId", "subtype", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["studioId", "subtype", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StudioComponent.__pulumiType, name, resourceInputs, opts);
     }
@@ -153,6 +153,6 @@ export interface StudioComponentArgs {
      */
     studioId: pulumi.Input<string>;
     subtype?: pulumi.Input<enums.nimblestudio.StudioComponentSubtype>;
-    tags?: pulumi.Input<inputs.nimblestudio.StudioComponentTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     type: pulumi.Input<enums.nimblestudio.StudioComponentType>;
 }

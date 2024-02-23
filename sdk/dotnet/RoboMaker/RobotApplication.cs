@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.RoboMaker
         public Output<ImmutableArray<Outputs.RobotApplicationSourceConfig>> Sources { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.RobotApplicationTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -131,7 +131,12 @@ namespace Pulumi.AwsNative.RoboMaker
         }
 
         [Input("tags")]
-        public Input<Inputs.RobotApplicationTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public RobotApplicationArgs()
         {

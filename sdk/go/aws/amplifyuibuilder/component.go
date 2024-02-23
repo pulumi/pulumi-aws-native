@@ -15,22 +15,22 @@ import (
 type Component struct {
 	pulumi.CustomResourceState
 
-	AppId                pulumi.StringPtrOutput                 `pulumi:"appId"`
-	BindingProperties    ComponentBindingPropertiesPtrOutput    `pulumi:"bindingProperties"`
-	Children             ComponentChildArrayOutput              `pulumi:"children"`
-	CollectionProperties ComponentCollectionPropertiesPtrOutput `pulumi:"collectionProperties"`
-	ComponentType        pulumi.StringPtrOutput                 `pulumi:"componentType"`
-	CreatedAt            pulumi.StringOutput                    `pulumi:"createdAt"`
-	EnvironmentName      pulumi.StringPtrOutput                 `pulumi:"environmentName"`
-	Events               ComponentEventsPtrOutput               `pulumi:"events"`
-	ModifiedAt           pulumi.StringOutput                    `pulumi:"modifiedAt"`
-	Name                 pulumi.StringPtrOutput                 `pulumi:"name"`
-	Overrides            ComponentOverridesPtrOutput            `pulumi:"overrides"`
-	Properties           ComponentPropertiesPtrOutput           `pulumi:"properties"`
-	SchemaVersion        pulumi.StringPtrOutput                 `pulumi:"schemaVersion"`
-	SourceId             pulumi.StringPtrOutput                 `pulumi:"sourceId"`
-	Tags                 ComponentTagsPtrOutput                 `pulumi:"tags"`
-	Variants             ComponentVariantArrayOutput            `pulumi:"variants"`
+	AppId                pulumi.StringPtrOutput                   `pulumi:"appId"`
+	BindingProperties    ComponentBindingPropertiesValueMapOutput `pulumi:"bindingProperties"`
+	Children             ComponentChildArrayOutput                `pulumi:"children"`
+	CollectionProperties ComponentDataConfigurationMapOutput      `pulumi:"collectionProperties"`
+	ComponentType        pulumi.StringPtrOutput                   `pulumi:"componentType"`
+	CreatedAt            pulumi.StringOutput                      `pulumi:"createdAt"`
+	EnvironmentName      pulumi.StringPtrOutput                   `pulumi:"environmentName"`
+	Events               ComponentEventMapOutput                  `pulumi:"events"`
+	ModifiedAt           pulumi.StringOutput                      `pulumi:"modifiedAt"`
+	Name                 pulumi.StringPtrOutput                   `pulumi:"name"`
+	Overrides            pulumi.MapOutput                         `pulumi:"overrides"`
+	Properties           ComponentPropertyMapOutput               `pulumi:"properties"`
+	SchemaVersion        pulumi.StringPtrOutput                   `pulumi:"schemaVersion"`
+	SourceId             pulumi.StringPtrOutput                   `pulumi:"sourceId"`
+	Tags                 pulumi.StringMapOutput                   `pulumi:"tags"`
+	Variants             ComponentVariantArrayOutput              `pulumi:"variants"`
 }
 
 // NewComponent registers a new resource with the given unique name, arguments, and options.
@@ -78,37 +78,37 @@ func (ComponentState) ElementType() reflect.Type {
 }
 
 type componentArgs struct {
-	AppId                *string                        `pulumi:"appId"`
-	BindingProperties    *ComponentBindingProperties    `pulumi:"bindingProperties"`
-	Children             []ComponentChild               `pulumi:"children"`
-	CollectionProperties *ComponentCollectionProperties `pulumi:"collectionProperties"`
-	ComponentType        *string                        `pulumi:"componentType"`
-	EnvironmentName      *string                        `pulumi:"environmentName"`
-	Events               *ComponentEvents               `pulumi:"events"`
-	Name                 *string                        `pulumi:"name"`
-	Overrides            *ComponentOverrides            `pulumi:"overrides"`
-	Properties           *ComponentProperties           `pulumi:"properties"`
-	SchemaVersion        *string                        `pulumi:"schemaVersion"`
-	SourceId             *string                        `pulumi:"sourceId"`
-	Tags                 *ComponentTags                 `pulumi:"tags"`
-	Variants             []ComponentVariant             `pulumi:"variants"`
+	AppId                *string                                    `pulumi:"appId"`
+	BindingProperties    map[string]ComponentBindingPropertiesValue `pulumi:"bindingProperties"`
+	Children             []ComponentChild                           `pulumi:"children"`
+	CollectionProperties map[string]ComponentDataConfiguration      `pulumi:"collectionProperties"`
+	ComponentType        *string                                    `pulumi:"componentType"`
+	EnvironmentName      *string                                    `pulumi:"environmentName"`
+	Events               map[string]ComponentEvent                  `pulumi:"events"`
+	Name                 *string                                    `pulumi:"name"`
+	Overrides            map[string]interface{}                     `pulumi:"overrides"`
+	Properties           map[string]ComponentProperty               `pulumi:"properties"`
+	SchemaVersion        *string                                    `pulumi:"schemaVersion"`
+	SourceId             *string                                    `pulumi:"sourceId"`
+	Tags                 map[string]string                          `pulumi:"tags"`
+	Variants             []ComponentVariant                         `pulumi:"variants"`
 }
 
 // The set of arguments for constructing a Component resource.
 type ComponentArgs struct {
 	AppId                pulumi.StringPtrInput
-	BindingProperties    ComponentBindingPropertiesPtrInput
+	BindingProperties    ComponentBindingPropertiesValueMapInput
 	Children             ComponentChildArrayInput
-	CollectionProperties ComponentCollectionPropertiesPtrInput
+	CollectionProperties ComponentDataConfigurationMapInput
 	ComponentType        pulumi.StringPtrInput
 	EnvironmentName      pulumi.StringPtrInput
-	Events               ComponentEventsPtrInput
+	Events               ComponentEventMapInput
 	Name                 pulumi.StringPtrInput
-	Overrides            ComponentOverridesPtrInput
-	Properties           ComponentPropertiesPtrInput
+	Overrides            pulumi.MapInput
+	Properties           ComponentPropertyMapInput
 	SchemaVersion        pulumi.StringPtrInput
 	SourceId             pulumi.StringPtrInput
-	Tags                 ComponentTagsPtrInput
+	Tags                 pulumi.StringMapInput
 	Variants             ComponentVariantArrayInput
 }
 
@@ -153,16 +153,16 @@ func (o ComponentOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-func (o ComponentOutput) BindingProperties() ComponentBindingPropertiesPtrOutput {
-	return o.ApplyT(func(v *Component) ComponentBindingPropertiesPtrOutput { return v.BindingProperties }).(ComponentBindingPropertiesPtrOutput)
+func (o ComponentOutput) BindingProperties() ComponentBindingPropertiesValueMapOutput {
+	return o.ApplyT(func(v *Component) ComponentBindingPropertiesValueMapOutput { return v.BindingProperties }).(ComponentBindingPropertiesValueMapOutput)
 }
 
 func (o ComponentOutput) Children() ComponentChildArrayOutput {
 	return o.ApplyT(func(v *Component) ComponentChildArrayOutput { return v.Children }).(ComponentChildArrayOutput)
 }
 
-func (o ComponentOutput) CollectionProperties() ComponentCollectionPropertiesPtrOutput {
-	return o.ApplyT(func(v *Component) ComponentCollectionPropertiesPtrOutput { return v.CollectionProperties }).(ComponentCollectionPropertiesPtrOutput)
+func (o ComponentOutput) CollectionProperties() ComponentDataConfigurationMapOutput {
+	return o.ApplyT(func(v *Component) ComponentDataConfigurationMapOutput { return v.CollectionProperties }).(ComponentDataConfigurationMapOutput)
 }
 
 func (o ComponentOutput) ComponentType() pulumi.StringPtrOutput {
@@ -177,8 +177,8 @@ func (o ComponentOutput) EnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
-func (o ComponentOutput) Events() ComponentEventsPtrOutput {
-	return o.ApplyT(func(v *Component) ComponentEventsPtrOutput { return v.Events }).(ComponentEventsPtrOutput)
+func (o ComponentOutput) Events() ComponentEventMapOutput {
+	return o.ApplyT(func(v *Component) ComponentEventMapOutput { return v.Events }).(ComponentEventMapOutput)
 }
 
 func (o ComponentOutput) ModifiedAt() pulumi.StringOutput {
@@ -189,12 +189,12 @@ func (o ComponentOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o ComponentOutput) Overrides() ComponentOverridesPtrOutput {
-	return o.ApplyT(func(v *Component) ComponentOverridesPtrOutput { return v.Overrides }).(ComponentOverridesPtrOutput)
+func (o ComponentOutput) Overrides() pulumi.MapOutput {
+	return o.ApplyT(func(v *Component) pulumi.MapOutput { return v.Overrides }).(pulumi.MapOutput)
 }
 
-func (o ComponentOutput) Properties() ComponentPropertiesPtrOutput {
-	return o.ApplyT(func(v *Component) ComponentPropertiesPtrOutput { return v.Properties }).(ComponentPropertiesPtrOutput)
+func (o ComponentOutput) Properties() ComponentPropertyMapOutput {
+	return o.ApplyT(func(v *Component) ComponentPropertyMapOutput { return v.Properties }).(ComponentPropertyMapOutput)
 }
 
 func (o ComponentOutput) SchemaVersion() pulumi.StringPtrOutput {
@@ -205,8 +205,8 @@ func (o ComponentOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.SourceId }).(pulumi.StringPtrOutput)
 }
 
-func (o ComponentOutput) Tags() ComponentTagsPtrOutput {
-	return o.ApplyT(func(v *Component) ComponentTagsPtrOutput { return v.Tags }).(ComponentTagsPtrOutput)
+func (o ComponentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o ComponentOutput) Variants() ComponentVariantArrayOutput {

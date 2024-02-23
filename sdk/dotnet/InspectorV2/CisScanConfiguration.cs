@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.InspectorV2
         public Output<Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel?> SecurityLevel { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.CisScanConfigurationCisTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("targets")]
         public Output<Outputs.CisScanConfigurationCisTargets?> Targets { get; private set; } = null!;
@@ -97,7 +97,12 @@ namespace Pulumi.AwsNative.InspectorV2
         public Input<Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel>? SecurityLevel { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.CisScanConfigurationCisTagMapArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("targets")]
         public Input<Inputs.CisScanConfigurationCisTargetsArgs>? Targets { get; set; }

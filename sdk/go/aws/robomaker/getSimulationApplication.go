@@ -36,7 +36,7 @@ type LookupSimulationApplicationResult struct {
 	RobotSoftwareSuite *SimulationApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
 	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite *SimulationApplicationSimulationSoftwareSuite `pulumi:"simulationSoftwareSuite"`
-	Tags                    *SimulationApplicationTags                    `pulumi:"tags"`
+	Tags                    map[string]string                             `pulumi:"tags"`
 }
 
 func LookupSimulationApplicationOutput(ctx *pulumi.Context, args LookupSimulationApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupSimulationApplicationResultOutput {
@@ -102,8 +102,8 @@ func (o LookupSimulationApplicationResultOutput) SimulationSoftwareSuite() Simul
 	}).(SimulationApplicationSimulationSoftwareSuitePtrOutput)
 }
 
-func (o LookupSimulationApplicationResultOutput) Tags() SimulationApplicationTagsPtrOutput {
-	return o.ApplyT(func(v LookupSimulationApplicationResult) *SimulationApplicationTags { return v.Tags }).(SimulationApplicationTagsPtrOutput)
+func (o LookupSimulationApplicationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSimulationApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

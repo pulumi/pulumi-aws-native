@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetComponentResult',
@@ -68,7 +69,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="bindingProperties")
-    def binding_properties(self) -> Optional['outputs.ComponentBindingProperties']:
+    def binding_properties(self) -> Optional[Mapping[str, 'outputs.ComponentBindingPropertiesValue']]:
         return pulumi.get(self, "binding_properties")
 
     @property
@@ -78,7 +79,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="collectionProperties")
-    def collection_properties(self) -> Optional['outputs.ComponentCollectionProperties']:
+    def collection_properties(self) -> Optional[Mapping[str, 'outputs.ComponentDataConfiguration']]:
         return pulumi.get(self, "collection_properties")
 
     @property
@@ -93,7 +94,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def events(self) -> Optional['outputs.ComponentEvents']:
+    def events(self) -> Optional[Mapping[str, 'outputs.ComponentEvent']]:
         return pulumi.get(self, "events")
 
     @property
@@ -113,12 +114,12 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional['outputs.ComponentOverrides']:
+    def overrides(self) -> Optional[Mapping[str, Any]]:
         return pulumi.get(self, "overrides")
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional['outputs.ComponentProperties']:
+    def properties(self) -> Optional[Mapping[str, 'outputs.ComponentProperty']]:
         return pulumi.get(self, "properties")
 
     @property
@@ -133,7 +134,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.ComponentTags']:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property

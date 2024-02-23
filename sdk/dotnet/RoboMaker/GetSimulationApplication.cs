@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.RoboMaker
         /// The simulation software suite used by the simulation application.
         /// </summary>
         public readonly Outputs.SimulationApplicationSimulationSoftwareSuite? SimulationSoftwareSuite;
-        public readonly Outputs.SimulationApplicationTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetSimulationApplicationResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.RoboMaker
 
             Outputs.SimulationApplicationSimulationSoftwareSuite? simulationSoftwareSuite,
 
-            Outputs.SimulationApplicationTags? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CurrentRevisionId = currentRevisionId;

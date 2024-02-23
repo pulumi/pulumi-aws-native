@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Output<Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint?> DataLocationConstraint { get; private set; } = null!;
 
         [Output("policy")]
-        public Output<Outputs.ResiliencyPolicyPolicyMap> Policy { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ResiliencyPolicyFailurePolicy>> Policy { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Output<string> PolicyName { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.ResiliencyPolicyTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resiliency Policy Tier.
@@ -103,7 +103,12 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Input<Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint>? DataLocationConstraint { get; set; }
 
         [Input("policy", required: true)]
-        public Input<Inputs.ResiliencyPolicyPolicyMapArgs> Policy { get; set; } = null!;
+        private InputMap<Inputs.ResiliencyPolicyFailurePolicyArgs>? _policy;
+        public InputMap<Inputs.ResiliencyPolicyFailurePolicyArgs> Policy
+        {
+            get => _policy ?? (_policy = new InputMap<Inputs.ResiliencyPolicyFailurePolicyArgs>());
+            set => _policy = value;
+        }
 
         /// <summary>
         /// Description of Resiliency Policy.
@@ -118,7 +123,12 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Input<string> PolicyName { get; set; } = null!;
 
         [Input("tags")]
-        public Input<Inputs.ResiliencyPolicyTagMapArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Resiliency Policy Tier.

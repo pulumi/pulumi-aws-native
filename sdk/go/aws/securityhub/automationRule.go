@@ -27,7 +27,7 @@ type AutomationRule struct {
 	RuleOrder   pulumi.IntPtrOutput                    `pulumi:"ruleOrder"`
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus AutomationRuleRuleStatusPtrOutput `pulumi:"ruleStatus"`
-	Tags       AutomationRuleTagsPtrOutput       `pulumi:"tags"`
+	Tags       pulumi.StringMapOutput            `pulumi:"tags"`
 	UpdatedAt  pulumi.StringOutput               `pulumi:"updatedAt"`
 }
 
@@ -80,7 +80,7 @@ type automationRuleArgs struct {
 	RuleOrder   *int                           `pulumi:"ruleOrder"`
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus *AutomationRuleRuleStatus `pulumi:"ruleStatus"`
-	Tags       *AutomationRuleTags       `pulumi:"tags"`
+	Tags       map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AutomationRule resource.
@@ -94,7 +94,7 @@ type AutomationRuleArgs struct {
 	RuleOrder   pulumi.IntPtrInput
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus AutomationRuleRuleStatusPtrInput
-	Tags       AutomationRuleTagsPtrInput
+	Tags       pulumi.StringMapInput
 }
 
 func (AutomationRuleArgs) ElementType() reflect.Type {
@@ -176,8 +176,8 @@ func (o AutomationRuleOutput) RuleStatus() AutomationRuleRuleStatusPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRuleRuleStatusPtrOutput { return v.RuleStatus }).(AutomationRuleRuleStatusPtrOutput)
 }
 
-func (o AutomationRuleOutput) Tags() AutomationRuleTagsPtrOutput {
-	return o.ApplyT(func(v *AutomationRule) AutomationRuleTagsPtrOutput { return v.Tags }).(AutomationRuleTagsPtrOutput)
+func (o AutomationRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o AutomationRuleOutput) UpdatedAt() pulumi.StringOutput {

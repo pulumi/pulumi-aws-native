@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ResourceExplorer2
         public Output<Pulumi.AwsNative.ResourceExplorer2.IndexState> IndexState { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.IndexTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<Pulumi.AwsNative.ResourceExplorer2.IndexType> Type { get; private set; } = null!;
@@ -73,7 +73,12 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     public sealed class IndexArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
-        public Input<Inputs.IndexTagMapArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.ResourceExplorer2.IndexType> Type { get; set; } = null!;

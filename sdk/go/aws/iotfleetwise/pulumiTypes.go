@@ -2428,124 +2428,6 @@ type VehicleTag struct {
 	Value string `pulumi:"value"`
 }
 
-type VehicleattributesMap struct {
-}
-
-// VehicleattributesMapInput is an input type that accepts VehicleattributesMap and VehicleattributesMapOutput values.
-// You can construct a concrete instance of `VehicleattributesMapInput` via:
-//
-//	VehicleattributesMap{ "key": VehicleattributesArgs{...} }
-type VehicleattributesMapInput interface {
-	pulumi.Input
-
-	ToVehicleattributesMapOutput() VehicleattributesMapOutput
-	ToVehicleattributesMapOutputWithContext(context.Context) VehicleattributesMapOutput
-}
-
-type VehicleattributesMapArgs struct {
-}
-
-func (VehicleattributesMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VehicleattributesMap)(nil)).Elem()
-}
-
-func (i VehicleattributesMapArgs) ToVehicleattributesMapOutput() VehicleattributesMapOutput {
-	return i.ToVehicleattributesMapOutputWithContext(context.Background())
-}
-
-func (i VehicleattributesMapArgs) ToVehicleattributesMapOutputWithContext(ctx context.Context) VehicleattributesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VehicleattributesMapOutput)
-}
-
-func (i VehicleattributesMapArgs) ToVehicleattributesMapPtrOutput() VehicleattributesMapPtrOutput {
-	return i.ToVehicleattributesMapPtrOutputWithContext(context.Background())
-}
-
-func (i VehicleattributesMapArgs) ToVehicleattributesMapPtrOutputWithContext(ctx context.Context) VehicleattributesMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VehicleattributesMapOutput).ToVehicleattributesMapPtrOutputWithContext(ctx)
-}
-
-// VehicleattributesMapPtrInput is an input type that accepts VehicleattributesMapArgs, VehicleattributesMapPtr and VehicleattributesMapPtrOutput values.
-// You can construct a concrete instance of `VehicleattributesMapPtrInput` via:
-//
-//	        VehicleattributesMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type VehicleattributesMapPtrInput interface {
-	pulumi.Input
-
-	ToVehicleattributesMapPtrOutput() VehicleattributesMapPtrOutput
-	ToVehicleattributesMapPtrOutputWithContext(context.Context) VehicleattributesMapPtrOutput
-}
-
-type vehicleattributesMapPtrType VehicleattributesMapArgs
-
-func VehicleattributesMapPtr(v *VehicleattributesMapArgs) VehicleattributesMapPtrInput {
-	return (*vehicleattributesMapPtrType)(v)
-}
-
-func (*vehicleattributesMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VehicleattributesMap)(nil)).Elem()
-}
-
-func (i *vehicleattributesMapPtrType) ToVehicleattributesMapPtrOutput() VehicleattributesMapPtrOutput {
-	return i.ToVehicleattributesMapPtrOutputWithContext(context.Background())
-}
-
-func (i *vehicleattributesMapPtrType) ToVehicleattributesMapPtrOutputWithContext(ctx context.Context) VehicleattributesMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VehicleattributesMapPtrOutput)
-}
-
-type VehicleattributesMapOutput struct{ *pulumi.OutputState }
-
-func (VehicleattributesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VehicleattributesMap)(nil)).Elem()
-}
-
-func (o VehicleattributesMapOutput) ToVehicleattributesMapOutput() VehicleattributesMapOutput {
-	return o
-}
-
-func (o VehicleattributesMapOutput) ToVehicleattributesMapOutputWithContext(ctx context.Context) VehicleattributesMapOutput {
-	return o
-}
-
-func (o VehicleattributesMapOutput) ToVehicleattributesMapPtrOutput() VehicleattributesMapPtrOutput {
-	return o.ToVehicleattributesMapPtrOutputWithContext(context.Background())
-}
-
-func (o VehicleattributesMapOutput) ToVehicleattributesMapPtrOutputWithContext(ctx context.Context) VehicleattributesMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VehicleattributesMap) *VehicleattributesMap {
-		return &v
-	}).(VehicleattributesMapPtrOutput)
-}
-
-type VehicleattributesMapPtrOutput struct{ *pulumi.OutputState }
-
-func (VehicleattributesMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VehicleattributesMap)(nil)).Elem()
-}
-
-func (o VehicleattributesMapPtrOutput) ToVehicleattributesMapPtrOutput() VehicleattributesMapPtrOutput {
-	return o
-}
-
-func (o VehicleattributesMapPtrOutput) ToVehicleattributesMapPtrOutputWithContext(ctx context.Context) VehicleattributesMapPtrOutput {
-	return o
-}
-
-func (o VehicleattributesMapPtrOutput) Elem() VehicleattributesMapOutput {
-	return o.ApplyT(func(v *VehicleattributesMap) VehicleattributesMap {
-		if v != nil {
-			return *v
-		}
-		var ret VehicleattributesMap
-		return ret
-	}).(VehicleattributesMapOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCollectionScheme0PropertiesInput)(nil)).Elem(), CampaignCollectionScheme0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCollectionScheme1PropertiesInput)(nil)).Elem(), CampaignCollectionScheme1PropertiesArgs{})
@@ -2579,8 +2461,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogNodeCountsPtrInput)(nil)).Elem(), SignalCatalogNodeCountsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogSensorInput)(nil)).Elem(), SignalCatalogSensorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogSensorPtrInput)(nil)).Elem(), SignalCatalogSensorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VehicleattributesMapInput)(nil)).Elem(), VehicleattributesMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VehicleattributesMapPtrInput)(nil)).Elem(), VehicleattributesMapArgs{})
 	pulumi.RegisterOutputType(CampaignCollectionScheme0PropertiesOutput{})
 	pulumi.RegisterOutputType(CampaignCollectionScheme1PropertiesOutput{})
 	pulumi.RegisterOutputType(CampaignConditionBasedCollectionSchemeOutput{})
@@ -2613,6 +2493,4 @@ func init() {
 	pulumi.RegisterOutputType(SignalCatalogNodeCountsPtrOutput{})
 	pulumi.RegisterOutputType(SignalCatalogSensorOutput{})
 	pulumi.RegisterOutputType(SignalCatalogSensorPtrOutput{})
-	pulumi.RegisterOutputType(VehicleattributesMapOutput{})
-	pulumi.RegisterOutputType(VehicleattributesMapPtrOutput{})
 }

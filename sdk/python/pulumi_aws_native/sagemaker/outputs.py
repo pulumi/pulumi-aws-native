@@ -96,7 +96,6 @@ __all__ = [
     'InferenceComponentComputeResourceRequirements',
     'InferenceComponentContainerSpecification',
     'InferenceComponentDeployedImage',
-    'InferenceComponentEnvironmentMap',
     'InferenceComponentRuntimeConfig',
     'InferenceComponentSpecification',
     'InferenceComponentStartupParameters',
@@ -4608,7 +4607,7 @@ class InferenceComponentContainerSpecification(dict):
     def __init__(__self__, *,
                  artifact_url: Optional[str] = None,
                  deployed_image: Optional['outputs.InferenceComponentDeployedImage'] = None,
-                 environment: Optional['outputs.InferenceComponentEnvironmentMap'] = None,
+                 environment: Optional[Mapping[str, str]] = None,
                  image: Optional[str] = None):
         if artifact_url is not None:
             pulumi.set(__self__, "artifact_url", artifact_url)
@@ -4631,7 +4630,7 @@ class InferenceComponentContainerSpecification(dict):
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional['outputs.InferenceComponentEnvironmentMap']:
+    def environment(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "environment")
 
     @property
@@ -4688,18 +4687,6 @@ class InferenceComponentDeployedImage(dict):
     @pulumi.getter(name="specifiedImage")
     def specified_image(self) -> Optional[str]:
         return pulumi.get(self, "specified_image")
-
-
-@pulumi.output_type
-class InferenceComponentEnvironmentMap(dict):
-    """
-    Environment variables to specify on the container
-    """
-    def __init__(__self__):
-        """
-        Environment variables to specify on the container
-        """
-        pass
 
 
 @pulumi.output_type

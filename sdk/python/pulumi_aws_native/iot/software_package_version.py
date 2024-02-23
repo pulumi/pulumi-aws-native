@@ -8,11 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['SoftwarePackageVersionArgs', 'SoftwarePackageVersion']
 
@@ -20,7 +18,7 @@ __all__ = ['SoftwarePackageVersionArgs', 'SoftwarePackageVersion']
 class SoftwarePackageVersionArgs:
     def __init__(__self__, *,
                  package_name: pulumi.Input[str],
-                 attributes: Optional[pulumi.Input['SoftwarePackageVersionResourceAttributesArgs']] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None):
@@ -49,11 +47,11 @@ class SoftwarePackageVersionArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input['SoftwarePackageVersionResourceAttributesArgs']]:
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input['SoftwarePackageVersionResourceAttributesArgs']]):
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
     @property
@@ -92,7 +90,7 @@ class SoftwarePackageVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[pulumi.InputType['SoftwarePackageVersionResourceAttributesArgs']]] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -129,7 +127,7 @@ class SoftwarePackageVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[pulumi.InputType['SoftwarePackageVersionResourceAttributesArgs']]] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -189,7 +187,7 @@ class SoftwarePackageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Output[Optional['outputs.SoftwarePackageVersionResourceAttributes']]:
+    def attributes(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "attributes")
 
     @property

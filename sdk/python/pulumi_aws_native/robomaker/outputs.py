@@ -11,29 +11,13 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'FleetTags',
     'RobotApplicationRobotSoftwareSuite',
     'RobotApplicationSourceConfig',
-    'RobotApplicationTags',
-    'RobotTags',
     'SimulationApplicationRenderingEngine',
     'SimulationApplicationRobotSoftwareSuite',
     'SimulationApplicationSimulationSoftwareSuite',
     'SimulationApplicationSourceConfig',
-    'SimulationApplicationTags',
 ]
-
-@pulumi.output_type
-class FleetTags(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pass
-
 
 @pulumi.output_type
 class RobotApplicationRobotSoftwareSuite(dict):
@@ -126,30 +110,6 @@ class RobotApplicationSourceConfig(dict):
         The s3 key of robot application source.
         """
         return pulumi.get(self, "s3_key")
-
-
-@pulumi.output_type
-class RobotApplicationTags(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pass
-
-
-@pulumi.output_type
-class RobotTags(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pass
 
 
 @pulumi.output_type
@@ -314,17 +274,5 @@ class SimulationApplicationSourceConfig(dict):
         The s3 object key.
         """
         return pulumi.get(self, "s3_key")
-
-
-@pulumi.output_type
-class SimulationApplicationTags(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pass
 
 

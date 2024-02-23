@@ -534,6 +534,38 @@ namespace Pulumi.AwsNative.WaFv2
     }
 
     /// <summary>
+    /// Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupResponseContentType : IEquatable<RuleGroupResponseContentType>
+    {
+        private readonly string _value;
+
+        private RuleGroupResponseContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupResponseContentType TextPlain { get; } = new RuleGroupResponseContentType("TEXT_PLAIN");
+        public static RuleGroupResponseContentType TextHtml { get; } = new RuleGroupResponseContentType("TEXT_HTML");
+        public static RuleGroupResponseContentType ApplicationJson { get; } = new RuleGroupResponseContentType("APPLICATION_JSON");
+
+        public static bool operator ==(RuleGroupResponseContentType left, RuleGroupResponseContentType right) => left.Equals(right);
+        public static bool operator !=(RuleGroupResponseContentType left, RuleGroupResponseContentType right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupResponseContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupResponseContentType other && Equals(other);
+        public bool Equals(RuleGroupResponseContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Use CLOUDFRONT for CloudFront RuleGroup, use REGIONAL for Application Load Balancer and API Gateway.
     /// </summary>
     [EnumType]
@@ -1095,6 +1127,38 @@ namespace Pulumi.AwsNative.WaFv2
     }
 
     /// <summary>
+    /// Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclResponseContentType : IEquatable<WebAclResponseContentType>
+    {
+        private readonly string _value;
+
+        private WebAclResponseContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclResponseContentType TextPlain { get; } = new WebAclResponseContentType("TEXT_PLAIN");
+        public static WebAclResponseContentType TextHtml { get; } = new WebAclResponseContentType("TEXT_HTML");
+        public static WebAclResponseContentType ApplicationJson { get; } = new WebAclResponseContentType("APPLICATION_JSON");
+
+        public static bool operator ==(WebAclResponseContentType left, WebAclResponseContentType right) => left.Equals(right);
+        public static bool operator !=(WebAclResponseContentType left, WebAclResponseContentType right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclResponseContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclResponseContentType other && Equals(other);
+        public bool Equals(WebAclResponseContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
     /// </summary>
     [EnumType]
@@ -1181,6 +1245,36 @@ namespace Pulumi.AwsNative.WaFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebAclSizeConstraintStatementComparisonOperator other && Equals(other);
         public bool Equals(WebAclSizeConstraintStatementComparisonOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WebAclSizeInspectionLimit : IEquatable<WebAclSizeInspectionLimit>
+    {
+        private readonly string _value;
+
+        private WebAclSizeInspectionLimit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclSizeInspectionLimit Kb16 { get; } = new WebAclSizeInspectionLimit("KB_16");
+        public static WebAclSizeInspectionLimit Kb32 { get; } = new WebAclSizeInspectionLimit("KB_32");
+        public static WebAclSizeInspectionLimit Kb48 { get; } = new WebAclSizeInspectionLimit("KB_48");
+        public static WebAclSizeInspectionLimit Kb64 { get; } = new WebAclSizeInspectionLimit("KB_64");
+
+        public static bool operator ==(WebAclSizeInspectionLimit left, WebAclSizeInspectionLimit right) => left.Equals(right);
+        public static bool operator !=(WebAclSizeInspectionLimit left, WebAclSizeInspectionLimit right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclSizeInspectionLimit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclSizeInspectionLimit other && Equals(other);
+        public bool Equals(WebAclSizeInspectionLimit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

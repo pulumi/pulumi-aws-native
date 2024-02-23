@@ -49,7 +49,6 @@ __all__ = [
     'SecurityProfileMetricToRetain',
     'SecurityProfileMetricValue',
     'SecurityProfileStatisticalThreshold',
-    'SoftwarePackageVersionResourceAttributes',
     'ThingAttributePayload',
     'ThingGroupAttributePayload',
     'ThingGroupPropertiesProperties',
@@ -1985,12 +1984,6 @@ class SecurityProfileStatisticalThreshold(dict):
         The percentile which resolves to a threshold value by which compliance with a behavior is determined
         """
         return pulumi.get(self, "statistic")
-
-
-@pulumi.output_type
-class SoftwarePackageVersionResourceAttributes(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type

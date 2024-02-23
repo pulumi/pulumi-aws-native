@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
         /// <summary>
         /// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScheduleTagMap> Tags;
+        public readonly ImmutableArray<ImmutableDictionary<string, string>> Tags;
         /// <summary>
         /// The number of tasks to create based on TaskDefinition. The default is 1.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
 
             string? referenceId,
 
-            ImmutableArray<Outputs.ScheduleTagMap> tags,
+            ImmutableArray<ImmutableDictionary<string, string>> tags,
 
             double? taskCount,
 

@@ -32,7 +32,7 @@ class ApplicationArgs:
                  network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
                  runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 worker_type_specifications: Optional[pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs']] = None):
+                 worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationWorkerTypeSpecificationInputArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] release_label: EMR release label.
@@ -44,7 +44,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] name: User friendly Application name.
         :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: Network Configuration for customer VPC connectivity.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tag map with key and value
-        :param pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs'] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ApplicationWorkerTypeSpecificationInputArgs']]] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         """
         pulumi.set(__self__, "release_label", release_label)
         pulumi.set(__self__, "type", type)
@@ -219,14 +219,14 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter(name="workerTypeSpecifications")
-    def worker_type_specifications(self) -> Optional[pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs']]:
+    def worker_type_specifications(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationWorkerTypeSpecificationInputArgs']]]]:
         """
         The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         """
         return pulumi.get(self, "worker_type_specifications")
 
     @worker_type_specifications.setter
-    def worker_type_specifications(self, value: Optional[pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs']]):
+    def worker_type_specifications(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationWorkerTypeSpecificationInputArgs']]]]):
         pulumi.set(self, "worker_type_specifications", value)
 
 
@@ -248,7 +248,7 @@ class Application(pulumi.CustomResource):
                  runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConfigurationObjectArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 worker_type_specifications: Optional[pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputMapArgs']]] = None,
+                 worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EMRServerless::Application Type
@@ -264,7 +264,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] release_label: EMR release label.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tag map with key and value
         :param pulumi.Input[str] type: The type of the application
-        :param pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputMapArgs']] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputArgs']]]] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         """
         ...
     @overload
@@ -303,7 +303,7 @@ class Application(pulumi.CustomResource):
                  runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConfigurationObjectArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 worker_type_specifications: Optional[pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputMapArgs']]] = None,
+                 worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -485,7 +485,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workerTypeSpecifications")
-    def worker_type_specifications(self) -> pulumi.Output[Optional['outputs.ApplicationWorkerTypeSpecificationInputMap']]:
+    def worker_type_specifications(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ApplicationWorkerTypeSpecificationInput']]]:
         """
         The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         """

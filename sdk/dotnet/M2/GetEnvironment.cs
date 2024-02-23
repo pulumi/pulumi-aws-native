@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.M2
         /// <summary>
         /// Tags associated to this environment.
         /// </summary>
-        public readonly Outputs.EnvironmentTagMap? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetEnvironmentResult(
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.M2
 
             string? preferredMaintenanceWindow,
 
-            Outputs.EnvironmentTagMap? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             EngineVersion = engineVersion;
             EnvironmentArn = environmentArn;

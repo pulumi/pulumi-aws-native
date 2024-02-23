@@ -13,8 +13,49 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// The actions for the experiment.
-type ExperimentTemplateActionMap struct {
+// Specifies an action for the experiment template.
+type ExperimentTemplateAction struct {
+	ActionId    string  `pulumi:"actionId"`
+	Description *string `pulumi:"description"`
+	// The parameters for the action, if applicable.
+	Parameters map[string]string `pulumi:"parameters"`
+	StartAfter []string          `pulumi:"startAfter"`
+	// One or more targets for the action.
+	Targets map[string]string `pulumi:"targets"`
+}
+
+// ExperimentTemplateActionInput is an input type that accepts ExperimentTemplateActionArgs and ExperimentTemplateActionOutput values.
+// You can construct a concrete instance of `ExperimentTemplateActionInput` via:
+//
+//	ExperimentTemplateActionArgs{...}
+type ExperimentTemplateActionInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateActionOutput() ExperimentTemplateActionOutput
+	ToExperimentTemplateActionOutputWithContext(context.Context) ExperimentTemplateActionOutput
+}
+
+// Specifies an action for the experiment template.
+type ExperimentTemplateActionArgs struct {
+	ActionId    pulumi.StringInput    `pulumi:"actionId"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The parameters for the action, if applicable.
+	Parameters pulumi.StringMapInput   `pulumi:"parameters"`
+	StartAfter pulumi.StringArrayInput `pulumi:"startAfter"`
+	// One or more targets for the action.
+	Targets pulumi.StringMapInput `pulumi:"targets"`
+}
+
+func (ExperimentTemplateActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateAction)(nil)).Elem()
+}
+
+func (i ExperimentTemplateActionArgs) ToExperimentTemplateActionOutput() ExperimentTemplateActionOutput {
+	return i.ToExperimentTemplateActionOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateActionArgs) ToExperimentTemplateActionOutputWithContext(ctx context.Context) ExperimentTemplateActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionOutput)
 }
 
 // ExperimentTemplateActionMapInput is an input type that accepts ExperimentTemplateActionMap and ExperimentTemplateActionMapOutput values.
@@ -28,68 +69,61 @@ type ExperimentTemplateActionMapInput interface {
 	ToExperimentTemplateActionMapOutputWithContext(context.Context) ExperimentTemplateActionMapOutput
 }
 
-// The actions for the experiment.
-type ExperimentTemplateActionMapArgs struct {
+type ExperimentTemplateActionMap map[string]ExperimentTemplateActionInput
+
+func (ExperimentTemplateActionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExperimentTemplateAction)(nil)).Elem()
 }
 
-func (ExperimentTemplateActionMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTemplateActionMap)(nil)).Elem()
-}
-
-func (i ExperimentTemplateActionMapArgs) ToExperimentTemplateActionMapOutput() ExperimentTemplateActionMapOutput {
+func (i ExperimentTemplateActionMap) ToExperimentTemplateActionMapOutput() ExperimentTemplateActionMapOutput {
 	return i.ToExperimentTemplateActionMapOutputWithContext(context.Background())
 }
 
-func (i ExperimentTemplateActionMapArgs) ToExperimentTemplateActionMapOutputWithContext(ctx context.Context) ExperimentTemplateActionMapOutput {
+func (i ExperimentTemplateActionMap) ToExperimentTemplateActionMapOutputWithContext(ctx context.Context) ExperimentTemplateActionMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionMapOutput)
 }
 
-func (i ExperimentTemplateActionMapArgs) ToExperimentTemplateActionMapPtrOutput() ExperimentTemplateActionMapPtrOutput {
-	return i.ToExperimentTemplateActionMapPtrOutputWithContext(context.Background())
+// Specifies an action for the experiment template.
+type ExperimentTemplateActionOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateAction)(nil)).Elem()
 }
 
-func (i ExperimentTemplateActionMapArgs) ToExperimentTemplateActionMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateActionMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionMapOutput).ToExperimentTemplateActionMapPtrOutputWithContext(ctx)
+func (o ExperimentTemplateActionOutput) ToExperimentTemplateActionOutput() ExperimentTemplateActionOutput {
+	return o
 }
 
-// ExperimentTemplateActionMapPtrInput is an input type that accepts ExperimentTemplateActionMapArgs, ExperimentTemplateActionMapPtr and ExperimentTemplateActionMapPtrOutput values.
-// You can construct a concrete instance of `ExperimentTemplateActionMapPtrInput` via:
-//
-//	        ExperimentTemplateActionMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type ExperimentTemplateActionMapPtrInput interface {
-	pulumi.Input
-
-	ToExperimentTemplateActionMapPtrOutput() ExperimentTemplateActionMapPtrOutput
-	ToExperimentTemplateActionMapPtrOutputWithContext(context.Context) ExperimentTemplateActionMapPtrOutput
+func (o ExperimentTemplateActionOutput) ToExperimentTemplateActionOutputWithContext(ctx context.Context) ExperimentTemplateActionOutput {
+	return o
 }
 
-type experimentTemplateActionMapPtrType ExperimentTemplateActionMapArgs
-
-func ExperimentTemplateActionMapPtr(v *ExperimentTemplateActionMapArgs) ExperimentTemplateActionMapPtrInput {
-	return (*experimentTemplateActionMapPtrType)(v)
+func (o ExperimentTemplateActionOutput) ActionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperimentTemplateAction) string { return v.ActionId }).(pulumi.StringOutput)
 }
 
-func (*experimentTemplateActionMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExperimentTemplateActionMap)(nil)).Elem()
+func (o ExperimentTemplateActionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateAction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (i *experimentTemplateActionMapPtrType) ToExperimentTemplateActionMapPtrOutput() ExperimentTemplateActionMapPtrOutput {
-	return i.ToExperimentTemplateActionMapPtrOutputWithContext(context.Background())
+// The parameters for the action, if applicable.
+func (o ExperimentTemplateActionOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ExperimentTemplateAction) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-func (i *experimentTemplateActionMapPtrType) ToExperimentTemplateActionMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateActionMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionMapPtrOutput)
+func (o ExperimentTemplateActionOutput) StartAfter() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExperimentTemplateAction) []string { return v.StartAfter }).(pulumi.StringArrayOutput)
 }
 
-// The actions for the experiment.
+// One or more targets for the action.
+func (o ExperimentTemplateActionOutput) Targets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ExperimentTemplateAction) map[string]string { return v.Targets }).(pulumi.StringMapOutput)
+}
+
 type ExperimentTemplateActionMapOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateActionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTemplateActionMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]ExperimentTemplateAction)(nil)).Elem()
 }
 
 func (o ExperimentTemplateActionMapOutput) ToExperimentTemplateActionMapOutput() ExperimentTemplateActionMapOutput {
@@ -100,38 +134,10 @@ func (o ExperimentTemplateActionMapOutput) ToExperimentTemplateActionMapOutputWi
 	return o
 }
 
-func (o ExperimentTemplateActionMapOutput) ToExperimentTemplateActionMapPtrOutput() ExperimentTemplateActionMapPtrOutput {
-	return o.ToExperimentTemplateActionMapPtrOutputWithContext(context.Background())
-}
-
-func (o ExperimentTemplateActionMapOutput) ToExperimentTemplateActionMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateActionMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateActionMap) *ExperimentTemplateActionMap {
-		return &v
-	}).(ExperimentTemplateActionMapPtrOutput)
-}
-
-type ExperimentTemplateActionMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ExperimentTemplateActionMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExperimentTemplateActionMap)(nil)).Elem()
-}
-
-func (o ExperimentTemplateActionMapPtrOutput) ToExperimentTemplateActionMapPtrOutput() ExperimentTemplateActionMapPtrOutput {
-	return o
-}
-
-func (o ExperimentTemplateActionMapPtrOutput) ToExperimentTemplateActionMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateActionMapPtrOutput {
-	return o
-}
-
-func (o ExperimentTemplateActionMapPtrOutput) Elem() ExperimentTemplateActionMapOutput {
-	return o.ApplyT(func(v *ExperimentTemplateActionMap) ExperimentTemplateActionMap {
-		if v != nil {
-			return *v
-		}
-		var ret ExperimentTemplateActionMap
-		return ret
-	}).(ExperimentTemplateActionMapOutput)
+func (o ExperimentTemplateActionMapOutput) MapIndex(k pulumi.StringInput) ExperimentTemplateActionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExperimentTemplateAction {
+		return vs[0].(map[string]ExperimentTemplateAction)[vs[1].(string)]
+	}).(ExperimentTemplateActionOutput)
 }
 
 type ExperimentTemplateExperimentOptions struct {
@@ -844,8 +850,47 @@ func (o ExperimentTemplateStopConditionArrayOutput) Index(i pulumi.IntInput) Exp
 	}).(ExperimentTemplateStopConditionOutput)
 }
 
-// The targets for the experiment.
-type ExperimentTemplateTargetMap struct {
+// Specifies a target for an experiment.
+type ExperimentTemplateTarget struct {
+	Filters       []ExperimentTemplateTargetFilter `pulumi:"filters"`
+	Parameters    map[string]string                `pulumi:"parameters"`
+	ResourceArns  []string                         `pulumi:"resourceArns"`
+	ResourceTags  map[string]string                `pulumi:"resourceTags"`
+	ResourceType  string                           `pulumi:"resourceType"`
+	SelectionMode string                           `pulumi:"selectionMode"`
+}
+
+// ExperimentTemplateTargetInput is an input type that accepts ExperimentTemplateTargetArgs and ExperimentTemplateTargetOutput values.
+// You can construct a concrete instance of `ExperimentTemplateTargetInput` via:
+//
+//	ExperimentTemplateTargetArgs{...}
+type ExperimentTemplateTargetInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateTargetOutput() ExperimentTemplateTargetOutput
+	ToExperimentTemplateTargetOutputWithContext(context.Context) ExperimentTemplateTargetOutput
+}
+
+// Specifies a target for an experiment.
+type ExperimentTemplateTargetArgs struct {
+	Filters       ExperimentTemplateTargetFilterArrayInput `pulumi:"filters"`
+	Parameters    pulumi.StringMapInput                    `pulumi:"parameters"`
+	ResourceArns  pulumi.StringArrayInput                  `pulumi:"resourceArns"`
+	ResourceTags  pulumi.StringMapInput                    `pulumi:"resourceTags"`
+	ResourceType  pulumi.StringInput                       `pulumi:"resourceType"`
+	SelectionMode pulumi.StringInput                       `pulumi:"selectionMode"`
+}
+
+func (ExperimentTemplateTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateTarget)(nil)).Elem()
+}
+
+func (i ExperimentTemplateTargetArgs) ToExperimentTemplateTargetOutput() ExperimentTemplateTargetOutput {
+	return i.ToExperimentTemplateTargetOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateTargetArgs) ToExperimentTemplateTargetOutputWithContext(ctx context.Context) ExperimentTemplateTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetOutput)
 }
 
 // ExperimentTemplateTargetMapInput is an input type that accepts ExperimentTemplateTargetMap and ExperimentTemplateTargetMapOutput values.
@@ -859,27 +904,63 @@ type ExperimentTemplateTargetMapInput interface {
 	ToExperimentTemplateTargetMapOutputWithContext(context.Context) ExperimentTemplateTargetMapOutput
 }
 
-// The targets for the experiment.
-type ExperimentTemplateTargetMapArgs struct {
+type ExperimentTemplateTargetMap map[string]ExperimentTemplateTargetInput
+
+func (ExperimentTemplateTargetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExperimentTemplateTarget)(nil)).Elem()
 }
 
-func (ExperimentTemplateTargetMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTemplateTargetMap)(nil)).Elem()
-}
-
-func (i ExperimentTemplateTargetMapArgs) ToExperimentTemplateTargetMapOutput() ExperimentTemplateTargetMapOutput {
+func (i ExperimentTemplateTargetMap) ToExperimentTemplateTargetMapOutput() ExperimentTemplateTargetMapOutput {
 	return i.ToExperimentTemplateTargetMapOutputWithContext(context.Background())
 }
 
-func (i ExperimentTemplateTargetMapArgs) ToExperimentTemplateTargetMapOutputWithContext(ctx context.Context) ExperimentTemplateTargetMapOutput {
+func (i ExperimentTemplateTargetMap) ToExperimentTemplateTargetMapOutputWithContext(ctx context.Context) ExperimentTemplateTargetMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetMapOutput)
 }
 
-// The targets for the experiment.
+// Specifies a target for an experiment.
+type ExperimentTemplateTargetOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateTarget)(nil)).Elem()
+}
+
+func (o ExperimentTemplateTargetOutput) ToExperimentTemplateTargetOutput() ExperimentTemplateTargetOutput {
+	return o
+}
+
+func (o ExperimentTemplateTargetOutput) ToExperimentTemplateTargetOutputWithContext(ctx context.Context) ExperimentTemplateTargetOutput {
+	return o
+}
+
+func (o ExperimentTemplateTargetOutput) Filters() ExperimentTemplateTargetFilterArrayOutput {
+	return o.ApplyT(func(v ExperimentTemplateTarget) []ExperimentTemplateTargetFilter { return v.Filters }).(ExperimentTemplateTargetFilterArrayOutput)
+}
+
+func (o ExperimentTemplateTargetOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ExperimentTemplateTarget) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+func (o ExperimentTemplateTargetOutput) ResourceArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExperimentTemplateTarget) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
+}
+
+func (o ExperimentTemplateTargetOutput) ResourceTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ExperimentTemplateTarget) map[string]string { return v.ResourceTags }).(pulumi.StringMapOutput)
+}
+
+func (o ExperimentTemplateTargetOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperimentTemplateTarget) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+func (o ExperimentTemplateTargetOutput) SelectionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperimentTemplateTarget) string { return v.SelectionMode }).(pulumi.StringOutput)
+}
+
 type ExperimentTemplateTargetMapOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateTargetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTemplateTargetMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]ExperimentTemplateTarget)(nil)).Elem()
 }
 
 func (o ExperimentTemplateTargetMapOutput) ToExperimentTemplateTargetMapOutput() ExperimentTemplateTargetMapOutput {
@@ -890,33 +971,118 @@ func (o ExperimentTemplateTargetMapOutput) ToExperimentTemplateTargetMapOutputWi
 	return o
 }
 
-type ExperimentTemplateTargetMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ExperimentTemplateTargetMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExperimentTemplateTargetMap)(nil)).Elem()
+func (o ExperimentTemplateTargetMapOutput) MapIndex(k pulumi.StringInput) ExperimentTemplateTargetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExperimentTemplateTarget {
+		return vs[0].(map[string]ExperimentTemplateTarget)[vs[1].(string)]
+	}).(ExperimentTemplateTargetOutput)
 }
 
-func (o ExperimentTemplateTargetMapPtrOutput) ToExperimentTemplateTargetMapPtrOutput() ExperimentTemplateTargetMapPtrOutput {
+// Describes a filter used for the target resource input in an experiment template.
+type ExperimentTemplateTargetFilter struct {
+	Path   string   `pulumi:"path"`
+	Values []string `pulumi:"values"`
+}
+
+// ExperimentTemplateTargetFilterInput is an input type that accepts ExperimentTemplateTargetFilterArgs and ExperimentTemplateTargetFilterOutput values.
+// You can construct a concrete instance of `ExperimentTemplateTargetFilterInput` via:
+//
+//	ExperimentTemplateTargetFilterArgs{...}
+type ExperimentTemplateTargetFilterInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateTargetFilterOutput() ExperimentTemplateTargetFilterOutput
+	ToExperimentTemplateTargetFilterOutputWithContext(context.Context) ExperimentTemplateTargetFilterOutput
+}
+
+// Describes a filter used for the target resource input in an experiment template.
+type ExperimentTemplateTargetFilterArgs struct {
+	Path   pulumi.StringInput      `pulumi:"path"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ExperimentTemplateTargetFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateTargetFilter)(nil)).Elem()
+}
+
+func (i ExperimentTemplateTargetFilterArgs) ToExperimentTemplateTargetFilterOutput() ExperimentTemplateTargetFilterOutput {
+	return i.ToExperimentTemplateTargetFilterOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateTargetFilterArgs) ToExperimentTemplateTargetFilterOutputWithContext(ctx context.Context) ExperimentTemplateTargetFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetFilterOutput)
+}
+
+// ExperimentTemplateTargetFilterArrayInput is an input type that accepts ExperimentTemplateTargetFilterArray and ExperimentTemplateTargetFilterArrayOutput values.
+// You can construct a concrete instance of `ExperimentTemplateTargetFilterArrayInput` via:
+//
+//	ExperimentTemplateTargetFilterArray{ ExperimentTemplateTargetFilterArgs{...} }
+type ExperimentTemplateTargetFilterArrayInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateTargetFilterArrayOutput() ExperimentTemplateTargetFilterArrayOutput
+	ToExperimentTemplateTargetFilterArrayOutputWithContext(context.Context) ExperimentTemplateTargetFilterArrayOutput
+}
+
+type ExperimentTemplateTargetFilterArray []ExperimentTemplateTargetFilterInput
+
+func (ExperimentTemplateTargetFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExperimentTemplateTargetFilter)(nil)).Elem()
+}
+
+func (i ExperimentTemplateTargetFilterArray) ToExperimentTemplateTargetFilterArrayOutput() ExperimentTemplateTargetFilterArrayOutput {
+	return i.ToExperimentTemplateTargetFilterArrayOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateTargetFilterArray) ToExperimentTemplateTargetFilterArrayOutputWithContext(ctx context.Context) ExperimentTemplateTargetFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetFilterArrayOutput)
+}
+
+// Describes a filter used for the target resource input in an experiment template.
+type ExperimentTemplateTargetFilterOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateTargetFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateTargetFilter)(nil)).Elem()
+}
+
+func (o ExperimentTemplateTargetFilterOutput) ToExperimentTemplateTargetFilterOutput() ExperimentTemplateTargetFilterOutput {
 	return o
 }
 
-func (o ExperimentTemplateTargetMapPtrOutput) ToExperimentTemplateTargetMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateTargetMapPtrOutput {
+func (o ExperimentTemplateTargetFilterOutput) ToExperimentTemplateTargetFilterOutputWithContext(ctx context.Context) ExperimentTemplateTargetFilterOutput {
 	return o
 }
 
-func (o ExperimentTemplateTargetMapPtrOutput) Elem() ExperimentTemplateTargetMapOutput {
-	return o.ApplyT(func(v *ExperimentTemplateTargetMap) ExperimentTemplateTargetMap {
-		if v != nil {
-			return *v
-		}
-		var ret ExperimentTemplateTargetMap
-		return ret
-	}).(ExperimentTemplateTargetMapOutput)
+func (o ExperimentTemplateTargetFilterOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperimentTemplateTargetFilter) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o ExperimentTemplateTargetFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExperimentTemplateTargetFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ExperimentTemplateTargetFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateTargetFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExperimentTemplateTargetFilter)(nil)).Elem()
+}
+
+func (o ExperimentTemplateTargetFilterArrayOutput) ToExperimentTemplateTargetFilterArrayOutput() ExperimentTemplateTargetFilterArrayOutput {
+	return o
+}
+
+func (o ExperimentTemplateTargetFilterArrayOutput) ToExperimentTemplateTargetFilterArrayOutputWithContext(ctx context.Context) ExperimentTemplateTargetFilterArrayOutput {
+	return o
+}
+
+func (o ExperimentTemplateTargetFilterArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateTargetFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExperimentTemplateTargetFilter {
+		return vs[0].([]ExperimentTemplateTargetFilter)[vs[1].(int)]
+	}).(ExperimentTemplateTargetFilterOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionMapInput)(nil)).Elem(), ExperimentTemplateActionMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionMapPtrInput)(nil)).Elem(), ExperimentTemplateActionMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionInput)(nil)).Elem(), ExperimentTemplateActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionMapInput)(nil)).Elem(), ExperimentTemplateActionMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentOptionsInput)(nil)).Elem(), ExperimentTemplateExperimentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentOptionsPtrInput)(nil)).Elem(), ExperimentTemplateExperimentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationInput)(nil)).Elem(), ExperimentTemplateLogConfigurationArgs{})
@@ -927,9 +1093,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrInput)(nil)).Elem(), ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateStopConditionInput)(nil)).Elem(), ExperimentTemplateStopConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateStopConditionArrayInput)(nil)).Elem(), ExperimentTemplateStopConditionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetMapInput)(nil)).Elem(), ExperimentTemplateTargetMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetInput)(nil)).Elem(), ExperimentTemplateTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetMapInput)(nil)).Elem(), ExperimentTemplateTargetMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetFilterInput)(nil)).Elem(), ExperimentTemplateTargetFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetFilterArrayInput)(nil)).Elem(), ExperimentTemplateTargetFilterArray{})
+	pulumi.RegisterOutputType(ExperimentTemplateActionOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionMapOutput{})
-	pulumi.RegisterOutputType(ExperimentTemplateActionMapPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateExperimentOptionsOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateExperimentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationOutput{})
@@ -940,6 +1109,8 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationS3ConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateStopConditionOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateStopConditionArrayOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateTargetOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateTargetMapOutput{})
-	pulumi.RegisterOutputType(ExperimentTemplateTargetMapPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateTargetFilterOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateTargetFilterArrayOutput{})
 }

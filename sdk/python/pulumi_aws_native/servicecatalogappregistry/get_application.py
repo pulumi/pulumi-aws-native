@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetApplicationResult',
@@ -97,7 +96,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.ApplicationTags']:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

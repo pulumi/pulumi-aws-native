@@ -40,7 +40,7 @@ export interface GetSimulationApplicationResult {
      * The simulation software suite used by the simulation application.
      */
     readonly simulationSoftwareSuite?: outputs.robomaker.SimulationApplicationSimulationSoftwareSuite;
-    readonly tags?: outputs.robomaker.SimulationApplicationTags;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * This schema is for testing purpose only.

@@ -687,124 +687,6 @@ func (o PipeBatchJobDependencyArrayOutput) Index(i pulumi.IntInput) PipeBatchJob
 	}).(PipeBatchJobDependencyOutput)
 }
 
-type PipeBatchParametersMap struct {
-}
-
-// PipeBatchParametersMapInput is an input type that accepts PipeBatchParametersMap and PipeBatchParametersMapOutput values.
-// You can construct a concrete instance of `PipeBatchParametersMapInput` via:
-//
-//	PipeBatchParametersMap{ "key": PipeBatchParametersArgs{...} }
-type PipeBatchParametersMapInput interface {
-	pulumi.Input
-
-	ToPipeBatchParametersMapOutput() PipeBatchParametersMapOutput
-	ToPipeBatchParametersMapOutputWithContext(context.Context) PipeBatchParametersMapOutput
-}
-
-type PipeBatchParametersMapArgs struct {
-}
-
-func (PipeBatchParametersMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeBatchParametersMap)(nil)).Elem()
-}
-
-func (i PipeBatchParametersMapArgs) ToPipeBatchParametersMapOutput() PipeBatchParametersMapOutput {
-	return i.ToPipeBatchParametersMapOutputWithContext(context.Background())
-}
-
-func (i PipeBatchParametersMapArgs) ToPipeBatchParametersMapOutputWithContext(ctx context.Context) PipeBatchParametersMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeBatchParametersMapOutput)
-}
-
-func (i PipeBatchParametersMapArgs) ToPipeBatchParametersMapPtrOutput() PipeBatchParametersMapPtrOutput {
-	return i.ToPipeBatchParametersMapPtrOutputWithContext(context.Background())
-}
-
-func (i PipeBatchParametersMapArgs) ToPipeBatchParametersMapPtrOutputWithContext(ctx context.Context) PipeBatchParametersMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeBatchParametersMapOutput).ToPipeBatchParametersMapPtrOutputWithContext(ctx)
-}
-
-// PipeBatchParametersMapPtrInput is an input type that accepts PipeBatchParametersMapArgs, PipeBatchParametersMapPtr and PipeBatchParametersMapPtrOutput values.
-// You can construct a concrete instance of `PipeBatchParametersMapPtrInput` via:
-//
-//	        PipeBatchParametersMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type PipeBatchParametersMapPtrInput interface {
-	pulumi.Input
-
-	ToPipeBatchParametersMapPtrOutput() PipeBatchParametersMapPtrOutput
-	ToPipeBatchParametersMapPtrOutputWithContext(context.Context) PipeBatchParametersMapPtrOutput
-}
-
-type pipeBatchParametersMapPtrType PipeBatchParametersMapArgs
-
-func PipeBatchParametersMapPtr(v *PipeBatchParametersMapArgs) PipeBatchParametersMapPtrInput {
-	return (*pipeBatchParametersMapPtrType)(v)
-}
-
-func (*pipeBatchParametersMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeBatchParametersMap)(nil)).Elem()
-}
-
-func (i *pipeBatchParametersMapPtrType) ToPipeBatchParametersMapPtrOutput() PipeBatchParametersMapPtrOutput {
-	return i.ToPipeBatchParametersMapPtrOutputWithContext(context.Background())
-}
-
-func (i *pipeBatchParametersMapPtrType) ToPipeBatchParametersMapPtrOutputWithContext(ctx context.Context) PipeBatchParametersMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeBatchParametersMapPtrOutput)
-}
-
-type PipeBatchParametersMapOutput struct{ *pulumi.OutputState }
-
-func (PipeBatchParametersMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeBatchParametersMap)(nil)).Elem()
-}
-
-func (o PipeBatchParametersMapOutput) ToPipeBatchParametersMapOutput() PipeBatchParametersMapOutput {
-	return o
-}
-
-func (o PipeBatchParametersMapOutput) ToPipeBatchParametersMapOutputWithContext(ctx context.Context) PipeBatchParametersMapOutput {
-	return o
-}
-
-func (o PipeBatchParametersMapOutput) ToPipeBatchParametersMapPtrOutput() PipeBatchParametersMapPtrOutput {
-	return o.ToPipeBatchParametersMapPtrOutputWithContext(context.Background())
-}
-
-func (o PipeBatchParametersMapOutput) ToPipeBatchParametersMapPtrOutputWithContext(ctx context.Context) PipeBatchParametersMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeBatchParametersMap) *PipeBatchParametersMap {
-		return &v
-	}).(PipeBatchParametersMapPtrOutput)
-}
-
-type PipeBatchParametersMapPtrOutput struct{ *pulumi.OutputState }
-
-func (PipeBatchParametersMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeBatchParametersMap)(nil)).Elem()
-}
-
-func (o PipeBatchParametersMapPtrOutput) ToPipeBatchParametersMapPtrOutput() PipeBatchParametersMapPtrOutput {
-	return o
-}
-
-func (o PipeBatchParametersMapPtrOutput) ToPipeBatchParametersMapPtrOutputWithContext(ctx context.Context) PipeBatchParametersMapPtrOutput {
-	return o
-}
-
-func (o PipeBatchParametersMapPtrOutput) Elem() PipeBatchParametersMapOutput {
-	return o.ApplyT(func(v *PipeBatchParametersMap) PipeBatchParametersMap {
-		if v != nil {
-			return *v
-		}
-		var ret PipeBatchParametersMap
-		return ret
-	}).(PipeBatchParametersMapOutput)
-}
-
 type PipeBatchResourceRequirement struct {
 	Type  PipeBatchResourceRequirementType `pulumi:"type"`
 	Value string                           `pulumi:"value"`
@@ -2305,9 +2187,9 @@ func (o PipeEcsTaskOverridePtrOutput) TaskRoleArn() pulumi.StringPtrOutput {
 }
 
 type PipeEnrichmentHttpParameters struct {
-	HeaderParameters      *PipeHeaderParametersMap      `pulumi:"headerParameters"`
-	PathParameterValues   []string                      `pulumi:"pathParameterValues"`
-	QueryStringParameters *PipeQueryStringParametersMap `pulumi:"queryStringParameters"`
+	HeaderParameters      map[string]string `pulumi:"headerParameters"`
+	PathParameterValues   []string          `pulumi:"pathParameterValues"`
+	QueryStringParameters map[string]string `pulumi:"queryStringParameters"`
 }
 
 // PipeEnrichmentHttpParametersInput is an input type that accepts PipeEnrichmentHttpParametersArgs and PipeEnrichmentHttpParametersOutput values.
@@ -2322,9 +2204,9 @@ type PipeEnrichmentHttpParametersInput interface {
 }
 
 type PipeEnrichmentHttpParametersArgs struct {
-	HeaderParameters      PipeHeaderParametersMapPtrInput      `pulumi:"headerParameters"`
-	PathParameterValues   pulumi.StringArrayInput              `pulumi:"pathParameterValues"`
-	QueryStringParameters PipeQueryStringParametersMapPtrInput `pulumi:"queryStringParameters"`
+	HeaderParameters      pulumi.StringMapInput   `pulumi:"headerParameters"`
+	PathParameterValues   pulumi.StringArrayInput `pulumi:"pathParameterValues"`
+	QueryStringParameters pulumi.StringMapInput   `pulumi:"queryStringParameters"`
 }
 
 func (PipeEnrichmentHttpParametersArgs) ElementType() reflect.Type {
@@ -2404,16 +2286,16 @@ func (o PipeEnrichmentHttpParametersOutput) ToPipeEnrichmentHttpParametersPtrOut
 	}).(PipeEnrichmentHttpParametersPtrOutput)
 }
 
-func (o PipeEnrichmentHttpParametersOutput) HeaderParameters() PipeHeaderParametersMapPtrOutput {
-	return o.ApplyT(func(v PipeEnrichmentHttpParameters) *PipeHeaderParametersMap { return v.HeaderParameters }).(PipeHeaderParametersMapPtrOutput)
+func (o PipeEnrichmentHttpParametersOutput) HeaderParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipeEnrichmentHttpParameters) map[string]string { return v.HeaderParameters }).(pulumi.StringMapOutput)
 }
 
 func (o PipeEnrichmentHttpParametersOutput) PathParameterValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeEnrichmentHttpParameters) []string { return v.PathParameterValues }).(pulumi.StringArrayOutput)
 }
 
-func (o PipeEnrichmentHttpParametersOutput) QueryStringParameters() PipeQueryStringParametersMapPtrOutput {
-	return o.ApplyT(func(v PipeEnrichmentHttpParameters) *PipeQueryStringParametersMap { return v.QueryStringParameters }).(PipeQueryStringParametersMapPtrOutput)
+func (o PipeEnrichmentHttpParametersOutput) QueryStringParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipeEnrichmentHttpParameters) map[string]string { return v.QueryStringParameters }).(pulumi.StringMapOutput)
 }
 
 type PipeEnrichmentHttpParametersPtrOutput struct{ *pulumi.OutputState }
@@ -2440,13 +2322,13 @@ func (o PipeEnrichmentHttpParametersPtrOutput) Elem() PipeEnrichmentHttpParamete
 	}).(PipeEnrichmentHttpParametersOutput)
 }
 
-func (o PipeEnrichmentHttpParametersPtrOutput) HeaderParameters() PipeHeaderParametersMapPtrOutput {
-	return o.ApplyT(func(v *PipeEnrichmentHttpParameters) *PipeHeaderParametersMap {
+func (o PipeEnrichmentHttpParametersPtrOutput) HeaderParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PipeEnrichmentHttpParameters) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.HeaderParameters
-	}).(PipeHeaderParametersMapPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o PipeEnrichmentHttpParametersPtrOutput) PathParameterValues() pulumi.StringArrayOutput {
@@ -2458,13 +2340,13 @@ func (o PipeEnrichmentHttpParametersPtrOutput) PathParameterValues() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o PipeEnrichmentHttpParametersPtrOutput) QueryStringParameters() PipeQueryStringParametersMapPtrOutput {
-	return o.ApplyT(func(v *PipeEnrichmentHttpParameters) *PipeQueryStringParametersMap {
+func (o PipeEnrichmentHttpParametersPtrOutput) QueryStringParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PipeEnrichmentHttpParameters) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.QueryStringParameters
-	}).(PipeQueryStringParametersMapPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type PipeEnrichmentParameters struct {
@@ -2973,124 +2855,6 @@ func (o PipeFirehoseLogDestinationPtrOutput) DeliveryStreamArn() pulumi.StringPt
 		}
 		return v.DeliveryStreamArn
 	}).(pulumi.StringPtrOutput)
-}
-
-type PipeHeaderParametersMap struct {
-}
-
-// PipeHeaderParametersMapInput is an input type that accepts PipeHeaderParametersMap and PipeHeaderParametersMapOutput values.
-// You can construct a concrete instance of `PipeHeaderParametersMapInput` via:
-//
-//	PipeHeaderParametersMap{ "key": PipeHeaderParametersArgs{...} }
-type PipeHeaderParametersMapInput interface {
-	pulumi.Input
-
-	ToPipeHeaderParametersMapOutput() PipeHeaderParametersMapOutput
-	ToPipeHeaderParametersMapOutputWithContext(context.Context) PipeHeaderParametersMapOutput
-}
-
-type PipeHeaderParametersMapArgs struct {
-}
-
-func (PipeHeaderParametersMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeHeaderParametersMap)(nil)).Elem()
-}
-
-func (i PipeHeaderParametersMapArgs) ToPipeHeaderParametersMapOutput() PipeHeaderParametersMapOutput {
-	return i.ToPipeHeaderParametersMapOutputWithContext(context.Background())
-}
-
-func (i PipeHeaderParametersMapArgs) ToPipeHeaderParametersMapOutputWithContext(ctx context.Context) PipeHeaderParametersMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeHeaderParametersMapOutput)
-}
-
-func (i PipeHeaderParametersMapArgs) ToPipeHeaderParametersMapPtrOutput() PipeHeaderParametersMapPtrOutput {
-	return i.ToPipeHeaderParametersMapPtrOutputWithContext(context.Background())
-}
-
-func (i PipeHeaderParametersMapArgs) ToPipeHeaderParametersMapPtrOutputWithContext(ctx context.Context) PipeHeaderParametersMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeHeaderParametersMapOutput).ToPipeHeaderParametersMapPtrOutputWithContext(ctx)
-}
-
-// PipeHeaderParametersMapPtrInput is an input type that accepts PipeHeaderParametersMapArgs, PipeHeaderParametersMapPtr and PipeHeaderParametersMapPtrOutput values.
-// You can construct a concrete instance of `PipeHeaderParametersMapPtrInput` via:
-//
-//	        PipeHeaderParametersMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type PipeHeaderParametersMapPtrInput interface {
-	pulumi.Input
-
-	ToPipeHeaderParametersMapPtrOutput() PipeHeaderParametersMapPtrOutput
-	ToPipeHeaderParametersMapPtrOutputWithContext(context.Context) PipeHeaderParametersMapPtrOutput
-}
-
-type pipeHeaderParametersMapPtrType PipeHeaderParametersMapArgs
-
-func PipeHeaderParametersMapPtr(v *PipeHeaderParametersMapArgs) PipeHeaderParametersMapPtrInput {
-	return (*pipeHeaderParametersMapPtrType)(v)
-}
-
-func (*pipeHeaderParametersMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeHeaderParametersMap)(nil)).Elem()
-}
-
-func (i *pipeHeaderParametersMapPtrType) ToPipeHeaderParametersMapPtrOutput() PipeHeaderParametersMapPtrOutput {
-	return i.ToPipeHeaderParametersMapPtrOutputWithContext(context.Background())
-}
-
-func (i *pipeHeaderParametersMapPtrType) ToPipeHeaderParametersMapPtrOutputWithContext(ctx context.Context) PipeHeaderParametersMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeHeaderParametersMapPtrOutput)
-}
-
-type PipeHeaderParametersMapOutput struct{ *pulumi.OutputState }
-
-func (PipeHeaderParametersMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeHeaderParametersMap)(nil)).Elem()
-}
-
-func (o PipeHeaderParametersMapOutput) ToPipeHeaderParametersMapOutput() PipeHeaderParametersMapOutput {
-	return o
-}
-
-func (o PipeHeaderParametersMapOutput) ToPipeHeaderParametersMapOutputWithContext(ctx context.Context) PipeHeaderParametersMapOutput {
-	return o
-}
-
-func (o PipeHeaderParametersMapOutput) ToPipeHeaderParametersMapPtrOutput() PipeHeaderParametersMapPtrOutput {
-	return o.ToPipeHeaderParametersMapPtrOutputWithContext(context.Background())
-}
-
-func (o PipeHeaderParametersMapOutput) ToPipeHeaderParametersMapPtrOutputWithContext(ctx context.Context) PipeHeaderParametersMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeHeaderParametersMap) *PipeHeaderParametersMap {
-		return &v
-	}).(PipeHeaderParametersMapPtrOutput)
-}
-
-type PipeHeaderParametersMapPtrOutput struct{ *pulumi.OutputState }
-
-func (PipeHeaderParametersMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeHeaderParametersMap)(nil)).Elem()
-}
-
-func (o PipeHeaderParametersMapPtrOutput) ToPipeHeaderParametersMapPtrOutput() PipeHeaderParametersMapPtrOutput {
-	return o
-}
-
-func (o PipeHeaderParametersMapPtrOutput) ToPipeHeaderParametersMapPtrOutputWithContext(ctx context.Context) PipeHeaderParametersMapPtrOutput {
-	return o
-}
-
-func (o PipeHeaderParametersMapPtrOutput) Elem() PipeHeaderParametersMapOutput {
-	return o.ApplyT(func(v *PipeHeaderParametersMap) PipeHeaderParametersMap {
-		if v != nil {
-			return *v
-		}
-		var ret PipeHeaderParametersMap
-		return ret
-	}).(PipeHeaderParametersMapOutput)
 }
 
 type PipeLogConfiguration struct {
@@ -4033,124 +3797,6 @@ func (o PipePlacementStrategyArrayOutput) Index(i pulumi.IntInput) PipePlacement
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipePlacementStrategy {
 		return vs[0].([]PipePlacementStrategy)[vs[1].(int)]
 	}).(PipePlacementStrategyOutput)
-}
-
-type PipeQueryStringParametersMap struct {
-}
-
-// PipeQueryStringParametersMapInput is an input type that accepts PipeQueryStringParametersMap and PipeQueryStringParametersMapOutput values.
-// You can construct a concrete instance of `PipeQueryStringParametersMapInput` via:
-//
-//	PipeQueryStringParametersMap{ "key": PipeQueryStringParametersArgs{...} }
-type PipeQueryStringParametersMapInput interface {
-	pulumi.Input
-
-	ToPipeQueryStringParametersMapOutput() PipeQueryStringParametersMapOutput
-	ToPipeQueryStringParametersMapOutputWithContext(context.Context) PipeQueryStringParametersMapOutput
-}
-
-type PipeQueryStringParametersMapArgs struct {
-}
-
-func (PipeQueryStringParametersMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeQueryStringParametersMap)(nil)).Elem()
-}
-
-func (i PipeQueryStringParametersMapArgs) ToPipeQueryStringParametersMapOutput() PipeQueryStringParametersMapOutput {
-	return i.ToPipeQueryStringParametersMapOutputWithContext(context.Background())
-}
-
-func (i PipeQueryStringParametersMapArgs) ToPipeQueryStringParametersMapOutputWithContext(ctx context.Context) PipeQueryStringParametersMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeQueryStringParametersMapOutput)
-}
-
-func (i PipeQueryStringParametersMapArgs) ToPipeQueryStringParametersMapPtrOutput() PipeQueryStringParametersMapPtrOutput {
-	return i.ToPipeQueryStringParametersMapPtrOutputWithContext(context.Background())
-}
-
-func (i PipeQueryStringParametersMapArgs) ToPipeQueryStringParametersMapPtrOutputWithContext(ctx context.Context) PipeQueryStringParametersMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeQueryStringParametersMapOutput).ToPipeQueryStringParametersMapPtrOutputWithContext(ctx)
-}
-
-// PipeQueryStringParametersMapPtrInput is an input type that accepts PipeQueryStringParametersMapArgs, PipeQueryStringParametersMapPtr and PipeQueryStringParametersMapPtrOutput values.
-// You can construct a concrete instance of `PipeQueryStringParametersMapPtrInput` via:
-//
-//	        PipeQueryStringParametersMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type PipeQueryStringParametersMapPtrInput interface {
-	pulumi.Input
-
-	ToPipeQueryStringParametersMapPtrOutput() PipeQueryStringParametersMapPtrOutput
-	ToPipeQueryStringParametersMapPtrOutputWithContext(context.Context) PipeQueryStringParametersMapPtrOutput
-}
-
-type pipeQueryStringParametersMapPtrType PipeQueryStringParametersMapArgs
-
-func PipeQueryStringParametersMapPtr(v *PipeQueryStringParametersMapArgs) PipeQueryStringParametersMapPtrInput {
-	return (*pipeQueryStringParametersMapPtrType)(v)
-}
-
-func (*pipeQueryStringParametersMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeQueryStringParametersMap)(nil)).Elem()
-}
-
-func (i *pipeQueryStringParametersMapPtrType) ToPipeQueryStringParametersMapPtrOutput() PipeQueryStringParametersMapPtrOutput {
-	return i.ToPipeQueryStringParametersMapPtrOutputWithContext(context.Background())
-}
-
-func (i *pipeQueryStringParametersMapPtrType) ToPipeQueryStringParametersMapPtrOutputWithContext(ctx context.Context) PipeQueryStringParametersMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeQueryStringParametersMapPtrOutput)
-}
-
-type PipeQueryStringParametersMapOutput struct{ *pulumi.OutputState }
-
-func (PipeQueryStringParametersMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeQueryStringParametersMap)(nil)).Elem()
-}
-
-func (o PipeQueryStringParametersMapOutput) ToPipeQueryStringParametersMapOutput() PipeQueryStringParametersMapOutput {
-	return o
-}
-
-func (o PipeQueryStringParametersMapOutput) ToPipeQueryStringParametersMapOutputWithContext(ctx context.Context) PipeQueryStringParametersMapOutput {
-	return o
-}
-
-func (o PipeQueryStringParametersMapOutput) ToPipeQueryStringParametersMapPtrOutput() PipeQueryStringParametersMapPtrOutput {
-	return o.ToPipeQueryStringParametersMapPtrOutputWithContext(context.Background())
-}
-
-func (o PipeQueryStringParametersMapOutput) ToPipeQueryStringParametersMapPtrOutputWithContext(ctx context.Context) PipeQueryStringParametersMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeQueryStringParametersMap) *PipeQueryStringParametersMap {
-		return &v
-	}).(PipeQueryStringParametersMapPtrOutput)
-}
-
-type PipeQueryStringParametersMapPtrOutput struct{ *pulumi.OutputState }
-
-func (PipeQueryStringParametersMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeQueryStringParametersMap)(nil)).Elem()
-}
-
-func (o PipeQueryStringParametersMapPtrOutput) ToPipeQueryStringParametersMapPtrOutput() PipeQueryStringParametersMapPtrOutput {
-	return o
-}
-
-func (o PipeQueryStringParametersMapPtrOutput) ToPipeQueryStringParametersMapPtrOutputWithContext(ctx context.Context) PipeQueryStringParametersMapPtrOutput {
-	return o
-}
-
-func (o PipeQueryStringParametersMapPtrOutput) Elem() PipeQueryStringParametersMapOutput {
-	return o.ApplyT(func(v *PipeQueryStringParametersMap) PipeQueryStringParametersMap {
-		if v != nil {
-			return *v
-		}
-		var ret PipeQueryStringParametersMap
-		return ret
-	}).(PipeQueryStringParametersMapOutput)
 }
 
 type PipeS3LogDestination struct {
@@ -6968,131 +6614,13 @@ func (o PipeTagArrayOutput) Index(i pulumi.IntInput) PipeTagOutput {
 	}).(PipeTagOutput)
 }
 
-type PipeTagMap struct {
-}
-
-// PipeTagMapInput is an input type that accepts PipeTagMap and PipeTagMapOutput values.
-// You can construct a concrete instance of `PipeTagMapInput` via:
-//
-//	PipeTagMap{ "key": PipeTagArgs{...} }
-type PipeTagMapInput interface {
-	pulumi.Input
-
-	ToPipeTagMapOutput() PipeTagMapOutput
-	ToPipeTagMapOutputWithContext(context.Context) PipeTagMapOutput
-}
-
-type PipeTagMapArgs struct {
-}
-
-func (PipeTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeTagMap)(nil)).Elem()
-}
-
-func (i PipeTagMapArgs) ToPipeTagMapOutput() PipeTagMapOutput {
-	return i.ToPipeTagMapOutputWithContext(context.Background())
-}
-
-func (i PipeTagMapArgs) ToPipeTagMapOutputWithContext(ctx context.Context) PipeTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeTagMapOutput)
-}
-
-func (i PipeTagMapArgs) ToPipeTagMapPtrOutput() PipeTagMapPtrOutput {
-	return i.ToPipeTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i PipeTagMapArgs) ToPipeTagMapPtrOutputWithContext(ctx context.Context) PipeTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeTagMapOutput).ToPipeTagMapPtrOutputWithContext(ctx)
-}
-
-// PipeTagMapPtrInput is an input type that accepts PipeTagMapArgs, PipeTagMapPtr and PipeTagMapPtrOutput values.
-// You can construct a concrete instance of `PipeTagMapPtrInput` via:
-//
-//	        PipeTagMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type PipeTagMapPtrInput interface {
-	pulumi.Input
-
-	ToPipeTagMapPtrOutput() PipeTagMapPtrOutput
-	ToPipeTagMapPtrOutputWithContext(context.Context) PipeTagMapPtrOutput
-}
-
-type pipeTagMapPtrType PipeTagMapArgs
-
-func PipeTagMapPtr(v *PipeTagMapArgs) PipeTagMapPtrInput {
-	return (*pipeTagMapPtrType)(v)
-}
-
-func (*pipeTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeTagMap)(nil)).Elem()
-}
-
-func (i *pipeTagMapPtrType) ToPipeTagMapPtrOutput() PipeTagMapPtrOutput {
-	return i.ToPipeTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i *pipeTagMapPtrType) ToPipeTagMapPtrOutputWithContext(ctx context.Context) PipeTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeTagMapPtrOutput)
-}
-
-type PipeTagMapOutput struct{ *pulumi.OutputState }
-
-func (PipeTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeTagMap)(nil)).Elem()
-}
-
-func (o PipeTagMapOutput) ToPipeTagMapOutput() PipeTagMapOutput {
-	return o
-}
-
-func (o PipeTagMapOutput) ToPipeTagMapOutputWithContext(ctx context.Context) PipeTagMapOutput {
-	return o
-}
-
-func (o PipeTagMapOutput) ToPipeTagMapPtrOutput() PipeTagMapPtrOutput {
-	return o.ToPipeTagMapPtrOutputWithContext(context.Background())
-}
-
-func (o PipeTagMapOutput) ToPipeTagMapPtrOutputWithContext(ctx context.Context) PipeTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeTagMap) *PipeTagMap {
-		return &v
-	}).(PipeTagMapPtrOutput)
-}
-
-type PipeTagMapPtrOutput struct{ *pulumi.OutputState }
-
-func (PipeTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeTagMap)(nil)).Elem()
-}
-
-func (o PipeTagMapPtrOutput) ToPipeTagMapPtrOutput() PipeTagMapPtrOutput {
-	return o
-}
-
-func (o PipeTagMapPtrOutput) ToPipeTagMapPtrOutputWithContext(ctx context.Context) PipeTagMapPtrOutput {
-	return o
-}
-
-func (o PipeTagMapPtrOutput) Elem() PipeTagMapOutput {
-	return o.ApplyT(func(v *PipeTagMap) PipeTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret PipeTagMap
-		return ret
-	}).(PipeTagMapOutput)
-}
-
 type PipeTargetBatchJobParameters struct {
 	ArrayProperties    *PipeBatchArrayProperties    `pulumi:"arrayProperties"`
 	ContainerOverrides *PipeBatchContainerOverrides `pulumi:"containerOverrides"`
 	DependsOn          []PipeBatchJobDependency     `pulumi:"dependsOn"`
 	JobDefinition      string                       `pulumi:"jobDefinition"`
 	JobName            string                       `pulumi:"jobName"`
-	Parameters         *PipeBatchParametersMap      `pulumi:"parameters"`
+	Parameters         map[string]string            `pulumi:"parameters"`
 	RetryStrategy      *PipeBatchRetryStrategy      `pulumi:"retryStrategy"`
 }
 
@@ -7113,7 +6641,7 @@ type PipeTargetBatchJobParametersArgs struct {
 	DependsOn          PipeBatchJobDependencyArrayInput    `pulumi:"dependsOn"`
 	JobDefinition      pulumi.StringInput                  `pulumi:"jobDefinition"`
 	JobName            pulumi.StringInput                  `pulumi:"jobName"`
-	Parameters         PipeBatchParametersMapPtrInput      `pulumi:"parameters"`
+	Parameters         pulumi.StringMapInput               `pulumi:"parameters"`
 	RetryStrategy      PipeBatchRetryStrategyPtrInput      `pulumi:"retryStrategy"`
 }
 
@@ -7214,8 +6742,8 @@ func (o PipeTargetBatchJobParametersOutput) JobName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetBatchJobParameters) string { return v.JobName }).(pulumi.StringOutput)
 }
 
-func (o PipeTargetBatchJobParametersOutput) Parameters() PipeBatchParametersMapPtrOutput {
-	return o.ApplyT(func(v PipeTargetBatchJobParameters) *PipeBatchParametersMap { return v.Parameters }).(PipeBatchParametersMapPtrOutput)
+func (o PipeTargetBatchJobParametersOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipeTargetBatchJobParameters) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 func (o PipeTargetBatchJobParametersOutput) RetryStrategy() PipeBatchRetryStrategyPtrOutput {
@@ -7291,13 +6819,13 @@ func (o PipeTargetBatchJobParametersPtrOutput) JobName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PipeTargetBatchJobParametersPtrOutput) Parameters() PipeBatchParametersMapPtrOutput {
-	return o.ApplyT(func(v *PipeTargetBatchJobParameters) *PipeBatchParametersMap {
+func (o PipeTargetBatchJobParametersPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PipeTargetBatchJobParameters) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(PipeBatchParametersMapPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o PipeTargetBatchJobParametersPtrOutput) RetryStrategy() PipeBatchRetryStrategyPtrOutput {
@@ -7996,9 +7524,9 @@ func (o PipeTargetEventBridgeEventBusParametersPtrOutput) Time() pulumi.StringPt
 }
 
 type PipeTargetHttpParameters struct {
-	HeaderParameters      *PipeHeaderParametersMap      `pulumi:"headerParameters"`
-	PathParameterValues   []string                      `pulumi:"pathParameterValues"`
-	QueryStringParameters *PipeQueryStringParametersMap `pulumi:"queryStringParameters"`
+	HeaderParameters      map[string]string `pulumi:"headerParameters"`
+	PathParameterValues   []string          `pulumi:"pathParameterValues"`
+	QueryStringParameters map[string]string `pulumi:"queryStringParameters"`
 }
 
 // PipeTargetHttpParametersInput is an input type that accepts PipeTargetHttpParametersArgs and PipeTargetHttpParametersOutput values.
@@ -8013,9 +7541,9 @@ type PipeTargetHttpParametersInput interface {
 }
 
 type PipeTargetHttpParametersArgs struct {
-	HeaderParameters      PipeHeaderParametersMapPtrInput      `pulumi:"headerParameters"`
-	PathParameterValues   pulumi.StringArrayInput              `pulumi:"pathParameterValues"`
-	QueryStringParameters PipeQueryStringParametersMapPtrInput `pulumi:"queryStringParameters"`
+	HeaderParameters      pulumi.StringMapInput   `pulumi:"headerParameters"`
+	PathParameterValues   pulumi.StringArrayInput `pulumi:"pathParameterValues"`
+	QueryStringParameters pulumi.StringMapInput   `pulumi:"queryStringParameters"`
 }
 
 func (PipeTargetHttpParametersArgs) ElementType() reflect.Type {
@@ -8095,16 +7623,16 @@ func (o PipeTargetHttpParametersOutput) ToPipeTargetHttpParametersPtrOutputWithC
 	}).(PipeTargetHttpParametersPtrOutput)
 }
 
-func (o PipeTargetHttpParametersOutput) HeaderParameters() PipeHeaderParametersMapPtrOutput {
-	return o.ApplyT(func(v PipeTargetHttpParameters) *PipeHeaderParametersMap { return v.HeaderParameters }).(PipeHeaderParametersMapPtrOutput)
+func (o PipeTargetHttpParametersOutput) HeaderParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipeTargetHttpParameters) map[string]string { return v.HeaderParameters }).(pulumi.StringMapOutput)
 }
 
 func (o PipeTargetHttpParametersOutput) PathParameterValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeTargetHttpParameters) []string { return v.PathParameterValues }).(pulumi.StringArrayOutput)
 }
 
-func (o PipeTargetHttpParametersOutput) QueryStringParameters() PipeQueryStringParametersMapPtrOutput {
-	return o.ApplyT(func(v PipeTargetHttpParameters) *PipeQueryStringParametersMap { return v.QueryStringParameters }).(PipeQueryStringParametersMapPtrOutput)
+func (o PipeTargetHttpParametersOutput) QueryStringParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipeTargetHttpParameters) map[string]string { return v.QueryStringParameters }).(pulumi.StringMapOutput)
 }
 
 type PipeTargetHttpParametersPtrOutput struct{ *pulumi.OutputState }
@@ -8131,13 +7659,13 @@ func (o PipeTargetHttpParametersPtrOutput) Elem() PipeTargetHttpParametersOutput
 	}).(PipeTargetHttpParametersOutput)
 }
 
-func (o PipeTargetHttpParametersPtrOutput) HeaderParameters() PipeHeaderParametersMapPtrOutput {
-	return o.ApplyT(func(v *PipeTargetHttpParameters) *PipeHeaderParametersMap {
+func (o PipeTargetHttpParametersPtrOutput) HeaderParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PipeTargetHttpParameters) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.HeaderParameters
-	}).(PipeHeaderParametersMapPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o PipeTargetHttpParametersPtrOutput) PathParameterValues() pulumi.StringArrayOutput {
@@ -8149,13 +7677,13 @@ func (o PipeTargetHttpParametersPtrOutput) PathParameterValues() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o PipeTargetHttpParametersPtrOutput) QueryStringParameters() PipeQueryStringParametersMapPtrOutput {
-	return o.ApplyT(func(v *PipeTargetHttpParameters) *PipeQueryStringParametersMap {
+func (o PipeTargetHttpParametersPtrOutput) QueryStringParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PipeTargetHttpParameters) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.QueryStringParameters
-	}).(PipeQueryStringParametersMapPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type PipeTargetKinesisStreamParameters struct {
@@ -9383,8 +8911,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchEnvironmentVariableArrayInput)(nil)).Elem(), PipeBatchEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchJobDependencyInput)(nil)).Elem(), PipeBatchJobDependencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchJobDependencyArrayInput)(nil)).Elem(), PipeBatchJobDependencyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchParametersMapInput)(nil)).Elem(), PipeBatchParametersMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchParametersMapPtrInput)(nil)).Elem(), PipeBatchParametersMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchResourceRequirementInput)(nil)).Elem(), PipeBatchResourceRequirementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchResourceRequirementArrayInput)(nil)).Elem(), PipeBatchResourceRequirementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchRetryStrategyInput)(nil)).Elem(), PipeBatchRetryStrategyArgs{})
@@ -9419,8 +8945,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeFilterCriteriaPtrInput)(nil)).Elem(), PipeFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeFirehoseLogDestinationInput)(nil)).Elem(), PipeFirehoseLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeFirehoseLogDestinationPtrInput)(nil)).Elem(), PipeFirehoseLogDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeHeaderParametersMapInput)(nil)).Elem(), PipeHeaderParametersMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeHeaderParametersMapPtrInput)(nil)).Elem(), PipeHeaderParametersMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeLogConfigurationInput)(nil)).Elem(), PipeLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeLogConfigurationPtrInput)(nil)).Elem(), PipeLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMqBrokerAccessCredentialsPropertiesInput)(nil)).Elem(), PipeMqBrokerAccessCredentialsPropertiesArgs{})
@@ -9435,8 +8959,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipePlacementConstraintArrayInput)(nil)).Elem(), PipePlacementConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipePlacementStrategyInput)(nil)).Elem(), PipePlacementStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipePlacementStrategyArrayInput)(nil)).Elem(), PipePlacementStrategyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeQueryStringParametersMapInput)(nil)).Elem(), PipeQueryStringParametersMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeQueryStringParametersMapPtrInput)(nil)).Elem(), PipeQueryStringParametersMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeS3LogDestinationInput)(nil)).Elem(), PipeS3LogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeS3LogDestinationPtrInput)(nil)).Elem(), PipeS3LogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSageMakerPipelineParameterInput)(nil)).Elem(), PipeSageMakerPipelineParameterArgs{})
@@ -9469,8 +8991,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceSqsQueueParametersPtrInput)(nil)).Elem(), PipeSourceSqsQueueParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTagInput)(nil)).Elem(), PipeTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTagArrayInput)(nil)).Elem(), PipeTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeTagMapInput)(nil)).Elem(), PipeTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeTagMapPtrInput)(nil)).Elem(), PipeTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetBatchJobParametersInput)(nil)).Elem(), PipeTargetBatchJobParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetBatchJobParametersPtrInput)(nil)).Elem(), PipeTargetBatchJobParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetCloudWatchLogsParametersInput)(nil)).Elem(), PipeTargetCloudWatchLogsParametersArgs{})
@@ -9505,8 +9025,6 @@ func init() {
 	pulumi.RegisterOutputType(PipeBatchEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(PipeBatchJobDependencyOutput{})
 	pulumi.RegisterOutputType(PipeBatchJobDependencyArrayOutput{})
-	pulumi.RegisterOutputType(PipeBatchParametersMapOutput{})
-	pulumi.RegisterOutputType(PipeBatchParametersMapPtrOutput{})
 	pulumi.RegisterOutputType(PipeBatchResourceRequirementOutput{})
 	pulumi.RegisterOutputType(PipeBatchResourceRequirementArrayOutput{})
 	pulumi.RegisterOutputType(PipeBatchRetryStrategyOutput{})
@@ -9541,8 +9059,6 @@ func init() {
 	pulumi.RegisterOutputType(PipeFilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(PipeFirehoseLogDestinationOutput{})
 	pulumi.RegisterOutputType(PipeFirehoseLogDestinationPtrOutput{})
-	pulumi.RegisterOutputType(PipeHeaderParametersMapOutput{})
-	pulumi.RegisterOutputType(PipeHeaderParametersMapPtrOutput{})
 	pulumi.RegisterOutputType(PipeLogConfigurationOutput{})
 	pulumi.RegisterOutputType(PipeLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PipeMqBrokerAccessCredentialsPropertiesOutput{})
@@ -9557,8 +9073,6 @@ func init() {
 	pulumi.RegisterOutputType(PipePlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(PipePlacementStrategyOutput{})
 	pulumi.RegisterOutputType(PipePlacementStrategyArrayOutput{})
-	pulumi.RegisterOutputType(PipeQueryStringParametersMapOutput{})
-	pulumi.RegisterOutputType(PipeQueryStringParametersMapPtrOutput{})
 	pulumi.RegisterOutputType(PipeS3LogDestinationOutput{})
 	pulumi.RegisterOutputType(PipeS3LogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(PipeSageMakerPipelineParameterOutput{})
@@ -9591,8 +9105,6 @@ func init() {
 	pulumi.RegisterOutputType(PipeSourceSqsQueueParametersPtrOutput{})
 	pulumi.RegisterOutputType(PipeTagOutput{})
 	pulumi.RegisterOutputType(PipeTagArrayOutput{})
-	pulumi.RegisterOutputType(PipeTagMapOutput{})
-	pulumi.RegisterOutputType(PipeTagMapPtrOutput{})
 	pulumi.RegisterOutputType(PipeTargetBatchJobParametersOutput{})
 	pulumi.RegisterOutputType(PipeTargetBatchJobParametersPtrOutput{})
 	pulumi.RegisterOutputType(PipeTargetCloudWatchLogsParametersOutput{})

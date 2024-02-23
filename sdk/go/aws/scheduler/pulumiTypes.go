@@ -467,7 +467,7 @@ type ScheduleEcsParameters struct {
 	// The reference ID to use for the task.
 	ReferenceId *string `pulumi:"referenceId"`
 	// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
-	Tags []ScheduleTagMap `pulumi:"tags"`
+	Tags []map[string]string `pulumi:"tags"`
 	// The number of tasks to create based on TaskDefinition. The default is 1.
 	TaskCount *float64 `pulumi:"taskCount"`
 	// The ARN of the task definition to use if the event target is an Amazon ECS task.
@@ -507,7 +507,7 @@ type ScheduleEcsParametersArgs struct {
 	// The reference ID to use for the task.
 	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
 	// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
-	Tags ScheduleTagMapArrayInput `pulumi:"tags"`
+	Tags pulumi.StringMapArrayInput `pulumi:"tags"`
 	// The number of tasks to create based on TaskDefinition. The default is 1.
 	TaskCount pulumi.Float64PtrInput `pulumi:"taskCount"`
 	// The ARN of the task definition to use if the event target is an Amazon ECS task.
@@ -647,8 +647,8 @@ func (o ScheduleEcsParametersOutput) ReferenceId() pulumi.StringPtrOutput {
 }
 
 // The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
-func (o ScheduleEcsParametersOutput) Tags() ScheduleTagMapArrayOutput {
-	return o.ApplyT(func(v ScheduleEcsParameters) []ScheduleTagMap { return v.Tags }).(ScheduleTagMapArrayOutput)
+func (o ScheduleEcsParametersOutput) Tags() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v ScheduleEcsParameters) []map[string]string { return v.Tags }).(pulumi.StringMapArrayOutput)
 }
 
 // The number of tasks to create based on TaskDefinition. The default is 1.
@@ -793,13 +793,13 @@ func (o ScheduleEcsParametersPtrOutput) ReferenceId() pulumi.StringPtrOutput {
 }
 
 // The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
-func (o ScheduleEcsParametersPtrOutput) Tags() ScheduleTagMapArrayOutput {
-	return o.ApplyT(func(v *ScheduleEcsParameters) []ScheduleTagMap {
+func (o ScheduleEcsParametersPtrOutput) Tags() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *ScheduleEcsParameters) []map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(ScheduleTagMapArrayOutput)
+	}).(pulumi.StringMapArrayOutput)
 }
 
 // The number of tasks to create based on TaskDefinition. The default is 1.
@@ -2131,94 +2131,6 @@ func (o ScheduleSqsParametersPtrOutput) MessageGroupId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-type ScheduleTagMap struct {
-}
-
-// ScheduleTagMapInput is an input type that accepts ScheduleTagMap and ScheduleTagMapOutput values.
-// You can construct a concrete instance of `ScheduleTagMapInput` via:
-//
-//	ScheduleTagMap{ "key": ScheduleTagArgs{...} }
-type ScheduleTagMapInput interface {
-	pulumi.Input
-
-	ToScheduleTagMapOutput() ScheduleTagMapOutput
-	ToScheduleTagMapOutputWithContext(context.Context) ScheduleTagMapOutput
-}
-
-type ScheduleTagMapArgs struct {
-}
-
-func (ScheduleTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleTagMap)(nil)).Elem()
-}
-
-func (i ScheduleTagMapArgs) ToScheduleTagMapOutput() ScheduleTagMapOutput {
-	return i.ToScheduleTagMapOutputWithContext(context.Background())
-}
-
-func (i ScheduleTagMapArgs) ToScheduleTagMapOutputWithContext(ctx context.Context) ScheduleTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTagMapOutput)
-}
-
-// ScheduleTagMapArrayInput is an input type that accepts ScheduleTagMapArray and ScheduleTagMapArrayOutput values.
-// You can construct a concrete instance of `ScheduleTagMapArrayInput` via:
-//
-//	ScheduleTagMapArray{ ScheduleTagMapArgs{...} }
-type ScheduleTagMapArrayInput interface {
-	pulumi.Input
-
-	ToScheduleTagMapArrayOutput() ScheduleTagMapArrayOutput
-	ToScheduleTagMapArrayOutputWithContext(context.Context) ScheduleTagMapArrayOutput
-}
-
-type ScheduleTagMapArray []ScheduleTagMapInput
-
-func (ScheduleTagMapArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleTagMap)(nil)).Elem()
-}
-
-func (i ScheduleTagMapArray) ToScheduleTagMapArrayOutput() ScheduleTagMapArrayOutput {
-	return i.ToScheduleTagMapArrayOutputWithContext(context.Background())
-}
-
-func (i ScheduleTagMapArray) ToScheduleTagMapArrayOutputWithContext(ctx context.Context) ScheduleTagMapArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTagMapArrayOutput)
-}
-
-type ScheduleTagMapOutput struct{ *pulumi.OutputState }
-
-func (ScheduleTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleTagMap)(nil)).Elem()
-}
-
-func (o ScheduleTagMapOutput) ToScheduleTagMapOutput() ScheduleTagMapOutput {
-	return o
-}
-
-func (o ScheduleTagMapOutput) ToScheduleTagMapOutputWithContext(ctx context.Context) ScheduleTagMapOutput {
-	return o
-}
-
-type ScheduleTagMapArrayOutput struct{ *pulumi.OutputState }
-
-func (ScheduleTagMapArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleTagMap)(nil)).Elem()
-}
-
-func (o ScheduleTagMapArrayOutput) ToScheduleTagMapArrayOutput() ScheduleTagMapArrayOutput {
-	return o
-}
-
-func (o ScheduleTagMapArrayOutput) ToScheduleTagMapArrayOutputWithContext(ctx context.Context) ScheduleTagMapArrayOutput {
-	return o
-}
-
-func (o ScheduleTagMapArrayOutput) Index(i pulumi.IntInput) ScheduleTagMapOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleTagMap {
-		return vs[0].([]ScheduleTagMap)[vs[1].(int)]
-	}).(ScheduleTagMapOutput)
-}
-
 // The schedule target.
 type ScheduleTarget struct {
 	// The Amazon Resource Name (ARN) of the target.
@@ -2479,8 +2391,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleSageMakerPipelineParametersPtrInput)(nil)).Elem(), ScheduleSageMakerPipelineParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleSqsParametersInput)(nil)).Elem(), ScheduleSqsParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleSqsParametersPtrInput)(nil)).Elem(), ScheduleSqsParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleTagMapInput)(nil)).Elem(), ScheduleTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleTagMapArrayInput)(nil)).Elem(), ScheduleTagMapArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleTargetInput)(nil)).Elem(), ScheduleTargetArgs{})
 	pulumi.RegisterOutputType(ScheduleAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(ScheduleAwsVpcConfigurationPtrOutput{})
@@ -2510,8 +2420,6 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleSageMakerPipelineParametersPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleSqsParametersOutput{})
 	pulumi.RegisterOutputType(ScheduleSqsParametersPtrOutput{})
-	pulumi.RegisterOutputType(ScheduleTagMapOutput{})
-	pulumi.RegisterOutputType(ScheduleTagMapArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleTargetOutput{})
 	pulumi.RegisterOutputType(ScheduleTargetPtrOutput{})
 }

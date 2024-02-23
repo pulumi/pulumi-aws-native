@@ -54,7 +54,7 @@ export class Robot extends pulumi.CustomResource {
      * The name for the robot.
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.robomaker.RobotTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Robot resource with the given unique name, arguments, and options.
@@ -114,5 +114,5 @@ export interface RobotArgs {
      * The name for the robot.
      */
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.robomaker.RobotTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

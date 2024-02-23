@@ -67,7 +67,7 @@ export class StreamingImage extends pulumi.CustomResource {
      * <p>The studioId. </p>
      */
     public readonly studioId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.nimblestudio.StreamingImageTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a StreamingImage resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ export class StreamingImage extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["ec2ImageId", "studioId", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["ec2ImageId", "studioId", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StreamingImage.__pulumiType, name, resourceInputs, opts);
     }
@@ -135,5 +135,5 @@ export interface StreamingImageArgs {
      * <p>The studioId. </p>
      */
     studioId: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.nimblestudio.StreamingImageTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

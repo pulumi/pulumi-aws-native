@@ -53,7 +53,7 @@ class GetRestoreTestingSelectionResult:
 
     @property
     @pulumi.getter(name="restoreMetadataOverrides")
-    def restore_metadata_overrides(self) -> Optional['outputs.RestoreTestingSelectionSensitiveStringMap']:
+    def restore_metadata_overrides(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "restore_metadata_overrides")
 
     @property

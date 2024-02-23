@@ -29,8 +29,8 @@ type Studio struct {
 	// <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
 	StudioName pulumi.StringOutput `pulumi:"studioName"`
 	// <p>The address of the web page for the studio.</p>
-	StudioUrl pulumi.StringOutput `pulumi:"studioUrl"`
-	Tags      StudioTagsPtrOutput `pulumi:"tags"`
+	StudioUrl pulumi.StringOutput    `pulumi:"studioUrl"`
+	Tags      pulumi.StringMapOutput `pulumi:"tags"`
 	// <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
 	UserRoleArn pulumi.StringOutput `pulumi:"userRoleArn"`
 }
@@ -53,7 +53,7 @@ func NewStudio(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"studioName",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -95,8 +95,8 @@ type studioArgs struct {
 	DisplayName                   string                         `pulumi:"displayName"`
 	StudioEncryptionConfiguration *StudioEncryptionConfiguration `pulumi:"studioEncryptionConfiguration"`
 	// <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
-	StudioName *string     `pulumi:"studioName"`
-	Tags       *StudioTags `pulumi:"tags"`
+	StudioName *string           `pulumi:"studioName"`
+	Tags       map[string]string `pulumi:"tags"`
 	// <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
 	UserRoleArn string `pulumi:"userRoleArn"`
 }
@@ -110,7 +110,7 @@ type StudioArgs struct {
 	StudioEncryptionConfiguration StudioEncryptionConfigurationPtrInput
 	// <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
 	StudioName pulumi.StringPtrInput
-	Tags       StudioTagsPtrInput
+	Tags       pulumi.StringMapInput
 	// <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
 	UserRoleArn pulumi.StringInput
 }
@@ -190,8 +190,8 @@ func (o StudioOutput) StudioUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.StudioUrl }).(pulumi.StringOutput)
 }
 
-func (o StudioOutput) Tags() StudioTagsPtrOutput {
-	return o.ApplyT(func(v *Studio) StudioTagsPtrOutput { return v.Tags }).(StudioTagsPtrOutput)
+func (o StudioOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>

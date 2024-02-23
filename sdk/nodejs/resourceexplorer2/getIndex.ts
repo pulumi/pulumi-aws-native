@@ -25,7 +25,7 @@ export interface GetIndexArgs {
 export interface GetIndexResult {
     readonly arn?: string;
     readonly indexState?: enums.resourceexplorer2.IndexState;
-    readonly tags?: outputs.resourceexplorer2.IndexTagMap;
+    readonly tags?: {[key: string]: string};
     readonly type?: enums.resourceexplorer2.IndexType;
 }
 /**

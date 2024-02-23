@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.WaFv2
         public Output<ImmutableArray<Outputs.RuleGroupLabelSummary>> ConsumedLabels { get; private set; } = null!;
 
         [Output("customResponseBodies")]
-        public Output<Outputs.RuleGroupCustomResponseBodies?> CustomResponseBodies { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.RuleGroupCustomResponseBody>?> CustomResponseBodies { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -138,7 +138,12 @@ namespace Pulumi.AwsNative.WaFv2
         }
 
         [Input("customResponseBodies")]
-        public Input<Inputs.RuleGroupCustomResponseBodiesArgs>? CustomResponseBodies { get; set; }
+        private InputMap<Inputs.RuleGroupCustomResponseBodyArgs>? _customResponseBodies;
+        public InputMap<Inputs.RuleGroupCustomResponseBodyArgs> CustomResponseBodies
+        {
+            get => _customResponseBodies ?? (_customResponseBodies = new InputMap<Inputs.RuleGroupCustomResponseBodyArgs>());
+            set => _customResponseBodies = value;
+        }
 
         [Input("description")]
         public Input<string>? Description { get; set; }

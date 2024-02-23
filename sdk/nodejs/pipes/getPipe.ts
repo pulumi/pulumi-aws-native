@@ -34,7 +34,7 @@ export interface GetPipeResult {
     readonly logConfiguration?: outputs.pipes.PipeLogConfiguration;
     readonly roleArn?: string;
     readonly stateReason?: string;
-    readonly tags?: outputs.pipes.PipeTagMap;
+    readonly tags?: {[key: string]: string};
     readonly target?: string;
 }
 /**

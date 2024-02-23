@@ -11,17 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'IndexTagMapArgs',
     'ViewIncludedPropertyArgs',
     'ViewSearchFilterArgs',
-    'ViewTagMapArgs',
 ]
-
-@pulumi.input_type
-class IndexTagMapArgs:
-    def __init__(__self__):
-        pass
-
 
 @pulumi.input_type
 class ViewIncludedPropertyArgs:
@@ -53,11 +45,5 @@ class ViewSearchFilterArgs:
     @filter_string.setter
     def filter_string(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_string", value)
-
-
-@pulumi.input_type
-class ViewTagMapArgs:
-    def __init__(__self__):
-        pass
 
 

@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobStatisticOverride
     {
-        public readonly Outputs.JobParameterMap Parameters;
+        public readonly ImmutableDictionary<string, string> Parameters;
         public readonly string Statistic;
 
         [OutputConstructor]
         private JobStatisticOverride(
-            Outputs.JobParameterMap parameters,
+            ImmutableDictionary<string, string> parameters,
 
             string statistic)
         {

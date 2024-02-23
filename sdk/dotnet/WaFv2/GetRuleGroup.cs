@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.WaFv2
         /// Collection of Consumed Labels.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupLabelSummary> ConsumedLabels;
-        public readonly Outputs.RuleGroupCustomResponseBodies? CustomResponseBodies;
+        public readonly ImmutableDictionary<string, Outputs.RuleGroupCustomResponseBody>? CustomResponseBodies;
         public readonly string? Description;
         public readonly string? Id;
         public readonly string? LabelNamespace;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.WaFv2
 
             ImmutableArray<Outputs.RuleGroupLabelSummary> consumedLabels,
 
-            Outputs.RuleGroupCustomResponseBodies? customResponseBodies,
+            ImmutableDictionary<string, Outputs.RuleGroupCustomResponseBody>? customResponseBodies,
 
             string? description,
 

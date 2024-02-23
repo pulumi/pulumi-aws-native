@@ -16,9 +16,9 @@ import (
 type DirectoryRegistration struct {
 	pulumi.CustomResourceState
 
-	DirectoryId              pulumi.StringOutput                `pulumi:"directoryId"`
-	DirectoryRegistrationArn pulumi.StringOutput                `pulumi:"directoryRegistrationArn"`
-	Tags                     DirectoryRegistrationTagsPtrOutput `pulumi:"tags"`
+	DirectoryId              pulumi.StringOutput    `pulumi:"directoryId"`
+	DirectoryRegistrationArn pulumi.StringOutput    `pulumi:"directoryRegistrationArn"`
+	Tags                     pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewDirectoryRegistration registers a new resource with the given unique name, arguments, and options.
@@ -68,14 +68,14 @@ func (DirectoryRegistrationState) ElementType() reflect.Type {
 }
 
 type directoryRegistrationArgs struct {
-	DirectoryId string                     `pulumi:"directoryId"`
-	Tags        *DirectoryRegistrationTags `pulumi:"tags"`
+	DirectoryId string            `pulumi:"directoryId"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DirectoryRegistration resource.
 type DirectoryRegistrationArgs struct {
 	DirectoryId pulumi.StringInput
-	Tags        DirectoryRegistrationTagsPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (DirectoryRegistrationArgs) ElementType() reflect.Type {
@@ -123,8 +123,8 @@ func (o DirectoryRegistrationOutput) DirectoryRegistrationArn() pulumi.StringOut
 	return o.ApplyT(func(v *DirectoryRegistration) pulumi.StringOutput { return v.DirectoryRegistrationArn }).(pulumi.StringOutput)
 }
 
-func (o DirectoryRegistrationOutput) Tags() DirectoryRegistrationTagsPtrOutput {
-	return o.ApplyT(func(v *DirectoryRegistration) DirectoryRegistrationTagsPtrOutput { return v.Tags }).(DirectoryRegistrationTagsPtrOutput)
+func (o DirectoryRegistrationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DirectoryRegistration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

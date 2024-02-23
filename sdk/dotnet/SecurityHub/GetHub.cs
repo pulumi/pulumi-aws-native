@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.SecurityHub
         /// The date and time when Security Hub was enabled in the account.
         /// </summary>
         public readonly string? SubscribedAt;
-        public readonly Outputs.HubTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetHubResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.SecurityHub
 
             string? subscribedAt,
 
-            Outputs.HubTags? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             AutoEnableControls = autoEnableControls;

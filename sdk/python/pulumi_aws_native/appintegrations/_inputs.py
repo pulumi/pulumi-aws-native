@@ -11,7 +11,6 @@ from .. import _utilities
 
 __all__ = [
     'DataIntegrationFileConfigurationArgs',
-    'DataIntegrationObjectConfigurationArgs',
     'DataIntegrationScheduleConfigArgs',
     'EventIntegrationEventFilterArgs',
 ]
@@ -53,15 +52,6 @@ class DataIntegrationFileConfigurationArgs:
     @filters.setter
     def filters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
         pulumi.set(self, "filters", value)
-
-
-@pulumi.input_type
-class DataIntegrationObjectConfigurationArgs:
-    def __init__(__self__):
-        """
-        The configuration for what data should be pulled from the source.
-        """
-        pass
 
 
 @pulumi.input_type

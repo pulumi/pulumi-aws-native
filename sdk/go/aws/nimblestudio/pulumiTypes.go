@@ -846,124 +846,6 @@ func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Windows() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-type LaunchProfileTags struct {
-}
-
-// LaunchProfileTagsInput is an input type that accepts LaunchProfileTagsArgs and LaunchProfileTagsOutput values.
-// You can construct a concrete instance of `LaunchProfileTagsInput` via:
-//
-//	LaunchProfileTagsArgs{...}
-type LaunchProfileTagsInput interface {
-	pulumi.Input
-
-	ToLaunchProfileTagsOutput() LaunchProfileTagsOutput
-	ToLaunchProfileTagsOutputWithContext(context.Context) LaunchProfileTagsOutput
-}
-
-type LaunchProfileTagsArgs struct {
-}
-
-func (LaunchProfileTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchProfileTags)(nil)).Elem()
-}
-
-func (i LaunchProfileTagsArgs) ToLaunchProfileTagsOutput() LaunchProfileTagsOutput {
-	return i.ToLaunchProfileTagsOutputWithContext(context.Background())
-}
-
-func (i LaunchProfileTagsArgs) ToLaunchProfileTagsOutputWithContext(ctx context.Context) LaunchProfileTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileTagsOutput)
-}
-
-func (i LaunchProfileTagsArgs) ToLaunchProfileTagsPtrOutput() LaunchProfileTagsPtrOutput {
-	return i.ToLaunchProfileTagsPtrOutputWithContext(context.Background())
-}
-
-func (i LaunchProfileTagsArgs) ToLaunchProfileTagsPtrOutputWithContext(ctx context.Context) LaunchProfileTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileTagsOutput).ToLaunchProfileTagsPtrOutputWithContext(ctx)
-}
-
-// LaunchProfileTagsPtrInput is an input type that accepts LaunchProfileTagsArgs, LaunchProfileTagsPtr and LaunchProfileTagsPtrOutput values.
-// You can construct a concrete instance of `LaunchProfileTagsPtrInput` via:
-//
-//	        LaunchProfileTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type LaunchProfileTagsPtrInput interface {
-	pulumi.Input
-
-	ToLaunchProfileTagsPtrOutput() LaunchProfileTagsPtrOutput
-	ToLaunchProfileTagsPtrOutputWithContext(context.Context) LaunchProfileTagsPtrOutput
-}
-
-type launchProfileTagsPtrType LaunchProfileTagsArgs
-
-func LaunchProfileTagsPtr(v *LaunchProfileTagsArgs) LaunchProfileTagsPtrInput {
-	return (*launchProfileTagsPtrType)(v)
-}
-
-func (*launchProfileTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LaunchProfileTags)(nil)).Elem()
-}
-
-func (i *launchProfileTagsPtrType) ToLaunchProfileTagsPtrOutput() LaunchProfileTagsPtrOutput {
-	return i.ToLaunchProfileTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *launchProfileTagsPtrType) ToLaunchProfileTagsPtrOutputWithContext(ctx context.Context) LaunchProfileTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileTagsPtrOutput)
-}
-
-type LaunchProfileTagsOutput struct{ *pulumi.OutputState }
-
-func (LaunchProfileTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchProfileTags)(nil)).Elem()
-}
-
-func (o LaunchProfileTagsOutput) ToLaunchProfileTagsOutput() LaunchProfileTagsOutput {
-	return o
-}
-
-func (o LaunchProfileTagsOutput) ToLaunchProfileTagsOutputWithContext(ctx context.Context) LaunchProfileTagsOutput {
-	return o
-}
-
-func (o LaunchProfileTagsOutput) ToLaunchProfileTagsPtrOutput() LaunchProfileTagsPtrOutput {
-	return o.ToLaunchProfileTagsPtrOutputWithContext(context.Background())
-}
-
-func (o LaunchProfileTagsOutput) ToLaunchProfileTagsPtrOutputWithContext(ctx context.Context) LaunchProfileTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileTags) *LaunchProfileTags {
-		return &v
-	}).(LaunchProfileTagsPtrOutput)
-}
-
-type LaunchProfileTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (LaunchProfileTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LaunchProfileTags)(nil)).Elem()
-}
-
-func (o LaunchProfileTagsPtrOutput) ToLaunchProfileTagsPtrOutput() LaunchProfileTagsPtrOutput {
-	return o
-}
-
-func (o LaunchProfileTagsPtrOutput) ToLaunchProfileTagsPtrOutputWithContext(ctx context.Context) LaunchProfileTagsPtrOutput {
-	return o
-}
-
-func (o LaunchProfileTagsPtrOutput) Elem() LaunchProfileTagsOutput {
-	return o.ApplyT(func(v *LaunchProfileTags) LaunchProfileTags {
-		if v != nil {
-			return *v
-		}
-		var ret LaunchProfileTags
-		return ret
-	}).(LaunchProfileTagsOutput)
-}
-
 // <p>Custom volume configuration for the root volumes that are attached to streaming
 //
 //	   sessions.</p>
@@ -1246,124 +1128,6 @@ func (o StreamingImageEncryptionConfigurationPtrOutput) KeyType() StreamingImage
 		}
 		return &v.KeyType
 	}).(StreamingImageEncryptionConfigurationKeyTypePtrOutput)
-}
-
-type StreamingImageTags struct {
-}
-
-// StreamingImageTagsInput is an input type that accepts StreamingImageTagsArgs and StreamingImageTagsOutput values.
-// You can construct a concrete instance of `StreamingImageTagsInput` via:
-//
-//	StreamingImageTagsArgs{...}
-type StreamingImageTagsInput interface {
-	pulumi.Input
-
-	ToStreamingImageTagsOutput() StreamingImageTagsOutput
-	ToStreamingImageTagsOutputWithContext(context.Context) StreamingImageTagsOutput
-}
-
-type StreamingImageTagsArgs struct {
-}
-
-func (StreamingImageTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingImageTags)(nil)).Elem()
-}
-
-func (i StreamingImageTagsArgs) ToStreamingImageTagsOutput() StreamingImageTagsOutput {
-	return i.ToStreamingImageTagsOutputWithContext(context.Background())
-}
-
-func (i StreamingImageTagsArgs) ToStreamingImageTagsOutputWithContext(ctx context.Context) StreamingImageTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageTagsOutput)
-}
-
-func (i StreamingImageTagsArgs) ToStreamingImageTagsPtrOutput() StreamingImageTagsPtrOutput {
-	return i.ToStreamingImageTagsPtrOutputWithContext(context.Background())
-}
-
-func (i StreamingImageTagsArgs) ToStreamingImageTagsPtrOutputWithContext(ctx context.Context) StreamingImageTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageTagsOutput).ToStreamingImageTagsPtrOutputWithContext(ctx)
-}
-
-// StreamingImageTagsPtrInput is an input type that accepts StreamingImageTagsArgs, StreamingImageTagsPtr and StreamingImageTagsPtrOutput values.
-// You can construct a concrete instance of `StreamingImageTagsPtrInput` via:
-//
-//	        StreamingImageTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type StreamingImageTagsPtrInput interface {
-	pulumi.Input
-
-	ToStreamingImageTagsPtrOutput() StreamingImageTagsPtrOutput
-	ToStreamingImageTagsPtrOutputWithContext(context.Context) StreamingImageTagsPtrOutput
-}
-
-type streamingImageTagsPtrType StreamingImageTagsArgs
-
-func StreamingImageTagsPtr(v *StreamingImageTagsArgs) StreamingImageTagsPtrInput {
-	return (*streamingImageTagsPtrType)(v)
-}
-
-func (*streamingImageTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingImageTags)(nil)).Elem()
-}
-
-func (i *streamingImageTagsPtrType) ToStreamingImageTagsPtrOutput() StreamingImageTagsPtrOutput {
-	return i.ToStreamingImageTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *streamingImageTagsPtrType) ToStreamingImageTagsPtrOutputWithContext(ctx context.Context) StreamingImageTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageTagsPtrOutput)
-}
-
-type StreamingImageTagsOutput struct{ *pulumi.OutputState }
-
-func (StreamingImageTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingImageTags)(nil)).Elem()
-}
-
-func (o StreamingImageTagsOutput) ToStreamingImageTagsOutput() StreamingImageTagsOutput {
-	return o
-}
-
-func (o StreamingImageTagsOutput) ToStreamingImageTagsOutputWithContext(ctx context.Context) StreamingImageTagsOutput {
-	return o
-}
-
-func (o StreamingImageTagsOutput) ToStreamingImageTagsPtrOutput() StreamingImageTagsPtrOutput {
-	return o.ToStreamingImageTagsPtrOutputWithContext(context.Background())
-}
-
-func (o StreamingImageTagsOutput) ToStreamingImageTagsPtrOutputWithContext(ctx context.Context) StreamingImageTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingImageTags) *StreamingImageTags {
-		return &v
-	}).(StreamingImageTagsPtrOutput)
-}
-
-type StreamingImageTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamingImageTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingImageTags)(nil)).Elem()
-}
-
-func (o StreamingImageTagsPtrOutput) ToStreamingImageTagsPtrOutput() StreamingImageTagsPtrOutput {
-	return o
-}
-
-func (o StreamingImageTagsPtrOutput) ToStreamingImageTagsPtrOutputWithContext(ctx context.Context) StreamingImageTagsPtrOutput {
-	return o
-}
-
-func (o StreamingImageTagsPtrOutput) Elem() StreamingImageTagsOutput {
-	return o.ApplyT(func(v *StreamingImageTags) StreamingImageTags {
-		if v != nil {
-			return *v
-		}
-		var ret StreamingImageTags
-		return ret
-	}).(StreamingImageTagsOutput)
 }
 
 // <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
@@ -3020,124 +2784,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) WindowsMountDrive
 	}).(pulumi.StringPtrOutput)
 }
 
-type StudioComponentTags struct {
-}
-
-// StudioComponentTagsInput is an input type that accepts StudioComponentTagsArgs and StudioComponentTagsOutput values.
-// You can construct a concrete instance of `StudioComponentTagsInput` via:
-//
-//	StudioComponentTagsArgs{...}
-type StudioComponentTagsInput interface {
-	pulumi.Input
-
-	ToStudioComponentTagsOutput() StudioComponentTagsOutput
-	ToStudioComponentTagsOutputWithContext(context.Context) StudioComponentTagsOutput
-}
-
-type StudioComponentTagsArgs struct {
-}
-
-func (StudioComponentTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentTags)(nil)).Elem()
-}
-
-func (i StudioComponentTagsArgs) ToStudioComponentTagsOutput() StudioComponentTagsOutput {
-	return i.ToStudioComponentTagsOutputWithContext(context.Background())
-}
-
-func (i StudioComponentTagsArgs) ToStudioComponentTagsOutputWithContext(ctx context.Context) StudioComponentTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentTagsOutput)
-}
-
-func (i StudioComponentTagsArgs) ToStudioComponentTagsPtrOutput() StudioComponentTagsPtrOutput {
-	return i.ToStudioComponentTagsPtrOutputWithContext(context.Background())
-}
-
-func (i StudioComponentTagsArgs) ToStudioComponentTagsPtrOutputWithContext(ctx context.Context) StudioComponentTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentTagsOutput).ToStudioComponentTagsPtrOutputWithContext(ctx)
-}
-
-// StudioComponentTagsPtrInput is an input type that accepts StudioComponentTagsArgs, StudioComponentTagsPtr and StudioComponentTagsPtrOutput values.
-// You can construct a concrete instance of `StudioComponentTagsPtrInput` via:
-//
-//	        StudioComponentTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type StudioComponentTagsPtrInput interface {
-	pulumi.Input
-
-	ToStudioComponentTagsPtrOutput() StudioComponentTagsPtrOutput
-	ToStudioComponentTagsPtrOutputWithContext(context.Context) StudioComponentTagsPtrOutput
-}
-
-type studioComponentTagsPtrType StudioComponentTagsArgs
-
-func StudioComponentTagsPtr(v *StudioComponentTagsArgs) StudioComponentTagsPtrInput {
-	return (*studioComponentTagsPtrType)(v)
-}
-
-func (*studioComponentTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentTags)(nil)).Elem()
-}
-
-func (i *studioComponentTagsPtrType) ToStudioComponentTagsPtrOutput() StudioComponentTagsPtrOutput {
-	return i.ToStudioComponentTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *studioComponentTagsPtrType) ToStudioComponentTagsPtrOutputWithContext(ctx context.Context) StudioComponentTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentTagsPtrOutput)
-}
-
-type StudioComponentTagsOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentTags)(nil)).Elem()
-}
-
-func (o StudioComponentTagsOutput) ToStudioComponentTagsOutput() StudioComponentTagsOutput {
-	return o
-}
-
-func (o StudioComponentTagsOutput) ToStudioComponentTagsOutputWithContext(ctx context.Context) StudioComponentTagsOutput {
-	return o
-}
-
-func (o StudioComponentTagsOutput) ToStudioComponentTagsPtrOutput() StudioComponentTagsPtrOutput {
-	return o.ToStudioComponentTagsPtrOutputWithContext(context.Background())
-}
-
-func (o StudioComponentTagsOutput) ToStudioComponentTagsPtrOutputWithContext(ctx context.Context) StudioComponentTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentTags) *StudioComponentTags {
-		return &v
-	}).(StudioComponentTagsPtrOutput)
-}
-
-type StudioComponentTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentTags)(nil)).Elem()
-}
-
-func (o StudioComponentTagsPtrOutput) ToStudioComponentTagsPtrOutput() StudioComponentTagsPtrOutput {
-	return o
-}
-
-func (o StudioComponentTagsPtrOutput) ToStudioComponentTagsPtrOutputWithContext(ctx context.Context) StudioComponentTagsPtrOutput {
-	return o
-}
-
-func (o StudioComponentTagsPtrOutput) Elem() StudioComponentTagsOutput {
-	return o.ApplyT(func(v *StudioComponentTags) StudioComponentTags {
-		if v != nil {
-			return *v
-		}
-		var ret StudioComponentTags
-		return ret
-	}).(StudioComponentTagsOutput)
-}
-
 // <p>Configuration of the encryption method that is used for the studio.</p>
 type StudioEncryptionConfiguration struct {
 	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
@@ -3293,124 +2939,6 @@ func (o StudioEncryptionConfigurationPtrOutput) KeyType() StudioEncryptionConfig
 	}).(StudioEncryptionConfigurationKeyTypePtrOutput)
 }
 
-type StudioTags struct {
-}
-
-// StudioTagsInput is an input type that accepts StudioTagsArgs and StudioTagsOutput values.
-// You can construct a concrete instance of `StudioTagsInput` via:
-//
-//	StudioTagsArgs{...}
-type StudioTagsInput interface {
-	pulumi.Input
-
-	ToStudioTagsOutput() StudioTagsOutput
-	ToStudioTagsOutputWithContext(context.Context) StudioTagsOutput
-}
-
-type StudioTagsArgs struct {
-}
-
-func (StudioTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioTags)(nil)).Elem()
-}
-
-func (i StudioTagsArgs) ToStudioTagsOutput() StudioTagsOutput {
-	return i.ToStudioTagsOutputWithContext(context.Background())
-}
-
-func (i StudioTagsArgs) ToStudioTagsOutputWithContext(ctx context.Context) StudioTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioTagsOutput)
-}
-
-func (i StudioTagsArgs) ToStudioTagsPtrOutput() StudioTagsPtrOutput {
-	return i.ToStudioTagsPtrOutputWithContext(context.Background())
-}
-
-func (i StudioTagsArgs) ToStudioTagsPtrOutputWithContext(ctx context.Context) StudioTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioTagsOutput).ToStudioTagsPtrOutputWithContext(ctx)
-}
-
-// StudioTagsPtrInput is an input type that accepts StudioTagsArgs, StudioTagsPtr and StudioTagsPtrOutput values.
-// You can construct a concrete instance of `StudioTagsPtrInput` via:
-//
-//	        StudioTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type StudioTagsPtrInput interface {
-	pulumi.Input
-
-	ToStudioTagsPtrOutput() StudioTagsPtrOutput
-	ToStudioTagsPtrOutputWithContext(context.Context) StudioTagsPtrOutput
-}
-
-type studioTagsPtrType StudioTagsArgs
-
-func StudioTagsPtr(v *StudioTagsArgs) StudioTagsPtrInput {
-	return (*studioTagsPtrType)(v)
-}
-
-func (*studioTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioTags)(nil)).Elem()
-}
-
-func (i *studioTagsPtrType) ToStudioTagsPtrOutput() StudioTagsPtrOutput {
-	return i.ToStudioTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *studioTagsPtrType) ToStudioTagsPtrOutputWithContext(ctx context.Context) StudioTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioTagsPtrOutput)
-}
-
-type StudioTagsOutput struct{ *pulumi.OutputState }
-
-func (StudioTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioTags)(nil)).Elem()
-}
-
-func (o StudioTagsOutput) ToStudioTagsOutput() StudioTagsOutput {
-	return o
-}
-
-func (o StudioTagsOutput) ToStudioTagsOutputWithContext(ctx context.Context) StudioTagsOutput {
-	return o
-}
-
-func (o StudioTagsOutput) ToStudioTagsPtrOutput() StudioTagsPtrOutput {
-	return o.ToStudioTagsPtrOutputWithContext(context.Background())
-}
-
-func (o StudioTagsOutput) ToStudioTagsPtrOutputWithContext(ctx context.Context) StudioTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioTags) *StudioTags {
-		return &v
-	}).(StudioTagsPtrOutput)
-}
-
-type StudioTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (StudioTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioTags)(nil)).Elem()
-}
-
-func (o StudioTagsPtrOutput) ToStudioTagsPtrOutput() StudioTagsPtrOutput {
-	return o
-}
-
-func (o StudioTagsPtrOutput) ToStudioTagsPtrOutputWithContext(ctx context.Context) StudioTagsPtrOutput {
-	return o
-}
-
-func (o StudioTagsPtrOutput) Elem() StudioTagsOutput {
-	return o.ApplyT(func(v *StudioTags) StudioTags {
-		if v != nil {
-			return *v
-		}
-		var ret StudioTags
-		return ret
-	}).(StudioTagsOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamConfigurationInput)(nil)).Elem(), LaunchProfileStreamConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamConfigurationSessionBackupInput)(nil)).Elem(), LaunchProfileStreamConfigurationSessionBackupArgs{})
@@ -3419,12 +2947,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamConfigurationSessionStoragePtrInput)(nil)).Elem(), LaunchProfileStreamConfigurationSessionStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageRootInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageRootArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageRootPtrInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageRootArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileTagsInput)(nil)).Elem(), LaunchProfileTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileTagsPtrInput)(nil)).Elem(), LaunchProfileTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileVolumeConfigurationInput)(nil)).Elem(), LaunchProfileVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileVolumeConfigurationPtrInput)(nil)).Elem(), LaunchProfileVolumeConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageTagsInput)(nil)).Elem(), StreamingImageTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageTagsPtrInput)(nil)).Elem(), StreamingImageTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentActiveDirectoryComputerAttributeInput)(nil)).Elem(), StudioComponentActiveDirectoryComputerAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentActiveDirectoryComputerAttributeArrayInput)(nil)).Elem(), StudioComponentActiveDirectoryComputerAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentActiveDirectoryConfigurationInput)(nil)).Elem(), StudioComponentActiveDirectoryConfigurationArgs{})
@@ -3447,12 +2971,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentScriptParameterKeyValueArrayInput)(nil)).Elem(), StudioComponentScriptParameterKeyValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentSharedFileSystemConfigurationInput)(nil)).Elem(), StudioComponentSharedFileSystemConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentSharedFileSystemConfigurationPtrInput)(nil)).Elem(), StudioComponentSharedFileSystemConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentTagsInput)(nil)).Elem(), StudioComponentTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentTagsPtrInput)(nil)).Elem(), StudioComponentTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioEncryptionConfigurationInput)(nil)).Elem(), StudioEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioEncryptionConfigurationPtrInput)(nil)).Elem(), StudioEncryptionConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioTagsInput)(nil)).Elem(), StudioTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioTagsPtrInput)(nil)).Elem(), StudioTagsArgs{})
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationSessionBackupOutput{})
@@ -3461,14 +2981,10 @@ func init() {
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationSessionStoragePtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingSessionStorageRootOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingSessionStorageRootPtrOutput{})
-	pulumi.RegisterOutputType(LaunchProfileTagsOutput{})
-	pulumi.RegisterOutputType(LaunchProfileTagsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(LaunchProfileVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(StreamingImageTagsOutput{})
-	pulumi.RegisterOutputType(StreamingImageTagsPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryComputerAttributeOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryComputerAttributeArrayOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryConfigurationOutput{})
@@ -3491,10 +3007,6 @@ func init() {
 	pulumi.RegisterOutputType(StudioComponentScriptParameterKeyValueArrayOutput{})
 	pulumi.RegisterOutputType(StudioComponentSharedFileSystemConfigurationOutput{})
 	pulumi.RegisterOutputType(StudioComponentSharedFileSystemConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(StudioComponentTagsOutput{})
-	pulumi.RegisterOutputType(StudioComponentTagsPtrOutput{})
 	pulumi.RegisterOutputType(StudioEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(StudioEncryptionConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(StudioTagsOutput{})
-	pulumi.RegisterOutputType(StudioTagsPtrOutput{})
 }

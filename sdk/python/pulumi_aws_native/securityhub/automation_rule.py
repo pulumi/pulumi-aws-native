@@ -24,7 +24,7 @@ class AutomationRuleArgs:
                  rule_name: Optional[pulumi.Input[str]] = None,
                  rule_order: Optional[pulumi.Input[int]] = None,
                  rule_status: Optional[pulumi.Input['AutomationRuleRuleStatus']] = None,
-                 tags: Optional[pulumi.Input['AutomationRuleTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
         :param pulumi.Input['AutomationRulesFindingFiltersArgs'] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
@@ -118,11 +118,11 @@ class AutomationRuleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['AutomationRuleTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['AutomationRuleTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -138,7 +138,7 @@ class AutomationRule(pulumi.CustomResource):
                  rule_name: Optional[pulumi.Input[str]] = None,
                  rule_order: Optional[pulumi.Input[int]] = None,
                  rule_status: Optional[pulumi.Input['AutomationRuleRuleStatus']] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
@@ -179,7 +179,7 @@ class AutomationRule(pulumi.CustomResource):
                  rule_name: Optional[pulumi.Input[str]] = None,
                  rule_order: Optional[pulumi.Input[int]] = None,
                  rule_status: Optional[pulumi.Input['AutomationRuleRuleStatus']] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -295,7 +295,7 @@ class AutomationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.AutomationRuleTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

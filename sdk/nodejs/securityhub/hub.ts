@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +54,7 @@ export class Hub extends pulumi.CustomResource {
      * The date and time when Security Hub was enabled in the account.
      */
     public /*out*/ readonly subscribedAt!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.securityhub.HubTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Hub resource with the given unique name, arguments, and options.
@@ -105,5 +102,5 @@ export interface HubArgs {
      * Whether to enable the security standards that Security Hub has designated as automatically enabled.
      */
     enableDefaultStandards?: pulumi.Input<boolean>;
-    tags?: pulumi.Input<inputs.securityhub.HubTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

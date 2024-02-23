@@ -66,7 +66,7 @@ export class LaunchProfile extends pulumi.CustomResource {
      * <p>The studio ID. </p>
      */
     public readonly studioId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.nimblestudio.LaunchProfileTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LaunchProfile resource with the given unique name, arguments, and options.
@@ -115,7 +115,7 @@ export class LaunchProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["ec2SubnetIds[*]", "studioId", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["ec2SubnetIds[*]", "studioId", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LaunchProfile.__pulumiType, name, resourceInputs, opts);
     }
@@ -153,5 +153,5 @@ export interface LaunchProfileArgs {
      * <p>The studio ID. </p>
      */
     studioId: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.nimblestudio.LaunchProfileTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

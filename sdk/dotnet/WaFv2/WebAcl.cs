@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.WaFv2
         public Output<Outputs.WebAclChallengeConfig?> ChallengeConfig { get; private set; } = null!;
 
         [Output("customResponseBodies")]
-        public Output<Outputs.WebAclCustomResponseBodies?> CustomResponseBodies { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.WebAclCustomResponseBody>?> CustomResponseBodies { get; private set; } = null!;
 
         [Output("defaultAction")]
         public Output<Outputs.WebAclDefaultAction> DefaultAction { get; private set; } = null!;
@@ -123,7 +123,12 @@ namespace Pulumi.AwsNative.WaFv2
         public Input<Inputs.WebAclChallengeConfigArgs>? ChallengeConfig { get; set; }
 
         [Input("customResponseBodies")]
-        public Input<Inputs.WebAclCustomResponseBodiesArgs>? CustomResponseBodies { get; set; }
+        private InputMap<Inputs.WebAclCustomResponseBodyArgs>? _customResponseBodies;
+        public InputMap<Inputs.WebAclCustomResponseBodyArgs> CustomResponseBodies
+        {
+            get => _customResponseBodies ?? (_customResponseBodies = new InputMap<Inputs.WebAclCustomResponseBodyArgs>());
+            set => _customResponseBodies = value;
+        }
 
         [Input("defaultAction", required: true)]
         public Input<Inputs.WebAclDefaultActionArgs> DefaultAction { get; set; } = null!;

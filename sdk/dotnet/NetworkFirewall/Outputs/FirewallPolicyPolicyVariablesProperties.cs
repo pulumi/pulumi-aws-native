@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyPolicyVariablesProperties
     {
-        public readonly Outputs.FirewallPolicyRuleVariables? RuleVariables;
+        public readonly ImmutableDictionary<string, Outputs.FirewallPolicyIpSet>? RuleVariables;
 
         [OutputConstructor]
-        private FirewallPolicyPolicyVariablesProperties(Outputs.FirewallPolicyRuleVariables? ruleVariables)
+        private FirewallPolicyPolicyVariablesProperties(ImmutableDictionary<string, Outputs.FirewallPolicyIpSet>? ruleVariables)
         {
             RuleVariables = ruleVariables;
         }

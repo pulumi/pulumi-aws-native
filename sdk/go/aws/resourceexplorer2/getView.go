@@ -29,7 +29,7 @@ type LookupViewArgs struct {
 type LookupViewResult struct {
 	Filters            *ViewSearchFilter      `pulumi:"filters"`
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
-	Tags               *ViewTagMap            `pulumi:"tags"`
+	Tags               map[string]string      `pulumi:"tags"`
 	ViewArn            *string                `pulumi:"viewArn"`
 }
 
@@ -76,8 +76,8 @@ func (o LookupViewResultOutput) IncludedProperties() ViewIncludedPropertyArrayOu
 	return o.ApplyT(func(v LookupViewResult) []ViewIncludedProperty { return v.IncludedProperties }).(ViewIncludedPropertyArrayOutput)
 }
 
-func (o LookupViewResultOutput) Tags() ViewTagMapPtrOutput {
-	return o.ApplyT(func(v LookupViewResult) *ViewTagMap { return v.Tags }).(ViewTagMapPtrOutput)
+func (o LookupViewResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupViewResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupViewResultOutput) ViewArn() pulumi.StringPtrOutput {

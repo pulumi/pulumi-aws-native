@@ -16,7 +16,7 @@ import (
 type ExperimentTemplate struct {
 	pulumi.CustomResourceState
 
-	Actions           ExperimentTemplateActionMapPtrOutput         `pulumi:"actions"`
+	Actions           ExperimentTemplateActionMapOutput            `pulumi:"actions"`
 	Description       pulumi.StringOutput                          `pulumi:"description"`
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrOutput `pulumi:"experimentOptions"`
 	LogConfiguration  ExperimentTemplateLogConfigurationPtrOutput  `pulumi:"logConfiguration"`
@@ -85,19 +85,19 @@ func (ExperimentTemplateState) ElementType() reflect.Type {
 }
 
 type experimentTemplateArgs struct {
-	Actions           *ExperimentTemplateActionMap         `pulumi:"actions"`
+	Actions           map[string]ExperimentTemplateAction  `pulumi:"actions"`
 	Description       string                               `pulumi:"description"`
 	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
 	LogConfiguration  *ExperimentTemplateLogConfiguration  `pulumi:"logConfiguration"`
 	RoleArn           string                               `pulumi:"roleArn"`
 	StopConditions    []ExperimentTemplateStopCondition    `pulumi:"stopConditions"`
 	Tags              map[string]string                    `pulumi:"tags"`
-	Targets           ExperimentTemplateTargetMap          `pulumi:"targets"`
+	Targets           map[string]ExperimentTemplateTarget  `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a ExperimentTemplate resource.
 type ExperimentTemplateArgs struct {
-	Actions           ExperimentTemplateActionMapPtrInput
+	Actions           ExperimentTemplateActionMapInput
 	Description       pulumi.StringInput
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrInput
 	LogConfiguration  ExperimentTemplateLogConfigurationPtrInput
@@ -144,8 +144,8 @@ func (o ExperimentTemplateOutput) ToExperimentTemplateOutputWithContext(ctx cont
 	return o
 }
 
-func (o ExperimentTemplateOutput) Actions() ExperimentTemplateActionMapPtrOutput {
-	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateActionMapPtrOutput { return v.Actions }).(ExperimentTemplateActionMapPtrOutput)
+func (o ExperimentTemplateOutput) Actions() ExperimentTemplateActionMapOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateActionMapOutput { return v.Actions }).(ExperimentTemplateActionMapOutput)
 }
 
 func (o ExperimentTemplateOutput) Description() pulumi.StringOutput {

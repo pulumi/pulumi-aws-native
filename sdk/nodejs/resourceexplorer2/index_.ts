@@ -39,7 +39,7 @@ export class Index extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly indexState!: pulumi.Output<enums.resourceexplorer2.IndexState>;
-    public readonly tags!: pulumi.Output<outputs.resourceexplorer2.IndexTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly type!: pulumi.Output<enums.resourceexplorer2.IndexType>;
 
     /**
@@ -75,6 +75,6 @@ export class Index extends pulumi.CustomResource {
  * The set of arguments for constructing a Index resource.
  */
 export interface IndexArgs {
-    tags?: pulumi.Input<inputs.resourceexplorer2.IndexTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     type: pulumi.Input<enums.resourceexplorer2.IndexType>;
 }

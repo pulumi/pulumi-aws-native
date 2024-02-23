@@ -29,21 +29,21 @@ type LookupComponentArgs struct {
 }
 
 type LookupComponentResult struct {
-	BindingProperties    *ComponentBindingProperties    `pulumi:"bindingProperties"`
-	Children             []ComponentChild               `pulumi:"children"`
-	CollectionProperties *ComponentCollectionProperties `pulumi:"collectionProperties"`
-	ComponentType        *string                        `pulumi:"componentType"`
-	CreatedAt            *string                        `pulumi:"createdAt"`
-	Events               *ComponentEvents               `pulumi:"events"`
-	Id                   *string                        `pulumi:"id"`
-	ModifiedAt           *string                        `pulumi:"modifiedAt"`
-	Name                 *string                        `pulumi:"name"`
-	Overrides            *ComponentOverrides            `pulumi:"overrides"`
-	Properties           *ComponentProperties           `pulumi:"properties"`
-	SchemaVersion        *string                        `pulumi:"schemaVersion"`
-	SourceId             *string                        `pulumi:"sourceId"`
-	Tags                 *ComponentTags                 `pulumi:"tags"`
-	Variants             []ComponentVariant             `pulumi:"variants"`
+	BindingProperties    map[string]ComponentBindingPropertiesValue `pulumi:"bindingProperties"`
+	Children             []ComponentChild                           `pulumi:"children"`
+	CollectionProperties map[string]ComponentDataConfiguration      `pulumi:"collectionProperties"`
+	ComponentType        *string                                    `pulumi:"componentType"`
+	CreatedAt            *string                                    `pulumi:"createdAt"`
+	Events               map[string]ComponentEvent                  `pulumi:"events"`
+	Id                   *string                                    `pulumi:"id"`
+	ModifiedAt           *string                                    `pulumi:"modifiedAt"`
+	Name                 *string                                    `pulumi:"name"`
+	Overrides            map[string]interface{}                     `pulumi:"overrides"`
+	Properties           map[string]ComponentProperty               `pulumi:"properties"`
+	SchemaVersion        *string                                    `pulumi:"schemaVersion"`
+	SourceId             *string                                    `pulumi:"sourceId"`
+	Tags                 map[string]string                          `pulumi:"tags"`
+	Variants             []ComponentVariant                         `pulumi:"variants"`
 }
 
 func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, opts ...pulumi.InvokeOption) LookupComponentResultOutput {
@@ -83,16 +83,16 @@ func (o LookupComponentResultOutput) ToLookupComponentResultOutputWithContext(ct
 	return o
 }
 
-func (o LookupComponentResultOutput) BindingProperties() ComponentBindingPropertiesPtrOutput {
-	return o.ApplyT(func(v LookupComponentResult) *ComponentBindingProperties { return v.BindingProperties }).(ComponentBindingPropertiesPtrOutput)
+func (o LookupComponentResultOutput) BindingProperties() ComponentBindingPropertiesValueMapOutput {
+	return o.ApplyT(func(v LookupComponentResult) map[string]ComponentBindingPropertiesValue { return v.BindingProperties }).(ComponentBindingPropertiesValueMapOutput)
 }
 
 func (o LookupComponentResultOutput) Children() ComponentChildArrayOutput {
 	return o.ApplyT(func(v LookupComponentResult) []ComponentChild { return v.Children }).(ComponentChildArrayOutput)
 }
 
-func (o LookupComponentResultOutput) CollectionProperties() ComponentCollectionPropertiesPtrOutput {
-	return o.ApplyT(func(v LookupComponentResult) *ComponentCollectionProperties { return v.CollectionProperties }).(ComponentCollectionPropertiesPtrOutput)
+func (o LookupComponentResultOutput) CollectionProperties() ComponentDataConfigurationMapOutput {
+	return o.ApplyT(func(v LookupComponentResult) map[string]ComponentDataConfiguration { return v.CollectionProperties }).(ComponentDataConfigurationMapOutput)
 }
 
 func (o LookupComponentResultOutput) ComponentType() pulumi.StringPtrOutput {
@@ -103,8 +103,8 @@ func (o LookupComponentResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComponentResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupComponentResultOutput) Events() ComponentEventsPtrOutput {
-	return o.ApplyT(func(v LookupComponentResult) *ComponentEvents { return v.Events }).(ComponentEventsPtrOutput)
+func (o LookupComponentResultOutput) Events() ComponentEventMapOutput {
+	return o.ApplyT(func(v LookupComponentResult) map[string]ComponentEvent { return v.Events }).(ComponentEventMapOutput)
 }
 
 func (o LookupComponentResultOutput) Id() pulumi.StringPtrOutput {
@@ -119,12 +119,12 @@ func (o LookupComponentResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComponentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupComponentResultOutput) Overrides() ComponentOverridesPtrOutput {
-	return o.ApplyT(func(v LookupComponentResult) *ComponentOverrides { return v.Overrides }).(ComponentOverridesPtrOutput)
+func (o LookupComponentResultOutput) Overrides() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupComponentResult) map[string]interface{} { return v.Overrides }).(pulumi.MapOutput)
 }
 
-func (o LookupComponentResultOutput) Properties() ComponentPropertiesPtrOutput {
-	return o.ApplyT(func(v LookupComponentResult) *ComponentProperties { return v.Properties }).(ComponentPropertiesPtrOutput)
+func (o LookupComponentResultOutput) Properties() ComponentPropertyMapOutput {
+	return o.ApplyT(func(v LookupComponentResult) map[string]ComponentProperty { return v.Properties }).(ComponentPropertyMapOutput)
 }
 
 func (o LookupComponentResultOutput) SchemaVersion() pulumi.StringPtrOutput {
@@ -135,8 +135,8 @@ func (o LookupComponentResultOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComponentResult) *string { return v.SourceId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupComponentResultOutput) Tags() ComponentTagsPtrOutput {
-	return o.ApplyT(func(v LookupComponentResult) *ComponentTags { return v.Tags }).(ComponentTagsPtrOutput)
+func (o LookupComponentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupComponentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupComponentResultOutput) Variants() ComponentVariantArrayOutput {

@@ -37,7 +37,7 @@ export class Portal extends pulumi.CustomResource {
         return obj['__pulumiType'] === Portal.__pulumiType;
     }
 
-    public readonly additionalEncryptionContext!: pulumi.Output<outputs.workspacesweb.PortalEncryptionContextMap | undefined>;
+    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly authenticationType!: pulumi.Output<enums.workspacesweb.PortalAuthenticationType | undefined>;
     public readonly browserSettingsArn!: pulumi.Output<string | undefined>;
     public /*out*/ readonly browserType!: pulumi.Output<enums.workspacesweb.PortalBrowserType>;
@@ -109,7 +109,7 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["userSettingsArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext", "customerManagedKey"] };
+        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext.*", "customerManagedKey"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Portal.__pulumiType, name, resourceInputs, opts);
     }
@@ -119,7 +119,7 @@ export class Portal extends pulumi.CustomResource {
  * The set of arguments for constructing a Portal resource.
  */
 export interface PortalArgs {
-    additionalEncryptionContext?: pulumi.Input<inputs.workspacesweb.PortalEncryptionContextMapArgs>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     authenticationType?: pulumi.Input<enums.workspacesweb.PortalAuthenticationType>;
     browserSettingsArn?: pulumi.Input<string>;
     customerManagedKey?: pulumi.Input<string>;

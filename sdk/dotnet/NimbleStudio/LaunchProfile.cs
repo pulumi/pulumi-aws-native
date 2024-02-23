@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<string> StudioId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.LaunchProfileTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.NimbleStudio
                 {
                     "ec2SubnetIds[*]",
                     "studioId",
-                    "tags",
+                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,7 +175,12 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Input<string> StudioId { get; set; } = null!;
 
         [Input("tags")]
-        public Input<Inputs.LaunchProfileTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public LaunchProfileArgs()
         {

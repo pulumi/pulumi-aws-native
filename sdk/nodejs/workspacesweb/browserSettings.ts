@@ -37,7 +37,7 @@ export class BrowserSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === BrowserSettings.__pulumiType;
     }
 
-    public readonly additionalEncryptionContext!: pulumi.Output<outputs.workspacesweb.BrowserSettingsEncryptionContextMap | undefined>;
+    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
     public readonly browserPolicy!: pulumi.Output<string | undefined>;
     public /*out*/ readonly browserSettingsArn!: pulumi.Output<string>;
@@ -70,7 +70,7 @@ export class BrowserSettings extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext", "customerManagedKey"] };
+        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext.*", "customerManagedKey"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BrowserSettings.__pulumiType, name, resourceInputs, opts);
     }
@@ -80,7 +80,7 @@ export class BrowserSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a BrowserSettings resource.
  */
 export interface BrowserSettingsArgs {
-    additionalEncryptionContext?: pulumi.Input<inputs.workspacesweb.BrowserSettingsEncryptionContextMapArgs>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     browserPolicy?: pulumi.Input<string>;
     customerManagedKey?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;

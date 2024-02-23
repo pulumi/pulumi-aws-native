@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     public partial class Portal : global::Pulumi.CustomResource
     {
         [Output("additionalEncryptionContext")]
-        public Output<Outputs.PortalEncryptionContextMap?> AdditionalEncryptionContext { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
         [Output("authenticationType")]
         public Output<Pulumi.AwsNative.WorkSpacesWeb.PortalAuthenticationType?> AuthenticationType { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "additionalEncryptionContext",
+                    "additionalEncryptionContext.*",
                     "customerManagedKey",
                 },
             };
@@ -123,7 +123,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     public sealed class PortalArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalEncryptionContext")]
-        public Input<Inputs.PortalEncryptionContextMapArgs>? AdditionalEncryptionContext { get; set; }
+        private InputMap<string>? _additionalEncryptionContext;
+        public InputMap<string> AdditionalEncryptionContext
+        {
+            get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
+            set => _additionalEncryptionContext = value;
+        }
 
         [Input("authenticationType")]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.PortalAuthenticationType>? AuthenticationType { get; set; }

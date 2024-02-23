@@ -21,7 +21,7 @@ class RestoreTestingSelectionArgs:
                  restore_testing_plan_name: pulumi.Input[str],
                  protected_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  protected_resource_conditions: Optional[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs']] = None,
-                 restore_metadata_overrides: Optional[pulumi.Input['RestoreTestingSelectionSensitiveStringMapArgs']] = None,
+                 restore_metadata_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  restore_testing_selection_name: Optional[pulumi.Input[str]] = None,
                  validation_window_hours: Optional[pulumi.Input[int]] = None):
         """
@@ -88,11 +88,11 @@ class RestoreTestingSelectionArgs:
 
     @property
     @pulumi.getter(name="restoreMetadataOverrides")
-    def restore_metadata_overrides(self) -> Optional[pulumi.Input['RestoreTestingSelectionSensitiveStringMapArgs']]:
+    def restore_metadata_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "restore_metadata_overrides")
 
     @restore_metadata_overrides.setter
-    def restore_metadata_overrides(self, value: Optional[pulumi.Input['RestoreTestingSelectionSensitiveStringMapArgs']]):
+    def restore_metadata_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "restore_metadata_overrides", value)
 
     @property
@@ -123,7 +123,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
                  protected_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  protected_resource_conditions: Optional[pulumi.Input[pulumi.InputType['RestoreTestingSelectionProtectedResourceConditionsArgs']]] = None,
                  protected_resource_type: Optional[pulumi.Input[str]] = None,
-                 restore_metadata_overrides: Optional[pulumi.Input[pulumi.InputType['RestoreTestingSelectionSensitiveStringMapArgs']]] = None,
+                 restore_metadata_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
                  restore_testing_selection_name: Optional[pulumi.Input[str]] = None,
                  validation_window_hours: Optional[pulumi.Input[int]] = None,
@@ -162,7 +162,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
                  protected_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  protected_resource_conditions: Optional[pulumi.Input[pulumi.InputType['RestoreTestingSelectionProtectedResourceConditionsArgs']]] = None,
                  protected_resource_type: Optional[pulumi.Input[str]] = None,
-                 restore_metadata_overrides: Optional[pulumi.Input[pulumi.InputType['RestoreTestingSelectionSensitiveStringMapArgs']]] = None,
+                 restore_metadata_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
                  restore_testing_selection_name: Optional[pulumi.Input[str]] = None,
                  validation_window_hours: Optional[pulumi.Input[int]] = None,
@@ -245,7 +245,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restoreMetadataOverrides")
-    def restore_metadata_overrides(self) -> pulumi.Output[Optional['outputs.RestoreTestingSelectionSensitiveStringMap']]:
+    def restore_metadata_overrides(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "restore_metadata_overrides")
 
     @property

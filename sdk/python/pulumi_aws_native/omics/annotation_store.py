@@ -23,7 +23,7 @@ class AnnotationStoreArgs:
                  reference: Optional[pulumi.Input['AnnotationStoreReferenceItemArgs']] = None,
                  sse_config: Optional[pulumi.Input['AnnotationStoreSseConfigArgs']] = None,
                  store_options: Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input['AnnotationStoreTagMapArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AnnotationStore resource.
         """
@@ -97,11 +97,11 @@ class AnnotationStoreArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['AnnotationStoreTagMapArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['AnnotationStoreTagMapArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -116,7 +116,7 @@ class AnnotationStore(pulumi.CustomResource):
                  sse_config: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreSseConfigArgs']]] = None,
                  store_format: Optional[pulumi.Input['AnnotationStoreStoreFormat']] = None,
                  store_options: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreStoreOptionsPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Omics::AnnotationStore Resource Type
@@ -154,7 +154,7 @@ class AnnotationStore(pulumi.CustomResource):
                  sse_config: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreSseConfigArgs']]] = None,
                  store_format: Optional[pulumi.Input['AnnotationStoreStoreFormat']] = None,
                  store_options: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreStoreOptionsPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['AnnotationStoreTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -179,7 +179,7 @@ class AnnotationStore(pulumi.CustomResource):
             __props__.__dict__["store_arn"] = None
             __props__.__dict__["store_size_bytes"] = None
             __props__.__dict__["update_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "reference", "sse_config", "store_format", "store_options", "tags"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "reference", "sse_config", "store_format", "store_options", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AnnotationStore, __self__).__init__(
             'aws-native:omics:AnnotationStore',
@@ -275,7 +275,7 @@ class AnnotationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.AnnotationStoreTagMap']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

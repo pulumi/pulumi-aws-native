@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TopicNamedEntityDefinitionMetric
     {
         public readonly Pulumi.AwsNative.QuickSight.TopicNamedEntityAggType? Aggregation;
-        public readonly Outputs.TopicAggregationFunctionParameters? AggregationFunctionParameters;
+        public readonly ImmutableDictionary<string, string>? AggregationFunctionParameters;
 
         [OutputConstructor]
         private TopicNamedEntityDefinitionMetric(
             Pulumi.AwsNative.QuickSight.TopicNamedEntityAggType? aggregation,
 
-            Outputs.TopicAggregationFunctionParameters? aggregationFunctionParameters)
+            ImmutableDictionary<string, string>? aggregationFunctionParameters)
         {
             Aggregation = aggregation;
             AggregationFunctionParameters = aggregationFunctionParameters;

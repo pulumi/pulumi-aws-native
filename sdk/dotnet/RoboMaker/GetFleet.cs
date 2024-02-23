@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.RoboMaker
     public sealed class GetFleetResult
     {
         public readonly string? Arn;
-        public readonly Outputs.FleetTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetFleetResult(
             string? arn,
 
-            Outputs.FleetTags? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Tags = tags;

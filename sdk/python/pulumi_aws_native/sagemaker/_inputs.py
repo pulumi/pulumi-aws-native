@@ -95,7 +95,6 @@ __all__ = [
     'InferenceComponentComputeResourceRequirementsArgs',
     'InferenceComponentContainerSpecificationArgs',
     'InferenceComponentDeployedImageArgs',
-    'InferenceComponentEnvironmentMapArgs',
     'InferenceComponentRuntimeConfigArgs',
     'InferenceComponentSpecificationArgs',
     'InferenceComponentStartupParametersArgs',
@@ -3901,7 +3900,7 @@ class InferenceComponentContainerSpecificationArgs:
     def __init__(__self__, *,
                  artifact_url: Optional[pulumi.Input[str]] = None,
                  deployed_image: Optional[pulumi.Input['InferenceComponentDeployedImageArgs']] = None,
-                 environment: Optional[pulumi.Input['InferenceComponentEnvironmentMapArgs']] = None,
+                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None):
         if artifact_url is not None:
             pulumi.set(__self__, "artifact_url", artifact_url)
@@ -3932,11 +3931,11 @@ class InferenceComponentContainerSpecificationArgs:
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['InferenceComponentEnvironmentMapArgs']]:
+    def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['InferenceComponentEnvironmentMapArgs']]):
+    def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "environment", value)
 
     @property
@@ -3988,15 +3987,6 @@ class InferenceComponentDeployedImageArgs:
     @specified_image.setter
     def specified_image(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "specified_image", value)
-
-
-@pulumi.input_type
-class InferenceComponentEnvironmentMapArgs:
-    def __init__(__self__):
-        """
-        Environment variables to specify on the container
-        """
-        pass
 
 
 @pulumi.input_type

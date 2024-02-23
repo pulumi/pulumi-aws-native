@@ -118,7 +118,7 @@ class GetPipeResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.PipeTagMap']:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property

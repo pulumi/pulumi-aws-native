@@ -33,7 +33,7 @@ type StudioComponent struct {
 	// <p>The studio ID. </p>
 	StudioId pulumi.StringOutput             `pulumi:"studioId"`
 	Subtype  StudioComponentSubtypePtrOutput `pulumi:"subtype"`
-	Tags     StudioComponentTagsPtrOutput    `pulumi:"tags"`
+	Tags     pulumi.StringMapOutput          `pulumi:"tags"`
 	Type     StudioComponentTypeOutput       `pulumi:"type"`
 }
 
@@ -53,7 +53,7 @@ func NewStudioComponent(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"studioId",
 		"subtype",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -105,7 +105,7 @@ type studioComponentArgs struct {
 	// <p>The studio ID. </p>
 	StudioId string                  `pulumi:"studioId"`
 	Subtype  *StudioComponentSubtype `pulumi:"subtype"`
-	Tags     *StudioComponentTags    `pulumi:"tags"`
+	Tags     map[string]string       `pulumi:"tags"`
 	Type     StudioComponentType     `pulumi:"type"`
 }
 
@@ -127,7 +127,7 @@ type StudioComponentArgs struct {
 	// <p>The studio ID. </p>
 	StudioId pulumi.StringInput
 	Subtype  StudioComponentSubtypePtrInput
-	Tags     StudioComponentTagsPtrInput
+	Tags     pulumi.StringMapInput
 	Type     StudioComponentTypeInput
 }
 
@@ -220,8 +220,8 @@ func (o StudioComponentOutput) Subtype() StudioComponentSubtypePtrOutput {
 	return o.ApplyT(func(v *StudioComponent) StudioComponentSubtypePtrOutput { return v.Subtype }).(StudioComponentSubtypePtrOutput)
 }
 
-func (o StudioComponentOutput) Tags() StudioComponentTagsPtrOutput {
-	return o.ApplyT(func(v *StudioComponent) StudioComponentTagsPtrOutput { return v.Tags }).(StudioComponentTagsPtrOutput)
+func (o StudioComponentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o StudioComponentOutput) Type() StudioComponentTypeOutput {

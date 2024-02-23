@@ -11,17 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'IndexTagMap',
     'ViewIncludedProperty',
     'ViewSearchFilter',
-    'ViewTagMap',
 ]
-
-@pulumi.output_type
-class IndexTagMap(dict):
-    def __init__(__self__):
-        pass
-
 
 @pulumi.output_type
 class ViewIncludedProperty(dict):
@@ -62,11 +54,5 @@ class ViewSearchFilter(dict):
     @pulumi.getter(name="filterString")
     def filter_string(self) -> str:
         return pulumi.get(self, "filter_string")
-
-
-@pulumi.output_type
-class ViewTagMap(dict):
-    def __init__(__self__):
-        pass
 
 

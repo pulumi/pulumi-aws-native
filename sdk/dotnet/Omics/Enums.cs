@@ -68,6 +68,38 @@ namespace Pulumi.AwsNative.Omics
     }
 
     [EnumType]
+    public readonly struct AnnotationStoreSchemaValueType : IEquatable<AnnotationStoreSchemaValueType>
+    {
+        private readonly string _value;
+
+        private AnnotationStoreSchemaValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnnotationStoreSchemaValueType Long { get; } = new AnnotationStoreSchemaValueType("LONG");
+        public static AnnotationStoreSchemaValueType Int { get; } = new AnnotationStoreSchemaValueType("INT");
+        public static AnnotationStoreSchemaValueType String { get; } = new AnnotationStoreSchemaValueType("STRING");
+        public static AnnotationStoreSchemaValueType Float { get; } = new AnnotationStoreSchemaValueType("FLOAT");
+        public static AnnotationStoreSchemaValueType Double { get; } = new AnnotationStoreSchemaValueType("DOUBLE");
+        public static AnnotationStoreSchemaValueType Boolean { get; } = new AnnotationStoreSchemaValueType("BOOLEAN");
+
+        public static bool operator ==(AnnotationStoreSchemaValueType left, AnnotationStoreSchemaValueType right) => left.Equals(right);
+        public static bool operator !=(AnnotationStoreSchemaValueType left, AnnotationStoreSchemaValueType right) => !left.Equals(right);
+
+        public static explicit operator string(AnnotationStoreSchemaValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnnotationStoreSchemaValueType other && Equals(other);
+        public bool Equals(AnnotationStoreSchemaValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnnotationStoreStoreFormat : IEquatable<AnnotationStoreStoreFormat>
     {
         private readonly string _value;

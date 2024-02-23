@@ -27,8 +27,8 @@ type LookupFleetArgs struct {
 }
 
 type LookupFleetResult struct {
-	Arn  *string    `pulumi:"arn"`
-	Tags *FleetTags `pulumi:"tags"`
+	Arn  *string           `pulumi:"arn"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
@@ -70,8 +70,8 @@ func (o LookupFleetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupFleetResultOutput) Tags() FleetTagsPtrOutput {
-	return o.ApplyT(func(v LookupFleetResult) *FleetTags { return v.Tags }).(FleetTagsPtrOutput)
+func (o LookupFleetResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupFleetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

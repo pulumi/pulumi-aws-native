@@ -39,7 +39,7 @@ type LookupAutomationRuleResult struct {
 	RuleOrder   *int                           `pulumi:"ruleOrder"`
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus *AutomationRuleRuleStatus `pulumi:"ruleStatus"`
-	Tags       *AutomationRuleTags       `pulumi:"tags"`
+	Tags       map[string]string         `pulumi:"tags"`
 	UpdatedAt  *string                   `pulumi:"updatedAt"`
 }
 
@@ -120,8 +120,8 @@ func (o LookupAutomationRuleResultOutput) RuleStatus() AutomationRuleRuleStatusP
 	return o.ApplyT(func(v LookupAutomationRuleResult) *AutomationRuleRuleStatus { return v.RuleStatus }).(AutomationRuleRuleStatusPtrOutput)
 }
 
-func (o LookupAutomationRuleResultOutput) Tags() AutomationRuleTagsPtrOutput {
-	return o.ApplyT(func(v LookupAutomationRuleResult) *AutomationRuleTags { return v.Tags }).(AutomationRuleTagsPtrOutput)
+func (o LookupAutomationRuleResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAutomationRuleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupAutomationRuleResultOutput) UpdatedAt() pulumi.StringPtrOutput {

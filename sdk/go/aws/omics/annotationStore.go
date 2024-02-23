@@ -27,7 +27,7 @@ type AnnotationStore struct {
 	StoreFormat    AnnotationStoreStoreFormatOutput               `pulumi:"storeFormat"`
 	StoreOptions   AnnotationStoreStoreOptionsPropertiesPtrOutput `pulumi:"storeOptions"`
 	StoreSizeBytes pulumi.Float64Output                           `pulumi:"storeSizeBytes"`
-	Tags           AnnotationStoreTagMapPtrOutput                 `pulumi:"tags"`
+	Tags           pulumi.StringMapOutput                         `pulumi:"tags"`
 	UpdateTime     pulumi.StringOutput                            `pulumi:"updateTime"`
 }
 
@@ -47,7 +47,7 @@ func NewAnnotationStore(ctx *pulumi.Context,
 		"sseConfig",
 		"storeFormat",
 		"storeOptions",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -89,7 +89,7 @@ type annotationStoreArgs struct {
 	SseConfig    *AnnotationStoreSseConfig              `pulumi:"sseConfig"`
 	StoreFormat  AnnotationStoreStoreFormat             `pulumi:"storeFormat"`
 	StoreOptions *AnnotationStoreStoreOptionsProperties `pulumi:"storeOptions"`
-	Tags         *AnnotationStoreTagMap                 `pulumi:"tags"`
+	Tags         map[string]string                      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AnnotationStore resource.
@@ -100,7 +100,7 @@ type AnnotationStoreArgs struct {
 	SseConfig    AnnotationStoreSseConfigPtrInput
 	StoreFormat  AnnotationStoreStoreFormatInput
 	StoreOptions AnnotationStoreStoreOptionsPropertiesPtrInput
-	Tags         AnnotationStoreTagMapPtrInput
+	Tags         pulumi.StringMapInput
 }
 
 func (AnnotationStoreArgs) ElementType() reflect.Type {
@@ -184,8 +184,8 @@ func (o AnnotationStoreOutput) StoreSizeBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.Float64Output { return v.StoreSizeBytes }).(pulumi.Float64Output)
 }
 
-func (o AnnotationStoreOutput) Tags() AnnotationStoreTagMapPtrOutput {
-	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreTagMapPtrOutput { return v.Tags }).(AnnotationStoreTagMapPtrOutput)
+func (o AnnotationStoreOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AnnotationStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o AnnotationStoreOutput) UpdateTime() pulumi.StringOutput {

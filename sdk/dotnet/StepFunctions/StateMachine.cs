@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.StepFunctions
         public Output<string?> DefinitionString { get; private set; } = null!;
 
         [Output("definitionSubstitutions")]
-        public Output<Outputs.StateMachineDefinitionSubstitutions?> DefinitionSubstitutions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> DefinitionSubstitutions { get; private set; } = null!;
 
         [Output("loggingConfiguration")]
         public Output<Outputs.StateMachineLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
@@ -114,7 +114,12 @@ namespace Pulumi.AwsNative.StepFunctions
         public Input<string>? DefinitionString { get; set; }
 
         [Input("definitionSubstitutions")]
-        public Input<Inputs.StateMachineDefinitionSubstitutionsArgs>? DefinitionSubstitutions { get; set; }
+        private InputMap<object>? _definitionSubstitutions;
+        public InputMap<object> DefinitionSubstitutions
+        {
+            get => _definitionSubstitutions ?? (_definitionSubstitutions = new InputMap<object>());
+            set => _definitionSubstitutions = value;
+        }
 
         [Input("loggingConfiguration")]
         public Input<Inputs.StateMachineLoggingConfigurationArgs>? LoggingConfiguration { get; set; }

@@ -25,7 +25,7 @@ type ReferenceStore struct {
 	Name             pulumi.StringOutput              `pulumi:"name"`
 	ReferenceStoreId pulumi.StringOutput              `pulumi:"referenceStoreId"`
 	SseConfig        ReferenceStoreSseConfigPtrOutput `pulumi:"sseConfig"`
-	Tags             ReferenceStoreTagMapPtrOutput    `pulumi:"tags"`
+	Tags             pulumi.StringMapOutput           `pulumi:"tags"`
 }
 
 // NewReferenceStore registers a new resource with the given unique name, arguments, and options.
@@ -39,7 +39,7 @@ func NewReferenceStore(ctx *pulumi.Context,
 		"description",
 		"name",
 		"sseConfig",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -80,7 +80,7 @@ type referenceStoreArgs struct {
 	// A name for the store.
 	Name      *string                  `pulumi:"name"`
 	SseConfig *ReferenceStoreSseConfig `pulumi:"sseConfig"`
-	Tags      *ReferenceStoreTagMap    `pulumi:"tags"`
+	Tags      map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReferenceStore resource.
@@ -90,7 +90,7 @@ type ReferenceStoreArgs struct {
 	// A name for the store.
 	Name      pulumi.StringPtrInput
 	SseConfig ReferenceStoreSseConfigPtrInput
-	Tags      ReferenceStoreTagMapPtrInput
+	Tags      pulumi.StringMapInput
 }
 
 func (ReferenceStoreArgs) ElementType() reflect.Type {
@@ -158,8 +158,8 @@ func (o ReferenceStoreOutput) SseConfig() ReferenceStoreSseConfigPtrOutput {
 	return o.ApplyT(func(v *ReferenceStore) ReferenceStoreSseConfigPtrOutput { return v.SseConfig }).(ReferenceStoreSseConfigPtrOutput)
 }
 
-func (o ReferenceStoreOutput) Tags() ReferenceStoreTagMapPtrOutput {
-	return o.ApplyT(func(v *ReferenceStore) ReferenceStoreTagMapPtrOutput { return v.Tags }).(ReferenceStoreTagMapPtrOutput)
+func (o ReferenceStoreOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ReferenceStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

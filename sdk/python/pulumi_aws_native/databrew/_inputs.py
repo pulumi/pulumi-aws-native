@@ -38,7 +38,6 @@ __all__ = [
     'JobOutputFormatOptionsArgs',
     'JobOutputLocationArgs',
     'JobOutputArgs',
-    'JobParameterMapArgs',
     'JobProfileConfigurationArgs',
     'JobRecipeArgs',
     'JobS3LocationArgs',
@@ -51,7 +50,6 @@ __all__ = [
     'RecipeActionArgs',
     'RecipeConditionExpressionArgs',
     'RecipeDataCatalogInputDefinitionArgs',
-    'RecipeParameterMapArgs',
     'RecipeParametersInputPropertiesArgs',
     'RecipeParametersArgs',
     'RecipeS3LocationArgs',
@@ -1190,12 +1188,6 @@ class JobOutputArgs:
 
 
 @pulumi.input_type
-class JobParameterMapArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class JobProfileConfigurationArgs:
     def __init__(__self__, *,
                  column_statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]] = None,
@@ -1380,18 +1372,18 @@ class JobSampleArgs:
 @pulumi.input_type
 class JobStatisticOverrideArgs:
     def __init__(__self__, *,
-                 parameters: pulumi.Input['JobParameterMapArgs'],
+                 parameters: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  statistic: pulumi.Input[str]):
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "statistic", statistic)
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input['JobParameterMapArgs']:
+    def parameters(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: pulumi.Input['JobParameterMapArgs']):
+    def parameters(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -1510,7 +1502,7 @@ class ProjectSampleArgs:
 class RecipeActionArgs:
     def __init__(__self__, *,
                  operation: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[Union['RecipeParametersArgs', 'RecipeParameterMapArgs']]] = None):
+                 parameters: Optional[pulumi.Input[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[str]]]]] = None):
         """
         :param pulumi.Input[str] operation: Step action operation
         """
@@ -1532,11 +1524,11 @@ class RecipeActionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Union['RecipeParametersArgs', 'RecipeParameterMapArgs']]]:
+    def parameters(self) -> Optional[pulumi.Input[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[str]]]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Union['RecipeParametersArgs', 'RecipeParameterMapArgs']]]):
+    def parameters(self, value: Optional[pulumi.Input[Union['RecipeParametersArgs', Mapping[str, pulumi.Input[str]]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1659,12 +1651,6 @@ class RecipeDataCatalogInputDefinitionArgs:
     @temp_directory.setter
     def temp_directory(self, value: Optional[pulumi.Input['RecipeS3LocationArgs']]):
         pulumi.set(self, "temp_directory", value)
-
-
-@pulumi.input_type
-class RecipeParameterMapArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type

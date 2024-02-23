@@ -17,12 +17,12 @@ __all__ = ['ResiliencyPolicyArgs', 'ResiliencyPolicy']
 @pulumi.input_type
 class ResiliencyPolicyArgs:
     def __init__(__self__, *,
-                 policy: pulumi.Input['ResiliencyPolicyPolicyMapArgs'],
+                 policy: pulumi.Input[Mapping[str, pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]],
                  policy_name: pulumi.Input[str],
                  tier: pulumi.Input['ResiliencyPolicyTier'],
                  data_location_constraint: Optional[pulumi.Input['ResiliencyPolicyDataLocationConstraint']] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['ResiliencyPolicyTagMapArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResiliencyPolicy resource.
         :param pulumi.Input[str] policy_name: Name of Resiliency Policy.
@@ -42,11 +42,11 @@ class ResiliencyPolicyArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input['ResiliencyPolicyPolicyMapArgs']:
+    def policy(self) -> pulumi.Input[Mapping[str, pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]]:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input['ResiliencyPolicyPolicyMapArgs']):
+    def policy(self, value: pulumi.Input[Mapping[str, pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -99,11 +99,11 @@ class ResiliencyPolicyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['ResiliencyPolicyTagMapArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['ResiliencyPolicyTagMapArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,10 +113,10 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_location_constraint: Optional[pulumi.Input['ResiliencyPolicyDataLocationConstraint']] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['ResiliencyPolicyPolicyMapArgs']]] = None,
+                 policy: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResiliencyPolicyFailurePolicyArgs']]]]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['ResiliencyPolicyTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input['ResiliencyPolicyTier']] = None,
                  __props__=None):
         """
@@ -154,10 +154,10 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_location_constraint: Optional[pulumi.Input['ResiliencyPolicyDataLocationConstraint']] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['ResiliencyPolicyPolicyMapArgs']]] = None,
+                 policy: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResiliencyPolicyFailurePolicyArgs']]]]] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['ResiliencyPolicyTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input['ResiliencyPolicyTier']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -222,7 +222,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output['outputs.ResiliencyPolicyPolicyMap']:
+    def policy(self) -> pulumi.Output[Mapping[str, 'outputs.ResiliencyPolicyFailurePolicy']]:
         return pulumi.get(self, "policy")
 
     @property
@@ -251,7 +251,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.ResiliencyPolicyTagMap']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

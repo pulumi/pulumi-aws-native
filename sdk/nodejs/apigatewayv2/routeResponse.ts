@@ -54,7 +54,7 @@ export class RouteResponse extends pulumi.CustomResource {
     /**
      * The route response parameters.
      */
-    public readonly responseParameters!: pulumi.Output<outputs.apigatewayv2.RouteResponseRouteParameters | undefined>;
+    public readonly responseParameters!: pulumi.Output<{[key: string]: outputs.apigatewayv2.RouteResponseParameterConstraints} | undefined>;
     /**
      * The route ID.
      */
@@ -129,7 +129,7 @@ export interface RouteResponseArgs {
     /**
      * The route response parameters.
      */
-    responseParameters?: pulumi.Input<inputs.apigatewayv2.RouteResponseRouteParametersArgs>;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.apigatewayv2.RouteResponseParameterConstraintsArgs>}>;
     /**
      * The route ID.
      */

@@ -8,17 +8,15 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
-from ._inputs import *
 
 __all__ = ['BrowserSettingsArgs', 'BrowserSettings']
 
 @pulumi.input_type
 class BrowserSettingsArgs:
     def __init__(__self__, *,
-                 additional_encryption_context: Optional[pulumi.Input['BrowserSettingsEncryptionContextMapArgs']] = None,
+                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  browser_policy: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -36,11 +34,11 @@ class BrowserSettingsArgs:
 
     @property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> Optional[pulumi.Input['BrowserSettingsEncryptionContextMapArgs']]:
+    def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
-    def additional_encryption_context(self, value: Optional[pulumi.Input['BrowserSettingsEncryptionContextMapArgs']]):
+    def additional_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "additional_encryption_context", value)
 
     @property
@@ -76,7 +74,7 @@ class BrowserSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[pulumi.InputType['BrowserSettingsEncryptionContextMapArgs']]] = None,
+                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  browser_policy: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -111,7 +109,7 @@ class BrowserSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[pulumi.InputType['BrowserSettingsEncryptionContextMapArgs']]] = None,
+                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  browser_policy: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -130,7 +128,7 @@ class BrowserSettings(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["associated_portal_arns"] = None
             __props__.__dict__["browser_settings_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_encryption_context", "customer_managed_key"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_encryption_context.*", "customer_managed_key"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BrowserSettings, __self__).__init__(
             'aws-native:workspacesweb:BrowserSettings',
@@ -164,7 +162,7 @@ class BrowserSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> pulumi.Output[Optional['outputs.BrowserSettingsEncryptionContextMap']]:
+    def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "additional_encryption_context")
 
     @property

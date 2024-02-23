@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class EnvironmentBlueprintConfigurationRegionalParameter
     {
-        public readonly Outputs.EnvironmentBlueprintConfigurationParameter? Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         public readonly string? Region;
 
         [OutputConstructor]
         private EnvironmentBlueprintConfigurationRegionalParameter(
-            Outputs.EnvironmentBlueprintConfigurationParameter? parameters,
+            ImmutableDictionary<string, string>? parameters,
 
             string? region)
         {

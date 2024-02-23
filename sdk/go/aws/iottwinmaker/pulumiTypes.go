@@ -3000,130 +3000,9 @@ func (o EntityPropertyMapOutput) MapIndex(k pulumi.StringInput) EntityPropertyOu
 }
 
 // An object that specifies information about a property.
-type EntityPropertyDefinitionConfiguration struct {
-}
-
-// EntityPropertyDefinitionConfigurationInput is an input type that accepts EntityPropertyDefinitionConfigurationArgs and EntityPropertyDefinitionConfigurationOutput values.
-// You can construct a concrete instance of `EntityPropertyDefinitionConfigurationInput` via:
-//
-//	EntityPropertyDefinitionConfigurationArgs{...}
-type EntityPropertyDefinitionConfigurationInput interface {
-	pulumi.Input
-
-	ToEntityPropertyDefinitionConfigurationOutput() EntityPropertyDefinitionConfigurationOutput
-	ToEntityPropertyDefinitionConfigurationOutputWithContext(context.Context) EntityPropertyDefinitionConfigurationOutput
-}
-
-// An object that specifies information about a property.
-type EntityPropertyDefinitionConfigurationArgs struct {
-}
-
-func (EntityPropertyDefinitionConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityPropertyDefinitionConfiguration)(nil)).Elem()
-}
-
-func (i EntityPropertyDefinitionConfigurationArgs) ToEntityPropertyDefinitionConfigurationOutput() EntityPropertyDefinitionConfigurationOutput {
-	return i.ToEntityPropertyDefinitionConfigurationOutputWithContext(context.Background())
-}
-
-func (i EntityPropertyDefinitionConfigurationArgs) ToEntityPropertyDefinitionConfigurationOutputWithContext(ctx context.Context) EntityPropertyDefinitionConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityPropertyDefinitionConfigurationOutput)
-}
-
-func (i EntityPropertyDefinitionConfigurationArgs) ToEntityPropertyDefinitionConfigurationPtrOutput() EntityPropertyDefinitionConfigurationPtrOutput {
-	return i.ToEntityPropertyDefinitionConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i EntityPropertyDefinitionConfigurationArgs) ToEntityPropertyDefinitionConfigurationPtrOutputWithContext(ctx context.Context) EntityPropertyDefinitionConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityPropertyDefinitionConfigurationOutput).ToEntityPropertyDefinitionConfigurationPtrOutputWithContext(ctx)
-}
-
-// EntityPropertyDefinitionConfigurationPtrInput is an input type that accepts EntityPropertyDefinitionConfigurationArgs, EntityPropertyDefinitionConfigurationPtr and EntityPropertyDefinitionConfigurationPtrOutput values.
-// You can construct a concrete instance of `EntityPropertyDefinitionConfigurationPtrInput` via:
-//
-//	        EntityPropertyDefinitionConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type EntityPropertyDefinitionConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToEntityPropertyDefinitionConfigurationPtrOutput() EntityPropertyDefinitionConfigurationPtrOutput
-	ToEntityPropertyDefinitionConfigurationPtrOutputWithContext(context.Context) EntityPropertyDefinitionConfigurationPtrOutput
-}
-
-type entityPropertyDefinitionConfigurationPtrType EntityPropertyDefinitionConfigurationArgs
-
-func EntityPropertyDefinitionConfigurationPtr(v *EntityPropertyDefinitionConfigurationArgs) EntityPropertyDefinitionConfigurationPtrInput {
-	return (*entityPropertyDefinitionConfigurationPtrType)(v)
-}
-
-func (*entityPropertyDefinitionConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityPropertyDefinitionConfiguration)(nil)).Elem()
-}
-
-func (i *entityPropertyDefinitionConfigurationPtrType) ToEntityPropertyDefinitionConfigurationPtrOutput() EntityPropertyDefinitionConfigurationPtrOutput {
-	return i.ToEntityPropertyDefinitionConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *entityPropertyDefinitionConfigurationPtrType) ToEntityPropertyDefinitionConfigurationPtrOutputWithContext(ctx context.Context) EntityPropertyDefinitionConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityPropertyDefinitionConfigurationPtrOutput)
-}
-
-// An object that specifies information about a property.
-type EntityPropertyDefinitionConfigurationOutput struct{ *pulumi.OutputState }
-
-func (EntityPropertyDefinitionConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityPropertyDefinitionConfiguration)(nil)).Elem()
-}
-
-func (o EntityPropertyDefinitionConfigurationOutput) ToEntityPropertyDefinitionConfigurationOutput() EntityPropertyDefinitionConfigurationOutput {
-	return o
-}
-
-func (o EntityPropertyDefinitionConfigurationOutput) ToEntityPropertyDefinitionConfigurationOutputWithContext(ctx context.Context) EntityPropertyDefinitionConfigurationOutput {
-	return o
-}
-
-func (o EntityPropertyDefinitionConfigurationOutput) ToEntityPropertyDefinitionConfigurationPtrOutput() EntityPropertyDefinitionConfigurationPtrOutput {
-	return o.ToEntityPropertyDefinitionConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o EntityPropertyDefinitionConfigurationOutput) ToEntityPropertyDefinitionConfigurationPtrOutputWithContext(ctx context.Context) EntityPropertyDefinitionConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityPropertyDefinitionConfiguration) *EntityPropertyDefinitionConfiguration {
-		return &v
-	}).(EntityPropertyDefinitionConfigurationPtrOutput)
-}
-
-type EntityPropertyDefinitionConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (EntityPropertyDefinitionConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityPropertyDefinitionConfiguration)(nil)).Elem()
-}
-
-func (o EntityPropertyDefinitionConfigurationPtrOutput) ToEntityPropertyDefinitionConfigurationPtrOutput() EntityPropertyDefinitionConfigurationPtrOutput {
-	return o
-}
-
-func (o EntityPropertyDefinitionConfigurationPtrOutput) ToEntityPropertyDefinitionConfigurationPtrOutputWithContext(ctx context.Context) EntityPropertyDefinitionConfigurationPtrOutput {
-	return o
-}
-
-func (o EntityPropertyDefinitionConfigurationPtrOutput) Elem() EntityPropertyDefinitionConfigurationOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionConfiguration) EntityPropertyDefinitionConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret EntityPropertyDefinitionConfiguration
-		return ret
-	}).(EntityPropertyDefinitionConfigurationOutput)
-}
-
-// An object that specifies information about a property.
 type EntityPropertyDefinitionProperties struct {
 	// An object that specifies information about a property.
-	Configuration *EntityPropertyDefinitionConfiguration `pulumi:"configuration"`
+	Configuration map[string]string `pulumi:"configuration"`
 	// An object that contains information about the data type.
 	DataType *EntityDataType `pulumi:"dataType"`
 	// An object that contains the default value.
@@ -3158,7 +3037,7 @@ type EntityPropertyDefinitionPropertiesInput interface {
 // An object that specifies information about a property.
 type EntityPropertyDefinitionPropertiesArgs struct {
 	// An object that specifies information about a property.
-	Configuration EntityPropertyDefinitionConfigurationPtrInput `pulumi:"configuration"`
+	Configuration pulumi.StringMapInput `pulumi:"configuration"`
 	// An object that contains information about the data type.
 	DataType EntityDataTypePtrInput `pulumi:"dataType"`
 	// An object that contains the default value.
@@ -3258,10 +3137,8 @@ func (o EntityPropertyDefinitionPropertiesOutput) ToEntityPropertyDefinitionProp
 }
 
 // An object that specifies information about a property.
-func (o EntityPropertyDefinitionPropertiesOutput) Configuration() EntityPropertyDefinitionConfigurationPtrOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) *EntityPropertyDefinitionConfiguration {
-		return v.Configuration
-	}).(EntityPropertyDefinitionConfigurationPtrOutput)
+func (o EntityPropertyDefinitionPropertiesOutput) Configuration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EntityPropertyDefinitionProperties) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
 }
 
 // An object that contains information about the data type.
@@ -3334,13 +3211,13 @@ func (o EntityPropertyDefinitionPropertiesPtrOutput) Elem() EntityPropertyDefini
 }
 
 // An object that specifies information about a property.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) Configuration() EntityPropertyDefinitionConfigurationPtrOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) *EntityPropertyDefinitionConfiguration {
+func (o EntityPropertyDefinitionPropertiesPtrOutput) Configuration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Configuration
-	}).(EntityPropertyDefinitionConfigurationPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // An object that contains information about the data type.
@@ -4043,8 +3920,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityDataValueRelationshipValuePropertiesPtrInput)(nil)).Elem(), EntityDataValueRelationshipValuePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyInput)(nil)).Elem(), EntityPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyMapInput)(nil)).Elem(), EntityPropertyMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyDefinitionConfigurationInput)(nil)).Elem(), EntityPropertyDefinitionConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyDefinitionConfigurationPtrInput)(nil)).Elem(), EntityPropertyDefinitionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyDefinitionPropertiesInput)(nil)).Elem(), EntityPropertyDefinitionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyDefinitionPropertiesPtrInput)(nil)).Elem(), EntityPropertyDefinitionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyGroupInput)(nil)).Elem(), EntityPropertyGroupArgs{})
@@ -4095,8 +3970,6 @@ func init() {
 	pulumi.RegisterOutputType(EntityDataValueRelationshipValuePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EntityPropertyOutput{})
 	pulumi.RegisterOutputType(EntityPropertyMapOutput{})
-	pulumi.RegisterOutputType(EntityPropertyDefinitionConfigurationOutput{})
-	pulumi.RegisterOutputType(EntityPropertyDefinitionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EntityPropertyDefinitionPropertiesOutput{})
 	pulumi.RegisterOutputType(EntityPropertyDefinitionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EntityPropertyGroupOutput{})

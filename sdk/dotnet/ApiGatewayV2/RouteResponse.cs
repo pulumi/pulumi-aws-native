@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// The route response parameters.
         /// </summary>
         [Output("responseParameters")]
-        public Output<Outputs.RouteResponseRouteParameters?> ResponseParameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.RouteResponseParameterConstraints>?> ResponseParameters { get; private set; } = null!;
 
         /// <summary>
         /// The route ID.
@@ -126,11 +126,17 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("responseModels")]
         public Input<object>? ResponseModels { get; set; }
 
+        [Input("responseParameters")]
+        private InputMap<Inputs.RouteResponseParameterConstraintsArgs>? _responseParameters;
+
         /// <summary>
         /// The route response parameters.
         /// </summary>
-        [Input("responseParameters")]
-        public Input<Inputs.RouteResponseRouteParametersArgs>? ResponseParameters { get; set; }
+        public InputMap<Inputs.RouteResponseParameterConstraintsArgs> ResponseParameters
+        {
+            get => _responseParameters ?? (_responseParameters = new InputMap<Inputs.RouteResponseParameterConstraintsArgs>());
+            set => _responseParameters = value;
+        }
 
         /// <summary>
         /// The route ID.

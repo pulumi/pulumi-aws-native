@@ -23,7 +23,7 @@ class StateMachineArgs:
                  definition: Optional[pulumi.Input['StateMachineDefinitionArgs']] = None,
                  definition_s3_location: Optional[pulumi.Input['StateMachineS3LocationArgs']] = None,
                  definition_string: Optional[pulumi.Input[str]] = None,
-                 definition_substitutions: Optional[pulumi.Input['StateMachineDefinitionSubstitutionsArgs']] = None,
+                 definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]] = None,
                  logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
                  state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
@@ -90,11 +90,11 @@ class StateMachineArgs:
 
     @property
     @pulumi.getter(name="definitionSubstitutions")
-    def definition_substitutions(self) -> Optional[pulumi.Input['StateMachineDefinitionSubstitutionsArgs']]:
+    def definition_substitutions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]]:
         return pulumi.get(self, "definition_substitutions")
 
     @definition_substitutions.setter
-    def definition_substitutions(self, value: Optional[pulumi.Input['StateMachineDefinitionSubstitutionsArgs']]):
+    def definition_substitutions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]]):
         pulumi.set(self, "definition_substitutions", value)
 
     @property
@@ -151,7 +151,7 @@ class StateMachine(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[pulumi.InputType['StateMachineDefinitionArgs']]] = None,
                  definition_s3_location: Optional[pulumi.Input[pulumi.InputType['StateMachineS3LocationArgs']]] = None,
                  definition_string: Optional[pulumi.Input[str]] = None,
-                 definition_substitutions: Optional[pulumi.Input[pulumi.InputType['StateMachineDefinitionSubstitutionsArgs']]] = None,
+                 definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
@@ -192,7 +192,7 @@ class StateMachine(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[pulumi.InputType['StateMachineDefinitionArgs']]] = None,
                  definition_s3_location: Optional[pulumi.Input[pulumi.InputType['StateMachineS3LocationArgs']]] = None,
                  definition_string: Optional[pulumi.Input[str]] = None,
-                 definition_substitutions: Optional[pulumi.Input[pulumi.InputType['StateMachineDefinitionSubstitutionsArgs']]] = None,
+                 definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
@@ -284,7 +284,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="definitionSubstitutions")
-    def definition_substitutions(self) -> pulumi.Output[Optional['outputs.StateMachineDefinitionSubstitutions']]:
+    def definition_substitutions(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         return pulumi.get(self, "definition_substitutions")
 
     @property

@@ -21,14 +21,14 @@ class FormArgs:
                  cta: Optional[pulumi.Input['FormCtaArgs']] = None,
                  data_type: Optional[pulumi.Input['FormDataTypeConfigArgs']] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 fields: Optional[pulumi.Input['FormFieldsMapArgs']] = None,
+                 fields: Optional[pulumi.Input[Mapping[str, pulumi.Input['FormFieldConfigArgs']]]] = None,
                  form_action_type: Optional[pulumi.Input['FormActionType']] = None,
                  label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema_version: Optional[pulumi.Input[str]] = None,
-                 sectional_elements: Optional[pulumi.Input['FormSectionalElementMapArgs']] = None,
+                 sectional_elements: Optional[pulumi.Input[Mapping[str, pulumi.Input['FormSectionalElementArgs']]]] = None,
                  style: Optional[pulumi.Input['FormStyleArgs']] = None,
-                 tags: Optional[pulumi.Input['FormTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Form resource.
         """
@@ -95,11 +95,11 @@ class FormArgs:
 
     @property
     @pulumi.getter
-    def fields(self) -> Optional[pulumi.Input['FormFieldsMapArgs']]:
+    def fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FormFieldConfigArgs']]]]:
         return pulumi.get(self, "fields")
 
     @fields.setter
-    def fields(self, value: Optional[pulumi.Input['FormFieldsMapArgs']]):
+    def fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['FormFieldConfigArgs']]]]):
         pulumi.set(self, "fields", value)
 
     @property
@@ -140,11 +140,11 @@ class FormArgs:
 
     @property
     @pulumi.getter(name="sectionalElements")
-    def sectional_elements(self) -> Optional[pulumi.Input['FormSectionalElementMapArgs']]:
+    def sectional_elements(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FormSectionalElementArgs']]]]:
         return pulumi.get(self, "sectional_elements")
 
     @sectional_elements.setter
-    def sectional_elements(self, value: Optional[pulumi.Input['FormSectionalElementMapArgs']]):
+    def sectional_elements(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['FormSectionalElementArgs']]]]):
         pulumi.set(self, "sectional_elements", value)
 
     @property
@@ -158,11 +158,11 @@ class FormArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['FormTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['FormTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -175,14 +175,14 @@ class Form(pulumi.CustomResource):
                  cta: Optional[pulumi.Input[pulumi.InputType['FormCtaArgs']]] = None,
                  data_type: Optional[pulumi.Input[pulumi.InputType['FormDataTypeConfigArgs']]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 fields: Optional[pulumi.Input[pulumi.InputType['FormFieldsMapArgs']]] = None,
+                 fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FormFieldConfigArgs']]]]] = None,
                  form_action_type: Optional[pulumi.Input['FormActionType']] = None,
                  label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema_version: Optional[pulumi.Input[str]] = None,
-                 sectional_elements: Optional[pulumi.Input[pulumi.InputType['FormSectionalElementMapArgs']]] = None,
+                 sectional_elements: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FormSectionalElementArgs']]]]] = None,
                  style: Optional[pulumi.Input[pulumi.InputType['FormStyleArgs']]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['FormTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::AmplifyUIBuilder::Form Resource Type
@@ -218,14 +218,14 @@ class Form(pulumi.CustomResource):
                  cta: Optional[pulumi.Input[pulumi.InputType['FormCtaArgs']]] = None,
                  data_type: Optional[pulumi.Input[pulumi.InputType['FormDataTypeConfigArgs']]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 fields: Optional[pulumi.Input[pulumi.InputType['FormFieldsMapArgs']]] = None,
+                 fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FormFieldConfigArgs']]]]] = None,
                  form_action_type: Optional[pulumi.Input['FormActionType']] = None,
                  label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema_version: Optional[pulumi.Input[str]] = None,
-                 sectional_elements: Optional[pulumi.Input[pulumi.InputType['FormSectionalElementMapArgs']]] = None,
+                 sectional_elements: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FormSectionalElementArgs']]]]] = None,
                  style: Optional[pulumi.Input[pulumi.InputType['FormStyleArgs']]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['FormTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -307,7 +307,7 @@ class Form(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fields(self) -> pulumi.Output[Optional['outputs.FormFieldsMap']]:
+    def fields(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.FormFieldConfig']]]:
         return pulumi.get(self, "fields")
 
     @property
@@ -332,7 +332,7 @@ class Form(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sectionalElements")
-    def sectional_elements(self) -> pulumi.Output[Optional['outputs.FormSectionalElementMap']]:
+    def sectional_elements(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.FormSectionalElement']]]:
         return pulumi.get(self, "sectional_elements")
 
     @property
@@ -342,6 +342,6 @@ class Form(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.FormTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 

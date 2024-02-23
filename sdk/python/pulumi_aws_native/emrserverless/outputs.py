@@ -26,7 +26,7 @@ __all__ = [
     'ApplicationNetworkConfiguration',
     'ApplicationS3MonitoringConfiguration',
     'ApplicationWorkerConfiguration',
-    'ApplicationWorkerTypeSpecificationInputMap',
+    'ApplicationWorkerTypeSpecificationInput',
 ]
 
 @pulumi.output_type
@@ -655,8 +655,38 @@ class ApplicationWorkerConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationWorkerTypeSpecificationInputMap(dict):
-    def __init__(__self__):
-        pass
+class ApplicationWorkerTypeSpecificationInput(dict):
+    """
+    The specifications for a worker type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageConfiguration":
+            suggest = "image_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationWorkerTypeSpecificationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationWorkerTypeSpecificationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationWorkerTypeSpecificationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_configuration: Optional['outputs.ApplicationImageConfigurationInput'] = None):
+        """
+        The specifications for a worker type.
+        """
+        if image_configuration is not None:
+            pulumi.set(__self__, "image_configuration", image_configuration)
+
+    @property
+    @pulumi.getter(name="imageConfiguration")
+    def image_configuration(self) -> Optional['outputs.ApplicationImageConfigurationInput']:
+        return pulumi.get(self, "image_configuration")
 
 

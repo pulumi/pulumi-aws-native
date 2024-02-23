@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public readonly string? ModifiedAt;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.ThemeValues> Overrides;
-        public readonly Outputs.ThemeTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly ImmutableArray<Outputs.ThemeValues> Values;
 
         [OutputConstructor]
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
             ImmutableArray<Outputs.ThemeValues> overrides,
 
-            Outputs.ThemeTags? tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.ThemeValues> values)
         {

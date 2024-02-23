@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -43,7 +42,7 @@ class GetSoftwarePackageVersionResult:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional['outputs.SoftwarePackageVersionResourceAttributes']:
+    def attributes(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "attributes")
 
     @property

@@ -24,7 +24,7 @@ class LaunchProfileArgs:
                  studio_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['LaunchProfileTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LaunchProfile resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_subnet_ids: <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
@@ -135,11 +135,11 @@ class LaunchProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['LaunchProfileTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['LaunchProfileTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -155,7 +155,7 @@ class LaunchProfile(pulumi.CustomResource):
                  stream_configuration: Optional[pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']]] = None,
                  studio_component_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['LaunchProfileTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents a launch profile which delegates access to a collection of studio components to studio users
@@ -203,7 +203,7 @@ class LaunchProfile(pulumi.CustomResource):
                  stream_configuration: Optional[pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']]] = None,
                  studio_component_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['LaunchProfileTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,7 +232,7 @@ class LaunchProfile(pulumi.CustomResource):
             __props__.__dict__["studio_id"] = studio_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["launch_profile_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_subnet_ids[*]", "studio_id", "tags"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_subnet_ids[*]", "studio_id", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LaunchProfile, __self__).__init__(
             'aws-native:nimblestudio:LaunchProfile',
@@ -330,6 +330,6 @@ class LaunchProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.LaunchProfileTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 

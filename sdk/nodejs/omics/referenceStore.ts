@@ -55,7 +55,7 @@ export class ReferenceStore extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly referenceStoreId!: pulumi.Output<string>;
     public readonly sseConfig!: pulumi.Output<outputs.omics.ReferenceStoreSseConfig | undefined>;
-    public readonly tags!: pulumi.Output<outputs.omics.ReferenceStoreTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ReferenceStore resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ export class ReferenceStore extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "name", "sseConfig", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["description", "name", "sseConfig", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReferenceStore.__pulumiType, name, resourceInputs, opts);
     }
@@ -104,5 +104,5 @@ export interface ReferenceStoreArgs {
      */
     name?: pulumi.Input<string>;
     sseConfig?: pulumi.Input<inputs.omics.ReferenceStoreSseConfigArgs>;
-    tags?: pulumi.Input<inputs.omics.ReferenceStoreTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ComponentSortDirection = {
+    Asc: "ASC",
+    Desc: "DESC",
+} as const;
+
+export type ComponentSortDirection = (typeof ComponentSortDirection)[keyof typeof ComponentSortDirection];
+
 export const FormActionType = {
     Create: "create",
     Update: "update",
@@ -37,3 +44,11 @@ export const FormLabelDecorator = {
 } as const;
 
 export type FormLabelDecorator = (typeof FormLabelDecorator)[keyof typeof FormLabelDecorator];
+
+export const FormStorageAccessLevel = {
+    Public: "public",
+    Protected: "protected",
+    Private: "private",
+} as const;
+
+export type FormStorageAccessLevel = (typeof FormStorageAccessLevel)[keyof typeof FormStorageAccessLevel];

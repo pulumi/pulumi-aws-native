@@ -13,10 +13,8 @@ from ._enums import *
 __all__ = [
     'ApplicationDefinition0PropertiesArgs',
     'ApplicationDefinition1PropertiesArgs',
-    'ApplicationTagMapArgs',
     'EnvironmentHighAvailabilityConfigArgs',
     'EnvironmentStorageConfigurationArgs',
-    'EnvironmentTagMapArgs',
 ]
 
 @pulumi.input_type
@@ -52,12 +50,6 @@ class ApplicationDefinition1PropertiesArgs:
 
 
 @pulumi.input_type
-class ApplicationTagMapArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class EnvironmentHighAvailabilityConfigArgs:
     def __init__(__self__, *,
                  desired_capacity: pulumi.Input[int]):
@@ -81,15 +73,6 @@ class EnvironmentStorageConfigurationArgs:
     def __init__(__self__):
         """
         Defines the storage configuration for an environment.
-        """
-        pass
-
-
-@pulumi.input_type
-class EnvironmentTagMapArgs:
-    def __init__(__self__):
-        """
-        Defines tags associated to an environment.
         """
         pass
 

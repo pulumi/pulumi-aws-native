@@ -16,11 +16,11 @@ import (
 type IdentityProvider struct {
 	pulumi.CustomResourceState
 
-	IdentityProviderArn     pulumi.StringOutput           `pulumi:"identityProviderArn"`
-	IdentityProviderDetails IdentityProviderDetailsOutput `pulumi:"identityProviderDetails"`
-	IdentityProviderName    pulumi.StringOutput           `pulumi:"identityProviderName"`
-	IdentityProviderType    IdentityProviderTypeOutput    `pulumi:"identityProviderType"`
-	PortalArn               pulumi.StringPtrOutput        `pulumi:"portalArn"`
+	IdentityProviderArn     pulumi.StringOutput        `pulumi:"identityProviderArn"`
+	IdentityProviderDetails pulumi.StringMapOutput     `pulumi:"identityProviderDetails"`
+	IdentityProviderName    pulumi.StringOutput        `pulumi:"identityProviderName"`
+	IdentityProviderType    IdentityProviderTypeOutput `pulumi:"identityProviderType"`
+	PortalArn               pulumi.StringPtrOutput     `pulumi:"portalArn"`
 }
 
 // NewIdentityProvider registers a new resource with the given unique name, arguments, and options.
@@ -73,15 +73,15 @@ func (IdentityProviderState) ElementType() reflect.Type {
 }
 
 type identityProviderArgs struct {
-	IdentityProviderDetails IdentityProviderDetails `pulumi:"identityProviderDetails"`
-	IdentityProviderName    *string                 `pulumi:"identityProviderName"`
-	IdentityProviderType    IdentityProviderType    `pulumi:"identityProviderType"`
-	PortalArn               *string                 `pulumi:"portalArn"`
+	IdentityProviderDetails map[string]string    `pulumi:"identityProviderDetails"`
+	IdentityProviderName    *string              `pulumi:"identityProviderName"`
+	IdentityProviderType    IdentityProviderType `pulumi:"identityProviderType"`
+	PortalArn               *string              `pulumi:"portalArn"`
 }
 
 // The set of arguments for constructing a IdentityProvider resource.
 type IdentityProviderArgs struct {
-	IdentityProviderDetails IdentityProviderDetailsInput
+	IdentityProviderDetails pulumi.StringMapInput
 	IdentityProviderName    pulumi.StringPtrInput
 	IdentityProviderType    IdentityProviderTypeInput
 	PortalArn               pulumi.StringPtrInput
@@ -128,8 +128,8 @@ func (o IdentityProviderOutput) IdentityProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.IdentityProviderArn }).(pulumi.StringOutput)
 }
 
-func (o IdentityProviderOutput) IdentityProviderDetails() IdentityProviderDetailsOutput {
-	return o.ApplyT(func(v *IdentityProvider) IdentityProviderDetailsOutput { return v.IdentityProviderDetails }).(IdentityProviderDetailsOutput)
+func (o IdentityProviderOutput) IdentityProviderDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringMapOutput { return v.IdentityProviderDetails }).(pulumi.StringMapOutput)
 }
 
 func (o IdentityProviderOutput) IdentityProviderName() pulumi.StringOutput {

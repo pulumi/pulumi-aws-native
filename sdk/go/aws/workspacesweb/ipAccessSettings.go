@@ -17,15 +17,15 @@ import (
 type IpAccessSettings struct {
 	pulumi.CustomResourceState
 
-	AdditionalEncryptionContext IpAccessSettingsEncryptionContextMapPtrOutput `pulumi:"additionalEncryptionContext"`
-	AssociatedPortalArns        pulumi.StringArrayOutput                      `pulumi:"associatedPortalArns"`
-	CreationDate                pulumi.StringOutput                           `pulumi:"creationDate"`
-	CustomerManagedKey          pulumi.StringPtrOutput                        `pulumi:"customerManagedKey"`
-	Description                 pulumi.StringPtrOutput                        `pulumi:"description"`
-	DisplayName                 pulumi.StringPtrOutput                        `pulumi:"displayName"`
-	IpAccessSettingsArn         pulumi.StringOutput                           `pulumi:"ipAccessSettingsArn"`
-	IpRules                     IpAccessSettingsIpRuleArrayOutput             `pulumi:"ipRules"`
-	Tags                        aws.TagArrayOutput                            `pulumi:"tags"`
+	AdditionalEncryptionContext pulumi.StringMapOutput            `pulumi:"additionalEncryptionContext"`
+	AssociatedPortalArns        pulumi.StringArrayOutput          `pulumi:"associatedPortalArns"`
+	CreationDate                pulumi.StringOutput               `pulumi:"creationDate"`
+	CustomerManagedKey          pulumi.StringPtrOutput            `pulumi:"customerManagedKey"`
+	Description                 pulumi.StringPtrOutput            `pulumi:"description"`
+	DisplayName                 pulumi.StringPtrOutput            `pulumi:"displayName"`
+	IpAccessSettingsArn         pulumi.StringOutput               `pulumi:"ipAccessSettingsArn"`
+	IpRules                     IpAccessSettingsIpRuleArrayOutput `pulumi:"ipRules"`
+	Tags                        aws.TagArrayOutput                `pulumi:"tags"`
 }
 
 // NewIpAccessSettings registers a new resource with the given unique name, arguments, and options.
@@ -39,7 +39,7 @@ func NewIpAccessSettings(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'IpRules'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"additionalEncryptionContext",
+		"additionalEncryptionContext.*",
 		"customerManagedKey",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -76,17 +76,17 @@ func (IpAccessSettingsState) ElementType() reflect.Type {
 }
 
 type ipAccessSettingsArgs struct {
-	AdditionalEncryptionContext *IpAccessSettingsEncryptionContextMap `pulumi:"additionalEncryptionContext"`
-	CustomerManagedKey          *string                               `pulumi:"customerManagedKey"`
-	Description                 *string                               `pulumi:"description"`
-	DisplayName                 *string                               `pulumi:"displayName"`
-	IpRules                     []IpAccessSettingsIpRule              `pulumi:"ipRules"`
-	Tags                        []aws.Tag                             `pulumi:"tags"`
+	AdditionalEncryptionContext map[string]string        `pulumi:"additionalEncryptionContext"`
+	CustomerManagedKey          *string                  `pulumi:"customerManagedKey"`
+	Description                 *string                  `pulumi:"description"`
+	DisplayName                 *string                  `pulumi:"displayName"`
+	IpRules                     []IpAccessSettingsIpRule `pulumi:"ipRules"`
+	Tags                        []aws.Tag                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpAccessSettings resource.
 type IpAccessSettingsArgs struct {
-	AdditionalEncryptionContext IpAccessSettingsEncryptionContextMapPtrInput
+	AdditionalEncryptionContext pulumi.StringMapInput
 	CustomerManagedKey          pulumi.StringPtrInput
 	Description                 pulumi.StringPtrInput
 	DisplayName                 pulumi.StringPtrInput
@@ -131,10 +131,8 @@ func (o IpAccessSettingsOutput) ToIpAccessSettingsOutputWithContext(ctx context.
 	return o
 }
 
-func (o IpAccessSettingsOutput) AdditionalEncryptionContext() IpAccessSettingsEncryptionContextMapPtrOutput {
-	return o.ApplyT(func(v *IpAccessSettings) IpAccessSettingsEncryptionContextMapPtrOutput {
-		return v.AdditionalEncryptionContext
-	}).(IpAccessSettingsEncryptionContextMapPtrOutput)
+func (o IpAccessSettingsOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
 func (o IpAccessSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.SecurityHub
         /// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleRuleStatus? RuleStatus;
-        public readonly Outputs.AutomationRuleTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? UpdatedAt;
 
         [OutputConstructor]
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.SecurityHub
 
             Pulumi.AwsNative.SecurityHub.AutomationRuleRuleStatus? ruleStatus,
 
-            Outputs.AutomationRuleTags? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? updatedAt)
         {

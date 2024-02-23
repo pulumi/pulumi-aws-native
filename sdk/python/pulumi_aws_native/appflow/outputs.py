@@ -19,7 +19,6 @@ __all__ = [
     'ConnectorProfileConfig',
     'ConnectorProfileConnectorOAuthRequest',
     'ConnectorProfileCredentials',
-    'ConnectorProfileCredentialsMap',
     'ConnectorProfileCustomAuthCredentials',
     'ConnectorProfileCustomConnectorProfileCredentials',
     'ConnectorProfileCustomConnectorProfileProperties',
@@ -37,7 +36,6 @@ __all__ = [
     'ConnectorProfileOAuthProperties',
     'ConnectorProfilePardotConnectorProfileCredentials',
     'ConnectorProfilePardotConnectorProfileProperties',
-    'ConnectorProfileProfileProperties',
     'ConnectorProfileProperties',
     'ConnectorProfileRedshiftConnectorProfileCredentials',
     'ConnectorProfileRedshiftConnectorProfileProperties',
@@ -53,7 +51,6 @@ __all__ = [
     'ConnectorProfileSlackConnectorProfileProperties',
     'ConnectorProfileSnowflakeConnectorProfileCredentials',
     'ConnectorProfileSnowflakeConnectorProfileProperties',
-    'ConnectorProfileTokenUrlCustomProperties',
     'ConnectorProfileTrendmicroConnectorProfileCredentials',
     'ConnectorProfileVeevaConnectorProfileCredentials',
     'ConnectorProfileVeevaConnectorProfileProperties',
@@ -66,7 +63,6 @@ __all__ = [
     'FlowCustomConnectorDestinationProperties',
     'FlowCustomConnectorSourceProperties',
     'FlowCustomConnectorSourcePropertiesDataTransferApiProperties',
-    'FlowCustomProperties',
     'FlowDatadogSourceProperties',
     'FlowDestinationConnectorProperties',
     'FlowDestinationFlowConfig',
@@ -533,18 +529,6 @@ class ConnectorProfileCredentials(dict):
 
 
 @pulumi.output_type
-class ConnectorProfileCredentialsMap(dict):
-    """
-    A map for properties for custom authentication.
-    """
-    def __init__(__self__):
-        """
-        A map for properties for custom authentication.
-        """
-        pass
-
-
-@pulumi.output_type
 class ConnectorProfileCustomAuthCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -567,7 +551,7 @@ class ConnectorProfileCustomAuthCredentials(dict):
 
     def __init__(__self__, *,
                  custom_authentication_type: str,
-                 credentials_map: Optional['outputs.ConnectorProfileCredentialsMap'] = None):
+                 credentials_map: Optional[Mapping[str, str]] = None):
         pulumi.set(__self__, "custom_authentication_type", custom_authentication_type)
         if credentials_map is not None:
             pulumi.set(__self__, "credentials_map", credentials_map)
@@ -579,7 +563,7 @@ class ConnectorProfileCustomAuthCredentials(dict):
 
     @property
     @pulumi.getter(name="credentialsMap")
-    def credentials_map(self) -> Optional['outputs.ConnectorProfileCredentialsMap']:
+    def credentials_map(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "credentials_map")
 
 
@@ -669,7 +653,7 @@ class ConnectorProfileCustomConnectorProfileProperties(dict):
 
     def __init__(__self__, *,
                  o_auth2_properties: Optional['outputs.ConnectorProfileOAuth2Properties'] = None,
-                 profile_properties: Optional['outputs.ConnectorProfileProfileProperties'] = None):
+                 profile_properties: Optional[Mapping[str, str]] = None):
         if o_auth2_properties is not None:
             pulumi.set(__self__, "o_auth2_properties", o_auth2_properties)
         if profile_properties is not None:
@@ -682,7 +666,7 @@ class ConnectorProfileCustomConnectorProfileProperties(dict):
 
     @property
     @pulumi.getter(name="profileProperties")
-    def profile_properties(self) -> Optional['outputs.ConnectorProfileProfileProperties']:
+    def profile_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "profile_properties")
 
 
@@ -1243,7 +1227,7 @@ class ConnectorProfileOAuth2Properties(dict):
     def __init__(__self__, *,
                  o_auth2_grant_type: Optional['ConnectorProfileOAuth2GrantType'] = None,
                  token_url: Optional[str] = None,
-                 token_url_custom_properties: Optional['outputs.ConnectorProfileTokenUrlCustomProperties'] = None):
+                 token_url_custom_properties: Optional[Mapping[str, str]] = None):
         if o_auth2_grant_type is not None:
             pulumi.set(__self__, "o_auth2_grant_type", o_auth2_grant_type)
         if token_url is not None:
@@ -1263,7 +1247,7 @@ class ConnectorProfileOAuth2Properties(dict):
 
     @property
     @pulumi.getter(name="tokenUrlCustomProperties")
-    def token_url_custom_properties(self) -> Optional['outputs.ConnectorProfileTokenUrlCustomProperties']:
+    def token_url_custom_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "token_url_custom_properties")
 
 
@@ -1456,18 +1440,6 @@ class ConnectorProfilePardotConnectorProfileProperties(dict):
         Indicates whether the connector profile applies to a demo or production environment
         """
         return pulumi.get(self, "is_sandbox_environment")
-
-
-@pulumi.output_type
-class ConnectorProfileProfileProperties(dict):
-    """
-    A map for properties for custom connector.
-    """
-    def __init__(__self__):
-        """
-        A map for properties for custom connector.
-        """
-        pass
 
 
 @pulumi.output_type
@@ -2563,18 +2535,6 @@ class ConnectorProfileSnowflakeConnectorProfileProperties(dict):
 
 
 @pulumi.output_type
-class ConnectorProfileTokenUrlCustomProperties(dict):
-    """
-    A map for properties for custom connector Token Url.
-    """
-    def __init__(__self__):
-        """
-        A map for properties for custom connector Token Url.
-        """
-        pass
-
-
-@pulumi.output_type
 class ConnectorProfileTrendmicroConnectorProfileCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3077,7 +3037,7 @@ class FlowCustomConnectorDestinationProperties(dict):
 
     def __init__(__self__, *,
                  entity_name: str,
-                 custom_properties: Optional['outputs.FlowCustomProperties'] = None,
+                 custom_properties: Optional[Mapping[str, str]] = None,
                  error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
                  id_field_names: Optional[Sequence[str]] = None,
                  write_operation_type: Optional['FlowWriteOperationType'] = None):
@@ -3101,7 +3061,7 @@ class FlowCustomConnectorDestinationProperties(dict):
 
     @property
     @pulumi.getter(name="customProperties")
-    def custom_properties(self) -> Optional['outputs.FlowCustomProperties']:
+    def custom_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "custom_properties")
 
     @property
@@ -3148,7 +3108,7 @@ class FlowCustomConnectorSourceProperties(dict):
 
     def __init__(__self__, *,
                  entity_name: str,
-                 custom_properties: Optional['outputs.FlowCustomProperties'] = None,
+                 custom_properties: Optional[Mapping[str, str]] = None,
                  data_transfer_api: Optional['outputs.FlowCustomConnectorSourcePropertiesDataTransferApiProperties'] = None):
         pulumi.set(__self__, "entity_name", entity_name)
         if custom_properties is not None:
@@ -3163,7 +3123,7 @@ class FlowCustomConnectorSourceProperties(dict):
 
     @property
     @pulumi.getter(name="customProperties")
-    def custom_properties(self) -> Optional['outputs.FlowCustomProperties']:
+    def custom_properties(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "custom_properties")
 
     @property
@@ -3189,18 +3149,6 @@ class FlowCustomConnectorSourcePropertiesDataTransferApiProperties(dict):
     @pulumi.getter
     def type(self) -> 'FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType':
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class FlowCustomProperties(dict):
-    """
-    A map for properties for custom connector.
-    """
-    def __init__(__self__):
-        """
-        A map for properties for custom connector.
-        """
-        pass
 
 
 @pulumi.output_type

@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<string> StudioUrl { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.StudioTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.NimbleStudio
                 ReplaceOnChanges =
                 {
                     "studioName",
-                    "tags",
+                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,7 +138,12 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Input<string>? StudioName { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.StudioTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// &lt;p&gt;The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.&lt;/p&gt;

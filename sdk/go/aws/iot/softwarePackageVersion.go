@@ -17,12 +17,12 @@ import (
 type SoftwarePackageVersion struct {
 	pulumi.CustomResourceState
 
-	Attributes        SoftwarePackageVersionResourceAttributesPtrOutput `pulumi:"attributes"`
-	Description       pulumi.StringPtrOutput                            `pulumi:"description"`
-	ErrorReason       pulumi.StringOutput                               `pulumi:"errorReason"`
-	PackageName       pulumi.StringOutput                               `pulumi:"packageName"`
-	PackageVersionArn pulumi.StringOutput                               `pulumi:"packageVersionArn"`
-	Status            SoftwarePackageVersionPackageVersionStatusOutput  `pulumi:"status"`
+	Attributes        pulumi.StringMapOutput                           `pulumi:"attributes"`
+	Description       pulumi.StringPtrOutput                           `pulumi:"description"`
+	ErrorReason       pulumi.StringOutput                              `pulumi:"errorReason"`
+	PackageName       pulumi.StringOutput                              `pulumi:"packageName"`
+	PackageVersionArn pulumi.StringOutput                              `pulumi:"packageVersionArn"`
+	Status            SoftwarePackageVersionPackageVersionStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags        aws.TagArrayOutput     `pulumi:"tags"`
 	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
@@ -76,9 +76,9 @@ func (SoftwarePackageVersionState) ElementType() reflect.Type {
 }
 
 type softwarePackageVersionArgs struct {
-	Attributes  *SoftwarePackageVersionResourceAttributes `pulumi:"attributes"`
-	Description *string                                   `pulumi:"description"`
-	PackageName string                                    `pulumi:"packageName"`
+	Attributes  map[string]string `pulumi:"attributes"`
+	Description *string           `pulumi:"description"`
+	PackageName string            `pulumi:"packageName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags        []aws.Tag `pulumi:"tags"`
 	VersionName *string   `pulumi:"versionName"`
@@ -86,7 +86,7 @@ type softwarePackageVersionArgs struct {
 
 // The set of arguments for constructing a SoftwarePackageVersion resource.
 type SoftwarePackageVersionArgs struct {
-	Attributes  SoftwarePackageVersionResourceAttributesPtrInput
+	Attributes  pulumi.StringMapInput
 	Description pulumi.StringPtrInput
 	PackageName pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
@@ -131,8 +131,8 @@ func (o SoftwarePackageVersionOutput) ToSoftwarePackageVersionOutputWithContext(
 	return o
 }
 
-func (o SoftwarePackageVersionOutput) Attributes() SoftwarePackageVersionResourceAttributesPtrOutput {
-	return o.ApplyT(func(v *SoftwarePackageVersion) SoftwarePackageVersionResourceAttributesPtrOutput { return v.Attributes }).(SoftwarePackageVersionResourceAttributesPtrOutput)
+func (o SoftwarePackageVersionOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SoftwarePackageVersion) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o SoftwarePackageVersionOutput) Description() pulumi.StringPtrOutput {

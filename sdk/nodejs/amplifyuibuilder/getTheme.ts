@@ -32,7 +32,7 @@ export interface GetThemeResult {
     readonly modifiedAt?: string;
     readonly name?: string;
     readonly overrides?: outputs.amplifyuibuilder.ThemeValues[];
-    readonly tags?: outputs.amplifyuibuilder.ThemeTags;
+    readonly tags?: {[key: string]: string};
     readonly values?: outputs.amplifyuibuilder.ThemeValues[];
 }
 /**

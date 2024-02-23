@@ -13,6 +13,3284 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateVisualPalette struct {
+	ChartColor *string                 `pulumi:"chartColor"`
+	ColorMap   []TemplateDataPathColor `pulumi:"colorMap"`
+}
+
+// TemplateVisualPaletteInput is an input type that accepts TemplateVisualPaletteArgs and TemplateVisualPaletteOutput values.
+// You can construct a concrete instance of `TemplateVisualPaletteInput` via:
+//
+//	TemplateVisualPaletteArgs{...}
+type TemplateVisualPaletteInput interface {
+	pulumi.Input
+
+	ToTemplateVisualPaletteOutput() TemplateVisualPaletteOutput
+	ToTemplateVisualPaletteOutputWithContext(context.Context) TemplateVisualPaletteOutput
+}
+
+type TemplateVisualPaletteArgs struct {
+	ChartColor pulumi.StringPtrInput           `pulumi:"chartColor"`
+	ColorMap   TemplateDataPathColorArrayInput `pulumi:"colorMap"`
+}
+
+func (TemplateVisualPaletteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualPalette)(nil)).Elem()
+}
+
+func (i TemplateVisualPaletteArgs) ToTemplateVisualPaletteOutput() TemplateVisualPaletteOutput {
+	return i.ToTemplateVisualPaletteOutputWithContext(context.Background())
+}
+
+func (i TemplateVisualPaletteArgs) ToTemplateVisualPaletteOutputWithContext(ctx context.Context) TemplateVisualPaletteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualPaletteOutput)
+}
+
+func (i TemplateVisualPaletteArgs) ToTemplateVisualPalettePtrOutput() TemplateVisualPalettePtrOutput {
+	return i.ToTemplateVisualPalettePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateVisualPaletteArgs) ToTemplateVisualPalettePtrOutputWithContext(ctx context.Context) TemplateVisualPalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualPaletteOutput).ToTemplateVisualPalettePtrOutputWithContext(ctx)
+}
+
+// TemplateVisualPalettePtrInput is an input type that accepts TemplateVisualPaletteArgs, TemplateVisualPalettePtr and TemplateVisualPalettePtrOutput values.
+// You can construct a concrete instance of `TemplateVisualPalettePtrInput` via:
+//
+//	        TemplateVisualPaletteArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateVisualPalettePtrInput interface {
+	pulumi.Input
+
+	ToTemplateVisualPalettePtrOutput() TemplateVisualPalettePtrOutput
+	ToTemplateVisualPalettePtrOutputWithContext(context.Context) TemplateVisualPalettePtrOutput
+}
+
+type templateVisualPalettePtrType TemplateVisualPaletteArgs
+
+func TemplateVisualPalettePtr(v *TemplateVisualPaletteArgs) TemplateVisualPalettePtrInput {
+	return (*templateVisualPalettePtrType)(v)
+}
+
+func (*templateVisualPalettePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualPalette)(nil)).Elem()
+}
+
+func (i *templateVisualPalettePtrType) ToTemplateVisualPalettePtrOutput() TemplateVisualPalettePtrOutput {
+	return i.ToTemplateVisualPalettePtrOutputWithContext(context.Background())
+}
+
+func (i *templateVisualPalettePtrType) ToTemplateVisualPalettePtrOutputWithContext(ctx context.Context) TemplateVisualPalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualPalettePtrOutput)
+}
+
+type TemplateVisualPaletteOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualPaletteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualPalette)(nil)).Elem()
+}
+
+func (o TemplateVisualPaletteOutput) ToTemplateVisualPaletteOutput() TemplateVisualPaletteOutput {
+	return o
+}
+
+func (o TemplateVisualPaletteOutput) ToTemplateVisualPaletteOutputWithContext(ctx context.Context) TemplateVisualPaletteOutput {
+	return o
+}
+
+func (o TemplateVisualPaletteOutput) ToTemplateVisualPalettePtrOutput() TemplateVisualPalettePtrOutput {
+	return o.ToTemplateVisualPalettePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisualPaletteOutput) ToTemplateVisualPalettePtrOutputWithContext(ctx context.Context) TemplateVisualPalettePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateVisualPalette) *TemplateVisualPalette {
+		return &v
+	}).(TemplateVisualPalettePtrOutput)
+}
+
+func (o TemplateVisualPaletteOutput) ChartColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateVisualPalette) *string { return v.ChartColor }).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateVisualPaletteOutput) ColorMap() TemplateDataPathColorArrayOutput {
+	return o.ApplyT(func(v TemplateVisualPalette) []TemplateDataPathColor { return v.ColorMap }).(TemplateDataPathColorArrayOutput)
+}
+
+type TemplateVisualPalettePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualPalettePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualPalette)(nil)).Elem()
+}
+
+func (o TemplateVisualPalettePtrOutput) ToTemplateVisualPalettePtrOutput() TemplateVisualPalettePtrOutput {
+	return o
+}
+
+func (o TemplateVisualPalettePtrOutput) ToTemplateVisualPalettePtrOutputWithContext(ctx context.Context) TemplateVisualPalettePtrOutput {
+	return o
+}
+
+func (o TemplateVisualPalettePtrOutput) Elem() TemplateVisualPaletteOutput {
+	return o.ApplyT(func(v *TemplateVisualPalette) TemplateVisualPalette {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateVisualPalette
+		return ret
+	}).(TemplateVisualPaletteOutput)
+}
+
+func (o TemplateVisualPalettePtrOutput) ChartColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateVisualPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChartColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateVisualPalettePtrOutput) ColorMap() TemplateDataPathColorArrayOutput {
+	return o.ApplyT(func(v *TemplateVisualPalette) []TemplateDataPathColor {
+		if v == nil {
+			return nil
+		}
+		return v.ColorMap
+	}).(TemplateDataPathColorArrayOutput)
+}
+
+type TemplateVisualSubtitleLabelOptions struct {
+	FormatText *TemplateLongFormatText `pulumi:"formatText"`
+	Visibility *TemplateVisibility     `pulumi:"visibility"`
+}
+
+// TemplateVisualSubtitleLabelOptionsInput is an input type that accepts TemplateVisualSubtitleLabelOptionsArgs and TemplateVisualSubtitleLabelOptionsOutput values.
+// You can construct a concrete instance of `TemplateVisualSubtitleLabelOptionsInput` via:
+//
+//	TemplateVisualSubtitleLabelOptionsArgs{...}
+type TemplateVisualSubtitleLabelOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateVisualSubtitleLabelOptionsOutput() TemplateVisualSubtitleLabelOptionsOutput
+	ToTemplateVisualSubtitleLabelOptionsOutputWithContext(context.Context) TemplateVisualSubtitleLabelOptionsOutput
+}
+
+type TemplateVisualSubtitleLabelOptionsArgs struct {
+	FormatText TemplateLongFormatTextPtrInput `pulumi:"formatText"`
+	Visibility TemplateVisibilityPtrInput     `pulumi:"visibility"`
+}
+
+func (TemplateVisualSubtitleLabelOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualSubtitleLabelOptions)(nil)).Elem()
+}
+
+func (i TemplateVisualSubtitleLabelOptionsArgs) ToTemplateVisualSubtitleLabelOptionsOutput() TemplateVisualSubtitleLabelOptionsOutput {
+	return i.ToTemplateVisualSubtitleLabelOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateVisualSubtitleLabelOptionsArgs) ToTemplateVisualSubtitleLabelOptionsOutputWithContext(ctx context.Context) TemplateVisualSubtitleLabelOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualSubtitleLabelOptionsOutput)
+}
+
+func (i TemplateVisualSubtitleLabelOptionsArgs) ToTemplateVisualSubtitleLabelOptionsPtrOutput() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return i.ToTemplateVisualSubtitleLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateVisualSubtitleLabelOptionsArgs) ToTemplateVisualSubtitleLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualSubtitleLabelOptionsOutput).ToTemplateVisualSubtitleLabelOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateVisualSubtitleLabelOptionsPtrInput is an input type that accepts TemplateVisualSubtitleLabelOptionsArgs, TemplateVisualSubtitleLabelOptionsPtr and TemplateVisualSubtitleLabelOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateVisualSubtitleLabelOptionsPtrInput` via:
+//
+//	        TemplateVisualSubtitleLabelOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateVisualSubtitleLabelOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateVisualSubtitleLabelOptionsPtrOutput() TemplateVisualSubtitleLabelOptionsPtrOutput
+	ToTemplateVisualSubtitleLabelOptionsPtrOutputWithContext(context.Context) TemplateVisualSubtitleLabelOptionsPtrOutput
+}
+
+type templateVisualSubtitleLabelOptionsPtrType TemplateVisualSubtitleLabelOptionsArgs
+
+func TemplateVisualSubtitleLabelOptionsPtr(v *TemplateVisualSubtitleLabelOptionsArgs) TemplateVisualSubtitleLabelOptionsPtrInput {
+	return (*templateVisualSubtitleLabelOptionsPtrType)(v)
+}
+
+func (*templateVisualSubtitleLabelOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualSubtitleLabelOptions)(nil)).Elem()
+}
+
+func (i *templateVisualSubtitleLabelOptionsPtrType) ToTemplateVisualSubtitleLabelOptionsPtrOutput() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return i.ToTemplateVisualSubtitleLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateVisualSubtitleLabelOptionsPtrType) ToTemplateVisualSubtitleLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+type TemplateVisualSubtitleLabelOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualSubtitleLabelOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualSubtitleLabelOptions)(nil)).Elem()
+}
+
+func (o TemplateVisualSubtitleLabelOptionsOutput) ToTemplateVisualSubtitleLabelOptionsOutput() TemplateVisualSubtitleLabelOptionsOutput {
+	return o
+}
+
+func (o TemplateVisualSubtitleLabelOptionsOutput) ToTemplateVisualSubtitleLabelOptionsOutputWithContext(ctx context.Context) TemplateVisualSubtitleLabelOptionsOutput {
+	return o
+}
+
+func (o TemplateVisualSubtitleLabelOptionsOutput) ToTemplateVisualSubtitleLabelOptionsPtrOutput() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ToTemplateVisualSubtitleLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisualSubtitleLabelOptionsOutput) ToTemplateVisualSubtitleLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateVisualSubtitleLabelOptions) *TemplateVisualSubtitleLabelOptions {
+		return &v
+	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateVisualSubtitleLabelOptionsOutput) FormatText() TemplateLongFormatTextPtrOutput {
+	return o.ApplyT(func(v TemplateVisualSubtitleLabelOptions) *TemplateLongFormatText { return v.FormatText }).(TemplateLongFormatTextPtrOutput)
+}
+
+func (o TemplateVisualSubtitleLabelOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateVisualSubtitleLabelOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+}
+
+type TemplateVisualSubtitleLabelOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualSubtitleLabelOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualSubtitleLabelOptions)(nil)).Elem()
+}
+
+func (o TemplateVisualSubtitleLabelOptionsPtrOutput) ToTemplateVisualSubtitleLabelOptionsPtrOutput() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateVisualSubtitleLabelOptionsPtrOutput) ToTemplateVisualSubtitleLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateVisualSubtitleLabelOptionsPtrOutput) Elem() TemplateVisualSubtitleLabelOptionsOutput {
+	return o.ApplyT(func(v *TemplateVisualSubtitleLabelOptions) TemplateVisualSubtitleLabelOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateVisualSubtitleLabelOptions
+		return ret
+	}).(TemplateVisualSubtitleLabelOptionsOutput)
+}
+
+func (o TemplateVisualSubtitleLabelOptionsPtrOutput) FormatText() TemplateLongFormatTextPtrOutput {
+	return o.ApplyT(func(v *TemplateVisualSubtitleLabelOptions) *TemplateLongFormatText {
+		if v == nil {
+			return nil
+		}
+		return v.FormatText
+	}).(TemplateLongFormatTextPtrOutput)
+}
+
+func (o TemplateVisualSubtitleLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v *TemplateVisualSubtitleLabelOptions) *TemplateVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+type TemplateVisualTitleLabelOptions struct {
+	FormatText *TemplateShortFormatText `pulumi:"formatText"`
+	Visibility *TemplateVisibility      `pulumi:"visibility"`
+}
+
+// TemplateVisualTitleLabelOptionsInput is an input type that accepts TemplateVisualTitleLabelOptionsArgs and TemplateVisualTitleLabelOptionsOutput values.
+// You can construct a concrete instance of `TemplateVisualTitleLabelOptionsInput` via:
+//
+//	TemplateVisualTitleLabelOptionsArgs{...}
+type TemplateVisualTitleLabelOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateVisualTitleLabelOptionsOutput() TemplateVisualTitleLabelOptionsOutput
+	ToTemplateVisualTitleLabelOptionsOutputWithContext(context.Context) TemplateVisualTitleLabelOptionsOutput
+}
+
+type TemplateVisualTitleLabelOptionsArgs struct {
+	FormatText TemplateShortFormatTextPtrInput `pulumi:"formatText"`
+	Visibility TemplateVisibilityPtrInput      `pulumi:"visibility"`
+}
+
+func (TemplateVisualTitleLabelOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualTitleLabelOptions)(nil)).Elem()
+}
+
+func (i TemplateVisualTitleLabelOptionsArgs) ToTemplateVisualTitleLabelOptionsOutput() TemplateVisualTitleLabelOptionsOutput {
+	return i.ToTemplateVisualTitleLabelOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateVisualTitleLabelOptionsArgs) ToTemplateVisualTitleLabelOptionsOutputWithContext(ctx context.Context) TemplateVisualTitleLabelOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualTitleLabelOptionsOutput)
+}
+
+func (i TemplateVisualTitleLabelOptionsArgs) ToTemplateVisualTitleLabelOptionsPtrOutput() TemplateVisualTitleLabelOptionsPtrOutput {
+	return i.ToTemplateVisualTitleLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateVisualTitleLabelOptionsArgs) ToTemplateVisualTitleLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualTitleLabelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualTitleLabelOptionsOutput).ToTemplateVisualTitleLabelOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateVisualTitleLabelOptionsPtrInput is an input type that accepts TemplateVisualTitleLabelOptionsArgs, TemplateVisualTitleLabelOptionsPtr and TemplateVisualTitleLabelOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateVisualTitleLabelOptionsPtrInput` via:
+//
+//	        TemplateVisualTitleLabelOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateVisualTitleLabelOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateVisualTitleLabelOptionsPtrOutput() TemplateVisualTitleLabelOptionsPtrOutput
+	ToTemplateVisualTitleLabelOptionsPtrOutputWithContext(context.Context) TemplateVisualTitleLabelOptionsPtrOutput
+}
+
+type templateVisualTitleLabelOptionsPtrType TemplateVisualTitleLabelOptionsArgs
+
+func TemplateVisualTitleLabelOptionsPtr(v *TemplateVisualTitleLabelOptionsArgs) TemplateVisualTitleLabelOptionsPtrInput {
+	return (*templateVisualTitleLabelOptionsPtrType)(v)
+}
+
+func (*templateVisualTitleLabelOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualTitleLabelOptions)(nil)).Elem()
+}
+
+func (i *templateVisualTitleLabelOptionsPtrType) ToTemplateVisualTitleLabelOptionsPtrOutput() TemplateVisualTitleLabelOptionsPtrOutput {
+	return i.ToTemplateVisualTitleLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateVisualTitleLabelOptionsPtrType) ToTemplateVisualTitleLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualTitleLabelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+type TemplateVisualTitleLabelOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualTitleLabelOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisualTitleLabelOptions)(nil)).Elem()
+}
+
+func (o TemplateVisualTitleLabelOptionsOutput) ToTemplateVisualTitleLabelOptionsOutput() TemplateVisualTitleLabelOptionsOutput {
+	return o
+}
+
+func (o TemplateVisualTitleLabelOptionsOutput) ToTemplateVisualTitleLabelOptionsOutputWithContext(ctx context.Context) TemplateVisualTitleLabelOptionsOutput {
+	return o
+}
+
+func (o TemplateVisualTitleLabelOptionsOutput) ToTemplateVisualTitleLabelOptionsPtrOutput() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ToTemplateVisualTitleLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisualTitleLabelOptionsOutput) ToTemplateVisualTitleLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateVisualTitleLabelOptions) *TemplateVisualTitleLabelOptions {
+		return &v
+	}).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateVisualTitleLabelOptionsOutput) FormatText() TemplateShortFormatTextPtrOutput {
+	return o.ApplyT(func(v TemplateVisualTitleLabelOptions) *TemplateShortFormatText { return v.FormatText }).(TemplateShortFormatTextPtrOutput)
+}
+
+func (o TemplateVisualTitleLabelOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateVisualTitleLabelOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+}
+
+type TemplateVisualTitleLabelOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisualTitleLabelOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisualTitleLabelOptions)(nil)).Elem()
+}
+
+func (o TemplateVisualTitleLabelOptionsPtrOutput) ToTemplateVisualTitleLabelOptionsPtrOutput() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateVisualTitleLabelOptionsPtrOutput) ToTemplateVisualTitleLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateVisualTitleLabelOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateVisualTitleLabelOptionsPtrOutput) Elem() TemplateVisualTitleLabelOptionsOutput {
+	return o.ApplyT(func(v *TemplateVisualTitleLabelOptions) TemplateVisualTitleLabelOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateVisualTitleLabelOptions
+		return ret
+	}).(TemplateVisualTitleLabelOptionsOutput)
+}
+
+func (o TemplateVisualTitleLabelOptionsPtrOutput) FormatText() TemplateShortFormatTextPtrOutput {
+	return o.ApplyT(func(v *TemplateVisualTitleLabelOptions) *TemplateShortFormatText {
+		if v == nil {
+			return nil
+		}
+		return v.FormatText
+	}).(TemplateShortFormatTextPtrOutput)
+}
+
+func (o TemplateVisualTitleLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v *TemplateVisualTitleLabelOptions) *TemplateVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+type TemplateWaterfallChartAggregatedFieldWells struct {
+	Breakdowns []TemplateDimensionField `pulumi:"breakdowns"`
+	Categories []TemplateDimensionField `pulumi:"categories"`
+	Values     []TemplateMeasureField   `pulumi:"values"`
+}
+
+// TemplateWaterfallChartAggregatedFieldWellsInput is an input type that accepts TemplateWaterfallChartAggregatedFieldWellsArgs and TemplateWaterfallChartAggregatedFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartAggregatedFieldWellsInput` via:
+//
+//	TemplateWaterfallChartAggregatedFieldWellsArgs{...}
+type TemplateWaterfallChartAggregatedFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartAggregatedFieldWellsOutput() TemplateWaterfallChartAggregatedFieldWellsOutput
+	ToTemplateWaterfallChartAggregatedFieldWellsOutputWithContext(context.Context) TemplateWaterfallChartAggregatedFieldWellsOutput
+}
+
+type TemplateWaterfallChartAggregatedFieldWellsArgs struct {
+	Breakdowns TemplateDimensionFieldArrayInput `pulumi:"breakdowns"`
+	Categories TemplateDimensionFieldArrayInput `pulumi:"categories"`
+	Values     TemplateMeasureFieldArrayInput   `pulumi:"values"`
+}
+
+func (TemplateWaterfallChartAggregatedFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i TemplateWaterfallChartAggregatedFieldWellsArgs) ToTemplateWaterfallChartAggregatedFieldWellsOutput() TemplateWaterfallChartAggregatedFieldWellsOutput {
+	return i.ToTemplateWaterfallChartAggregatedFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartAggregatedFieldWellsArgs) ToTemplateWaterfallChartAggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateWaterfallChartAggregatedFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartAggregatedFieldWellsOutput)
+}
+
+func (i TemplateWaterfallChartAggregatedFieldWellsArgs) ToTemplateWaterfallChartAggregatedFieldWellsPtrOutput() TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
+	return i.ToTemplateWaterfallChartAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartAggregatedFieldWellsArgs) ToTemplateWaterfallChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartAggregatedFieldWellsOutput).ToTemplateWaterfallChartAggregatedFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateWaterfallChartAggregatedFieldWellsPtrInput is an input type that accepts TemplateWaterfallChartAggregatedFieldWellsArgs, TemplateWaterfallChartAggregatedFieldWellsPtr and TemplateWaterfallChartAggregatedFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartAggregatedFieldWellsPtrInput` via:
+//
+//	        TemplateWaterfallChartAggregatedFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWaterfallChartAggregatedFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartAggregatedFieldWellsPtrOutput() TemplateWaterfallChartAggregatedFieldWellsPtrOutput
+	ToTemplateWaterfallChartAggregatedFieldWellsPtrOutputWithContext(context.Context) TemplateWaterfallChartAggregatedFieldWellsPtrOutput
+}
+
+type templateWaterfallChartAggregatedFieldWellsPtrType TemplateWaterfallChartAggregatedFieldWellsArgs
+
+func TemplateWaterfallChartAggregatedFieldWellsPtr(v *TemplateWaterfallChartAggregatedFieldWellsArgs) TemplateWaterfallChartAggregatedFieldWellsPtrInput {
+	return (*templateWaterfallChartAggregatedFieldWellsPtrType)(v)
+}
+
+func (*templateWaterfallChartAggregatedFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i *templateWaterfallChartAggregatedFieldWellsPtrType) ToTemplateWaterfallChartAggregatedFieldWellsPtrOutput() TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
+	return i.ToTemplateWaterfallChartAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWaterfallChartAggregatedFieldWellsPtrType) ToTemplateWaterfallChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateWaterfallChartAggregatedFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartAggregatedFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsOutput) ToTemplateWaterfallChartAggregatedFieldWellsOutput() TemplateWaterfallChartAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsOutput) ToTemplateWaterfallChartAggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateWaterfallChartAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsOutput) ToTemplateWaterfallChartAggregatedFieldWellsPtrOutput() TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
+	return o.ToTemplateWaterfallChartAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsOutput) ToTemplateWaterfallChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWaterfallChartAggregatedFieldWells) *TemplateWaterfallChartAggregatedFieldWells {
+		return &v
+	}).(TemplateWaterfallChartAggregatedFieldWellsPtrOutput)
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsOutput) Breakdowns() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartAggregatedFieldWells) []TemplateDimensionField { return v.Breakdowns }).(TemplateDimensionFieldArrayOutput)
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsOutput) Categories() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartAggregatedFieldWells) []TemplateDimensionField { return v.Categories }).(TemplateDimensionFieldArrayOutput)
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsOutput) Values() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartAggregatedFieldWells) []TemplateMeasureField { return v.Values }).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateWaterfallChartAggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartAggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) ToTemplateWaterfallChartAggregatedFieldWellsPtrOutput() TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) ToTemplateWaterfallChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Elem() TemplateWaterfallChartAggregatedFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartAggregatedFieldWells) TemplateWaterfallChartAggregatedFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWaterfallChartAggregatedFieldWells
+		return ret
+	}).(TemplateWaterfallChartAggregatedFieldWellsOutput)
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Breakdowns() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartAggregatedFieldWells) []TemplateDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Breakdowns
+	}).(TemplateDimensionFieldArrayOutput)
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Categories() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartAggregatedFieldWells) []TemplateDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Categories
+	}).(TemplateDimensionFieldArrayOutput)
+}
+
+func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Values() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartAggregatedFieldWells) []TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateWaterfallChartConfiguration struct {
+	CategoryAxisDisplayOptions *TemplateAxisDisplayOptions              `pulumi:"categoryAxisDisplayOptions"`
+	CategoryAxisLabelOptions   *TemplateChartAxisLabelOptions           `pulumi:"categoryAxisLabelOptions"`
+	DataLabels                 *TemplateDataLabelOptions                `pulumi:"dataLabels"`
+	FieldWells                 *TemplateWaterfallChartFieldWells        `pulumi:"fieldWells"`
+	Legend                     *TemplateLegendOptions                   `pulumi:"legend"`
+	PrimaryYAxisDisplayOptions *TemplateAxisDisplayOptions              `pulumi:"primaryYAxisDisplayOptions"`
+	PrimaryYAxisLabelOptions   *TemplateChartAxisLabelOptions           `pulumi:"primaryYAxisLabelOptions"`
+	SortConfiguration          *TemplateWaterfallChartSortConfiguration `pulumi:"sortConfiguration"`
+	VisualPalette              *TemplateVisualPalette                   `pulumi:"visualPalette"`
+	WaterfallChartOptions      *TemplateWaterfallChartOptions           `pulumi:"waterfallChartOptions"`
+}
+
+// TemplateWaterfallChartConfigurationInput is an input type that accepts TemplateWaterfallChartConfigurationArgs and TemplateWaterfallChartConfigurationOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartConfigurationInput` via:
+//
+//	TemplateWaterfallChartConfigurationArgs{...}
+type TemplateWaterfallChartConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartConfigurationOutput() TemplateWaterfallChartConfigurationOutput
+	ToTemplateWaterfallChartConfigurationOutputWithContext(context.Context) TemplateWaterfallChartConfigurationOutput
+}
+
+type TemplateWaterfallChartConfigurationArgs struct {
+	CategoryAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput              `pulumi:"categoryAxisDisplayOptions"`
+	CategoryAxisLabelOptions   TemplateChartAxisLabelOptionsPtrInput           `pulumi:"categoryAxisLabelOptions"`
+	DataLabels                 TemplateDataLabelOptionsPtrInput                `pulumi:"dataLabels"`
+	FieldWells                 TemplateWaterfallChartFieldWellsPtrInput        `pulumi:"fieldWells"`
+	Legend                     TemplateLegendOptionsPtrInput                   `pulumi:"legend"`
+	PrimaryYAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput              `pulumi:"primaryYAxisDisplayOptions"`
+	PrimaryYAxisLabelOptions   TemplateChartAxisLabelOptionsPtrInput           `pulumi:"primaryYAxisLabelOptions"`
+	SortConfiguration          TemplateWaterfallChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
+	VisualPalette              TemplateVisualPalettePtrInput                   `pulumi:"visualPalette"`
+	WaterfallChartOptions      TemplateWaterfallChartOptionsPtrInput           `pulumi:"waterfallChartOptions"`
+}
+
+func (TemplateWaterfallChartConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartConfiguration)(nil)).Elem()
+}
+
+func (i TemplateWaterfallChartConfigurationArgs) ToTemplateWaterfallChartConfigurationOutput() TemplateWaterfallChartConfigurationOutput {
+	return i.ToTemplateWaterfallChartConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartConfigurationArgs) ToTemplateWaterfallChartConfigurationOutputWithContext(ctx context.Context) TemplateWaterfallChartConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartConfigurationOutput)
+}
+
+func (i TemplateWaterfallChartConfigurationArgs) ToTemplateWaterfallChartConfigurationPtrOutput() TemplateWaterfallChartConfigurationPtrOutput {
+	return i.ToTemplateWaterfallChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartConfigurationArgs) ToTemplateWaterfallChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartConfigurationOutput).ToTemplateWaterfallChartConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateWaterfallChartConfigurationPtrInput is an input type that accepts TemplateWaterfallChartConfigurationArgs, TemplateWaterfallChartConfigurationPtr and TemplateWaterfallChartConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartConfigurationPtrInput` via:
+//
+//	        TemplateWaterfallChartConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWaterfallChartConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartConfigurationPtrOutput() TemplateWaterfallChartConfigurationPtrOutput
+	ToTemplateWaterfallChartConfigurationPtrOutputWithContext(context.Context) TemplateWaterfallChartConfigurationPtrOutput
+}
+
+type templateWaterfallChartConfigurationPtrType TemplateWaterfallChartConfigurationArgs
+
+func TemplateWaterfallChartConfigurationPtr(v *TemplateWaterfallChartConfigurationArgs) TemplateWaterfallChartConfigurationPtrInput {
+	return (*templateWaterfallChartConfigurationPtrType)(v)
+}
+
+func (*templateWaterfallChartConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartConfiguration)(nil)).Elem()
+}
+
+func (i *templateWaterfallChartConfigurationPtrType) ToTemplateWaterfallChartConfigurationPtrOutput() TemplateWaterfallChartConfigurationPtrOutput {
+	return i.ToTemplateWaterfallChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWaterfallChartConfigurationPtrType) ToTemplateWaterfallChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartConfigurationPtrOutput)
+}
+
+type TemplateWaterfallChartConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) ToTemplateWaterfallChartConfigurationOutput() TemplateWaterfallChartConfigurationOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) ToTemplateWaterfallChartConfigurationOutputWithContext(ctx context.Context) TemplateWaterfallChartConfigurationOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) ToTemplateWaterfallChartConfigurationPtrOutput() TemplateWaterfallChartConfigurationPtrOutput {
+	return o.ToTemplateWaterfallChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) ToTemplateWaterfallChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWaterfallChartConfiguration) *TemplateWaterfallChartConfiguration {
+		return &v
+	}).(TemplateWaterfallChartConfigurationPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) CategoryAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateAxisDisplayOptions {
+		return v.CategoryAxisDisplayOptions
+	}).(TemplateAxisDisplayOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) CategoryAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateChartAxisLabelOptions {
+		return v.CategoryAxisLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) FieldWells() TemplateWaterfallChartFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateWaterfallChartFieldWells { return v.FieldWells }).(TemplateWaterfallChartFieldWellsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) PrimaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateAxisDisplayOptions {
+		return v.PrimaryYAxisDisplayOptions
+	}).(TemplateAxisDisplayOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateChartAxisLabelOptions {
+		return v.PrimaryYAxisLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) SortConfiguration() TemplateWaterfallChartSortConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateWaterfallChartSortConfiguration {
+		return v.SortConfiguration
+	}).(TemplateWaterfallChartSortConfigurationPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationOutput) WaterfallChartOptions() TemplateWaterfallChartOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateWaterfallChartOptions {
+		return v.WaterfallChartOptions
+	}).(TemplateWaterfallChartOptionsPtrOutput)
+}
+
+type TemplateWaterfallChartConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) ToTemplateWaterfallChartConfigurationPtrOutput() TemplateWaterfallChartConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) ToTemplateWaterfallChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) Elem() TemplateWaterfallChartConfigurationOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) TemplateWaterfallChartConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWaterfallChartConfiguration
+		return ret
+	}).(TemplateWaterfallChartConfigurationOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) CategoryAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateAxisDisplayOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryAxisDisplayOptions
+	}).(TemplateAxisDisplayOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) CategoryAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateChartAxisLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryAxisLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateDataLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.DataLabels
+	}).(TemplateDataLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) FieldWells() TemplateWaterfallChartFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateWaterfallChartFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.FieldWells
+	}).(TemplateWaterfallChartFieldWellsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateLegendOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Legend
+	}).(TemplateLegendOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) PrimaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateAxisDisplayOptions {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryYAxisDisplayOptions
+	}).(TemplateAxisDisplayOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateChartAxisLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryYAxisLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) SortConfiguration() TemplateWaterfallChartSortConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateWaterfallChartSortConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SortConfiguration
+	}).(TemplateWaterfallChartSortConfigurationPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateVisualPalette {
+		if v == nil {
+			return nil
+		}
+		return v.VisualPalette
+	}).(TemplateVisualPalettePtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) WaterfallChartOptions() TemplateWaterfallChartOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateWaterfallChartOptions {
+		if v == nil {
+			return nil
+		}
+		return v.WaterfallChartOptions
+	}).(TemplateWaterfallChartOptionsPtrOutput)
+}
+
+type TemplateWaterfallChartFieldWells struct {
+	WaterfallChartAggregatedFieldWells *TemplateWaterfallChartAggregatedFieldWells `pulumi:"waterfallChartAggregatedFieldWells"`
+}
+
+// TemplateWaterfallChartFieldWellsInput is an input type that accepts TemplateWaterfallChartFieldWellsArgs and TemplateWaterfallChartFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartFieldWellsInput` via:
+//
+//	TemplateWaterfallChartFieldWellsArgs{...}
+type TemplateWaterfallChartFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartFieldWellsOutput() TemplateWaterfallChartFieldWellsOutput
+	ToTemplateWaterfallChartFieldWellsOutputWithContext(context.Context) TemplateWaterfallChartFieldWellsOutput
+}
+
+type TemplateWaterfallChartFieldWellsArgs struct {
+	WaterfallChartAggregatedFieldWells TemplateWaterfallChartAggregatedFieldWellsPtrInput `pulumi:"waterfallChartAggregatedFieldWells"`
+}
+
+func (TemplateWaterfallChartFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartFieldWells)(nil)).Elem()
+}
+
+func (i TemplateWaterfallChartFieldWellsArgs) ToTemplateWaterfallChartFieldWellsOutput() TemplateWaterfallChartFieldWellsOutput {
+	return i.ToTemplateWaterfallChartFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartFieldWellsArgs) ToTemplateWaterfallChartFieldWellsOutputWithContext(ctx context.Context) TemplateWaterfallChartFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartFieldWellsOutput)
+}
+
+func (i TemplateWaterfallChartFieldWellsArgs) ToTemplateWaterfallChartFieldWellsPtrOutput() TemplateWaterfallChartFieldWellsPtrOutput {
+	return i.ToTemplateWaterfallChartFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartFieldWellsArgs) ToTemplateWaterfallChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartFieldWellsOutput).ToTemplateWaterfallChartFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateWaterfallChartFieldWellsPtrInput is an input type that accepts TemplateWaterfallChartFieldWellsArgs, TemplateWaterfallChartFieldWellsPtr and TemplateWaterfallChartFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartFieldWellsPtrInput` via:
+//
+//	        TemplateWaterfallChartFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWaterfallChartFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartFieldWellsPtrOutput() TemplateWaterfallChartFieldWellsPtrOutput
+	ToTemplateWaterfallChartFieldWellsPtrOutputWithContext(context.Context) TemplateWaterfallChartFieldWellsPtrOutput
+}
+
+type templateWaterfallChartFieldWellsPtrType TemplateWaterfallChartFieldWellsArgs
+
+func TemplateWaterfallChartFieldWellsPtr(v *TemplateWaterfallChartFieldWellsArgs) TemplateWaterfallChartFieldWellsPtrInput {
+	return (*templateWaterfallChartFieldWellsPtrType)(v)
+}
+
+func (*templateWaterfallChartFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartFieldWells)(nil)).Elem()
+}
+
+func (i *templateWaterfallChartFieldWellsPtrType) ToTemplateWaterfallChartFieldWellsPtrOutput() TemplateWaterfallChartFieldWellsPtrOutput {
+	return i.ToTemplateWaterfallChartFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWaterfallChartFieldWellsPtrType) ToTemplateWaterfallChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartFieldWellsPtrOutput)
+}
+
+type TemplateWaterfallChartFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartFieldWells)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartFieldWellsOutput) ToTemplateWaterfallChartFieldWellsOutput() TemplateWaterfallChartFieldWellsOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartFieldWellsOutput) ToTemplateWaterfallChartFieldWellsOutputWithContext(ctx context.Context) TemplateWaterfallChartFieldWellsOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartFieldWellsOutput) ToTemplateWaterfallChartFieldWellsPtrOutput() TemplateWaterfallChartFieldWellsPtrOutput {
+	return o.ToTemplateWaterfallChartFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWaterfallChartFieldWellsOutput) ToTemplateWaterfallChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWaterfallChartFieldWells) *TemplateWaterfallChartFieldWells {
+		return &v
+	}).(TemplateWaterfallChartFieldWellsPtrOutput)
+}
+
+func (o TemplateWaterfallChartFieldWellsOutput) WaterfallChartAggregatedFieldWells() TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartFieldWells) *TemplateWaterfallChartAggregatedFieldWells {
+		return v.WaterfallChartAggregatedFieldWells
+	}).(TemplateWaterfallChartAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateWaterfallChartFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartFieldWells)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartFieldWellsPtrOutput) ToTemplateWaterfallChartFieldWellsPtrOutput() TemplateWaterfallChartFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartFieldWellsPtrOutput) ToTemplateWaterfallChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartFieldWellsPtrOutput) Elem() TemplateWaterfallChartFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartFieldWells) TemplateWaterfallChartFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWaterfallChartFieldWells
+		return ret
+	}).(TemplateWaterfallChartFieldWellsOutput)
+}
+
+func (o TemplateWaterfallChartFieldWellsPtrOutput) WaterfallChartAggregatedFieldWells() TemplateWaterfallChartAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartFieldWells) *TemplateWaterfallChartAggregatedFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.WaterfallChartAggregatedFieldWells
+	}).(TemplateWaterfallChartAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateWaterfallChartOptions struct {
+	TotalBarLabel *string `pulumi:"totalBarLabel"`
+}
+
+// TemplateWaterfallChartOptionsInput is an input type that accepts TemplateWaterfallChartOptionsArgs and TemplateWaterfallChartOptionsOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartOptionsInput` via:
+//
+//	TemplateWaterfallChartOptionsArgs{...}
+type TemplateWaterfallChartOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartOptionsOutput() TemplateWaterfallChartOptionsOutput
+	ToTemplateWaterfallChartOptionsOutputWithContext(context.Context) TemplateWaterfallChartOptionsOutput
+}
+
+type TemplateWaterfallChartOptionsArgs struct {
+	TotalBarLabel pulumi.StringPtrInput `pulumi:"totalBarLabel"`
+}
+
+func (TemplateWaterfallChartOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartOptions)(nil)).Elem()
+}
+
+func (i TemplateWaterfallChartOptionsArgs) ToTemplateWaterfallChartOptionsOutput() TemplateWaterfallChartOptionsOutput {
+	return i.ToTemplateWaterfallChartOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartOptionsArgs) ToTemplateWaterfallChartOptionsOutputWithContext(ctx context.Context) TemplateWaterfallChartOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartOptionsOutput)
+}
+
+func (i TemplateWaterfallChartOptionsArgs) ToTemplateWaterfallChartOptionsPtrOutput() TemplateWaterfallChartOptionsPtrOutput {
+	return i.ToTemplateWaterfallChartOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartOptionsArgs) ToTemplateWaterfallChartOptionsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartOptionsOutput).ToTemplateWaterfallChartOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateWaterfallChartOptionsPtrInput is an input type that accepts TemplateWaterfallChartOptionsArgs, TemplateWaterfallChartOptionsPtr and TemplateWaterfallChartOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartOptionsPtrInput` via:
+//
+//	        TemplateWaterfallChartOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWaterfallChartOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartOptionsPtrOutput() TemplateWaterfallChartOptionsPtrOutput
+	ToTemplateWaterfallChartOptionsPtrOutputWithContext(context.Context) TemplateWaterfallChartOptionsPtrOutput
+}
+
+type templateWaterfallChartOptionsPtrType TemplateWaterfallChartOptionsArgs
+
+func TemplateWaterfallChartOptionsPtr(v *TemplateWaterfallChartOptionsArgs) TemplateWaterfallChartOptionsPtrInput {
+	return (*templateWaterfallChartOptionsPtrType)(v)
+}
+
+func (*templateWaterfallChartOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartOptions)(nil)).Elem()
+}
+
+func (i *templateWaterfallChartOptionsPtrType) ToTemplateWaterfallChartOptionsPtrOutput() TemplateWaterfallChartOptionsPtrOutput {
+	return i.ToTemplateWaterfallChartOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWaterfallChartOptionsPtrType) ToTemplateWaterfallChartOptionsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartOptionsPtrOutput)
+}
+
+type TemplateWaterfallChartOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartOptions)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartOptionsOutput) ToTemplateWaterfallChartOptionsOutput() TemplateWaterfallChartOptionsOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartOptionsOutput) ToTemplateWaterfallChartOptionsOutputWithContext(ctx context.Context) TemplateWaterfallChartOptionsOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartOptionsOutput) ToTemplateWaterfallChartOptionsPtrOutput() TemplateWaterfallChartOptionsPtrOutput {
+	return o.ToTemplateWaterfallChartOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWaterfallChartOptionsOutput) ToTemplateWaterfallChartOptionsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWaterfallChartOptions) *TemplateWaterfallChartOptions {
+		return &v
+	}).(TemplateWaterfallChartOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartOptionsOutput) TotalBarLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartOptions) *string { return v.TotalBarLabel }).(pulumi.StringPtrOutput)
+}
+
+type TemplateWaterfallChartOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartOptions)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartOptionsPtrOutput) ToTemplateWaterfallChartOptionsPtrOutput() TemplateWaterfallChartOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartOptionsPtrOutput) ToTemplateWaterfallChartOptionsPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartOptionsPtrOutput) Elem() TemplateWaterfallChartOptionsOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartOptions) TemplateWaterfallChartOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWaterfallChartOptions
+		return ret
+	}).(TemplateWaterfallChartOptionsOutput)
+}
+
+func (o TemplateWaterfallChartOptionsPtrOutput) TotalBarLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TotalBarLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateWaterfallChartSortConfiguration struct {
+	BreakdownItemsLimit *TemplateItemsLimitConfiguration `pulumi:"breakdownItemsLimit"`
+	CategorySort        []TemplateFieldSortOptions       `pulumi:"categorySort"`
+}
+
+// TemplateWaterfallChartSortConfigurationInput is an input type that accepts TemplateWaterfallChartSortConfigurationArgs and TemplateWaterfallChartSortConfigurationOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartSortConfigurationInput` via:
+//
+//	TemplateWaterfallChartSortConfigurationArgs{...}
+type TemplateWaterfallChartSortConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartSortConfigurationOutput() TemplateWaterfallChartSortConfigurationOutput
+	ToTemplateWaterfallChartSortConfigurationOutputWithContext(context.Context) TemplateWaterfallChartSortConfigurationOutput
+}
+
+type TemplateWaterfallChartSortConfigurationArgs struct {
+	BreakdownItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"breakdownItemsLimit"`
+	CategorySort        TemplateFieldSortOptionsArrayInput      `pulumi:"categorySort"`
+}
+
+func (TemplateWaterfallChartSortConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartSortConfiguration)(nil)).Elem()
+}
+
+func (i TemplateWaterfallChartSortConfigurationArgs) ToTemplateWaterfallChartSortConfigurationOutput() TemplateWaterfallChartSortConfigurationOutput {
+	return i.ToTemplateWaterfallChartSortConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartSortConfigurationArgs) ToTemplateWaterfallChartSortConfigurationOutputWithContext(ctx context.Context) TemplateWaterfallChartSortConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartSortConfigurationOutput)
+}
+
+func (i TemplateWaterfallChartSortConfigurationArgs) ToTemplateWaterfallChartSortConfigurationPtrOutput() TemplateWaterfallChartSortConfigurationPtrOutput {
+	return i.ToTemplateWaterfallChartSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartSortConfigurationArgs) ToTemplateWaterfallChartSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartSortConfigurationOutput).ToTemplateWaterfallChartSortConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateWaterfallChartSortConfigurationPtrInput is an input type that accepts TemplateWaterfallChartSortConfigurationArgs, TemplateWaterfallChartSortConfigurationPtr and TemplateWaterfallChartSortConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartSortConfigurationPtrInput` via:
+//
+//	        TemplateWaterfallChartSortConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWaterfallChartSortConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartSortConfigurationPtrOutput() TemplateWaterfallChartSortConfigurationPtrOutput
+	ToTemplateWaterfallChartSortConfigurationPtrOutputWithContext(context.Context) TemplateWaterfallChartSortConfigurationPtrOutput
+}
+
+type templateWaterfallChartSortConfigurationPtrType TemplateWaterfallChartSortConfigurationArgs
+
+func TemplateWaterfallChartSortConfigurationPtr(v *TemplateWaterfallChartSortConfigurationArgs) TemplateWaterfallChartSortConfigurationPtrInput {
+	return (*templateWaterfallChartSortConfigurationPtrType)(v)
+}
+
+func (*templateWaterfallChartSortConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartSortConfiguration)(nil)).Elem()
+}
+
+func (i *templateWaterfallChartSortConfigurationPtrType) ToTemplateWaterfallChartSortConfigurationPtrOutput() TemplateWaterfallChartSortConfigurationPtrOutput {
+	return i.ToTemplateWaterfallChartSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWaterfallChartSortConfigurationPtrType) ToTemplateWaterfallChartSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartSortConfigurationPtrOutput)
+}
+
+type TemplateWaterfallChartSortConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartSortConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartSortConfigurationOutput) ToTemplateWaterfallChartSortConfigurationOutput() TemplateWaterfallChartSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartSortConfigurationOutput) ToTemplateWaterfallChartSortConfigurationOutputWithContext(ctx context.Context) TemplateWaterfallChartSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartSortConfigurationOutput) ToTemplateWaterfallChartSortConfigurationPtrOutput() TemplateWaterfallChartSortConfigurationPtrOutput {
+	return o.ToTemplateWaterfallChartSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWaterfallChartSortConfigurationOutput) ToTemplateWaterfallChartSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartSortConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWaterfallChartSortConfiguration) *TemplateWaterfallChartSortConfiguration {
+		return &v
+	}).(TemplateWaterfallChartSortConfigurationPtrOutput)
+}
+
+func (o TemplateWaterfallChartSortConfigurationOutput) BreakdownItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartSortConfiguration) *TemplateItemsLimitConfiguration {
+		return v.BreakdownItemsLimit
+	}).(TemplateItemsLimitConfigurationPtrOutput)
+}
+
+func (o TemplateWaterfallChartSortConfigurationOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
+}
+
+type TemplateWaterfallChartSortConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartSortConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartSortConfigurationPtrOutput) ToTemplateWaterfallChartSortConfigurationPtrOutput() TemplateWaterfallChartSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartSortConfigurationPtrOutput) ToTemplateWaterfallChartSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartSortConfigurationPtrOutput) Elem() TemplateWaterfallChartSortConfigurationOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartSortConfiguration) TemplateWaterfallChartSortConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWaterfallChartSortConfiguration
+		return ret
+	}).(TemplateWaterfallChartSortConfigurationOutput)
+}
+
+func (o TemplateWaterfallChartSortConfigurationPtrOutput) BreakdownItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartSortConfiguration) *TemplateItemsLimitConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BreakdownItemsLimit
+	}).(TemplateItemsLimitConfigurationPtrOutput)
+}
+
+func (o TemplateWaterfallChartSortConfigurationPtrOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartSortConfiguration) []TemplateFieldSortOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CategorySort
+	}).(TemplateFieldSortOptionsArrayOutput)
+}
+
+type TemplateWaterfallVisual struct {
+	Actions            []TemplateVisualCustomAction         `pulumi:"actions"`
+	ChartConfiguration *TemplateWaterfallChartConfiguration `pulumi:"chartConfiguration"`
+	ColumnHierarchies  []TemplateColumnHierarchy            `pulumi:"columnHierarchies"`
+	Subtitle           *TemplateVisualSubtitleLabelOptions  `pulumi:"subtitle"`
+	Title              *TemplateVisualTitleLabelOptions     `pulumi:"title"`
+	VisualId           string                               `pulumi:"visualId"`
+}
+
+// TemplateWaterfallVisualInput is an input type that accepts TemplateWaterfallVisualArgs and TemplateWaterfallVisualOutput values.
+// You can construct a concrete instance of `TemplateWaterfallVisualInput` via:
+//
+//	TemplateWaterfallVisualArgs{...}
+type TemplateWaterfallVisualInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallVisualOutput() TemplateWaterfallVisualOutput
+	ToTemplateWaterfallVisualOutputWithContext(context.Context) TemplateWaterfallVisualOutput
+}
+
+type TemplateWaterfallVisualArgs struct {
+	Actions            TemplateVisualCustomActionArrayInput        `pulumi:"actions"`
+	ChartConfiguration TemplateWaterfallChartConfigurationPtrInput `pulumi:"chartConfiguration"`
+	ColumnHierarchies  TemplateColumnHierarchyArrayInput           `pulumi:"columnHierarchies"`
+	Subtitle           TemplateVisualSubtitleLabelOptionsPtrInput  `pulumi:"subtitle"`
+	Title              TemplateVisualTitleLabelOptionsPtrInput     `pulumi:"title"`
+	VisualId           pulumi.StringInput                          `pulumi:"visualId"`
+}
+
+func (TemplateWaterfallVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallVisual)(nil)).Elem()
+}
+
+func (i TemplateWaterfallVisualArgs) ToTemplateWaterfallVisualOutput() TemplateWaterfallVisualOutput {
+	return i.ToTemplateWaterfallVisualOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallVisualArgs) ToTemplateWaterfallVisualOutputWithContext(ctx context.Context) TemplateWaterfallVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallVisualOutput)
+}
+
+func (i TemplateWaterfallVisualArgs) ToTemplateWaterfallVisualPtrOutput() TemplateWaterfallVisualPtrOutput {
+	return i.ToTemplateWaterfallVisualPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallVisualArgs) ToTemplateWaterfallVisualPtrOutputWithContext(ctx context.Context) TemplateWaterfallVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallVisualOutput).ToTemplateWaterfallVisualPtrOutputWithContext(ctx)
+}
+
+// TemplateWaterfallVisualPtrInput is an input type that accepts TemplateWaterfallVisualArgs, TemplateWaterfallVisualPtr and TemplateWaterfallVisualPtrOutput values.
+// You can construct a concrete instance of `TemplateWaterfallVisualPtrInput` via:
+//
+//	        TemplateWaterfallVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWaterfallVisualPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallVisualPtrOutput() TemplateWaterfallVisualPtrOutput
+	ToTemplateWaterfallVisualPtrOutputWithContext(context.Context) TemplateWaterfallVisualPtrOutput
+}
+
+type templateWaterfallVisualPtrType TemplateWaterfallVisualArgs
+
+func TemplateWaterfallVisualPtr(v *TemplateWaterfallVisualArgs) TemplateWaterfallVisualPtrInput {
+	return (*templateWaterfallVisualPtrType)(v)
+}
+
+func (*templateWaterfallVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallVisual)(nil)).Elem()
+}
+
+func (i *templateWaterfallVisualPtrType) ToTemplateWaterfallVisualPtrOutput() TemplateWaterfallVisualPtrOutput {
+	return i.ToTemplateWaterfallVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWaterfallVisualPtrType) ToTemplateWaterfallVisualPtrOutputWithContext(ctx context.Context) TemplateWaterfallVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallVisualPtrOutput)
+}
+
+type TemplateWaterfallVisualOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallVisual)(nil)).Elem()
+}
+
+func (o TemplateWaterfallVisualOutput) ToTemplateWaterfallVisualOutput() TemplateWaterfallVisualOutput {
+	return o
+}
+
+func (o TemplateWaterfallVisualOutput) ToTemplateWaterfallVisualOutputWithContext(ctx context.Context) TemplateWaterfallVisualOutput {
+	return o
+}
+
+func (o TemplateWaterfallVisualOutput) ToTemplateWaterfallVisualPtrOutput() TemplateWaterfallVisualPtrOutput {
+	return o.ToTemplateWaterfallVisualPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWaterfallVisualOutput) ToTemplateWaterfallVisualPtrOutputWithContext(ctx context.Context) TemplateWaterfallVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWaterfallVisual) *TemplateWaterfallVisual {
+		return &v
+	}).(TemplateWaterfallVisualPtrOutput)
+}
+
+func (o TemplateWaterfallVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v TemplateWaterfallVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
+}
+
+func (o TemplateWaterfallVisualOutput) ChartConfiguration() TemplateWaterfallChartConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallVisual) *TemplateWaterfallChartConfiguration { return v.ChartConfiguration }).(TemplateWaterfallChartConfigurationPtrOutput)
+}
+
+func (o TemplateWaterfallVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v TemplateWaterfallVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
+}
+
+func (o TemplateWaterfallVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateWaterfallVisual) string { return v.VisualId }).(pulumi.StringOutput)
+}
+
+type TemplateWaterfallVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallVisual)(nil)).Elem()
+}
+
+func (o TemplateWaterfallVisualPtrOutput) ToTemplateWaterfallVisualPtrOutput() TemplateWaterfallVisualPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallVisualPtrOutput) ToTemplateWaterfallVisualPtrOutputWithContext(ctx context.Context) TemplateWaterfallVisualPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallVisualPtrOutput) Elem() TemplateWaterfallVisualOutput {
+	return o.ApplyT(func(v *TemplateWaterfallVisual) TemplateWaterfallVisual {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWaterfallVisual
+		return ret
+	}).(TemplateWaterfallVisualOutput)
+}
+
+func (o TemplateWaterfallVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *TemplateWaterfallVisual) []TemplateVisualCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TemplateVisualCustomActionArrayOutput)
+}
+
+func (o TemplateWaterfallVisualPtrOutput) ChartConfiguration() TemplateWaterfallChartConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallVisual) *TemplateWaterfallChartConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChartConfiguration
+	}).(TemplateWaterfallChartConfigurationPtrOutput)
+}
+
+func (o TemplateWaterfallVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v *TemplateWaterfallVisual) []TemplateColumnHierarchy {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnHierarchies
+	}).(TemplateColumnHierarchyArrayOutput)
+}
+
+func (o TemplateWaterfallVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallVisual) *TemplateVisualSubtitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Subtitle
+	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallVisual) *TemplateVisualTitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VisualId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateWhatIfPointScenario struct {
+	Date  string  `pulumi:"date"`
+	Value float64 `pulumi:"value"`
+}
+
+// TemplateWhatIfPointScenarioInput is an input type that accepts TemplateWhatIfPointScenarioArgs and TemplateWhatIfPointScenarioOutput values.
+// You can construct a concrete instance of `TemplateWhatIfPointScenarioInput` via:
+//
+//	TemplateWhatIfPointScenarioArgs{...}
+type TemplateWhatIfPointScenarioInput interface {
+	pulumi.Input
+
+	ToTemplateWhatIfPointScenarioOutput() TemplateWhatIfPointScenarioOutput
+	ToTemplateWhatIfPointScenarioOutputWithContext(context.Context) TemplateWhatIfPointScenarioOutput
+}
+
+type TemplateWhatIfPointScenarioArgs struct {
+	Date  pulumi.StringInput  `pulumi:"date"`
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (TemplateWhatIfPointScenarioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWhatIfPointScenario)(nil)).Elem()
+}
+
+func (i TemplateWhatIfPointScenarioArgs) ToTemplateWhatIfPointScenarioOutput() TemplateWhatIfPointScenarioOutput {
+	return i.ToTemplateWhatIfPointScenarioOutputWithContext(context.Background())
+}
+
+func (i TemplateWhatIfPointScenarioArgs) ToTemplateWhatIfPointScenarioOutputWithContext(ctx context.Context) TemplateWhatIfPointScenarioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWhatIfPointScenarioOutput)
+}
+
+func (i TemplateWhatIfPointScenarioArgs) ToTemplateWhatIfPointScenarioPtrOutput() TemplateWhatIfPointScenarioPtrOutput {
+	return i.ToTemplateWhatIfPointScenarioPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWhatIfPointScenarioArgs) ToTemplateWhatIfPointScenarioPtrOutputWithContext(ctx context.Context) TemplateWhatIfPointScenarioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWhatIfPointScenarioOutput).ToTemplateWhatIfPointScenarioPtrOutputWithContext(ctx)
+}
+
+// TemplateWhatIfPointScenarioPtrInput is an input type that accepts TemplateWhatIfPointScenarioArgs, TemplateWhatIfPointScenarioPtr and TemplateWhatIfPointScenarioPtrOutput values.
+// You can construct a concrete instance of `TemplateWhatIfPointScenarioPtrInput` via:
+//
+//	        TemplateWhatIfPointScenarioArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWhatIfPointScenarioPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWhatIfPointScenarioPtrOutput() TemplateWhatIfPointScenarioPtrOutput
+	ToTemplateWhatIfPointScenarioPtrOutputWithContext(context.Context) TemplateWhatIfPointScenarioPtrOutput
+}
+
+type templateWhatIfPointScenarioPtrType TemplateWhatIfPointScenarioArgs
+
+func TemplateWhatIfPointScenarioPtr(v *TemplateWhatIfPointScenarioArgs) TemplateWhatIfPointScenarioPtrInput {
+	return (*templateWhatIfPointScenarioPtrType)(v)
+}
+
+func (*templateWhatIfPointScenarioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWhatIfPointScenario)(nil)).Elem()
+}
+
+func (i *templateWhatIfPointScenarioPtrType) ToTemplateWhatIfPointScenarioPtrOutput() TemplateWhatIfPointScenarioPtrOutput {
+	return i.ToTemplateWhatIfPointScenarioPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWhatIfPointScenarioPtrType) ToTemplateWhatIfPointScenarioPtrOutputWithContext(ctx context.Context) TemplateWhatIfPointScenarioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWhatIfPointScenarioPtrOutput)
+}
+
+type TemplateWhatIfPointScenarioOutput struct{ *pulumi.OutputState }
+
+func (TemplateWhatIfPointScenarioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWhatIfPointScenario)(nil)).Elem()
+}
+
+func (o TemplateWhatIfPointScenarioOutput) ToTemplateWhatIfPointScenarioOutput() TemplateWhatIfPointScenarioOutput {
+	return o
+}
+
+func (o TemplateWhatIfPointScenarioOutput) ToTemplateWhatIfPointScenarioOutputWithContext(ctx context.Context) TemplateWhatIfPointScenarioOutput {
+	return o
+}
+
+func (o TemplateWhatIfPointScenarioOutput) ToTemplateWhatIfPointScenarioPtrOutput() TemplateWhatIfPointScenarioPtrOutput {
+	return o.ToTemplateWhatIfPointScenarioPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWhatIfPointScenarioOutput) ToTemplateWhatIfPointScenarioPtrOutputWithContext(ctx context.Context) TemplateWhatIfPointScenarioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWhatIfPointScenario) *TemplateWhatIfPointScenario {
+		return &v
+	}).(TemplateWhatIfPointScenarioPtrOutput)
+}
+
+func (o TemplateWhatIfPointScenarioOutput) Date() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateWhatIfPointScenario) string { return v.Date }).(pulumi.StringOutput)
+}
+
+func (o TemplateWhatIfPointScenarioOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplateWhatIfPointScenario) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type TemplateWhatIfPointScenarioPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWhatIfPointScenarioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWhatIfPointScenario)(nil)).Elem()
+}
+
+func (o TemplateWhatIfPointScenarioPtrOutput) ToTemplateWhatIfPointScenarioPtrOutput() TemplateWhatIfPointScenarioPtrOutput {
+	return o
+}
+
+func (o TemplateWhatIfPointScenarioPtrOutput) ToTemplateWhatIfPointScenarioPtrOutputWithContext(ctx context.Context) TemplateWhatIfPointScenarioPtrOutput {
+	return o
+}
+
+func (o TemplateWhatIfPointScenarioPtrOutput) Elem() TemplateWhatIfPointScenarioOutput {
+	return o.ApplyT(func(v *TemplateWhatIfPointScenario) TemplateWhatIfPointScenario {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWhatIfPointScenario
+		return ret
+	}).(TemplateWhatIfPointScenarioOutput)
+}
+
+func (o TemplateWhatIfPointScenarioPtrOutput) Date() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateWhatIfPointScenario) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Date
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateWhatIfPointScenarioPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateWhatIfPointScenario) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TemplateWhatIfRangeScenario struct {
+	EndDate   string  `pulumi:"endDate"`
+	StartDate string  `pulumi:"startDate"`
+	Value     float64 `pulumi:"value"`
+}
+
+// TemplateWhatIfRangeScenarioInput is an input type that accepts TemplateWhatIfRangeScenarioArgs and TemplateWhatIfRangeScenarioOutput values.
+// You can construct a concrete instance of `TemplateWhatIfRangeScenarioInput` via:
+//
+//	TemplateWhatIfRangeScenarioArgs{...}
+type TemplateWhatIfRangeScenarioInput interface {
+	pulumi.Input
+
+	ToTemplateWhatIfRangeScenarioOutput() TemplateWhatIfRangeScenarioOutput
+	ToTemplateWhatIfRangeScenarioOutputWithContext(context.Context) TemplateWhatIfRangeScenarioOutput
+}
+
+type TemplateWhatIfRangeScenarioArgs struct {
+	EndDate   pulumi.StringInput  `pulumi:"endDate"`
+	StartDate pulumi.StringInput  `pulumi:"startDate"`
+	Value     pulumi.Float64Input `pulumi:"value"`
+}
+
+func (TemplateWhatIfRangeScenarioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWhatIfRangeScenario)(nil)).Elem()
+}
+
+func (i TemplateWhatIfRangeScenarioArgs) ToTemplateWhatIfRangeScenarioOutput() TemplateWhatIfRangeScenarioOutput {
+	return i.ToTemplateWhatIfRangeScenarioOutputWithContext(context.Background())
+}
+
+func (i TemplateWhatIfRangeScenarioArgs) ToTemplateWhatIfRangeScenarioOutputWithContext(ctx context.Context) TemplateWhatIfRangeScenarioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWhatIfRangeScenarioOutput)
+}
+
+func (i TemplateWhatIfRangeScenarioArgs) ToTemplateWhatIfRangeScenarioPtrOutput() TemplateWhatIfRangeScenarioPtrOutput {
+	return i.ToTemplateWhatIfRangeScenarioPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWhatIfRangeScenarioArgs) ToTemplateWhatIfRangeScenarioPtrOutputWithContext(ctx context.Context) TemplateWhatIfRangeScenarioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWhatIfRangeScenarioOutput).ToTemplateWhatIfRangeScenarioPtrOutputWithContext(ctx)
+}
+
+// TemplateWhatIfRangeScenarioPtrInput is an input type that accepts TemplateWhatIfRangeScenarioArgs, TemplateWhatIfRangeScenarioPtr and TemplateWhatIfRangeScenarioPtrOutput values.
+// You can construct a concrete instance of `TemplateWhatIfRangeScenarioPtrInput` via:
+//
+//	        TemplateWhatIfRangeScenarioArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWhatIfRangeScenarioPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWhatIfRangeScenarioPtrOutput() TemplateWhatIfRangeScenarioPtrOutput
+	ToTemplateWhatIfRangeScenarioPtrOutputWithContext(context.Context) TemplateWhatIfRangeScenarioPtrOutput
+}
+
+type templateWhatIfRangeScenarioPtrType TemplateWhatIfRangeScenarioArgs
+
+func TemplateWhatIfRangeScenarioPtr(v *TemplateWhatIfRangeScenarioArgs) TemplateWhatIfRangeScenarioPtrInput {
+	return (*templateWhatIfRangeScenarioPtrType)(v)
+}
+
+func (*templateWhatIfRangeScenarioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWhatIfRangeScenario)(nil)).Elem()
+}
+
+func (i *templateWhatIfRangeScenarioPtrType) ToTemplateWhatIfRangeScenarioPtrOutput() TemplateWhatIfRangeScenarioPtrOutput {
+	return i.ToTemplateWhatIfRangeScenarioPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWhatIfRangeScenarioPtrType) ToTemplateWhatIfRangeScenarioPtrOutputWithContext(ctx context.Context) TemplateWhatIfRangeScenarioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWhatIfRangeScenarioPtrOutput)
+}
+
+type TemplateWhatIfRangeScenarioOutput struct{ *pulumi.OutputState }
+
+func (TemplateWhatIfRangeScenarioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWhatIfRangeScenario)(nil)).Elem()
+}
+
+func (o TemplateWhatIfRangeScenarioOutput) ToTemplateWhatIfRangeScenarioOutput() TemplateWhatIfRangeScenarioOutput {
+	return o
+}
+
+func (o TemplateWhatIfRangeScenarioOutput) ToTemplateWhatIfRangeScenarioOutputWithContext(ctx context.Context) TemplateWhatIfRangeScenarioOutput {
+	return o
+}
+
+func (o TemplateWhatIfRangeScenarioOutput) ToTemplateWhatIfRangeScenarioPtrOutput() TemplateWhatIfRangeScenarioPtrOutput {
+	return o.ToTemplateWhatIfRangeScenarioPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWhatIfRangeScenarioOutput) ToTemplateWhatIfRangeScenarioPtrOutputWithContext(ctx context.Context) TemplateWhatIfRangeScenarioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWhatIfRangeScenario) *TemplateWhatIfRangeScenario {
+		return &v
+	}).(TemplateWhatIfRangeScenarioPtrOutput)
+}
+
+func (o TemplateWhatIfRangeScenarioOutput) EndDate() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateWhatIfRangeScenario) string { return v.EndDate }).(pulumi.StringOutput)
+}
+
+func (o TemplateWhatIfRangeScenarioOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateWhatIfRangeScenario) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+func (o TemplateWhatIfRangeScenarioOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplateWhatIfRangeScenario) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type TemplateWhatIfRangeScenarioPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWhatIfRangeScenarioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWhatIfRangeScenario)(nil)).Elem()
+}
+
+func (o TemplateWhatIfRangeScenarioPtrOutput) ToTemplateWhatIfRangeScenarioPtrOutput() TemplateWhatIfRangeScenarioPtrOutput {
+	return o
+}
+
+func (o TemplateWhatIfRangeScenarioPtrOutput) ToTemplateWhatIfRangeScenarioPtrOutputWithContext(ctx context.Context) TemplateWhatIfRangeScenarioPtrOutput {
+	return o
+}
+
+func (o TemplateWhatIfRangeScenarioPtrOutput) Elem() TemplateWhatIfRangeScenarioOutput {
+	return o.ApplyT(func(v *TemplateWhatIfRangeScenario) TemplateWhatIfRangeScenario {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWhatIfRangeScenario
+		return ret
+	}).(TemplateWhatIfRangeScenarioOutput)
+}
+
+func (o TemplateWhatIfRangeScenarioPtrOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateWhatIfRangeScenario) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateWhatIfRangeScenarioPtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateWhatIfRangeScenario) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateWhatIfRangeScenarioPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateWhatIfRangeScenario) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TemplateWordCloudAggregatedFieldWells struct {
+	GroupBy []TemplateDimensionField `pulumi:"groupBy"`
+	Size    []TemplateMeasureField   `pulumi:"size"`
+}
+
+// TemplateWordCloudAggregatedFieldWellsInput is an input type that accepts TemplateWordCloudAggregatedFieldWellsArgs and TemplateWordCloudAggregatedFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateWordCloudAggregatedFieldWellsInput` via:
+//
+//	TemplateWordCloudAggregatedFieldWellsArgs{...}
+type TemplateWordCloudAggregatedFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudAggregatedFieldWellsOutput() TemplateWordCloudAggregatedFieldWellsOutput
+	ToTemplateWordCloudAggregatedFieldWellsOutputWithContext(context.Context) TemplateWordCloudAggregatedFieldWellsOutput
+}
+
+type TemplateWordCloudAggregatedFieldWellsArgs struct {
+	GroupBy TemplateDimensionFieldArrayInput `pulumi:"groupBy"`
+	Size    TemplateMeasureFieldArrayInput   `pulumi:"size"`
+}
+
+func (TemplateWordCloudAggregatedFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i TemplateWordCloudAggregatedFieldWellsArgs) ToTemplateWordCloudAggregatedFieldWellsOutput() TemplateWordCloudAggregatedFieldWellsOutput {
+	return i.ToTemplateWordCloudAggregatedFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudAggregatedFieldWellsArgs) ToTemplateWordCloudAggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateWordCloudAggregatedFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudAggregatedFieldWellsOutput)
+}
+
+func (i TemplateWordCloudAggregatedFieldWellsArgs) ToTemplateWordCloudAggregatedFieldWellsPtrOutput() TemplateWordCloudAggregatedFieldWellsPtrOutput {
+	return i.ToTemplateWordCloudAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudAggregatedFieldWellsArgs) ToTemplateWordCloudAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWordCloudAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudAggregatedFieldWellsOutput).ToTemplateWordCloudAggregatedFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateWordCloudAggregatedFieldWellsPtrInput is an input type that accepts TemplateWordCloudAggregatedFieldWellsArgs, TemplateWordCloudAggregatedFieldWellsPtr and TemplateWordCloudAggregatedFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateWordCloudAggregatedFieldWellsPtrInput` via:
+//
+//	        TemplateWordCloudAggregatedFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWordCloudAggregatedFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudAggregatedFieldWellsPtrOutput() TemplateWordCloudAggregatedFieldWellsPtrOutput
+	ToTemplateWordCloudAggregatedFieldWellsPtrOutputWithContext(context.Context) TemplateWordCloudAggregatedFieldWellsPtrOutput
+}
+
+type templateWordCloudAggregatedFieldWellsPtrType TemplateWordCloudAggregatedFieldWellsArgs
+
+func TemplateWordCloudAggregatedFieldWellsPtr(v *TemplateWordCloudAggregatedFieldWellsArgs) TemplateWordCloudAggregatedFieldWellsPtrInput {
+	return (*templateWordCloudAggregatedFieldWellsPtrType)(v)
+}
+
+func (*templateWordCloudAggregatedFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i *templateWordCloudAggregatedFieldWellsPtrType) ToTemplateWordCloudAggregatedFieldWellsPtrOutput() TemplateWordCloudAggregatedFieldWellsPtrOutput {
+	return i.ToTemplateWordCloudAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWordCloudAggregatedFieldWellsPtrType) ToTemplateWordCloudAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWordCloudAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateWordCloudAggregatedFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudAggregatedFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsOutput) ToTemplateWordCloudAggregatedFieldWellsOutput() TemplateWordCloudAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsOutput) ToTemplateWordCloudAggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateWordCloudAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsOutput) ToTemplateWordCloudAggregatedFieldWellsPtrOutput() TemplateWordCloudAggregatedFieldWellsPtrOutput {
+	return o.ToTemplateWordCloudAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsOutput) ToTemplateWordCloudAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWordCloudAggregatedFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWordCloudAggregatedFieldWells) *TemplateWordCloudAggregatedFieldWells {
+		return &v
+	}).(TemplateWordCloudAggregatedFieldWellsPtrOutput)
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsOutput) GroupBy() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v TemplateWordCloudAggregatedFieldWells) []TemplateDimensionField { return v.GroupBy }).(TemplateDimensionFieldArrayOutput)
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsOutput) Size() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v TemplateWordCloudAggregatedFieldWells) []TemplateMeasureField { return v.Size }).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateWordCloudAggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudAggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsPtrOutput) ToTemplateWordCloudAggregatedFieldWellsPtrOutput() TemplateWordCloudAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsPtrOutput) ToTemplateWordCloudAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWordCloudAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsPtrOutput) Elem() TemplateWordCloudAggregatedFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateWordCloudAggregatedFieldWells) TemplateWordCloudAggregatedFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWordCloudAggregatedFieldWells
+		return ret
+	}).(TemplateWordCloudAggregatedFieldWellsOutput)
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsPtrOutput) GroupBy() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateWordCloudAggregatedFieldWells) []TemplateDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBy
+	}).(TemplateDimensionFieldArrayOutput)
+}
+
+func (o TemplateWordCloudAggregatedFieldWellsPtrOutput) Size() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateWordCloudAggregatedFieldWells) []TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateWordCloudChartConfiguration struct {
+	CategoryLabelOptions *TemplateChartAxisLabelOptions      `pulumi:"categoryLabelOptions"`
+	FieldWells           *TemplateWordCloudFieldWells        `pulumi:"fieldWells"`
+	SortConfiguration    *TemplateWordCloudSortConfiguration `pulumi:"sortConfiguration"`
+	WordCloudOptions     *TemplateWordCloudOptions           `pulumi:"wordCloudOptions"`
+}
+
+// TemplateWordCloudChartConfigurationInput is an input type that accepts TemplateWordCloudChartConfigurationArgs and TemplateWordCloudChartConfigurationOutput values.
+// You can construct a concrete instance of `TemplateWordCloudChartConfigurationInput` via:
+//
+//	TemplateWordCloudChartConfigurationArgs{...}
+type TemplateWordCloudChartConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudChartConfigurationOutput() TemplateWordCloudChartConfigurationOutput
+	ToTemplateWordCloudChartConfigurationOutputWithContext(context.Context) TemplateWordCloudChartConfigurationOutput
+}
+
+type TemplateWordCloudChartConfigurationArgs struct {
+	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput      `pulumi:"categoryLabelOptions"`
+	FieldWells           TemplateWordCloudFieldWellsPtrInput        `pulumi:"fieldWells"`
+	SortConfiguration    TemplateWordCloudSortConfigurationPtrInput `pulumi:"sortConfiguration"`
+	WordCloudOptions     TemplateWordCloudOptionsPtrInput           `pulumi:"wordCloudOptions"`
+}
+
+func (TemplateWordCloudChartConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudChartConfiguration)(nil)).Elem()
+}
+
+func (i TemplateWordCloudChartConfigurationArgs) ToTemplateWordCloudChartConfigurationOutput() TemplateWordCloudChartConfigurationOutput {
+	return i.ToTemplateWordCloudChartConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudChartConfigurationArgs) ToTemplateWordCloudChartConfigurationOutputWithContext(ctx context.Context) TemplateWordCloudChartConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudChartConfigurationOutput)
+}
+
+func (i TemplateWordCloudChartConfigurationArgs) ToTemplateWordCloudChartConfigurationPtrOutput() TemplateWordCloudChartConfigurationPtrOutput {
+	return i.ToTemplateWordCloudChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudChartConfigurationArgs) ToTemplateWordCloudChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateWordCloudChartConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudChartConfigurationOutput).ToTemplateWordCloudChartConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateWordCloudChartConfigurationPtrInput is an input type that accepts TemplateWordCloudChartConfigurationArgs, TemplateWordCloudChartConfigurationPtr and TemplateWordCloudChartConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateWordCloudChartConfigurationPtrInput` via:
+//
+//	        TemplateWordCloudChartConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWordCloudChartConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudChartConfigurationPtrOutput() TemplateWordCloudChartConfigurationPtrOutput
+	ToTemplateWordCloudChartConfigurationPtrOutputWithContext(context.Context) TemplateWordCloudChartConfigurationPtrOutput
+}
+
+type templateWordCloudChartConfigurationPtrType TemplateWordCloudChartConfigurationArgs
+
+func TemplateWordCloudChartConfigurationPtr(v *TemplateWordCloudChartConfigurationArgs) TemplateWordCloudChartConfigurationPtrInput {
+	return (*templateWordCloudChartConfigurationPtrType)(v)
+}
+
+func (*templateWordCloudChartConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudChartConfiguration)(nil)).Elem()
+}
+
+func (i *templateWordCloudChartConfigurationPtrType) ToTemplateWordCloudChartConfigurationPtrOutput() TemplateWordCloudChartConfigurationPtrOutput {
+	return i.ToTemplateWordCloudChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWordCloudChartConfigurationPtrType) ToTemplateWordCloudChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateWordCloudChartConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudChartConfigurationPtrOutput)
+}
+
+type TemplateWordCloudChartConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudChartConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudChartConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWordCloudChartConfigurationOutput) ToTemplateWordCloudChartConfigurationOutput() TemplateWordCloudChartConfigurationOutput {
+	return o
+}
+
+func (o TemplateWordCloudChartConfigurationOutput) ToTemplateWordCloudChartConfigurationOutputWithContext(ctx context.Context) TemplateWordCloudChartConfigurationOutput {
+	return o
+}
+
+func (o TemplateWordCloudChartConfigurationOutput) ToTemplateWordCloudChartConfigurationPtrOutput() TemplateWordCloudChartConfigurationPtrOutput {
+	return o.ToTemplateWordCloudChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWordCloudChartConfigurationOutput) ToTemplateWordCloudChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateWordCloudChartConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWordCloudChartConfiguration) *TemplateWordCloudChartConfiguration {
+		return &v
+	}).(TemplateWordCloudChartConfigurationPtrOutput)
+}
+
+func (o TemplateWordCloudChartConfigurationOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateChartAxisLabelOptions {
+		return v.CategoryLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateWordCloudChartConfigurationOutput) FieldWells() TemplateWordCloudFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateWordCloudFieldWells { return v.FieldWells }).(TemplateWordCloudFieldWellsPtrOutput)
+}
+
+func (o TemplateWordCloudChartConfigurationOutput) SortConfiguration() TemplateWordCloudSortConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateWordCloudSortConfiguration {
+		return v.SortConfiguration
+	}).(TemplateWordCloudSortConfigurationPtrOutput)
+}
+
+func (o TemplateWordCloudChartConfigurationOutput) WordCloudOptions() TemplateWordCloudOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudChartConfiguration) *TemplateWordCloudOptions { return v.WordCloudOptions }).(TemplateWordCloudOptionsPtrOutput)
+}
+
+type TemplateWordCloudChartConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudChartConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudChartConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWordCloudChartConfigurationPtrOutput) ToTemplateWordCloudChartConfigurationPtrOutput() TemplateWordCloudChartConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudChartConfigurationPtrOutput) ToTemplateWordCloudChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateWordCloudChartConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudChartConfigurationPtrOutput) Elem() TemplateWordCloudChartConfigurationOutput {
+	return o.ApplyT(func(v *TemplateWordCloudChartConfiguration) TemplateWordCloudChartConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWordCloudChartConfiguration
+		return ret
+	}).(TemplateWordCloudChartConfigurationOutput)
+}
+
+func (o TemplateWordCloudChartConfigurationPtrOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudChartConfiguration) *TemplateChartAxisLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateWordCloudChartConfigurationPtrOutput) FieldWells() TemplateWordCloudFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudChartConfiguration) *TemplateWordCloudFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.FieldWells
+	}).(TemplateWordCloudFieldWellsPtrOutput)
+}
+
+func (o TemplateWordCloudChartConfigurationPtrOutput) SortConfiguration() TemplateWordCloudSortConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudChartConfiguration) *TemplateWordCloudSortConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SortConfiguration
+	}).(TemplateWordCloudSortConfigurationPtrOutput)
+}
+
+func (o TemplateWordCloudChartConfigurationPtrOutput) WordCloudOptions() TemplateWordCloudOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudChartConfiguration) *TemplateWordCloudOptions {
+		if v == nil {
+			return nil
+		}
+		return v.WordCloudOptions
+	}).(TemplateWordCloudOptionsPtrOutput)
+}
+
+type TemplateWordCloudFieldWells struct {
+	WordCloudAggregatedFieldWells *TemplateWordCloudAggregatedFieldWells `pulumi:"wordCloudAggregatedFieldWells"`
+}
+
+// TemplateWordCloudFieldWellsInput is an input type that accepts TemplateWordCloudFieldWellsArgs and TemplateWordCloudFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateWordCloudFieldWellsInput` via:
+//
+//	TemplateWordCloudFieldWellsArgs{...}
+type TemplateWordCloudFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudFieldWellsOutput() TemplateWordCloudFieldWellsOutput
+	ToTemplateWordCloudFieldWellsOutputWithContext(context.Context) TemplateWordCloudFieldWellsOutput
+}
+
+type TemplateWordCloudFieldWellsArgs struct {
+	WordCloudAggregatedFieldWells TemplateWordCloudAggregatedFieldWellsPtrInput `pulumi:"wordCloudAggregatedFieldWells"`
+}
+
+func (TemplateWordCloudFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudFieldWells)(nil)).Elem()
+}
+
+func (i TemplateWordCloudFieldWellsArgs) ToTemplateWordCloudFieldWellsOutput() TemplateWordCloudFieldWellsOutput {
+	return i.ToTemplateWordCloudFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudFieldWellsArgs) ToTemplateWordCloudFieldWellsOutputWithContext(ctx context.Context) TemplateWordCloudFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudFieldWellsOutput)
+}
+
+func (i TemplateWordCloudFieldWellsArgs) ToTemplateWordCloudFieldWellsPtrOutput() TemplateWordCloudFieldWellsPtrOutput {
+	return i.ToTemplateWordCloudFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudFieldWellsArgs) ToTemplateWordCloudFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWordCloudFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudFieldWellsOutput).ToTemplateWordCloudFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateWordCloudFieldWellsPtrInput is an input type that accepts TemplateWordCloudFieldWellsArgs, TemplateWordCloudFieldWellsPtr and TemplateWordCloudFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateWordCloudFieldWellsPtrInput` via:
+//
+//	        TemplateWordCloudFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWordCloudFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudFieldWellsPtrOutput() TemplateWordCloudFieldWellsPtrOutput
+	ToTemplateWordCloudFieldWellsPtrOutputWithContext(context.Context) TemplateWordCloudFieldWellsPtrOutput
+}
+
+type templateWordCloudFieldWellsPtrType TemplateWordCloudFieldWellsArgs
+
+func TemplateWordCloudFieldWellsPtr(v *TemplateWordCloudFieldWellsArgs) TemplateWordCloudFieldWellsPtrInput {
+	return (*templateWordCloudFieldWellsPtrType)(v)
+}
+
+func (*templateWordCloudFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudFieldWells)(nil)).Elem()
+}
+
+func (i *templateWordCloudFieldWellsPtrType) ToTemplateWordCloudFieldWellsPtrOutput() TemplateWordCloudFieldWellsPtrOutput {
+	return i.ToTemplateWordCloudFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWordCloudFieldWellsPtrType) ToTemplateWordCloudFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWordCloudFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudFieldWellsPtrOutput)
+}
+
+type TemplateWordCloudFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudFieldWells)(nil)).Elem()
+}
+
+func (o TemplateWordCloudFieldWellsOutput) ToTemplateWordCloudFieldWellsOutput() TemplateWordCloudFieldWellsOutput {
+	return o
+}
+
+func (o TemplateWordCloudFieldWellsOutput) ToTemplateWordCloudFieldWellsOutputWithContext(ctx context.Context) TemplateWordCloudFieldWellsOutput {
+	return o
+}
+
+func (o TemplateWordCloudFieldWellsOutput) ToTemplateWordCloudFieldWellsPtrOutput() TemplateWordCloudFieldWellsPtrOutput {
+	return o.ToTemplateWordCloudFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWordCloudFieldWellsOutput) ToTemplateWordCloudFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWordCloudFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWordCloudFieldWells) *TemplateWordCloudFieldWells {
+		return &v
+	}).(TemplateWordCloudFieldWellsPtrOutput)
+}
+
+func (o TemplateWordCloudFieldWellsOutput) WordCloudAggregatedFieldWells() TemplateWordCloudAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudFieldWells) *TemplateWordCloudAggregatedFieldWells {
+		return v.WordCloudAggregatedFieldWells
+	}).(TemplateWordCloudAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateWordCloudFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudFieldWells)(nil)).Elem()
+}
+
+func (o TemplateWordCloudFieldWellsPtrOutput) ToTemplateWordCloudFieldWellsPtrOutput() TemplateWordCloudFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudFieldWellsPtrOutput) ToTemplateWordCloudFieldWellsPtrOutputWithContext(ctx context.Context) TemplateWordCloudFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudFieldWellsPtrOutput) Elem() TemplateWordCloudFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateWordCloudFieldWells) TemplateWordCloudFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWordCloudFieldWells
+		return ret
+	}).(TemplateWordCloudFieldWellsOutput)
+}
+
+func (o TemplateWordCloudFieldWellsPtrOutput) WordCloudAggregatedFieldWells() TemplateWordCloudAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudFieldWells) *TemplateWordCloudAggregatedFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.WordCloudAggregatedFieldWells
+	}).(TemplateWordCloudAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateWordCloudOptions struct {
+	CloudLayout         *TemplateWordCloudCloudLayout     `pulumi:"cloudLayout"`
+	MaximumStringLength *float64                          `pulumi:"maximumStringLength"`
+	WordCasing          *TemplateWordCloudWordCasing      `pulumi:"wordCasing"`
+	WordOrientation     *TemplateWordCloudWordOrientation `pulumi:"wordOrientation"`
+	WordPadding         *TemplateWordCloudWordPadding     `pulumi:"wordPadding"`
+	WordScaling         *TemplateWordCloudWordScaling     `pulumi:"wordScaling"`
+}
+
+// TemplateWordCloudOptionsInput is an input type that accepts TemplateWordCloudOptionsArgs and TemplateWordCloudOptionsOutput values.
+// You can construct a concrete instance of `TemplateWordCloudOptionsInput` via:
+//
+//	TemplateWordCloudOptionsArgs{...}
+type TemplateWordCloudOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudOptionsOutput() TemplateWordCloudOptionsOutput
+	ToTemplateWordCloudOptionsOutputWithContext(context.Context) TemplateWordCloudOptionsOutput
+}
+
+type TemplateWordCloudOptionsArgs struct {
+	CloudLayout         TemplateWordCloudCloudLayoutPtrInput     `pulumi:"cloudLayout"`
+	MaximumStringLength pulumi.Float64PtrInput                   `pulumi:"maximumStringLength"`
+	WordCasing          TemplateWordCloudWordCasingPtrInput      `pulumi:"wordCasing"`
+	WordOrientation     TemplateWordCloudWordOrientationPtrInput `pulumi:"wordOrientation"`
+	WordPadding         TemplateWordCloudWordPaddingPtrInput     `pulumi:"wordPadding"`
+	WordScaling         TemplateWordCloudWordScalingPtrInput     `pulumi:"wordScaling"`
+}
+
+func (TemplateWordCloudOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudOptions)(nil)).Elem()
+}
+
+func (i TemplateWordCloudOptionsArgs) ToTemplateWordCloudOptionsOutput() TemplateWordCloudOptionsOutput {
+	return i.ToTemplateWordCloudOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudOptionsArgs) ToTemplateWordCloudOptionsOutputWithContext(ctx context.Context) TemplateWordCloudOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudOptionsOutput)
+}
+
+func (i TemplateWordCloudOptionsArgs) ToTemplateWordCloudOptionsPtrOutput() TemplateWordCloudOptionsPtrOutput {
+	return i.ToTemplateWordCloudOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudOptionsArgs) ToTemplateWordCloudOptionsPtrOutputWithContext(ctx context.Context) TemplateWordCloudOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudOptionsOutput).ToTemplateWordCloudOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateWordCloudOptionsPtrInput is an input type that accepts TemplateWordCloudOptionsArgs, TemplateWordCloudOptionsPtr and TemplateWordCloudOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateWordCloudOptionsPtrInput` via:
+//
+//	        TemplateWordCloudOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWordCloudOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudOptionsPtrOutput() TemplateWordCloudOptionsPtrOutput
+	ToTemplateWordCloudOptionsPtrOutputWithContext(context.Context) TemplateWordCloudOptionsPtrOutput
+}
+
+type templateWordCloudOptionsPtrType TemplateWordCloudOptionsArgs
+
+func TemplateWordCloudOptionsPtr(v *TemplateWordCloudOptionsArgs) TemplateWordCloudOptionsPtrInput {
+	return (*templateWordCloudOptionsPtrType)(v)
+}
+
+func (*templateWordCloudOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudOptions)(nil)).Elem()
+}
+
+func (i *templateWordCloudOptionsPtrType) ToTemplateWordCloudOptionsPtrOutput() TemplateWordCloudOptionsPtrOutput {
+	return i.ToTemplateWordCloudOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWordCloudOptionsPtrType) ToTemplateWordCloudOptionsPtrOutputWithContext(ctx context.Context) TemplateWordCloudOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudOptionsPtrOutput)
+}
+
+type TemplateWordCloudOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudOptions)(nil)).Elem()
+}
+
+func (o TemplateWordCloudOptionsOutput) ToTemplateWordCloudOptionsOutput() TemplateWordCloudOptionsOutput {
+	return o
+}
+
+func (o TemplateWordCloudOptionsOutput) ToTemplateWordCloudOptionsOutputWithContext(ctx context.Context) TemplateWordCloudOptionsOutput {
+	return o
+}
+
+func (o TemplateWordCloudOptionsOutput) ToTemplateWordCloudOptionsPtrOutput() TemplateWordCloudOptionsPtrOutput {
+	return o.ToTemplateWordCloudOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWordCloudOptionsOutput) ToTemplateWordCloudOptionsPtrOutputWithContext(ctx context.Context) TemplateWordCloudOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWordCloudOptions) *TemplateWordCloudOptions {
+		return &v
+	}).(TemplateWordCloudOptionsPtrOutput)
+}
+
+func (o TemplateWordCloudOptionsOutput) CloudLayout() TemplateWordCloudCloudLayoutPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudOptions) *TemplateWordCloudCloudLayout { return v.CloudLayout }).(TemplateWordCloudCloudLayoutPtrOutput)
+}
+
+func (o TemplateWordCloudOptionsOutput) MaximumStringLength() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudOptions) *float64 { return v.MaximumStringLength }).(pulumi.Float64PtrOutput)
+}
+
+func (o TemplateWordCloudOptionsOutput) WordCasing() TemplateWordCloudWordCasingPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudOptions) *TemplateWordCloudWordCasing { return v.WordCasing }).(TemplateWordCloudWordCasingPtrOutput)
+}
+
+func (o TemplateWordCloudOptionsOutput) WordOrientation() TemplateWordCloudWordOrientationPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudOptions) *TemplateWordCloudWordOrientation { return v.WordOrientation }).(TemplateWordCloudWordOrientationPtrOutput)
+}
+
+func (o TemplateWordCloudOptionsOutput) WordPadding() TemplateWordCloudWordPaddingPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudOptions) *TemplateWordCloudWordPadding { return v.WordPadding }).(TemplateWordCloudWordPaddingPtrOutput)
+}
+
+func (o TemplateWordCloudOptionsOutput) WordScaling() TemplateWordCloudWordScalingPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudOptions) *TemplateWordCloudWordScaling { return v.WordScaling }).(TemplateWordCloudWordScalingPtrOutput)
+}
+
+type TemplateWordCloudOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudOptions)(nil)).Elem()
+}
+
+func (o TemplateWordCloudOptionsPtrOutput) ToTemplateWordCloudOptionsPtrOutput() TemplateWordCloudOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudOptionsPtrOutput) ToTemplateWordCloudOptionsPtrOutputWithContext(ctx context.Context) TemplateWordCloudOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudOptionsPtrOutput) Elem() TemplateWordCloudOptionsOutput {
+	return o.ApplyT(func(v *TemplateWordCloudOptions) TemplateWordCloudOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWordCloudOptions
+		return ret
+	}).(TemplateWordCloudOptionsOutput)
+}
+
+func (o TemplateWordCloudOptionsPtrOutput) CloudLayout() TemplateWordCloudCloudLayoutPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudOptions) *TemplateWordCloudCloudLayout {
+		if v == nil {
+			return nil
+		}
+		return v.CloudLayout
+	}).(TemplateWordCloudCloudLayoutPtrOutput)
+}
+
+func (o TemplateWordCloudOptionsPtrOutput) MaximumStringLength() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudOptions) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumStringLength
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o TemplateWordCloudOptionsPtrOutput) WordCasing() TemplateWordCloudWordCasingPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudOptions) *TemplateWordCloudWordCasing {
+		if v == nil {
+			return nil
+		}
+		return v.WordCasing
+	}).(TemplateWordCloudWordCasingPtrOutput)
+}
+
+func (o TemplateWordCloudOptionsPtrOutput) WordOrientation() TemplateWordCloudWordOrientationPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudOptions) *TemplateWordCloudWordOrientation {
+		if v == nil {
+			return nil
+		}
+		return v.WordOrientation
+	}).(TemplateWordCloudWordOrientationPtrOutput)
+}
+
+func (o TemplateWordCloudOptionsPtrOutput) WordPadding() TemplateWordCloudWordPaddingPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudOptions) *TemplateWordCloudWordPadding {
+		if v == nil {
+			return nil
+		}
+		return v.WordPadding
+	}).(TemplateWordCloudWordPaddingPtrOutput)
+}
+
+func (o TemplateWordCloudOptionsPtrOutput) WordScaling() TemplateWordCloudWordScalingPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudOptions) *TemplateWordCloudWordScaling {
+		if v == nil {
+			return nil
+		}
+		return v.WordScaling
+	}).(TemplateWordCloudWordScalingPtrOutput)
+}
+
+type TemplateWordCloudSortConfiguration struct {
+	CategoryItemsLimit *TemplateItemsLimitConfiguration `pulumi:"categoryItemsLimit"`
+	CategorySort       []TemplateFieldSortOptions       `pulumi:"categorySort"`
+}
+
+// TemplateWordCloudSortConfigurationInput is an input type that accepts TemplateWordCloudSortConfigurationArgs and TemplateWordCloudSortConfigurationOutput values.
+// You can construct a concrete instance of `TemplateWordCloudSortConfigurationInput` via:
+//
+//	TemplateWordCloudSortConfigurationArgs{...}
+type TemplateWordCloudSortConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudSortConfigurationOutput() TemplateWordCloudSortConfigurationOutput
+	ToTemplateWordCloudSortConfigurationOutputWithContext(context.Context) TemplateWordCloudSortConfigurationOutput
+}
+
+type TemplateWordCloudSortConfigurationArgs struct {
+	CategoryItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"categoryItemsLimit"`
+	CategorySort       TemplateFieldSortOptionsArrayInput      `pulumi:"categorySort"`
+}
+
+func (TemplateWordCloudSortConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudSortConfiguration)(nil)).Elem()
+}
+
+func (i TemplateWordCloudSortConfigurationArgs) ToTemplateWordCloudSortConfigurationOutput() TemplateWordCloudSortConfigurationOutput {
+	return i.ToTemplateWordCloudSortConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudSortConfigurationArgs) ToTemplateWordCloudSortConfigurationOutputWithContext(ctx context.Context) TemplateWordCloudSortConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudSortConfigurationOutput)
+}
+
+func (i TemplateWordCloudSortConfigurationArgs) ToTemplateWordCloudSortConfigurationPtrOutput() TemplateWordCloudSortConfigurationPtrOutput {
+	return i.ToTemplateWordCloudSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudSortConfigurationArgs) ToTemplateWordCloudSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateWordCloudSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudSortConfigurationOutput).ToTemplateWordCloudSortConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateWordCloudSortConfigurationPtrInput is an input type that accepts TemplateWordCloudSortConfigurationArgs, TemplateWordCloudSortConfigurationPtr and TemplateWordCloudSortConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateWordCloudSortConfigurationPtrInput` via:
+//
+//	        TemplateWordCloudSortConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWordCloudSortConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudSortConfigurationPtrOutput() TemplateWordCloudSortConfigurationPtrOutput
+	ToTemplateWordCloudSortConfigurationPtrOutputWithContext(context.Context) TemplateWordCloudSortConfigurationPtrOutput
+}
+
+type templateWordCloudSortConfigurationPtrType TemplateWordCloudSortConfigurationArgs
+
+func TemplateWordCloudSortConfigurationPtr(v *TemplateWordCloudSortConfigurationArgs) TemplateWordCloudSortConfigurationPtrInput {
+	return (*templateWordCloudSortConfigurationPtrType)(v)
+}
+
+func (*templateWordCloudSortConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudSortConfiguration)(nil)).Elem()
+}
+
+func (i *templateWordCloudSortConfigurationPtrType) ToTemplateWordCloudSortConfigurationPtrOutput() TemplateWordCloudSortConfigurationPtrOutput {
+	return i.ToTemplateWordCloudSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWordCloudSortConfigurationPtrType) ToTemplateWordCloudSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateWordCloudSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudSortConfigurationPtrOutput)
+}
+
+type TemplateWordCloudSortConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudSortConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWordCloudSortConfigurationOutput) ToTemplateWordCloudSortConfigurationOutput() TemplateWordCloudSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateWordCloudSortConfigurationOutput) ToTemplateWordCloudSortConfigurationOutputWithContext(ctx context.Context) TemplateWordCloudSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateWordCloudSortConfigurationOutput) ToTemplateWordCloudSortConfigurationPtrOutput() TemplateWordCloudSortConfigurationPtrOutput {
+	return o.ToTemplateWordCloudSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWordCloudSortConfigurationOutput) ToTemplateWordCloudSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateWordCloudSortConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWordCloudSortConfiguration) *TemplateWordCloudSortConfiguration {
+		return &v
+	}).(TemplateWordCloudSortConfigurationPtrOutput)
+}
+
+func (o TemplateWordCloudSortConfigurationOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudSortConfiguration) *TemplateItemsLimitConfiguration {
+		return v.CategoryItemsLimit
+	}).(TemplateItemsLimitConfigurationPtrOutput)
+}
+
+func (o TemplateWordCloudSortConfigurationOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v TemplateWordCloudSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
+}
+
+type TemplateWordCloudSortConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudSortConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWordCloudSortConfigurationPtrOutput) ToTemplateWordCloudSortConfigurationPtrOutput() TemplateWordCloudSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudSortConfigurationPtrOutput) ToTemplateWordCloudSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateWordCloudSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudSortConfigurationPtrOutput) Elem() TemplateWordCloudSortConfigurationOutput {
+	return o.ApplyT(func(v *TemplateWordCloudSortConfiguration) TemplateWordCloudSortConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWordCloudSortConfiguration
+		return ret
+	}).(TemplateWordCloudSortConfigurationOutput)
+}
+
+func (o TemplateWordCloudSortConfigurationPtrOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudSortConfiguration) *TemplateItemsLimitConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryItemsLimit
+	}).(TemplateItemsLimitConfigurationPtrOutput)
+}
+
+func (o TemplateWordCloudSortConfigurationPtrOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v *TemplateWordCloudSortConfiguration) []TemplateFieldSortOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CategorySort
+	}).(TemplateFieldSortOptionsArrayOutput)
+}
+
+type TemplateWordCloudVisual struct {
+	Actions            []TemplateVisualCustomAction         `pulumi:"actions"`
+	ChartConfiguration *TemplateWordCloudChartConfiguration `pulumi:"chartConfiguration"`
+	ColumnHierarchies  []TemplateColumnHierarchy            `pulumi:"columnHierarchies"`
+	Subtitle           *TemplateVisualSubtitleLabelOptions  `pulumi:"subtitle"`
+	Title              *TemplateVisualTitleLabelOptions     `pulumi:"title"`
+	VisualId           string                               `pulumi:"visualId"`
+}
+
+// TemplateWordCloudVisualInput is an input type that accepts TemplateWordCloudVisualArgs and TemplateWordCloudVisualOutput values.
+// You can construct a concrete instance of `TemplateWordCloudVisualInput` via:
+//
+//	TemplateWordCloudVisualArgs{...}
+type TemplateWordCloudVisualInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudVisualOutput() TemplateWordCloudVisualOutput
+	ToTemplateWordCloudVisualOutputWithContext(context.Context) TemplateWordCloudVisualOutput
+}
+
+type TemplateWordCloudVisualArgs struct {
+	Actions            TemplateVisualCustomActionArrayInput        `pulumi:"actions"`
+	ChartConfiguration TemplateWordCloudChartConfigurationPtrInput `pulumi:"chartConfiguration"`
+	ColumnHierarchies  TemplateColumnHierarchyArrayInput           `pulumi:"columnHierarchies"`
+	Subtitle           TemplateVisualSubtitleLabelOptionsPtrInput  `pulumi:"subtitle"`
+	Title              TemplateVisualTitleLabelOptionsPtrInput     `pulumi:"title"`
+	VisualId           pulumi.StringInput                          `pulumi:"visualId"`
+}
+
+func (TemplateWordCloudVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudVisual)(nil)).Elem()
+}
+
+func (i TemplateWordCloudVisualArgs) ToTemplateWordCloudVisualOutput() TemplateWordCloudVisualOutput {
+	return i.ToTemplateWordCloudVisualOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudVisualArgs) ToTemplateWordCloudVisualOutputWithContext(ctx context.Context) TemplateWordCloudVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudVisualOutput)
+}
+
+func (i TemplateWordCloudVisualArgs) ToTemplateWordCloudVisualPtrOutput() TemplateWordCloudVisualPtrOutput {
+	return i.ToTemplateWordCloudVisualPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWordCloudVisualArgs) ToTemplateWordCloudVisualPtrOutputWithContext(ctx context.Context) TemplateWordCloudVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudVisualOutput).ToTemplateWordCloudVisualPtrOutputWithContext(ctx)
+}
+
+// TemplateWordCloudVisualPtrInput is an input type that accepts TemplateWordCloudVisualArgs, TemplateWordCloudVisualPtr and TemplateWordCloudVisualPtrOutput values.
+// You can construct a concrete instance of `TemplateWordCloudVisualPtrInput` via:
+//
+//	        TemplateWordCloudVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWordCloudVisualPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWordCloudVisualPtrOutput() TemplateWordCloudVisualPtrOutput
+	ToTemplateWordCloudVisualPtrOutputWithContext(context.Context) TemplateWordCloudVisualPtrOutput
+}
+
+type templateWordCloudVisualPtrType TemplateWordCloudVisualArgs
+
+func TemplateWordCloudVisualPtr(v *TemplateWordCloudVisualArgs) TemplateWordCloudVisualPtrInput {
+	return (*templateWordCloudVisualPtrType)(v)
+}
+
+func (*templateWordCloudVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudVisual)(nil)).Elem()
+}
+
+func (i *templateWordCloudVisualPtrType) ToTemplateWordCloudVisualPtrOutput() TemplateWordCloudVisualPtrOutput {
+	return i.ToTemplateWordCloudVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWordCloudVisualPtrType) ToTemplateWordCloudVisualPtrOutputWithContext(ctx context.Context) TemplateWordCloudVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWordCloudVisualPtrOutput)
+}
+
+type TemplateWordCloudVisualOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWordCloudVisual)(nil)).Elem()
+}
+
+func (o TemplateWordCloudVisualOutput) ToTemplateWordCloudVisualOutput() TemplateWordCloudVisualOutput {
+	return o
+}
+
+func (o TemplateWordCloudVisualOutput) ToTemplateWordCloudVisualOutputWithContext(ctx context.Context) TemplateWordCloudVisualOutput {
+	return o
+}
+
+func (o TemplateWordCloudVisualOutput) ToTemplateWordCloudVisualPtrOutput() TemplateWordCloudVisualPtrOutput {
+	return o.ToTemplateWordCloudVisualPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWordCloudVisualOutput) ToTemplateWordCloudVisualPtrOutputWithContext(ctx context.Context) TemplateWordCloudVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWordCloudVisual) *TemplateWordCloudVisual {
+		return &v
+	}).(TemplateWordCloudVisualPtrOutput)
+}
+
+func (o TemplateWordCloudVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v TemplateWordCloudVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
+}
+
+func (o TemplateWordCloudVisualOutput) ChartConfiguration() TemplateWordCloudChartConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudVisual) *TemplateWordCloudChartConfiguration { return v.ChartConfiguration }).(TemplateWordCloudChartConfigurationPtrOutput)
+}
+
+func (o TemplateWordCloudVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v TemplateWordCloudVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
+}
+
+func (o TemplateWordCloudVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateWordCloudVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateWordCloudVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateWordCloudVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateWordCloudVisual) string { return v.VisualId }).(pulumi.StringOutput)
+}
+
+type TemplateWordCloudVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWordCloudVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWordCloudVisual)(nil)).Elem()
+}
+
+func (o TemplateWordCloudVisualPtrOutput) ToTemplateWordCloudVisualPtrOutput() TemplateWordCloudVisualPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudVisualPtrOutput) ToTemplateWordCloudVisualPtrOutputWithContext(ctx context.Context) TemplateWordCloudVisualPtrOutput {
+	return o
+}
+
+func (o TemplateWordCloudVisualPtrOutput) Elem() TemplateWordCloudVisualOutput {
+	return o.ApplyT(func(v *TemplateWordCloudVisual) TemplateWordCloudVisual {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWordCloudVisual
+		return ret
+	}).(TemplateWordCloudVisualOutput)
+}
+
+func (o TemplateWordCloudVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *TemplateWordCloudVisual) []TemplateVisualCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TemplateVisualCustomActionArrayOutput)
+}
+
+func (o TemplateWordCloudVisualPtrOutput) ChartConfiguration() TemplateWordCloudChartConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudVisual) *TemplateWordCloudChartConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChartConfiguration
+	}).(TemplateWordCloudChartConfigurationPtrOutput)
+}
+
+func (o TemplateWordCloudVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v *TemplateWordCloudVisual) []TemplateColumnHierarchy {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnHierarchies
+	}).(TemplateColumnHierarchyArrayOutput)
+}
+
+func (o TemplateWordCloudVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudVisual) *TemplateVisualSubtitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Subtitle
+	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateWordCloudVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudVisual) *TemplateVisualTitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateWordCloudVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateWordCloudVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VisualId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThemeBorderStyle struct {
+	Show *bool `pulumi:"show"`
+}
+
+// ThemeBorderStyleInput is an input type that accepts ThemeBorderStyleArgs and ThemeBorderStyleOutput values.
+// You can construct a concrete instance of `ThemeBorderStyleInput` via:
+//
+//	ThemeBorderStyleArgs{...}
+type ThemeBorderStyleInput interface {
+	pulumi.Input
+
+	ToThemeBorderStyleOutput() ThemeBorderStyleOutput
+	ToThemeBorderStyleOutputWithContext(context.Context) ThemeBorderStyleOutput
+}
+
+type ThemeBorderStyleArgs struct {
+	Show pulumi.BoolPtrInput `pulumi:"show"`
+}
+
+func (ThemeBorderStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeBorderStyle)(nil)).Elem()
+}
+
+func (i ThemeBorderStyleArgs) ToThemeBorderStyleOutput() ThemeBorderStyleOutput {
+	return i.ToThemeBorderStyleOutputWithContext(context.Background())
+}
+
+func (i ThemeBorderStyleArgs) ToThemeBorderStyleOutputWithContext(ctx context.Context) ThemeBorderStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeBorderStyleOutput)
+}
+
+func (i ThemeBorderStyleArgs) ToThemeBorderStylePtrOutput() ThemeBorderStylePtrOutput {
+	return i.ToThemeBorderStylePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeBorderStyleArgs) ToThemeBorderStylePtrOutputWithContext(ctx context.Context) ThemeBorderStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeBorderStyleOutput).ToThemeBorderStylePtrOutputWithContext(ctx)
+}
+
+// ThemeBorderStylePtrInput is an input type that accepts ThemeBorderStyleArgs, ThemeBorderStylePtr and ThemeBorderStylePtrOutput values.
+// You can construct a concrete instance of `ThemeBorderStylePtrInput` via:
+//
+//	        ThemeBorderStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeBorderStylePtrInput interface {
+	pulumi.Input
+
+	ToThemeBorderStylePtrOutput() ThemeBorderStylePtrOutput
+	ToThemeBorderStylePtrOutputWithContext(context.Context) ThemeBorderStylePtrOutput
+}
+
+type themeBorderStylePtrType ThemeBorderStyleArgs
+
+func ThemeBorderStylePtr(v *ThemeBorderStyleArgs) ThemeBorderStylePtrInput {
+	return (*themeBorderStylePtrType)(v)
+}
+
+func (*themeBorderStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeBorderStyle)(nil)).Elem()
+}
+
+func (i *themeBorderStylePtrType) ToThemeBorderStylePtrOutput() ThemeBorderStylePtrOutput {
+	return i.ToThemeBorderStylePtrOutputWithContext(context.Background())
+}
+
+func (i *themeBorderStylePtrType) ToThemeBorderStylePtrOutputWithContext(ctx context.Context) ThemeBorderStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeBorderStylePtrOutput)
+}
+
+type ThemeBorderStyleOutput struct{ *pulumi.OutputState }
+
+func (ThemeBorderStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeBorderStyle)(nil)).Elem()
+}
+
+func (o ThemeBorderStyleOutput) ToThemeBorderStyleOutput() ThemeBorderStyleOutput {
+	return o
+}
+
+func (o ThemeBorderStyleOutput) ToThemeBorderStyleOutputWithContext(ctx context.Context) ThemeBorderStyleOutput {
+	return o
+}
+
+func (o ThemeBorderStyleOutput) ToThemeBorderStylePtrOutput() ThemeBorderStylePtrOutput {
+	return o.ToThemeBorderStylePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeBorderStyleOutput) ToThemeBorderStylePtrOutputWithContext(ctx context.Context) ThemeBorderStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeBorderStyle) *ThemeBorderStyle {
+		return &v
+	}).(ThemeBorderStylePtrOutput)
+}
+
+func (o ThemeBorderStyleOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ThemeBorderStyle) *bool { return v.Show }).(pulumi.BoolPtrOutput)
+}
+
+type ThemeBorderStylePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeBorderStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeBorderStyle)(nil)).Elem()
+}
+
+func (o ThemeBorderStylePtrOutput) ToThemeBorderStylePtrOutput() ThemeBorderStylePtrOutput {
+	return o
+}
+
+func (o ThemeBorderStylePtrOutput) ToThemeBorderStylePtrOutputWithContext(ctx context.Context) ThemeBorderStylePtrOutput {
+	return o
+}
+
+func (o ThemeBorderStylePtrOutput) Elem() ThemeBorderStyleOutput {
+	return o.ApplyT(func(v *ThemeBorderStyle) ThemeBorderStyle {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeBorderStyle
+		return ret
+	}).(ThemeBorderStyleOutput)
+}
+
+func (o ThemeBorderStylePtrOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThemeBorderStyle) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Show
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ThemeConfiguration struct {
+	DataColorPalette *ThemeDataColorPalette `pulumi:"dataColorPalette"`
+	Sheet            *ThemeSheetStyle       `pulumi:"sheet"`
+	Typography       *ThemeTypography       `pulumi:"typography"`
+	UiColorPalette   *ThemeUiColorPalette   `pulumi:"uiColorPalette"`
+}
+
+// ThemeConfigurationInput is an input type that accepts ThemeConfigurationArgs and ThemeConfigurationOutput values.
+// You can construct a concrete instance of `ThemeConfigurationInput` via:
+//
+//	ThemeConfigurationArgs{...}
+type ThemeConfigurationInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationOutput() ThemeConfigurationOutput
+	ToThemeConfigurationOutputWithContext(context.Context) ThemeConfigurationOutput
+}
+
+type ThemeConfigurationArgs struct {
+	DataColorPalette ThemeDataColorPalettePtrInput `pulumi:"dataColorPalette"`
+	Sheet            ThemeSheetStylePtrInput       `pulumi:"sheet"`
+	Typography       ThemeTypographyPtrInput       `pulumi:"typography"`
+	UiColorPalette   ThemeUiColorPalettePtrInput   `pulumi:"uiColorPalette"`
+}
+
+func (ThemeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfiguration)(nil)).Elem()
+}
+
+func (i ThemeConfigurationArgs) ToThemeConfigurationOutput() ThemeConfigurationOutput {
+	return i.ToThemeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationArgs) ToThemeConfigurationOutputWithContext(ctx context.Context) ThemeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationOutput)
+}
+
+type ThemeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfiguration)(nil)).Elem()
+}
+
+func (o ThemeConfigurationOutput) ToThemeConfigurationOutput() ThemeConfigurationOutput {
+	return o
+}
+
+func (o ThemeConfigurationOutput) ToThemeConfigurationOutputWithContext(ctx context.Context) ThemeConfigurationOutput {
+	return o
+}
+
+func (o ThemeConfigurationOutput) DataColorPalette() ThemeDataColorPalettePtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeDataColorPalette { return v.DataColorPalette }).(ThemeDataColorPalettePtrOutput)
+}
+
+func (o ThemeConfigurationOutput) Sheet() ThemeSheetStylePtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeSheetStyle { return v.Sheet }).(ThemeSheetStylePtrOutput)
+}
+
+func (o ThemeConfigurationOutput) Typography() ThemeTypographyPtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeTypography { return v.Typography }).(ThemeTypographyPtrOutput)
+}
+
+func (o ThemeConfigurationOutput) UiColorPalette() ThemeUiColorPalettePtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeUiColorPalette { return v.UiColorPalette }).(ThemeUiColorPalettePtrOutput)
+}
+
+type ThemeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfiguration)(nil)).Elem()
+}
+
+func (o ThemeConfigurationPtrOutput) ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationPtrOutput) ToThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeConfigurationPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationPtrOutput) Elem() ThemeConfigurationOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) ThemeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfiguration
+		return ret
+	}).(ThemeConfigurationOutput)
+}
+
+func (o ThemeConfigurationPtrOutput) DataColorPalette() ThemeDataColorPalettePtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeDataColorPalette {
+		if v == nil {
+			return nil
+		}
+		return v.DataColorPalette
+	}).(ThemeDataColorPalettePtrOutput)
+}
+
+func (o ThemeConfigurationPtrOutput) Sheet() ThemeSheetStylePtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeSheetStyle {
+		if v == nil {
+			return nil
+		}
+		return v.Sheet
+	}).(ThemeSheetStylePtrOutput)
+}
+
+func (o ThemeConfigurationPtrOutput) Typography() ThemeTypographyPtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeTypography {
+		if v == nil {
+			return nil
+		}
+		return v.Typography
+	}).(ThemeTypographyPtrOutput)
+}
+
+func (o ThemeConfigurationPtrOutput) UiColorPalette() ThemeUiColorPalettePtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeUiColorPalette {
+		if v == nil {
+			return nil
+		}
+		return v.UiColorPalette
+	}).(ThemeUiColorPalettePtrOutput)
+}
+
+type ThemeDataColorPalette struct {
+	Colors         []string `pulumi:"colors"`
+	EmptyFillColor *string  `pulumi:"emptyFillColor"`
+	MinMaxGradient []string `pulumi:"minMaxGradient"`
+}
+
+// ThemeDataColorPaletteInput is an input type that accepts ThemeDataColorPaletteArgs and ThemeDataColorPaletteOutput values.
+// You can construct a concrete instance of `ThemeDataColorPaletteInput` via:
+//
+//	ThemeDataColorPaletteArgs{...}
+type ThemeDataColorPaletteInput interface {
+	pulumi.Input
+
+	ToThemeDataColorPaletteOutput() ThemeDataColorPaletteOutput
+	ToThemeDataColorPaletteOutputWithContext(context.Context) ThemeDataColorPaletteOutput
+}
+
+type ThemeDataColorPaletteArgs struct {
+	Colors         pulumi.StringArrayInput `pulumi:"colors"`
+	EmptyFillColor pulumi.StringPtrInput   `pulumi:"emptyFillColor"`
+	MinMaxGradient pulumi.StringArrayInput `pulumi:"minMaxGradient"`
+}
+
+func (ThemeDataColorPaletteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeDataColorPalette)(nil)).Elem()
+}
+
+func (i ThemeDataColorPaletteArgs) ToThemeDataColorPaletteOutput() ThemeDataColorPaletteOutput {
+	return i.ToThemeDataColorPaletteOutputWithContext(context.Background())
+}
+
+func (i ThemeDataColorPaletteArgs) ToThemeDataColorPaletteOutputWithContext(ctx context.Context) ThemeDataColorPaletteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeDataColorPaletteOutput)
+}
+
+func (i ThemeDataColorPaletteArgs) ToThemeDataColorPalettePtrOutput() ThemeDataColorPalettePtrOutput {
+	return i.ToThemeDataColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeDataColorPaletteArgs) ToThemeDataColorPalettePtrOutputWithContext(ctx context.Context) ThemeDataColorPalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeDataColorPaletteOutput).ToThemeDataColorPalettePtrOutputWithContext(ctx)
+}
+
+// ThemeDataColorPalettePtrInput is an input type that accepts ThemeDataColorPaletteArgs, ThemeDataColorPalettePtr and ThemeDataColorPalettePtrOutput values.
+// You can construct a concrete instance of `ThemeDataColorPalettePtrInput` via:
+//
+//	        ThemeDataColorPaletteArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeDataColorPalettePtrInput interface {
+	pulumi.Input
+
+	ToThemeDataColorPalettePtrOutput() ThemeDataColorPalettePtrOutput
+	ToThemeDataColorPalettePtrOutputWithContext(context.Context) ThemeDataColorPalettePtrOutput
+}
+
+type themeDataColorPalettePtrType ThemeDataColorPaletteArgs
+
+func ThemeDataColorPalettePtr(v *ThemeDataColorPaletteArgs) ThemeDataColorPalettePtrInput {
+	return (*themeDataColorPalettePtrType)(v)
+}
+
+func (*themeDataColorPalettePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeDataColorPalette)(nil)).Elem()
+}
+
+func (i *themeDataColorPalettePtrType) ToThemeDataColorPalettePtrOutput() ThemeDataColorPalettePtrOutput {
+	return i.ToThemeDataColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (i *themeDataColorPalettePtrType) ToThemeDataColorPalettePtrOutputWithContext(ctx context.Context) ThemeDataColorPalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeDataColorPalettePtrOutput)
+}
+
+type ThemeDataColorPaletteOutput struct{ *pulumi.OutputState }
+
+func (ThemeDataColorPaletteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeDataColorPalette)(nil)).Elem()
+}
+
+func (o ThemeDataColorPaletteOutput) ToThemeDataColorPaletteOutput() ThemeDataColorPaletteOutput {
+	return o
+}
+
+func (o ThemeDataColorPaletteOutput) ToThemeDataColorPaletteOutputWithContext(ctx context.Context) ThemeDataColorPaletteOutput {
+	return o
+}
+
+func (o ThemeDataColorPaletteOutput) ToThemeDataColorPalettePtrOutput() ThemeDataColorPalettePtrOutput {
+	return o.ToThemeDataColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeDataColorPaletteOutput) ToThemeDataColorPalettePtrOutputWithContext(ctx context.Context) ThemeDataColorPalettePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeDataColorPalette) *ThemeDataColorPalette {
+		return &v
+	}).(ThemeDataColorPalettePtrOutput)
+}
+
+func (o ThemeDataColorPaletteOutput) Colors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ThemeDataColorPalette) []string { return v.Colors }).(pulumi.StringArrayOutput)
+}
+
+func (o ThemeDataColorPaletteOutput) EmptyFillColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeDataColorPalette) *string { return v.EmptyFillColor }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeDataColorPaletteOutput) MinMaxGradient() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ThemeDataColorPalette) []string { return v.MinMaxGradient }).(pulumi.StringArrayOutput)
+}
+
+type ThemeDataColorPalettePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeDataColorPalettePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeDataColorPalette)(nil)).Elem()
+}
+
+func (o ThemeDataColorPalettePtrOutput) ToThemeDataColorPalettePtrOutput() ThemeDataColorPalettePtrOutput {
+	return o
+}
+
+func (o ThemeDataColorPalettePtrOutput) ToThemeDataColorPalettePtrOutputWithContext(ctx context.Context) ThemeDataColorPalettePtrOutput {
+	return o
+}
+
+func (o ThemeDataColorPalettePtrOutput) Elem() ThemeDataColorPaletteOutput {
+	return o.ApplyT(func(v *ThemeDataColorPalette) ThemeDataColorPalette {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeDataColorPalette
+		return ret
+	}).(ThemeDataColorPaletteOutput)
+}
+
+func (o ThemeDataColorPalettePtrOutput) Colors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ThemeDataColorPalette) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Colors
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ThemeDataColorPalettePtrOutput) EmptyFillColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeDataColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmptyFillColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeDataColorPalettePtrOutput) MinMaxGradient() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ThemeDataColorPalette) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MinMaxGradient
+	}).(pulumi.StringArrayOutput)
+}
+
 type ThemeError struct {
 	Message *string         `pulumi:"message"`
 	Type    *ThemeErrorType `pulumi:"type"`
@@ -1596,124 +4874,6 @@ func (o ThemeVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
 		}
 		return v.VersionNumber
 	}).(pulumi.Float64PtrOutput)
-}
-
-type TopicAggregationFunctionParameters struct {
-}
-
-// TopicAggregationFunctionParametersInput is an input type that accepts TopicAggregationFunctionParametersArgs and TopicAggregationFunctionParametersOutput values.
-// You can construct a concrete instance of `TopicAggregationFunctionParametersInput` via:
-//
-//	TopicAggregationFunctionParametersArgs{...}
-type TopicAggregationFunctionParametersInput interface {
-	pulumi.Input
-
-	ToTopicAggregationFunctionParametersOutput() TopicAggregationFunctionParametersOutput
-	ToTopicAggregationFunctionParametersOutputWithContext(context.Context) TopicAggregationFunctionParametersOutput
-}
-
-type TopicAggregationFunctionParametersArgs struct {
-}
-
-func (TopicAggregationFunctionParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicAggregationFunctionParameters)(nil)).Elem()
-}
-
-func (i TopicAggregationFunctionParametersArgs) ToTopicAggregationFunctionParametersOutput() TopicAggregationFunctionParametersOutput {
-	return i.ToTopicAggregationFunctionParametersOutputWithContext(context.Background())
-}
-
-func (i TopicAggregationFunctionParametersArgs) ToTopicAggregationFunctionParametersOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicAggregationFunctionParametersOutput)
-}
-
-func (i TopicAggregationFunctionParametersArgs) ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput {
-	return i.ToTopicAggregationFunctionParametersPtrOutputWithContext(context.Background())
-}
-
-func (i TopicAggregationFunctionParametersArgs) ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicAggregationFunctionParametersOutput).ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx)
-}
-
-// TopicAggregationFunctionParametersPtrInput is an input type that accepts TopicAggregationFunctionParametersArgs, TopicAggregationFunctionParametersPtr and TopicAggregationFunctionParametersPtrOutput values.
-// You can construct a concrete instance of `TopicAggregationFunctionParametersPtrInput` via:
-//
-//	        TopicAggregationFunctionParametersArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicAggregationFunctionParametersPtrInput interface {
-	pulumi.Input
-
-	ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput
-	ToTopicAggregationFunctionParametersPtrOutputWithContext(context.Context) TopicAggregationFunctionParametersPtrOutput
-}
-
-type topicAggregationFunctionParametersPtrType TopicAggregationFunctionParametersArgs
-
-func TopicAggregationFunctionParametersPtr(v *TopicAggregationFunctionParametersArgs) TopicAggregationFunctionParametersPtrInput {
-	return (*topicAggregationFunctionParametersPtrType)(v)
-}
-
-func (*topicAggregationFunctionParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicAggregationFunctionParameters)(nil)).Elem()
-}
-
-func (i *topicAggregationFunctionParametersPtrType) ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput {
-	return i.ToTopicAggregationFunctionParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *topicAggregationFunctionParametersPtrType) ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicAggregationFunctionParametersPtrOutput)
-}
-
-type TopicAggregationFunctionParametersOutput struct{ *pulumi.OutputState }
-
-func (TopicAggregationFunctionParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicAggregationFunctionParameters)(nil)).Elem()
-}
-
-func (o TopicAggregationFunctionParametersOutput) ToTopicAggregationFunctionParametersOutput() TopicAggregationFunctionParametersOutput {
-	return o
-}
-
-func (o TopicAggregationFunctionParametersOutput) ToTopicAggregationFunctionParametersOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersOutput {
-	return o
-}
-
-func (o TopicAggregationFunctionParametersOutput) ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput {
-	return o.ToTopicAggregationFunctionParametersPtrOutputWithContext(context.Background())
-}
-
-func (o TopicAggregationFunctionParametersOutput) ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicAggregationFunctionParameters) *TopicAggregationFunctionParameters {
-		return &v
-	}).(TopicAggregationFunctionParametersPtrOutput)
-}
-
-type TopicAggregationFunctionParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (TopicAggregationFunctionParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicAggregationFunctionParameters)(nil)).Elem()
-}
-
-func (o TopicAggregationFunctionParametersPtrOutput) ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput {
-	return o
-}
-
-func (o TopicAggregationFunctionParametersPtrOutput) ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersPtrOutput {
-	return o
-}
-
-func (o TopicAggregationFunctionParametersPtrOutput) Elem() TopicAggregationFunctionParametersOutput {
-	return o.ApplyT(func(v *TopicAggregationFunctionParameters) TopicAggregationFunctionParameters {
-		if v != nil {
-			return *v
-		}
-		var ret TopicAggregationFunctionParameters
-		return ret
-	}).(TopicAggregationFunctionParametersOutput)
 }
 
 type TopicCalculatedField struct {
@@ -4092,8 +7252,8 @@ func (o TopicNamedEntityDefinitionArrayOutput) Index(i pulumi.IntInput) TopicNam
 }
 
 type TopicNamedEntityDefinitionMetric struct {
-	Aggregation                   *TopicNamedEntityAggType            `pulumi:"aggregation"`
-	AggregationFunctionParameters *TopicAggregationFunctionParameters `pulumi:"aggregationFunctionParameters"`
+	Aggregation                   *TopicNamedEntityAggType `pulumi:"aggregation"`
+	AggregationFunctionParameters map[string]string        `pulumi:"aggregationFunctionParameters"`
 }
 
 // TopicNamedEntityDefinitionMetricInput is an input type that accepts TopicNamedEntityDefinitionMetricArgs and TopicNamedEntityDefinitionMetricOutput values.
@@ -4108,8 +7268,8 @@ type TopicNamedEntityDefinitionMetricInput interface {
 }
 
 type TopicNamedEntityDefinitionMetricArgs struct {
-	Aggregation                   TopicNamedEntityAggTypePtrInput            `pulumi:"aggregation"`
-	AggregationFunctionParameters TopicAggregationFunctionParametersPtrInput `pulumi:"aggregationFunctionParameters"`
+	Aggregation                   TopicNamedEntityAggTypePtrInput `pulumi:"aggregation"`
+	AggregationFunctionParameters pulumi.StringMapInput           `pulumi:"aggregationFunctionParameters"`
 }
 
 func (TopicNamedEntityDefinitionMetricArgs) ElementType() reflect.Type {
@@ -4193,10 +7353,8 @@ func (o TopicNamedEntityDefinitionMetricOutput) Aggregation() TopicNamedEntityAg
 	return o.ApplyT(func(v TopicNamedEntityDefinitionMetric) *TopicNamedEntityAggType { return v.Aggregation }).(TopicNamedEntityAggTypePtrOutput)
 }
 
-func (o TopicNamedEntityDefinitionMetricOutput) AggregationFunctionParameters() TopicAggregationFunctionParametersPtrOutput {
-	return o.ApplyT(func(v TopicNamedEntityDefinitionMetric) *TopicAggregationFunctionParameters {
-		return v.AggregationFunctionParameters
-	}).(TopicAggregationFunctionParametersPtrOutput)
+func (o TopicNamedEntityDefinitionMetricOutput) AggregationFunctionParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TopicNamedEntityDefinitionMetric) map[string]string { return v.AggregationFunctionParameters }).(pulumi.StringMapOutput)
 }
 
 type TopicNamedEntityDefinitionMetricPtrOutput struct{ *pulumi.OutputState }
@@ -4232,13 +7390,13 @@ func (o TopicNamedEntityDefinitionMetricPtrOutput) Aggregation() TopicNamedEntit
 	}).(TopicNamedEntityAggTypePtrOutput)
 }
 
-func (o TopicNamedEntityDefinitionMetricPtrOutput) AggregationFunctionParameters() TopicAggregationFunctionParametersPtrOutput {
-	return o.ApplyT(func(v *TopicNamedEntityDefinitionMetric) *TopicAggregationFunctionParameters {
+func (o TopicNamedEntityDefinitionMetricPtrOutput) AggregationFunctionParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TopicNamedEntityDefinitionMetric) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.AggregationFunctionParameters
-	}).(TopicAggregationFunctionParametersPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type TopicNegativeFormat struct {
@@ -5160,9 +8318,9 @@ func (o TopicRelativeDateFilterPtrOutput) TimeGranularity() TopicTimeGranularity
 }
 
 type TopicSemanticEntityType struct {
-	SubTypeName    *string              `pulumi:"subTypeName"`
-	TypeName       *string              `pulumi:"typeName"`
-	TypeParameters *TopicTypeParameters `pulumi:"typeParameters"`
+	SubTypeName    *string           `pulumi:"subTypeName"`
+	TypeName       *string           `pulumi:"typeName"`
+	TypeParameters map[string]string `pulumi:"typeParameters"`
 }
 
 // TopicSemanticEntityTypeInput is an input type that accepts TopicSemanticEntityTypeArgs and TopicSemanticEntityTypeOutput values.
@@ -5177,9 +8335,9 @@ type TopicSemanticEntityTypeInput interface {
 }
 
 type TopicSemanticEntityTypeArgs struct {
-	SubTypeName    pulumi.StringPtrInput       `pulumi:"subTypeName"`
-	TypeName       pulumi.StringPtrInput       `pulumi:"typeName"`
-	TypeParameters TopicTypeParametersPtrInput `pulumi:"typeParameters"`
+	SubTypeName    pulumi.StringPtrInput `pulumi:"subTypeName"`
+	TypeName       pulumi.StringPtrInput `pulumi:"typeName"`
+	TypeParameters pulumi.StringMapInput `pulumi:"typeParameters"`
 }
 
 func (TopicSemanticEntityTypeArgs) ElementType() reflect.Type {
@@ -5267,8 +8425,8 @@ func (o TopicSemanticEntityTypeOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicSemanticEntityType) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
-func (o TopicSemanticEntityTypeOutput) TypeParameters() TopicTypeParametersPtrOutput {
-	return o.ApplyT(func(v TopicSemanticEntityType) *TopicTypeParameters { return v.TypeParameters }).(TopicTypeParametersPtrOutput)
+func (o TopicSemanticEntityTypeOutput) TypeParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TopicSemanticEntityType) map[string]string { return v.TypeParameters }).(pulumi.StringMapOutput)
 }
 
 type TopicSemanticEntityTypePtrOutput struct{ *pulumi.OutputState }
@@ -5313,23 +8471,23 @@ func (o TopicSemanticEntityTypePtrOutput) TypeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TopicSemanticEntityTypePtrOutput) TypeParameters() TopicTypeParametersPtrOutput {
-	return o.ApplyT(func(v *TopicSemanticEntityType) *TopicTypeParameters {
+func (o TopicSemanticEntityTypePtrOutput) TypeParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TopicSemanticEntityType) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.TypeParameters
-	}).(TopicTypeParametersPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type TopicSemanticType struct {
-	FalseyCellValue         *string              `pulumi:"falseyCellValue"`
-	FalseyCellValueSynonyms []string             `pulumi:"falseyCellValueSynonyms"`
-	SubTypeName             *string              `pulumi:"subTypeName"`
-	TruthyCellValue         *string              `pulumi:"truthyCellValue"`
-	TruthyCellValueSynonyms []string             `pulumi:"truthyCellValueSynonyms"`
-	TypeName                *string              `pulumi:"typeName"`
-	TypeParameters          *TopicTypeParameters `pulumi:"typeParameters"`
+	FalseyCellValue         *string           `pulumi:"falseyCellValue"`
+	FalseyCellValueSynonyms []string          `pulumi:"falseyCellValueSynonyms"`
+	SubTypeName             *string           `pulumi:"subTypeName"`
+	TruthyCellValue         *string           `pulumi:"truthyCellValue"`
+	TruthyCellValueSynonyms []string          `pulumi:"truthyCellValueSynonyms"`
+	TypeName                *string           `pulumi:"typeName"`
+	TypeParameters          map[string]string `pulumi:"typeParameters"`
 }
 
 // TopicSemanticTypeInput is an input type that accepts TopicSemanticTypeArgs and TopicSemanticTypeOutput values.
@@ -5344,13 +8502,13 @@ type TopicSemanticTypeInput interface {
 }
 
 type TopicSemanticTypeArgs struct {
-	FalseyCellValue         pulumi.StringPtrInput       `pulumi:"falseyCellValue"`
-	FalseyCellValueSynonyms pulumi.StringArrayInput     `pulumi:"falseyCellValueSynonyms"`
-	SubTypeName             pulumi.StringPtrInput       `pulumi:"subTypeName"`
-	TruthyCellValue         pulumi.StringPtrInput       `pulumi:"truthyCellValue"`
-	TruthyCellValueSynonyms pulumi.StringArrayInput     `pulumi:"truthyCellValueSynonyms"`
-	TypeName                pulumi.StringPtrInput       `pulumi:"typeName"`
-	TypeParameters          TopicTypeParametersPtrInput `pulumi:"typeParameters"`
+	FalseyCellValue         pulumi.StringPtrInput   `pulumi:"falseyCellValue"`
+	FalseyCellValueSynonyms pulumi.StringArrayInput `pulumi:"falseyCellValueSynonyms"`
+	SubTypeName             pulumi.StringPtrInput   `pulumi:"subTypeName"`
+	TruthyCellValue         pulumi.StringPtrInput   `pulumi:"truthyCellValue"`
+	TruthyCellValueSynonyms pulumi.StringArrayInput `pulumi:"truthyCellValueSynonyms"`
+	TypeName                pulumi.StringPtrInput   `pulumi:"typeName"`
+	TypeParameters          pulumi.StringMapInput   `pulumi:"typeParameters"`
 }
 
 func (TopicSemanticTypeArgs) ElementType() reflect.Type {
@@ -5454,8 +8612,8 @@ func (o TopicSemanticTypeOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicSemanticType) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
-func (o TopicSemanticTypeOutput) TypeParameters() TopicTypeParametersPtrOutput {
-	return o.ApplyT(func(v TopicSemanticType) *TopicTypeParameters { return v.TypeParameters }).(TopicTypeParametersPtrOutput)
+func (o TopicSemanticTypeOutput) TypeParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TopicSemanticType) map[string]string { return v.TypeParameters }).(pulumi.StringMapOutput)
 }
 
 type TopicSemanticTypePtrOutput struct{ *pulumi.OutputState }
@@ -5536,13 +8694,13 @@ func (o TopicSemanticTypePtrOutput) TypeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TopicSemanticTypePtrOutput) TypeParameters() TopicTypeParametersPtrOutput {
-	return o.ApplyT(func(v *TopicSemanticType) *TopicTypeParameters {
+func (o TopicSemanticTypePtrOutput) TypeParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TopicSemanticType) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.TypeParameters
-	}).(TopicTypeParametersPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type TopicSingularFilterConstant struct {
@@ -5693,124 +8851,6 @@ func (o TopicSingularFilterConstantPtrOutput) SingularConstant() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-type TopicTypeParameters struct {
-}
-
-// TopicTypeParametersInput is an input type that accepts TopicTypeParametersArgs and TopicTypeParametersOutput values.
-// You can construct a concrete instance of `TopicTypeParametersInput` via:
-//
-//	TopicTypeParametersArgs{...}
-type TopicTypeParametersInput interface {
-	pulumi.Input
-
-	ToTopicTypeParametersOutput() TopicTypeParametersOutput
-	ToTopicTypeParametersOutputWithContext(context.Context) TopicTypeParametersOutput
-}
-
-type TopicTypeParametersArgs struct {
-}
-
-func (TopicTypeParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicTypeParameters)(nil)).Elem()
-}
-
-func (i TopicTypeParametersArgs) ToTopicTypeParametersOutput() TopicTypeParametersOutput {
-	return i.ToTopicTypeParametersOutputWithContext(context.Background())
-}
-
-func (i TopicTypeParametersArgs) ToTopicTypeParametersOutputWithContext(ctx context.Context) TopicTypeParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicTypeParametersOutput)
-}
-
-func (i TopicTypeParametersArgs) ToTopicTypeParametersPtrOutput() TopicTypeParametersPtrOutput {
-	return i.ToTopicTypeParametersPtrOutputWithContext(context.Background())
-}
-
-func (i TopicTypeParametersArgs) ToTopicTypeParametersPtrOutputWithContext(ctx context.Context) TopicTypeParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicTypeParametersOutput).ToTopicTypeParametersPtrOutputWithContext(ctx)
-}
-
-// TopicTypeParametersPtrInput is an input type that accepts TopicTypeParametersArgs, TopicTypeParametersPtr and TopicTypeParametersPtrOutput values.
-// You can construct a concrete instance of `TopicTypeParametersPtrInput` via:
-//
-//	        TopicTypeParametersArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicTypeParametersPtrInput interface {
-	pulumi.Input
-
-	ToTopicTypeParametersPtrOutput() TopicTypeParametersPtrOutput
-	ToTopicTypeParametersPtrOutputWithContext(context.Context) TopicTypeParametersPtrOutput
-}
-
-type topicTypeParametersPtrType TopicTypeParametersArgs
-
-func TopicTypeParametersPtr(v *TopicTypeParametersArgs) TopicTypeParametersPtrInput {
-	return (*topicTypeParametersPtrType)(v)
-}
-
-func (*topicTypeParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicTypeParameters)(nil)).Elem()
-}
-
-func (i *topicTypeParametersPtrType) ToTopicTypeParametersPtrOutput() TopicTypeParametersPtrOutput {
-	return i.ToTopicTypeParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *topicTypeParametersPtrType) ToTopicTypeParametersPtrOutputWithContext(ctx context.Context) TopicTypeParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicTypeParametersPtrOutput)
-}
-
-type TopicTypeParametersOutput struct{ *pulumi.OutputState }
-
-func (TopicTypeParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicTypeParameters)(nil)).Elem()
-}
-
-func (o TopicTypeParametersOutput) ToTopicTypeParametersOutput() TopicTypeParametersOutput {
-	return o
-}
-
-func (o TopicTypeParametersOutput) ToTopicTypeParametersOutputWithContext(ctx context.Context) TopicTypeParametersOutput {
-	return o
-}
-
-func (o TopicTypeParametersOutput) ToTopicTypeParametersPtrOutput() TopicTypeParametersPtrOutput {
-	return o.ToTopicTypeParametersPtrOutputWithContext(context.Background())
-}
-
-func (o TopicTypeParametersOutput) ToTopicTypeParametersPtrOutputWithContext(ctx context.Context) TopicTypeParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicTypeParameters) *TopicTypeParameters {
-		return &v
-	}).(TopicTypeParametersPtrOutput)
-}
-
-type TopicTypeParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (TopicTypeParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicTypeParameters)(nil)).Elem()
-}
-
-func (o TopicTypeParametersPtrOutput) ToTopicTypeParametersPtrOutput() TopicTypeParametersPtrOutput {
-	return o
-}
-
-func (o TopicTypeParametersPtrOutput) ToTopicTypeParametersPtrOutputWithContext(ctx context.Context) TopicTypeParametersPtrOutput {
-	return o
-}
-
-func (o TopicTypeParametersPtrOutput) Elem() TopicTypeParametersOutput {
-	return o.ApplyT(func(v *TopicTypeParameters) TopicTypeParameters {
-		if v != nil {
-			return *v
-		}
-		var ret TopicTypeParameters
-		return ret
-	}).(TopicTypeParametersOutput)
-}
-
 type VpcConnectionNetworkInterface struct {
 	AvailabilityZone   *string                              `pulumi:"availabilityZone"`
 	ErrorMessage       *string                              `pulumi:"errorMessage"`
@@ -5879,6 +8919,45 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualPaletteInput)(nil)).Elem(), TemplateVisualPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualPalettePtrInput)(nil)).Elem(), TemplateVisualPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualSubtitleLabelOptionsInput)(nil)).Elem(), TemplateVisualSubtitleLabelOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualSubtitleLabelOptionsPtrInput)(nil)).Elem(), TemplateVisualSubtitleLabelOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualTitleLabelOptionsInput)(nil)).Elem(), TemplateVisualTitleLabelOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualTitleLabelOptionsPtrInput)(nil)).Elem(), TemplateVisualTitleLabelOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartAggregatedFieldWellsInput)(nil)).Elem(), TemplateWaterfallChartAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartAggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateWaterfallChartAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartConfigurationInput)(nil)).Elem(), TemplateWaterfallChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartConfigurationPtrInput)(nil)).Elem(), TemplateWaterfallChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartFieldWellsInput)(nil)).Elem(), TemplateWaterfallChartFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartFieldWellsPtrInput)(nil)).Elem(), TemplateWaterfallChartFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartOptionsInput)(nil)).Elem(), TemplateWaterfallChartOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartOptionsPtrInput)(nil)).Elem(), TemplateWaterfallChartOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartSortConfigurationInput)(nil)).Elem(), TemplateWaterfallChartSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartSortConfigurationPtrInput)(nil)).Elem(), TemplateWaterfallChartSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallVisualInput)(nil)).Elem(), TemplateWaterfallVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallVisualPtrInput)(nil)).Elem(), TemplateWaterfallVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWhatIfPointScenarioInput)(nil)).Elem(), TemplateWhatIfPointScenarioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWhatIfPointScenarioPtrInput)(nil)).Elem(), TemplateWhatIfPointScenarioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWhatIfRangeScenarioInput)(nil)).Elem(), TemplateWhatIfRangeScenarioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWhatIfRangeScenarioPtrInput)(nil)).Elem(), TemplateWhatIfRangeScenarioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudAggregatedFieldWellsInput)(nil)).Elem(), TemplateWordCloudAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudAggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateWordCloudAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudChartConfigurationInput)(nil)).Elem(), TemplateWordCloudChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudChartConfigurationPtrInput)(nil)).Elem(), TemplateWordCloudChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudFieldWellsInput)(nil)).Elem(), TemplateWordCloudFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudFieldWellsPtrInput)(nil)).Elem(), TemplateWordCloudFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudOptionsInput)(nil)).Elem(), TemplateWordCloudOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudOptionsPtrInput)(nil)).Elem(), TemplateWordCloudOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudSortConfigurationInput)(nil)).Elem(), TemplateWordCloudSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudSortConfigurationPtrInput)(nil)).Elem(), TemplateWordCloudSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudVisualInput)(nil)).Elem(), TemplateWordCloudVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudVisualPtrInput)(nil)).Elem(), TemplateWordCloudVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeBorderStyleInput)(nil)).Elem(), ThemeBorderStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeBorderStylePtrInput)(nil)).Elem(), ThemeBorderStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationInput)(nil)).Elem(), ThemeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeDataColorPaletteInput)(nil)).Elem(), ThemeDataColorPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeDataColorPalettePtrInput)(nil)).Elem(), ThemeDataColorPaletteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontInput)(nil)).Elem(), ThemeFontArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontArrayInput)(nil)).Elem(), ThemeFontArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeGutterStyleInput)(nil)).Elem(), ThemeGutterStyleArgs{})
@@ -5897,8 +8976,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTypographyPtrInput)(nil)).Elem(), ThemeTypographyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeUiColorPaletteInput)(nil)).Elem(), ThemeUiColorPaletteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeUiColorPalettePtrInput)(nil)).Elem(), ThemeUiColorPaletteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicAggregationFunctionParametersInput)(nil)).Elem(), TopicAggregationFunctionParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicAggregationFunctionParametersPtrInput)(nil)).Elem(), TopicAggregationFunctionParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicCalculatedFieldInput)(nil)).Elem(), TopicCalculatedFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicCalculatedFieldArrayInput)(nil)).Elem(), TopicCalculatedFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterInput)(nil)).Elem(), TopicCategoryFilterArgs{})
@@ -5949,8 +9026,46 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicTypeParametersInput)(nil)).Elem(), TopicTypeParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicTypeParametersPtrInput)(nil)).Elem(), TopicTypeParametersArgs{})
+	pulumi.RegisterOutputType(TemplateVisualPaletteOutput{})
+	pulumi.RegisterOutputType(TemplateVisualPalettePtrOutput{})
+	pulumi.RegisterOutputType(TemplateVisualSubtitleLabelOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateVisualSubtitleLabelOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateVisualTitleLabelOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateVisualTitleLabelOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartAggregatedFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartAggregatedFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartSortConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartSortConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallVisualOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallVisualPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWhatIfPointScenarioOutput{})
+	pulumi.RegisterOutputType(TemplateWhatIfPointScenarioPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWhatIfRangeScenarioOutput{})
+	pulumi.RegisterOutputType(TemplateWhatIfRangeScenarioPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudAggregatedFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudAggregatedFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudChartConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudChartConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudSortConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudSortConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudVisualOutput{})
+	pulumi.RegisterOutputType(TemplateWordCloudVisualPtrOutput{})
+	pulumi.RegisterOutputType(ThemeBorderStyleOutput{})
+	pulumi.RegisterOutputType(ThemeBorderStylePtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ThemeDataColorPaletteOutput{})
+	pulumi.RegisterOutputType(ThemeDataColorPalettePtrOutput{})
 	pulumi.RegisterOutputType(ThemeErrorOutput{})
 	pulumi.RegisterOutputType(ThemeErrorArrayOutput{})
 	pulumi.RegisterOutputType(ThemeFontOutput{})
@@ -5973,8 +9088,6 @@ func init() {
 	pulumi.RegisterOutputType(ThemeUiColorPalettePtrOutput{})
 	pulumi.RegisterOutputType(ThemeVersionOutput{})
 	pulumi.RegisterOutputType(ThemeVersionPtrOutput{})
-	pulumi.RegisterOutputType(TopicAggregationFunctionParametersOutput{})
-	pulumi.RegisterOutputType(TopicAggregationFunctionParametersPtrOutput{})
 	pulumi.RegisterOutputType(TopicCalculatedFieldOutput{})
 	pulumi.RegisterOutputType(TopicCalculatedFieldArrayOutput{})
 	pulumi.RegisterOutputType(TopicCategoryFilterOutput{})
@@ -6025,8 +9138,6 @@ func init() {
 	pulumi.RegisterOutputType(TopicSemanticTypePtrOutput{})
 	pulumi.RegisterOutputType(TopicSingularFilterConstantOutput{})
 	pulumi.RegisterOutputType(TopicSingularFilterConstantPtrOutput{})
-	pulumi.RegisterOutputType(TopicTypeParametersOutput{})
-	pulumi.RegisterOutputType(TopicTypeParametersPtrOutput{})
 	pulumi.RegisterOutputType(VpcConnectionNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(VpcConnectionNetworkInterfaceArrayOutput{})
 }

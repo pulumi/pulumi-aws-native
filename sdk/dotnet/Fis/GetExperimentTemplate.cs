@@ -51,18 +51,18 @@ namespace Pulumi.AwsNative.Fis
     [OutputType]
     public sealed class GetExperimentTemplateResult
     {
-        public readonly Outputs.ExperimentTemplateActionMap? Actions;
+        public readonly ImmutableDictionary<string, Outputs.ExperimentTemplateAction>? Actions;
         public readonly string? Description;
         public readonly Outputs.ExperimentTemplateExperimentOptions? ExperimentOptions;
         public readonly string? Id;
         public readonly Outputs.ExperimentTemplateLogConfiguration? LogConfiguration;
         public readonly string? RoleArn;
         public readonly ImmutableArray<Outputs.ExperimentTemplateStopCondition> StopConditions;
-        public readonly Outputs.ExperimentTemplateTargetMap? Targets;
+        public readonly ImmutableDictionary<string, Outputs.ExperimentTemplateTarget>? Targets;
 
         [OutputConstructor]
         private GetExperimentTemplateResult(
-            Outputs.ExperimentTemplateActionMap? actions,
+            ImmutableDictionary<string, Outputs.ExperimentTemplateAction>? actions,
 
             string? description,
 
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Fis
 
             ImmutableArray<Outputs.ExperimentTemplateStopCondition> stopConditions,
 
-            Outputs.ExperimentTemplateTargetMap? targets)
+            ImmutableDictionary<string, Outputs.ExperimentTemplateTarget>? targets)
         {
             Actions = actions;
             Description = description;

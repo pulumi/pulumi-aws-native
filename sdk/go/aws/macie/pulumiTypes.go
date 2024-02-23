@@ -99,129 +99,132 @@ type CustomDataIdentifierTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Map of filter criteria.
-type FindingsFilterCriterion struct {
+type FindingsFilterCriterionAdditionalProperties struct {
+	Eq  []string `pulumi:"eq"`
+	Gt  *int     `pulumi:"gt"`
+	Gte *int     `pulumi:"gte"`
+	Lt  *int     `pulumi:"lt"`
+	Lte *int     `pulumi:"lte"`
+	Neq []string `pulumi:"neq"`
 }
 
-// FindingsFilterCriterionInput is an input type that accepts FindingsFilterCriterionArgs and FindingsFilterCriterionOutput values.
-// You can construct a concrete instance of `FindingsFilterCriterionInput` via:
+// FindingsFilterCriterionAdditionalPropertiesInput is an input type that accepts FindingsFilterCriterionAdditionalPropertiesArgs and FindingsFilterCriterionAdditionalPropertiesOutput values.
+// You can construct a concrete instance of `FindingsFilterCriterionAdditionalPropertiesInput` via:
 //
-//	FindingsFilterCriterionArgs{...}
-type FindingsFilterCriterionInput interface {
+//	FindingsFilterCriterionAdditionalPropertiesArgs{...}
+type FindingsFilterCriterionAdditionalPropertiesInput interface {
 	pulumi.Input
 
-	ToFindingsFilterCriterionOutput() FindingsFilterCriterionOutput
-	ToFindingsFilterCriterionOutputWithContext(context.Context) FindingsFilterCriterionOutput
+	ToFindingsFilterCriterionAdditionalPropertiesOutput() FindingsFilterCriterionAdditionalPropertiesOutput
+	ToFindingsFilterCriterionAdditionalPropertiesOutputWithContext(context.Context) FindingsFilterCriterionAdditionalPropertiesOutput
 }
 
-// Map of filter criteria.
-type FindingsFilterCriterionArgs struct {
+type FindingsFilterCriterionAdditionalPropertiesArgs struct {
+	Eq  pulumi.StringArrayInput `pulumi:"eq"`
+	Gt  pulumi.IntPtrInput      `pulumi:"gt"`
+	Gte pulumi.IntPtrInput      `pulumi:"gte"`
+	Lt  pulumi.IntPtrInput      `pulumi:"lt"`
+	Lte pulumi.IntPtrInput      `pulumi:"lte"`
+	Neq pulumi.StringArrayInput `pulumi:"neq"`
 }
 
-func (FindingsFilterCriterionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FindingsFilterCriterion)(nil)).Elem()
+func (FindingsFilterCriterionAdditionalPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FindingsFilterCriterionAdditionalProperties)(nil)).Elem()
 }
 
-func (i FindingsFilterCriterionArgs) ToFindingsFilterCriterionOutput() FindingsFilterCriterionOutput {
-	return i.ToFindingsFilterCriterionOutputWithContext(context.Background())
+func (i FindingsFilterCriterionAdditionalPropertiesArgs) ToFindingsFilterCriterionAdditionalPropertiesOutput() FindingsFilterCriterionAdditionalPropertiesOutput {
+	return i.ToFindingsFilterCriterionAdditionalPropertiesOutputWithContext(context.Background())
 }
 
-func (i FindingsFilterCriterionArgs) ToFindingsFilterCriterionOutputWithContext(ctx context.Context) FindingsFilterCriterionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterCriterionOutput)
+func (i FindingsFilterCriterionAdditionalPropertiesArgs) ToFindingsFilterCriterionAdditionalPropertiesOutputWithContext(ctx context.Context) FindingsFilterCriterionAdditionalPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterCriterionAdditionalPropertiesOutput)
 }
 
-func (i FindingsFilterCriterionArgs) ToFindingsFilterCriterionPtrOutput() FindingsFilterCriterionPtrOutput {
-	return i.ToFindingsFilterCriterionPtrOutputWithContext(context.Background())
-}
-
-func (i FindingsFilterCriterionArgs) ToFindingsFilterCriterionPtrOutputWithContext(ctx context.Context) FindingsFilterCriterionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterCriterionOutput).ToFindingsFilterCriterionPtrOutputWithContext(ctx)
-}
-
-// FindingsFilterCriterionPtrInput is an input type that accepts FindingsFilterCriterionArgs, FindingsFilterCriterionPtr and FindingsFilterCriterionPtrOutput values.
-// You can construct a concrete instance of `FindingsFilterCriterionPtrInput` via:
+// FindingsFilterCriterionAdditionalPropertiesMapInput is an input type that accepts FindingsFilterCriterionAdditionalPropertiesMap and FindingsFilterCriterionAdditionalPropertiesMapOutput values.
+// You can construct a concrete instance of `FindingsFilterCriterionAdditionalPropertiesMapInput` via:
 //
-//	        FindingsFilterCriterionArgs{...}
-//
-//	or:
-//
-//	        nil
-type FindingsFilterCriterionPtrInput interface {
+//	FindingsFilterCriterionAdditionalPropertiesMap{ "key": FindingsFilterCriterionAdditionalPropertiesArgs{...} }
+type FindingsFilterCriterionAdditionalPropertiesMapInput interface {
 	pulumi.Input
 
-	ToFindingsFilterCriterionPtrOutput() FindingsFilterCriterionPtrOutput
-	ToFindingsFilterCriterionPtrOutputWithContext(context.Context) FindingsFilterCriterionPtrOutput
+	ToFindingsFilterCriterionAdditionalPropertiesMapOutput() FindingsFilterCriterionAdditionalPropertiesMapOutput
+	ToFindingsFilterCriterionAdditionalPropertiesMapOutputWithContext(context.Context) FindingsFilterCriterionAdditionalPropertiesMapOutput
 }
 
-type findingsFilterCriterionPtrType FindingsFilterCriterionArgs
+type FindingsFilterCriterionAdditionalPropertiesMap map[string]FindingsFilterCriterionAdditionalPropertiesInput
 
-func FindingsFilterCriterionPtr(v *FindingsFilterCriterionArgs) FindingsFilterCriterionPtrInput {
-	return (*findingsFilterCriterionPtrType)(v)
+func (FindingsFilterCriterionAdditionalPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FindingsFilterCriterionAdditionalProperties)(nil)).Elem()
 }
 
-func (*findingsFilterCriterionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FindingsFilterCriterion)(nil)).Elem()
+func (i FindingsFilterCriterionAdditionalPropertiesMap) ToFindingsFilterCriterionAdditionalPropertiesMapOutput() FindingsFilterCriterionAdditionalPropertiesMapOutput {
+	return i.ToFindingsFilterCriterionAdditionalPropertiesMapOutputWithContext(context.Background())
 }
 
-func (i *findingsFilterCriterionPtrType) ToFindingsFilterCriterionPtrOutput() FindingsFilterCriterionPtrOutput {
-	return i.ToFindingsFilterCriterionPtrOutputWithContext(context.Background())
+func (i FindingsFilterCriterionAdditionalPropertiesMap) ToFindingsFilterCriterionAdditionalPropertiesMapOutputWithContext(ctx context.Context) FindingsFilterCriterionAdditionalPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterCriterionAdditionalPropertiesMapOutput)
 }
 
-func (i *findingsFilterCriterionPtrType) ToFindingsFilterCriterionPtrOutputWithContext(ctx context.Context) FindingsFilterCriterionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterCriterionPtrOutput)
+type FindingsFilterCriterionAdditionalPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FindingsFilterCriterionAdditionalPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FindingsFilterCriterionAdditionalProperties)(nil)).Elem()
 }
 
-// Map of filter criteria.
-type FindingsFilterCriterionOutput struct{ *pulumi.OutputState }
-
-func (FindingsFilterCriterionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FindingsFilterCriterion)(nil)).Elem()
-}
-
-func (o FindingsFilterCriterionOutput) ToFindingsFilterCriterionOutput() FindingsFilterCriterionOutput {
+func (o FindingsFilterCriterionAdditionalPropertiesOutput) ToFindingsFilterCriterionAdditionalPropertiesOutput() FindingsFilterCriterionAdditionalPropertiesOutput {
 	return o
 }
 
-func (o FindingsFilterCriterionOutput) ToFindingsFilterCriterionOutputWithContext(ctx context.Context) FindingsFilterCriterionOutput {
+func (o FindingsFilterCriterionAdditionalPropertiesOutput) ToFindingsFilterCriterionAdditionalPropertiesOutputWithContext(ctx context.Context) FindingsFilterCriterionAdditionalPropertiesOutput {
 	return o
 }
 
-func (o FindingsFilterCriterionOutput) ToFindingsFilterCriterionPtrOutput() FindingsFilterCriterionPtrOutput {
-	return o.ToFindingsFilterCriterionPtrOutputWithContext(context.Background())
+func (o FindingsFilterCriterionAdditionalPropertiesOutput) Eq() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) []string { return v.Eq }).(pulumi.StringArrayOutput)
 }
 
-func (o FindingsFilterCriterionOutput) ToFindingsFilterCriterionPtrOutputWithContext(ctx context.Context) FindingsFilterCriterionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FindingsFilterCriterion) *FindingsFilterCriterion {
-		return &v
-	}).(FindingsFilterCriterionPtrOutput)
+func (o FindingsFilterCriterionAdditionalPropertiesOutput) Gt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) *int { return v.Gt }).(pulumi.IntPtrOutput)
 }
 
-type FindingsFilterCriterionPtrOutput struct{ *pulumi.OutputState }
-
-func (FindingsFilterCriterionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FindingsFilterCriterion)(nil)).Elem()
+func (o FindingsFilterCriterionAdditionalPropertiesOutput) Gte() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) *int { return v.Gte }).(pulumi.IntPtrOutput)
 }
 
-func (o FindingsFilterCriterionPtrOutput) ToFindingsFilterCriterionPtrOutput() FindingsFilterCriterionPtrOutput {
+func (o FindingsFilterCriterionAdditionalPropertiesOutput) Lt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) *int { return v.Lt }).(pulumi.IntPtrOutput)
+}
+
+func (o FindingsFilterCriterionAdditionalPropertiesOutput) Lte() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) *int { return v.Lte }).(pulumi.IntPtrOutput)
+}
+
+func (o FindingsFilterCriterionAdditionalPropertiesOutput) Neq() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) []string { return v.Neq }).(pulumi.StringArrayOutput)
+}
+
+type FindingsFilterCriterionAdditionalPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (FindingsFilterCriterionAdditionalPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FindingsFilterCriterionAdditionalProperties)(nil)).Elem()
+}
+
+func (o FindingsFilterCriterionAdditionalPropertiesMapOutput) ToFindingsFilterCriterionAdditionalPropertiesMapOutput() FindingsFilterCriterionAdditionalPropertiesMapOutput {
 	return o
 }
 
-func (o FindingsFilterCriterionPtrOutput) ToFindingsFilterCriterionPtrOutputWithContext(ctx context.Context) FindingsFilterCriterionPtrOutput {
+func (o FindingsFilterCriterionAdditionalPropertiesMapOutput) ToFindingsFilterCriterionAdditionalPropertiesMapOutputWithContext(ctx context.Context) FindingsFilterCriterionAdditionalPropertiesMapOutput {
 	return o
 }
 
-func (o FindingsFilterCriterionPtrOutput) Elem() FindingsFilterCriterionOutput {
-	return o.ApplyT(func(v *FindingsFilterCriterion) FindingsFilterCriterion {
-		if v != nil {
-			return *v
-		}
-		var ret FindingsFilterCriterion
-		return ret
-	}).(FindingsFilterCriterionOutput)
+func (o FindingsFilterCriterionAdditionalPropertiesMapOutput) MapIndex(k pulumi.StringInput) FindingsFilterCriterionAdditionalPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FindingsFilterCriterionAdditionalProperties {
+		return vs[0].(map[string]FindingsFilterCriterionAdditionalProperties)[vs[1].(string)]
+	}).(FindingsFilterCriterionAdditionalPropertiesOutput)
 }
 
 type FindingsFilterFindingCriteria struct {
-	Criterion *FindingsFilterCriterion `pulumi:"criterion"`
+	Criterion map[string]FindingsFilterCriterionAdditionalProperties `pulumi:"criterion"`
 }
 
 // FindingsFilterFindingCriteriaInput is an input type that accepts FindingsFilterFindingCriteriaArgs and FindingsFilterFindingCriteriaOutput values.
@@ -236,7 +239,7 @@ type FindingsFilterFindingCriteriaInput interface {
 }
 
 type FindingsFilterFindingCriteriaArgs struct {
-	Criterion FindingsFilterCriterionPtrInput `pulumi:"criterion"`
+	Criterion FindingsFilterCriterionAdditionalPropertiesMapInput `pulumi:"criterion"`
 }
 
 func (FindingsFilterFindingCriteriaArgs) ElementType() reflect.Type {
@@ -265,8 +268,10 @@ func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaOutp
 	return o
 }
 
-func (o FindingsFilterFindingCriteriaOutput) Criterion() FindingsFilterCriterionPtrOutput {
-	return o.ApplyT(func(v FindingsFilterFindingCriteria) *FindingsFilterCriterion { return v.Criterion }).(FindingsFilterCriterionPtrOutput)
+func (o FindingsFilterFindingCriteriaOutput) Criterion() FindingsFilterCriterionAdditionalPropertiesMapOutput {
+	return o.ApplyT(func(v FindingsFilterFindingCriteria) map[string]FindingsFilterCriterionAdditionalProperties {
+		return v.Criterion
+	}).(FindingsFilterCriterionAdditionalPropertiesMapOutput)
 }
 
 type FindingsFilterFindingCriteriaPtrOutput struct{ *pulumi.OutputState }
@@ -293,13 +298,13 @@ func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCrit
 	}).(FindingsFilterFindingCriteriaOutput)
 }
 
-func (o FindingsFilterFindingCriteriaPtrOutput) Criterion() FindingsFilterCriterionPtrOutput {
-	return o.ApplyT(func(v *FindingsFilterFindingCriteria) *FindingsFilterCriterion {
+func (o FindingsFilterFindingCriteriaPtrOutput) Criterion() FindingsFilterCriterionAdditionalPropertiesMapOutput {
+	return o.ApplyT(func(v *FindingsFilterFindingCriteria) map[string]FindingsFilterCriterionAdditionalProperties {
 		if v == nil {
 			return nil
 		}
 		return v.Criterion
-	}).(FindingsFilterCriterionPtrOutput)
+	}).(FindingsFilterCriterionAdditionalPropertiesMapOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -312,13 +317,13 @@ type FindingsFilterTag struct {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListCriteriaInput)(nil)).Elem(), AllowListCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionPtrInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionAdditionalPropertiesInput)(nil)).Elem(), FindingsFilterCriterionAdditionalPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionAdditionalPropertiesMapInput)(nil)).Elem(), FindingsFilterCriterionAdditionalPropertiesMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
 	pulumi.RegisterOutputType(AllowListCriteriaOutput{})
 	pulumi.RegisterOutputType(AllowListCriteriaPtrOutput{})
-	pulumi.RegisterOutputType(FindingsFilterCriterionOutput{})
-	pulumi.RegisterOutputType(FindingsFilterCriterionPtrOutput{})
+	pulumi.RegisterOutputType(FindingsFilterCriterionAdditionalPropertiesOutput{})
+	pulumi.RegisterOutputType(FindingsFilterCriterionAdditionalPropertiesMapOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaPtrOutput{})
 }

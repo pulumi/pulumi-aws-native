@@ -46,7 +46,7 @@ export interface GetRouteResponseResult {
     /**
      * The route response parameters.
      */
-    readonly responseParameters?: outputs.apigatewayv2.RouteResponseRouteParameters;
+    readonly responseParameters?: {[key: string]: outputs.apigatewayv2.RouteResponseParameterConstraints};
     readonly routeResponseId?: string;
     /**
      * The route response key.

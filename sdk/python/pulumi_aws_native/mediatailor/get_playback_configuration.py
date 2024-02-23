@@ -108,7 +108,7 @@ class GetPlaybackConfigurationResult:
 
     @property
     @pulumi.getter(name="configurationAliases")
-    def configuration_aliases(self) -> Optional['outputs.PlaybackConfigurationConfigurationAliases']:
+    def configuration_aliases(self) -> Optional[Mapping[str, Any]]:
         """
         The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
         """

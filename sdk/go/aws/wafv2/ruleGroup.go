@@ -22,11 +22,11 @@ type RuleGroup struct {
 	AvailableLabels RuleGroupLabelSummaryArrayOutput `pulumi:"availableLabels"`
 	Capacity        pulumi.IntOutput                 `pulumi:"capacity"`
 	// Collection of Consumed Labels.
-	ConsumedLabels       RuleGroupLabelSummaryArrayOutput       `pulumi:"consumedLabels"`
-	CustomResponseBodies RuleGroupCustomResponseBodiesPtrOutput `pulumi:"customResponseBodies"`
-	Description          pulumi.StringPtrOutput                 `pulumi:"description"`
-	LabelNamespace       pulumi.StringOutput                    `pulumi:"labelNamespace"`
-	Name                 pulumi.StringPtrOutput                 `pulumi:"name"`
+	ConsumedLabels       RuleGroupLabelSummaryArrayOutput     `pulumi:"consumedLabels"`
+	CustomResponseBodies RuleGroupCustomResponseBodyMapOutput `pulumi:"customResponseBodies"`
+	Description          pulumi.StringPtrOutput               `pulumi:"description"`
+	LabelNamespace       pulumi.StringOutput                  `pulumi:"labelNamespace"`
+	Name                 pulumi.StringPtrOutput               `pulumi:"name"`
 	// Collection of Rules.
 	Rules            RuleGroupRuleArrayOutput        `pulumi:"rules"`
 	Scope            RuleGroupScopeOutput            `pulumi:"scope"`
@@ -92,10 +92,10 @@ type ruleGroupArgs struct {
 	AvailableLabels []RuleGroupLabelSummary `pulumi:"availableLabels"`
 	Capacity        int                     `pulumi:"capacity"`
 	// Collection of Consumed Labels.
-	ConsumedLabels       []RuleGroupLabelSummary        `pulumi:"consumedLabels"`
-	CustomResponseBodies *RuleGroupCustomResponseBodies `pulumi:"customResponseBodies"`
-	Description          *string                        `pulumi:"description"`
-	Name                 *string                        `pulumi:"name"`
+	ConsumedLabels       []RuleGroupLabelSummary                `pulumi:"consumedLabels"`
+	CustomResponseBodies map[string]RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
+	Description          *string                                `pulumi:"description"`
+	Name                 *string                                `pulumi:"name"`
 	// Collection of Rules.
 	Rules            []RuleGroupRule           `pulumi:"rules"`
 	Scope            RuleGroupScope            `pulumi:"scope"`
@@ -110,7 +110,7 @@ type RuleGroupArgs struct {
 	Capacity        pulumi.IntInput
 	// Collection of Consumed Labels.
 	ConsumedLabels       RuleGroupLabelSummaryArrayInput
-	CustomResponseBodies RuleGroupCustomResponseBodiesPtrInput
+	CustomResponseBodies RuleGroupCustomResponseBodyMapInput
 	Description          pulumi.StringPtrInput
 	Name                 pulumi.StringPtrInput
 	// Collection of Rules.
@@ -175,8 +175,8 @@ func (o RuleGroupOutput) ConsumedLabels() RuleGroupLabelSummaryArrayOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupLabelSummaryArrayOutput { return v.ConsumedLabels }).(RuleGroupLabelSummaryArrayOutput)
 }
 
-func (o RuleGroupOutput) CustomResponseBodies() RuleGroupCustomResponseBodiesPtrOutput {
-	return o.ApplyT(func(v *RuleGroup) RuleGroupCustomResponseBodiesPtrOutput { return v.CustomResponseBodies }).(RuleGroupCustomResponseBodiesPtrOutput)
+func (o RuleGroupOutput) CustomResponseBodies() RuleGroupCustomResponseBodyMapOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupCustomResponseBodyMapOutput { return v.CustomResponseBodies }).(RuleGroupCustomResponseBodyMapOutput)
 }
 
 func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {

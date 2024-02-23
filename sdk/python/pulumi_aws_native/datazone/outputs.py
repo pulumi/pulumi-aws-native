@@ -27,7 +27,6 @@ __all__ = [
     'DataSourceRelationalFilterConfiguration',
     'DataSourceScheduleConfiguration',
     'DomainSingleSignOn',
-    'EnvironmentBlueprintConfigurationParameter',
     'EnvironmentBlueprintConfigurationRegionalParameter',
     'EnvironmentParameter',
     'EnvironmentProfileEnvironmentParameter',
@@ -708,15 +707,9 @@ class DomainSingleSignOn(dict):
 
 
 @pulumi.output_type
-class EnvironmentBlueprintConfigurationParameter(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class EnvironmentBlueprintConfigurationRegionalParameter(dict):
     def __init__(__self__, *,
-                 parameters: Optional['outputs.EnvironmentBlueprintConfigurationParameter'] = None,
+                 parameters: Optional[Mapping[str, str]] = None,
                  region: Optional[str] = None):
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -725,7 +718,7 @@ class EnvironmentBlueprintConfigurationRegionalParameter(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional['outputs.EnvironmentBlueprintConfigurationParameter']:
+    def parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "parameters")
 
     @property

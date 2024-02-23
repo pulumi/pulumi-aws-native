@@ -14,5 +14,3 @@ from .get_attribute_group import *
 from .get_attribute_group_association import *
 from .get_resource_association import *
 from .resource_association import *
-from ._inputs import *
-from . import outputs

@@ -488,39 +488,118 @@ export namespace amplify {
 }
 
 export namespace amplifyuibuilder {
-    export interface ComponentBindingProperties {
+    export interface ComponentActionParameters {
+        anchor?: outputs.amplifyuibuilder.ComponentProperty;
+        fields?: {[key: string]: outputs.amplifyuibuilder.ComponentProperty};
+        global?: outputs.amplifyuibuilder.ComponentProperty;
+        id?: outputs.amplifyuibuilder.ComponentProperty;
+        model?: string;
+        state?: outputs.amplifyuibuilder.ComponentMutationActionSetStateParameter;
+        target?: outputs.amplifyuibuilder.ComponentProperty;
+        type?: outputs.amplifyuibuilder.ComponentProperty;
+        url?: outputs.amplifyuibuilder.ComponentProperty;
+    }
+
+    export interface ComponentBindingPropertiesValue {
+        bindingProperties?: outputs.amplifyuibuilder.ComponentBindingPropertiesValueProperties;
+        defaultValue?: string;
+        type?: string;
+    }
+
+    export interface ComponentBindingPropertiesValueProperties {
+        bucket?: string;
+        defaultValue?: string;
+        field?: string;
+        key?: string;
+        model?: string;
+        predicates?: outputs.amplifyuibuilder.ComponentPredicate[];
+        slotName?: string;
+        userAttribute?: string;
     }
 
     export interface ComponentChild {
         children?: outputs.amplifyuibuilder.ComponentChild[];
         componentType: string;
-        events?: outputs.amplifyuibuilder.ComponentEvents;
+        events?: {[key: string]: outputs.amplifyuibuilder.ComponentEvent};
         name: string;
-        properties: outputs.amplifyuibuilder.ComponentProperties;
+        properties: {[key: string]: outputs.amplifyuibuilder.ComponentProperty};
         sourceId?: string;
     }
 
-    export interface ComponentCollectionProperties {
+    export interface ComponentConditionProperty {
+        else?: outputs.amplifyuibuilder.ComponentProperty;
+        field?: string;
+        operand?: string;
+        operandType?: string;
+        operator?: string;
+        property?: string;
+        then?: outputs.amplifyuibuilder.ComponentProperty;
     }
 
-    export interface ComponentEvents {
+    export interface ComponentDataConfiguration {
+        identifiers?: string[];
+        model: string;
+        predicate?: outputs.amplifyuibuilder.ComponentPredicate;
+        sort?: outputs.amplifyuibuilder.ComponentSortProperty[];
     }
 
-    export interface ComponentOverrides {
+    export interface ComponentEvent {
+        action?: string;
+        bindingEvent?: string;
+        parameters?: outputs.amplifyuibuilder.ComponentActionParameters;
     }
 
-    export interface ComponentProperties {
+    export interface ComponentFormBindingElement {
+        element: string;
+        property: string;
     }
 
-    export interface ComponentTags {
+    export interface ComponentMutationActionSetStateParameter {
+        componentName: string;
+        property: string;
+        set: outputs.amplifyuibuilder.ComponentProperty;
+    }
+
+    export interface ComponentPredicate {
+        and?: outputs.amplifyuibuilder.ComponentPredicate[];
+        field?: string;
+        operand?: string;
+        operandType?: string;
+        operator?: string;
+        or?: outputs.amplifyuibuilder.ComponentPredicate[];
+    }
+
+    export interface ComponentProperty {
+        bindingProperties?: outputs.amplifyuibuilder.ComponentPropertyBindingProperties;
+        bindings?: {[key: string]: outputs.amplifyuibuilder.ComponentFormBindingElement};
+        collectionBindingProperties?: outputs.amplifyuibuilder.ComponentPropertyBindingProperties;
+        componentName?: string;
+        concat?: outputs.amplifyuibuilder.ComponentProperty[];
+        condition?: outputs.amplifyuibuilder.ComponentConditionProperty;
+        configured?: boolean;
+        defaultValue?: string;
+        event?: string;
+        importedValue?: string;
+        model?: string;
+        property?: string;
+        type?: string;
+        userAttribute?: string;
+        value?: string;
+    }
+
+    export interface ComponentPropertyBindingProperties {
+        field?: string;
+        property: string;
+    }
+
+    export interface ComponentSortProperty {
+        direction: enums.amplifyuibuilder.ComponentSortDirection;
+        field: string;
     }
 
     export interface ComponentVariant {
-        overrides?: outputs.amplifyuibuilder.ComponentOverrides;
-        variantValues?: outputs.amplifyuibuilder.ComponentVariantValues;
-    }
-
-    export interface ComponentVariantValues {
+        overrides?: {[key: string]: any};
+        variantValues?: {[key: string]: string};
     }
 
     export interface FormButton {
@@ -541,6 +620,33 @@ export namespace amplifyuibuilder {
         dataTypeName: string;
     }
 
+    export interface FormFieldConfig {
+        excluded?: boolean;
+        inputType?: outputs.amplifyuibuilder.FormFieldInputConfig;
+        label?: string;
+        position?: outputs.amplifyuibuilder.FormFieldPosition0Properties | outputs.amplifyuibuilder.FormFieldPosition1Properties | outputs.amplifyuibuilder.FormFieldPosition2Properties;
+        validations?: outputs.amplifyuibuilder.FormFieldValidationConfiguration[];
+    }
+
+    export interface FormFieldInputConfig {
+        defaultChecked?: boolean;
+        defaultCountryCode?: string;
+        defaultValue?: string;
+        descriptiveText?: string;
+        fileUploaderConfig?: outputs.amplifyuibuilder.FormFileUploaderFieldConfig;
+        isArray?: boolean;
+        maxValue?: number;
+        minValue?: number;
+        name?: string;
+        placeholder?: string;
+        readOnly?: boolean;
+        required?: boolean;
+        step?: number;
+        type: string;
+        value?: string;
+        valueMappings?: outputs.amplifyuibuilder.FormValueMappings;
+    }
+
     export interface FormFieldPosition0Properties {
         fixed: enums.amplifyuibuilder.FormFixedPosition;
     }
@@ -553,10 +659,49 @@ export namespace amplifyuibuilder {
         below: string;
     }
 
-    export interface FormFieldsMap {
+    export interface FormFieldValidationConfiguration {
+        numValues?: number[];
+        strValues?: string[];
+        type: string;
+        validationMessage?: string;
     }
 
-    export interface FormSectionalElementMap {
+    export interface FormFileUploaderFieldConfig {
+        acceptedFileTypes: string[];
+        accessLevel: enums.amplifyuibuilder.FormStorageAccessLevel;
+        isResumable?: boolean;
+        maxFileCount?: number;
+        maxSize?: number;
+        showThumbnails?: boolean;
+    }
+
+    export interface FormInputBindingPropertiesValue {
+        bindingProperties?: outputs.amplifyuibuilder.FormInputBindingPropertiesValueProperties;
+        type?: string;
+    }
+
+    export interface FormInputBindingPropertiesValueProperties {
+        model?: string;
+    }
+
+    export interface FormInputValueProperty {
+        bindingProperties?: outputs.amplifyuibuilder.FormInputValuePropertyBindingProperties;
+        concat?: outputs.amplifyuibuilder.FormInputValueProperty[];
+        value?: string;
+    }
+
+    export interface FormInputValuePropertyBindingProperties {
+        field?: string;
+        property: string;
+    }
+
+    export interface FormSectionalElement {
+        excluded?: boolean;
+        level?: number;
+        orientation?: string;
+        position?: outputs.amplifyuibuilder.FormFieldPosition0Properties | outputs.amplifyuibuilder.FormFieldPosition1Properties | outputs.amplifyuibuilder.FormFieldPosition2Properties;
+        text?: string;
+        type: string;
     }
 
     export interface FormStyle {
@@ -573,10 +718,14 @@ export namespace amplifyuibuilder {
         value: string;
     }
 
-    export interface FormTags {
+    export interface FormValueMapping {
+        displayValue?: outputs.amplifyuibuilder.FormInputValueProperty;
+        value: outputs.amplifyuibuilder.FormInputValueProperty;
     }
 
-    export interface ThemeTags {
+    export interface FormValueMappings {
+        bindingProperties?: {[key: string]: outputs.amplifyuibuilder.FormInputBindingPropertiesValue};
+        values: outputs.amplifyuibuilder.FormValueMapping[];
     }
 
     export interface ThemeValue {
@@ -1260,7 +1409,14 @@ export namespace apigatewayv2 {
         serverNameToVerify?: string;
     }
 
-    export interface RouteResponseRouteParameters {
+    /**
+     * Specifies whether the parameter is required.
+     */
+    export interface RouteResponseParameterConstraints {
+        /**
+         * Specifies whether the parameter is required.
+         */
+        required: boolean;
     }
 
     export interface StageAccessLogSettings {
@@ -1415,14 +1571,8 @@ export namespace appflow {
         zendesk?: outputs.appflow.ConnectorProfileZendeskConnectorProfileCredentials;
     }
 
-    /**
-     * A map for properties for custom authentication.
-     */
-    export interface ConnectorProfileCredentialsMap {
-    }
-
     export interface ConnectorProfileCustomAuthCredentials {
-        credentialsMap?: outputs.appflow.ConnectorProfileCredentialsMap;
+        credentialsMap?: {[key: string]: string};
         customAuthenticationType: string;
     }
 
@@ -1436,7 +1586,7 @@ export namespace appflow {
 
     export interface ConnectorProfileCustomConnectorProfileProperties {
         oAuth2Properties?: outputs.appflow.ConnectorProfileOAuth2Properties;
-        profileProperties?: outputs.appflow.ConnectorProfileProfileProperties;
+        profileProperties?: {[key: string]: string};
     }
 
     export interface ConnectorProfileDatadogConnectorProfileCredentials {
@@ -1557,7 +1707,7 @@ export namespace appflow {
     export interface ConnectorProfileOAuth2Properties {
         oAuth2GrantType?: enums.appflow.ConnectorProfileOAuth2GrantType;
         tokenUrl?: string;
-        tokenUrlCustomProperties?: outputs.appflow.ConnectorProfileTokenUrlCustomProperties;
+        tokenUrlCustomProperties?: {[key: string]: string};
     }
 
     export interface ConnectorProfileOAuthProperties {
@@ -1598,12 +1748,6 @@ export namespace appflow {
          * Indicates whether the connector profile applies to a demo or production environment
          */
         isSandboxEnvironment?: boolean;
-    }
-
-    /**
-     * A map for properties for custom connector.
-     */
-    export interface ConnectorProfileProfileProperties {
     }
 
     /**
@@ -1843,12 +1987,6 @@ export namespace appflow {
         warehouse: string;
     }
 
-    /**
-     * A map for properties for custom connector Token Url.
-     */
-    export interface ConnectorProfileTokenUrlCustomProperties {
-    }
-
     export interface ConnectorProfileTrendmicroConnectorProfileCredentials {
         /**
          * The Secret Access Key portion of the credentials.
@@ -1943,7 +2081,7 @@ export namespace appflow {
     }
 
     export interface FlowCustomConnectorDestinationProperties {
-        customProperties?: outputs.appflow.FlowCustomProperties;
+        customProperties?: {[key: string]: string};
         entityName: string;
         errorHandlingConfig?: outputs.appflow.FlowErrorHandlingConfig;
         /**
@@ -1954,7 +2092,7 @@ export namespace appflow {
     }
 
     export interface FlowCustomConnectorSourceProperties {
-        customProperties?: outputs.appflow.FlowCustomProperties;
+        customProperties?: {[key: string]: string};
         dataTransferApi?: outputs.appflow.FlowCustomConnectorSourcePropertiesDataTransferApiProperties;
         entityName: string;
     }
@@ -1962,12 +2100,6 @@ export namespace appflow {
     export interface FlowCustomConnectorSourcePropertiesDataTransferApiProperties {
         name: string;
         type: enums.appflow.FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType;
-    }
-
-    /**
-     * A map for properties for custom connector.
-     */
-    export interface FlowCustomProperties {
     }
 
     export interface FlowDatadogSourceProperties {
@@ -2358,12 +2490,6 @@ export namespace appintegrations {
          * Identifiers for the source folders to pull all files from recursively.
          */
         folders: string[];
-    }
-
-    /**
-     * The configuration for what data should be pulled from the source.
-     */
-    export interface DataIntegrationObjectConfiguration {
     }
 
     export interface DataIntegrationScheduleConfig {
@@ -5068,9 +5194,6 @@ export namespace backup {
     export interface RestoreTestingSelectionProtectedResourceConditions {
         stringEquals?: outputs.backup.RestoreTestingSelectionKeyValue[];
         stringNotEquals?: outputs.backup.RestoreTestingSelectionKeyValue[];
-    }
-
-    export interface RestoreTestingSelectionSensitiveStringMap {
     }
 
 }
@@ -9308,9 +9431,6 @@ export namespace databrew {
         key?: string;
     }
 
-    export interface JobParameterMap {
-    }
-
     export interface JobProfileConfiguration {
         columnStatisticsConfigurations?: outputs.databrew.JobColumnStatisticsConfiguration[];
         datasetStatisticsConfiguration?: outputs.databrew.JobStatisticsConfiguration;
@@ -9351,7 +9471,7 @@ export namespace databrew {
     }
 
     export interface JobStatisticOverride {
-        parameters: outputs.databrew.JobParameterMap;
+        parameters: {[key: string]: string};
         statistic: string;
     }
 
@@ -9387,7 +9507,7 @@ export namespace databrew {
          * Step action operation
          */
         operation: string;
-        parameters?: outputs.databrew.RecipeParameters | outputs.databrew.RecipeParameterMap;
+        parameters?: outputs.databrew.RecipeParameters | {[key: string]: string};
     }
 
     /**
@@ -9422,9 +9542,6 @@ export namespace databrew {
          */
         tableName?: string;
         tempDirectory?: outputs.databrew.RecipeS3Location;
-    }
-
-    export interface RecipeParameterMap {
     }
 
     export interface RecipeParameters {
@@ -10259,11 +10376,8 @@ export namespace datazone {
         userAssignment?: enums.datazone.DomainUserAssignment;
     }
 
-    export interface EnvironmentBlueprintConfigurationParameter {
-    }
-
     export interface EnvironmentBlueprintConfigurationRegionalParameter {
-        parameters?: outputs.datazone.EnvironmentBlueprintConfigurationParameter;
+        parameters?: {[key: string]: string};
         region?: string;
     }
 
@@ -15369,7 +15483,11 @@ export namespace emrserverless {
         memory: string;
     }
 
-    export interface ApplicationWorkerTypeSpecificationInputMap {
+    /**
+     * The specifications for a worker type.
+     */
+    export interface ApplicationWorkerTypeSpecificationInput {
+        imageConfiguration?: outputs.emrserverless.ApplicationImageConfigurationInput;
     }
 
 }
@@ -15916,9 +16034,20 @@ export namespace finspace {
 
 export namespace fis {
     /**
-     * The actions for the experiment.
+     * Specifies an action for the experiment template.
      */
-    export interface ExperimentTemplateActionMap {
+    export interface ExperimentTemplateAction {
+        actionId: string;
+        description?: string;
+        /**
+         * The parameters for the action, if applicable.
+         */
+        parameters?: {[key: string]: string};
+        startAfter?: string[];
+        /**
+         * One or more targets for the action.
+         */
+        targets?: {[key: string]: string};
     }
 
     export interface ExperimentTemplateExperimentOptions {
@@ -15953,9 +16082,23 @@ export namespace fis {
     }
 
     /**
-     * The targets for the experiment.
+     * Specifies a target for an experiment.
      */
-    export interface ExperimentTemplateTargetMap {
+    export interface ExperimentTemplateTarget {
+        filters?: outputs.fis.ExperimentTemplateTargetFilter[];
+        parameters?: {[key: string]: string};
+        resourceArns?: string[];
+        resourceTags?: {[key: string]: string};
+        resourceType: string;
+        selectionMode: string;
+    }
+
+    /**
+     * Describes a filter used for the target resource input in an experiment template.
+     */
+    export interface ExperimentTemplateTargetFilter {
+        path: string;
+        values: string[];
     }
 
 }
@@ -18128,15 +18271,6 @@ export namespace guardduty {
 
 }
 
-export namespace healthimaging {
-    /**
-     * A Map of key value pairs for Tags.
-     */
-    export interface DatastoreTags {
-    }
-
-}
-
 export namespace healthlake {
     /**
      * The time that a Data Store was created.
@@ -19030,12 +19164,9 @@ export namespace inspector {
 }
 
 export namespace inspectorv2 {
-    export interface CisScanConfigurationCisTagMap {
-    }
-
     export interface CisScanConfigurationCisTargets {
         accountIds: string[];
-        targetResourceTags?: outputs.inspectorv2.CisScanConfigurationTargetResourceTags;
+        targetResourceTags?: {[key: string]: any};
     }
 
     export interface CisScanConfigurationDailySchedule {
@@ -19058,9 +19189,6 @@ export namespace inspectorv2 {
         monthly?: outputs.inspectorv2.CisScanConfigurationMonthlySchedule;
         oneTime?: outputs.inspectorv2.CisScanConfigurationOneTimeSchedule;
         weekly?: outputs.inspectorv2.CisScanConfigurationWeeklySchedule;
-    }
-
-    export interface CisScanConfigurationTargetResourceTags {
     }
 
     export interface CisScanConfigurationTime {
@@ -19586,9 +19714,6 @@ export namespace iot {
          * The percentile which resolves to a threshold value by which compliance with a behavior is determined
          */
         statistic?: enums.iot.SecurityProfileStatisticalThresholdStatistic;
-    }
-
-    export interface SoftwarePackageVersionResourceAttributes {
     }
 
     export interface ThingAttributePayload {
@@ -21111,9 +21236,6 @@ export namespace iotfleetwise {
         unit?: string;
     }
 
-    export interface VehicleattributesMap {
-    }
-
 }
 
 export namespace iotsitewise {
@@ -21777,17 +21899,11 @@ export namespace iottwinmaker {
     /**
      * An object that specifies information about a property.
      */
-    export interface EntityPropertyDefinitionConfiguration {
-    }
-
-    /**
-     * An object that specifies information about a property.
-     */
     export interface EntityPropertyDefinitionProperties {
         /**
          * An object that specifies information about a property.
          */
-        configuration?: outputs.iottwinmaker.EntityPropertyDefinitionConfiguration;
+        configuration?: {[key: string]: string};
         /**
          * An object that contains information about the data type.
          */
@@ -26703,9 +26819,6 @@ export namespace m2 {
         content: string;
     }
 
-    export interface ApplicationTagMap {
-    }
-
     /**
      * Defines the details of a high availability configuration.
      */
@@ -26719,12 +26832,6 @@ export namespace m2 {
     export interface EnvironmentStorageConfiguration {
     }
 
-    /**
-     * Defines tags associated to an environment.
-     */
-    export interface EnvironmentTagMap {
-    }
-
 }
 
 export namespace macie {
@@ -26734,14 +26841,17 @@ export namespace macie {
     export interface AllowListCriteria {
     }
 
-    /**
-     * Map of filter criteria.
-     */
-    export interface FindingsFilterCriterion {
+    export interface FindingsFilterCriterionAdditionalProperties {
+        eq?: string[];
+        gt?: number;
+        gte?: number;
+        lt?: number;
+        lte?: number;
+        neq?: string[];
     }
 
     export interface FindingsFilterFindingCriteria {
-        criterion?: outputs.macie.FindingsFilterCriterion;
+        criterion?: {[key: string]: outputs.macie.FindingsFilterCriterionAdditionalProperties};
     }
 
 }
@@ -29675,12 +29785,6 @@ export namespace mediatailor {
     }
 
     /**
-     * The predefined aliases for dynamic variables.
-     */
-    export interface PlaybackConfigurationConfigurationAliases {
-    }
-
-    /**
      * The configuration for DASH PUT operations.
      */
     export interface PlaybackConfigurationDashConfiguration {
@@ -30112,12 +30216,6 @@ export namespace msk {
         subnetIds: string[];
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface VpcConnectionTags {
-    }
-
 }
 
 export namespace mwaa {
@@ -30227,15 +30325,16 @@ export namespace networkfirewall {
         value: string;
     }
 
+    export interface FirewallPolicyIpSet {
+        definition?: string[];
+    }
+
     export interface FirewallPolicyPolicyVariablesProperties {
-        ruleVariables?: outputs.networkfirewall.FirewallPolicyRuleVariables;
+        ruleVariables?: {[key: string]: outputs.networkfirewall.FirewallPolicyIpSet};
     }
 
     export interface FirewallPolicyPublishMetricAction {
         dimensions: outputs.networkfirewall.FirewallPolicyDimension[];
-    }
-
-    export interface FirewallPolicyRuleVariables {
     }
 
     export interface FirewallPolicyStatefulEngineOptions {
@@ -30816,9 +30915,6 @@ export namespace nimblestudio {
         windows?: string;
     }
 
-    export interface LaunchProfileTags {
-    }
-
     /**
      * <p>Custom volume configuration for the root volumes that are attached to streaming
      *             sessions.</p>
@@ -30852,9 +30948,6 @@ export namespace nimblestudio {
          */
         keyArn?: string;
         keyType: enums.nimblestudio.StreamingImageEncryptionConfigurationKeyType;
-    }
-
-    export interface StreamingImageTags {
     }
 
     /**
@@ -31008,9 +31101,6 @@ export namespace nimblestudio {
         windowsMountDrive?: string;
     }
 
-    export interface StudioComponentTags {
-    }
-
     /**
      * <p>Configuration of the encryption method that is used for the studio.</p>
      */
@@ -31022,20 +31112,11 @@ export namespace nimblestudio {
         keyType: enums.nimblestudio.StudioEncryptionConfigurationKeyType;
     }
 
-    export interface StudioTags {
-    }
-
 }
 
 export namespace omics {
-    export interface AnnotationStoreFormatToHeader {
-    }
-
     export interface AnnotationStoreReferenceItem {
         referenceArn: string;
-    }
-
-    export interface AnnotationStoreSchemaItem {
     }
 
     export interface AnnotationStoreSseConfig {
@@ -31047,13 +31128,10 @@ export namespace omics {
         tsvStoreOptions: outputs.omics.AnnotationStoreTsvStoreOptions;
     }
 
-    export interface AnnotationStoreTagMap {
-    }
-
     export interface AnnotationStoreTsvStoreOptions {
         annotationType?: enums.omics.AnnotationStoreAnnotationType;
-        formatToHeader?: outputs.omics.AnnotationStoreFormatToHeader;
-        schema?: outputs.omics.AnnotationStoreSchemaItem[];
+        formatToHeader?: {[key: string]: string};
+        schema?: {[key: string]: enums.omics.AnnotationStoreSchemaValueType}[];
     }
 
     /**
@@ -31067,15 +31145,6 @@ export namespace omics {
         type: enums.omics.ReferenceStoreEncryptionType;
     }
 
-    export interface ReferenceStoreTagMap {
-    }
-
-    /**
-     * A map of resource tags
-     */
-    export interface RunGroupTagMap {
-    }
-
     /**
      * Server-side encryption (SSE) settings for a store.
      */
@@ -31087,9 +31156,6 @@ export namespace omics {
         type: enums.omics.SequenceStoreEncryptionType;
     }
 
-    export interface SequenceStoreTagMap {
-    }
-
     export interface VariantStoreReferenceItem {
         referenceArn: string;
     }
@@ -31099,16 +31165,9 @@ export namespace omics {
         type: enums.omics.VariantStoreEncryptionType;
     }
 
-    export interface VariantStoreTagMap {
-    }
-
-    export interface WorkflowParameterTemplate {
-    }
-
-    /**
-     * A map of resource tags
-     */
-    export interface WorkflowTagMap {
+    export interface WorkflowParameter {
+        description?: string;
+        optional?: boolean;
     }
 
 }
@@ -31500,14 +31559,8 @@ export namespace panorama {
 }
 
 export namespace pcaconnectorad {
-    export interface ConnectorTags {
-    }
-
     export interface ConnectorVpcInformation {
         securityGroupIds: string[];
-    }
-
-    export interface DirectoryRegistrationTags {
     }
 
     export interface TemplateApplicationPolicies {
@@ -31707,9 +31760,6 @@ export namespace pcaconnectorad {
         sanRequireEmail?: boolean;
         sanRequireSpn?: boolean;
         sanRequireUpn?: boolean;
-    }
-
-    export interface TemplateTags {
     }
 
     export interface TemplateV2 {
@@ -32357,9 +32407,6 @@ export namespace pipes {
         type?: enums.pipes.PipeBatchJobDependencyType;
     }
 
-    export interface PipeBatchParametersMap {
-    }
-
     export interface PipeBatchResourceRequirement {
         type: enums.pipes.PipeBatchResourceRequirementType;
         value: string;
@@ -32429,9 +32476,9 @@ export namespace pipes {
     }
 
     export interface PipeEnrichmentHttpParameters {
-        headerParameters?: outputs.pipes.PipeHeaderParametersMap;
+        headerParameters?: {[key: string]: string};
         pathParameterValues?: string[];
-        queryStringParameters?: outputs.pipes.PipeQueryStringParametersMap;
+        queryStringParameters?: {[key: string]: string};
     }
 
     export interface PipeEnrichmentParameters {
@@ -32449,9 +32496,6 @@ export namespace pipes {
 
     export interface PipeFirehoseLogDestination {
         deliveryStreamArn?: string;
-    }
-
-    export interface PipeHeaderParametersMap {
     }
 
     export interface PipeLogConfiguration {
@@ -32495,9 +32539,6 @@ export namespace pipes {
     export interface PipePlacementStrategy {
         field?: string;
         type?: enums.pipes.PipePlacementStrategyType;
-    }
-
-    export interface PipeQueryStringParametersMap {
     }
 
     export interface PipeS3LogDestination {
@@ -32634,16 +32675,13 @@ export namespace pipes {
         value: string;
     }
 
-    export interface PipeTagMap {
-    }
-
     export interface PipeTargetBatchJobParameters {
         arrayProperties?: outputs.pipes.PipeBatchArrayProperties;
         containerOverrides?: outputs.pipes.PipeBatchContainerOverrides;
         dependsOn?: outputs.pipes.PipeBatchJobDependency[];
         jobDefinition: string;
         jobName: string;
-        parameters?: outputs.pipes.PipeBatchParametersMap;
+        parameters?: {[key: string]: string};
         retryStrategy?: outputs.pipes.PipeBatchRetryStrategy;
     }
 
@@ -32679,9 +32717,9 @@ export namespace pipes {
     }
 
     export interface PipeTargetHttpParameters {
-        headerParameters?: outputs.pipes.PipeHeaderParametersMap;
+        headerParameters?: {[key: string]: string};
         pathParameterValues?: string[];
-        queryStringParameters?: outputs.pipes.PipeQueryStringParametersMap;
+        queryStringParameters?: {[key: string]: string};
     }
 
     export interface PipeTargetKinesisStreamParameters {
@@ -38904,6 +38942,53 @@ export namespace quicksight {
     }
 
     /**
+     * <p>A calculated column for a dataset.</p>
+     */
+    export interface DataSetCalculatedColumn {
+        /**
+         * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
+         *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
+         *             preserves the existing calculated column.</p>
+         */
+        columnId: string;
+        /**
+         * <p>Column name.</p>
+         */
+        columnName: string;
+        /**
+         * <p>An expression that defines the calculated column.</p>
+         */
+        expression: string;
+    }
+
+    /**
+     * <p>A transform operation that casts a column to a different type.</p>
+     */
+    export interface DataSetCastColumnTypeOperation {
+        /**
+         * <p>Column name.</p>
+         */
+        columnName: string;
+        /**
+         * <p>When casting a column from string to datetime type, you can supply a string in a
+         *             format supported by Amazon QuickSight to denote the source data format.</p>
+         */
+        format?: string;
+        newColumnType: enums.quicksight.DataSetColumnDataType;
+        subType?: enums.quicksight.DataSetColumnSubDataType;
+    }
+
+    /**
+     * <p>Metadata that contains a description for a column.</p>
+     */
+    export interface DataSetColumnDescription {
+        /**
+         * <p>The text of a description for a column.</p>
+         */
+        text?: string;
+    }
+
+    /**
      * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
      *             a variant type structure. For this structure to be valid, only one of the attributes can
      *             be non-null.</p>
@@ -38915,6 +39000,49 @@ export namespace quicksight {
     export interface DataSetColumnLevelPermissionRule {
         columnNames?: string[];
         principals?: string[];
+    }
+
+    /**
+     * <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+     *             variant type structure. For this structure to be valid, only one of the attributes can
+     *             be non-null.</p>
+     */
+    export interface DataSetColumnTag {
+        columnDescription?: outputs.quicksight.DataSetColumnDescription;
+        columnGeographicRole?: enums.quicksight.DataSetGeoSpatialDataRole;
+    }
+
+    /**
+     * <p>A transform operation that creates calculated columns. Columns created in one such
+     *             operation form a lexical closure.</p>
+     */
+    export interface DataSetCreateColumnsOperation {
+        /**
+         * <p>Calculated columns to create.</p>
+         */
+        columns: outputs.quicksight.DataSetCalculatedColumn[];
+    }
+
+    /**
+     * <p>A physical table type built from the results of the custom SQL query.</p>
+     */
+    export interface DataSetCustomSql {
+        /**
+         * <p>The column schema from the SQL query result set.</p>
+         */
+        columns: outputs.quicksight.DataSetInputColumn[];
+        /**
+         * <p>The Amazon Resource Name (ARN) of the data source.</p>
+         */
+        dataSourceArn: string;
+        /**
+         * <p>A display name for the SQL query result.</p>
+         */
+        name: string;
+        /**
+         * <p>The SQL query.</p>
+         */
+        sqlQuery: string;
     }
 
     /**
@@ -38968,7 +39096,20 @@ export namespace quicksight {
         staticValues?: number[];
     }
 
-    export interface DataSetFieldFolderMap {
+    export interface DataSetFieldFolder {
+        columns?: string[];
+        description?: string;
+    }
+
+    /**
+     * <p>A transform operation that filters rows based on a condition.</p>
+     */
+    export interface DataSetFilterOperation {
+        /**
+         * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
+         *             evaluates to true are kept in the dataset.</p>
+         */
+        conditionExpression: string;
     }
 
     /**
@@ -39010,6 +39151,18 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Metadata for a column that is used as the input of a transform operation.</p>
+     */
+    export interface DataSetInputColumn {
+        /**
+         * <p>The name of this column in the underlying data source.</p>
+         */
+        name: string;
+        subType?: enums.quicksight.DataSetColumnSubDataType;
+        type: enums.quicksight.DataSetInputColumnDataType;
+    }
+
+    /**
      * <p>A parameter created in the dataset of integer data type.</p>
      */
     export interface DataSetIntegerDatasetParameter {
@@ -39029,7 +39182,63 @@ export namespace quicksight {
         staticValues?: number[];
     }
 
-    export interface DataSetLogicalTableMap {
+    /**
+     * <p>Join instruction.</p>
+     */
+    export interface DataSetJoinInstruction {
+        leftJoinKeyProperties?: outputs.quicksight.DataSetJoinKeyProperties;
+        /**
+         * <p>Left operand.</p>
+         */
+        leftOperand: string;
+        /**
+         * <p>On Clause.</p>
+         */
+        onClause: string;
+        rightJoinKeyProperties?: outputs.quicksight.DataSetJoinKeyProperties;
+        /**
+         * <p>Right operand.</p>
+         */
+        rightOperand: string;
+        type: enums.quicksight.DataSetJoinType;
+    }
+
+    export interface DataSetJoinKeyProperties {
+        uniqueKey?: boolean;
+    }
+
+    /**
+     * <p>A <i>logical table</i> is a unit that joins and that data
+     *             transformations operate on. A logical table has a source, which can be either a physical
+     *             table or result of a join. When a logical table points to a physical table, the logical
+     *             table acts as a mutable copy of that physical table through transform operations.</p>
+     */
+    export interface DataSetLogicalTable {
+        /**
+         * <p>A display name for the logical table.</p>
+         */
+        alias: string;
+        /**
+         * <p>Transform operations that act on this logical table.</p>
+         */
+        dataTransforms?: outputs.quicksight.DataSetTransformOperation[];
+        source: outputs.quicksight.DataSetLogicalTableSource;
+    }
+
+    /**
+     * <p>Information about the source of a logical table. This is a variant type structure. For
+     *             this structure to be valid, only one of the attributes can be non-null.</p>
+     */
+    export interface DataSetLogicalTableSource {
+        /**
+         * <p>The Amazon Resource Name (ARN) for the dataset.</p>
+         */
+        dataSetArn?: string;
+        joinInstruction?: outputs.quicksight.DataSetJoinInstruction;
+        /**
+         * <p>Physical table ID.</p>
+         */
+        physicalTableId?: string;
     }
 
     export interface DataSetLookbackWindow {
@@ -39042,6 +39251,13 @@ export namespace quicksight {
          */
         size?: number;
         sizeUnit?: enums.quicksight.DataSetSizeUnit;
+    }
+
+    export interface DataSetNewDefaultValues {
+        dateTimeStaticValues?: string[];
+        decimalStaticValues?: number[];
+        integerStaticValues?: number[];
+        stringStaticValues?: string[];
     }
 
     /**
@@ -39060,7 +39276,44 @@ export namespace quicksight {
         type?: enums.quicksight.DataSetColumnDataType;
     }
 
-    export interface DataSetPhysicalTableMap {
+    /**
+     * <p>A transform operation that overrides the dataset parameter values defined in another dataset.</p>
+     */
+    export interface DataSetOverrideDatasetParameterOperation {
+        /**
+         * <p>The new default values for the parameter.</p>
+         */
+        newDefaultValues?: outputs.quicksight.DataSetNewDefaultValues;
+        /**
+         * <p>The new name for the parameter.</p>
+         */
+        newParameterName?: string;
+        /**
+         * <p>The name of the parameter to be overridden with different values.</p>
+         */
+        parameterName: string;
+    }
+
+    /**
+     * <p>A view of a data source that contains information about the shape of the data in the
+     *             underlying source. This is a variant type structure. For this structure to be valid,
+     *             only one of the attributes can be non-null.</p>
+     */
+    export interface DataSetPhysicalTable {
+        customSql?: outputs.quicksight.DataSetCustomSql;
+        relationalTable?: outputs.quicksight.DataSetRelationalTable;
+        s3Source?: outputs.quicksight.DataSetS3Source;
+    }
+
+    /**
+     * <p>A transform operation that projects columns. Operations that come after a projection
+     *             can only refer to projected columns.</p>
+     */
+    export interface DataSetProjectOperation {
+        /**
+         * <p>Projected columns.</p>
+         */
+        projectedColumns: string[];
     }
 
     /**
@@ -39075,6 +39328,46 @@ export namespace quicksight {
      */
     export interface DataSetRefreshProperties {
         refreshConfiguration?: outputs.quicksight.DataSetRefreshConfiguration;
+    }
+
+    /**
+     * <p>A physical table type for relational data sources.</p>
+     */
+    export interface DataSetRelationalTable {
+        /**
+         * <p>The catalog associated with a table.</p>
+         */
+        catalog?: string;
+        /**
+         * <p>The Amazon Resource Name (ARN) for the data source.</p>
+         */
+        dataSourceArn: string;
+        /**
+         * <p>The column schema of the table.</p>
+         */
+        inputColumns: outputs.quicksight.DataSetInputColumn[];
+        /**
+         * <p>The name of the relational table.</p>
+         */
+        name: string;
+        /**
+         * <p>The schema name. This name applies to certain relational database engines.</p>
+         */
+        schema?: string;
+    }
+
+    /**
+     * <p>A transform operation that renames a column.</p>
+     */
+    export interface DataSetRenameColumnOperation {
+        /**
+         * <p>The name of the column to be renamed.</p>
+         */
+        columnName: string;
+        /**
+         * <p>The new name for the column.</p>
+         */
+        newColumnName: string;
     }
 
     /**
@@ -39160,6 +39453,21 @@ export namespace quicksight {
     }
 
     /**
+     * <p>A physical table type for as S3 data source.</p>
+     */
+    export interface DataSetS3Source {
+        /**
+         * <p>The amazon Resource Name (ARN) for the data source.</p>
+         */
+        dataSourceArn: string;
+        /**
+         * <p>A physical table type for as S3 data source.</p>
+         */
+        inputColumns: outputs.quicksight.DataSetInputColumn[];
+        uploadSettings?: outputs.quicksight.DataSetUploadSettings;
+    }
+
+    /**
      * <p>A parameter created in the dataset of string data type.</p>
      */
     export interface DataSetStringDatasetParameter {
@@ -39177,6 +39485,57 @@ export namespace quicksight {
          * <p>List of static default values defined for a given string dataset parameter type.</p>
          */
         staticValues?: string[];
+    }
+
+    /**
+     * <p>A transform operation that tags a column with additional information.</p>
+     */
+    export interface DataSetTagColumnOperation {
+        /**
+         * <p>The column that this operation acts on.</p>
+         */
+        columnName: string;
+        /**
+         * <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
+         *         <note>
+         *             <p>This is not tags for the AWS tagging feature. .</p>
+         *         </note>
+         */
+        tags: outputs.quicksight.DataSetColumnTag[];
+    }
+
+    /**
+     * <p>A data transformation on a logical table. This is a variant type structure. For this
+     *             structure to be valid, only one of the attributes can be non-null.</p>
+     */
+    export interface DataSetTransformOperation {
+        castColumnTypeOperation?: outputs.quicksight.DataSetCastColumnTypeOperation;
+        createColumnsOperation?: outputs.quicksight.DataSetCreateColumnsOperation;
+        filterOperation?: outputs.quicksight.DataSetFilterOperation;
+        overrideDatasetParameterOperation?: outputs.quicksight.DataSetOverrideDatasetParameterOperation;
+        projectOperation?: outputs.quicksight.DataSetProjectOperation;
+        renameColumnOperation?: outputs.quicksight.DataSetRenameColumnOperation;
+        tagColumnOperation?: outputs.quicksight.DataSetTagColumnOperation;
+    }
+
+    /**
+     * <p>Information about the format for a source file or files.</p>
+     */
+    export interface DataSetUploadSettings {
+        /**
+         * <p>Whether the file has a header row, or the files each have a header row.</p>
+         */
+        containsHeader?: boolean;
+        /**
+         * <p>The delimiter between values in the file.</p>
+         */
+        delimiter?: string;
+        format?: enums.quicksight.DataSetFileFormat;
+        /**
+         * <p>A row number to start reading data from.</p>
+         */
+        startFromRow?: number;
+        textQualifier?: enums.quicksight.DataSetTextQualifier;
     }
 
     /**
@@ -42831,9 +43190,6 @@ export namespace quicksight {
         versionNumber?: number;
     }
 
-    export interface TopicAggregationFunctionParameters {
-    }
-
     export interface TopicCalculatedField {
         aggregation?: enums.quicksight.TopicDefaultAggregation;
         allowedAggregations?: enums.quicksight.TopicAuthorSpecifiedAggregation[];
@@ -42973,7 +43329,7 @@ export namespace quicksight {
 
     export interface TopicNamedEntityDefinitionMetric {
         aggregation?: enums.quicksight.TopicNamedEntityAggType;
-        aggregationFunctionParameters?: outputs.quicksight.TopicAggregationFunctionParameters;
+        aggregationFunctionParameters?: {[key: string]: string};
     }
 
     export interface TopicNegativeFormat {
@@ -43011,7 +43367,7 @@ export namespace quicksight {
     export interface TopicSemanticEntityType {
         subTypeName?: string;
         typeName?: string;
-        typeParameters?: outputs.quicksight.TopicTypeParameters;
+        typeParameters?: {[key: string]: string};
     }
 
     export interface TopicSemanticType {
@@ -43021,15 +43377,12 @@ export namespace quicksight {
         truthyCellValue?: string;
         truthyCellValueSynonyms?: string[];
         typeName?: string;
-        typeParameters?: outputs.quicksight.TopicTypeParameters;
+        typeParameters?: {[key: string]: string};
     }
 
     export interface TopicSingularFilterConstant {
         constantType?: enums.quicksight.TopicConstantType;
         singularConstant?: string;
-    }
-
-    export interface TopicTypeParameters {
     }
 
     export interface VpcConnectionNetworkInterface {
@@ -43254,12 +43607,6 @@ export namespace rds {
         ec2SecurityGroupId?: string;
         ec2SecurityGroupName?: string;
         ec2SecurityGroupOwnerId?: string;
-    }
-
-    /**
-     * An optional set of non-secret key–value pairs that contains additional contextual information about the data.
-     */
-    export interface IntegrationEncryptionContextMap {
     }
 
     /**
@@ -43637,30 +43984,29 @@ export namespace resiliencehub {
         terraformSourceName?: string;
     }
 
-    export interface AppTagMap {
-    }
-
-    export interface ResiliencyPolicyPolicyMap {
-    }
-
-    export interface ResiliencyPolicyTagMap {
+    /**
+     * Failure Policy.
+     */
+    export interface ResiliencyPolicyFailurePolicy {
+        /**
+         * RPO in seconds.
+         */
+        rpoInSecs: number;
+        /**
+         * RTO in seconds.
+         */
+        rtoInSecs: number;
     }
 
 }
 
 export namespace resourceexplorer2 {
-    export interface IndexTagMap {
-    }
-
     export interface ViewIncludedProperty {
         name: string;
     }
 
     export interface ViewSearchFilter {
         filterString: string;
-    }
-
-    export interface ViewTagMap {
     }
 
 }
@@ -43696,12 +44042,6 @@ export namespace resourcegroups {
 
 export namespace robomaker {
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface FleetTags {
-    }
-
-    /**
      * The robot software suite used by the robot application.
      */
     export interface RobotApplicationRobotSoftwareSuite {
@@ -43728,18 +44068,6 @@ export namespace robomaker {
          * The s3 key of robot application source.
          */
         s3Key: string;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RobotApplicationTags {
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RobotTags {
     }
 
     /**
@@ -43800,12 +44128,6 @@ export namespace robomaker {
          * The s3 object key.
          */
         s3Key: string;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SimulationApplicationTags {
     }
 
 }
@@ -46490,7 +46812,7 @@ export namespace sagemaker {
     export interface InferenceComponentContainerSpecification {
         artifactUrl?: string;
         deployedImage?: outputs.sagemaker.InferenceComponentDeployedImage;
-        environment?: outputs.sagemaker.InferenceComponentEnvironmentMap;
+        environment?: {[key: string]: string};
         image?: string;
     }
 
@@ -46498,12 +46820,6 @@ export namespace sagemaker {
         resolutionTime?: string;
         resolvedImage?: string;
         specifiedImage?: string;
-    }
-
-    /**
-     * Environment variables to specify on the container
-     */
-    export interface InferenceComponentEnvironmentMap {
     }
 
     /**
@@ -49190,7 +49506,7 @@ export namespace scheduler {
         /**
          * The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
          */
-        tags?: outputs.scheduler.ScheduleTagMap[];
+        tags?: {[key: string]: string}[];
         /**
          * The number of tasks to create based on TaskDefinition. The default is 1.
          */
@@ -49311,9 +49627,6 @@ export namespace scheduler {
          * The FIFO message group ID to use as the target.
          */
         messageGroupId?: string;
-    }
-
-    export interface ScheduleTagMap {
     }
 
     /**
@@ -49474,20 +49787,8 @@ export namespace securityhub {
         value: string;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AutomationRuleTags {
-    }
-
     export interface AutomationRuleWorkflowUpdate {
         status: enums.securityhub.AutomationRuleWorkflowUpdateStatus;
-    }
-
-    /**
-     * An object of user-defined name and value string pair added to a finding.
-     */
-    export interface AutomationRulemap {
     }
 
     export interface AutomationRulesAction {
@@ -49514,7 +49815,7 @@ export namespace securityhub {
          */
         severity?: outputs.securityhub.AutomationRuleSeverityUpdate;
         types?: string[];
-        userDefinedFields?: outputs.securityhub.AutomationRulemap;
+        userDefinedFields?: {[key: string]: string};
         verificationState?: enums.securityhub.AutomationRulesFindingFieldsUpdateVerificationState;
         /**
          * The rule action will update the ``Workflow`` field of a finding.
@@ -49558,12 +49859,6 @@ export namespace securityhub {
         userDefinedFields?: outputs.securityhub.AutomationRuleMapFilter[];
         verificationState?: outputs.securityhub.AutomationRuleStringFilter[];
         workflowStatus?: outputs.securityhub.AutomationRuleStringFilter[];
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface HubTags {
     }
 
     /**
@@ -49625,15 +49920,6 @@ export namespace servicecatalog {
     export interface ServiceActionDefinitionParameter {
         key: string;
         value: string;
-    }
-
-}
-
-export namespace servicecatalogappregistry {
-    export interface ApplicationTags {
-    }
-
-    export interface AttributeGroupTags {
     }
 
 }
@@ -50716,9 +51002,6 @@ export namespace stepfunctions {
     }
 
     export interface StateMachineDefinition {
-    }
-
-    export interface StateMachineDefinitionSubstitutions {
     }
 
     export interface StateMachineLogDestination {
@@ -51839,9 +52122,11 @@ export namespace wafv2 {
     }
 
     /**
-     * Custom response key and body map.
+     * Custom response body.
      */
-    export interface RuleGroupCustomResponseBodies {
+    export interface RuleGroupCustomResponseBody {
+        content: string;
+        contentType: enums.wafv2.RuleGroupResponseContentType;
     }
 
     /**
@@ -52193,7 +52478,7 @@ export namespace wafv2 {
      * AssociationConfig for body inspection
      */
     export interface WebAclAssociationConfig {
-        requestBody?: outputs.wafv2.WebAclRequestBody;
+        requestBody?: {[key: string]: outputs.wafv2.WebAclRequestBodyAssociatedResourceTypeConfig};
     }
 
     /**
@@ -52334,9 +52619,11 @@ export namespace wafv2 {
     }
 
     /**
-     * Custom response key and body map.
+     * Custom response body.
      */
-    export interface WebAclCustomResponseBodies {
+    export interface WebAclCustomResponseBody {
+        content: string;
+        contentType: enums.wafv2.WebAclResponseContentType;
     }
 
     /**
@@ -52641,9 +52928,10 @@ export namespace wafv2 {
     }
 
     /**
-     * Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+     * Configures the inspection size in the request body.
      */
-    export interface WebAclRequestBody {
+    export interface WebAclRequestBodyAssociatedResourceTypeConfig {
+        defaultSizeInspectionLimit: enums.wafv2.WebAclSizeInspectionLimit;
     }
 
     /**
@@ -52905,24 +53193,12 @@ export namespace workspacesthinclient {
 }
 
 export namespace workspacesweb {
-    export interface BrowserSettingsEncryptionContextMap {
-    }
-
-    export interface IdentityProviderDetails {
-    }
-
-    export interface IpAccessSettingsEncryptionContextMap {
-    }
-
     export interface IpAccessSettingsIpRule {
         description?: string;
         /**
          * A single IP address or an IP address range in CIDR notation
          */
         ipRange: string;
-    }
-
-    export interface PortalEncryptionContextMap {
     }
 
     export interface UserSettingsCookieSpecification {
@@ -52934,9 +53210,6 @@ export namespace workspacesweb {
     export interface UserSettingsCookieSynchronizationConfiguration {
         allowlist: outputs.workspacesweb.UserSettingsCookieSpecification[];
         blocklist?: outputs.workspacesweb.UserSettingsCookieSpecification[];
-    }
-
-    export interface UserSettingsEncryptionContextMap {
     }
 
 }

@@ -30,7 +30,7 @@ type Pipe struct {
 	Source               pulumi.StringOutput               `pulumi:"source"`
 	SourceParameters     PipeSourceParametersPtrOutput     `pulumi:"sourceParameters"`
 	StateReason          pulumi.StringOutput               `pulumi:"stateReason"`
-	Tags                 PipeTagMapPtrOutput               `pulumi:"tags"`
+	Tags                 pulumi.StringMapOutput            `pulumi:"tags"`
 	Target               pulumi.StringOutput               `pulumi:"target"`
 	TargetParameters     PipeTargetParametersPtrOutput     `pulumi:"targetParameters"`
 }
@@ -107,7 +107,7 @@ type pipeArgs struct {
 	RoleArn              string                    `pulumi:"roleArn"`
 	Source               string                    `pulumi:"source"`
 	SourceParameters     *PipeSourceParameters     `pulumi:"sourceParameters"`
-	Tags                 *PipeTagMap               `pulumi:"tags"`
+	Tags                 map[string]string         `pulumi:"tags"`
 	Target               string                    `pulumi:"target"`
 	TargetParameters     *PipeTargetParameters     `pulumi:"targetParameters"`
 }
@@ -123,7 +123,7 @@ type PipeArgs struct {
 	RoleArn              pulumi.StringInput
 	Source               pulumi.StringInput
 	SourceParameters     PipeSourceParametersPtrInput
-	Tags                 PipeTagMapPtrInput
+	Tags                 pulumi.StringMapInput
 	Target               pulumi.StringInput
 	TargetParameters     PipeTargetParametersPtrInput
 }
@@ -221,8 +221,8 @@ func (o PipeOutput) StateReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.StateReason }).(pulumi.StringOutput)
 }
 
-func (o PipeOutput) Tags() PipeTagMapPtrOutput {
-	return o.ApplyT(func(v *Pipe) PipeTagMapPtrOutput { return v.Tags }).(PipeTagMapPtrOutput)
+func (o PipeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o PipeOutput) Target() pulumi.StringOutput {

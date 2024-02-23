@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     public sealed class FirewallPolicyPolicyVariablesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("ruleVariables")]
-        public Input<Inputs.FirewallPolicyRuleVariablesArgs>? RuleVariables { get; set; }
+        private InputMap<Inputs.FirewallPolicyIpSetArgs>? _ruleVariables;
+        public InputMap<Inputs.FirewallPolicyIpSetArgs> RuleVariables
+        {
+            get => _ruleVariables ?? (_ruleVariables = new InputMap<Inputs.FirewallPolicyIpSetArgs>());
+            set => _ruleVariables = value;
+        }
 
         public FirewallPolicyPolicyVariablesPropertiesArgs()
         {

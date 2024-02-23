@@ -26,7 +26,7 @@ type RobotApplication struct {
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuiteOutput `pulumi:"robotSoftwareSuite"`
 	// The sources of the robot application.
 	Sources RobotApplicationSourceConfigArrayOutput `pulumi:"sources"`
-	Tags    RobotApplicationTagsPtrOutput           `pulumi:"tags"`
+	Tags    pulumi.StringMapOutput                  `pulumi:"tags"`
 }
 
 // NewRobotApplication registers a new resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ type robotApplicationArgs struct {
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
 	// The sources of the robot application.
 	Sources []RobotApplicationSourceConfig `pulumi:"sources"`
-	Tags    *RobotApplicationTags          `pulumi:"tags"`
+	Tags    map[string]string              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RobotApplication resource.
@@ -99,7 +99,7 @@ type RobotApplicationArgs struct {
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuiteInput
 	// The sources of the robot application.
 	Sources RobotApplicationSourceConfigArrayInput
-	Tags    RobotApplicationTagsPtrInput
+	Tags    pulumi.StringMapInput
 }
 
 func (RobotApplicationArgs) ElementType() reflect.Type {
@@ -167,8 +167,8 @@ func (o RobotApplicationOutput) Sources() RobotApplicationSourceConfigArrayOutpu
 	return o.ApplyT(func(v *RobotApplication) RobotApplicationSourceConfigArrayOutput { return v.Sources }).(RobotApplicationSourceConfigArrayOutput)
 }
 
-func (o RobotApplicationOutput) Tags() RobotApplicationTagsPtrOutput {
-	return o.ApplyT(func(v *RobotApplication) RobotApplicationTagsPtrOutput { return v.Tags }).(RobotApplicationTagsPtrOutput)
+func (o RobotApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RobotApplication) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -25,7 +25,7 @@ export interface GetSoftwarePackageVersionArgs {
 }
 
 export interface GetSoftwarePackageVersionResult {
-    readonly attributes?: outputs.iot.SoftwarePackageVersionResourceAttributes;
+    readonly attributes?: {[key: string]: string};
     readonly description?: string;
     readonly errorReason?: string;
     readonly packageVersionArn?: string;

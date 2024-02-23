@@ -38,8 +38,8 @@ type LookupRouteResponseResult struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
 	ResponseModels interface{} `pulumi:"responseModels"`
 	// The route response parameters.
-	ResponseParameters *RouteResponseRouteParameters `pulumi:"responseParameters"`
-	RouteResponseId    *string                       `pulumi:"routeResponseId"`
+	ResponseParameters map[string]RouteResponseParameterConstraints `pulumi:"responseParameters"`
+	RouteResponseId    *string                                      `pulumi:"routeResponseId"`
 	// The route response key.
 	RouteResponseKey *string `pulumi:"routeResponseKey"`
 }
@@ -96,8 +96,10 @@ func (o LookupRouteResponseResultOutput) ResponseModels() pulumi.AnyOutput {
 }
 
 // The route response parameters.
-func (o LookupRouteResponseResultOutput) ResponseParameters() RouteResponseRouteParametersPtrOutput {
-	return o.ApplyT(func(v LookupRouteResponseResult) *RouteResponseRouteParameters { return v.ResponseParameters }).(RouteResponseRouteParametersPtrOutput)
+func (o LookupRouteResponseResultOutput) ResponseParameters() RouteResponseParameterConstraintsMapOutput {
+	return o.ApplyT(func(v LookupRouteResponseResult) map[string]RouteResponseParameterConstraints {
+		return v.ResponseParameters
+	}).(RouteResponseParameterConstraintsMapOutput)
 }
 
 func (o LookupRouteResponseResultOutput) RouteResponseId() pulumi.StringPtrOutput {

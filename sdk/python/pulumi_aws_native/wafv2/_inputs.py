@@ -32,7 +32,7 @@ __all__ = [
     'RuleGroupCountActionArgs',
     'RuleGroupCustomHttpHeaderArgs',
     'RuleGroupCustomRequestHandlingArgs',
-    'RuleGroupCustomResponseBodiesArgs',
+    'RuleGroupCustomResponseBodyArgs',
     'RuleGroupCustomResponseArgs',
     'RuleGroupFieldToMatchSingleHeaderPropertiesArgs',
     'RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs',
@@ -90,7 +90,7 @@ __all__ = [
     'WebAclCountActionArgs',
     'WebAclCustomHttpHeaderArgs',
     'WebAclCustomRequestHandlingArgs',
-    'WebAclCustomResponseBodiesArgs',
+    'WebAclCustomResponseBodyArgs',
     'WebAclCustomResponseArgs',
     'WebAclDefaultActionArgs',
     'WebAclExcludedRuleArgs',
@@ -127,7 +127,7 @@ __all__ = [
     'WebAclRateLimitUriPathArgs',
     'WebAclRegexMatchStatementArgs',
     'WebAclRegexPatternSetReferenceStatementArgs',
-    'WebAclRequestBodyArgs',
+    'WebAclRequestBodyAssociatedResourceTypeConfigArgs',
     'WebAclRequestInspectionAcfpArgs',
     'WebAclRequestInspectionArgs',
     'WebAclResponseInspectionBodyContainsArgs',
@@ -795,12 +795,33 @@ class RuleGroupCustomRequestHandlingArgs:
 
 
 @pulumi.input_type
-class RuleGroupCustomResponseBodiesArgs:
-    def __init__(__self__):
+class RuleGroupCustomResponseBodyArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 content_type: pulumi.Input['RuleGroupResponseContentType']):
         """
-        Custom response key and body map.
+        Custom response body.
         """
-        pass
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> pulumi.Input['RuleGroupResponseContentType']:
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: pulumi.Input['RuleGroupResponseContentType']):
+        pulumi.set(self, "content_type", value)
 
 
 @pulumi.input_type
@@ -2467,7 +2488,7 @@ class WebAclAndStatementArgs:
 @pulumi.input_type
 class WebAclAssociationConfigArgs:
     def __init__(__self__, *,
-                 request_body: Optional[pulumi.Input['WebAclRequestBodyArgs']] = None):
+                 request_body: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclRequestBodyAssociatedResourceTypeConfigArgs']]]] = None):
         """
         AssociationConfig for body inspection
         """
@@ -2476,11 +2497,11 @@ class WebAclAssociationConfigArgs:
 
     @property
     @pulumi.getter(name="requestBody")
-    def request_body(self) -> Optional[pulumi.Input['WebAclRequestBodyArgs']]:
+    def request_body(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclRequestBodyAssociatedResourceTypeConfigArgs']]]]:
         return pulumi.get(self, "request_body")
 
     @request_body.setter
-    def request_body(self, value: Optional[pulumi.Input['WebAclRequestBodyArgs']]):
+    def request_body(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclRequestBodyAssociatedResourceTypeConfigArgs']]]]):
         pulumi.set(self, "request_body", value)
 
 
@@ -2977,12 +2998,33 @@ class WebAclCustomRequestHandlingArgs:
 
 
 @pulumi.input_type
-class WebAclCustomResponseBodiesArgs:
-    def __init__(__self__):
+class WebAclCustomResponseBodyArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 content_type: pulumi.Input['WebAclResponseContentType']):
         """
-        Custom response key and body map.
+        Custom response body.
         """
-        pass
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> pulumi.Input['WebAclResponseContentType']:
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: pulumi.Input['WebAclResponseContentType']):
+        pulumi.set(self, "content_type", value)
 
 
 @pulumi.input_type
@@ -4359,12 +4401,22 @@ class WebAclRegexPatternSetReferenceStatementArgs:
 
 
 @pulumi.input_type
-class WebAclRequestBodyArgs:
-    def __init__(__self__):
+class WebAclRequestBodyAssociatedResourceTypeConfigArgs:
+    def __init__(__self__, *,
+                 default_size_inspection_limit: pulumi.Input['WebAclSizeInspectionLimit']):
         """
-        Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+        Configures the inspection size in the request body.
         """
-        pass
+        pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
+
+    @property
+    @pulumi.getter(name="defaultSizeInspectionLimit")
+    def default_size_inspection_limit(self) -> pulumi.Input['WebAclSizeInspectionLimit']:
+        return pulumi.get(self, "default_size_inspection_limit")
+
+    @default_size_inspection_limit.setter
+    def default_size_inspection_limit(self, value: pulumi.Input['WebAclSizeInspectionLimit']):
+        pulumi.set(self, "default_size_inspection_limit", value)
 
 
 @pulumi.input_type

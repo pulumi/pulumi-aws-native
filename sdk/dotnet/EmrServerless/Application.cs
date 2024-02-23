@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.EmrServerless
         /// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         /// </summary>
         [Output("workerTypeSpecifications")]
-        public Output<Outputs.ApplicationWorkerTypeSpecificationInputMap?> WorkerTypeSpecifications { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ApplicationWorkerTypeSpecificationInput>?> WorkerTypeSpecifications { get; private set; } = null!;
 
 
         /// <summary>
@@ -232,11 +232,17 @@ namespace Pulumi.AwsNative.EmrServerless
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        [Input("workerTypeSpecifications")]
+        private InputMap<Inputs.ApplicationWorkerTypeSpecificationInputArgs>? _workerTypeSpecifications;
+
         /// <summary>
         /// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         /// </summary>
-        [Input("workerTypeSpecifications")]
-        public Input<Inputs.ApplicationWorkerTypeSpecificationInputMapArgs>? WorkerTypeSpecifications { get; set; }
+        public InputMap<Inputs.ApplicationWorkerTypeSpecificationInputArgs> WorkerTypeSpecifications
+        {
+            get => _workerTypeSpecifications ?? (_workerTypeSpecifications = new InputMap<Inputs.ApplicationWorkerTypeSpecificationInputArgs>());
+            set => _workerTypeSpecifications = value;
+        }
 
         public ApplicationArgs()
         {

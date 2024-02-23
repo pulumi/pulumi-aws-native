@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class ConnectorProfileCustomAuthCredentialsArgs : global::Pulumi.ResourceArgs
     {
         [Input("credentialsMap")]
-        public Input<Inputs.ConnectorProfileCredentialsMapArgs>? CredentialsMap { get; set; }
+        private InputMap<string>? _credentialsMap;
+        public InputMap<string> CredentialsMap
+        {
+            get => _credentialsMap ?? (_credentialsMap = new InputMap<string>());
+            set => _credentialsMap = value;
+        }
 
         [Input("customAuthenticationType", required: true)]
         public Input<string> CustomAuthenticationType { get; set; } = null!;

@@ -11,9 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ConnectorTagsArgs',
     'ConnectorVpcInformationArgs',
-    'DirectoryRegistrationTagsArgs',
     'TemplateApplicationPoliciesArgs',
     'TemplateApplicationPolicy0PropertiesArgs',
     'TemplateApplicationPolicy1PropertiesArgs',
@@ -45,18 +43,11 @@ __all__ = [
     'TemplateSubjectNameFlagsV2Args',
     'TemplateSubjectNameFlagsV3Args',
     'TemplateSubjectNameFlagsV4Args',
-    'TemplateTagsArgs',
     'TemplateV2Args',
     'TemplateV3Args',
     'TemplateV4Args',
     'TemplateValidityPeriodArgs',
 ]
-
-@pulumi.input_type
-class ConnectorTagsArgs:
-    def __init__(__self__):
-        pass
-
 
 @pulumi.input_type
 class ConnectorVpcInformationArgs:
@@ -72,12 +63,6 @@ class ConnectorVpcInformationArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "security_group_ids", value)
-
-
-@pulumi.input_type
-class DirectoryRegistrationTagsArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -1480,12 +1465,6 @@ class TemplateSubjectNameFlagsV4Args:
     @san_require_upn.setter
     def san_require_upn(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "san_require_upn", value)
-
-
-@pulumi.input_type
-class TemplateTagsArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type

@@ -32,7 +32,6 @@ __all__ = [
     'RestoreTestingPlanRestoreTestingRecoveryPointSelection',
     'RestoreTestingSelectionKeyValue',
     'RestoreTestingSelectionProtectedResourceConditions',
-    'RestoreTestingSelectionSensitiveStringMap',
 ]
 
 @pulumi.output_type
@@ -1112,11 +1111,5 @@ class RestoreTestingSelectionProtectedResourceConditions(dict):
     @pulumi.getter(name="stringNotEquals")
     def string_not_equals(self) -> Optional[Sequence['outputs.RestoreTestingSelectionKeyValue']]:
         return pulumi.get(self, "string_not_equals")
-
-
-@pulumi.output_type
-class RestoreTestingSelectionSensitiveStringMap(dict):
-    def __init__(__self__):
-        pass
 
 

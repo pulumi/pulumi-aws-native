@@ -24,7 +24,7 @@ export interface GetVehicleArgs {
 
 export interface GetVehicleResult {
     readonly arn?: string;
-    readonly attributes?: outputs.iotfleetwise.VehicleattributesMap;
+    readonly attributes?: {[key: string]: string};
     readonly creationTime?: string;
     readonly decoderManifestArn?: string;
     readonly lastModificationTime?: string;

@@ -52,7 +52,7 @@ type LookupApplicationResult struct {
 	// Tag map with key and value
 	Tags []aws.Tag `pulumi:"tags"`
 	// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
-	WorkerTypeSpecifications *ApplicationWorkerTypeSpecificationInputMap `pulumi:"workerTypeSpecifications"`
+	WorkerTypeSpecifications map[string]ApplicationWorkerTypeSpecificationInput `pulumi:"workerTypeSpecifications"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -155,10 +155,10 @@ func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
 }
 
 // The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
-func (o LookupApplicationResultOutput) WorkerTypeSpecifications() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *ApplicationWorkerTypeSpecificationInputMap {
+func (o LookupApplicationResultOutput) WorkerTypeSpecifications() ApplicationWorkerTypeSpecificationInputMapOutput {
+	return o.ApplyT(func(v LookupApplicationResult) map[string]ApplicationWorkerTypeSpecificationInput {
 		return v.WorkerTypeSpecifications
-	}).(ApplicationWorkerTypeSpecificationInputMapPtrOutput)
+	}).(ApplicationWorkerTypeSpecificationInputMapOutput)
 }
 
 func init() {

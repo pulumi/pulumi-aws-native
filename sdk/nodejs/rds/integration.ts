@@ -37,7 +37,7 @@ export class Integration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Integration.__pulumiType;
     }
 
-    public readonly additionalEncryptionContext!: pulumi.Output<outputs.rds.IntegrationEncryptionContextMap | undefined>;
+    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * The ARN of the integration.
@@ -100,7 +100,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["targetArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext", "integrationName", "kmsKeyId", "sourceArn", "targetArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext.*", "integrationName", "kmsKeyId", "sourceArn", "targetArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Integration.__pulumiType, name, resourceInputs, opts);
     }
@@ -110,7 +110,7 @@ export class Integration extends pulumi.CustomResource {
  * The set of arguments for constructing a Integration resource.
  */
 export interface IntegrationArgs {
-    additionalEncryptionContext?: pulumi.Input<inputs.rds.IntegrationEncryptionContextMapArgs>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the integration.
      */

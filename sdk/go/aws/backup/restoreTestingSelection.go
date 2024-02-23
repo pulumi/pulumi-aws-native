@@ -20,7 +20,7 @@ type RestoreTestingSelection struct {
 	ProtectedResourceArns       pulumi.StringArrayOutput                                    `pulumi:"protectedResourceArns"`
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrOutput `pulumi:"protectedResourceConditions"`
 	ProtectedResourceType       pulumi.StringOutput                                         `pulumi:"protectedResourceType"`
-	RestoreMetadataOverrides    RestoreTestingSelectionSensitiveStringMapPtrOutput          `pulumi:"restoreMetadataOverrides"`
+	RestoreMetadataOverrides    pulumi.StringMapOutput                                      `pulumi:"restoreMetadataOverrides"`
 	RestoreTestingPlanName      pulumi.StringOutput                                         `pulumi:"restoreTestingPlanName"`
 	RestoreTestingSelectionName pulumi.StringOutput                                         `pulumi:"restoreTestingSelectionName"`
 	ValidationWindowHours       pulumi.IntPtrOutput                                         `pulumi:"validationWindowHours"`
@@ -85,7 +85,7 @@ type restoreTestingSelectionArgs struct {
 	ProtectedResourceArns       []string                                            `pulumi:"protectedResourceArns"`
 	ProtectedResourceConditions *RestoreTestingSelectionProtectedResourceConditions `pulumi:"protectedResourceConditions"`
 	ProtectedResourceType       string                                              `pulumi:"protectedResourceType"`
-	RestoreMetadataOverrides    *RestoreTestingSelectionSensitiveStringMap          `pulumi:"restoreMetadataOverrides"`
+	RestoreMetadataOverrides    map[string]string                                   `pulumi:"restoreMetadataOverrides"`
 	RestoreTestingPlanName      string                                              `pulumi:"restoreTestingPlanName"`
 	RestoreTestingSelectionName *string                                             `pulumi:"restoreTestingSelectionName"`
 	ValidationWindowHours       *int                                                `pulumi:"validationWindowHours"`
@@ -97,7 +97,7 @@ type RestoreTestingSelectionArgs struct {
 	ProtectedResourceArns       pulumi.StringArrayInput
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrInput
 	ProtectedResourceType       pulumi.StringInput
-	RestoreMetadataOverrides    RestoreTestingSelectionSensitiveStringMapPtrInput
+	RestoreMetadataOverrides    pulumi.StringMapInput
 	RestoreTestingPlanName      pulumi.StringInput
 	RestoreTestingSelectionName pulumi.StringPtrInput
 	ValidationWindowHours       pulumi.IntPtrInput
@@ -158,10 +158,8 @@ func (o RestoreTestingSelectionOutput) ProtectedResourceType() pulumi.StringOutp
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.ProtectedResourceType }).(pulumi.StringOutput)
 }
 
-func (o RestoreTestingSelectionOutput) RestoreMetadataOverrides() RestoreTestingSelectionSensitiveStringMapPtrOutput {
-	return o.ApplyT(func(v *RestoreTestingSelection) RestoreTestingSelectionSensitiveStringMapPtrOutput {
-		return v.RestoreMetadataOverrides
-	}).(RestoreTestingSelectionSensitiveStringMapPtrOutput)
+func (o RestoreTestingSelectionOutput) RestoreMetadataOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringMapOutput { return v.RestoreMetadataOverrides }).(pulumi.StringMapOutput)
 }
 
 func (o RestoreTestingSelectionOutput) RestoreTestingPlanName() pulumi.StringOutput {

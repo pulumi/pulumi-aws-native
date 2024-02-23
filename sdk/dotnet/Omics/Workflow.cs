@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Omics
         public Output<string?> Name { get; private set; } = null!;
 
         [Output("parameterTemplate")]
-        public Output<Outputs.WorkflowParameterTemplate?> ParameterTemplate { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.WorkflowParameter>?> ParameterTemplate { get; private set; } = null!;
 
         [Output("status")]
         public Output<Pulumi.AwsNative.Omics.WorkflowStatus> Status { get; private set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Omics
         public Output<double?> StorageCapacity { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.WorkflowTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<Pulumi.AwsNative.Omics.WorkflowType> Type { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Omics
                     "definitionUri",
                     "engine",
                     "main",
-                    "parameterTemplate",
+                    "parameterTemplate.*",
                     "storageCapacity",
                 },
             };
@@ -127,13 +127,23 @@ namespace Pulumi.AwsNative.Omics
         public Input<string>? Name { get; set; }
 
         [Input("parameterTemplate")]
-        public Input<Inputs.WorkflowParameterTemplateArgs>? ParameterTemplate { get; set; }
+        private InputMap<Inputs.WorkflowParameterArgs>? _parameterTemplate;
+        public InputMap<Inputs.WorkflowParameterArgs> ParameterTemplate
+        {
+            get => _parameterTemplate ?? (_parameterTemplate = new InputMap<Inputs.WorkflowParameterArgs>());
+            set => _parameterTemplate = value;
+        }
 
         [Input("storageCapacity")]
         public Input<double>? StorageCapacity { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.WorkflowTagMapArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public WorkflowArgs()
         {

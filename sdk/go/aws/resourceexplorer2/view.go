@@ -18,7 +18,7 @@ type View struct {
 	Filters            ViewSearchFilterPtrOutput       `pulumi:"filters"`
 	IncludedProperties ViewIncludedPropertyArrayOutput `pulumi:"includedProperties"`
 	Scope              pulumi.StringPtrOutput          `pulumi:"scope"`
-	Tags               ViewTagMapPtrOutput             `pulumi:"tags"`
+	Tags               pulumi.StringMapOutput          `pulumi:"tags"`
 	ViewArn            pulumi.StringOutput             `pulumi:"viewArn"`
 	ViewName           pulumi.StringOutput             `pulumi:"viewName"`
 }
@@ -71,7 +71,7 @@ type viewArgs struct {
 	Filters            *ViewSearchFilter      `pulumi:"filters"`
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
 	Scope              *string                `pulumi:"scope"`
-	Tags               *ViewTagMap            `pulumi:"tags"`
+	Tags               map[string]string      `pulumi:"tags"`
 	ViewName           *string                `pulumi:"viewName"`
 }
 
@@ -80,7 +80,7 @@ type ViewArgs struct {
 	Filters            ViewSearchFilterPtrInput
 	IncludedProperties ViewIncludedPropertyArrayInput
 	Scope              pulumi.StringPtrInput
-	Tags               ViewTagMapPtrInput
+	Tags               pulumi.StringMapInput
 	ViewName           pulumi.StringPtrInput
 }
 
@@ -133,8 +133,8 @@ func (o ViewOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-func (o ViewOutput) Tags() ViewTagMapPtrOutput {
-	return o.ApplyT(func(v *View) ViewTagMapPtrOutput { return v.Tags }).(ViewTagMapPtrOutput)
+func (o ViewOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *View) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o ViewOutput) ViewArn() pulumi.StringOutput {

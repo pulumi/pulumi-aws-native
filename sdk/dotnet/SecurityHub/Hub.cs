@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.SecurityHub
         public Output<string> SubscribedAt { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.HubTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -112,7 +112,12 @@ namespace Pulumi.AwsNative.SecurityHub
         public Input<bool>? EnableDefaultStandards { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.HubTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public HubArgs()
         {

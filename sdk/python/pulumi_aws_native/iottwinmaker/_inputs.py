@@ -26,7 +26,6 @@ __all__ = [
     'EntityDataTypeArgs',
     'EntityDataValueRelationshipValuePropertiesArgs',
     'EntityDataValueArgs',
-    'EntityPropertyDefinitionConfigurationArgs',
     'EntityPropertyDefinitionPropertiesArgs',
     'EntityPropertyGroupArgs',
     'EntityPropertyArgs',
@@ -1153,18 +1152,9 @@ class EntityDataValueArgs:
 
 
 @pulumi.input_type
-class EntityPropertyDefinitionConfigurationArgs:
-    def __init__(__self__):
-        """
-        An object that specifies information about a property.
-        """
-        pass
-
-
-@pulumi.input_type
 class EntityPropertyDefinitionPropertiesArgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['EntityPropertyDefinitionConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  data_type: Optional[pulumi.Input['EntityDataTypeArgs']] = None,
                  default_value: Optional[pulumi.Input['EntityDataValueArgs']] = None,
                  is_external_id: Optional[pulumi.Input[bool]] = None,
@@ -1176,7 +1166,7 @@ class EntityPropertyDefinitionPropertiesArgs:
                  is_time_series: Optional[pulumi.Input[bool]] = None):
         """
         An object that specifies information about a property.
-        :param pulumi.Input['EntityPropertyDefinitionConfigurationArgs'] configuration: An object that specifies information about a property.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration: An object that specifies information about a property.
         :param pulumi.Input['EntityDataTypeArgs'] data_type: An object that contains information about the data type.
         :param pulumi.Input['EntityDataValueArgs'] default_value: An object that contains the default value.
         :param pulumi.Input[bool] is_external_id: A Boolean value that specifies whether the property ID comes from an external data store.
@@ -1210,14 +1200,14 @@ class EntityPropertyDefinitionPropertiesArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['EntityPropertyDefinitionConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         An object that specifies information about a property.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['EntityPropertyDefinitionConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "configuration", value)
 
     @property

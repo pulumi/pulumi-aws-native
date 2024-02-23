@@ -2629,124 +2629,6 @@ func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringNotEq
 	}).(RestoreTestingSelectionKeyValueArrayOutput)
 }
 
-type RestoreTestingSelectionSensitiveStringMap struct {
-}
-
-// RestoreTestingSelectionSensitiveStringMapInput is an input type that accepts RestoreTestingSelectionSensitiveStringMap and RestoreTestingSelectionSensitiveStringMapOutput values.
-// You can construct a concrete instance of `RestoreTestingSelectionSensitiveStringMapInput` via:
-//
-//	RestoreTestingSelectionSensitiveStringMap{ "key": RestoreTestingSelectionSensitiveStringArgs{...} }
-type RestoreTestingSelectionSensitiveStringMapInput interface {
-	pulumi.Input
-
-	ToRestoreTestingSelectionSensitiveStringMapOutput() RestoreTestingSelectionSensitiveStringMapOutput
-	ToRestoreTestingSelectionSensitiveStringMapOutputWithContext(context.Context) RestoreTestingSelectionSensitiveStringMapOutput
-}
-
-type RestoreTestingSelectionSensitiveStringMapArgs struct {
-}
-
-func (RestoreTestingSelectionSensitiveStringMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestoreTestingSelectionSensitiveStringMap)(nil)).Elem()
-}
-
-func (i RestoreTestingSelectionSensitiveStringMapArgs) ToRestoreTestingSelectionSensitiveStringMapOutput() RestoreTestingSelectionSensitiveStringMapOutput {
-	return i.ToRestoreTestingSelectionSensitiveStringMapOutputWithContext(context.Background())
-}
-
-func (i RestoreTestingSelectionSensitiveStringMapArgs) ToRestoreTestingSelectionSensitiveStringMapOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionSensitiveStringMapOutput)
-}
-
-func (i RestoreTestingSelectionSensitiveStringMapArgs) ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput {
-	return i.ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(context.Background())
-}
-
-func (i RestoreTestingSelectionSensitiveStringMapArgs) ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionSensitiveStringMapOutput).ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx)
-}
-
-// RestoreTestingSelectionSensitiveStringMapPtrInput is an input type that accepts RestoreTestingSelectionSensitiveStringMapArgs, RestoreTestingSelectionSensitiveStringMapPtr and RestoreTestingSelectionSensitiveStringMapPtrOutput values.
-// You can construct a concrete instance of `RestoreTestingSelectionSensitiveStringMapPtrInput` via:
-//
-//	        RestoreTestingSelectionSensitiveStringMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type RestoreTestingSelectionSensitiveStringMapPtrInput interface {
-	pulumi.Input
-
-	ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput
-	ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput
-}
-
-type restoreTestingSelectionSensitiveStringMapPtrType RestoreTestingSelectionSensitiveStringMapArgs
-
-func RestoreTestingSelectionSensitiveStringMapPtr(v *RestoreTestingSelectionSensitiveStringMapArgs) RestoreTestingSelectionSensitiveStringMapPtrInput {
-	return (*restoreTestingSelectionSensitiveStringMapPtrType)(v)
-}
-
-func (*restoreTestingSelectionSensitiveStringMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RestoreTestingSelectionSensitiveStringMap)(nil)).Elem()
-}
-
-func (i *restoreTestingSelectionSensitiveStringMapPtrType) ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput {
-	return i.ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(context.Background())
-}
-
-func (i *restoreTestingSelectionSensitiveStringMapPtrType) ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionSensitiveStringMapPtrOutput)
-}
-
-type RestoreTestingSelectionSensitiveStringMapOutput struct{ *pulumi.OutputState }
-
-func (RestoreTestingSelectionSensitiveStringMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestoreTestingSelectionSensitiveStringMap)(nil)).Elem()
-}
-
-func (o RestoreTestingSelectionSensitiveStringMapOutput) ToRestoreTestingSelectionSensitiveStringMapOutput() RestoreTestingSelectionSensitiveStringMapOutput {
-	return o
-}
-
-func (o RestoreTestingSelectionSensitiveStringMapOutput) ToRestoreTestingSelectionSensitiveStringMapOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapOutput {
-	return o
-}
-
-func (o RestoreTestingSelectionSensitiveStringMapOutput) ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput {
-	return o.ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(context.Background())
-}
-
-func (o RestoreTestingSelectionSensitiveStringMapOutput) ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestoreTestingSelectionSensitiveStringMap) *RestoreTestingSelectionSensitiveStringMap {
-		return &v
-	}).(RestoreTestingSelectionSensitiveStringMapPtrOutput)
-}
-
-type RestoreTestingSelectionSensitiveStringMapPtrOutput struct{ *pulumi.OutputState }
-
-func (RestoreTestingSelectionSensitiveStringMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RestoreTestingSelectionSensitiveStringMap)(nil)).Elem()
-}
-
-func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput {
-	return o
-}
-
-func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput {
-	return o
-}
-
-func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) Elem() RestoreTestingSelectionSensitiveStringMapOutput {
-	return o.ApplyT(func(v *RestoreTestingSelectionSensitiveStringMap) RestoreTestingSelectionSensitiveStringMap {
-		if v != nil {
-			return *v
-		}
-		var ret RestoreTestingSelectionSensitiveStringMap
-		return ret
-	}).(RestoreTestingSelectionSensitiveStringMapOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanAdvancedBackupSettingResourceTypeInput)(nil)).Elem(), BackupPlanAdvancedBackupSettingResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanAdvancedBackupSettingResourceTypeArrayInput)(nil)).Elem(), BackupPlanAdvancedBackupSettingResourceTypeArray{})
@@ -2783,8 +2665,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionKeyValueArrayInput)(nil)).Elem(), RestoreTestingSelectionKeyValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsPtrInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionSensitiveStringMapInput)(nil)).Elem(), RestoreTestingSelectionSensitiveStringMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionSensitiveStringMapPtrInput)(nil)).Elem(), RestoreTestingSelectionSensitiveStringMapArgs{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupPlanBackupRuleResourceTypeOutput{})
@@ -2824,6 +2704,4 @@ func init() {
 	pulumi.RegisterOutputType(RestoreTestingSelectionKeyValueArrayOutput{})
 	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsOutput{})
 	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsPtrOutput{})
-	pulumi.RegisterOutputType(RestoreTestingSelectionSensitiveStringMapOutput{})
-	pulumi.RegisterOutputType(RestoreTestingSelectionSensitiveStringMapPtrOutput{})
 }

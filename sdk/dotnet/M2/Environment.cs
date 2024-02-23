@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.M2
         /// Tags associated to this environment.
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.EnvironmentTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -239,11 +239,17 @@ namespace Pulumi.AwsNative.M2
             set => _subnetIds = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// Tags associated to this environment.
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.EnvironmentTagMapArgs>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public EnvironmentArgs()
         {

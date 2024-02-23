@@ -22,10 +22,10 @@ type Application struct {
 	Description    pulumi.StringPtrOutput      `pulumi:"description"`
 	EngineType     ApplicationEngineTypeOutput `pulumi:"engineType"`
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
-	KmsKeyId pulumi.StringPtrOutput     `pulumi:"kmsKeyId"`
-	Name     pulumi.StringOutput        `pulumi:"name"`
-	RoleArn  pulumi.StringPtrOutput     `pulumi:"roleArn"`
-	Tags     ApplicationTagMapPtrOutput `pulumi:"tags"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	RoleArn  pulumi.StringPtrOutput `pulumi:"roleArn"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -85,10 +85,10 @@ type applicationArgs struct {
 	Description *string               `pulumi:"description"`
 	EngineType  ApplicationEngineType `pulumi:"engineType"`
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
-	KmsKeyId *string            `pulumi:"kmsKeyId"`
-	Name     *string            `pulumi:"name"`
-	RoleArn  *string            `pulumi:"roleArn"`
-	Tags     *ApplicationTagMap `pulumi:"tags"`
+	KmsKeyId *string           `pulumi:"kmsKeyId"`
+	Name     *string           `pulumi:"name"`
+	RoleArn  *string           `pulumi:"roleArn"`
+	Tags     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -100,7 +100,7 @@ type ApplicationArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	Name     pulumi.StringPtrInput
 	RoleArn  pulumi.StringPtrInput
-	Tags     ApplicationTagMapPtrInput
+	Tags     pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -173,8 +173,8 @@ func (o ApplicationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationOutput) Tags() ApplicationTagMapPtrOutput {
-	return o.ApplyT(func(v *Application) ApplicationTagMapPtrOutput { return v.Tags }).(ApplicationTagMapPtrOutput)
+func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class ConnectorProfileCustomConnectorProfileProperties
     {
         public readonly Outputs.ConnectorProfileOAuth2Properties? OAuth2Properties;
-        public readonly Outputs.ConnectorProfileProfileProperties? ProfileProperties;
+        public readonly ImmutableDictionary<string, string>? ProfileProperties;
 
         [OutputConstructor]
         private ConnectorProfileCustomConnectorProfileProperties(
             Outputs.ConnectorProfileOAuth2Properties? oAuth2Properties,
 
-            Outputs.ConnectorProfileProfileProperties? profileProperties)
+            ImmutableDictionary<string, string>? profileProperties)
         {
             OAuth2Properties = oAuth2Properties;
             ProfileProperties = profileProperties;

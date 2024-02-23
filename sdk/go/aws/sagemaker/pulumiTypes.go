@@ -12269,10 +12269,10 @@ func (o InferenceComponentComputeResourceRequirementsPtrOutput) NumberOfCpuCores
 }
 
 type InferenceComponentContainerSpecification struct {
-	ArtifactUrl   *string                           `pulumi:"artifactUrl"`
-	DeployedImage *InferenceComponentDeployedImage  `pulumi:"deployedImage"`
-	Environment   *InferenceComponentEnvironmentMap `pulumi:"environment"`
-	Image         *string                           `pulumi:"image"`
+	ArtifactUrl   *string                          `pulumi:"artifactUrl"`
+	DeployedImage *InferenceComponentDeployedImage `pulumi:"deployedImage"`
+	Environment   map[string]string                `pulumi:"environment"`
+	Image         *string                          `pulumi:"image"`
 }
 
 // InferenceComponentContainerSpecificationInput is an input type that accepts InferenceComponentContainerSpecificationArgs and InferenceComponentContainerSpecificationOutput values.
@@ -12287,10 +12287,10 @@ type InferenceComponentContainerSpecificationInput interface {
 }
 
 type InferenceComponentContainerSpecificationArgs struct {
-	ArtifactUrl   pulumi.StringPtrInput                    `pulumi:"artifactUrl"`
-	DeployedImage InferenceComponentDeployedImagePtrInput  `pulumi:"deployedImage"`
-	Environment   InferenceComponentEnvironmentMapPtrInput `pulumi:"environment"`
-	Image         pulumi.StringPtrInput                    `pulumi:"image"`
+	ArtifactUrl   pulumi.StringPtrInput                   `pulumi:"artifactUrl"`
+	DeployedImage InferenceComponentDeployedImagePtrInput `pulumi:"deployedImage"`
+	Environment   pulumi.StringMapInput                   `pulumi:"environment"`
+	Image         pulumi.StringPtrInput                   `pulumi:"image"`
 }
 
 func (InferenceComponentContainerSpecificationArgs) ElementType() reflect.Type {
@@ -12380,10 +12380,8 @@ func (o InferenceComponentContainerSpecificationOutput) DeployedImage() Inferenc
 	}).(InferenceComponentDeployedImagePtrOutput)
 }
 
-func (o InferenceComponentContainerSpecificationOutput) Environment() InferenceComponentEnvironmentMapPtrOutput {
-	return o.ApplyT(func(v InferenceComponentContainerSpecification) *InferenceComponentEnvironmentMap {
-		return v.Environment
-	}).(InferenceComponentEnvironmentMapPtrOutput)
+func (o InferenceComponentContainerSpecificationOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InferenceComponentContainerSpecification) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 func (o InferenceComponentContainerSpecificationOutput) Image() pulumi.StringPtrOutput {
@@ -12432,13 +12430,13 @@ func (o InferenceComponentContainerSpecificationPtrOutput) DeployedImage() Infer
 	}).(InferenceComponentDeployedImagePtrOutput)
 }
 
-func (o InferenceComponentContainerSpecificationPtrOutput) Environment() InferenceComponentEnvironmentMapPtrOutput {
-	return o.ApplyT(func(v *InferenceComponentContainerSpecification) *InferenceComponentEnvironmentMap {
+func (o InferenceComponentContainerSpecificationPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InferenceComponentContainerSpecification) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(InferenceComponentEnvironmentMapPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o InferenceComponentContainerSpecificationPtrOutput) Image() pulumi.StringPtrOutput {
@@ -12611,127 +12609,6 @@ func (o InferenceComponentDeployedImagePtrOutput) SpecifiedImage() pulumi.String
 		}
 		return v.SpecifiedImage
 	}).(pulumi.StringPtrOutput)
-}
-
-// Environment variables to specify on the container
-type InferenceComponentEnvironmentMap struct {
-}
-
-// InferenceComponentEnvironmentMapInput is an input type that accepts InferenceComponentEnvironmentMap and InferenceComponentEnvironmentMapOutput values.
-// You can construct a concrete instance of `InferenceComponentEnvironmentMapInput` via:
-//
-//	InferenceComponentEnvironmentMap{ "key": InferenceComponentEnvironmentArgs{...} }
-type InferenceComponentEnvironmentMapInput interface {
-	pulumi.Input
-
-	ToInferenceComponentEnvironmentMapOutput() InferenceComponentEnvironmentMapOutput
-	ToInferenceComponentEnvironmentMapOutputWithContext(context.Context) InferenceComponentEnvironmentMapOutput
-}
-
-// Environment variables to specify on the container
-type InferenceComponentEnvironmentMapArgs struct {
-}
-
-func (InferenceComponentEnvironmentMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InferenceComponentEnvironmentMap)(nil)).Elem()
-}
-
-func (i InferenceComponentEnvironmentMapArgs) ToInferenceComponentEnvironmentMapOutput() InferenceComponentEnvironmentMapOutput {
-	return i.ToInferenceComponentEnvironmentMapOutputWithContext(context.Background())
-}
-
-func (i InferenceComponentEnvironmentMapArgs) ToInferenceComponentEnvironmentMapOutputWithContext(ctx context.Context) InferenceComponentEnvironmentMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentEnvironmentMapOutput)
-}
-
-func (i InferenceComponentEnvironmentMapArgs) ToInferenceComponentEnvironmentMapPtrOutput() InferenceComponentEnvironmentMapPtrOutput {
-	return i.ToInferenceComponentEnvironmentMapPtrOutputWithContext(context.Background())
-}
-
-func (i InferenceComponentEnvironmentMapArgs) ToInferenceComponentEnvironmentMapPtrOutputWithContext(ctx context.Context) InferenceComponentEnvironmentMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentEnvironmentMapOutput).ToInferenceComponentEnvironmentMapPtrOutputWithContext(ctx)
-}
-
-// InferenceComponentEnvironmentMapPtrInput is an input type that accepts InferenceComponentEnvironmentMapArgs, InferenceComponentEnvironmentMapPtr and InferenceComponentEnvironmentMapPtrOutput values.
-// You can construct a concrete instance of `InferenceComponentEnvironmentMapPtrInput` via:
-//
-//	        InferenceComponentEnvironmentMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type InferenceComponentEnvironmentMapPtrInput interface {
-	pulumi.Input
-
-	ToInferenceComponentEnvironmentMapPtrOutput() InferenceComponentEnvironmentMapPtrOutput
-	ToInferenceComponentEnvironmentMapPtrOutputWithContext(context.Context) InferenceComponentEnvironmentMapPtrOutput
-}
-
-type inferenceComponentEnvironmentMapPtrType InferenceComponentEnvironmentMapArgs
-
-func InferenceComponentEnvironmentMapPtr(v *InferenceComponentEnvironmentMapArgs) InferenceComponentEnvironmentMapPtrInput {
-	return (*inferenceComponentEnvironmentMapPtrType)(v)
-}
-
-func (*inferenceComponentEnvironmentMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InferenceComponentEnvironmentMap)(nil)).Elem()
-}
-
-func (i *inferenceComponentEnvironmentMapPtrType) ToInferenceComponentEnvironmentMapPtrOutput() InferenceComponentEnvironmentMapPtrOutput {
-	return i.ToInferenceComponentEnvironmentMapPtrOutputWithContext(context.Background())
-}
-
-func (i *inferenceComponentEnvironmentMapPtrType) ToInferenceComponentEnvironmentMapPtrOutputWithContext(ctx context.Context) InferenceComponentEnvironmentMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentEnvironmentMapPtrOutput)
-}
-
-// Environment variables to specify on the container
-type InferenceComponentEnvironmentMapOutput struct{ *pulumi.OutputState }
-
-func (InferenceComponentEnvironmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InferenceComponentEnvironmentMap)(nil)).Elem()
-}
-
-func (o InferenceComponentEnvironmentMapOutput) ToInferenceComponentEnvironmentMapOutput() InferenceComponentEnvironmentMapOutput {
-	return o
-}
-
-func (o InferenceComponentEnvironmentMapOutput) ToInferenceComponentEnvironmentMapOutputWithContext(ctx context.Context) InferenceComponentEnvironmentMapOutput {
-	return o
-}
-
-func (o InferenceComponentEnvironmentMapOutput) ToInferenceComponentEnvironmentMapPtrOutput() InferenceComponentEnvironmentMapPtrOutput {
-	return o.ToInferenceComponentEnvironmentMapPtrOutputWithContext(context.Background())
-}
-
-func (o InferenceComponentEnvironmentMapOutput) ToInferenceComponentEnvironmentMapPtrOutputWithContext(ctx context.Context) InferenceComponentEnvironmentMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentEnvironmentMap) *InferenceComponentEnvironmentMap {
-		return &v
-	}).(InferenceComponentEnvironmentMapPtrOutput)
-}
-
-type InferenceComponentEnvironmentMapPtrOutput struct{ *pulumi.OutputState }
-
-func (InferenceComponentEnvironmentMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InferenceComponentEnvironmentMap)(nil)).Elem()
-}
-
-func (o InferenceComponentEnvironmentMapPtrOutput) ToInferenceComponentEnvironmentMapPtrOutput() InferenceComponentEnvironmentMapPtrOutput {
-	return o
-}
-
-func (o InferenceComponentEnvironmentMapPtrOutput) ToInferenceComponentEnvironmentMapPtrOutputWithContext(ctx context.Context) InferenceComponentEnvironmentMapPtrOutput {
-	return o
-}
-
-func (o InferenceComponentEnvironmentMapPtrOutput) Elem() InferenceComponentEnvironmentMapOutput {
-	return o.ApplyT(func(v *InferenceComponentEnvironmentMap) InferenceComponentEnvironmentMap {
-		if v != nil {
-			return *v
-		}
-		var ret InferenceComponentEnvironmentMap
-		return ret
-	}).(InferenceComponentEnvironmentMapOutput)
 }
 
 // The runtime config for the inference component
@@ -41300,8 +41177,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentContainerSpecificationPtrInput)(nil)).Elem(), InferenceComponentContainerSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeployedImageInput)(nil)).Elem(), InferenceComponentDeployedImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeployedImagePtrInput)(nil)).Elem(), InferenceComponentDeployedImageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentEnvironmentMapInput)(nil)).Elem(), InferenceComponentEnvironmentMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentEnvironmentMapPtrInput)(nil)).Elem(), InferenceComponentEnvironmentMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentRuntimeConfigInput)(nil)).Elem(), InferenceComponentRuntimeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationInput)(nil)).Elem(), InferenceComponentSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentStartupParametersInput)(nil)).Elem(), InferenceComponentStartupParametersArgs{})
@@ -41816,8 +41691,6 @@ func init() {
 	pulumi.RegisterOutputType(InferenceComponentContainerSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InferenceComponentDeployedImageOutput{})
 	pulumi.RegisterOutputType(InferenceComponentDeployedImagePtrOutput{})
-	pulumi.RegisterOutputType(InferenceComponentEnvironmentMapOutput{})
-	pulumi.RegisterOutputType(InferenceComponentEnvironmentMapPtrOutput{})
 	pulumi.RegisterOutputType(InferenceComponentRuntimeConfigOutput{})
 	pulumi.RegisterOutputType(InferenceComponentRuntimeConfigPtrOutput{})
 	pulumi.RegisterOutputType(InferenceComponentSpecificationOutput{})

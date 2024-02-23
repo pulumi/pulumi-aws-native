@@ -973,31 +973,51 @@ __all__ = [
     'DashboardWordCloudOptions',
     'DashboardWordCloudSortConfiguration',
     'DashboardWordCloudVisual',
+    'DataSetCalculatedColumn',
+    'DataSetCastColumnTypeOperation',
+    'DataSetColumnDescription',
     'DataSetColumnGroup',
     'DataSetColumnLevelPermissionRule',
+    'DataSetColumnTag',
+    'DataSetCreateColumnsOperation',
+    'DataSetCustomSql',
     'DataSetDatasetParameter',
     'DataSetDateTimeDatasetParameter',
     'DataSetDateTimeDatasetParameterDefaultValues',
     'DataSetDecimalDatasetParameter',
     'DataSetDecimalDatasetParameterDefaultValues',
-    'DataSetFieldFolderMap',
+    'DataSetFieldFolder',
+    'DataSetFilterOperation',
     'DataSetGeoSpatialColumnGroup',
     'DataSetIncrementalRefresh',
     'DataSetIngestionWaitPolicy',
+    'DataSetInputColumn',
     'DataSetIntegerDatasetParameter',
     'DataSetIntegerDatasetParameterDefaultValues',
-    'DataSetLogicalTableMap',
+    'DataSetJoinInstruction',
+    'DataSetJoinKeyProperties',
+    'DataSetLogicalTable',
+    'DataSetLogicalTableSource',
     'DataSetLookbackWindow',
+    'DataSetNewDefaultValues',
     'DataSetOutputColumn',
-    'DataSetPhysicalTableMap',
+    'DataSetOverrideDatasetParameterOperation',
+    'DataSetPhysicalTable',
+    'DataSetProjectOperation',
     'DataSetRefreshConfiguration',
     'DataSetRefreshProperties',
+    'DataSetRelationalTable',
+    'DataSetRenameColumnOperation',
     'DataSetResourcePermission',
     'DataSetRowLevelPermissionDataSet',
     'DataSetRowLevelPermissionTagConfiguration',
     'DataSetRowLevelPermissionTagRule',
+    'DataSetS3Source',
     'DataSetStringDatasetParameter',
     'DataSetStringDatasetParameterDefaultValues',
+    'DataSetTagColumnOperation',
+    'DataSetTransformOperation',
+    'DataSetUploadSettings',
     'DataSetUsageConfiguration',
     'DataSourceAmazonElasticsearchParameters',
     'DataSourceAmazonOpenSearchParameters',
@@ -1518,7 +1538,6 @@ __all__ = [
     'ThemeTypography',
     'ThemeUiColorPalette',
     'ThemeVersion',
-    'TopicAggregationFunctionParameters',
     'TopicCalculatedField',
     'TopicCategoryFilter',
     'TopicCategoryFilterConstant',
@@ -1544,7 +1563,6 @@ __all__ = [
     'TopicSemanticEntityType',
     'TopicSemanticType',
     'TopicSingularFilterConstant',
-    'TopicTypeParameters',
     'VpcConnectionNetworkInterface',
 ]
 
@@ -47526,6 +47544,168 @@ class DashboardWordCloudVisual(dict):
 
 
 @pulumi.output_type
+class DataSetCalculatedColumn(dict):
+    """
+    <p>A calculated column for a dataset.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnId":
+            suggest = "column_id"
+        elif key == "columnName":
+            suggest = "column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetCalculatedColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetCalculatedColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetCalculatedColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_id: str,
+                 column_name: str,
+                 expression: str):
+        """
+        <p>A calculated column for a dataset.</p>
+        :param str column_id: <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
+                           of a calculated column matches that of an existing calculated column, Amazon QuickSight
+                           preserves the existing calculated column.</p>
+        :param str column_name: <p>Column name.</p>
+        :param str expression: <p>An expression that defines the calculated column.</p>
+        """
+        pulumi.set(__self__, "column_id", column_id)
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter(name="columnId")
+    def column_id(self) -> str:
+        """
+        <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
+                    of a calculated column matches that of an existing calculated column, Amazon QuickSight
+                    preserves the existing calculated column.</p>
+        """
+        return pulumi.get(self, "column_id")
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        <p>Column name.</p>
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        <p>An expression that defines the calculated column.</p>
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class DataSetCastColumnTypeOperation(dict):
+    """
+    <p>A transform operation that casts a column to a different type.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "newColumnType":
+            suggest = "new_column_type"
+        elif key == "subType":
+            suggest = "sub_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetCastColumnTypeOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetCastColumnTypeOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetCastColumnTypeOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 new_column_type: 'DataSetColumnDataType',
+                 format: Optional[str] = None,
+                 sub_type: Optional['DataSetColumnSubDataType'] = None):
+        """
+        <p>A transform operation that casts a column to a different type.</p>
+        :param str column_name: <p>Column name.</p>
+        :param str format: <p>When casting a column from string to datetime type, you can supply a string in a
+                           format supported by Amazon QuickSight to denote the source data format.</p>
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "new_column_type", new_column_type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if sub_type is not None:
+            pulumi.set(__self__, "sub_type", sub_type)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        <p>Column name.</p>
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="newColumnType")
+    def new_column_type(self) -> 'DataSetColumnDataType':
+        return pulumi.get(self, "new_column_type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        <p>When casting a column from string to datetime type, you can supply a string in a
+                    format supported by Amazon QuickSight to denote the source data format.</p>
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="subType")
+    def sub_type(self) -> Optional['DataSetColumnSubDataType']:
+        return pulumi.get(self, "sub_type")
+
+
+@pulumi.output_type
+class DataSetColumnDescription(dict):
+    """
+    <p>Metadata that contains a description for a column.</p>
+    """
+    def __init__(__self__, *,
+                 text: Optional[str] = None):
+        """
+        <p>Metadata that contains a description for a column.</p>
+        :param str text: <p>The text of a description for a column.</p>
+        """
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[str]:
+        """
+        <p>The text of a description for a column.</p>
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
 class DataSetColumnGroup(dict):
     """
     <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
@@ -47601,6 +47781,154 @@ class DataSetColumnLevelPermissionRule(dict):
     @pulumi.getter
     def principals(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "principals")
+
+
+@pulumi.output_type
+class DataSetColumnTag(dict):
+    """
+    <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+                variant type structure. For this structure to be valid, only one of the attributes can
+                be non-null.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnDescription":
+            suggest = "column_description"
+        elif key == "columnGeographicRole":
+            suggest = "column_geographic_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetColumnTag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetColumnTag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetColumnTag.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_description: Optional['outputs.DataSetColumnDescription'] = None,
+                 column_geographic_role: Optional['DataSetGeoSpatialDataRole'] = None):
+        """
+        <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+                    variant type structure. For this structure to be valid, only one of the attributes can
+                    be non-null.</p>
+        """
+        if column_description is not None:
+            pulumi.set(__self__, "column_description", column_description)
+        if column_geographic_role is not None:
+            pulumi.set(__self__, "column_geographic_role", column_geographic_role)
+
+    @property
+    @pulumi.getter(name="columnDescription")
+    def column_description(self) -> Optional['outputs.DataSetColumnDescription']:
+        return pulumi.get(self, "column_description")
+
+    @property
+    @pulumi.getter(name="columnGeographicRole")
+    def column_geographic_role(self) -> Optional['DataSetGeoSpatialDataRole']:
+        return pulumi.get(self, "column_geographic_role")
+
+
+@pulumi.output_type
+class DataSetCreateColumnsOperation(dict):
+    """
+    <p>A transform operation that creates calculated columns. Columns created in one such
+                operation form a lexical closure.</p>
+    """
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.DataSetCalculatedColumn']):
+        """
+        <p>A transform operation that creates calculated columns. Columns created in one such
+                    operation form a lexical closure.</p>
+        :param Sequence['DataSetCalculatedColumn'] columns: <p>Calculated columns to create.</p>
+        """
+        pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.DataSetCalculatedColumn']:
+        """
+        <p>Calculated columns to create.</p>
+        """
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
+class DataSetCustomSql(dict):
+    """
+    <p>A physical table type built from the results of the custom SQL query.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceArn":
+            suggest = "data_source_arn"
+        elif key == "sqlQuery":
+            suggest = "sql_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetCustomSql. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetCustomSql.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetCustomSql.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.DataSetInputColumn'],
+                 data_source_arn: str,
+                 name: str,
+                 sql_query: str):
+        """
+        <p>A physical table type built from the results of the custom SQL query.</p>
+        :param Sequence['DataSetInputColumn'] columns: <p>The column schema from the SQL query result set.</p>
+        :param str data_source_arn: <p>The Amazon Resource Name (ARN) of the data source.</p>
+        :param str name: <p>A display name for the SQL query result.</p>
+        :param str sql_query: <p>The SQL query.</p>
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sql_query", sql_query)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.DataSetInputColumn']:
+        """
+        <p>The column schema from the SQL query result set.</p>
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the data source.</p>
+        """
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        <p>A display name for the SQL query result.</p>
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sqlQuery")
+    def sql_query(self) -> str:
+        """
+        <p>The SQL query.</p>
+        """
+        return pulumi.get(self, "sql_query")
 
 
 @pulumi.output_type
@@ -47878,9 +48206,65 @@ class DataSetDecimalDatasetParameterDefaultValues(dict):
 
 
 @pulumi.output_type
-class DataSetFieldFolderMap(dict):
-    def __init__(__self__):
-        pass
+class DataSetFieldFolder(dict):
+    def __init__(__self__, *,
+                 columns: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None):
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class DataSetFilterOperation(dict):
+    """
+    <p>A transform operation that filters rows based on a condition.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionExpression":
+            suggest = "condition_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetFilterOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetFilterOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetFilterOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_expression: str):
+        """
+        <p>A transform operation that filters rows based on a condition.</p>
+        :param str condition_expression: <p>An expression that must evaluate to a Boolean value. Rows for which the expression
+                           evaluates to true are kept in the dataset.</p>
+        """
+        pulumi.set(__self__, "condition_expression", condition_expression)
+
+    @property
+    @pulumi.getter(name="conditionExpression")
+    def condition_expression(self) -> str:
+        """
+        <p>An expression that must evaluate to a Boolean value. Rows for which the expression
+                    evaluates to true are kept in the dataset.</p>
+        """
+        return pulumi.get(self, "condition_expression")
 
 
 @pulumi.output_type
@@ -48036,6 +48420,60 @@ class DataSetIngestionWaitPolicy(dict):
 
 
 @pulumi.output_type
+class DataSetInputColumn(dict):
+    """
+    <p>Metadata for a column that is used as the input of a transform operation.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subType":
+            suggest = "sub_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetInputColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetInputColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetInputColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: 'DataSetInputColumnDataType',
+                 sub_type: Optional['DataSetColumnSubDataType'] = None):
+        """
+        <p>Metadata for a column that is used as the input of a transform operation.</p>
+        :param str name: <p>The name of this column in the underlying data source.</p>
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if sub_type is not None:
+            pulumi.set(__self__, "sub_type", sub_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        <p>The name of this column in the underlying data source.</p>
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'DataSetInputColumnDataType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="subType")
+    def sub_type(self) -> Optional['DataSetColumnSubDataType']:
+        return pulumi.get(self, "sub_type")
+
+
+@pulumi.output_type
 class DataSetIntegerDatasetParameter(dict):
     """
     <p>A parameter created in the dataset of integer data type.</p>
@@ -48135,9 +48573,255 @@ class DataSetIntegerDatasetParameterDefaultValues(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMap(dict):
-    def __init__(__self__):
-        pass
+class DataSetJoinInstruction(dict):
+    """
+    <p>Join instruction.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "leftOperand":
+            suggest = "left_operand"
+        elif key == "onClause":
+            suggest = "on_clause"
+        elif key == "rightOperand":
+            suggest = "right_operand"
+        elif key == "leftJoinKeyProperties":
+            suggest = "left_join_key_properties"
+        elif key == "rightJoinKeyProperties":
+            suggest = "right_join_key_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetJoinInstruction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetJoinInstruction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetJoinInstruction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 left_operand: str,
+                 on_clause: str,
+                 right_operand: str,
+                 type: 'DataSetJoinType',
+                 left_join_key_properties: Optional['outputs.DataSetJoinKeyProperties'] = None,
+                 right_join_key_properties: Optional['outputs.DataSetJoinKeyProperties'] = None):
+        """
+        <p>Join instruction.</p>
+        :param str left_operand: <p>Left operand.</p>
+        :param str on_clause: <p>On Clause.</p>
+        :param str right_operand: <p>Right operand.</p>
+        """
+        pulumi.set(__self__, "left_operand", left_operand)
+        pulumi.set(__self__, "on_clause", on_clause)
+        pulumi.set(__self__, "right_operand", right_operand)
+        pulumi.set(__self__, "type", type)
+        if left_join_key_properties is not None:
+            pulumi.set(__self__, "left_join_key_properties", left_join_key_properties)
+        if right_join_key_properties is not None:
+            pulumi.set(__self__, "right_join_key_properties", right_join_key_properties)
+
+    @property
+    @pulumi.getter(name="leftOperand")
+    def left_operand(self) -> str:
+        """
+        <p>Left operand.</p>
+        """
+        return pulumi.get(self, "left_operand")
+
+    @property
+    @pulumi.getter(name="onClause")
+    def on_clause(self) -> str:
+        """
+        <p>On Clause.</p>
+        """
+        return pulumi.get(self, "on_clause")
+
+    @property
+    @pulumi.getter(name="rightOperand")
+    def right_operand(self) -> str:
+        """
+        <p>Right operand.</p>
+        """
+        return pulumi.get(self, "right_operand")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'DataSetJoinType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="leftJoinKeyProperties")
+    def left_join_key_properties(self) -> Optional['outputs.DataSetJoinKeyProperties']:
+        return pulumi.get(self, "left_join_key_properties")
+
+    @property
+    @pulumi.getter(name="rightJoinKeyProperties")
+    def right_join_key_properties(self) -> Optional['outputs.DataSetJoinKeyProperties']:
+        return pulumi.get(self, "right_join_key_properties")
+
+
+@pulumi.output_type
+class DataSetJoinKeyProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "uniqueKey":
+            suggest = "unique_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetJoinKeyProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetJoinKeyProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetJoinKeyProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unique_key: Optional[bool] = None):
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
+
+    @property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> Optional[bool]:
+        return pulumi.get(self, "unique_key")
+
+
+@pulumi.output_type
+class DataSetLogicalTable(dict):
+    """
+    <p>A <i>logical table</i> is a unit that joins and that data
+                transformations operate on. A logical table has a source, which can be either a physical
+                table or result of a join. When a logical table points to a physical table, the logical
+                table acts as a mutable copy of that physical table through transform operations.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataTransforms":
+            suggest = "data_transforms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alias: str,
+                 source: 'outputs.DataSetLogicalTableSource',
+                 data_transforms: Optional[Sequence['outputs.DataSetTransformOperation']] = None):
+        """
+        <p>A <i>logical table</i> is a unit that joins and that data
+                    transformations operate on. A logical table has a source, which can be either a physical
+                    table or result of a join. When a logical table points to a physical table, the logical
+                    table acts as a mutable copy of that physical table through transform operations.</p>
+        :param str alias: <p>A display name for the logical table.</p>
+        :param Sequence['DataSetTransformOperation'] data_transforms: <p>Transform operations that act on this logical table.</p>
+        """
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "source", source)
+        if data_transforms is not None:
+            pulumi.set(__self__, "data_transforms", data_transforms)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> str:
+        """
+        <p>A display name for the logical table.</p>
+        """
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter
+    def source(self) -> 'outputs.DataSetLogicalTableSource':
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="dataTransforms")
+    def data_transforms(self) -> Optional[Sequence['outputs.DataSetTransformOperation']]:
+        """
+        <p>Transform operations that act on this logical table.</p>
+        """
+        return pulumi.get(self, "data_transforms")
+
+
+@pulumi.output_type
+class DataSetLogicalTableSource(dict):
+    """
+    <p>Information about the source of a logical table. This is a variant type structure. For
+                this structure to be valid, only one of the attributes can be non-null.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetArn":
+            suggest = "data_set_arn"
+        elif key == "joinInstruction":
+            suggest = "join_instruction"
+        elif key == "physicalTableId":
+            suggest = "physical_table_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_arn: Optional[str] = None,
+                 join_instruction: Optional['outputs.DataSetJoinInstruction'] = None,
+                 physical_table_id: Optional[str] = None):
+        """
+        <p>Information about the source of a logical table. This is a variant type structure. For
+                    this structure to be valid, only one of the attributes can be non-null.</p>
+        :param str data_set_arn: <p>The Amazon Resource Name (ARN) for the dataset.</p>
+        :param str physical_table_id: <p>Physical table ID.</p>
+        """
+        if data_set_arn is not None:
+            pulumi.set(__self__, "data_set_arn", data_set_arn)
+        if join_instruction is not None:
+            pulumi.set(__self__, "join_instruction", join_instruction)
+        if physical_table_id is not None:
+            pulumi.set(__self__, "physical_table_id", physical_table_id)
+
+    @property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> Optional[str]:
+        """
+        <p>The Amazon Resource Name (ARN) for the dataset.</p>
+        """
+        return pulumi.get(self, "data_set_arn")
+
+    @property
+    @pulumi.getter(name="joinInstruction")
+    def join_instruction(self) -> Optional['outputs.DataSetJoinInstruction']:
+        return pulumi.get(self, "join_instruction")
+
+    @property
+    @pulumi.getter(name="physicalTableId")
+    def physical_table_id(self) -> Optional[str]:
+        """
+        <p>Physical table ID.</p>
+        """
+        return pulumi.get(self, "physical_table_id")
 
 
 @pulumi.output_type
@@ -48196,6 +48880,66 @@ class DataSetLookbackWindow(dict):
     @pulumi.getter(name="sizeUnit")
     def size_unit(self) -> Optional['DataSetSizeUnit']:
         return pulumi.get(self, "size_unit")
+
+
+@pulumi.output_type
+class DataSetNewDefaultValues(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateTimeStaticValues":
+            suggest = "date_time_static_values"
+        elif key == "decimalStaticValues":
+            suggest = "decimal_static_values"
+        elif key == "integerStaticValues":
+            suggest = "integer_static_values"
+        elif key == "stringStaticValues":
+            suggest = "string_static_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetNewDefaultValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetNewDefaultValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetNewDefaultValues.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_time_static_values: Optional[Sequence[str]] = None,
+                 decimal_static_values: Optional[Sequence[float]] = None,
+                 integer_static_values: Optional[Sequence[float]] = None,
+                 string_static_values: Optional[Sequence[str]] = None):
+        if date_time_static_values is not None:
+            pulumi.set(__self__, "date_time_static_values", date_time_static_values)
+        if decimal_static_values is not None:
+            pulumi.set(__self__, "decimal_static_values", decimal_static_values)
+        if integer_static_values is not None:
+            pulumi.set(__self__, "integer_static_values", integer_static_values)
+        if string_static_values is not None:
+            pulumi.set(__self__, "string_static_values", string_static_values)
+
+    @property
+    @pulumi.getter(name="dateTimeStaticValues")
+    def date_time_static_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "date_time_static_values")
+
+    @property
+    @pulumi.getter(name="decimalStaticValues")
+    def decimal_static_values(self) -> Optional[Sequence[float]]:
+        return pulumi.get(self, "decimal_static_values")
+
+    @property
+    @pulumi.getter(name="integerStaticValues")
+    def integer_static_values(self) -> Optional[Sequence[float]]:
+        return pulumi.get(self, "integer_static_values")
+
+    @property
+    @pulumi.getter(name="stringStaticValues")
+    def string_static_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "string_static_values")
 
 
 @pulumi.output_type
@@ -48267,9 +49011,171 @@ class DataSetOutputColumn(dict):
 
 
 @pulumi.output_type
-class DataSetPhysicalTableMap(dict):
-    def __init__(__self__):
-        pass
+class DataSetOverrideDatasetParameterOperation(dict):
+    """
+    <p>A transform operation that overrides the dataset parameter values defined in another dataset.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "newDefaultValues":
+            suggest = "new_default_values"
+        elif key == "newParameterName":
+            suggest = "new_parameter_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetOverrideDatasetParameterOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetOverrideDatasetParameterOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetOverrideDatasetParameterOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_name: str,
+                 new_default_values: Optional['outputs.DataSetNewDefaultValues'] = None,
+                 new_parameter_name: Optional[str] = None):
+        """
+        <p>A transform operation that overrides the dataset parameter values defined in another dataset.</p>
+        :param str parameter_name: <p>The name of the parameter to be overridden with different values.</p>
+        :param 'DataSetNewDefaultValues' new_default_values: <p>The new default values for the parameter.</p>
+        :param str new_parameter_name: <p>The new name for the parameter.</p>
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        if new_default_values is not None:
+            pulumi.set(__self__, "new_default_values", new_default_values)
+        if new_parameter_name is not None:
+            pulumi.set(__self__, "new_parameter_name", new_parameter_name)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> str:
+        """
+        <p>The name of the parameter to be overridden with different values.</p>
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="newDefaultValues")
+    def new_default_values(self) -> Optional['outputs.DataSetNewDefaultValues']:
+        """
+        <p>The new default values for the parameter.</p>
+        """
+        return pulumi.get(self, "new_default_values")
+
+    @property
+    @pulumi.getter(name="newParameterName")
+    def new_parameter_name(self) -> Optional[str]:
+        """
+        <p>The new name for the parameter.</p>
+        """
+        return pulumi.get(self, "new_parameter_name")
+
+
+@pulumi.output_type
+class DataSetPhysicalTable(dict):
+    """
+    <p>A view of a data source that contains information about the shape of the data in the
+                underlying source. This is a variant type structure. For this structure to be valid,
+                only one of the attributes can be non-null.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customSql":
+            suggest = "custom_sql"
+        elif key == "relationalTable":
+            suggest = "relational_table"
+        elif key == "s3Source":
+            suggest = "s3_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetPhysicalTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetPhysicalTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetPhysicalTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_sql: Optional['outputs.DataSetCustomSql'] = None,
+                 relational_table: Optional['outputs.DataSetRelationalTable'] = None,
+                 s3_source: Optional['outputs.DataSetS3Source'] = None):
+        """
+        <p>A view of a data source that contains information about the shape of the data in the
+                    underlying source. This is a variant type structure. For this structure to be valid,
+                    only one of the attributes can be non-null.</p>
+        """
+        if custom_sql is not None:
+            pulumi.set(__self__, "custom_sql", custom_sql)
+        if relational_table is not None:
+            pulumi.set(__self__, "relational_table", relational_table)
+        if s3_source is not None:
+            pulumi.set(__self__, "s3_source", s3_source)
+
+    @property
+    @pulumi.getter(name="customSql")
+    def custom_sql(self) -> Optional['outputs.DataSetCustomSql']:
+        return pulumi.get(self, "custom_sql")
+
+    @property
+    @pulumi.getter(name="relationalTable")
+    def relational_table(self) -> Optional['outputs.DataSetRelationalTable']:
+        return pulumi.get(self, "relational_table")
+
+    @property
+    @pulumi.getter(name="s3Source")
+    def s3_source(self) -> Optional['outputs.DataSetS3Source']:
+        return pulumi.get(self, "s3_source")
+
+
+@pulumi.output_type
+class DataSetProjectOperation(dict):
+    """
+    <p>A transform operation that projects columns. Operations that come after a projection
+                can only refer to projected columns.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectedColumns":
+            suggest = "projected_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetProjectOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetProjectOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetProjectOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 projected_columns: Sequence[str]):
+        """
+        <p>A transform operation that projects columns. Operations that come after a projection
+                    can only refer to projected columns.</p>
+        :param Sequence[str] projected_columns: <p>Projected columns.</p>
+        """
+        pulumi.set(__self__, "projected_columns", projected_columns)
+
+    @property
+    @pulumi.getter(name="projectedColumns")
+    def projected_columns(self) -> Sequence[str]:
+        """
+        <p>Projected columns.</p>
+        """
+        return pulumi.get(self, "projected_columns")
 
 
 @pulumi.output_type
@@ -48342,6 +49248,145 @@ class DataSetRefreshProperties(dict):
     @pulumi.getter(name="refreshConfiguration")
     def refresh_configuration(self) -> Optional['outputs.DataSetRefreshConfiguration']:
         return pulumi.get(self, "refresh_configuration")
+
+
+@pulumi.output_type
+class DataSetRelationalTable(dict):
+    """
+    <p>A physical table type for relational data sources.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceArn":
+            suggest = "data_source_arn"
+        elif key == "inputColumns":
+            suggest = "input_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRelationalTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRelationalTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRelationalTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_arn: str,
+                 input_columns: Sequence['outputs.DataSetInputColumn'],
+                 name: str,
+                 catalog: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        <p>A physical table type for relational data sources.</p>
+        :param str data_source_arn: <p>The Amazon Resource Name (ARN) for the data source.</p>
+        :param Sequence['DataSetInputColumn'] input_columns: <p>The column schema of the table.</p>
+        :param str name: <p>The name of the relational table.</p>
+        :param str catalog: <p>The catalog associated with a table.</p>
+        :param str schema: <p>The schema name. This name applies to certain relational database engines.</p>
+        """
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        pulumi.set(__self__, "input_columns", input_columns)
+        pulumi.set(__self__, "name", name)
+        if catalog is not None:
+            pulumi.set(__self__, "catalog", catalog)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) for the data source.</p>
+        """
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter(name="inputColumns")
+    def input_columns(self) -> Sequence['outputs.DataSetInputColumn']:
+        """
+        <p>The column schema of the table.</p>
+        """
+        return pulumi.get(self, "input_columns")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        <p>The name of the relational table.</p>
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def catalog(self) -> Optional[str]:
+        """
+        <p>The catalog associated with a table.</p>
+        """
+        return pulumi.get(self, "catalog")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        <p>The schema name. This name applies to certain relational database engines.</p>
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class DataSetRenameColumnOperation(dict):
+    """
+    <p>A transform operation that renames a column.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "newColumnName":
+            suggest = "new_column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRenameColumnOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRenameColumnOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRenameColumnOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 new_column_name: str):
+        """
+        <p>A transform operation that renames a column.</p>
+        :param str column_name: <p>The name of the column to be renamed.</p>
+        :param str new_column_name: <p>The new name for the column.</p>
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "new_column_name", new_column_name)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        <p>The name of the column to be renamed.</p>
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="newColumnName")
+    def new_column_name(self) -> str:
+        """
+        <p>The new name for the column.</p>
+        """
+        return pulumi.get(self, "new_column_name")
 
 
 @pulumi.output_type
@@ -48623,6 +49668,68 @@ class DataSetRowLevelPermissionTagRule(dict):
 
 
 @pulumi.output_type
+class DataSetS3Source(dict):
+    """
+    <p>A physical table type for as S3 data source.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceArn":
+            suggest = "data_source_arn"
+        elif key == "inputColumns":
+            suggest = "input_columns"
+        elif key == "uploadSettings":
+            suggest = "upload_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetS3Source. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetS3Source.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetS3Source.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_arn: str,
+                 input_columns: Sequence['outputs.DataSetInputColumn'],
+                 upload_settings: Optional['outputs.DataSetUploadSettings'] = None):
+        """
+        <p>A physical table type for as S3 data source.</p>
+        :param str data_source_arn: <p>The amazon Resource Name (ARN) for the data source.</p>
+        :param Sequence['DataSetInputColumn'] input_columns: <p>A physical table type for as S3 data source.</p>
+        """
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        pulumi.set(__self__, "input_columns", input_columns)
+        if upload_settings is not None:
+            pulumi.set(__self__, "upload_settings", upload_settings)
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> str:
+        """
+        <p>The amazon Resource Name (ARN) for the data source.</p>
+        """
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter(name="inputColumns")
+    def input_columns(self) -> Sequence['outputs.DataSetInputColumn']:
+        """
+        <p>A physical table type for as S3 data source.</p>
+        """
+        return pulumi.get(self, "input_columns")
+
+    @property
+    @pulumi.getter(name="uploadSettings")
+    def upload_settings(self) -> Optional['outputs.DataSetUploadSettings']:
+        return pulumi.get(self, "upload_settings")
+
+
+@pulumi.output_type
 class DataSetStringDatasetParameter(dict):
     """
     <p>A parameter created in the dataset of string data type.</p>
@@ -48719,6 +49826,244 @@ class DataSetStringDatasetParameterDefaultValues(dict):
         <p>List of static default values defined for a given string dataset parameter type.</p>
         """
         return pulumi.get(self, "static_values")
+
+
+@pulumi.output_type
+class DataSetTagColumnOperation(dict):
+    """
+    <p>A transform operation that tags a column with additional information.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetTagColumnOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetTagColumnOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetTagColumnOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 tags: Sequence['outputs.DataSetColumnTag']):
+        """
+        <p>A transform operation that tags a column with additional information.</p>
+        :param str column_name: <p>The column that this operation acts on.</p>
+        :param Sequence['DataSetColumnTag'] tags: <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
+                       <note>
+                           <p>This is not tags for the AWS tagging feature. .</p>
+                       </note>
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        <p>The column that this operation acts on.</p>
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.DataSetColumnTag']:
+        """
+        <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
+                <note>
+                    <p>This is not tags for the AWS tagging feature. .</p>
+                </note>
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class DataSetTransformOperation(dict):
+    """
+    <p>A data transformation on a logical table. This is a variant type structure. For this
+                structure to be valid, only one of the attributes can be non-null.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "castColumnTypeOperation":
+            suggest = "cast_column_type_operation"
+        elif key == "createColumnsOperation":
+            suggest = "create_columns_operation"
+        elif key == "filterOperation":
+            suggest = "filter_operation"
+        elif key == "overrideDatasetParameterOperation":
+            suggest = "override_dataset_parameter_operation"
+        elif key == "projectOperation":
+            suggest = "project_operation"
+        elif key == "renameColumnOperation":
+            suggest = "rename_column_operation"
+        elif key == "tagColumnOperation":
+            suggest = "tag_column_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetTransformOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetTransformOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetTransformOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cast_column_type_operation: Optional['outputs.DataSetCastColumnTypeOperation'] = None,
+                 create_columns_operation: Optional['outputs.DataSetCreateColumnsOperation'] = None,
+                 filter_operation: Optional['outputs.DataSetFilterOperation'] = None,
+                 override_dataset_parameter_operation: Optional['outputs.DataSetOverrideDatasetParameterOperation'] = None,
+                 project_operation: Optional['outputs.DataSetProjectOperation'] = None,
+                 rename_column_operation: Optional['outputs.DataSetRenameColumnOperation'] = None,
+                 tag_column_operation: Optional['outputs.DataSetTagColumnOperation'] = None):
+        """
+        <p>A data transformation on a logical table. This is a variant type structure. For this
+                    structure to be valid, only one of the attributes can be non-null.</p>
+        """
+        if cast_column_type_operation is not None:
+            pulumi.set(__self__, "cast_column_type_operation", cast_column_type_operation)
+        if create_columns_operation is not None:
+            pulumi.set(__self__, "create_columns_operation", create_columns_operation)
+        if filter_operation is not None:
+            pulumi.set(__self__, "filter_operation", filter_operation)
+        if override_dataset_parameter_operation is not None:
+            pulumi.set(__self__, "override_dataset_parameter_operation", override_dataset_parameter_operation)
+        if project_operation is not None:
+            pulumi.set(__self__, "project_operation", project_operation)
+        if rename_column_operation is not None:
+            pulumi.set(__self__, "rename_column_operation", rename_column_operation)
+        if tag_column_operation is not None:
+            pulumi.set(__self__, "tag_column_operation", tag_column_operation)
+
+    @property
+    @pulumi.getter(name="castColumnTypeOperation")
+    def cast_column_type_operation(self) -> Optional['outputs.DataSetCastColumnTypeOperation']:
+        return pulumi.get(self, "cast_column_type_operation")
+
+    @property
+    @pulumi.getter(name="createColumnsOperation")
+    def create_columns_operation(self) -> Optional['outputs.DataSetCreateColumnsOperation']:
+        return pulumi.get(self, "create_columns_operation")
+
+    @property
+    @pulumi.getter(name="filterOperation")
+    def filter_operation(self) -> Optional['outputs.DataSetFilterOperation']:
+        return pulumi.get(self, "filter_operation")
+
+    @property
+    @pulumi.getter(name="overrideDatasetParameterOperation")
+    def override_dataset_parameter_operation(self) -> Optional['outputs.DataSetOverrideDatasetParameterOperation']:
+        return pulumi.get(self, "override_dataset_parameter_operation")
+
+    @property
+    @pulumi.getter(name="projectOperation")
+    def project_operation(self) -> Optional['outputs.DataSetProjectOperation']:
+        return pulumi.get(self, "project_operation")
+
+    @property
+    @pulumi.getter(name="renameColumnOperation")
+    def rename_column_operation(self) -> Optional['outputs.DataSetRenameColumnOperation']:
+        return pulumi.get(self, "rename_column_operation")
+
+    @property
+    @pulumi.getter(name="tagColumnOperation")
+    def tag_column_operation(self) -> Optional['outputs.DataSetTagColumnOperation']:
+        return pulumi.get(self, "tag_column_operation")
+
+
+@pulumi.output_type
+class DataSetUploadSettings(dict):
+    """
+    <p>Information about the format for a source file or files.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containsHeader":
+            suggest = "contains_header"
+        elif key == "startFromRow":
+            suggest = "start_from_row"
+        elif key == "textQualifier":
+            suggest = "text_qualifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetUploadSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetUploadSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetUploadSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contains_header: Optional[bool] = None,
+                 delimiter: Optional[str] = None,
+                 format: Optional['DataSetFileFormat'] = None,
+                 start_from_row: Optional[float] = None,
+                 text_qualifier: Optional['DataSetTextQualifier'] = None):
+        """
+        <p>Information about the format for a source file or files.</p>
+        :param bool contains_header: <p>Whether the file has a header row, or the files each have a header row.</p>
+        :param str delimiter: <p>The delimiter between values in the file.</p>
+        :param float start_from_row: <p>A row number to start reading data from.</p>
+        """
+        if contains_header is not None:
+            pulumi.set(__self__, "contains_header", contains_header)
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if start_from_row is not None:
+            pulumi.set(__self__, "start_from_row", start_from_row)
+        if text_qualifier is not None:
+            pulumi.set(__self__, "text_qualifier", text_qualifier)
+
+    @property
+    @pulumi.getter(name="containsHeader")
+    def contains_header(self) -> Optional[bool]:
+        """
+        <p>Whether the file has a header row, or the files each have a header row.</p>
+        """
+        return pulumi.get(self, "contains_header")
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[str]:
+        """
+        <p>The delimiter between values in the file.</p>
+        """
+        return pulumi.get(self, "delimiter")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional['DataSetFileFormat']:
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="startFromRow")
+    def start_from_row(self) -> Optional[float]:
+        """
+        <p>A row number to start reading data from.</p>
+        """
+        return pulumi.get(self, "start_from_row")
+
+    @property
+    @pulumi.getter(name="textQualifier")
+    def text_qualifier(self) -> Optional['DataSetTextQualifier']:
+        return pulumi.get(self, "text_qualifier")
 
 
 @pulumi.output_type
@@ -73845,12 +75190,6 @@ class ThemeVersion(dict):
 
 
 @pulumi.output_type
-class TopicAggregationFunctionParameters(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class TopicCalculatedField(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -75041,7 +76380,7 @@ class TopicNamedEntityDefinitionMetric(dict):
 
     def __init__(__self__, *,
                  aggregation: Optional['TopicNamedEntityAggType'] = None,
-                 aggregation_function_parameters: Optional['outputs.TopicAggregationFunctionParameters'] = None):
+                 aggregation_function_parameters: Optional[Mapping[str, str]] = None):
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
         if aggregation_function_parameters is not None:
@@ -75054,7 +76393,7 @@ class TopicNamedEntityDefinitionMetric(dict):
 
     @property
     @pulumi.getter(name="aggregationFunctionParameters")
-    def aggregation_function_parameters(self) -> Optional['outputs.TopicAggregationFunctionParameters']:
+    def aggregation_function_parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "aggregation_function_parameters")
 
 
@@ -75264,7 +76603,7 @@ class TopicSemanticEntityType(dict):
     def __init__(__self__, *,
                  sub_type_name: Optional[str] = None,
                  type_name: Optional[str] = None,
-                 type_parameters: Optional['outputs.TopicTypeParameters'] = None):
+                 type_parameters: Optional[Mapping[str, str]] = None):
         if sub_type_name is not None:
             pulumi.set(__self__, "sub_type_name", sub_type_name)
         if type_name is not None:
@@ -75284,7 +76623,7 @@ class TopicSemanticEntityType(dict):
 
     @property
     @pulumi.getter(name="typeParameters")
-    def type_parameters(self) -> Optional['outputs.TopicTypeParameters']:
+    def type_parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "type_parameters")
 
 
@@ -75326,7 +76665,7 @@ class TopicSemanticType(dict):
                  truthy_cell_value: Optional[str] = None,
                  truthy_cell_value_synonyms: Optional[Sequence[str]] = None,
                  type_name: Optional[str] = None,
-                 type_parameters: Optional['outputs.TopicTypeParameters'] = None):
+                 type_parameters: Optional[Mapping[str, str]] = None):
         if falsey_cell_value is not None:
             pulumi.set(__self__, "falsey_cell_value", falsey_cell_value)
         if falsey_cell_value_synonyms is not None:
@@ -75374,7 +76713,7 @@ class TopicSemanticType(dict):
 
     @property
     @pulumi.getter(name="typeParameters")
-    def type_parameters(self) -> Optional['outputs.TopicTypeParameters']:
+    def type_parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "type_parameters")
 
 
@@ -75416,12 +76755,6 @@ class TopicSingularFilterConstant(dict):
     @pulumi.getter(name="singularConstant")
     def singular_constant(self) -> Optional[str]:
         return pulumi.get(self, "singular_constant")
-
-
-@pulumi.output_type
-class TopicTypeParameters(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type

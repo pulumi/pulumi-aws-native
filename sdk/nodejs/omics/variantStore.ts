@@ -46,7 +46,7 @@ export class VariantStore extends pulumi.CustomResource {
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     public /*out*/ readonly storeArn!: pulumi.Output<string>;
     public /*out*/ readonly storeSizeBytes!: pulumi.Output<number>;
-    public readonly tags!: pulumi.Output<outputs.omics.VariantStoreTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -88,7 +88,7 @@ export class VariantStore extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "reference", "sseConfig", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "reference", "sseConfig", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VariantStore.__pulumiType, name, resourceInputs, opts);
     }
@@ -102,5 +102,5 @@ export interface VariantStoreArgs {
     name?: pulumi.Input<string>;
     reference: pulumi.Input<inputs.omics.VariantStoreReferenceItemArgs>;
     sseConfig?: pulumi.Input<inputs.omics.VariantStoreSseConfigArgs>;
-    tags?: pulumi.Input<inputs.omics.VariantStoreTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

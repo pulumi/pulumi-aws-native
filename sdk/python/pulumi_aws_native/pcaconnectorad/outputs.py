@@ -12,9 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ConnectorTags',
     'ConnectorVpcInformation',
-    'DirectoryRegistrationTags',
     'TemplateApplicationPolicies',
     'TemplateApplicationPolicy0Properties',
     'TemplateApplicationPolicy1Properties',
@@ -46,18 +44,11 @@ __all__ = [
     'TemplateSubjectNameFlagsV2',
     'TemplateSubjectNameFlagsV3',
     'TemplateSubjectNameFlagsV4',
-    'TemplateTags',
     'TemplateV2',
     'TemplateV3',
     'TemplateV4',
     'TemplateValidityPeriod',
 ]
-
-@pulumi.output_type
-class ConnectorTags(dict):
-    def __init__(__self__):
-        pass
-
 
 @pulumi.output_type
 class ConnectorVpcInformation(dict):
@@ -86,12 +77,6 @@ class ConnectorVpcInformation(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         return pulumi.get(self, "security_group_ids")
-
-
-@pulumi.output_type
-class DirectoryRegistrationTags(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -1716,12 +1701,6 @@ class TemplateSubjectNameFlagsV4(dict):
     @pulumi.getter(name="sanRequireUpn")
     def san_require_upn(self) -> Optional[bool]:
         return pulumi.get(self, "san_require_upn")
-
-
-@pulumi.output_type
-class TemplateTags(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type

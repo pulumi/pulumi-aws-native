@@ -20,6 +20,17 @@ export const AnnotationStoreEncryptionType = {
 
 export type AnnotationStoreEncryptionType = (typeof AnnotationStoreEncryptionType)[keyof typeof AnnotationStoreEncryptionType];
 
+export const AnnotationStoreSchemaValueType = {
+    Long: "LONG",
+    Int: "INT",
+    String: "STRING",
+    Float: "FLOAT",
+    Double: "DOUBLE",
+    Boolean: "BOOLEAN",
+} as const;
+
+export type AnnotationStoreSchemaValueType = (typeof AnnotationStoreSchemaValueType)[keyof typeof AnnotationStoreSchemaValueType];
+
 export const AnnotationStoreStoreFormat = {
     Gff: "GFF",
     Tsv: "TSV",

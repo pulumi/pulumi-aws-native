@@ -38,7 +38,6 @@ __all__ = [
     'SignalCatalogNode3Properties',
     'SignalCatalogNodeCounts',
     'SignalCatalogSensor',
-    'VehicleattributesMap',
 ]
 
 @pulumi.output_type
@@ -1325,11 +1324,5 @@ class SignalCatalogSensor(dict):
     @pulumi.getter
     def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
-
-
-@pulumi.output_type
-class VehicleattributesMap(dict):
-    def __init__(__self__):
-        pass
 
 

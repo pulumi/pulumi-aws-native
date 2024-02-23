@@ -42,7 +42,7 @@ export class Vehicle extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly associationBehavior!: pulumi.Output<enums.iotfleetwise.VehicleAssociationBehavior | undefined>;
-    public readonly attributes!: pulumi.Output<outputs.iotfleetwise.VehicleattributesMap | undefined>;
+    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public readonly decoderManifestArn!: pulumi.Output<string>;
     public /*out*/ readonly lastModificationTime!: pulumi.Output<string>;
@@ -101,7 +101,7 @@ export class Vehicle extends pulumi.CustomResource {
  */
 export interface VehicleArgs {
     associationBehavior?: pulumi.Input<enums.iotfleetwise.VehicleAssociationBehavior>;
-    attributes?: pulumi.Input<inputs.iotfleetwise.VehicleattributesMapArgs>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     decoderManifestArn: pulumi.Input<string>;
     modelManifestArn: pulumi.Input<string>;
     name?: pulumi.Input<string>;

@@ -25,7 +25,7 @@ export interface GetViewArgs {
 export interface GetViewResult {
     readonly filters?: outputs.resourceexplorer2.ViewSearchFilter;
     readonly includedProperties?: outputs.resourceexplorer2.ViewIncludedProperty[];
-    readonly tags?: outputs.resourceexplorer2.ViewTagMap;
+    readonly tags?: {[key: string]: string};
     readonly viewArn?: string;
 }
 /**

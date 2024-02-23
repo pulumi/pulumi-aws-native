@@ -8,9 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['DatastoreArgs', 'Datastore']
 
@@ -19,7 +17,7 @@ class DatastoreArgs:
     def __init__(__self__, *,
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['DatastoreTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Datastore resource.
         """
@@ -50,11 +48,11 @@ class DatastoreArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['DatastoreTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['DatastoreTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -65,7 +63,7 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['DatastoreTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::HealthImaging::Datastore Resource Type
@@ -99,7 +97,7 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['DatastoreTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -117,7 +115,7 @@ class Datastore(pulumi.CustomResource):
             __props__.__dict__["datastore_id"] = None
             __props__.__dict__["datastore_status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastore_name", "kms_key_arn", "tags"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastore_name", "kms_key_arn", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Datastore, __self__).__init__(
             'aws-native:healthimaging:Datastore',
@@ -183,7 +181,7 @@ class Datastore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.DatastoreTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

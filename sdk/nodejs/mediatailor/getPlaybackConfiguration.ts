@@ -45,7 +45,7 @@ export interface GetPlaybackConfigurationResult {
     /**
      * The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
      */
-    readonly configurationAliases?: outputs.mediatailor.PlaybackConfigurationConfigurationAliases;
+    readonly configurationAliases?: {[key: string]: any};
     /**
      * The configuration for DASH content.
      */

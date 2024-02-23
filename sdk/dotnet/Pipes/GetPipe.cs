@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Pipes
         public readonly Outputs.PipeLogConfiguration? LogConfiguration;
         public readonly string? RoleArn;
         public readonly string? StateReason;
-        public readonly Outputs.PipeTagMap? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? Target;
 
         [OutputConstructor]
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Pipes
 
             string? stateReason,
 
-            Outputs.PipeTagMap? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? target)
         {

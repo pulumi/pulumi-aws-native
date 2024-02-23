@@ -11,13 +11,11 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'CisScanConfigurationCisTagMapArgs',
     'CisScanConfigurationCisTargetsArgs',
     'CisScanConfigurationDailyScheduleArgs',
     'CisScanConfigurationMonthlyScheduleArgs',
     'CisScanConfigurationOneTimeScheduleArgs',
     'CisScanConfigurationScheduleArgs',
-    'CisScanConfigurationTargetResourceTagsArgs',
     'CisScanConfigurationTimeArgs',
     'CisScanConfigurationWeeklyScheduleArgs',
     'FilterCriteriaArgs',
@@ -30,16 +28,10 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class CisScanConfigurationCisTagMapArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class CisScanConfigurationCisTargetsArgs:
     def __init__(__self__, *,
                  account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 target_resource_tags: Optional[pulumi.Input['CisScanConfigurationTargetResourceTagsArgs']] = None):
+                 target_resource_tags: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         pulumi.set(__self__, "account_ids", account_ids)
         if target_resource_tags is not None:
             pulumi.set(__self__, "target_resource_tags", target_resource_tags)
@@ -55,11 +47,11 @@ class CisScanConfigurationCisTargetsArgs:
 
     @property
     @pulumi.getter(name="targetResourceTags")
-    def target_resource_tags(self) -> Optional[pulumi.Input['CisScanConfigurationTargetResourceTagsArgs']]:
+    def target_resource_tags(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         return pulumi.get(self, "target_resource_tags")
 
     @target_resource_tags.setter
-    def target_resource_tags(self, value: Optional[pulumi.Input['CisScanConfigurationTargetResourceTagsArgs']]):
+    def target_resource_tags(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "target_resource_tags", value)
 
 
@@ -166,12 +158,6 @@ class CisScanConfigurationScheduleArgs:
     @weekly.setter
     def weekly(self, value: Optional[pulumi.Input['CisScanConfigurationWeeklyScheduleArgs']]):
         pulumi.set(self, "weekly", value)
-
-
-@pulumi.input_type
-class CisScanConfigurationTargetResourceTagsArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type

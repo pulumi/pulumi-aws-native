@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Omics
         public readonly double? MaxGpus;
         public readonly double? MaxRuns;
         public readonly string? Name;
-        public readonly Outputs.RunGroupTagMap? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetRunGroupResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Omics
 
             string? name,
 
-            Outputs.RunGroupTagMap? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CreationTime = creationTime;

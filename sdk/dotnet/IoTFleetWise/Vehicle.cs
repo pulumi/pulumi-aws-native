@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Output<Pulumi.AwsNative.IoTFleetWise.VehicleAssociationBehavior?> AssociationBehavior { get; private set; } = null!;
 
         [Output("attributes")]
-        public Output<Outputs.VehicleattributesMap?> Attributes { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
@@ -96,7 +96,12 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Input<Pulumi.AwsNative.IoTFleetWise.VehicleAssociationBehavior>? AssociationBehavior { get; set; }
 
         [Input("attributes")]
-        public Input<Inputs.VehicleattributesMapArgs>? Attributes { get; set; }
+        private InputMap<string>? _attributes;
+        public InputMap<string> Attributes
+        {
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
+        }
 
         [Input("decoderManifestArn", required: true)]
         public Input<string> DecoderManifestArn { get; set; } = null!;

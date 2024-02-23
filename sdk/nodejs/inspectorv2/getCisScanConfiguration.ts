@@ -36,7 +36,7 @@ export interface GetCisScanConfigurationResult {
     readonly scanName?: string;
     readonly schedule?: outputs.inspectorv2.CisScanConfigurationSchedule;
     readonly securityLevel?: enums.inspectorv2.CisScanConfigurationCisSecurityLevel;
-    readonly tags?: outputs.inspectorv2.CisScanConfigurationCisTagMap;
+    readonly tags?: {[key: string]: string};
     readonly targets?: outputs.inspectorv2.CisScanConfigurationCisTargets;
 }
 /**

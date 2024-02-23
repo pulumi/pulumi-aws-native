@@ -503,307 +503,113 @@ func (o AppResourceMappingArrayOutput) Index(i pulumi.IntInput) AppResourceMappi
 	}).(AppResourceMappingOutput)
 }
 
-type AppTagMap struct {
+// Failure Policy.
+type ResiliencyPolicyFailurePolicy struct {
+	// RPO in seconds.
+	RpoInSecs int `pulumi:"rpoInSecs"`
+	// RTO in seconds.
+	RtoInSecs int `pulumi:"rtoInSecs"`
 }
 
-// AppTagMapInput is an input type that accepts AppTagMap and AppTagMapOutput values.
-// You can construct a concrete instance of `AppTagMapInput` via:
+// ResiliencyPolicyFailurePolicyInput is an input type that accepts ResiliencyPolicyFailurePolicyArgs and ResiliencyPolicyFailurePolicyOutput values.
+// You can construct a concrete instance of `ResiliencyPolicyFailurePolicyInput` via:
 //
-//	AppTagMap{ "key": AppTagArgs{...} }
-type AppTagMapInput interface {
+//	ResiliencyPolicyFailurePolicyArgs{...}
+type ResiliencyPolicyFailurePolicyInput interface {
 	pulumi.Input
 
-	ToAppTagMapOutput() AppTagMapOutput
-	ToAppTagMapOutputWithContext(context.Context) AppTagMapOutput
+	ToResiliencyPolicyFailurePolicyOutput() ResiliencyPolicyFailurePolicyOutput
+	ToResiliencyPolicyFailurePolicyOutputWithContext(context.Context) ResiliencyPolicyFailurePolicyOutput
 }
 
-type AppTagMapArgs struct {
+// Failure Policy.
+type ResiliencyPolicyFailurePolicyArgs struct {
+	// RPO in seconds.
+	RpoInSecs pulumi.IntInput `pulumi:"rpoInSecs"`
+	// RTO in seconds.
+	RtoInSecs pulumi.IntInput `pulumi:"rtoInSecs"`
 }
 
-func (AppTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppTagMap)(nil)).Elem()
+func (ResiliencyPolicyFailurePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResiliencyPolicyFailurePolicy)(nil)).Elem()
 }
 
-func (i AppTagMapArgs) ToAppTagMapOutput() AppTagMapOutput {
-	return i.ToAppTagMapOutputWithContext(context.Background())
+func (i ResiliencyPolicyFailurePolicyArgs) ToResiliencyPolicyFailurePolicyOutput() ResiliencyPolicyFailurePolicyOutput {
+	return i.ToResiliencyPolicyFailurePolicyOutputWithContext(context.Background())
 }
 
-func (i AppTagMapArgs) ToAppTagMapOutputWithContext(ctx context.Context) AppTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppTagMapOutput)
+func (i ResiliencyPolicyFailurePolicyArgs) ToResiliencyPolicyFailurePolicyOutputWithContext(ctx context.Context) ResiliencyPolicyFailurePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyFailurePolicyOutput)
 }
 
-func (i AppTagMapArgs) ToAppTagMapPtrOutput() AppTagMapPtrOutput {
-	return i.ToAppTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i AppTagMapArgs) ToAppTagMapPtrOutputWithContext(ctx context.Context) AppTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppTagMapOutput).ToAppTagMapPtrOutputWithContext(ctx)
-}
-
-// AppTagMapPtrInput is an input type that accepts AppTagMapArgs, AppTagMapPtr and AppTagMapPtrOutput values.
-// You can construct a concrete instance of `AppTagMapPtrInput` via:
+// ResiliencyPolicyFailurePolicyMapInput is an input type that accepts ResiliencyPolicyFailurePolicyMap and ResiliencyPolicyFailurePolicyMapOutput values.
+// You can construct a concrete instance of `ResiliencyPolicyFailurePolicyMapInput` via:
 //
-//	        AppTagMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type AppTagMapPtrInput interface {
+//	ResiliencyPolicyFailurePolicyMap{ "key": ResiliencyPolicyFailurePolicyArgs{...} }
+type ResiliencyPolicyFailurePolicyMapInput interface {
 	pulumi.Input
 
-	ToAppTagMapPtrOutput() AppTagMapPtrOutput
-	ToAppTagMapPtrOutputWithContext(context.Context) AppTagMapPtrOutput
+	ToResiliencyPolicyFailurePolicyMapOutput() ResiliencyPolicyFailurePolicyMapOutput
+	ToResiliencyPolicyFailurePolicyMapOutputWithContext(context.Context) ResiliencyPolicyFailurePolicyMapOutput
 }
 
-type appTagMapPtrType AppTagMapArgs
+type ResiliencyPolicyFailurePolicyMap map[string]ResiliencyPolicyFailurePolicyInput
 
-func AppTagMapPtr(v *AppTagMapArgs) AppTagMapPtrInput {
-	return (*appTagMapPtrType)(v)
+func (ResiliencyPolicyFailurePolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResiliencyPolicyFailurePolicy)(nil)).Elem()
 }
 
-func (*appTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppTagMap)(nil)).Elem()
+func (i ResiliencyPolicyFailurePolicyMap) ToResiliencyPolicyFailurePolicyMapOutput() ResiliencyPolicyFailurePolicyMapOutput {
+	return i.ToResiliencyPolicyFailurePolicyMapOutputWithContext(context.Background())
 }
 
-func (i *appTagMapPtrType) ToAppTagMapPtrOutput() AppTagMapPtrOutput {
-	return i.ToAppTagMapPtrOutputWithContext(context.Background())
+func (i ResiliencyPolicyFailurePolicyMap) ToResiliencyPolicyFailurePolicyMapOutputWithContext(ctx context.Context) ResiliencyPolicyFailurePolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyFailurePolicyMapOutput)
 }
 
-func (i *appTagMapPtrType) ToAppTagMapPtrOutputWithContext(ctx context.Context) AppTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppTagMapPtrOutput)
+// Failure Policy.
+type ResiliencyPolicyFailurePolicyOutput struct{ *pulumi.OutputState }
+
+func (ResiliencyPolicyFailurePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResiliencyPolicyFailurePolicy)(nil)).Elem()
 }
 
-type AppTagMapOutput struct{ *pulumi.OutputState }
-
-func (AppTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppTagMap)(nil)).Elem()
-}
-
-func (o AppTagMapOutput) ToAppTagMapOutput() AppTagMapOutput {
+func (o ResiliencyPolicyFailurePolicyOutput) ToResiliencyPolicyFailurePolicyOutput() ResiliencyPolicyFailurePolicyOutput {
 	return o
 }
 
-func (o AppTagMapOutput) ToAppTagMapOutputWithContext(ctx context.Context) AppTagMapOutput {
+func (o ResiliencyPolicyFailurePolicyOutput) ToResiliencyPolicyFailurePolicyOutputWithContext(ctx context.Context) ResiliencyPolicyFailurePolicyOutput {
 	return o
 }
 
-func (o AppTagMapOutput) ToAppTagMapPtrOutput() AppTagMapPtrOutput {
-	return o.ToAppTagMapPtrOutputWithContext(context.Background())
+// RPO in seconds.
+func (o ResiliencyPolicyFailurePolicyOutput) RpoInSecs() pulumi.IntOutput {
+	return o.ApplyT(func(v ResiliencyPolicyFailurePolicy) int { return v.RpoInSecs }).(pulumi.IntOutput)
 }
 
-func (o AppTagMapOutput) ToAppTagMapPtrOutputWithContext(ctx context.Context) AppTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppTagMap) *AppTagMap {
-		return &v
-	}).(AppTagMapPtrOutput)
+// RTO in seconds.
+func (o ResiliencyPolicyFailurePolicyOutput) RtoInSecs() pulumi.IntOutput {
+	return o.ApplyT(func(v ResiliencyPolicyFailurePolicy) int { return v.RtoInSecs }).(pulumi.IntOutput)
 }
 
-type AppTagMapPtrOutput struct{ *pulumi.OutputState }
+type ResiliencyPolicyFailurePolicyMapOutput struct{ *pulumi.OutputState }
 
-func (AppTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppTagMap)(nil)).Elem()
+func (ResiliencyPolicyFailurePolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResiliencyPolicyFailurePolicy)(nil)).Elem()
 }
 
-func (o AppTagMapPtrOutput) ToAppTagMapPtrOutput() AppTagMapPtrOutput {
+func (o ResiliencyPolicyFailurePolicyMapOutput) ToResiliencyPolicyFailurePolicyMapOutput() ResiliencyPolicyFailurePolicyMapOutput {
 	return o
 }
 
-func (o AppTagMapPtrOutput) ToAppTagMapPtrOutputWithContext(ctx context.Context) AppTagMapPtrOutput {
+func (o ResiliencyPolicyFailurePolicyMapOutput) ToResiliencyPolicyFailurePolicyMapOutputWithContext(ctx context.Context) ResiliencyPolicyFailurePolicyMapOutput {
 	return o
 }
 
-func (o AppTagMapPtrOutput) Elem() AppTagMapOutput {
-	return o.ApplyT(func(v *AppTagMap) AppTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret AppTagMap
-		return ret
-	}).(AppTagMapOutput)
-}
-
-type ResiliencyPolicyPolicyMap struct {
-}
-
-// ResiliencyPolicyPolicyMapInput is an input type that accepts ResiliencyPolicyPolicyMap and ResiliencyPolicyPolicyMapOutput values.
-// You can construct a concrete instance of `ResiliencyPolicyPolicyMapInput` via:
-//
-//	ResiliencyPolicyPolicyMap{ "key": ResiliencyPolicyPolicyArgs{...} }
-type ResiliencyPolicyPolicyMapInput interface {
-	pulumi.Input
-
-	ToResiliencyPolicyPolicyMapOutput() ResiliencyPolicyPolicyMapOutput
-	ToResiliencyPolicyPolicyMapOutputWithContext(context.Context) ResiliencyPolicyPolicyMapOutput
-}
-
-type ResiliencyPolicyPolicyMapArgs struct {
-}
-
-func (ResiliencyPolicyPolicyMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResiliencyPolicyPolicyMap)(nil)).Elem()
-}
-
-func (i ResiliencyPolicyPolicyMapArgs) ToResiliencyPolicyPolicyMapOutput() ResiliencyPolicyPolicyMapOutput {
-	return i.ToResiliencyPolicyPolicyMapOutputWithContext(context.Background())
-}
-
-func (i ResiliencyPolicyPolicyMapArgs) ToResiliencyPolicyPolicyMapOutputWithContext(ctx context.Context) ResiliencyPolicyPolicyMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyPolicyMapOutput)
-}
-
-type ResiliencyPolicyPolicyMapOutput struct{ *pulumi.OutputState }
-
-func (ResiliencyPolicyPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResiliencyPolicyPolicyMap)(nil)).Elem()
-}
-
-func (o ResiliencyPolicyPolicyMapOutput) ToResiliencyPolicyPolicyMapOutput() ResiliencyPolicyPolicyMapOutput {
-	return o
-}
-
-func (o ResiliencyPolicyPolicyMapOutput) ToResiliencyPolicyPolicyMapOutputWithContext(ctx context.Context) ResiliencyPolicyPolicyMapOutput {
-	return o
-}
-
-type ResiliencyPolicyPolicyMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ResiliencyPolicyPolicyMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResiliencyPolicyPolicyMap)(nil)).Elem()
-}
-
-func (o ResiliencyPolicyPolicyMapPtrOutput) ToResiliencyPolicyPolicyMapPtrOutput() ResiliencyPolicyPolicyMapPtrOutput {
-	return o
-}
-
-func (o ResiliencyPolicyPolicyMapPtrOutput) ToResiliencyPolicyPolicyMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyPolicyMapPtrOutput {
-	return o
-}
-
-func (o ResiliencyPolicyPolicyMapPtrOutput) Elem() ResiliencyPolicyPolicyMapOutput {
-	return o.ApplyT(func(v *ResiliencyPolicyPolicyMap) ResiliencyPolicyPolicyMap {
-		if v != nil {
-			return *v
-		}
-		var ret ResiliencyPolicyPolicyMap
-		return ret
-	}).(ResiliencyPolicyPolicyMapOutput)
-}
-
-type ResiliencyPolicyTagMap struct {
-}
-
-// ResiliencyPolicyTagMapInput is an input type that accepts ResiliencyPolicyTagMap and ResiliencyPolicyTagMapOutput values.
-// You can construct a concrete instance of `ResiliencyPolicyTagMapInput` via:
-//
-//	ResiliencyPolicyTagMap{ "key": ResiliencyPolicyTagArgs{...} }
-type ResiliencyPolicyTagMapInput interface {
-	pulumi.Input
-
-	ToResiliencyPolicyTagMapOutput() ResiliencyPolicyTagMapOutput
-	ToResiliencyPolicyTagMapOutputWithContext(context.Context) ResiliencyPolicyTagMapOutput
-}
-
-type ResiliencyPolicyTagMapArgs struct {
-}
-
-func (ResiliencyPolicyTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResiliencyPolicyTagMap)(nil)).Elem()
-}
-
-func (i ResiliencyPolicyTagMapArgs) ToResiliencyPolicyTagMapOutput() ResiliencyPolicyTagMapOutput {
-	return i.ToResiliencyPolicyTagMapOutputWithContext(context.Background())
-}
-
-func (i ResiliencyPolicyTagMapArgs) ToResiliencyPolicyTagMapOutputWithContext(ctx context.Context) ResiliencyPolicyTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyTagMapOutput)
-}
-
-func (i ResiliencyPolicyTagMapArgs) ToResiliencyPolicyTagMapPtrOutput() ResiliencyPolicyTagMapPtrOutput {
-	return i.ToResiliencyPolicyTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i ResiliencyPolicyTagMapArgs) ToResiliencyPolicyTagMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyTagMapOutput).ToResiliencyPolicyTagMapPtrOutputWithContext(ctx)
-}
-
-// ResiliencyPolicyTagMapPtrInput is an input type that accepts ResiliencyPolicyTagMapArgs, ResiliencyPolicyTagMapPtr and ResiliencyPolicyTagMapPtrOutput values.
-// You can construct a concrete instance of `ResiliencyPolicyTagMapPtrInput` via:
-//
-//	        ResiliencyPolicyTagMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type ResiliencyPolicyTagMapPtrInput interface {
-	pulumi.Input
-
-	ToResiliencyPolicyTagMapPtrOutput() ResiliencyPolicyTagMapPtrOutput
-	ToResiliencyPolicyTagMapPtrOutputWithContext(context.Context) ResiliencyPolicyTagMapPtrOutput
-}
-
-type resiliencyPolicyTagMapPtrType ResiliencyPolicyTagMapArgs
-
-func ResiliencyPolicyTagMapPtr(v *ResiliencyPolicyTagMapArgs) ResiliencyPolicyTagMapPtrInput {
-	return (*resiliencyPolicyTagMapPtrType)(v)
-}
-
-func (*resiliencyPolicyTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResiliencyPolicyTagMap)(nil)).Elem()
-}
-
-func (i *resiliencyPolicyTagMapPtrType) ToResiliencyPolicyTagMapPtrOutput() ResiliencyPolicyTagMapPtrOutput {
-	return i.ToResiliencyPolicyTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i *resiliencyPolicyTagMapPtrType) ToResiliencyPolicyTagMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyTagMapPtrOutput)
-}
-
-type ResiliencyPolicyTagMapOutput struct{ *pulumi.OutputState }
-
-func (ResiliencyPolicyTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResiliencyPolicyTagMap)(nil)).Elem()
-}
-
-func (o ResiliencyPolicyTagMapOutput) ToResiliencyPolicyTagMapOutput() ResiliencyPolicyTagMapOutput {
-	return o
-}
-
-func (o ResiliencyPolicyTagMapOutput) ToResiliencyPolicyTagMapOutputWithContext(ctx context.Context) ResiliencyPolicyTagMapOutput {
-	return o
-}
-
-func (o ResiliencyPolicyTagMapOutput) ToResiliencyPolicyTagMapPtrOutput() ResiliencyPolicyTagMapPtrOutput {
-	return o.ToResiliencyPolicyTagMapPtrOutputWithContext(context.Background())
-}
-
-func (o ResiliencyPolicyTagMapOutput) ToResiliencyPolicyTagMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResiliencyPolicyTagMap) *ResiliencyPolicyTagMap {
-		return &v
-	}).(ResiliencyPolicyTagMapPtrOutput)
-}
-
-type ResiliencyPolicyTagMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ResiliencyPolicyTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResiliencyPolicyTagMap)(nil)).Elem()
-}
-
-func (o ResiliencyPolicyTagMapPtrOutput) ToResiliencyPolicyTagMapPtrOutput() ResiliencyPolicyTagMapPtrOutput {
-	return o
-}
-
-func (o ResiliencyPolicyTagMapPtrOutput) ToResiliencyPolicyTagMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyTagMapPtrOutput {
-	return o
-}
-
-func (o ResiliencyPolicyTagMapPtrOutput) Elem() ResiliencyPolicyTagMapOutput {
-	return o.ApplyT(func(v *ResiliencyPolicyTagMap) ResiliencyPolicyTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret ResiliencyPolicyTagMap
-		return ret
-	}).(ResiliencyPolicyTagMapOutput)
+func (o ResiliencyPolicyFailurePolicyMapOutput) MapIndex(k pulumi.StringInput) ResiliencyPolicyFailurePolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResiliencyPolicyFailurePolicy {
+		return vs[0].(map[string]ResiliencyPolicyFailurePolicy)[vs[1].(string)]
+	}).(ResiliencyPolicyFailurePolicyOutput)
 }
 
 func init() {
@@ -814,11 +620,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppPhysicalResourceIdInput)(nil)).Elem(), AppPhysicalResourceIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceMappingInput)(nil)).Elem(), AppResourceMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceMappingArrayInput)(nil)).Elem(), AppResourceMappingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppTagMapInput)(nil)).Elem(), AppTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppTagMapPtrInput)(nil)).Elem(), AppTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyPolicyMapInput)(nil)).Elem(), ResiliencyPolicyPolicyMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTagMapInput)(nil)).Elem(), ResiliencyPolicyTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTagMapPtrInput)(nil)).Elem(), ResiliencyPolicyTagMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyFailurePolicyInput)(nil)).Elem(), ResiliencyPolicyFailurePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyFailurePolicyMapInput)(nil)).Elem(), ResiliencyPolicyFailurePolicyMap{})
 	pulumi.RegisterOutputType(AppEventSubscriptionOutput{})
 	pulumi.RegisterOutputType(AppEventSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(AppPermissionModelOutput{})
@@ -826,10 +629,6 @@ func init() {
 	pulumi.RegisterOutputType(AppPhysicalResourceIdOutput{})
 	pulumi.RegisterOutputType(AppResourceMappingOutput{})
 	pulumi.RegisterOutputType(AppResourceMappingArrayOutput{})
-	pulumi.RegisterOutputType(AppTagMapOutput{})
-	pulumi.RegisterOutputType(AppTagMapPtrOutput{})
-	pulumi.RegisterOutputType(ResiliencyPolicyPolicyMapOutput{})
-	pulumi.RegisterOutputType(ResiliencyPolicyPolicyMapPtrOutput{})
-	pulumi.RegisterOutputType(ResiliencyPolicyTagMapOutput{})
-	pulumi.RegisterOutputType(ResiliencyPolicyTagMapPtrOutput{})
+	pulumi.RegisterOutputType(ResiliencyPolicyFailurePolicyOutput{})
+	pulumi.RegisterOutputType(ResiliencyPolicyFailurePolicyMapOutput{})
 }

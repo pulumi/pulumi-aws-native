@@ -15,9 +15,7 @@ __all__ = [
     'AppPermissionModelArgs',
     'AppPhysicalResourceIdArgs',
     'AppResourceMappingArgs',
-    'AppTagMapArgs',
-    'ResiliencyPolicyPolicyMapArgs',
-    'ResiliencyPolicyTagMapArgs',
+    'ResiliencyPolicyFailurePolicyArgs',
 ]
 
 @pulumi.input_type
@@ -259,20 +257,40 @@ class AppResourceMappingArgs:
 
 
 @pulumi.input_type
-class AppTagMapArgs:
-    def __init__(__self__):
-        pass
+class ResiliencyPolicyFailurePolicyArgs:
+    def __init__(__self__, *,
+                 rpo_in_secs: pulumi.Input[int],
+                 rto_in_secs: pulumi.Input[int]):
+        """
+        Failure Policy.
+        :param pulumi.Input[int] rpo_in_secs: RPO in seconds.
+        :param pulumi.Input[int] rto_in_secs: RTO in seconds.
+        """
+        pulumi.set(__self__, "rpo_in_secs", rpo_in_secs)
+        pulumi.set(__self__, "rto_in_secs", rto_in_secs)
 
+    @property
+    @pulumi.getter(name="rpoInSecs")
+    def rpo_in_secs(self) -> pulumi.Input[int]:
+        """
+        RPO in seconds.
+        """
+        return pulumi.get(self, "rpo_in_secs")
 
-@pulumi.input_type
-class ResiliencyPolicyPolicyMapArgs:
-    def __init__(__self__):
-        pass
+    @rpo_in_secs.setter
+    def rpo_in_secs(self, value: pulumi.Input[int]):
+        pulumi.set(self, "rpo_in_secs", value)
 
+    @property
+    @pulumi.getter(name="rtoInSecs")
+    def rto_in_secs(self) -> pulumi.Input[int]:
+        """
+        RTO in seconds.
+        """
+        return pulumi.get(self, "rto_in_secs")
 
-@pulumi.input_type
-class ResiliencyPolicyTagMapArgs:
-    def __init__(__self__):
-        pass
+    @rto_in_secs.setter
+    def rto_in_secs(self, value: pulumi.Input[int]):
+        pulumi.set(self, "rto_in_secs", value)
 
 

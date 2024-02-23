@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Rds
     public partial class Integration : global::Pulumi.CustomResource
     {
         [Output("additionalEncryptionContext")]
-        public Output<Outputs.IntegrationEncryptionContextMap?> AdditionalEncryptionContext { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Rds
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "additionalEncryptionContext",
+                    "additionalEncryptionContext.*",
                     "integrationName",
                     "kmsKeyId",
                     "sourceArn",
@@ -111,7 +111,12 @@ namespace Pulumi.AwsNative.Rds
     public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalEncryptionContext")]
-        public Input<Inputs.IntegrationEncryptionContextMapArgs>? AdditionalEncryptionContext { get; set; }
+        private InputMap<string>? _additionalEncryptionContext;
+        public InputMap<string> AdditionalEncryptionContext
+        {
+            get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
+            set => _additionalEncryptionContext = value;
+        }
 
         /// <summary>
         /// The name of the integration.

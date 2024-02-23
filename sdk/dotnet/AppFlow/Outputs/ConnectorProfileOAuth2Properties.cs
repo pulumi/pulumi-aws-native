@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     {
         public readonly Pulumi.AwsNative.AppFlow.ConnectorProfileOAuth2GrantType? OAuth2GrantType;
         public readonly string? TokenUrl;
-        public readonly Outputs.ConnectorProfileTokenUrlCustomProperties? TokenUrlCustomProperties;
+        public readonly ImmutableDictionary<string, string>? TokenUrlCustomProperties;
 
         [OutputConstructor]
         private ConnectorProfileOAuth2Properties(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             string? tokenUrl,
 
-            Outputs.ConnectorProfileTokenUrlCustomProperties? tokenUrlCustomProperties)
+            ImmutableDictionary<string, string>? tokenUrlCustomProperties)
         {
             OAuth2GrantType = oAuth2GrantType;
             TokenUrl = tokenUrl;

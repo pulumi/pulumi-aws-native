@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class FlowCustomConnectorSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("customProperties")]
-        public Input<Inputs.FlowCustomPropertiesArgs>? CustomProperties { get; set; }
+        private InputMap<string>? _customProperties;
+        public InputMap<string> CustomProperties
+        {
+            get => _customProperties ?? (_customProperties = new InputMap<string>());
+            set => _customProperties = value;
+        }
 
         [Input("dataTransferApi")]
         public Input<Inputs.FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs>? DataTransferApi { get; set; }

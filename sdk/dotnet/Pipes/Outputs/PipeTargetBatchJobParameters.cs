@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         public readonly ImmutableArray<Outputs.PipeBatchJobDependency> DependsOn;
         public readonly string JobDefinition;
         public readonly string JobName;
-        public readonly Outputs.PipeBatchParametersMap? Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         public readonly Outputs.PipeBatchRetryStrategy? RetryStrategy;
 
         [OutputConstructor]
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
 
             string jobName,
 
-            Outputs.PipeBatchParametersMap? parameters,
+            ImmutableDictionary<string, string>? parameters,
 
             Outputs.PipeBatchRetryStrategy? retryStrategy)
         {

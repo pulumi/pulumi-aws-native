@@ -51,7 +51,7 @@ export class Pipe extends pulumi.CustomResource {
     public readonly source!: pulumi.Output<string>;
     public readonly sourceParameters!: pulumi.Output<outputs.pipes.PipeSourceParameters | undefined>;
     public /*out*/ readonly stateReason!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.pipes.PipeTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly target!: pulumi.Output<string>;
     public readonly targetParameters!: pulumi.Output<outputs.pipes.PipeTargetParameters | undefined>;
 
@@ -131,7 +131,7 @@ export interface PipeArgs {
     roleArn: pulumi.Input<string>;
     source: pulumi.Input<string>;
     sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersArgs>;
-    tags?: pulumi.Input<inputs.pipes.PipeTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     target: pulumi.Input<string>;
     targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersArgs>;
 }

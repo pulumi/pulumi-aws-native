@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ComponentSortDirection string
+
+const (
+	ComponentSortDirectionAsc  = ComponentSortDirection("ASC")
+	ComponentSortDirectionDesc = ComponentSortDirection("DESC")
+)
+
+func (ComponentSortDirection) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentSortDirection)(nil)).Elem()
+}
+
+func (e ComponentSortDirection) ToComponentSortDirectionOutput() ComponentSortDirectionOutput {
+	return pulumi.ToOutput(e).(ComponentSortDirectionOutput)
+}
+
+func (e ComponentSortDirection) ToComponentSortDirectionOutputWithContext(ctx context.Context) ComponentSortDirectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComponentSortDirectionOutput)
+}
+
+func (e ComponentSortDirection) ToComponentSortDirectionPtrOutput() ComponentSortDirectionPtrOutput {
+	return e.ToComponentSortDirectionPtrOutputWithContext(context.Background())
+}
+
+func (e ComponentSortDirection) ToComponentSortDirectionPtrOutputWithContext(ctx context.Context) ComponentSortDirectionPtrOutput {
+	return ComponentSortDirection(e).ToComponentSortDirectionOutputWithContext(ctx).ToComponentSortDirectionPtrOutputWithContext(ctx)
+}
+
+func (e ComponentSortDirection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComponentSortDirection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComponentSortDirection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComponentSortDirection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComponentSortDirectionOutput struct{ *pulumi.OutputState }
+
+func (ComponentSortDirectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentSortDirection)(nil)).Elem()
+}
+
+func (o ComponentSortDirectionOutput) ToComponentSortDirectionOutput() ComponentSortDirectionOutput {
+	return o
+}
+
+func (o ComponentSortDirectionOutput) ToComponentSortDirectionOutputWithContext(ctx context.Context) ComponentSortDirectionOutput {
+	return o
+}
+
+func (o ComponentSortDirectionOutput) ToComponentSortDirectionPtrOutput() ComponentSortDirectionPtrOutput {
+	return o.ToComponentSortDirectionPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentSortDirectionOutput) ToComponentSortDirectionPtrOutputWithContext(ctx context.Context) ComponentSortDirectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentSortDirection) *ComponentSortDirection {
+		return &v
+	}).(ComponentSortDirectionPtrOutput)
+}
+
+func (o ComponentSortDirectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComponentSortDirectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentSortDirection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComponentSortDirectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentSortDirectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentSortDirection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComponentSortDirectionPtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentSortDirectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentSortDirection)(nil)).Elem()
+}
+
+func (o ComponentSortDirectionPtrOutput) ToComponentSortDirectionPtrOutput() ComponentSortDirectionPtrOutput {
+	return o
+}
+
+func (o ComponentSortDirectionPtrOutput) ToComponentSortDirectionPtrOutputWithContext(ctx context.Context) ComponentSortDirectionPtrOutput {
+	return o
+}
+
+func (o ComponentSortDirectionPtrOutput) Elem() ComponentSortDirectionOutput {
+	return o.ApplyT(func(v *ComponentSortDirection) ComponentSortDirection {
+		if v != nil {
+			return *v
+		}
+		var ret ComponentSortDirection
+		return ret
+	}).(ComponentSortDirectionOutput)
+}
+
+func (o ComponentSortDirectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentSortDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComponentSortDirection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComponentSortDirectionInput is an input type that accepts values of the ComponentSortDirection enum
+// A concrete instance of `ComponentSortDirectionInput` can be one of the following:
+//
+//	ComponentSortDirectionAsc
+//	ComponentSortDirectionDesc
+type ComponentSortDirectionInput interface {
+	pulumi.Input
+
+	ToComponentSortDirectionOutput() ComponentSortDirectionOutput
+	ToComponentSortDirectionOutputWithContext(context.Context) ComponentSortDirectionOutput
+}
+
+var componentSortDirectionPtrType = reflect.TypeOf((**ComponentSortDirection)(nil)).Elem()
+
+type ComponentSortDirectionPtrInput interface {
+	pulumi.Input
+
+	ToComponentSortDirectionPtrOutput() ComponentSortDirectionPtrOutput
+	ToComponentSortDirectionPtrOutputWithContext(context.Context) ComponentSortDirectionPtrOutput
+}
+
+type componentSortDirectionPtr string
+
+func ComponentSortDirectionPtr(v string) ComponentSortDirectionPtrInput {
+	return (*componentSortDirectionPtr)(&v)
+}
+
+func (*componentSortDirectionPtr) ElementType() reflect.Type {
+	return componentSortDirectionPtrType
+}
+
+func (in *componentSortDirectionPtr) ToComponentSortDirectionPtrOutput() ComponentSortDirectionPtrOutput {
+	return pulumi.ToOutput(in).(ComponentSortDirectionPtrOutput)
+}
+
+func (in *componentSortDirectionPtr) ToComponentSortDirectionPtrOutputWithContext(ctx context.Context) ComponentSortDirectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComponentSortDirectionPtrOutput)
+}
+
 type FormActionType string
 
 const (
@@ -837,7 +1002,176 @@ func (in *formLabelDecoratorPtr) ToFormLabelDecoratorPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FormLabelDecoratorPtrOutput)
 }
 
+type FormStorageAccessLevel string
+
+const (
+	FormStorageAccessLevelPublic    = FormStorageAccessLevel("public")
+	FormStorageAccessLevelProtected = FormStorageAccessLevel("protected")
+	FormStorageAccessLevelPrivate   = FormStorageAccessLevel("private")
+)
+
+func (FormStorageAccessLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormStorageAccessLevel)(nil)).Elem()
+}
+
+func (e FormStorageAccessLevel) ToFormStorageAccessLevelOutput() FormStorageAccessLevelOutput {
+	return pulumi.ToOutput(e).(FormStorageAccessLevelOutput)
+}
+
+func (e FormStorageAccessLevel) ToFormStorageAccessLevelOutputWithContext(ctx context.Context) FormStorageAccessLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FormStorageAccessLevelOutput)
+}
+
+func (e FormStorageAccessLevel) ToFormStorageAccessLevelPtrOutput() FormStorageAccessLevelPtrOutput {
+	return e.ToFormStorageAccessLevelPtrOutputWithContext(context.Background())
+}
+
+func (e FormStorageAccessLevel) ToFormStorageAccessLevelPtrOutputWithContext(ctx context.Context) FormStorageAccessLevelPtrOutput {
+	return FormStorageAccessLevel(e).ToFormStorageAccessLevelOutputWithContext(ctx).ToFormStorageAccessLevelPtrOutputWithContext(ctx)
+}
+
+func (e FormStorageAccessLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FormStorageAccessLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FormStorageAccessLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FormStorageAccessLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FormStorageAccessLevelOutput struct{ *pulumi.OutputState }
+
+func (FormStorageAccessLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormStorageAccessLevel)(nil)).Elem()
+}
+
+func (o FormStorageAccessLevelOutput) ToFormStorageAccessLevelOutput() FormStorageAccessLevelOutput {
+	return o
+}
+
+func (o FormStorageAccessLevelOutput) ToFormStorageAccessLevelOutputWithContext(ctx context.Context) FormStorageAccessLevelOutput {
+	return o
+}
+
+func (o FormStorageAccessLevelOutput) ToFormStorageAccessLevelPtrOutput() FormStorageAccessLevelPtrOutput {
+	return o.ToFormStorageAccessLevelPtrOutputWithContext(context.Background())
+}
+
+func (o FormStorageAccessLevelOutput) ToFormStorageAccessLevelPtrOutputWithContext(ctx context.Context) FormStorageAccessLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormStorageAccessLevel) *FormStorageAccessLevel {
+		return &v
+	}).(FormStorageAccessLevelPtrOutput)
+}
+
+func (o FormStorageAccessLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FormStorageAccessLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FormStorageAccessLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FormStorageAccessLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FormStorageAccessLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FormStorageAccessLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FormStorageAccessLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (FormStorageAccessLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormStorageAccessLevel)(nil)).Elem()
+}
+
+func (o FormStorageAccessLevelPtrOutput) ToFormStorageAccessLevelPtrOutput() FormStorageAccessLevelPtrOutput {
+	return o
+}
+
+func (o FormStorageAccessLevelPtrOutput) ToFormStorageAccessLevelPtrOutputWithContext(ctx context.Context) FormStorageAccessLevelPtrOutput {
+	return o
+}
+
+func (o FormStorageAccessLevelPtrOutput) Elem() FormStorageAccessLevelOutput {
+	return o.ApplyT(func(v *FormStorageAccessLevel) FormStorageAccessLevel {
+		if v != nil {
+			return *v
+		}
+		var ret FormStorageAccessLevel
+		return ret
+	}).(FormStorageAccessLevelOutput)
+}
+
+func (o FormStorageAccessLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FormStorageAccessLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FormStorageAccessLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FormStorageAccessLevelInput is an input type that accepts values of the FormStorageAccessLevel enum
+// A concrete instance of `FormStorageAccessLevelInput` can be one of the following:
+//
+//	FormStorageAccessLevelPublic
+//	FormStorageAccessLevelProtected
+//	FormStorageAccessLevelPrivate
+type FormStorageAccessLevelInput interface {
+	pulumi.Input
+
+	ToFormStorageAccessLevelOutput() FormStorageAccessLevelOutput
+	ToFormStorageAccessLevelOutputWithContext(context.Context) FormStorageAccessLevelOutput
+}
+
+var formStorageAccessLevelPtrType = reflect.TypeOf((**FormStorageAccessLevel)(nil)).Elem()
+
+type FormStorageAccessLevelPtrInput interface {
+	pulumi.Input
+
+	ToFormStorageAccessLevelPtrOutput() FormStorageAccessLevelPtrOutput
+	ToFormStorageAccessLevelPtrOutputWithContext(context.Context) FormStorageAccessLevelPtrOutput
+}
+
+type formStorageAccessLevelPtr string
+
+func FormStorageAccessLevelPtr(v string) FormStorageAccessLevelPtrInput {
+	return (*formStorageAccessLevelPtr)(&v)
+}
+
+func (*formStorageAccessLevelPtr) ElementType() reflect.Type {
+	return formStorageAccessLevelPtrType
+}
+
+func (in *formStorageAccessLevelPtr) ToFormStorageAccessLevelPtrOutput() FormStorageAccessLevelPtrOutput {
+	return pulumi.ToOutput(in).(FormStorageAccessLevelPtrOutput)
+}
+
+func (in *formStorageAccessLevelPtr) ToFormStorageAccessLevelPtrOutputWithContext(ctx context.Context) FormStorageAccessLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FormStorageAccessLevelPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentSortDirectionInput)(nil)).Elem(), ComponentSortDirection("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentSortDirectionPtrInput)(nil)).Elem(), ComponentSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormActionTypeInput)(nil)).Elem(), FormActionType("create"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormActionTypePtrInput)(nil)).Elem(), FormActionType("create"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormButtonsPositionInput)(nil)).Elem(), FormButtonsPosition("top"))
@@ -848,6 +1182,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FormFixedPositionPtrInput)(nil)).Elem(), FormFixedPosition("first"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormLabelDecoratorInput)(nil)).Elem(), FormLabelDecorator("required"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormLabelDecoratorPtrInput)(nil)).Elem(), FormLabelDecorator("required"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FormStorageAccessLevelInput)(nil)).Elem(), FormStorageAccessLevel("public"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FormStorageAccessLevelPtrInput)(nil)).Elem(), FormStorageAccessLevel("public"))
+	pulumi.RegisterOutputType(ComponentSortDirectionOutput{})
+	pulumi.RegisterOutputType(ComponentSortDirectionPtrOutput{})
 	pulumi.RegisterOutputType(FormActionTypeOutput{})
 	pulumi.RegisterOutputType(FormActionTypePtrOutput{})
 	pulumi.RegisterOutputType(FormButtonsPositionOutput{})
@@ -858,4 +1196,6 @@ func init() {
 	pulumi.RegisterOutputType(FormFixedPositionPtrOutput{})
 	pulumi.RegisterOutputType(FormLabelDecoratorOutput{})
 	pulumi.RegisterOutputType(FormLabelDecoratorPtrOutput{})
+	pulumi.RegisterOutputType(FormStorageAccessLevelOutput{})
+	pulumi.RegisterOutputType(FormStorageAccessLevelPtrOutput{})
 }

@@ -16,13 +16,18 @@ namespace Pulumi.AwsNative.Omics.Inputs
         public Input<Pulumi.AwsNative.Omics.AnnotationStoreAnnotationType>? AnnotationType { get; set; }
 
         [Input("formatToHeader")]
-        public Input<Inputs.AnnotationStoreFormatToHeaderArgs>? FormatToHeader { get; set; }
+        private InputMap<string>? _formatToHeader;
+        public InputMap<string> FormatToHeader
+        {
+            get => _formatToHeader ?? (_formatToHeader = new InputMap<string>());
+            set => _formatToHeader = value;
+        }
 
         [Input("schema")]
-        private InputList<Inputs.AnnotationStoreSchemaItemArgs>? _schema;
-        public InputList<Inputs.AnnotationStoreSchemaItemArgs> Schema
+        private InputList<ImmutableDictionary<string, Pulumi.AwsNative.Omics.AnnotationStoreSchemaValueType>>? _schema;
+        public InputList<ImmutableDictionary<string, Pulumi.AwsNative.Omics.AnnotationStoreSchemaValueType>> Schema
         {
-            get => _schema ?? (_schema = new InputList<Inputs.AnnotationStoreSchemaItemArgs>());
+            get => _schema ?? (_schema = new InputList<ImmutableDictionary<string, Pulumi.AwsNative.Omics.AnnotationStoreSchemaValueType>>());
             set => _schema = value;
         }
 

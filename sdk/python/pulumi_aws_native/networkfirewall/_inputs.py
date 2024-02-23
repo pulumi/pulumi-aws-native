@@ -14,9 +14,9 @@ __all__ = [
     'FirewallPolicyActionDefinitionArgs',
     'FirewallPolicyCustomActionArgs',
     'FirewallPolicyDimensionArgs',
+    'FirewallPolicyIpSetArgs',
     'FirewallPolicyPolicyVariablesPropertiesArgs',
     'FirewallPolicyPublishMetricActionArgs',
-    'FirewallPolicyRuleVariablesArgs',
     'FirewallPolicyStatefulEngineOptionsArgs',
     'FirewallPolicyStatefulRuleGroupOverrideArgs',
     'FirewallPolicyStatefulRuleGroupReferenceArgs',
@@ -118,19 +118,36 @@ class FirewallPolicyDimensionArgs:
 
 
 @pulumi.input_type
+class FirewallPolicyIpSetArgs:
+    def __init__(__self__, *,
+                 definition: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "definition", value)
+
+
+@pulumi.input_type
 class FirewallPolicyPolicyVariablesPropertiesArgs:
     def __init__(__self__, *,
-                 rule_variables: Optional[pulumi.Input['FirewallPolicyRuleVariablesArgs']] = None):
+                 rule_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input['FirewallPolicyIpSetArgs']]]] = None):
         if rule_variables is not None:
             pulumi.set(__self__, "rule_variables", rule_variables)
 
     @property
     @pulumi.getter(name="ruleVariables")
-    def rule_variables(self) -> Optional[pulumi.Input['FirewallPolicyRuleVariablesArgs']]:
+    def rule_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FirewallPolicyIpSetArgs']]]]:
         return pulumi.get(self, "rule_variables")
 
     @rule_variables.setter
-    def rule_variables(self, value: Optional[pulumi.Input['FirewallPolicyRuleVariablesArgs']]):
+    def rule_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['FirewallPolicyIpSetArgs']]]]):
         pulumi.set(self, "rule_variables", value)
 
 
@@ -148,12 +165,6 @@ class FirewallPolicyPublishMetricActionArgs:
     @dimensions.setter
     def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]):
         pulumi.set(self, "dimensions", value)
-
-
-@pulumi.input_type
-class FirewallPolicyRuleVariablesArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type

@@ -41,7 +41,7 @@ export class StateMachine extends pulumi.CustomResource {
     public readonly definition!: pulumi.Output<outputs.stepfunctions.StateMachineDefinition | undefined>;
     public readonly definitionS3Location!: pulumi.Output<outputs.stepfunctions.StateMachineS3Location | undefined>;
     public readonly definitionString!: pulumi.Output<string | undefined>;
-    public readonly definitionSubstitutions!: pulumi.Output<outputs.stepfunctions.StateMachineDefinitionSubstitutions | undefined>;
+    public readonly definitionSubstitutions!: pulumi.Output<{[key: string]: string | number | boolean} | undefined>;
     public readonly loggingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineLoggingConfiguration | undefined>;
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string>;
@@ -107,7 +107,7 @@ export interface StateMachineArgs {
     definition?: pulumi.Input<inputs.stepfunctions.StateMachineDefinitionArgs>;
     definitionS3Location?: pulumi.Input<inputs.stepfunctions.StateMachineS3LocationArgs>;
     definitionString?: pulumi.Input<string>;
-    definitionSubstitutions?: pulumi.Input<inputs.stepfunctions.StateMachineDefinitionSubstitutionsArgs>;
+    definitionSubstitutions?: pulumi.Input<{[key: string]: pulumi.Input<string | number | boolean>}>;
     loggingConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineLoggingConfigurationArgs>;
     roleArn: pulumi.Input<string>;
     stateMachineName?: pulumi.Input<string>;

@@ -33,7 +33,7 @@ type LookupRobotApplicationResult struct {
 	// The URI of the Docker image for the robot application.
 	Environment        *string                             `pulumi:"environment"`
 	RobotSoftwareSuite *RobotApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
-	Tags               *RobotApplicationTags               `pulumi:"tags"`
+	Tags               map[string]string                   `pulumi:"tags"`
 }
 
 func LookupRobotApplicationOutput(ctx *pulumi.Context, args LookupRobotApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupRobotApplicationResultOutput {
@@ -89,8 +89,8 @@ func (o LookupRobotApplicationResultOutput) RobotSoftwareSuite() RobotApplicatio
 	return o.ApplyT(func(v LookupRobotApplicationResult) *RobotApplicationRobotSoftwareSuite { return v.RobotSoftwareSuite }).(RobotApplicationRobotSoftwareSuitePtrOutput)
 }
 
-func (o LookupRobotApplicationResultOutput) Tags() RobotApplicationTagsPtrOutput {
-	return o.ApplyT(func(v LookupRobotApplicationResult) *RobotApplicationTags { return v.Tags }).(RobotApplicationTagsPtrOutput)
+func (o LookupRobotApplicationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRobotApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

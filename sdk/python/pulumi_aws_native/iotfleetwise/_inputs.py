@@ -37,7 +37,6 @@ __all__ = [
     'SignalCatalogNode3PropertiesArgs',
     'SignalCatalogNodeCountsArgs',
     'SignalCatalogSensorArgs',
-    'VehicleattributesMapArgs',
 ]
 
 @pulumi.input_type
@@ -1248,11 +1247,5 @@ class SignalCatalogSensorArgs:
     @unit.setter
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
-
-
-@pulumi.input_type
-class VehicleattributesMapArgs:
-    def __init__(__self__):
-        pass
 
 

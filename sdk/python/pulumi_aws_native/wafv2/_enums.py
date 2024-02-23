@@ -22,6 +22,7 @@ __all__ = [
     'RuleGroupOversizeHandling',
     'RuleGroupPositionalConstraint',
     'RuleGroupRateBasedStatementAggregateKeyType',
+    'RuleGroupResponseContentType',
     'RuleGroupScope',
     'RuleGroupSensitivityLevel',
     'RuleGroupSizeConstraintStatementComparisonOperator',
@@ -40,9 +41,11 @@ __all__ = [
     'WebAclRateBasedStatementAggregateKeyType',
     'WebAclRequestInspectionAcfpPayloadType',
     'WebAclRequestInspectionPayloadType',
+    'WebAclResponseContentType',
     'WebAclScope',
     'WebAclSensitivityLevel',
     'WebAclSizeConstraintStatementComparisonOperator',
+    'WebAclSizeInspectionLimit',
     'WebAclTextTransformationType',
 ]
 
@@ -180,6 +183,15 @@ class RuleGroupRateBasedStatementAggregateKeyType(str, Enum):
     FORWARDED_IP = "FORWARDED_IP"
     CONSTANT = "CONSTANT"
     CUSTOM_KEYS = "CUSTOM_KEYS"
+
+
+class RuleGroupResponseContentType(str, Enum):
+    """
+    Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
+    """
+    TEXT_PLAIN = "TEXT_PLAIN"
+    TEXT_HTML = "TEXT_HTML"
+    APPLICATION_JSON = "APPLICATION_JSON"
 
 
 class RuleGroupScope(str, Enum):
@@ -329,6 +341,15 @@ class WebAclRequestInspectionPayloadType(str, Enum):
     FORM_ENCODED = "FORM_ENCODED"
 
 
+class WebAclResponseContentType(str, Enum):
+    """
+    Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
+    """
+    TEXT_PLAIN = "TEXT_PLAIN"
+    TEXT_HTML = "TEXT_HTML"
+    APPLICATION_JSON = "APPLICATION_JSON"
+
+
 class WebAclScope(str, Enum):
     """
     Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
@@ -352,6 +373,13 @@ class WebAclSizeConstraintStatementComparisonOperator(str, Enum):
     LT = "LT"
     GE = "GE"
     GT = "GT"
+
+
+class WebAclSizeInspectionLimit(str, Enum):
+    KB16 = "KB_16"
+    KB32 = "KB_32"
+    KB48 = "KB_48"
+    KB64 = "KB_64"
 
 
 class WebAclTextTransformationType(str, Enum):

@@ -89,7 +89,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.EnvironmentTagMap']:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags associated to this environment.
         """

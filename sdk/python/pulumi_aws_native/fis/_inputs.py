@@ -11,22 +11,89 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ExperimentTemplateActionMapArgs',
+    'ExperimentTemplateActionArgs',
     'ExperimentTemplateExperimentOptionsArgs',
     'ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs',
     'ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs',
     'ExperimentTemplateLogConfigurationArgs',
     'ExperimentTemplateStopConditionArgs',
-    'ExperimentTemplateTargetMapArgs',
+    'ExperimentTemplateTargetFilterArgs',
+    'ExperimentTemplateTargetArgs',
 ]
 
 @pulumi.input_type
-class ExperimentTemplateActionMapArgs:
-    def __init__(__self__):
+class ExperimentTemplateActionArgs:
+    def __init__(__self__, *,
+                 action_id: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 start_after: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        The actions for the experiment.
+        Specifies an action for the experiment template.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameters for the action, if applicable.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] targets: One or more targets for the action.
         """
-        pass
+        pulumi.set(__self__, "action_id", action_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if start_after is not None:
+            pulumi.set(__self__, "start_after", start_after)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter(name="actionId")
+    def action_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "action_id")
+
+    @action_id.setter
+    def action_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The parameters for the action, if applicable.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="startAfter")
+    def start_after(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "start_after")
+
+    @start_after.setter
+    def start_after(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "start_after", value)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        One or more targets for the action.
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "targets", value)
 
 
 @pulumi.input_type
@@ -181,11 +248,110 @@ class ExperimentTemplateStopConditionArgs:
 
 
 @pulumi.input_type
-class ExperimentTemplateTargetMapArgs:
-    def __init__(__self__):
+class ExperimentTemplateTargetFilterArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        The targets for the experiment.
+        Describes a filter used for the target resource input in an experiment template.
         """
-        pass
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class ExperimentTemplateTargetArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[str],
+                 selection_mode: pulumi.Input[str],
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Specifies a target for an experiment.
+        """
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "selection_mode", selection_mode)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if resource_arns is not None:
+            pulumi.set(__self__, "resource_arns", resource_arns)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="selectionMode")
+    def selection_mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "selection_mode")
+
+    @selection_mode.setter
+    def selection_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "selection_mode", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="resourceArns")
+    def resource_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "resource_arns")
+
+    @resource_arns.setter
+    def resource_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_arns", value)
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "resource_tags")
+
+    @resource_tags.setter
+    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_tags", value)
 
 

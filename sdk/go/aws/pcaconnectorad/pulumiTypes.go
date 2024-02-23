@@ -13,124 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type ConnectorTags struct {
-}
-
-// ConnectorTagsInput is an input type that accepts ConnectorTagsArgs and ConnectorTagsOutput values.
-// You can construct a concrete instance of `ConnectorTagsInput` via:
-//
-//	ConnectorTagsArgs{...}
-type ConnectorTagsInput interface {
-	pulumi.Input
-
-	ToConnectorTagsOutput() ConnectorTagsOutput
-	ToConnectorTagsOutputWithContext(context.Context) ConnectorTagsOutput
-}
-
-type ConnectorTagsArgs struct {
-}
-
-func (ConnectorTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorTags)(nil)).Elem()
-}
-
-func (i ConnectorTagsArgs) ToConnectorTagsOutput() ConnectorTagsOutput {
-	return i.ToConnectorTagsOutputWithContext(context.Background())
-}
-
-func (i ConnectorTagsArgs) ToConnectorTagsOutputWithContext(ctx context.Context) ConnectorTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagsOutput)
-}
-
-func (i ConnectorTagsArgs) ToConnectorTagsPtrOutput() ConnectorTagsPtrOutput {
-	return i.ToConnectorTagsPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorTagsArgs) ToConnectorTagsPtrOutputWithContext(ctx context.Context) ConnectorTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagsOutput).ToConnectorTagsPtrOutputWithContext(ctx)
-}
-
-// ConnectorTagsPtrInput is an input type that accepts ConnectorTagsArgs, ConnectorTagsPtr and ConnectorTagsPtrOutput values.
-// You can construct a concrete instance of `ConnectorTagsPtrInput` via:
-//
-//	        ConnectorTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConnectorTagsPtrInput interface {
-	pulumi.Input
-
-	ToConnectorTagsPtrOutput() ConnectorTagsPtrOutput
-	ToConnectorTagsPtrOutputWithContext(context.Context) ConnectorTagsPtrOutput
-}
-
-type connectorTagsPtrType ConnectorTagsArgs
-
-func ConnectorTagsPtr(v *ConnectorTagsArgs) ConnectorTagsPtrInput {
-	return (*connectorTagsPtrType)(v)
-}
-
-func (*connectorTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorTags)(nil)).Elem()
-}
-
-func (i *connectorTagsPtrType) ToConnectorTagsPtrOutput() ConnectorTagsPtrOutput {
-	return i.ToConnectorTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorTagsPtrType) ToConnectorTagsPtrOutputWithContext(ctx context.Context) ConnectorTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagsPtrOutput)
-}
-
-type ConnectorTagsOutput struct{ *pulumi.OutputState }
-
-func (ConnectorTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorTags)(nil)).Elem()
-}
-
-func (o ConnectorTagsOutput) ToConnectorTagsOutput() ConnectorTagsOutput {
-	return o
-}
-
-func (o ConnectorTagsOutput) ToConnectorTagsOutputWithContext(ctx context.Context) ConnectorTagsOutput {
-	return o
-}
-
-func (o ConnectorTagsOutput) ToConnectorTagsPtrOutput() ConnectorTagsPtrOutput {
-	return o.ToConnectorTagsPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorTagsOutput) ToConnectorTagsPtrOutputWithContext(ctx context.Context) ConnectorTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorTags) *ConnectorTags {
-		return &v
-	}).(ConnectorTagsPtrOutput)
-}
-
-type ConnectorTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorTags)(nil)).Elem()
-}
-
-func (o ConnectorTagsPtrOutput) ToConnectorTagsPtrOutput() ConnectorTagsPtrOutput {
-	return o
-}
-
-func (o ConnectorTagsPtrOutput) ToConnectorTagsPtrOutputWithContext(ctx context.Context) ConnectorTagsPtrOutput {
-	return o
-}
-
-func (o ConnectorTagsPtrOutput) Elem() ConnectorTagsOutput {
-	return o.ApplyT(func(v *ConnectorTags) ConnectorTags {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorTags
-		return ret
-	}).(ConnectorTagsOutput)
-}
-
 type ConnectorVpcInformation struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 }
@@ -178,124 +60,6 @@ func (o ConnectorVpcInformationOutput) ToConnectorVpcInformationOutputWithContex
 
 func (o ConnectorVpcInformationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorVpcInformation) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
-}
-
-type DirectoryRegistrationTags struct {
-}
-
-// DirectoryRegistrationTagsInput is an input type that accepts DirectoryRegistrationTagsArgs and DirectoryRegistrationTagsOutput values.
-// You can construct a concrete instance of `DirectoryRegistrationTagsInput` via:
-//
-//	DirectoryRegistrationTagsArgs{...}
-type DirectoryRegistrationTagsInput interface {
-	pulumi.Input
-
-	ToDirectoryRegistrationTagsOutput() DirectoryRegistrationTagsOutput
-	ToDirectoryRegistrationTagsOutputWithContext(context.Context) DirectoryRegistrationTagsOutput
-}
-
-type DirectoryRegistrationTagsArgs struct {
-}
-
-func (DirectoryRegistrationTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectoryRegistrationTags)(nil)).Elem()
-}
-
-func (i DirectoryRegistrationTagsArgs) ToDirectoryRegistrationTagsOutput() DirectoryRegistrationTagsOutput {
-	return i.ToDirectoryRegistrationTagsOutputWithContext(context.Background())
-}
-
-func (i DirectoryRegistrationTagsArgs) ToDirectoryRegistrationTagsOutputWithContext(ctx context.Context) DirectoryRegistrationTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectoryRegistrationTagsOutput)
-}
-
-func (i DirectoryRegistrationTagsArgs) ToDirectoryRegistrationTagsPtrOutput() DirectoryRegistrationTagsPtrOutput {
-	return i.ToDirectoryRegistrationTagsPtrOutputWithContext(context.Background())
-}
-
-func (i DirectoryRegistrationTagsArgs) ToDirectoryRegistrationTagsPtrOutputWithContext(ctx context.Context) DirectoryRegistrationTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectoryRegistrationTagsOutput).ToDirectoryRegistrationTagsPtrOutputWithContext(ctx)
-}
-
-// DirectoryRegistrationTagsPtrInput is an input type that accepts DirectoryRegistrationTagsArgs, DirectoryRegistrationTagsPtr and DirectoryRegistrationTagsPtrOutput values.
-// You can construct a concrete instance of `DirectoryRegistrationTagsPtrInput` via:
-//
-//	        DirectoryRegistrationTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DirectoryRegistrationTagsPtrInput interface {
-	pulumi.Input
-
-	ToDirectoryRegistrationTagsPtrOutput() DirectoryRegistrationTagsPtrOutput
-	ToDirectoryRegistrationTagsPtrOutputWithContext(context.Context) DirectoryRegistrationTagsPtrOutput
-}
-
-type directoryRegistrationTagsPtrType DirectoryRegistrationTagsArgs
-
-func DirectoryRegistrationTagsPtr(v *DirectoryRegistrationTagsArgs) DirectoryRegistrationTagsPtrInput {
-	return (*directoryRegistrationTagsPtrType)(v)
-}
-
-func (*directoryRegistrationTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DirectoryRegistrationTags)(nil)).Elem()
-}
-
-func (i *directoryRegistrationTagsPtrType) ToDirectoryRegistrationTagsPtrOutput() DirectoryRegistrationTagsPtrOutput {
-	return i.ToDirectoryRegistrationTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *directoryRegistrationTagsPtrType) ToDirectoryRegistrationTagsPtrOutputWithContext(ctx context.Context) DirectoryRegistrationTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectoryRegistrationTagsPtrOutput)
-}
-
-type DirectoryRegistrationTagsOutput struct{ *pulumi.OutputState }
-
-func (DirectoryRegistrationTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectoryRegistrationTags)(nil)).Elem()
-}
-
-func (o DirectoryRegistrationTagsOutput) ToDirectoryRegistrationTagsOutput() DirectoryRegistrationTagsOutput {
-	return o
-}
-
-func (o DirectoryRegistrationTagsOutput) ToDirectoryRegistrationTagsOutputWithContext(ctx context.Context) DirectoryRegistrationTagsOutput {
-	return o
-}
-
-func (o DirectoryRegistrationTagsOutput) ToDirectoryRegistrationTagsPtrOutput() DirectoryRegistrationTagsPtrOutput {
-	return o.ToDirectoryRegistrationTagsPtrOutputWithContext(context.Background())
-}
-
-func (o DirectoryRegistrationTagsOutput) ToDirectoryRegistrationTagsPtrOutputWithContext(ctx context.Context) DirectoryRegistrationTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryRegistrationTags) *DirectoryRegistrationTags {
-		return &v
-	}).(DirectoryRegistrationTagsPtrOutput)
-}
-
-type DirectoryRegistrationTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (DirectoryRegistrationTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DirectoryRegistrationTags)(nil)).Elem()
-}
-
-func (o DirectoryRegistrationTagsPtrOutput) ToDirectoryRegistrationTagsPtrOutput() DirectoryRegistrationTagsPtrOutput {
-	return o
-}
-
-func (o DirectoryRegistrationTagsPtrOutput) ToDirectoryRegistrationTagsPtrOutputWithContext(ctx context.Context) DirectoryRegistrationTagsPtrOutput {
-	return o
-}
-
-func (o DirectoryRegistrationTagsPtrOutput) Elem() DirectoryRegistrationTagsOutput {
-	return o.ApplyT(func(v *DirectoryRegistrationTags) DirectoryRegistrationTags {
-		if v != nil {
-			return *v
-		}
-		var ret DirectoryRegistrationTags
-		return ret
-	}).(DirectoryRegistrationTagsOutput)
 }
 
 type TemplateApplicationPolicies struct {
@@ -2634,124 +2398,6 @@ func (o TemplateSubjectNameFlagsV4Output) SanRequireUpn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateSubjectNameFlagsV4) *bool { return v.SanRequireUpn }).(pulumi.BoolPtrOutput)
 }
 
-type TemplateTags struct {
-}
-
-// TemplateTagsInput is an input type that accepts TemplateTagsArgs and TemplateTagsOutput values.
-// You can construct a concrete instance of `TemplateTagsInput` via:
-//
-//	TemplateTagsArgs{...}
-type TemplateTagsInput interface {
-	pulumi.Input
-
-	ToTemplateTagsOutput() TemplateTagsOutput
-	ToTemplateTagsOutputWithContext(context.Context) TemplateTagsOutput
-}
-
-type TemplateTagsArgs struct {
-}
-
-func (TemplateTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTags)(nil)).Elem()
-}
-
-func (i TemplateTagsArgs) ToTemplateTagsOutput() TemplateTagsOutput {
-	return i.ToTemplateTagsOutputWithContext(context.Background())
-}
-
-func (i TemplateTagsArgs) ToTemplateTagsOutputWithContext(ctx context.Context) TemplateTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTagsOutput)
-}
-
-func (i TemplateTagsArgs) ToTemplateTagsPtrOutput() TemplateTagsPtrOutput {
-	return i.ToTemplateTagsPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTagsArgs) ToTemplateTagsPtrOutputWithContext(ctx context.Context) TemplateTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTagsOutput).ToTemplateTagsPtrOutputWithContext(ctx)
-}
-
-// TemplateTagsPtrInput is an input type that accepts TemplateTagsArgs, TemplateTagsPtr and TemplateTagsPtrOutput values.
-// You can construct a concrete instance of `TemplateTagsPtrInput` via:
-//
-//	        TemplateTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateTagsPtrInput interface {
-	pulumi.Input
-
-	ToTemplateTagsPtrOutput() TemplateTagsPtrOutput
-	ToTemplateTagsPtrOutputWithContext(context.Context) TemplateTagsPtrOutput
-}
-
-type templateTagsPtrType TemplateTagsArgs
-
-func TemplateTagsPtr(v *TemplateTagsArgs) TemplateTagsPtrInput {
-	return (*templateTagsPtrType)(v)
-}
-
-func (*templateTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTags)(nil)).Elem()
-}
-
-func (i *templateTagsPtrType) ToTemplateTagsPtrOutput() TemplateTagsPtrOutput {
-	return i.ToTemplateTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *templateTagsPtrType) ToTemplateTagsPtrOutputWithContext(ctx context.Context) TemplateTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTagsPtrOutput)
-}
-
-type TemplateTagsOutput struct{ *pulumi.OutputState }
-
-func (TemplateTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTags)(nil)).Elem()
-}
-
-func (o TemplateTagsOutput) ToTemplateTagsOutput() TemplateTagsOutput {
-	return o
-}
-
-func (o TemplateTagsOutput) ToTemplateTagsOutputWithContext(ctx context.Context) TemplateTagsOutput {
-	return o
-}
-
-func (o TemplateTagsOutput) ToTemplateTagsPtrOutput() TemplateTagsPtrOutput {
-	return o.ToTemplateTagsPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTagsOutput) ToTemplateTagsPtrOutputWithContext(ctx context.Context) TemplateTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTags) *TemplateTags {
-		return &v
-	}).(TemplateTagsPtrOutput)
-}
-
-type TemplateTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTags)(nil)).Elem()
-}
-
-func (o TemplateTagsPtrOutput) ToTemplateTagsPtrOutput() TemplateTagsPtrOutput {
-	return o
-}
-
-func (o TemplateTagsPtrOutput) ToTemplateTagsPtrOutputWithContext(ctx context.Context) TemplateTagsPtrOutput {
-	return o
-}
-
-func (o TemplateTagsPtrOutput) Elem() TemplateTagsOutput {
-	return o.ApplyT(func(v *TemplateTags) TemplateTags {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTags
-		return ret
-	}).(TemplateTagsOutput)
-}
-
 type TemplateV2 struct {
 	CertificateValidity  TemplateCertificateValidity    `pulumi:"certificateValidity"`
 	EnrollmentFlags      TemplateEnrollmentFlagsV2      `pulumi:"enrollmentFlags"`
@@ -3093,11 +2739,7 @@ func (o TemplateValidityPeriodOutput) PeriodType() TemplateValidityPeriodTypeOut
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorTagsInput)(nil)).Elem(), ConnectorTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorTagsPtrInput)(nil)).Elem(), ConnectorTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorVpcInformationInput)(nil)).Elem(), ConnectorVpcInformationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryRegistrationTagsInput)(nil)).Elem(), DirectoryRegistrationTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryRegistrationTagsPtrInput)(nil)).Elem(), DirectoryRegistrationTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateApplicationPoliciesInput)(nil)).Elem(), TemplateApplicationPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateApplicationPoliciesPtrInput)(nil)).Elem(), TemplateApplicationPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateApplicationPolicy0PropertiesInput)(nil)).Elem(), TemplateApplicationPolicy0PropertiesArgs{})
@@ -3133,17 +2775,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSubjectNameFlagsV2Input)(nil)).Elem(), TemplateSubjectNameFlagsV2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSubjectNameFlagsV3Input)(nil)).Elem(), TemplateSubjectNameFlagsV3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSubjectNameFlagsV4Input)(nil)).Elem(), TemplateSubjectNameFlagsV4Args{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTagsInput)(nil)).Elem(), TemplateTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTagsPtrInput)(nil)).Elem(), TemplateTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateV2Input)(nil)).Elem(), TemplateV2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateV3Input)(nil)).Elem(), TemplateV3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateV4Input)(nil)).Elem(), TemplateV4Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValidityPeriodInput)(nil)).Elem(), TemplateValidityPeriodArgs{})
-	pulumi.RegisterOutputType(ConnectorTagsOutput{})
-	pulumi.RegisterOutputType(ConnectorTagsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorVpcInformationOutput{})
-	pulumi.RegisterOutputType(DirectoryRegistrationTagsOutput{})
-	pulumi.RegisterOutputType(DirectoryRegistrationTagsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateApplicationPoliciesOutput{})
 	pulumi.RegisterOutputType(TemplateApplicationPoliciesPtrOutput{})
 	pulumi.RegisterOutputType(TemplateApplicationPolicy0PropertiesOutput{})
@@ -3179,8 +2815,6 @@ func init() {
 	pulumi.RegisterOutputType(TemplateSubjectNameFlagsV2Output{})
 	pulumi.RegisterOutputType(TemplateSubjectNameFlagsV3Output{})
 	pulumi.RegisterOutputType(TemplateSubjectNameFlagsV4Output{})
-	pulumi.RegisterOutputType(TemplateTagsOutput{})
-	pulumi.RegisterOutputType(TemplateTagsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateV2Output{})
 	pulumi.RegisterOutputType(TemplateV3Output{})
 	pulumi.RegisterOutputType(TemplateV4Output{})

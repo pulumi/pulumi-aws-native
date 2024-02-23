@@ -27,20 +27,20 @@ export interface GetComponentArgs {
 }
 
 export interface GetComponentResult {
-    readonly bindingProperties?: outputs.amplifyuibuilder.ComponentBindingProperties;
+    readonly bindingProperties?: {[key: string]: outputs.amplifyuibuilder.ComponentBindingPropertiesValue};
     readonly children?: outputs.amplifyuibuilder.ComponentChild[];
-    readonly collectionProperties?: outputs.amplifyuibuilder.ComponentCollectionProperties;
+    readonly collectionProperties?: {[key: string]: outputs.amplifyuibuilder.ComponentDataConfiguration};
     readonly componentType?: string;
     readonly createdAt?: string;
-    readonly events?: outputs.amplifyuibuilder.ComponentEvents;
+    readonly events?: {[key: string]: outputs.amplifyuibuilder.ComponentEvent};
     readonly id?: string;
     readonly modifiedAt?: string;
     readonly name?: string;
-    readonly overrides?: outputs.amplifyuibuilder.ComponentOverrides;
-    readonly properties?: outputs.amplifyuibuilder.ComponentProperties;
+    readonly overrides?: {[key: string]: any};
+    readonly properties?: {[key: string]: outputs.amplifyuibuilder.ComponentProperty};
     readonly schemaVersion?: string;
     readonly sourceId?: string;
-    readonly tags?: outputs.amplifyuibuilder.ComponentTags;
+    readonly tags?: {[key: string]: string};
     readonly variants?: outputs.amplifyuibuilder.ComponentVariant[];
 }
 /**

@@ -16,7 +16,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileOAuth2PropertiesArgs>? OAuth2Properties { get; set; }
 
         [Input("profileProperties")]
-        public Input<Inputs.ConnectorProfileProfilePropertiesArgs>? ProfileProperties { get; set; }
+        private InputMap<string>? _profileProperties;
+        public InputMap<string> ProfileProperties
+        {
+            get => _profileProperties ?? (_profileProperties = new InputMap<string>());
+            set => _profileProperties = value;
+        }
 
         public ConnectorProfileCustomConnectorProfilePropertiesArgs()
         {

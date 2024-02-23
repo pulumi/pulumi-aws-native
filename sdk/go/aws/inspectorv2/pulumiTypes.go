@@ -13,127 +13,9 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type CisScanConfigurationCisTagMap struct {
-}
-
-// CisScanConfigurationCisTagMapInput is an input type that accepts CisScanConfigurationCisTagMap and CisScanConfigurationCisTagMapOutput values.
-// You can construct a concrete instance of `CisScanConfigurationCisTagMapInput` via:
-//
-//	CisScanConfigurationCisTagMap{ "key": CisScanConfigurationCisTagArgs{...} }
-type CisScanConfigurationCisTagMapInput interface {
-	pulumi.Input
-
-	ToCisScanConfigurationCisTagMapOutput() CisScanConfigurationCisTagMapOutput
-	ToCisScanConfigurationCisTagMapOutputWithContext(context.Context) CisScanConfigurationCisTagMapOutput
-}
-
-type CisScanConfigurationCisTagMapArgs struct {
-}
-
-func (CisScanConfigurationCisTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CisScanConfigurationCisTagMap)(nil)).Elem()
-}
-
-func (i CisScanConfigurationCisTagMapArgs) ToCisScanConfigurationCisTagMapOutput() CisScanConfigurationCisTagMapOutput {
-	return i.ToCisScanConfigurationCisTagMapOutputWithContext(context.Background())
-}
-
-func (i CisScanConfigurationCisTagMapArgs) ToCisScanConfigurationCisTagMapOutputWithContext(ctx context.Context) CisScanConfigurationCisTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationCisTagMapOutput)
-}
-
-func (i CisScanConfigurationCisTagMapArgs) ToCisScanConfigurationCisTagMapPtrOutput() CisScanConfigurationCisTagMapPtrOutput {
-	return i.ToCisScanConfigurationCisTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i CisScanConfigurationCisTagMapArgs) ToCisScanConfigurationCisTagMapPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationCisTagMapOutput).ToCisScanConfigurationCisTagMapPtrOutputWithContext(ctx)
-}
-
-// CisScanConfigurationCisTagMapPtrInput is an input type that accepts CisScanConfigurationCisTagMapArgs, CisScanConfigurationCisTagMapPtr and CisScanConfigurationCisTagMapPtrOutput values.
-// You can construct a concrete instance of `CisScanConfigurationCisTagMapPtrInput` via:
-//
-//	        CisScanConfigurationCisTagMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type CisScanConfigurationCisTagMapPtrInput interface {
-	pulumi.Input
-
-	ToCisScanConfigurationCisTagMapPtrOutput() CisScanConfigurationCisTagMapPtrOutput
-	ToCisScanConfigurationCisTagMapPtrOutputWithContext(context.Context) CisScanConfigurationCisTagMapPtrOutput
-}
-
-type cisScanConfigurationCisTagMapPtrType CisScanConfigurationCisTagMapArgs
-
-func CisScanConfigurationCisTagMapPtr(v *CisScanConfigurationCisTagMapArgs) CisScanConfigurationCisTagMapPtrInput {
-	return (*cisScanConfigurationCisTagMapPtrType)(v)
-}
-
-func (*cisScanConfigurationCisTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CisScanConfigurationCisTagMap)(nil)).Elem()
-}
-
-func (i *cisScanConfigurationCisTagMapPtrType) ToCisScanConfigurationCisTagMapPtrOutput() CisScanConfigurationCisTagMapPtrOutput {
-	return i.ToCisScanConfigurationCisTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i *cisScanConfigurationCisTagMapPtrType) ToCisScanConfigurationCisTagMapPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationCisTagMapPtrOutput)
-}
-
-type CisScanConfigurationCisTagMapOutput struct{ *pulumi.OutputState }
-
-func (CisScanConfigurationCisTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CisScanConfigurationCisTagMap)(nil)).Elem()
-}
-
-func (o CisScanConfigurationCisTagMapOutput) ToCisScanConfigurationCisTagMapOutput() CisScanConfigurationCisTagMapOutput {
-	return o
-}
-
-func (o CisScanConfigurationCisTagMapOutput) ToCisScanConfigurationCisTagMapOutputWithContext(ctx context.Context) CisScanConfigurationCisTagMapOutput {
-	return o
-}
-
-func (o CisScanConfigurationCisTagMapOutput) ToCisScanConfigurationCisTagMapPtrOutput() CisScanConfigurationCisTagMapPtrOutput {
-	return o.ToCisScanConfigurationCisTagMapPtrOutputWithContext(context.Background())
-}
-
-func (o CisScanConfigurationCisTagMapOutput) ToCisScanConfigurationCisTagMapPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CisScanConfigurationCisTagMap) *CisScanConfigurationCisTagMap {
-		return &v
-	}).(CisScanConfigurationCisTagMapPtrOutput)
-}
-
-type CisScanConfigurationCisTagMapPtrOutput struct{ *pulumi.OutputState }
-
-func (CisScanConfigurationCisTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CisScanConfigurationCisTagMap)(nil)).Elem()
-}
-
-func (o CisScanConfigurationCisTagMapPtrOutput) ToCisScanConfigurationCisTagMapPtrOutput() CisScanConfigurationCisTagMapPtrOutput {
-	return o
-}
-
-func (o CisScanConfigurationCisTagMapPtrOutput) ToCisScanConfigurationCisTagMapPtrOutputWithContext(ctx context.Context) CisScanConfigurationCisTagMapPtrOutput {
-	return o
-}
-
-func (o CisScanConfigurationCisTagMapPtrOutput) Elem() CisScanConfigurationCisTagMapOutput {
-	return o.ApplyT(func(v *CisScanConfigurationCisTagMap) CisScanConfigurationCisTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret CisScanConfigurationCisTagMap
-		return ret
-	}).(CisScanConfigurationCisTagMapOutput)
-}
-
 type CisScanConfigurationCisTargets struct {
-	AccountIds         []string                                `pulumi:"accountIds"`
-	TargetResourceTags *CisScanConfigurationTargetResourceTags `pulumi:"targetResourceTags"`
+	AccountIds         []string               `pulumi:"accountIds"`
+	TargetResourceTags map[string]interface{} `pulumi:"targetResourceTags"`
 }
 
 // CisScanConfigurationCisTargetsInput is an input type that accepts CisScanConfigurationCisTargetsArgs and CisScanConfigurationCisTargetsOutput values.
@@ -148,8 +30,8 @@ type CisScanConfigurationCisTargetsInput interface {
 }
 
 type CisScanConfigurationCisTargetsArgs struct {
-	AccountIds         pulumi.StringArrayInput                        `pulumi:"accountIds"`
-	TargetResourceTags CisScanConfigurationTargetResourceTagsPtrInput `pulumi:"targetResourceTags"`
+	AccountIds         pulumi.StringArrayInput `pulumi:"accountIds"`
+	TargetResourceTags pulumi.MapInput         `pulumi:"targetResourceTags"`
 }
 
 func (CisScanConfigurationCisTargetsArgs) ElementType() reflect.Type {
@@ -233,10 +115,8 @@ func (o CisScanConfigurationCisTargetsOutput) AccountIds() pulumi.StringArrayOut
 	return o.ApplyT(func(v CisScanConfigurationCisTargets) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
-func (o CisScanConfigurationCisTargetsOutput) TargetResourceTags() CisScanConfigurationTargetResourceTagsPtrOutput {
-	return o.ApplyT(func(v CisScanConfigurationCisTargets) *CisScanConfigurationTargetResourceTags {
-		return v.TargetResourceTags
-	}).(CisScanConfigurationTargetResourceTagsPtrOutput)
+func (o CisScanConfigurationCisTargetsOutput) TargetResourceTags() pulumi.MapOutput {
+	return o.ApplyT(func(v CisScanConfigurationCisTargets) map[string]interface{} { return v.TargetResourceTags }).(pulumi.MapOutput)
 }
 
 type CisScanConfigurationCisTargetsPtrOutput struct{ *pulumi.OutputState }
@@ -272,13 +152,13 @@ func (o CisScanConfigurationCisTargetsPtrOutput) AccountIds() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o CisScanConfigurationCisTargetsPtrOutput) TargetResourceTags() CisScanConfigurationTargetResourceTagsPtrOutput {
-	return o.ApplyT(func(v *CisScanConfigurationCisTargets) *CisScanConfigurationTargetResourceTags {
+func (o CisScanConfigurationCisTargetsPtrOutput) TargetResourceTags() pulumi.MapOutput {
+	return o.ApplyT(func(v *CisScanConfigurationCisTargets) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.TargetResourceTags
-	}).(CisScanConfigurationTargetResourceTagsPtrOutput)
+	}).(pulumi.MapOutput)
 }
 
 type CisScanConfigurationDailySchedule struct {
@@ -859,124 +739,6 @@ func (o CisScanConfigurationSchedulePtrOutput) Weekly() CisScanConfigurationWeek
 		}
 		return v.Weekly
 	}).(CisScanConfigurationWeeklySchedulePtrOutput)
-}
-
-type CisScanConfigurationTargetResourceTags struct {
-}
-
-// CisScanConfigurationTargetResourceTagsInput is an input type that accepts CisScanConfigurationTargetResourceTagsArgs and CisScanConfigurationTargetResourceTagsOutput values.
-// You can construct a concrete instance of `CisScanConfigurationTargetResourceTagsInput` via:
-//
-//	CisScanConfigurationTargetResourceTagsArgs{...}
-type CisScanConfigurationTargetResourceTagsInput interface {
-	pulumi.Input
-
-	ToCisScanConfigurationTargetResourceTagsOutput() CisScanConfigurationTargetResourceTagsOutput
-	ToCisScanConfigurationTargetResourceTagsOutputWithContext(context.Context) CisScanConfigurationTargetResourceTagsOutput
-}
-
-type CisScanConfigurationTargetResourceTagsArgs struct {
-}
-
-func (CisScanConfigurationTargetResourceTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CisScanConfigurationTargetResourceTags)(nil)).Elem()
-}
-
-func (i CisScanConfigurationTargetResourceTagsArgs) ToCisScanConfigurationTargetResourceTagsOutput() CisScanConfigurationTargetResourceTagsOutput {
-	return i.ToCisScanConfigurationTargetResourceTagsOutputWithContext(context.Background())
-}
-
-func (i CisScanConfigurationTargetResourceTagsArgs) ToCisScanConfigurationTargetResourceTagsOutputWithContext(ctx context.Context) CisScanConfigurationTargetResourceTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationTargetResourceTagsOutput)
-}
-
-func (i CisScanConfigurationTargetResourceTagsArgs) ToCisScanConfigurationTargetResourceTagsPtrOutput() CisScanConfigurationTargetResourceTagsPtrOutput {
-	return i.ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(context.Background())
-}
-
-func (i CisScanConfigurationTargetResourceTagsArgs) ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(ctx context.Context) CisScanConfigurationTargetResourceTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationTargetResourceTagsOutput).ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(ctx)
-}
-
-// CisScanConfigurationTargetResourceTagsPtrInput is an input type that accepts CisScanConfigurationTargetResourceTagsArgs, CisScanConfigurationTargetResourceTagsPtr and CisScanConfigurationTargetResourceTagsPtrOutput values.
-// You can construct a concrete instance of `CisScanConfigurationTargetResourceTagsPtrInput` via:
-//
-//	        CisScanConfigurationTargetResourceTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type CisScanConfigurationTargetResourceTagsPtrInput interface {
-	pulumi.Input
-
-	ToCisScanConfigurationTargetResourceTagsPtrOutput() CisScanConfigurationTargetResourceTagsPtrOutput
-	ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(context.Context) CisScanConfigurationTargetResourceTagsPtrOutput
-}
-
-type cisScanConfigurationTargetResourceTagsPtrType CisScanConfigurationTargetResourceTagsArgs
-
-func CisScanConfigurationTargetResourceTagsPtr(v *CisScanConfigurationTargetResourceTagsArgs) CisScanConfigurationTargetResourceTagsPtrInput {
-	return (*cisScanConfigurationTargetResourceTagsPtrType)(v)
-}
-
-func (*cisScanConfigurationTargetResourceTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CisScanConfigurationTargetResourceTags)(nil)).Elem()
-}
-
-func (i *cisScanConfigurationTargetResourceTagsPtrType) ToCisScanConfigurationTargetResourceTagsPtrOutput() CisScanConfigurationTargetResourceTagsPtrOutput {
-	return i.ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *cisScanConfigurationTargetResourceTagsPtrType) ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(ctx context.Context) CisScanConfigurationTargetResourceTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CisScanConfigurationTargetResourceTagsPtrOutput)
-}
-
-type CisScanConfigurationTargetResourceTagsOutput struct{ *pulumi.OutputState }
-
-func (CisScanConfigurationTargetResourceTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CisScanConfigurationTargetResourceTags)(nil)).Elem()
-}
-
-func (o CisScanConfigurationTargetResourceTagsOutput) ToCisScanConfigurationTargetResourceTagsOutput() CisScanConfigurationTargetResourceTagsOutput {
-	return o
-}
-
-func (o CisScanConfigurationTargetResourceTagsOutput) ToCisScanConfigurationTargetResourceTagsOutputWithContext(ctx context.Context) CisScanConfigurationTargetResourceTagsOutput {
-	return o
-}
-
-func (o CisScanConfigurationTargetResourceTagsOutput) ToCisScanConfigurationTargetResourceTagsPtrOutput() CisScanConfigurationTargetResourceTagsPtrOutput {
-	return o.ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(context.Background())
-}
-
-func (o CisScanConfigurationTargetResourceTagsOutput) ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(ctx context.Context) CisScanConfigurationTargetResourceTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CisScanConfigurationTargetResourceTags) *CisScanConfigurationTargetResourceTags {
-		return &v
-	}).(CisScanConfigurationTargetResourceTagsPtrOutput)
-}
-
-type CisScanConfigurationTargetResourceTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (CisScanConfigurationTargetResourceTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CisScanConfigurationTargetResourceTags)(nil)).Elem()
-}
-
-func (o CisScanConfigurationTargetResourceTagsPtrOutput) ToCisScanConfigurationTargetResourceTagsPtrOutput() CisScanConfigurationTargetResourceTagsPtrOutput {
-	return o
-}
-
-func (o CisScanConfigurationTargetResourceTagsPtrOutput) ToCisScanConfigurationTargetResourceTagsPtrOutputWithContext(ctx context.Context) CisScanConfigurationTargetResourceTagsPtrOutput {
-	return o
-}
-
-func (o CisScanConfigurationTargetResourceTagsPtrOutput) Elem() CisScanConfigurationTargetResourceTagsOutput {
-	return o.ApplyT(func(v *CisScanConfigurationTargetResourceTags) CisScanConfigurationTargetResourceTags {
-		if v != nil {
-			return *v
-		}
-		var ret CisScanConfigurationTargetResourceTags
-		return ret
-	}).(CisScanConfigurationTargetResourceTagsOutput)
 }
 
 type CisScanConfigurationTime struct {
@@ -2624,8 +2386,6 @@ func (o FilterStringFilterArrayOutput) Index(i pulumi.IntInput) FilterStringFilt
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationCisTagMapInput)(nil)).Elem(), CisScanConfigurationCisTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationCisTagMapPtrInput)(nil)).Elem(), CisScanConfigurationCisTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationCisTargetsInput)(nil)).Elem(), CisScanConfigurationCisTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationCisTargetsPtrInput)(nil)).Elem(), CisScanConfigurationCisTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationDailyScheduleInput)(nil)).Elem(), CisScanConfigurationDailyScheduleArgs{})
@@ -2636,8 +2396,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationOneTimeSchedulePtrInput)(nil)).Elem(), CisScanConfigurationOneTimeScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationScheduleInput)(nil)).Elem(), CisScanConfigurationScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationSchedulePtrInput)(nil)).Elem(), CisScanConfigurationScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationTargetResourceTagsInput)(nil)).Elem(), CisScanConfigurationTargetResourceTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationTargetResourceTagsPtrInput)(nil)).Elem(), CisScanConfigurationTargetResourceTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationTimeInput)(nil)).Elem(), CisScanConfigurationTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationTimePtrInput)(nil)).Elem(), CisScanConfigurationTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationWeeklyScheduleInput)(nil)).Elem(), CisScanConfigurationWeeklyScheduleArgs{})
@@ -2657,8 +2415,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterStringFilterInput)(nil)).Elem(), FilterStringFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterStringFilterPtrInput)(nil)).Elem(), FilterStringFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterStringFilterArrayInput)(nil)).Elem(), FilterStringFilterArray{})
-	pulumi.RegisterOutputType(CisScanConfigurationCisTagMapOutput{})
-	pulumi.RegisterOutputType(CisScanConfigurationCisTagMapPtrOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationCisTargetsOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationCisTargetsPtrOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationDailyScheduleOutput{})
@@ -2669,8 +2425,6 @@ func init() {
 	pulumi.RegisterOutputType(CisScanConfigurationOneTimeSchedulePtrOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationScheduleOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationSchedulePtrOutput{})
-	pulumi.RegisterOutputType(CisScanConfigurationTargetResourceTagsOutput{})
-	pulumi.RegisterOutputType(CisScanConfigurationTargetResourceTagsPtrOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationTimeOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationTimePtrOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationWeeklyScheduleOutput{})
