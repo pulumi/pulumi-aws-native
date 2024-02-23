@@ -62,56 +62,53 @@ func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) Ta
 		return TagsStyleStringMap
 	}
 
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, false /* includeExtraProperties */, false /* allowOneOf */) {
-		if ctx.isPropCreateOnly(propName) {
+	if isKeyValueArray, style := ctx.tagStyleIsKeyValueArray(propName, typeSpec); isKeyValueArray {
+		if style == TagsStyleKeyValueArray && ctx.isPropCreateOnly(propName) {
 			return TagsStyleKeyValueCreateOnlyArray
 		}
-		return TagsStyleKeyValueArray
-	}
-
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeExtraProperties */, false /* allowOneOf */) {
-		return TagsStyleKeyValueArrayWithExtraProperties
-	}
-
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeExtraProperties */, true /* allowOneOf */) {
-		return TagsStyleKeyValueArrayWithAlternateType
+		if style != TagsStyleUnknown {
+			return style
+		}
 	}
 
 	return TagsStyleUnknown
 }
 
-func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec, allowExtraProperties bool, allowOneOf bool) bool {
+func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec) (bool, TagsStyle) {
 	if typeSpec == nil || typeSpec.Items == nil {
-		return false
+		return false, TagsStyleUnknown
 	}
 
 	if typeSpec.Items.Ref != "" {
 		typeToken, hasPrefix := strings.CutPrefix(typeSpec.Items.Ref, "#/types/")
 		if !hasPrefix {
-			return false
+			return false, TagsStyleUnknown
 		}
 
 		if refType, ok := ctx.pkg.Types[typeToken]; ok {
-			if hasKeyValueStringProperties(&refType, allowExtraProperties) {
-				return true
+			if isKeyValue, hasAdditions := hasKeyValueStringPropertiesAndAdditions(&refType); isKeyValue {
+				if hasAdditions {
+					return true, TagsStyleKeyValueArrayWithExtraProperties
+				}
+				return true, TagsStyleKeyValueArray
 			}
 		}
 	}
 
-	if allowOneOf && typeSpec.Items.OneOf != nil {
+	if typeSpec.Items.OneOf != nil {
 		for _, item := range typeSpec.Items.OneOf {
 			typeToken := strings.TrimPrefix(item.Ref, "#/types/")
 			if typeToken != "" {
 				if refType, ok := ctx.pkg.Types[typeToken]; ok {
-					if hasKeyValueStringProperties(&refType, allowExtraProperties) {
-						return true
+					if isKeyValue, _ := hasKeyValueStringPropertiesAndAdditions(&refType); isKeyValue {
+						return true, TagsStyleKeyValueArrayWithAlternateType
 					}
 				}
 			}
 		}
 	}
 
-	return false
+	return false, TagsStyleUnknown
 }
 
 func (ctx *context) isPropCreateOnly(propName string) bool {
@@ -119,16 +116,16 @@ func (ctx *context) isPropCreateOnly(propName string) bool {
 	return createOnlyProps.Has(ToSdkName(propName))
 }
 
-func hasKeyValueStringProperties(typeSpec *pschema.ComplexTypeSpec, allowExtraProperties bool) bool {
+func hasKeyValueStringPropertiesAndAdditions(typeSpec *pschema.ComplexTypeSpec) (hasKeyValueStringProperties bool, hasExtraProperties bool) {
 	if typeSpec == nil || typeSpec.Properties == nil {
-		return false
+		return false, false
 	}
 	keyProp, keyPropExists := typeSpec.Properties["key"]
 	valueProp, valuePropExists := typeSpec.Properties["value"]
 	// Check if the type has exactly two properties, "key" and "value", both of type "string"
 	hasKeyValueStrings := keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string"
 	if !hasKeyValueStrings {
-		return false
+		return false, false
 	}
-	return len(typeSpec.Properties) == 2 || allowExtraProperties
+	return true, len(typeSpec.Properties) != 2
 }
