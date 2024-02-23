@@ -15,6 +15,7 @@ import (
 )
 
 type PropertyTypeSpecTestCase struct {
+	name     string
 	json     string
 	expected pschema.TypeSpec
 }
@@ -22,6 +23,7 @@ type PropertyTypeSpecTestCase struct {
 func TestPropertyTypeSpec(t *testing.T) {
 	cases := []PropertyTypeSpecTestCase{
 		{
+			name: "oneOf-strings-with-base-type",
 			json: `{
 				"type": "string",
 				"oneOf": [
@@ -32,6 +34,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 			expected: pschema.TypeSpec{Type: "string"},
 		},
 		{
+			name: "anyOf-strings-with-base-type",
 			json: `{
 				"type": "string",
 				"anyOf": [
@@ -42,6 +45,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 			expected: pschema.TypeSpec{Type: "string"},
 		},
 		{
+			name: "oneOf-strings-no-base-type",
 			json: `{
 				"oneOf": [
 					{"type": "string", "format": "date-time"},
@@ -51,6 +55,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 			expected: pschema.TypeSpec{Type: "string"},
 		},
 		{
+			name: "anyOf-strings-no-base-type",
 			json: `{
 				"anyOf": [
 					{"type": "string", "format": "date-time"},
@@ -60,6 +65,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 			expected: pschema.TypeSpec{Type: "string"},
 		},
 		{
+			name: "oneOf-primatives",
 			json: `{
 				"oneOf": [
 					{"type": "string"},
@@ -71,6 +77,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 			},
 		},
 		{
+			name: "anyOf-primatives",
 			json: `{
 				"anyOf": [
 					{"type": "string"},
@@ -82,6 +89,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 			},
 		},
 		{
+			name: "oneOf-objects",
 			json: `{
 				"anyOf": [
 					{"type": "object", "properties": { "A": { "type": "number" } } },
@@ -96,6 +104,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 			},
 		},
 		{
+			name: "anyOf-mixed-types-no-base-type",
 			json: `{
 				"anyOf": [
 					{"type": "object", "properties": { "A": { "type": "number" } } },
@@ -112,6 +121,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 			},
 		},
 		{
+			name: "oneOf-object-properties",
 			json: `{
 				"type": "object",
 				"oneOf": [
@@ -127,24 +137,33 @@ func TestPropertyTypeSpec(t *testing.T) {
 			},
 		},
 		{
+			name: "ref-to-untyped-object",
 			json: `{
 				"$ref": "#/definitions/Obj"
 			 }`,
 			expected: pschema.TypeSpec{Ref: "#/types/aws-native::Obj"},
 		},
 		{
+			name: "ref-to-object-with-named-properties",
 			json: `{
 				"$ref": "#/definitions/ObjLike1"
 			 }`,
 			expected: pschema.TypeSpec{Ref: "#/types/aws-native::ObjLike1"},
 		},
 		{
+			name: "ref-to-object-with-patternProperties",
 			json: `{
 				"$ref": "#/definitions/ObjLike2"
 			 }`,
-			expected: pschema.TypeSpec{Ref: "#/types/aws-native::ObjLike2"},
+			expected: pschema.TypeSpec{
+				Type: "object",
+				AdditionalProperties: &pschema.TypeSpec{
+					Ref: "pulumi.json#/Any",
+				},
+			},
 		},
 		{
+			name: "ref-to-oneOf",
 			json: `{
 				"$ref": "#/definitions/OneOf"
 			 }`,
@@ -189,14 +208,16 @@ func TestPropertyTypeSpec(t *testing.T) {
 	}
 
 	for _, tt := range cases {
-		schema := jsschema.New()
-		err := schema.UnmarshalJSON([]byte(tt.json))
-		assert.Nil(t, err)
+		t.Run(tt.name, func(t *testing.T) {
+			schema := jsschema.New()
+			err := schema.UnmarshalJSON([]byte(tt.json))
+			assert.Nil(t, err)
 
-		actual, err := ctx.propertyTypeSpec("Foo", schema)
-		if assert.Nil(t, err) {
-			assert.Equal(t, tt.expected, *actual)
-		}
+			actual, err := ctx.propertyTypeSpec("Foo", schema)
+			if assert.Nil(t, err) {
+				assert.Equal(t, tt.expected, *actual)
+			}
+		})
 	}
 }
 
