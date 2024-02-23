@@ -1059,6 +1059,14 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 			if err != nil {
 				return nil, err
 			}
+
+			// Where a map type has a value which is either a map or a list, replace the value with "Any" to appease Go codegen
+			// TODO: remove once Go codegen issue is solved: https://github.com/pulumi/pulumi/issues/15478
+			if valueType.Items != nil || valueType.AdditionalProperties != nil {
+				valueType = &pschema.TypeSpec{
+					Ref: "pulumi.json#/Any",
+				}
+			}
 			return &pschema.TypeSpec{
 				Type:                 "object",
 				AdditionalProperties: valueType,
