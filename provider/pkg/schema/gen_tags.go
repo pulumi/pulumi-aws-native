@@ -59,22 +59,21 @@ func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) Ta
 		return TagsStyleStringMap
 	}
 
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, false /* includeCreateOnly */, false /* includeExtraProperties */) {
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, false /* includeExtraProperties */) {
+		if ctx.isPropCreateOnly(propName) {
+			return TagsStyleKeyValueCreateOnlyArray
+		}
 		return TagsStyleKeyValueArray
 	}
 
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeCreateOnly */, false /* includeExtraProperties */) {
-		return TagsStyleKeyValueCreateOnlyArray
-	}
-
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeCreateOnly */, true /* includeExtraProperties */) {
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeExtraProperties */) {
 		return TagsStyleKeyValueArrayWithExtraProperties
 	}
 
 	return TagsStyleUnknown
 }
 
-func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec, includeCreateOnly bool, includeExtraProperties bool) bool {
+func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec, allowExtraProperties bool) bool {
 	if typeSpec == nil || typeSpec.Items == nil || typeSpec.Items.Ref == "" {
 		return false
 	}
@@ -84,19 +83,30 @@ func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.T
 		return false
 	}
 
-	// We can't include tags which are create-only properties because this has to be added on the tags type but this is a shared type
-	if createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties"); createOnlyProps.Has(ToSdkName(propName)) && !includeCreateOnly {
-		return false
-	}
-
 	if refType, ok := ctx.pkg.Types[typeToken]; ok {
-		keyProp, keyPropExists := refType.Properties["key"]
-		valueProp, valuePropExists := refType.Properties["value"]
-		// Check if the type has exactly two properties, "key" and "value", both of type "string"
-		if keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string" && (len(refType.Properties) == 2 || includeExtraProperties) {
+		if hasKeyValueStringProperties(&refType, allowExtraProperties) {
 			return true
 		}
 	}
 
 	return false
+}
+
+func (ctx *context) isPropCreateOnly(propName string) bool {
+	createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties")
+	return createOnlyProps.Has(ToSdkName(propName))
+}
+
+func hasKeyValueStringProperties(typeSpec *pschema.ComplexTypeSpec, allowExtraProperties bool) bool {
+	if typeSpec == nil || typeSpec.Properties == nil {
+		return false
+	}
+	keyProp, keyPropExists := typeSpec.Properties["key"]
+	valueProp, valuePropExists := typeSpec.Properties["value"]
+	// Check if the type has exactly two properties, "key" and "value", both of type "string"
+	hasKeyValueStrings := keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string"
+	if !hasKeyValueStrings {
+		return false
+	}
+	return len(typeSpec.Properties) == 2 || allowExtraProperties
 }
