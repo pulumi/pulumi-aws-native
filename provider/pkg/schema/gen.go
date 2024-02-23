@@ -939,6 +939,8 @@ func (ctx *context) gatherResourceType() error {
 		AutoNamingSpec:    autoNamingSpec,
 		WriteOnly:         writeOnlyProperties.SortedValues(),
 		IrreversibleNames: irreversibleNames,
+		TagsProperty:      ToSdkName(tagsProp),
+		TagsStyle:         tagsStyle,
 	}
 	return nil
 }

@@ -21,6 +21,8 @@ type CloudAPIResource struct {
 	CreateOnly        []string                        `json:"createOnly,omitempty"`
 	WriteOnly         []string                        `json:"writeOnly,omitempty"`
 	IrreversibleNames map[string]string               `json:"irreversibleNames,omitempty"`
+	TagsProperty      string                          `json:"tagsProperty,omitempty"`
+	TagsStyle         TagsStyle                       `json:"tagsStyle,omitempty"`
 }
 
 type AutoNamingSpec struct {
